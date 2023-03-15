@@ -13,4 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { ConfigurableD3Graph } from "./ConfigurableD3Graph";
+export { D3Graph } from "./D3Graph";
