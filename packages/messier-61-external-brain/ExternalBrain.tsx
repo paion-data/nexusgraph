@@ -13,7 +13,7 @@
  */
 import React, { useState } from "react";
 
-import styles from "./ExternalBrain.module.css"
+import styles from "./ExternalBrain.module.css";
 
 import type { CanvasConfig } from "../messier-61-graph";
 import { Editor } from "../messier-61-editor";
@@ -27,7 +27,7 @@ export default function ExternalBrain(): JSX.Element {
   });
 
   // var div_w = screen.getByRole().getElementById("123").style.width
-  const w_width = window.outerWidth;
+  const windowWidth = window.outerWidth;
   // const graphData: GraphData = {
   //   nodes: [
   //     {
@@ -54,7 +54,7 @@ export default function ExternalBrain(): JSX.Element {
   // };
 
   const canvasConfig: CanvasConfig = {
-    width: w_width / 2.5,
+    width: windowWidth / 2.5,
     height: 500,
     margin: {
       top: 10,
@@ -82,9 +82,9 @@ export default function ExternalBrain(): JSX.Element {
           </div>
         </section>
         <section className={styles.glass2}>
-            <div className={styles.graph}>
+          <div className={styles.graph}>
             <Graph graphData={graphData} canvasConfig={canvasConfig} />
-            </div>
+          </div>
         </section>
       </main>
     </div>
