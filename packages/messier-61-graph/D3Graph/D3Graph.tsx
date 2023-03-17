@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import type { Node, Link, GraphConfig } from "../GraphConfig";
 import * as d3 from "d3";
 import styles from "./D3Graph.module.css";
+import { textLable } from "../GraphDecorator";
 
 const DEFAULT_LINK_DISTANCE = 90;
 const DEFAULT_FORCE_STRENGTH = -30;
@@ -76,19 +77,28 @@ export function D3Graph(graphConfig: GraphConfig): JSX.Element {
         .on("mousedown", nodeMousedown)
         .on("mouseover", nodeMouseover)
         .on("mouseout", nodeMouseout)
+        .on("resize" ,function (event) {return window.requestAnimationFrame(update)})
+        // .on("resize" ,window.requestAnimationFrame(update))
         .append("svg:a")
         .attr("xlink:href", function (d: any) {
           return d.url != null ? d.url : "#";
         });
 
-      nodeg
-        .append("text")
-        .attr("dx", 25)
-        .attr("dy", ".35em")
-        .text(function (d: any) {
-          return d.name;
-        });
+      // nodeg
+      //   .append("text")
+        // .attr("dx", -16)
+        // .attr("dy", ".35em")
+      //   .text((d) => textLable(d.name));
 
+      nodeg
+      .append("foreignObject")
+      .attr("width", 50)
+      .attr("height", 50)
+      .attr("dx", -100)
+      .attr("dy", ".35em")
+      .append("xhtml:body")
+      .style("font", "14px black 'Helvetica Neue'")
+      .html((d) => textLable(d.name))
       node.exit().remove();
 
       const link = linesg.selectAll("line.link").data(links);

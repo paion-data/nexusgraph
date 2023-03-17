@@ -4,9 +4,9 @@ marker#child {
 }
 
 svg.g.node circle {
-  fill: rgb(88, 155, 213);
-  stroke: #fff;
-  stroke-width: 1.2px;
+  fill: rgb(107, 174, 214);
+  stroke: rgb(36, 113, 182);
+  stroke-width: 2px;
 }
 
 svg.g.node text {
@@ -38,6 +38,6 @@ svg.line.link {
 }
 
 svg.g.node text {
-  stroke: black;
-  font: 13px sans-serif;
+  stroke: none;
+  font: 12px sans-serif;
 }
