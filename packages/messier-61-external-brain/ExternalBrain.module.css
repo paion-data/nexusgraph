@@ -1,3 +1,4 @@
+/* Copyright 2023 Paion Data. All rights reserved. */
 * {
     margin: 0;
     padding: 0;
@@ -69,7 +70,7 @@
     left: 5%;
   }
 
-  /* .graph{
+  .graph{
     position: absolute;
     right: -10%;
-  } */
+  }
