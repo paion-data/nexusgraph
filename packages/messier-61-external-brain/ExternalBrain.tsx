@@ -26,32 +26,7 @@ export default function ExternalBrain(): JSX.Element {
     links: [],
   });
 
-  // var div_w = screen.getByRole().getElementById("123").style.width
   const windowWidth = window.outerWidth;
-  // const graphData: GraphData = {
-  //   nodes: [
-  //     {
-  //       id: "1",
-  //       name: "node1234567",
-  //     },
-  //     {
-  //       id: "2",
-  //       name: "node2",
-  //     },
-  //     {
-  //       id: "3",
-  //       name: "node3",
-  //     },
-  //   ],
-  //   links: [
-  //     {
-  //       id: "4",
-  //       name: "link1",
-  //       source: "1",
-  //       target: "2",
-  //     },
-  //   ],
-  // };
 
   const canvasConfig: CanvasConfig = {
     width: windowWidth / 2.5,

@@ -77,27 +77,15 @@ export function D3Graph(graphConfig: GraphConfig): JSX.Element {
         .on("mousedown", nodeMousedown)
         .on("mouseover", nodeMouseover)
         .on("mouseout", nodeMouseout)
-        .on("resize", function (event) {
-          return window.requestAnimationFrame(update);
-        })
-        // .on("resize" ,window.requestAnimationFrame(update))
         .append("svg:a")
         .attr("xlink:href", function (d: any) {
           return d.url != null ? d.url : "#";
         });
 
-      // nodeg
-      //   .append("text")
-      // .attr("dx", -16)
-      // .attr("dy", ".35em")
-      //   .text((d) => textLable(d.name));
-
       nodeg
         .append("foreignObject")
         .attr("width", 50)
         .attr("height", 50)
-        .attr("dx", -100)
-        .attr("dy", ".35em")
         .append("xhtml:body")
         .style("font", "14px black 'Helvetica Neue'")
         .html((d) => formatNodeLabel(d.name));
