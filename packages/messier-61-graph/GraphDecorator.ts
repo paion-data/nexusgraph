@@ -1,6 +1,6 @@
 /* Copyright 2023 Paion Data. All rights reserved. */
 export function formatNodeLabel(label: string): any {
-  if (label.length >= 1 && label.length < 5) {
+  if (label.length < 5) {
     return label;
   }
 
