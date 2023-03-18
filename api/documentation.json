@@ -1,0 +1,2412 @@
+{
+	"id": 0,
+	"name": "@paiondata/messier-61",
+	"kind": 1,
+	"flags": {},
+	"originalName": "",
+	"children": [
+		{
+			"id": 1,
+			"name": "messier-61-app",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "messier-61-app/index.tsx",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-app/index.tsx#L16"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "messier-61-app/App",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 3,
+					"name": "default",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-app/App.tsx",
+							"line": 22,
+							"character": 24,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-app/App.tsx#L22"
+						}
+					],
+					"signatures": [
+						{
+							"id": 4,
+							"name": "default",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "JSX.Element",
+								"qualifiedName": "global.JSX.Element",
+								"package": "@types/react"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						3
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-app/App.tsx",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-app/App.tsx#L16"
+				}
+			]
+		},
+		{
+			"id": 5,
+			"name": "messier-61-editor",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 64,
+					"name": "Editor",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-editor/Editor.tsx",
+							"line": 25,
+							"character": 24,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Editor.tsx#L25"
+						}
+					],
+					"signatures": [
+						{
+							"id": 65,
+							"name": "Editor",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Generates a configured Editor instance"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "An knowledge graph editor"
+											}
+										]
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 66,
+									"name": "__namedParameters",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 67,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 72,
+													"name": "exporter",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-editor/Editor.tsx",
+															"line": 30,
+															"character": 2,
+															"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Editor.tsx#L30"
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 73,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "messier-61-editor/Editor.tsx",
+																	"line": 30,
+																	"character": 12,
+																	"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Editor.tsx#L30"
+																}
+															],
+															"signatures": [
+																{
+																	"id": 74,
+																	"name": "__type",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"parameters": [
+																		{
+																			"id": 75,
+																			"name": "exportLocation",
+																			"kind": 32768,
+																			"kindString": "Parameter",
+																			"flags": {},
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "any"
+																			}
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																}
+															]
+														}
+													}
+												},
+												{
+													"id": 68,
+													"name": "transformer",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-editor/Editor.tsx",
+															"line": 29,
+															"character": 2,
+															"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Editor.tsx#L29"
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 69,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "messier-61-editor/Editor.tsx",
+																	"line": 29,
+																	"character": 15,
+																	"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Editor.tsx#L29"
+																}
+															],
+															"signatures": [
+																{
+																	"id": 70,
+																	"name": "__type",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"parameters": [
+																		{
+																			"id": 71,
+																			"name": "editorContentLines",
+																			"kind": 32768,
+																			"kindString": "Parameter",
+																			"flags": {},
+																			"type": {
+																				"type": "array",
+																				"elementType": {
+																					"type": "intrinsic",
+																					"name": "string"
+																				}
+																			}
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																}
+															]
+														}
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														72,
+														68
+													]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "messier-61-editor/Editor.tsx",
+													"line": 28,
+													"character": 3,
+													"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Editor.tsx#L28"
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "JSX.Element",
+								"qualifiedName": "global.JSX.Element",
+								"package": "@types/react"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						64
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-editor/index.ts",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/index.ts#L16"
+				}
+			]
+		},
+		{
+			"id": 6,
+			"name": "messier-61-editor/Lexical",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 76,
+					"name": "LexicalEditor",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
+							"line": 29,
+							"character": 24,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L29"
+						}
+					],
+					"signatures": [
+						{
+							"id": 77,
+							"name": "LexicalEditor",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 78,
+									"name": "__namedParameters",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 79,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 85,
+													"name": "exporter",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
+															"line": 36,
+															"character": 2,
+															"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L36"
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 86,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
+																	"line": 36,
+																	"character": 12,
+																	"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L36"
+																}
+															],
+															"signatures": [
+																{
+																	"id": 87,
+																	"name": "__type",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"parameters": [
+																		{
+																			"id": 88,
+																			"name": "exportLocation",
+																			"kind": 32768,
+																			"kindString": "Parameter",
+																			"flags": {},
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "any"
+																			}
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																}
+															]
+														}
+													}
+												},
+												{
+													"id": 80,
+													"name": "lexicalEditorConfig",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
+															"line": 34,
+															"character": 2,
+															"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L34"
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "any"
+													}
+												},
+												{
+													"id": 81,
+													"name": "transformer",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
+															"line": 35,
+															"character": 2,
+															"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L35"
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 82,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
+																	"line": 35,
+																	"character": 15,
+																	"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L35"
+																}
+															],
+															"signatures": [
+																{
+																	"id": 83,
+																	"name": "__type",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"parameters": [
+																		{
+																			"id": 84,
+																			"name": "editorContentLines",
+																			"kind": 32768,
+																			"kindString": "Parameter",
+																			"flags": {},
+																			"type": {
+																				"type": "array",
+																				"elementType": {
+																					"type": "intrinsic",
+																					"name": "string"
+																				}
+																			}
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																}
+															]
+														}
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														85,
+														80,
+														81
+													]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
+													"line": 33,
+													"character": 3,
+													"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L33"
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "JSX.Element",
+								"qualifiedName": "global.JSX.Element",
+								"package": "@types/react"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						76
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-editor/Lexical/index.ts",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/index.ts#L16"
+				}
+			]
+		},
+		{
+			"id": 19,
+			"name": "messier-61-editor/Lexical/EditorContentParser",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 20,
+					"name": "default",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-editor/Lexical/EditorContentParser.tsx",
+							"line": 18,
+							"character": 24,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/EditorContentParser.tsx#L18"
+						}
+					],
+					"signatures": [
+						{
+							"id": 21,
+							"name": "default",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 22,
+									"name": "editorState",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "EditorState",
+										"qualifiedName": "EditorState",
+										"package": "lexical"
+									}
+								},
+								{
+									"id": 23,
+									"name": "editor",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "LexicalEditor",
+										"qualifiedName": "LexicalEditor",
+										"package": "lexical"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						20
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-editor/Lexical/EditorContentParser.tsx",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/EditorContentParser.tsx#L16"
+				}
+			]
+		},
+		{
+			"id": 7,
+			"name": "messier-61-editor/Lexical/LexicalEditorConfig",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 8,
+					"name": "default",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
+							"line": 1,
+							"character": 6,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L1"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 9,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"children": [
+								{
+									"id": 10,
+									"name": "theme",
+									"kind": 1024,
+									"kindString": "Property",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
+											"line": 2,
+											"character": 2,
+											"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L2"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 11,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 12,
+													"name": "ltr",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
+															"line": 3,
+															"character": 4,
+															"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L3"
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "\"ltr\""
+												},
+												{
+													"id": 15,
+													"name": "paragraph",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
+															"line": 6,
+															"character": 4,
+															"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L6"
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "\"editor-paragraph\""
+												},
+												{
+													"id": 14,
+													"name": "placeholder",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
+															"line": 5,
+															"character": 4,
+															"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L5"
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "\"editor-placeholder\""
+												},
+												{
+													"id": 13,
+													"name": "rtl",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
+															"line": 4,
+															"character": 4,
+															"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L4"
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "\"rtl\""
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														12,
+														15,
+														14,
+														13
+													]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
+													"line": 2,
+													"character": 9,
+													"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L2"
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 16,
+									"name": "onError",
+									"kind": 2048,
+									"kindString": "Method",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
+											"line": 8,
+											"character": 2,
+											"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L8"
+										}
+									],
+									"signatures": [
+										{
+											"id": 17,
+											"name": "onError",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 18,
+													"name": "error",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "any"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "never"
+											}
+										}
+									]
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										10
+									]
+								},
+								{
+									"title": "Methods",
+									"children": [
+										16
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
+									"line": 1,
+									"character": 21,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L1"
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"children": [
+						8
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 24,
+			"name": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 25,
+					"name": "default",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
+							"line": 22,
+							"character": 24,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L22"
+						}
+					],
+					"signatures": [
+						{
+							"id": 26,
+							"name": "default",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 27,
+									"name": "__namedParameters",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 28,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 33,
+													"name": "exporter",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
+															"line": 27,
+															"character": 2,
+															"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L27"
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 34,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
+																	"line": 27,
+																	"character": 12,
+																	"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L27"
+																}
+															],
+															"signatures": [
+																{
+																	"id": 35,
+																	"name": "__type",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"parameters": [
+																		{
+																			"id": 36,
+																			"name": "exportLocation",
+																			"kind": 32768,
+																			"kindString": "Parameter",
+																			"flags": {},
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "any"
+																			}
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																}
+															]
+														}
+													}
+												},
+												{
+													"id": 29,
+													"name": "transformer",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
+															"line": 26,
+															"character": 2,
+															"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L26"
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 30,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
+																	"line": 26,
+																	"character": 15,
+																	"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L26"
+																}
+															],
+															"signatures": [
+																{
+																	"id": 31,
+																	"name": "__type",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"parameters": [
+																		{
+																			"id": 32,
+																			"name": "editorContentLines",
+																			"kind": 32768,
+																			"kindString": "Parameter",
+																			"flags": {},
+																			"type": {
+																				"type": "array",
+																				"elementType": {
+																					"type": "intrinsic",
+																					"name": "string"
+																				}
+																			}
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																}
+															]
+														}
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														33,
+														29
+													]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
+													"line": 25,
+													"character": 3,
+													"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L25"
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "literal",
+								"value": null
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						25
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L16"
+				}
+			]
+		},
+		{
+			"id": 37,
+			"name": "messier-61-external-brain",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 89,
+					"name": "ExternalBrain",
+					"kind": 8388608,
+					"kindString": "Reference",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-external-brain/index.ts",
+							"line": 16,
+							"character": 20,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-external-brain/index.ts#L16"
+						}
+					],
+					"target": 39
+				}
+			],
+			"groups": [
+				{
+					"title": "References",
+					"children": [
+						89
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-external-brain/index.ts",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-external-brain/index.ts#L16"
+				}
+			]
+		},
+		{
+			"id": 38,
+			"name": "messier-61-external-brain/ExternalBrain",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 39,
+					"name": "default",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-external-brain/ExternalBrain.tsx",
+							"line": 21,
+							"character": 24,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-external-brain/ExternalBrain.tsx#L21"
+						}
+					],
+					"signatures": [
+						{
+							"id": 40,
+							"name": "default",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "JSX.Element",
+								"qualifiedName": "global.JSX.Element",
+								"package": "@types/react"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						39
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-external-brain/ExternalBrain.tsx",
+					"line": 14,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-external-brain/ExternalBrain.tsx#L14"
+				}
+			]
+		},
+		{
+			"id": 41,
+			"name": "messier-61-external-brain/Transformer",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 42,
+					"name": "transformer",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-external-brain/Transformer.tsx",
+							"line": 6,
+							"character": 16,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-external-brain/Transformer.tsx#L6"
+						}
+					],
+					"signatures": [
+						{
+							"id": 43,
+							"name": "transformer",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 44,
+									"name": "editorLines",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 94,
+								"name": "GraphData"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						42
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-external-brain/Transformer.tsx",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-external-brain/Transformer.tsx#L1"
+				}
+			]
+		},
+		{
+			"id": 45,
+			"name": "messier-61-graph",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 90,
+					"name": "Graph",
+					"kind": 8388608,
+					"kindString": "Reference",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-graph/index.ts",
+							"line": 16,
+							"character": 20,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/index.ts#L16"
+						}
+					],
+					"target": 47
+				},
+				{
+					"id": 105,
+					"name": "CanvasConfig",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A CanvasConfig describes the whole layout of a rendered D3 graph.\n\nThe canvas config contains the following attributes:\n\n- "
+							},
+							{
+								"kind": "inline-tag",
+								"tag": "@link",
+								"text": "Margin",
+								"target": 109
+							},
+							{
+								"kind": "text",
+								"text": "\n- Canvas width\n- Canvas height\n\nNote that it is not guaranteed that the graph will occupy the entire canvas width or height. It does, however,\nguarantees the entire graph will fit inside the canvas"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 108,
+							"name": "height",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The canvas height."
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 95,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L95"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 106,
+							"name": "margin",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The "
+									},
+									{
+										"kind": "inline-tag",
+										"tag": "@link",
+										"text": "margin",
+										"target": 109
+									},
+									{
+										"kind": "text",
+										"text": " of the canvas."
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 85,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L85"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 109,
+								"name": "Margin"
+							}
+						},
+						{
+							"id": 107,
+							"name": "width",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The canvas width."
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 90,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L90"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								108,
+								106,
+								107
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "messier-61-graph/GraphConfig.d.ts",
+							"line": 81,
+							"character": 17,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L81"
+						}
+					]
+				},
+				{
+					"id": 91,
+					"name": "GraphConfig",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A graph config instructs "
+							},
+							{
+								"kind": "inline-tag",
+								"tag": "@link",
+								"text": "D3Graph"
+							},
+							{
+								"kind": "text",
+								"text": " how the D3 network graph is going to be rendered and with what data to be\nrendered."
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 93,
+							"name": "canvasConfig",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "See "
+									},
+									{
+										"kind": "inline-tag",
+										"tag": "@link",
+										"text": "CanvasConfig",
+										"target": 105
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 29,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L29"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 105,
+								"name": "CanvasConfig"
+							}
+						},
+						{
+							"id": 92,
+							"name": "graphData",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The data."
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 24,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L24"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Graph"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								93,
+								92
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "messier-61-graph/GraphConfig.d.ts",
+							"line": 20,
+							"character": 17,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L20"
+						}
+					]
+				},
+				{
+					"id": 94,
+					"name": "GraphData",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A Graph is an abstract data type that is meant to implement the Knowledge Graph (both directed and undirected)\nconcept from the field of graph theory within mathematics.\n\nA knowledge graph is a directed labeled graph in which the labels have well-defined meanings. A directed labeled\ngraph consists of nodes, edges, and labels. Anything can act as a node, for example, people, company, computer, etc.\nAn edge connects a pair of nodes and captures the relationship of interest between them, for example, friendship\nrelationship between two people, customer relationship between a company and person, or a network connection between\ntwo computers. The labels capture the meaning of the relationship, for example, the friendship relationship between\ntwo people."
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 96,
+							"name": "links",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 45,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L45"
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 100,
+									"name": "Link"
+								}
+							}
+						},
+						{
+							"id": 95,
+							"name": "nodes",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 44,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L44"
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 97,
+									"name": "Node"
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								96,
+								95
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "messier-61-graph/GraphConfig.d.ts",
+							"line": 43,
+							"character": 17,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L43"
+						}
+					]
+				},
+				{
+					"id": 100,
+					"name": "Link",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 101,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Surrogate key"
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 63,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L63"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 102,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 64,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L64"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 103,
+							"name": "source",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 65,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L65"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 104,
+							"name": "target",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 66,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L66"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								101,
+								102,
+								103,
+								104
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "messier-61-graph/GraphConfig.d.ts",
+							"line": 59,
+							"character": 17,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L59"
+						}
+					]
+				},
+				{
+					"id": 109,
+					"name": "Margin",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Encapsulate the margin value of the D3 graph"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 111,
+							"name": "bottom",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 105,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L105"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 113,
+							"name": "left",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 107,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L107"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 112,
+							"name": "right",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 106,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L106"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 110,
+							"name": "top",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 104,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L104"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								111,
+								113,
+								112,
+								110
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "messier-61-graph/GraphConfig.d.ts",
+							"line": 103,
+							"character": 17,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L103"
+						}
+					]
+				},
+				{
+					"id": 97,
+					"name": "Node",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A node has a unique identifier"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 98,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Surrogate key"
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 55,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L55"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 99,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/GraphConfig.d.ts",
+									"line": 56,
+									"character": 2,
+									"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L56"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								98,
+								99
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "messier-61-graph/GraphConfig.d.ts",
+							"line": 51,
+							"character": 17,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphConfig.d.ts#L51"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "References",
+					"children": [
+						90
+					]
+				},
+				{
+					"title": "Interfaces",
+					"children": [
+						105,
+						91,
+						94,
+						100,
+						109,
+						97
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-graph/index.ts",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/index.ts#L16"
+				}
+			]
+		},
+		{
+			"id": 54,
+			"name": "messier-61-graph/D3Graph",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 114,
+					"name": "D3Graph",
+					"kind": 8388608,
+					"kindString": "Reference",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-graph/D3Graph/index.ts",
+							"line": 16,
+							"character": 9,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/D3Graph/index.ts#L16"
+						}
+					],
+					"target": 56
+				}
+			],
+			"groups": [
+				{
+					"title": "References",
+					"children": [
+						114
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-graph/D3Graph/index.ts",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/D3Graph/index.ts#L16"
+				}
+			]
+		},
+		{
+			"id": 55,
+			"name": "messier-61-graph/D3Graph/D3Graph",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 56,
+					"name": "D3Graph",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-graph/D3Graph/D3Graph.tsx",
+							"line": 19,
+							"character": 16,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/D3Graph/D3Graph.tsx#L19"
+						}
+					],
+					"signatures": [
+						{
+							"id": 57,
+							"name": "D3Graph",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Generates a D3 graph whose content is defined by a provided "
+									},
+									{
+										"kind": "inline-tag",
+										"tag": "@link",
+										"text": "GraphConfig.GraphData"
+									},
+									{
+										"kind": "text",
+										"text": "."
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "A D3 visualization of network graph"
+											}
+										]
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 58,
+									"name": "graphConfig",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "An object specifying the visual config of graph and graph data, which contains a list of\n"
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "GraphConfig.GraphData.Node"
+											},
+											{
+												"kind": "text",
+												"text": "'s and list of "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "GraphConfig.Link"
+											},
+											{
+												"kind": "text",
+												"text": "'s"
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"id": 91,
+										"name": "GraphConfig"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "JSX.Element",
+								"qualifiedName": "global.JSX.Element",
+								"package": "@types/react"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						56
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-graph/D3Graph/D3Graph.tsx",
+					"line": 2,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/D3Graph/D3Graph.tsx#L2"
+				}
+			]
+		},
+		{
+			"id": 46,
+			"name": "messier-61-graph/Graph",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 47,
+					"name": "default",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-graph/Graph.tsx",
+							"line": 27,
+							"character": 24,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/Graph.tsx#L27"
+						}
+					],
+					"signatures": [
+						{
+							"id": 48,
+							"name": "default",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Generates a D3 graph whose content is defined by a provided "
+									},
+									{
+										"kind": "inline-tag",
+										"tag": "@link",
+										"text": "Graph graph data"
+									},
+									{
+										"kind": "text",
+										"text": "."
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "A D3 visualization of network graph"
+											}
+										]
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 49,
+									"name": "graphConfig",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 91,
+										"name": "GraphConfig"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "JSX.Element",
+								"qualifiedName": "global.JSX.Element",
+								"package": "@types/react"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						47
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-graph/Graph.tsx",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/Graph.tsx#L16"
+				}
+			]
+		},
+		{
+			"id": 50,
+			"name": "messier-61-graph/GraphDataMaker",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 51,
+					"name": "makeGraphFromSvoTripples",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-graph/GraphDataMaker.ts",
+							"line": 3,
+							"character": 16,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphDataMaker.ts#L3"
+						}
+					],
+					"signatures": [
+						{
+							"id": 52,
+							"name": "makeGraphFromSvoTripples",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 53,
+									"name": "tripples",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "array",
+											"elementType": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 94,
+								"name": "GraphData"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						51
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-graph/GraphDataMaker.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-graph/GraphDataMaker.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 59,
+			"name": "messier-61-home",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 115,
+					"name": "Home",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-home/Home.tsx",
+							"line": 25,
+							"character": 24,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-home/Home.tsx#L25"
+						}
+					],
+					"signatures": [
+						{
+							"id": 116,
+							"name": "Home",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "JSX.Element",
+								"qualifiedName": "global.JSX.Element",
+								"package": "@types/react"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						115
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-home/index.ts",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-home/index.ts#L16"
+				}
+			]
+		},
+		{
+			"id": 60,
+			"name": "messier-61-nlp/BasicSVOParser",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 61,
+					"name": "getSVOof",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "messier-61-nlp/BasicSVOParser.ts",
+							"line": 16,
+							"character": 16,
+							"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-nlp/BasicSVOParser.ts#L16"
+						}
+					],
+					"signatures": [
+						{
+							"id": 62,
+							"name": "getSVOof",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 63,
+									"name": "text",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						61
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "messier-61-nlp/BasicSVOParser.ts",
+					"line": 16,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/ab42226/packages/messier-61-nlp/BasicSVOParser.ts#L16"
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Modules",
+			"children": [
+				1,
+				2,
+				5,
+				6,
+				19,
+				7,
+				24,
+				37,
+				38,
+				41,
+				45,
+				54,
+				55,
+				46,
+				50,
+				59,
+				60
+			]
+		}
+	]
+}
