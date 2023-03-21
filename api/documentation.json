@@ -16,7 +16,7 @@
 					"fileName": "messier-61-app/index.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-app/index.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-app/index.tsx#L16"
 				}
 			]
 		},
@@ -38,7 +38,7 @@
 							"fileName": "messier-61-app/App.tsx",
 							"line": 22,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-app/App.tsx#L22"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-app/App.tsx#L22"
 						}
 					],
 					"signatures": [
@@ -71,7 +71,7 @@
 					"fileName": "messier-61-app/App.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-app/App.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-app/App.tsx#L16"
 				}
 			]
 		},
@@ -83,7 +83,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 127,
+					"id": 129,
 					"name": "Editor",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -93,7 +93,7 @@
 							"fileName": "messier-61-editor/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/index.ts#L16"
 						}
 					],
 					"target": 6
@@ -103,7 +103,7 @@
 				{
 					"title": "References",
 					"children": [
-						127
+						129
 					]
 				}
 			],
@@ -112,7 +112,7 @@
 					"fileName": "messier-61-editor/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/index.ts#L16"
 				}
 			]
 		},
@@ -134,7 +134,7 @@
 							"fileName": "messier-61-editor/Editor.tsx",
 							"line": 40,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Editor.tsx#L40"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Editor.tsx#L40"
 						}
 					],
 					"signatures": [
@@ -163,7 +163,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Graph",
-										"target": 130
+										"target": 132
 									},
 									{
 										"kind": "text",
@@ -173,7 +173,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "GraphData",
-										"target": 132
+										"target": 134
 									},
 									{
 										"kind": "text",
@@ -199,7 +199,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "GraphData",
-										"target": 132
+										"target": 134
 									},
 									{
 										"kind": "text",
@@ -217,7 +217,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Graph",
-										"target": 130
+										"target": 132
 									},
 									{
 										"kind": "text",
@@ -279,7 +279,7 @@
 															"fileName": "messier-61-editor/Editor.tsx",
 															"line": 45,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Editor.tsx#L45"
+															"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Editor.tsx#L45"
 														}
 													],
 													"type": {
@@ -295,7 +295,7 @@
 																	"fileName": "messier-61-editor/Editor.tsx",
 																	"line": 45,
 																	"character": 12,
-																	"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Editor.tsx#L45"
+																	"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Editor.tsx#L45"
 																}
 															],
 															"signatures": [
@@ -338,7 +338,7 @@
 															"fileName": "messier-61-editor/Editor.tsx",
 															"line": 44,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Editor.tsx#L44"
+															"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Editor.tsx#L44"
 														}
 													],
 													"type": {
@@ -354,7 +354,7 @@
 																	"fileName": "messier-61-editor/Editor.tsx",
 																	"line": 44,
 																	"character": 15,
-																	"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Editor.tsx#L44"
+																	"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Editor.tsx#L44"
 																}
 															],
 															"signatures": [
@@ -404,7 +404,7 @@
 													"fileName": "messier-61-editor/Editor.tsx",
 													"line": 43,
 													"character": 3,
-													"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Editor.tsx#L43"
+													"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Editor.tsx#L43"
 												}
 											]
 										}
@@ -434,7 +434,7 @@
 					"fileName": "messier-61-editor/Editor.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Editor.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Editor.tsx#L16"
 				}
 			]
 		},
@@ -446,7 +446,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 125,
+					"id": 127,
 					"name": "LexicalEditor",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -456,7 +456,7 @@
 							"fileName": "messier-61-editor/Lexical/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/index.ts#L16"
 						}
 					],
 					"target": 19
@@ -466,7 +466,7 @@
 				{
 					"title": "References",
 					"children": [
-						125
+						127
 					]
 				}
 			],
@@ -475,7 +475,7 @@
 					"fileName": "messier-61-editor/Lexical/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/index.ts#L16"
 				}
 			]
 		},
@@ -497,7 +497,7 @@
 							"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 							"line": 29,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L29"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L29"
 						}
 					],
 					"signatures": [
@@ -534,7 +534,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 															"line": 36,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L36"
+															"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L36"
 														}
 													],
 													"type": {
@@ -550,7 +550,7 @@
 																	"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 																	"line": 36,
 																	"character": 12,
-																	"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L36"
+																	"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L36"
 																}
 															],
 															"signatures": [
@@ -593,7 +593,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 															"line": 34,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L34"
+															"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L34"
 														}
 													],
 													"type": {
@@ -612,7 +612,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 															"line": 35,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L35"
+															"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L35"
 														}
 													],
 													"type": {
@@ -628,7 +628,7 @@
 																	"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 																	"line": 35,
 																	"character": 15,
-																	"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L35"
+																	"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L35"
 																}
 															],
 															"signatures": [
@@ -679,7 +679,7 @@
 													"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 													"line": 33,
 													"character": 3,
-													"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L33"
+													"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L33"
 												}
 											]
 										}
@@ -709,7 +709,7 @@
 					"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L16"
 				}
 			]
 		},
@@ -733,7 +733,7 @@
 							"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 							"line": 16,
 							"character": 6,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
 						}
 					],
 					"type": {
@@ -756,7 +756,7 @@
 											"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 											"line": 17,
 											"character": 2,
-											"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L17"
+											"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L17"
 										}
 									],
 									"type": {
@@ -779,7 +779,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 															"line": 18,
 															"character": 4,
-															"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L18"
+															"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L18"
 														}
 													],
 													"type": {
@@ -799,7 +799,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 															"line": 21,
 															"character": 4,
-															"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L21"
+															"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L21"
 														}
 													],
 													"type": {
@@ -819,7 +819,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 															"line": 20,
 															"character": 4,
-															"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L20"
+															"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L20"
 														}
 													],
 													"type": {
@@ -839,7 +839,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 															"line": 19,
 															"character": 4,
-															"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L19"
+															"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L19"
 														}
 													],
 													"type": {
@@ -865,7 +865,7 @@
 													"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 													"line": 17,
 													"character": 9,
-													"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L17"
+													"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L17"
 												}
 											]
 										}
@@ -883,7 +883,7 @@
 											"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 											"line": 23,
 											"character": 2,
-											"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L23"
+											"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L23"
 										}
 									],
 									"signatures": [
@@ -933,7 +933,7 @@
 									"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 									"line": 16,
 									"character": 21,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
 								}
 							]
 						}
@@ -954,7 +954,7 @@
 					"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
 				}
 			]
 		},
@@ -966,7 +966,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 126,
+					"id": 128,
 					"name": "parse",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -976,7 +976,7 @@
 							"fileName": "messier-61-editor/Lexical/parser/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/parser/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/parser/index.ts#L16"
 						}
 					],
 					"target": 46
@@ -986,7 +986,7 @@
 				{
 					"title": "References",
 					"children": [
-						126
+						128
 					]
 				}
 			],
@@ -995,7 +995,7 @@
 					"fileName": "messier-61-editor/Lexical/parser/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/parser/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/parser/index.ts#L16"
 				}
 			]
 		},
@@ -1017,7 +1017,7 @@
 							"fileName": "messier-61-editor/Lexical/parser/RawTextParser.ts",
 							"line": 25,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/parser/RawTextParser.ts#L25"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/parser/RawTextParser.ts#L25"
 						}
 					],
 					"signatures": [
@@ -1091,7 +1091,7 @@
 					"fileName": "messier-61-editor/Lexical/parser/RawTextParser.ts",
 					"line": 25,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/parser/RawTextParser.ts#L25"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/parser/RawTextParser.ts#L25"
 				}
 			]
 		},
@@ -1113,7 +1113,7 @@
 							"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 							"line": 41,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L41"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L41"
 						}
 					],
 					"signatures": [
@@ -1146,7 +1146,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Editor",
-										"target": 127
+										"target": 129
 									},
 									{
 										"kind": "text",
@@ -1156,7 +1156,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Editor",
-										"target": 127
+										"target": 129
 									},
 									{
 										"kind": "text",
@@ -1211,7 +1211,7 @@
 															"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 															"line": 46,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L46"
+															"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L46"
 														}
 													],
 													"type": {
@@ -1227,7 +1227,7 @@
 																	"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 																	"line": 46,
 																	"character": 12,
-																	"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L46"
+																	"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L46"
 																}
 															],
 															"signatures": [
@@ -1270,7 +1270,7 @@
 															"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 															"line": 45,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L45"
+															"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L45"
 														}
 													],
 													"type": {
@@ -1286,7 +1286,7 @@
 																	"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 																	"line": 45,
 																	"character": 15,
-																	"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L45"
+																	"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L45"
 																}
 															],
 															"signatures": [
@@ -1336,7 +1336,7 @@
 													"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 													"line": 44,
 													"character": 3,
-													"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L44"
+													"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L44"
 												}
 											]
 										}
@@ -1364,7 +1364,7 @@
 					"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L16"
 				}
 			]
 		},
@@ -1376,7 +1376,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 128,
+					"id": 130,
 					"name": "ExternalBrain",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1386,7 +1386,7 @@
 							"fileName": "messier-61-external-brain/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-external-brain/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-external-brain/index.ts#L16"
 						}
 					],
 					"target": 65
@@ -1396,7 +1396,7 @@
 				{
 					"title": "References",
 					"children": [
-						128
+						130
 					]
 				}
 			],
@@ -1405,7 +1405,7 @@
 					"fileName": "messier-61-external-brain/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-external-brain/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-external-brain/index.ts#L16"
 				}
 			]
 		},
@@ -1427,7 +1427,7 @@
 							"fileName": "messier-61-external-brain/ExternalBrain.tsx",
 							"line": 55,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-external-brain/ExternalBrain.tsx#L55"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-external-brain/ExternalBrain.tsx#L55"
 						}
 					],
 					"signatures": [
@@ -1456,7 +1456,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Editor",
-										"target": 127
+										"target": 129
 									},
 									{
 										"kind": "text",
@@ -1466,7 +1466,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Graph",
-										"target": 130
+										"target": 132
 									},
 									{
 										"kind": "text",
@@ -1484,7 +1484,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "GraphData",
-										"target": 132
+										"target": 134
 									},
 									{
 										"kind": "text",
@@ -1502,7 +1502,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Graph module",
-										"target": 130
+										"target": 132
 									},
 									{
 										"kind": "text",
@@ -1512,7 +1512,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Editor module",
-										"target": 127
+										"target": 129
 									}
 								],
 								"blockTags": [
@@ -1546,7 +1546,7 @@
 												"kind": "inline-tag",
 												"tag": "@link",
 												"text": "Editor",
-												"target": 127
+												"target": 129
 											},
 											{
 												"kind": "text",
@@ -1587,7 +1587,7 @@
 					"fileName": "messier-61-external-brain/ExternalBrain.tsx",
 					"line": 14,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-external-brain/ExternalBrain.tsx#L14"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-external-brain/ExternalBrain.tsx#L14"
 				}
 			]
 		},
@@ -1609,7 +1609,7 @@
 							"fileName": "messier-61-external-brain/Transformer.tsx",
 							"line": 21,
 							"character": 16,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-external-brain/Transformer.tsx#L21"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-external-brain/Transformer.tsx#L21"
 						}
 					],
 					"signatures": [
@@ -1657,7 +1657,7 @@
 					"fileName": "messier-61-external-brain/Transformer.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-external-brain/Transformer.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-external-brain/Transformer.tsx#L16"
 				}
 			]
 		},
@@ -1669,7 +1669,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 135,
+					"id": 137,
 					"name": "CanvasConfig",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1679,13 +1679,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 50,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 96
 				},
 				{
-					"id": 130,
+					"id": 132,
 					"name": "Graph",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1695,13 +1695,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/index.ts#L16"
 						}
 					],
 					"target": 78
 				},
 				{
-					"id": 131,
+					"id": 133,
 					"name": "GraphConfig",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1711,13 +1711,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 14,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 82
 				},
 				{
-					"id": 132,
+					"id": 134,
 					"name": "GraphData",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1727,13 +1727,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 27,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 85
 				},
 				{
-					"id": 134,
+					"id": 136,
 					"name": "Link",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1743,13 +1743,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 44,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 91
 				},
 				{
-					"id": 136,
+					"id": 138,
 					"name": "Margin",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1759,13 +1759,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 64,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 100
 				},
 				{
-					"id": 133,
+					"id": 135,
 					"name": "Node",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1775,7 +1775,7 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 38,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 88
@@ -1785,13 +1785,13 @@
 				{
 					"title": "References",
 					"children": [
-						135,
-						130,
-						131,
+						137,
 						132,
+						133,
 						134,
 						136,
-						133
+						138,
+						135
 					]
 				}
 			],
@@ -1800,7 +1800,7 @@
 					"fileName": "messier-61-graph/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/index.ts#L16"
 				}
 			]
 		},
@@ -1812,7 +1812,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 129,
+					"id": 131,
 					"name": "D3Graph",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1822,7 +1822,7 @@
 							"fileName": "messier-61-graph/D3Graph/index.ts",
 							"line": 16,
 							"character": 9,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/D3Graph/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/D3Graph/index.ts#L16"
 						}
 					],
 					"target": 73
@@ -1832,7 +1832,7 @@
 				{
 					"title": "References",
 					"children": [
-						129
+						131
 					]
 				}
 			],
@@ -1841,7 +1841,7 @@
 					"fileName": "messier-61-graph/D3Graph/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/D3Graph/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/D3Graph/index.ts#L16"
 				}
 			]
 		},
@@ -1863,7 +1863,7 @@
 							"fileName": "messier-61-graph/D3Graph/D3Graph.tsx",
 							"line": 20,
 							"character": 16,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/D3Graph/D3Graph.tsx#L20"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/D3Graph/D3Graph.tsx#L20"
 						}
 					],
 					"signatures": [
@@ -1964,7 +1964,7 @@
 					"fileName": "messier-61-graph/D3Graph/D3Graph.tsx",
 					"line": 2,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/D3Graph/D3Graph.tsx#L2"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/D3Graph/D3Graph.tsx#L2"
 				}
 			]
 		},
@@ -1986,7 +1986,7 @@
 							"fileName": "messier-61-graph/Graph.tsx",
 							"line": 27,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/Graph.tsx#L27"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/Graph.tsx#L27"
 						}
 					],
 					"signatures": [
@@ -2061,7 +2061,7 @@
 					"fileName": "messier-61-graph/Graph.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/Graph.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/Graph.tsx#L16"
 				}
 			]
 		},
@@ -2116,7 +2116,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 95,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L95"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L95"
 								}
 							],
 							"type": {
@@ -2153,7 +2153,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 85,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L85"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L85"
 								}
 							],
 							"type": {
@@ -2181,7 +2181,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 90,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L90"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L90"
 								}
 							],
 							"type": {
@@ -2205,7 +2205,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 81,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L81"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L81"
 						}
 					]
 				},
@@ -2258,7 +2258,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 29,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L29"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L29"
 								}
 							],
 							"type": {
@@ -2286,7 +2286,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 24,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L24"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L24"
 								}
 							],
 							"type": {
@@ -2309,7 +2309,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 20,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L20"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L20"
 						}
 					]
 				},
@@ -2339,7 +2339,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 45,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L45"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L45"
 								}
 							],
 							"type": {
@@ -2362,7 +2362,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 44,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L44"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L44"
 								}
 							],
 							"type": {
@@ -2389,7 +2389,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 43,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L43"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L43"
 						}
 					]
 				},
@@ -2419,7 +2419,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 63,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L63"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L63"
 								}
 							],
 							"type": {
@@ -2438,7 +2438,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 64,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L64"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L64"
 								}
 							],
 							"type": {
@@ -2457,7 +2457,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 65,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L65"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L65"
 								}
 							],
 							"type": {
@@ -2476,7 +2476,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 66,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L66"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L66"
 								}
 							],
 							"type": {
@@ -2501,7 +2501,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 59,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L59"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L59"
 						}
 					]
 				},
@@ -2531,7 +2531,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 105,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L105"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L105"
 								}
 							],
 							"type": {
@@ -2550,7 +2550,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 107,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L107"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L107"
 								}
 							],
 							"type": {
@@ -2569,7 +2569,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 106,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L106"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L106"
 								}
 							],
 							"type": {
@@ -2588,7 +2588,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 104,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L104"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L104"
 								}
 							],
 							"type": {
@@ -2613,7 +2613,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 103,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L103"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L103"
 						}
 					]
 				},
@@ -2651,7 +2651,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 55,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L55"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L55"
 								}
 							],
 							"type": {
@@ -2670,7 +2670,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 56,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L56"
+									"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L56"
 								}
 							],
 							"type": {
@@ -2693,7 +2693,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 51,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L51"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L51"
 						}
 					]
 				}
@@ -2716,7 +2716,7 @@
 					"fileName": "messier-61-graph/GraphConfig.d.ts",
 					"line": 20,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphConfig.d.ts#L20"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphConfig.d.ts#L20"
 				}
 			]
 		},
@@ -2738,7 +2738,7 @@
 							"fileName": "messier-61-graph/GraphDataMaker.ts",
 							"line": 28,
 							"character": 16,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphDataMaker.ts#L28"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphDataMaker.ts#L28"
 						}
 					],
 					"signatures": [
@@ -2820,7 +2820,7 @@
 													"fileName": "messier-61-graph/GraphDataMaker.ts",
 													"line": 28,
 													"character": 86,
-													"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphDataMaker.ts#L28"
+													"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphDataMaker.ts#L28"
 												}
 											],
 											"signatures": [
@@ -2862,7 +2862,7 @@
 					"fileName": "messier-61-graph/GraphDataMaker.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphDataMaker.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphDataMaker.ts#L16"
 				}
 			]
 		},
@@ -2884,7 +2884,7 @@
 							"fileName": "messier-61-graph/GraphDecorator.ts",
 							"line": 2,
 							"character": 16,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphDecorator.ts#L2"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphDecorator.ts#L2"
 						}
 					],
 					"signatures": [
@@ -2928,19 +2928,49 @@
 					"fileName": "messier-61-graph/GraphDecorator.ts",
 					"line": 2,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-graph/GraphDecorator.ts#L2"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graph/GraphDecorator.ts#L2"
 				}
 			]
 		},
 		{
-			"id": 120,
+			"id": 117,
+			"name": "messier-61-graphql-server/src/json-graphql-server",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "messier-61-graphql-server/src/json-graphql-server.d.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graphql-server/src/json-graphql-server.d.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 118,
+			"name": "messier-61-graphql-server/src/server",
+			"kind": 2,
+			"kindString": "Module",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "messier-61-graphql-server/src/server.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-graphql-server/src/server.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 122,
 			"name": "messier-61-home",
 			"kind": 2,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 137,
+					"id": 139,
 					"name": "Home",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -2950,17 +2980,17 @@
 							"fileName": "messier-61-home/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-home/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-home/index.ts#L16"
 						}
 					],
-					"target": 118
+					"target": 120
 				}
 			],
 			"groups": [
 				{
 					"title": "References",
 					"children": [
-						137
+						139
 					]
 				}
 			],
@@ -2969,19 +2999,19 @@
 					"fileName": "messier-61-home/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-home/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-home/index.ts#L16"
 				}
 			]
 		},
 		{
-			"id": 117,
+			"id": 119,
 			"name": "messier-61-home/Home",
 			"kind": 2,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 118,
+					"id": 120,
 					"name": "default",
 					"kind": 64,
 					"kindString": "Function",
@@ -2991,12 +3021,12 @@
 							"fileName": "messier-61-home/Home.tsx",
 							"line": 25,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-home/Home.tsx#L25"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-home/Home.tsx#L25"
 						}
 					],
 					"signatures": [
 						{
-							"id": 119,
+							"id": 121,
 							"name": "default",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3015,7 +3045,7 @@
 				{
 					"title": "Functions",
 					"children": [
-						118
+						120
 					]
 				}
 			],
@@ -3024,19 +3054,19 @@
 					"fileName": "messier-61-home/Home.tsx",
 					"line": 14,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-home/Home.tsx#L14"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-home/Home.tsx#L14"
 				}
 			]
 		},
 		{
-			"id": 121,
+			"id": 123,
 			"name": "messier-61-nlp/BasicSVOParser",
 			"kind": 2,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 122,
+					"id": 124,
 					"name": "getSVOof",
 					"kind": 64,
 					"kindString": "Function",
@@ -3046,19 +3076,19 @@
 							"fileName": "messier-61-nlp/BasicSVOParser.ts",
 							"line": 16,
 							"character": 16,
-							"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-nlp/BasicSVOParser.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-nlp/BasicSVOParser.ts#L16"
 						}
 					],
 					"signatures": [
 						{
-							"id": 123,
+							"id": 125,
 							"name": "getSVOof",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 124,
+									"id": 126,
 									"name": "text",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3084,7 +3114,7 @@
 				{
 					"title": "Functions",
 					"children": [
-						122
+						124
 					]
 				}
 			],
@@ -3093,7 +3123,7 @@
 					"fileName": "messier-61-nlp/BasicSVOParser.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/91be8de/packages/messier-61-nlp/BasicSVOParser.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/9be6dea/packages/messier-61-nlp/BasicSVOParser.ts#L16"
 				}
 			]
 		}
@@ -3122,9 +3152,11 @@
 				81,
 				105,
 				112,
-				120,
 				117,
-				121
+				118,
+				122,
+				119,
+				123
 			]
 		}
 	]
