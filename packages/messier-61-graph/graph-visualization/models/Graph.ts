@@ -16,6 +16,8 @@
 import type { NodeModel } from "./Node";
 import type { RelationshipModel } from "./Relationship";
 
+import * as _ from "lodash";
+
 export class GraphModel {
   private _nodes: NodeModel[];
   private _relationships: RelationshipModel[];
@@ -72,7 +74,7 @@ export class GraphModel {
 
   public removeNode(node: NodeModel): void {
     if (this.containsNode(node)) {
-      this._nodes.splice(this._nodes.map(n => n.id).indexOf(node.id), 1);
+      this._nodes.splice(this._nodes.map((n) => n.id).indexOf(node.id), 1);
 
       // eslint-disable-next-line  @typescript-eslint/no-dynamic-delete
       delete this.nodeMap[node.id];
@@ -177,5 +179,5 @@ export class GraphModel {
 }
 
 export function unique<T>(list: T[]): T[] {
-  return [...new Set(list)];
+  return _.uniq(list);
 }
