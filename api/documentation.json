@@ -16,7 +16,7 @@
 					"fileName": "messier-61-app/index.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-app/index.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-app/index.tsx#L16"
 				}
 			]
 		},
@@ -38,7 +38,7 @@
 							"fileName": "messier-61-app/App.tsx",
 							"line": 22,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-app/App.tsx#L22"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-app/App.tsx#L22"
 						}
 					],
 					"signatures": [
@@ -71,7 +71,7 @@
 					"fileName": "messier-61-app/App.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-app/App.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-app/App.tsx#L16"
 				}
 			]
 		},
@@ -83,7 +83,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 279,
+					"id": 290,
 					"name": "Editor",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -93,7 +93,7 @@
 							"fileName": "messier-61-editor/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/index.ts#L16"
 						}
 					],
 					"target": 6
@@ -103,7 +103,7 @@
 				{
 					"title": "References",
 					"children": [
-						279
+						290
 					]
 				}
 			],
@@ -112,7 +112,7 @@
 					"fileName": "messier-61-editor/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/index.ts#L16"
 				}
 			]
 		},
@@ -134,7 +134,7 @@
 							"fileName": "messier-61-editor/Editor.tsx",
 							"line": 40,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Editor.tsx#L40"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Editor.tsx#L40"
 						}
 					],
 					"signatures": [
@@ -163,7 +163,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Graph",
-										"target": 282
+										"target": 293
 									},
 									{
 										"kind": "text",
@@ -173,7 +173,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "GraphData",
-										"target": 284
+										"target": 295
 									},
 									{
 										"kind": "text",
@@ -199,7 +199,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "GraphData",
-										"target": 284
+										"target": 295
 									},
 									{
 										"kind": "text",
@@ -217,7 +217,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Graph",
-										"target": 282
+										"target": 293
 									},
 									{
 										"kind": "text",
@@ -279,7 +279,7 @@
 															"fileName": "messier-61-editor/Editor.tsx",
 															"line": 45,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Editor.tsx#L45"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Editor.tsx#L45"
 														}
 													],
 													"type": {
@@ -295,7 +295,7 @@
 																	"fileName": "messier-61-editor/Editor.tsx",
 																	"line": 45,
 																	"character": 12,
-																	"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Editor.tsx#L45"
+																	"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Editor.tsx#L45"
 																}
 															],
 															"signatures": [
@@ -338,7 +338,7 @@
 															"fileName": "messier-61-editor/Editor.tsx",
 															"line": 44,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Editor.tsx#L44"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Editor.tsx#L44"
 														}
 													],
 													"type": {
@@ -354,7 +354,7 @@
 																	"fileName": "messier-61-editor/Editor.tsx",
 																	"line": 44,
 																	"character": 15,
-																	"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Editor.tsx#L44"
+																	"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Editor.tsx#L44"
 																}
 															],
 															"signatures": [
@@ -404,7 +404,7 @@
 													"fileName": "messier-61-editor/Editor.tsx",
 													"line": 43,
 													"character": 3,
-													"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Editor.tsx#L43"
+													"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Editor.tsx#L43"
 												}
 											]
 										}
@@ -434,7 +434,7 @@
 					"fileName": "messier-61-editor/Editor.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Editor.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Editor.tsx#L16"
 				}
 			]
 		},
@@ -446,7 +446,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 277,
+					"id": 288,
 					"name": "LexicalEditor",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -456,7 +456,7 @@
 							"fileName": "messier-61-editor/Lexical/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/index.ts#L16"
 						}
 					],
 					"target": 19
@@ -466,7 +466,7 @@
 				{
 					"title": "References",
 					"children": [
-						277
+						288
 					]
 				}
 			],
@@ -475,7 +475,7 @@
 					"fileName": "messier-61-editor/Lexical/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/index.ts#L16"
 				}
 			]
 		},
@@ -497,7 +497,7 @@
 							"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 							"line": 29,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L29"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L29"
 						}
 					],
 					"signatures": [
@@ -534,7 +534,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 															"line": 36,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L36"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L36"
 														}
 													],
 													"type": {
@@ -550,7 +550,7 @@
 																	"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 																	"line": 36,
 																	"character": 12,
-																	"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L36"
+																	"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L36"
 																}
 															],
 															"signatures": [
@@ -593,7 +593,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 															"line": 34,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L34"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L34"
 														}
 													],
 													"type": {
@@ -612,7 +612,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 															"line": 35,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L35"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L35"
 														}
 													],
 													"type": {
@@ -628,7 +628,7 @@
 																	"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 																	"line": 35,
 																	"character": 15,
-																	"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L35"
+																	"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L35"
 																}
 															],
 															"signatures": [
@@ -679,7 +679,7 @@
 													"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 													"line": 33,
 													"character": 3,
-													"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L33"
+													"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L33"
 												}
 											]
 										}
@@ -709,7 +709,7 @@
 					"fileName": "messier-61-editor/Lexical/LexicalEditor.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditor.tsx#L16"
 				}
 			]
 		},
@@ -733,7 +733,7 @@
 							"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 							"line": 16,
 							"character": 6,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
 						}
 					],
 					"type": {
@@ -756,7 +756,7 @@
 											"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 											"line": 17,
 											"character": 2,
-											"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L17"
+											"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L17"
 										}
 									],
 									"type": {
@@ -779,7 +779,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 															"line": 18,
 															"character": 4,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L18"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L18"
 														}
 													],
 													"type": {
@@ -799,7 +799,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 															"line": 21,
 															"character": 4,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L21"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L21"
 														}
 													],
 													"type": {
@@ -819,7 +819,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 															"line": 20,
 															"character": 4,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L20"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L20"
 														}
 													],
 													"type": {
@@ -839,7 +839,7 @@
 															"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 															"line": 19,
 															"character": 4,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L19"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L19"
 														}
 													],
 													"type": {
@@ -865,7 +865,7 @@
 													"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 													"line": 17,
 													"character": 9,
-													"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L17"
+													"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L17"
 												}
 											]
 										}
@@ -883,7 +883,7 @@
 											"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 											"line": 23,
 											"character": 2,
-											"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L23"
+											"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L23"
 										}
 									],
 									"signatures": [
@@ -933,7 +933,7 @@
 									"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 									"line": 16,
 									"character": 21,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
 								}
 							]
 						}
@@ -954,7 +954,7 @@
 					"fileName": "messier-61-editor/Lexical/LexicalEditorConfig.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/LexicalEditorConfig.ts#L16"
 				}
 			]
 		},
@@ -966,7 +966,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 278,
+					"id": 289,
 					"name": "parse",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -976,7 +976,7 @@
 							"fileName": "messier-61-editor/Lexical/parser/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/parser/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/parser/index.ts#L16"
 						}
 					],
 					"target": 46
@@ -986,7 +986,7 @@
 				{
 					"title": "References",
 					"children": [
-						278
+						289
 					]
 				}
 			],
@@ -995,7 +995,7 @@
 					"fileName": "messier-61-editor/Lexical/parser/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/parser/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/parser/index.ts#L16"
 				}
 			]
 		},
@@ -1017,7 +1017,7 @@
 							"fileName": "messier-61-editor/Lexical/parser/RawTextParser.ts",
 							"line": 25,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/parser/RawTextParser.ts#L25"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/parser/RawTextParser.ts#L25"
 						}
 					],
 					"signatures": [
@@ -1091,7 +1091,7 @@
 					"fileName": "messier-61-editor/Lexical/parser/RawTextParser.ts",
 					"line": 25,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/parser/RawTextParser.ts#L25"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/parser/RawTextParser.ts#L25"
 				}
 			]
 		},
@@ -1113,7 +1113,7 @@
 							"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 							"line": 41,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L41"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L41"
 						}
 					],
 					"signatures": [
@@ -1146,7 +1146,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Editor",
-										"target": 279
+										"target": 290
 									},
 									{
 										"kind": "text",
@@ -1156,7 +1156,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Editor",
-										"target": 279
+										"target": 290
 									},
 									{
 										"kind": "text",
@@ -1211,7 +1211,7 @@
 															"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 															"line": 46,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L46"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L46"
 														}
 													],
 													"type": {
@@ -1227,7 +1227,7 @@
 																	"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 																	"line": 46,
 																	"character": 12,
-																	"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L46"
+																	"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L46"
 																}
 															],
 															"signatures": [
@@ -1270,7 +1270,7 @@
 															"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 															"line": 45,
 															"character": 2,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L45"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L45"
 														}
 													],
 													"type": {
@@ -1286,7 +1286,7 @@
 																	"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 																	"line": 45,
 																	"character": 15,
-																	"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L45"
+																	"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L45"
 																}
 															],
 															"signatures": [
@@ -1336,7 +1336,7 @@
 													"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 													"line": 44,
 													"character": 3,
-													"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L44"
+													"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L44"
 												}
 											]
 										}
@@ -1364,7 +1364,7 @@
 					"fileName": "messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx#L16"
 				}
 			]
 		},
@@ -1376,7 +1376,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 280,
+					"id": 291,
 					"name": "ExternalBrain",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1386,7 +1386,7 @@
 							"fileName": "messier-61-external-brain/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-external-brain/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-external-brain/index.ts#L16"
 						}
 					],
 					"target": 65
@@ -1396,7 +1396,7 @@
 				{
 					"title": "References",
 					"children": [
-						280
+						291
 					]
 				}
 			],
@@ -1405,7 +1405,7 @@
 					"fileName": "messier-61-external-brain/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-external-brain/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-external-brain/index.ts#L16"
 				}
 			]
 		},
@@ -1427,7 +1427,7 @@
 							"fileName": "messier-61-external-brain/ExternalBrain.tsx",
 							"line": 55,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-external-brain/ExternalBrain.tsx#L55"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-external-brain/ExternalBrain.tsx#L55"
 						}
 					],
 					"signatures": [
@@ -1456,7 +1456,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Editor",
-										"target": 279
+										"target": 290
 									},
 									{
 										"kind": "text",
@@ -1466,7 +1466,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Graph",
-										"target": 282
+										"target": 293
 									},
 									{
 										"kind": "text",
@@ -1484,7 +1484,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "GraphData",
-										"target": 284
+										"target": 295
 									},
 									{
 										"kind": "text",
@@ -1502,7 +1502,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Graph module",
-										"target": 282
+										"target": 293
 									},
 									{
 										"kind": "text",
@@ -1512,7 +1512,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "Editor module",
-										"target": 279
+										"target": 290
 									}
 								],
 								"blockTags": [
@@ -1546,7 +1546,7 @@
 												"kind": "inline-tag",
 												"tag": "@link",
 												"text": "Editor",
-												"target": 279
+												"target": 290
 											},
 											{
 												"kind": "text",
@@ -1587,7 +1587,7 @@
 					"fileName": "messier-61-external-brain/ExternalBrain.tsx",
 					"line": 14,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-external-brain/ExternalBrain.tsx#L14"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-external-brain/ExternalBrain.tsx#L14"
 				}
 			]
 		},
@@ -1609,7 +1609,7 @@
 							"fileName": "messier-61-external-brain/Transformer.tsx",
 							"line": 21,
 							"character": 16,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-external-brain/Transformer.tsx#L21"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-external-brain/Transformer.tsx#L21"
 						}
 					],
 					"signatures": [
@@ -1657,19 +1657,19 @@
 					"fileName": "messier-61-external-brain/Transformer.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-external-brain/Transformer.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-external-brain/Transformer.tsx#L16"
 				}
 			]
 		},
 		{
-			"id": 266,
+			"id": 277,
 			"name": "messier-61-graph",
 			"kind": 2,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 287,
+					"id": 298,
 					"name": "CanvasConfig",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1679,13 +1679,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 50,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 96
 				},
 				{
-					"id": 282,
+					"id": 293,
 					"name": "Graph",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1695,13 +1695,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/index.ts#L16"
 						}
 					],
 					"target": 78
 				},
 				{
-					"id": 283,
+					"id": 294,
 					"name": "GraphConfig",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1711,13 +1711,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 14,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 82
 				},
 				{
-					"id": 284,
+					"id": 295,
 					"name": "GraphData",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1727,13 +1727,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 27,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 85
 				},
 				{
-					"id": 286,
+					"id": 297,
 					"name": "Link",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1743,13 +1743,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 44,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 91
 				},
 				{
-					"id": 288,
+					"id": 299,
 					"name": "Margin",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1759,13 +1759,13 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 64,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 100
 				},
 				{
-					"id": 285,
+					"id": 296,
 					"name": "Node",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1775,7 +1775,7 @@
 							"fileName": "messier-61-graph/index.ts",
 							"line": 17,
 							"character": 38,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/index.ts#L17"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/index.ts#L17"
 						}
 					],
 					"target": 88
@@ -1785,13 +1785,13 @@
 				{
 					"title": "References",
 					"children": [
-						287,
-						282,
-						283,
-						284,
-						286,
-						288,
-						285
+						298,
+						293,
+						294,
+						295,
+						297,
+						299,
+						296
 					]
 				}
 			],
@@ -1800,7 +1800,7 @@
 					"fileName": "messier-61-graph/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/index.ts#L16"
 				}
 			]
 		},
@@ -1812,7 +1812,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 281,
+					"id": 292,
 					"name": "D3Graph",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -1822,7 +1822,7 @@
 							"fileName": "messier-61-graph/D3Graph/index.ts",
 							"line": 16,
 							"character": 9,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/D3Graph/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/D3Graph/index.ts#L16"
 						}
 					],
 					"target": 73
@@ -1832,7 +1832,7 @@
 				{
 					"title": "References",
 					"children": [
-						281
+						292
 					]
 				}
 			],
@@ -1841,7 +1841,7 @@
 					"fileName": "messier-61-graph/D3Graph/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/D3Graph/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/D3Graph/index.ts#L16"
 				}
 			]
 		},
@@ -1863,7 +1863,7 @@
 							"fileName": "messier-61-graph/D3Graph/D3Graph.tsx",
 							"line": 20,
 							"character": 16,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/D3Graph/D3Graph.tsx#L20"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/D3Graph/D3Graph.tsx#L20"
 						}
 					],
 					"signatures": [
@@ -1964,7 +1964,7 @@
 					"fileName": "messier-61-graph/D3Graph/D3Graph.tsx",
 					"line": 2,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/D3Graph/D3Graph.tsx#L2"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/D3Graph/D3Graph.tsx#L2"
 				}
 			]
 		},
@@ -1986,7 +1986,7 @@
 							"fileName": "messier-61-graph/Graph.tsx",
 							"line": 27,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/Graph.tsx#L27"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/Graph.tsx#L27"
 						}
 					],
 					"signatures": [
@@ -2061,7 +2061,7 @@
 					"fileName": "messier-61-graph/Graph.tsx",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/Graph.tsx#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/Graph.tsx#L16"
 				}
 			]
 		},
@@ -2116,7 +2116,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 95,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L95"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L95"
 								}
 							],
 							"type": {
@@ -2153,7 +2153,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 85,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L85"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L85"
 								}
 							],
 							"type": {
@@ -2181,7 +2181,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 90,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L90"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L90"
 								}
 							],
 							"type": {
@@ -2205,7 +2205,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 81,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L81"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L81"
 						}
 					]
 				},
@@ -2258,7 +2258,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 29,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L29"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L29"
 								}
 							],
 							"type": {
@@ -2286,7 +2286,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 24,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L24"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L24"
 								}
 							],
 							"type": {
@@ -2309,7 +2309,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 20,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L20"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L20"
 						}
 					]
 				},
@@ -2339,7 +2339,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 45,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L45"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L45"
 								}
 							],
 							"type": {
@@ -2362,7 +2362,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 44,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L44"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L44"
 								}
 							],
 							"type": {
@@ -2389,7 +2389,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 43,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L43"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L43"
 						}
 					]
 				},
@@ -2419,7 +2419,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 63,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L63"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L63"
 								}
 							],
 							"type": {
@@ -2438,7 +2438,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 64,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L64"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L64"
 								}
 							],
 							"type": {
@@ -2457,7 +2457,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 65,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L65"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L65"
 								}
 							],
 							"type": {
@@ -2476,7 +2476,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 66,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L66"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L66"
 								}
 							],
 							"type": {
@@ -2501,7 +2501,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 59,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L59"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L59"
 						}
 					]
 				},
@@ -2531,7 +2531,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 105,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L105"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L105"
 								}
 							],
 							"type": {
@@ -2550,7 +2550,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 107,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L107"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L107"
 								}
 							],
 							"type": {
@@ -2569,7 +2569,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 106,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L106"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L106"
 								}
 							],
 							"type": {
@@ -2588,7 +2588,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 104,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L104"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L104"
 								}
 							],
 							"type": {
@@ -2613,7 +2613,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 103,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L103"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L103"
 						}
 					]
 				},
@@ -2651,7 +2651,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 55,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L55"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L55"
 								}
 							],
 							"type": {
@@ -2670,7 +2670,7 @@
 									"fileName": "messier-61-graph/GraphConfig.d.ts",
 									"line": 56,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L56"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L56"
 								}
 							],
 							"type": {
@@ -2693,7 +2693,7 @@
 							"fileName": "messier-61-graph/GraphConfig.d.ts",
 							"line": 51,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L51"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L51"
 						}
 					]
 				}
@@ -2716,7 +2716,7 @@
 					"fileName": "messier-61-graph/GraphConfig.d.ts",
 					"line": 20,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphConfig.d.ts#L20"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphConfig.d.ts#L20"
 				}
 			]
 		},
@@ -2738,7 +2738,7 @@
 							"fileName": "messier-61-graph/GraphDataMaker.ts",
 							"line": 28,
 							"character": 16,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphDataMaker.ts#L28"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphDataMaker.ts#L28"
 						}
 					],
 					"signatures": [
@@ -2820,7 +2820,7 @@
 													"fileName": "messier-61-graph/GraphDataMaker.ts",
 													"line": 28,
 													"character": 86,
-													"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphDataMaker.ts#L28"
+													"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphDataMaker.ts#L28"
 												}
 											],
 											"signatures": [
@@ -2862,7 +2862,7 @@
 					"fileName": "messier-61-graph/GraphDataMaker.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphDataMaker.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphDataMaker.ts#L16"
 				}
 			]
 		},
@@ -2884,7 +2884,7 @@
 							"fileName": "messier-61-graph/GraphDecorator.ts",
 							"line": 2,
 							"character": 16,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphDecorator.ts#L2"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphDecorator.ts#L2"
 						}
 					],
 					"signatures": [
@@ -2928,7 +2928,7 @@
 					"fileName": "messier-61-graph/GraphDecorator.ts",
 					"line": 2,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/GraphDecorator.ts#L2"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/GraphDecorator.ts#L2"
 				}
 			]
 		},
@@ -2948,8 +2948,14 @@
 					"comment": {
 						"summary": [
 							{
+								"kind": "inline-tag",
+								"tag": "@link",
+								"text": "ForceSimulation",
+								"target": 117
+							},
+							{
 								"kind": "text",
-								"text": "A wrapper class of D3-force."
+								"text": " is a wrapper of [d3-force Simulation](https://github.com/d3/d3-force#simulation)."
 							}
 						]
 					},
@@ -2963,9 +2969,9 @@
 							"sources": [
 								{
 									"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-									"line": 48,
+									"line": 64,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L48"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L64"
 								}
 							],
 							"signatures": [
@@ -2975,6 +2981,14 @@
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Creates a new simulation with no nodes initially.\n\nThe simulator is not started. In addition,\n\n- The [velocity decay factor](https://github.com/d3/d3-force#simulation_velocityDecay) is set to 0.4\n- Graph nodes repels each other with a strength of -400\n- The nodes are attracted towards the canvas center, i.e. (0, 0), with the strength of 0.03 on both X and Y\n  direction\n- The [alpha min](https://github.com/d3/d3-force#simulation_alphaMin) is set to 0.05\n- Each [tick](https://github.com/d3/d3-force#simulation_tick) over-steps by 10 iterations"
+											}
+										]
+									},
 									"parameters": [
 										{
 											"id": 120,
@@ -2993,9 +3007,9 @@
 													"sources": [
 														{
 															"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-															"line": 48,
+															"line": 64,
 															"character": 22,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L48"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L64"
 														}
 													],
 													"signatures": [
@@ -3032,9 +3046,9 @@
 							"sources": [
 								{
 									"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-									"line": 45,
+									"line": 49,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L45"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L49"
 								}
 							],
 							"type": {
@@ -3042,12 +3056,12 @@
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 202,
+										"id": 213,
 										"name": "NodeModel"
 									},
 									{
 										"type": "reference",
-										"id": 233,
+										"id": 244,
 										"name": "RelationshipModel"
 									}
 								],
@@ -3065,9 +3079,9 @@
 							"sources": [
 								{
 									"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-									"line": 46,
+									"line": 50,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L46"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L50"
 								}
 							],
 							"type": {
@@ -3086,7 +3100,7 @@
 							"defaultValue": "null"
 						},
 						{
-							"id": 133,
+							"id": 141,
 							"name": "circularLayout",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3096,51 +3110,75 @@
 							"sources": [
 								{
 									"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-									"line": 86,
+									"line": 154,
 									"character": 10,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L86"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L154"
 								}
 							],
 							"signatures": [
 								{
-									"id": 134,
+									"id": 142,
 									"name": "circularLayout",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "A side-effect method which, given a list of nodes, computes the position of dangling nodes in the list if they are\nto be positioned in a circle pattern."
+											}
+										]
+									},
 									"parameters": [
 										{
-											"id": 135,
+											"id": 143,
 											"name": "nodes",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "A list of nodes which contains all the dangling nodes, whose (x, y) coordinates are to be computed"
+													}
+												]
+											},
 											"type": {
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"id": 202,
+													"id": 213,
 													"name": "NodeModel"
 												}
 											}
 										},
 										{
-											"id": 136,
+											"id": 144,
 											"name": "center",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "The coordinates of the center of the circle"
+													}
+												]
+											},
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 137,
+													"id": 145,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"children": [
 														{
-															"id": 138,
+															"id": 146,
 															"name": "x",
 															"kind": 1024,
 															"kindString": "Property",
@@ -3148,9 +3186,9 @@
 															"sources": [
 																{
 																	"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-																	"line": 86,
+																	"line": 154,
 																	"character": 55,
-																	"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L86"
+																	"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L154"
 																}
 															],
 															"type": {
@@ -3159,7 +3197,7 @@
 															}
 														},
 														{
-															"id": 139,
+															"id": 147,
 															"name": "y",
 															"kind": 1024,
 															"kindString": "Property",
@@ -3167,9 +3205,9 @@
 															"sources": [
 																{
 																	"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-																	"line": 86,
+																	"line": 154,
 																	"character": 66,
-																	"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L86"
+																	"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L154"
 																}
 															],
 															"type": {
@@ -3182,28 +3220,36 @@
 														{
 															"title": "Properties",
 															"children": [
-																138,
-																139
+																146,
+																147
 															]
 														}
 													],
 													"sources": [
 														{
 															"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-															"line": 86,
+															"line": 154,
 															"character": 53,
-															"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L86"
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L154"
 														}
 													]
 												}
 											}
 										},
 										{
-											"id": 140,
+											"id": 148,
 											"name": "radius",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "The radius of the circle"
+													}
+												]
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "number"
@@ -3218,7 +3264,85 @@
 							]
 						},
 						{
-							"id": 130,
+							"id": 149,
+							"name": "getAllRelationshipsPerPairOfNodes",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true
+							},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
+									"line": 202,
+									"character": 10,
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L202"
+								}
+							],
+							"signatures": [
+								{
+									"id": 150,
+									"name": "getAllRelationshipsPerPairOfNodes",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Given a list of relationships, this method filters out all \"duplicate\" relationships connecting the same pair of\nnodes.\n\nFor example, if the relationships are\n\n[\n  {\n    \"source\": \"node1\",\n    \"target\": \"node2\"\n  },\n  {\n    \"source\": \"node1\",\n    \"target\": \"node2\"\n  },\n  {\n    \"source\": \"node5\",\n    \"target\": \"node6\"\n  },\n]\n\nthen this method returns\n\n[\n  {\n    \"source\": \"node1\",\n    \"target\": \"node2\"\n  },\n  {\n    \"source\": \"node5\",\n    \"target\": \"node6\"\n  },\n]"
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@returns",
+												"content": [
+													{
+														"kind": "text",
+														"text": "a sub-list of relationships, each of which connects a unique pair of nodes"
+													}
+												]
+											}
+										]
+									},
+									"parameters": [
+										{
+											"id": 151,
+											"name": "relationships",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "the specified list of relationshiops to be filtered"
+													}
+												]
+											},
+											"type": {
+												"type": "array",
+												"elementType": {
+													"type": "reference",
+													"id": 244,
+													"name": "RelationshipModel"
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"id": 244,
+											"name": "RelationshipModel"
+										}
+									}
+								}
+							]
+						},
+						{
+							"id": 138,
 							"name": "getRadius",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3228,14 +3352,14 @@
 							"sources": [
 								{
 									"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-									"line": 82,
+									"line": 142,
 									"character": 10,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L82"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L142"
 								}
 							],
 							"signatures": [
 								{
-									"id": 131,
+									"id": 139,
 									"name": "getRadius",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -3244,7 +3368,7 @@
 										"summary": [
 											{
 												"kind": "text",
-												"text": "Given a number nodes which are to be positioned on a circle and a node distance number, this method returns a\napproximated radius of the circle.\n\nThis is a approximation where the perimeter of the circle is approximated by the number of links times the number\nof nodes residing on the circle. The perimeter is, therefore, 2 * PI * R, where R is to be returned by this method."
+												"text": "Given a node distance and a number of nodes which are to be positioned on a circle equi-distance, this method\nreturns a approximated radius of the circle.\n\nThe radius calculation is based on the assumption that the perimeter of the circle is approximately equal to\n(the number of links) x (the number of nodes residing on the circle). The perimeter is, therefore, 2 * PI * R,\nwhere R is to be returned by this method."
 											}
 										],
 										"blockTags": [
@@ -3261,7 +3385,7 @@
 									},
 									"parameters": [
 										{
-											"id": 132,
+											"id": 140,
 											"name": "numNodes",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3288,7 +3412,78 @@
 							]
 						},
 						{
-							"id": 128,
+							"id": 131,
+							"name": "precomputeAndStart",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPublic": true
+							},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
+									"line": 103,
+									"character": 9,
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L103"
+								}
+							],
+							"signatures": [
+								{
+									"id": 132,
+									"name": "precomputeAndStart",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 133,
+											"name": "onEnd",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 134,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
+															"line": 103,
+															"character": 35,
+															"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L103"
+														}
+													],
+													"signatures": [
+														{
+															"id": 135,
+															"name": "__type",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "void"
+															}
+														}
+													]
+												}
+											},
+											"defaultValue": "..."
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 136,
 							"name": "restart",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3298,18 +3493,26 @@
 							"sources": [
 								{
 									"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-									"line": 68,
+									"line": 126,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L68"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L126"
 								}
 							],
 							"signatures": [
 								{
-									"id": 129,
+									"id": 137,
 									"name": "restart",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Restarts the simulation."
+											}
+										]
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "void"
@@ -3328,9 +3531,9 @@
 							"sources": [
 								{
 									"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-									"line": 62,
+									"line": 83,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L62"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L83"
 								}
 							],
 							"signatures": [
@@ -3340,6 +3543,14 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Positions un-located nodes of a graph onto a circle and restarts the simulation."
+											}
+										]
+									},
 									"parameters": [
 										{
 											"id": 127,
@@ -3347,9 +3558,77 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "the graph whose dangling nodes are to be redrawn"
+													}
+												]
+											},
 											"type": {
 												"type": "reference",
-												"id": 142,
+												"id": 153,
+												"name": "GraphModel"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 128,
+							"name": "updateRelationships",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPublic": true
+							},
+							"sources": [
+								{
+									"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
+									"line": 94,
+									"character": 9,
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L94"
+								}
+							],
+							"signatures": [
+								{
+									"id": 129,
+									"name": "updateRelationships",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Re-apply force to links of a graph."
+											}
+										]
+									},
+									"parameters": [
+										{
+											"id": 130,
+											"name": "graph",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "the graph whose relationships are to be re-simulated"
+													}
+												]
+											},
+											"type": {
+												"type": "reference",
+												"id": 153,
 												"name": "GraphModel"
 											}
 										}
@@ -3379,19 +3658,22 @@
 						{
 							"title": "Methods",
 							"children": [
-								133,
-								130,
-								128,
-								125
+								141,
+								149,
+								138,
+								131,
+								136,
+								125,
+								128
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
-							"line": 44,
+							"line": 48,
 							"character": 13,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L44"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L48"
 						}
 					]
 				}
@@ -3409,26 +3691,26 @@
 					"fileName": "messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/GraphVisualizer/Graph/visualization/ForceSimulation.ts#L16"
 				}
 			]
 		},
 		{
-			"id": 141,
+			"id": 152,
 			"name": "messier-61-graph/graph-visualization/models/Graph",
 			"kind": 2,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 142,
+					"id": 153,
 					"name": "GraphModel",
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {},
 					"children": [
 						{
-							"id": 143,
+							"id": 154,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -3438,26 +3720,26 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 29,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L29"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L29"
 								}
 							],
 							"signatures": [
 								{
-									"id": 144,
+									"id": 155,
 									"name": "new GraphModel",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 142,
+										"id": 153,
 										"name": "GraphModel"
 									}
 								}
 							]
 						},
 						{
-							"id": 145,
+							"id": 156,
 							"name": "_nodes",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3469,20 +3751,20 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 20,
 									"character": 10,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L20"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L20"
 								}
 							],
 							"type": {
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 202,
+									"id": 213,
 									"name": "NodeModel"
 								}
 							}
 						},
 						{
-							"id": 146,
+							"id": 157,
 							"name": "_relationships",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3494,20 +3776,20 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 21,
 									"character": 10,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L21"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L21"
 								}
 							],
 							"type": {
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 233,
+									"id": 244,
 									"name": "RelationshipModel"
 								}
 							}
 						},
 						{
-							"id": 149,
+							"id": 160,
 							"name": "expandedNodeIdMap",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3517,7 +3799,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 27,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L27"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L27"
 								}
 							],
 							"type": {
@@ -3541,7 +3823,7 @@
 							}
 						},
 						{
-							"id": 147,
+							"id": 158,
 							"name": "nodeMap",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3551,7 +3833,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 24,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L24"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L24"
 								}
 							],
 							"type": {
@@ -3563,7 +3845,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 202,
+										"id": 213,
 										"name": "NodeModel"
 									}
 								],
@@ -3573,7 +3855,7 @@
 							}
 						},
 						{
-							"id": 148,
+							"id": 159,
 							"name": "relationshipMap",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3583,7 +3865,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 25,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L25"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L25"
 								}
 							],
 							"type": {
@@ -3595,7 +3877,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 233,
+										"id": 244,
 										"name": "RelationshipModel"
 									}
 								],
@@ -3605,7 +3887,7 @@
 							}
 						},
 						{
-							"id": 150,
+							"id": 161,
 							"name": "nodes",
 							"kind": 262144,
 							"kindString": "Accessor",
@@ -3617,11 +3899,11 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 56,
 									"character": 13,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L56"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L56"
 								}
 							],
 							"getSignature": {
-								"id": 151,
+								"id": 162,
 								"name": "nodes",
 								"kind": 524288,
 								"kindString": "Get signature",
@@ -3630,14 +3912,14 @@
 									"type": "array",
 									"elementType": {
 										"type": "reference",
-										"id": 202,
+										"id": 213,
 										"name": "NodeModel"
 									}
 								}
 							}
 						},
 						{
-							"id": 152,
+							"id": 163,
 							"name": "relationships",
 							"kind": 262144,
 							"kindString": "Accessor",
@@ -3649,11 +3931,11 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 60,
 									"character": 13,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L60"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L60"
 								}
 							],
 							"getSignature": {
-								"id": 153,
+								"id": 164,
 								"name": "relationships",
 								"kind": 524288,
 								"kindString": "Get signature",
@@ -3662,14 +3944,14 @@
 									"type": "array",
 									"elementType": {
 										"type": "reference",
-										"id": 233,
+										"id": 244,
 										"name": "RelationshipModel"
 									}
 								}
 							}
 						},
 						{
-							"id": 187,
+							"id": 198,
 							"name": "addExpandedNodes",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3679,31 +3961,31 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 141,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L141"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L141"
 								}
 							],
 							"signatures": [
 								{
-									"id": 188,
+									"id": 199,
 									"name": "addExpandedNodes",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 189,
+											"id": 200,
 											"name": "expandingNode",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 202,
+												"id": 213,
 												"name": "NodeModel"
 											}
 										},
 										{
-											"id": 190,
+											"id": 201,
 											"name": "expandedNodes",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3712,7 +3994,7 @@
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"id": 202,
+													"id": 213,
 													"name": "NodeModel"
 												}
 											}
@@ -3726,7 +4008,7 @@
 							]
 						},
 						{
-							"id": 154,
+							"id": 165,
 							"name": "addNodes",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3738,19 +4020,19 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 64,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L64"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L64"
 								}
 							],
 							"signatures": [
 								{
-									"id": 155,
+									"id": 166,
 									"name": "addNodes",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 156,
+											"id": 167,
 											"name": "nodes",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3759,7 +4041,7 @@
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"id": 202,
+													"id": 213,
 													"name": "NodeModel"
 												}
 											}
@@ -3773,7 +4055,7 @@
 							]
 						},
 						{
-							"id": 166,
+							"id": 177,
 							"name": "addRelationships",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3785,19 +4067,19 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 90,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L90"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L90"
 								}
 							],
 							"signatures": [
 								{
-									"id": 167,
+									"id": 178,
 									"name": "addRelationships",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 168,
+											"id": 179,
 											"name": "relationships",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3806,7 +4088,7 @@
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"id": 233,
+													"id": 244,
 													"name": "RelationshipModel"
 												}
 											}
@@ -3820,7 +4102,7 @@
 							]
 						},
 						{
-							"id": 191,
+							"id": 202,
 							"name": "collapseNode",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3832,26 +4114,26 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 152,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L152"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L152"
 								}
 							],
 							"signatures": [
 								{
-									"id": 192,
+									"id": 203,
 									"name": "collapseNode",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 193,
+											"id": 204,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 202,
+												"id": 213,
 												"name": "NodeModel"
 											}
 										}
@@ -3864,7 +4146,7 @@
 							]
 						},
 						{
-							"id": 160,
+							"id": 171,
 							"name": "containsNode",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3876,26 +4158,26 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 82,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L82"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L82"
 								}
 							],
 							"signatures": [
 								{
-									"id": 161,
+									"id": 172,
 									"name": "containsNode",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 162,
+											"id": 173,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 202,
+												"id": 213,
 												"name": "NodeModel"
 											}
 										}
@@ -3908,7 +4190,7 @@
 							]
 						},
 						{
-							"id": 169,
+							"id": 180,
 							"name": "containsRelationship",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3920,19 +4202,19 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 99,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L99"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L99"
 								}
 							],
 							"signatures": [
 								{
-									"id": 170,
+									"id": 181,
 									"name": "containsRelationship",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 171,
+											"id": 182,
 											"name": "relationshipId",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3951,7 +4233,7 @@
 							]
 						},
 						{
-							"id": 175,
+							"id": 186,
 							"name": "findAllNeighborIdsOfNode",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3961,19 +4243,19 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 107,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L107"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L107"
 								}
 							],
 							"signatures": [
 								{
-									"id": 176,
+									"id": 187,
 									"name": "findAllNeighborIdsOfNode",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 177,
+											"id": 188,
 											"name": "nodeId",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3995,7 +4277,7 @@
 							]
 						},
 						{
-							"id": 178,
+							"id": 189,
 							"name": "findAllRelationshipsToNode",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4007,19 +4289,19 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 113,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L113"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L113"
 								}
 							],
 							"signatures": [
 								{
-									"id": 179,
+									"id": 190,
 									"name": "findAllRelationshipsToNode",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 180,
+											"id": 191,
 											"name": "nodeId",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4034,7 +4316,7 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"id": 233,
+											"id": 244,
 											"name": "RelationshipModel"
 										}
 									}
@@ -4042,7 +4324,7 @@
 							]
 						},
 						{
-							"id": 163,
+							"id": 174,
 							"name": "findNode",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4054,19 +4336,19 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 86,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L86"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L86"
 								}
 							],
 							"signatures": [
 								{
-									"id": 164,
+									"id": 175,
 									"name": "findNode",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 165,
+											"id": 176,
 											"name": "id",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4079,14 +4361,14 @@
 									],
 									"type": {
 										"type": "reference",
-										"id": 202,
+										"id": 213,
 										"name": "NodeModel"
 									}
 								}
 							]
 						},
 						{
-							"id": 172,
+							"id": 183,
 							"name": "findRelationship",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4096,19 +4378,19 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 103,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L103"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L103"
 								}
 							],
 							"signatures": [
 								{
-									"id": 173,
+									"id": 184,
 									"name": "findRelationship",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 174,
+											"id": 185,
 											"name": "relationshipId",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4128,7 +4410,7 @@
 											},
 											{
 												"type": "reference",
-												"id": 233,
+												"id": 244,
 												"name": "RelationshipModel"
 											}
 										]
@@ -4137,7 +4419,7 @@
 							]
 						},
 						{
-							"id": 181,
+							"id": 192,
 							"name": "removeConnectedRelationships",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4149,26 +4431,26 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 119,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L119"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L119"
 								}
 							],
 							"signatures": [
 								{
-									"id": 182,
+									"id": 193,
 									"name": "removeConnectedRelationships",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 183,
+											"id": 194,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 202,
+												"id": 213,
 												"name": "NodeModel"
 											}
 										}
@@ -4181,7 +4463,7 @@
 							]
 						},
 						{
-							"id": 157,
+							"id": 168,
 							"name": "removeNode",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4193,26 +4475,26 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 73,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L73"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L73"
 								}
 							],
 							"signatures": [
 								{
-									"id": 158,
+									"id": 169,
 									"name": "removeNode",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 159,
+											"id": 170,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 202,
+												"id": 213,
 												"name": "NodeModel"
 											}
 										}
@@ -4225,7 +4507,7 @@
 							]
 						},
 						{
-							"id": 194,
+							"id": 205,
 							"name": "resetGraph",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4237,12 +4519,12 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 168,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L168"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L168"
 								}
 							],
 							"signatures": [
 								{
-									"id": 195,
+									"id": 206,
 									"name": "resetGraph",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4255,7 +4537,7 @@
 							]
 						},
 						{
-							"id": 184,
+							"id": 195,
 							"name": "updateNode",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4267,26 +4549,26 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 									"line": 130,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L130"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L130"
 								}
 							],
 							"signatures": [
 								{
-									"id": 185,
+									"id": 196,
 									"name": "updateNode",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 186,
+											"id": 197,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 202,
+												"id": 213,
 												"name": "NodeModel"
 											}
 										}
@@ -4303,43 +4585,43 @@
 						{
 							"title": "Constructors",
 							"children": [
-								143
+								154
 							]
 						},
 						{
 							"title": "Properties",
 							"children": [
-								145,
-								146,
-								149,
-								147,
-								148
+								156,
+								157,
+								160,
+								158,
+								159
 							]
 						},
 						{
 							"title": "Accessors",
 							"children": [
-								150,
-								152
+								161,
+								163
 							]
 						},
 						{
 							"title": "Methods",
 							"children": [
-								187,
-								154,
-								166,
-								191,
-								160,
-								169,
-								175,
-								178,
-								163,
-								172,
-								181,
-								157,
-								194,
-								184
+								198,
+								165,
+								177,
+								202,
+								171,
+								180,
+								186,
+								189,
+								174,
+								183,
+								192,
+								168,
+								205,
+								195
 							]
 						}
 					],
@@ -4348,7 +4630,7 @@
 							"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 							"line": 19,
 							"character": 13,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L19"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L19"
 						}
 					]
 				}
@@ -4357,7 +4639,7 @@
 				{
 					"title": "Classes",
 					"children": [
-						142
+						153
 					]
 				}
 			],
@@ -4366,26 +4648,26 @@
 					"fileName": "messier-61-graph/graph-visualization/models/Graph.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Graph.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Graph.ts#L16"
 				}
 			]
 		},
 		{
-			"id": 196,
+			"id": 207,
 			"name": "messier-61-graph/graph-visualization/models/Node",
 			"kind": 2,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 202,
+					"id": 213,
 					"name": "NodeModel",
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {},
 					"children": [
 						{
-							"id": 203,
+							"id": 214,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -4395,19 +4677,19 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 46,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L46"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L46"
 								}
 							],
 							"signatures": [
 								{
-									"id": 204,
+									"id": 215,
 									"name": "new NodeModel",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 205,
+											"id": 216,
 											"name": "id",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4418,7 +4700,7 @@
 											}
 										},
 										{
-											"id": 206,
+											"id": 217,
 											"name": "labels",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4432,7 +4714,7 @@
 											}
 										},
 										{
-											"id": 207,
+											"id": 218,
 											"name": "properties",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4455,7 +4737,7 @@
 											}
 										},
 										{
-											"id": 208,
+											"id": 219,
 											"name": "propertyTypes",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4480,14 +4762,14 @@
 									],
 									"type": {
 										"type": "reference",
-										"id": 202,
+										"id": 213,
 										"name": "NodeModel"
 									}
 								}
 							]
 						},
 						{
-							"id": 214,
+							"id": 225,
 							"name": "caption",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4497,20 +4779,20 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 32,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L32"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L32"
 								}
 							],
 							"type": {
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 197,
+									"id": 208,
 									"name": "NodeCaptionLine"
 								}
 							}
 						},
 						{
-							"id": 218,
+							"id": 229,
 							"name": "contextMenu",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4522,20 +4804,20 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 36,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L36"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L36"
 								}
 							],
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 219,
+									"id": 230,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"children": [
 										{
-											"id": 222,
+											"id": 233,
 											"name": "label",
 											"kind": 1024,
 											"kindString": "Property",
@@ -4545,7 +4827,7 @@
 													"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 													"line": 36,
 													"character": 62,
-													"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L36"
+													"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L36"
 												}
 											],
 											"type": {
@@ -4554,7 +4836,7 @@
 											}
 										},
 										{
-											"id": 221,
+											"id": 232,
 											"name": "menuContent",
 											"kind": 1024,
 											"kindString": "Property",
@@ -4564,7 +4846,7 @@
 													"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 													"line": 36,
 													"character": 41,
-													"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L36"
+													"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L36"
 												}
 											],
 											"type": {
@@ -4573,7 +4855,7 @@
 											}
 										},
 										{
-											"id": 220,
+											"id": 231,
 											"name": "menuSelection",
 											"kind": 1024,
 											"kindString": "Property",
@@ -4583,7 +4865,7 @@
 													"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 													"line": 36,
 													"character": 18,
-													"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L36"
+													"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L36"
 												}
 											],
 											"type": {
@@ -4596,9 +4878,9 @@
 										{
 											"title": "Properties",
 											"children": [
-												222,
-												221,
-												220
+												233,
+												232,
+												231
 											]
 										}
 									],
@@ -4607,14 +4889,14 @@
 											"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 											"line": 36,
 											"character": 16,
-											"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L36"
+											"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L36"
 										}
 									]
 								}
 							}
 						},
 						{
-							"id": 216,
+							"id": 227,
 							"name": "expanded",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4624,7 +4906,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 34,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L34"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L34"
 								}
 							],
 							"type": {
@@ -4633,7 +4915,7 @@
 							}
 						},
 						{
-							"id": 225,
+							"id": 236,
 							"name": "fx",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4643,7 +4925,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 40,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L40"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L40"
 								}
 							],
 							"type": {
@@ -4662,7 +4944,7 @@
 							"defaultValue": "null"
 						},
 						{
-							"id": 226,
+							"id": 237,
 							"name": "fy",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4672,7 +4954,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 41,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L41"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L41"
 								}
 							],
 							"type": {
@@ -4691,7 +4973,7 @@
 							"defaultValue": "null"
 						},
 						{
-							"id": 227,
+							"id": 238,
 							"name": "hoverFixed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4701,7 +4983,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 43,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L43"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L43"
 								}
 							],
 							"type": {
@@ -4710,7 +4992,7 @@
 							}
 						},
 						{
-							"id": 209,
+							"id": 220,
 							"name": "id",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4720,7 +5002,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 26,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L26"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L26"
 								}
 							],
 							"type": {
@@ -4729,7 +5011,7 @@
 							}
 						},
 						{
-							"id": 228,
+							"id": 239,
 							"name": "initialPositionCalculated",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4739,7 +5021,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 44,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L44"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L44"
 								}
 							],
 							"type": {
@@ -4748,7 +5030,7 @@
 							}
 						},
 						{
-							"id": 210,
+							"id": 221,
 							"name": "labels",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4758,7 +5040,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 27,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L27"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L27"
 								}
 							],
 							"type": {
@@ -4770,7 +5052,7 @@
 							}
 						},
 						{
-							"id": 217,
+							"id": 228,
 							"name": "minified",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4780,7 +5062,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 35,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L35"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L35"
 								}
 							],
 							"type": {
@@ -4789,7 +5071,7 @@
 							}
 						},
 						{
-							"id": 211,
+							"id": 222,
 							"name": "propertyList",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4799,20 +5081,20 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 28,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L28"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L28"
 								}
 							],
 							"type": {
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 262,
+									"id": 273,
 									"name": "VizItemProperty"
 								}
 							}
 						},
 						{
-							"id": 212,
+							"id": 223,
 							"name": "propertyMap",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4822,7 +5104,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 29,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L29"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L29"
 								}
 							],
 							"type": {
@@ -4843,7 +5125,7 @@
 							}
 						},
 						{
-							"id": 213,
+							"id": 224,
 							"name": "radius",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4853,7 +5135,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 31,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L31"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L31"
 								}
 							],
 							"type": {
@@ -4862,7 +5144,7 @@
 							}
 						},
 						{
-							"id": 215,
+							"id": 226,
 							"name": "selected",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4872,7 +5154,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 33,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L33"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L33"
 								}
 							],
 							"type": {
@@ -4881,7 +5163,7 @@
 							}
 						},
 						{
-							"id": 223,
+							"id": 234,
 							"name": "x",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4891,7 +5173,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 38,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L38"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L38"
 								}
 							],
 							"type": {
@@ -4900,7 +5182,7 @@
 							}
 						},
 						{
-							"id": 224,
+							"id": 235,
 							"name": "y",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4910,7 +5192,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 39,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L39"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L39"
 								}
 							],
 							"type": {
@@ -4919,7 +5201,7 @@
 							}
 						},
 						{
-							"id": 229,
+							"id": 240,
 							"name": "toJson",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4931,12 +5213,12 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 68,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L68"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L68"
 								}
 							],
 							"signatures": [
 								{
-									"id": 230,
+									"id": 241,
 									"name": "toJson",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4965,34 +5247,34 @@
 						{
 							"title": "Constructors",
 							"children": [
-								203
+								214
 							]
 						},
 						{
 							"title": "Properties",
 							"children": [
-								214,
-								218,
-								216,
 								225,
-								226,
+								229,
 								227,
-								209,
+								236,
+								237,
+								238,
+								220,
+								239,
+								221,
 								228,
-								210,
-								217,
-								211,
-								212,
-								213,
-								215,
+								222,
 								223,
-								224
+								224,
+								226,
+								234,
+								235
 							]
 						},
 						{
 							"title": "Methods",
 							"children": [
-								229
+								240
 							]
 						}
 					],
@@ -5001,19 +5283,19 @@
 							"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 							"line": 25,
 							"character": 13,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L25"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L25"
 						}
 					]
 				},
 				{
-					"id": 197,
+					"id": 208,
 					"name": "NodeCaptionLine",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 200,
+							"id": 211,
 							"name": "baseline",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5023,7 +5305,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 21,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L21"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L21"
 								}
 							],
 							"type": {
@@ -5032,7 +5314,7 @@
 							}
 						},
 						{
-							"id": 198,
+							"id": 209,
 							"name": "node",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5042,17 +5324,17 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 19,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L19"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L19"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 202,
+								"id": 213,
 								"name": "NodeModel"
 							}
 						},
 						{
-							"id": 201,
+							"id": 212,
 							"name": "remainingWidth",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5062,7 +5344,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 22,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L22"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L22"
 								}
 							],
 							"type": {
@@ -5071,7 +5353,7 @@
 							}
 						},
 						{
-							"id": 199,
+							"id": 210,
 							"name": "text",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5081,7 +5363,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 									"line": 20,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L20"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L20"
 								}
 							],
 							"type": {
@@ -5094,10 +5376,10 @@
 						{
 							"title": "Properties",
 							"children": [
-								200,
-								198,
-								201,
-								199
+								211,
+								209,
+								212,
+								210
 							]
 						}
 					],
@@ -5106,7 +5388,7 @@
 							"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 							"line": 18,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L18"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L18"
 						}
 					]
 				}
@@ -5115,13 +5397,13 @@
 				{
 					"title": "Classes",
 					"children": [
-						202
+						213
 					]
 				},
 				{
 					"title": "Interfaces",
 					"children": [
-						197
+						208
 					]
 				}
 			],
@@ -5130,26 +5412,26 @@
 					"fileName": "messier-61-graph/graph-visualization/models/Node.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Node.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Node.ts#L16"
 				}
 			]
 		},
 		{
-			"id": 231,
+			"id": 242,
 			"name": "messier-61-graph/graph-visualization/models/Relationship",
 			"kind": 2,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 233,
+					"id": 244,
 					"name": "RelationshipModel",
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {},
 					"children": [
 						{
-							"id": 234,
+							"id": 245,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -5159,19 +5441,19 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 39,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L39"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L39"
 								}
 							],
 							"signatures": [
 								{
-									"id": 235,
+									"id": 246,
 									"name": "new RelationshipModel",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 236,
+											"id": 247,
 											"name": "id",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5182,31 +5464,31 @@
 											}
 										},
 										{
-											"id": 237,
+											"id": 248,
 											"name": "source",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 202,
+												"id": 213,
 												"name": "NodeModel"
 											}
 										},
 										{
-											"id": 238,
+											"id": 249,
 											"name": "target",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 202,
+												"id": 213,
 												"name": "NodeModel"
 											}
 										},
 										{
-											"id": 239,
+											"id": 250,
 											"name": "type",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5217,7 +5499,7 @@
 											}
 										},
 										{
-											"id": 240,
+											"id": 251,
 											"name": "properties",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5240,7 +5522,7 @@
 											}
 										},
 										{
-											"id": 241,
+											"id": 252,
 											"name": "propertyTypes",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5265,14 +5547,14 @@
 									],
 									"type": {
 										"type": "reference",
-										"id": 233,
+										"id": 244,
 										"name": "RelationshipModel"
 									}
 								}
 							]
 						},
 						{
-							"id": 249,
+							"id": 260,
 							"name": "caption",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5282,7 +5564,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 30,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L30"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L30"
 								}
 							],
 							"type": {
@@ -5291,7 +5573,7 @@
 							}
 						},
 						{
-							"id": 251,
+							"id": 262,
 							"name": "captionHeight",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5301,7 +5583,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 32,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L32"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L32"
 								}
 							],
 							"type": {
@@ -5310,7 +5592,7 @@
 							}
 						},
 						{
-							"id": 252,
+							"id": 263,
 							"name": "captionLayout",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5320,17 +5602,17 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 33,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L33"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L33"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 232,
+								"id": 243,
 								"name": "RelationshipCaptionLayout"
 							}
 						},
 						{
-							"id": 250,
+							"id": 261,
 							"name": "captionLength",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5340,7 +5622,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 31,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L31"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L31"
 								}
 							],
 							"type": {
@@ -5349,7 +5631,7 @@
 							}
 						},
 						{
-							"id": 256,
+							"id": 267,
 							"name": "centreDistance",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5359,7 +5641,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 37,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L37"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L37"
 								}
 							],
 							"type": {
@@ -5368,7 +5650,7 @@
 							}
 						},
 						{
-							"id": 242,
+							"id": 253,
 							"name": "id",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5378,7 +5660,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 22,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L22"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L22"
 								}
 							],
 							"type": {
@@ -5387,7 +5669,7 @@
 							}
 						},
 						{
-							"id": 248,
+							"id": 259,
 							"name": "naturalAngle",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5397,7 +5679,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 29,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L29"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L29"
 								}
 							],
 							"type": {
@@ -5406,7 +5688,7 @@
 							}
 						},
 						{
-							"id": 243,
+							"id": 254,
 							"name": "propertyList",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5416,20 +5698,20 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 23,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L23"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L23"
 								}
 							],
 							"type": {
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 262,
+									"id": 273,
 									"name": "VizItemProperty"
 								}
 							}
 						},
 						{
-							"id": 244,
+							"id": 255,
 							"name": "propertyMap",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5439,7 +5721,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 24,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L24"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L24"
 								}
 							],
 							"type": {
@@ -5460,7 +5742,7 @@
 							}
 						},
 						{
-							"id": 255,
+							"id": 266,
 							"name": "selected",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5470,7 +5752,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 36,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L36"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L36"
 								}
 							],
 							"type": {
@@ -5479,7 +5761,7 @@
 							}
 						},
 						{
-							"id": 253,
+							"id": 264,
 							"name": "shortCaption",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5489,7 +5771,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 34,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L34"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L34"
 								}
 							],
 							"type": {
@@ -5507,7 +5789,7 @@
 							}
 						},
 						{
-							"id": 254,
+							"id": 265,
 							"name": "shortCaptionLength",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5517,7 +5799,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 35,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L35"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L35"
 								}
 							],
 							"type": {
@@ -5535,7 +5817,7 @@
 							}
 						},
 						{
-							"id": 245,
+							"id": 256,
 							"name": "source",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5545,17 +5827,17 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 25,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L25"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L25"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 202,
+								"id": 213,
 								"name": "NodeModel"
 							}
 						},
 						{
-							"id": 246,
+							"id": 257,
 							"name": "target",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5565,17 +5847,17 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 26,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L26"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L26"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 202,
+								"id": 213,
 								"name": "NodeModel"
 							}
 						},
 						{
-							"id": 247,
+							"id": 258,
 							"name": "type",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5585,7 +5867,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 27,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L27"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L27"
 								}
 							],
 							"type": {
@@ -5594,7 +5876,7 @@
 							}
 						},
 						{
-							"id": 259,
+							"id": 270,
 							"name": "isLoop",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5606,12 +5888,12 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 71,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L71"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L71"
 								}
 							],
 							"signatures": [
 								{
-									"id": 260,
+									"id": 271,
 									"name": "isLoop",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5624,7 +5906,7 @@
 							]
 						},
 						{
-							"id": 257,
+							"id": 268,
 							"name": "toJson",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5636,12 +5918,12 @@
 									"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 									"line": 67,
 									"character": 9,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L67"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L67"
 								}
 							],
 							"signatures": [
 								{
-									"id": 258,
+									"id": 269,
 									"name": "toJson",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5670,34 +5952,34 @@
 						{
 							"title": "Constructors",
 							"children": [
-								234
+								245
 							]
 						},
 						{
 							"title": "Properties",
 							"children": [
-								249,
-								251,
-								252,
-								250,
-								256,
-								242,
-								248,
-								243,
-								244,
-								255,
+								260,
+								262,
+								263,
+								261,
+								267,
 								253,
+								259,
 								254,
-								245,
-								246,
-								247
+								255,
+								266,
+								264,
+								265,
+								256,
+								257,
+								258
 							]
 						},
 						{
 							"title": "Methods",
 							"children": [
-								259,
-								257
+								270,
+								268
 							]
 						}
 					],
@@ -5706,12 +5988,12 @@
 							"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 							"line": 21,
 							"character": 13,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L21"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L21"
 						}
 					]
 				},
 				{
-					"id": 232,
+					"id": 243,
 					"name": "RelationshipCaptionLayout",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -5721,7 +6003,7 @@
 							"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 							"line": 19,
 							"character": 12,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L19"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L19"
 						}
 					],
 					"type": {
@@ -5743,13 +6025,13 @@
 				{
 					"title": "Classes",
 					"children": [
-						233
+						244
 					]
 				},
 				{
 					"title": "Type Aliases",
 					"children": [
-						232
+						243
 					]
 				}
 			],
@@ -5758,26 +6040,26 @@
 					"fileName": "messier-61-graph/graph-visualization/models/Relationship.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/Relationship.ts#L16"
 				}
 			]
 		},
 		{
-			"id": 261,
+			"id": 272,
 			"name": "messier-61-graph/graph-visualization/models/VizItemProperty",
 			"kind": 2,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 262,
+					"id": 273,
 					"name": "VizItemProperty",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 263,
+							"id": 274,
 							"name": "key",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5787,7 +6069,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/VizItemProperty.ts",
 									"line": 17,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/VizItemProperty.ts#L17"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/VizItemProperty.ts#L17"
 								}
 							],
 							"type": {
@@ -5796,7 +6078,7 @@
 							}
 						},
 						{
-							"id": 264,
+							"id": 275,
 							"name": "type",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5806,7 +6088,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/VizItemProperty.ts",
 									"line": 18,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/VizItemProperty.ts#L18"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/VizItemProperty.ts#L18"
 								}
 							],
 							"type": {
@@ -5815,7 +6097,7 @@
 							}
 						},
 						{
-							"id": 265,
+							"id": 276,
 							"name": "value",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5825,7 +6107,7 @@
 									"fileName": "messier-61-graph/graph-visualization/models/VizItemProperty.ts",
 									"line": 19,
 									"character": 2,
-									"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/VizItemProperty.ts#L19"
+									"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/VizItemProperty.ts#L19"
 								}
 							],
 							"type": {
@@ -5838,9 +6120,9 @@
 						{
 							"title": "Properties",
 							"children": [
-								263,
-								264,
-								265
+								274,
+								275,
+								276
 							]
 						}
 					],
@@ -5849,7 +6131,7 @@
 							"fileName": "messier-61-graph/graph-visualization/models/VizItemProperty.ts",
 							"line": 16,
 							"character": 17,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/VizItemProperty.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/VizItemProperty.ts#L16"
 						}
 					]
 				}
@@ -5858,7 +6140,7 @@
 				{
 					"title": "Interfaces",
 					"children": [
-						262
+						273
 					]
 				}
 			],
@@ -5867,12 +6149,12 @@
 					"fileName": "messier-61-graph/graph-visualization/models/VizItemProperty.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graph/graph-visualization/models/VizItemProperty.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graph/graph-visualization/models/VizItemProperty.ts#L16"
 				}
 			]
 		},
 		{
-			"id": 267,
+			"id": 278,
 			"name": "messier-61-graphql-server/src/json-graphql-server",
 			"kind": 2,
 			"kindString": "Module",
@@ -5882,12 +6164,12 @@
 					"fileName": "messier-61-graphql-server/src/json-graphql-server.d.ts",
 					"line": 1,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graphql-server/src/json-graphql-server.d.ts#L1"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graphql-server/src/json-graphql-server.d.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 268,
+			"id": 279,
 			"name": "messier-61-graphql-server/src/server",
 			"kind": 2,
 			"kindString": "Module",
@@ -5897,19 +6179,19 @@
 					"fileName": "messier-61-graphql-server/src/server.ts",
 					"line": 1,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-graphql-server/src/server.ts#L1"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-graphql-server/src/server.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 272,
+			"id": 283,
 			"name": "messier-61-home",
 			"kind": 2,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 289,
+					"id": 300,
 					"name": "Home",
 					"kind": 8388608,
 					"kindString": "Reference",
@@ -5919,17 +6201,17 @@
 							"fileName": "messier-61-home/index.ts",
 							"line": 16,
 							"character": 20,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-home/index.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-home/index.ts#L16"
 						}
 					],
-					"target": 270
+					"target": 281
 				}
 			],
 			"groups": [
 				{
 					"title": "References",
 					"children": [
-						289
+						300
 					]
 				}
 			],
@@ -5938,19 +6220,19 @@
 					"fileName": "messier-61-home/index.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-home/index.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-home/index.ts#L16"
 				}
 			]
 		},
 		{
-			"id": 269,
+			"id": 280,
 			"name": "messier-61-home/Home",
 			"kind": 2,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 270,
+					"id": 281,
 					"name": "default",
 					"kind": 64,
 					"kindString": "Function",
@@ -5960,12 +6242,12 @@
 							"fileName": "messier-61-home/Home.tsx",
 							"line": 25,
 							"character": 24,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-home/Home.tsx#L25"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-home/Home.tsx#L25"
 						}
 					],
 					"signatures": [
 						{
-							"id": 271,
+							"id": 282,
 							"name": "default",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5984,7 +6266,7 @@
 				{
 					"title": "Functions",
 					"children": [
-						270
+						281
 					]
 				}
 			],
@@ -5993,19 +6275,19 @@
 					"fileName": "messier-61-home/Home.tsx",
 					"line": 14,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-home/Home.tsx#L14"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-home/Home.tsx#L14"
 				}
 			]
 		},
 		{
-			"id": 273,
+			"id": 284,
 			"name": "messier-61-nlp/BasicSVOParser",
 			"kind": 2,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 274,
+					"id": 285,
 					"name": "getSVOof",
 					"kind": 64,
 					"kindString": "Function",
@@ -6015,19 +6297,19 @@
 							"fileName": "messier-61-nlp/BasicSVOParser.ts",
 							"line": 16,
 							"character": 16,
-							"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-nlp/BasicSVOParser.ts#L16"
+							"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-nlp/BasicSVOParser.ts#L16"
 						}
 					],
 					"signatures": [
 						{
-							"id": 275,
+							"id": 286,
 							"name": "getSVOof",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 276,
+									"id": 287,
 									"name": "text",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6053,7 +6335,7 @@
 				{
 					"title": "Functions",
 					"children": [
-						274
+						285
 					]
 				}
 			],
@@ -6062,7 +6344,7 @@
 					"fileName": "messier-61-nlp/BasicSVOParser.ts",
 					"line": 16,
 					"character": 0,
-					"url": "https://github.com/paion-data/Messier-61/blob/6ccc7a2/packages/messier-61-nlp/BasicSVOParser.ts#L16"
+					"url": "https://github.com/paion-data/Messier-61/blob/be736df/packages/messier-61-nlp/BasicSVOParser.ts#L16"
 				}
 			]
 		}
@@ -6084,7 +6366,7 @@
 				71,
 				64,
 				67,
-				266,
+				277,
 				76,
 				72,
 				77,
@@ -6092,15 +6374,15 @@
 				105,
 				112,
 				116,
-				141,
-				196,
-				231,
-				261,
-				267,
-				268,
+				152,
+				207,
+				242,
 				272,
-				269,
-				273
+				278,
+				279,
+				283,
+				280,
+				284
 			]
 		}
 	]
