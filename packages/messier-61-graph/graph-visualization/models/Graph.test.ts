@@ -7,8 +7,8 @@ let graph: GraphModel;
 
 beforeEach(() => {
   graph = new GraphModel();
-  // expect(graph.nodes).toBe;
-  // expect(graph.relationships).toHaveSize(0);
+  expect(graph.nodes).toStrictEqual([]);
+  expect(graph.relationships).toStrictEqual([]);
 });
 
 test("Add a new graph node using the addOneNode function", () => {
