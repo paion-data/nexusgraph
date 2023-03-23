@@ -236,7 +236,7 @@ function constructNodeById(id: string): NodeModel {
   );
 }
 
-function constructRelationshipById(id: string, sourceId: string, targetId: string) {
+function constructRelationshipById(id: string, sourceId: string, targetId: string): RelationshipModel {
   return new RelationshipModel(
     id,
     constructNodeById(sourceId),

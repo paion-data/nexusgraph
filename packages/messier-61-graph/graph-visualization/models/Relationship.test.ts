@@ -36,7 +36,7 @@ function constructNodeById(id: string): NodeModel {
   );
 }
 
-function constructRelationshipById(id: string, source: NodeModel, target: NodeModel) {
+function constructRelationshipById(id: string, source: NodeModel, target: NodeModel): RelationshipModel {
   return new RelationshipModel(
     id,
     source,
