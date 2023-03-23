@@ -14,7 +14,7 @@ test("Relationship is loop", () => {
 
   const loopRelationship = constructRelationshipById("2", loopNode, loopNode);
 
-  expect(loopRelationship.isLoop()).toStrictEqual(true);
+  expect(loopRelationship.isLoop()).toBeTruthy();
 });
 
 test("Relationship is not loop", () => {
@@ -24,7 +24,7 @@ test("Relationship is not loop", () => {
 
   const unLoopRelationship = constructRelationshipById("3", node, otherNode);
 
-  expect(unLoopRelationship.isLoop()).toStrictEqual(false);
+  expect(unLoopRelationship.isLoop()).toBeFalsy();
 });
 
 function constructNodeById(id: string): NodeModel {

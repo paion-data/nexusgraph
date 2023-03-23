@@ -7,6 +7,8 @@ let graph: GraphModel;
 
 beforeEach(() => {
   graph = new GraphModel();
+  // expect(graph.nodes).toBe;
+  // expect(graph.relationships).toHaveSize(0);
 });
 
 test("Add a new graph node using the addOneNode function", () => {
@@ -49,7 +51,7 @@ test("Find contains node using the containsNode function", () => {
 
   graph.addNodes([haveNode]);
 
-  expect(graph.containsNode(haveNode)).not.toBe(null);
+  expect(graph.containsNode(haveNode)).toBeTruthy();
 });
 
 test("Find a node by node's id", () => {
@@ -85,7 +87,7 @@ test("Find contains relationship using the containsRelationship function", () =>
 
   graph.addRelationships([haveRelationship]);
 
-  expect(graph.containsRelationship(haveRelationship.id)).not.toBe(null);
+  expect(graph.containsRelationship(haveRelationship.id)).toBeTruthy();
 });
 
 test("Find a relationship by relationship's id", () => {
@@ -110,6 +112,14 @@ test("Find all neighbor ids Of node using the findAllNeighborIdsOfNode function"
   expect(graph.findAllNeighborIdsOfNode(startNode.id)).toStrictEqual([relationshipOfNode.target.id]);
 });
 
+test("Find all neighbor ids Of a separate node using the findAllNeighborIdsOfNode function", () => {
+  const separateNode = constructNodeById("1");
+
+  graph.addNodes([separateNode]);
+
+  expect(graph.findAllNeighborIdsOfNode(separateNode.id)).toStrictEqual([]);
+});
+
 test("Find all relationships to node using the findAllRelationshipsToNode function", () => {
   const starNode = constructNodeById("1");
 
@@ -129,6 +139,14 @@ test("Find all relationships to node using the findAllRelationshipsToNode functi
     relationshipOfStarNode1,
     relationshipOfStarNode2,
   ]);
+});
+
+test("A separate node using the findAllRelationshipsToNode function", () => {
+  const separateNode = constructNodeById("1");
+
+  graph.addNodes([separateNode]);
+
+  expect(graph.findAllRelationshipsToNode(separateNode.id)).toStrictEqual([]);
 });
 
 test("findAllRelationshipsToNode on loop", () => {
@@ -178,7 +196,7 @@ test("Add expand nodes of the node", () => {
   expect(graph.expandedNodeIdMap[expandingNode.id]).toStrictEqual([expandedNode.id]);
 });
 
-test("Expansion node of the collapse node", () => {
+test("[sanity check] collapsing a direct neighbor removes both the neighbor and the relationship", () => {
   const expandingNode = constructNodeById("1");
 
   const expandedNode = constructNodeById("2");
@@ -190,6 +208,10 @@ test("Expansion node of the collapse node", () => {
   graph.collapseNode(expandingNode);
 
   expect(graph.expandedNodeIdMap[expandingNode.id]).toStrictEqual([]);
+
+  expect(graph.nodes).toStrictEqual([]);
+
+  expect(graph.relationships).toStrictEqual([]);
 });
 
 test("Reset the graph of everything", () => {
