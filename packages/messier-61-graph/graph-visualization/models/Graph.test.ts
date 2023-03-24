@@ -215,6 +215,30 @@ test("[sanity check] collapsing a direct neighbor removes both the neighbor and 
   expect(graph.relationships).toStrictEqual([]);
 });
 
+test("[sanity check] collapsing a direct neighbor removes both the neighbor and the relationship of the recursive node", () => {
+  const expandingNode = constructNodeById("1");
+
+  const expandedNode = constructNodeById("2");
+
+  graph.addExpandedNodes(expandingNode, [expandedNode]);
+
+  const recursionExpandedNode = constructNodeById("3");
+
+  graph.addExpandedNodes(expandedNode, [recursionExpandedNode]);
+
+  const quadraticRecursionNode = constructNodeById("4");
+
+  graph.addExpandedNodes(recursionExpandedNode, [quadraticRecursionNode]);
+
+  graph.collapseNode(expandingNode);
+
+  expect(graph.expandedNodeIdMap[expandingNode.id]).toStrictEqual([]);
+
+  expect(graph.nodes).toStrictEqual([]);
+
+  expect(graph.relationships).toStrictEqual([]);
+});
+
 test("Reset the graph of everything", () => {
   const originalNode = constructNodeById("1");
 
