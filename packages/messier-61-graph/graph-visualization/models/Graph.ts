@@ -164,7 +164,8 @@ export class GraphModel {
       this.removeNode(expandedNode);
     });
 
-    this.expandedNodeIdMap[node.id] = [];
+    // eslint-disable-next-line  @typescript-eslint/no-dynamic-delete
+    delete this.expandedNodeIdMap[node.id];
   }
 
   public resetGraph(): void {

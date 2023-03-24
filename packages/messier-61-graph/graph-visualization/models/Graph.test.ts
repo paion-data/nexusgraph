@@ -199,58 +199,50 @@ test("Expanded nodes are added as regular graph nodes and mappings for them are 
 
 test("[sanity check] collapsing a direct neighbor removes both the neighbor and the relationship", () => {
   const expandingNode = constructNodeById("1");
+  graph.addNodes([expandingNode]);
 
   const expandedNode = constructNodeById("2");
-
   graph.addExpandedNodes(expandingNode, [expandedNode]);
 
-  expect(graph.nodes).toStrictEqual([expandedNode]);
+  expect(graph.nodes).toStrictEqual([expandingNode, expandedNode]);
 
   graph.collapseNode(expandingNode);
 
-  const expectedMap: Record<string, string[]> = {};
+  expect(graph.expandedNodeIdMap).toStrictEqual({});
 
-  expectedMap[expandingNode.id] = [];
-
-  expect(graph.expandedNodeIdMap).toStrictEqual(expectedMap);
-
-  expect(graph.nodes).toStrictEqual([]);
+  expect(graph.nodes).toStrictEqual([expandingNode]);
 
   expect(graph.relationships).toStrictEqual([]);
 });
 
-test("[sanity check] collapsing a direct neighbor removes both the neighbor and the relationship of the recursive node", () => {
+test("collapsing a direct neighbor removes both the neighbor and the relationship of the recursive node", () => {
   const expandingNode = constructNodeById("1");
+  graph.addNodes([expandingNode]);
 
   const expandedNode = constructNodeById("2");
-
   graph.addExpandedNodes(expandingNode, [expandedNode]);
 
   const recursionExpandedNode = constructNodeById("3");
-
   graph.addExpandedNodes(expandedNode, [recursionExpandedNode]);
 
   const quadraticRecursionNode = constructNodeById("4");
-
   graph.addExpandedNodes(recursionExpandedNode, [quadraticRecursionNode]);
 
-  expect(graph.nodes).toStrictEqual([expandedNode, recursionExpandedNode, quadraticRecursionNode]);
+  expect(graph.nodes).toStrictEqual([expandingNode, expandedNode, recursionExpandedNode, quadraticRecursionNode]);
 
   graph.collapseNode(expandingNode);
 
   const expectedMap: Record<string, string[]> = {};
 
-  expectedMap[expandingNode.id] = [];
+  // expectedMap[expandingNode.id] = [];
 
-  expectedMap[expandedNode.id] = [];
+  // expectedMap[expandedNode.id] = [];
 
-  expectedMap[recursionExpandedNode.id] = [];
+  // expectedMap[recursionExpandedNode.id] = [];
 
-  expect(graph.expandedNodeIdMap).toStrictEqual(expectedMap);
+  expect(graph.expandedNodeIdMap).toStrictEqual({});
 
-  expect(graph.expandedNodeIdMap).toStrictEqual(expectedMap);
-
-  expect(graph.nodes).toStrictEqual([]);
+  expect(graph.nodes).toStrictEqual([expandingNode]);
 
   expect(graph.relationships).toStrictEqual([]);
 });
