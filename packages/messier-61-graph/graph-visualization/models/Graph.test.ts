@@ -11,32 +11,32 @@ beforeEach(() => {
   expect(graph.relationships).toStrictEqual([]);
 });
 
-test("Add a new graph node using the addOneNode function", () => {
-  const addOneNode = constructNodeById("1");
+test("Adding distinct nodes makes them part of the graph nodes", () => {
+  const firstNode = constructNodeById("1");
 
-  graph.addNodes([addOneNode]);
+  graph.addNodes([firstNode]);
 
-  expect(graph.nodes).toStrictEqual([addOneNode]);
+  expect(graph.nodes).toStrictEqual([firstNode]);
 
-  const addOtherNode = constructNodeById("2");
+  const secondNode = constructNodeById("2");
 
-  graph.addNodes([addOtherNode]);
+  graph.addNodes([secondNode]);
 
-  expect(graph.nodes).toStrictEqual([addOneNode, addOtherNode]);
+  expect(graph.nodes).toStrictEqual([firstNode, secondNode]);
 });
 
 test("existing node does not get added twice", () => {
-  const addFirstNode = constructNodeById("1");
-  const repeatAddNode = constructNodeById("2");
+  const firstNode = constructNodeById("1");
+  const secondNode = constructNodeById("2");
 
-  graph.addNodes([addFirstNode, repeatAddNode]);
+  graph.addNodes([firstNode, secondNode]);
 
-  graph.addNodes([repeatAddNode]);
+  graph.addNodes([secondNode]);
 
-  expect(graph.nodes).toStrictEqual([addFirstNode, repeatAddNode]);
+  expect(graph.nodes).toStrictEqual([firstNode, secondNode]);
 });
 
-test("Remove a new graph node using the removeNode function", () => {
+test("Removes a node from the graph nodes", () => {
   const removeNode = constructNodeById("1");
 
   graph.addNodes([removeNode]);
@@ -46,12 +46,12 @@ test("Remove a new graph node using the removeNode function", () => {
   expect(graph.nodes).toStrictEqual([]);
 });
 
-test("Find contains node using the containsNode function", () => {
-  const haveNode = constructNodeById("1");
+test("Find contains node from the graph nodes", () => {
+  const graphNode = constructNodeById("1");
 
-  graph.addNodes([haveNode]);
+  graph.addNodes([graphNode]);
 
-  expect(graph.containsNode(haveNode)).toBeTruthy();
+  expect(graph.containsNode(graphNode)).toBeTruthy();
 });
 
 test("Find a node by node's id", () => {
@@ -62,57 +62,57 @@ test("Find a node by node's id", () => {
   expect(graph.findNode("1")).toStrictEqual(findNodeById);
 });
 
-test("Add a new relationship using the addRelationships function", () => {
-  const addOneRelationship = constructRelationshipById("4", "1", "2");
+test("Adding distinct relationships makes them part of the graph relationships", () => {
+  const relationship = constructRelationshipById("4", "1", "2");
 
-  graph.addRelationships([addOneRelationship]);
+  graph.addRelationships([relationship]);
 
-  expect(graph.relationships).toStrictEqual([addOneRelationship]);
+  expect(graph.relationships).toStrictEqual([relationship]);
 });
 
 test("existing relationship does not get added twice", () => {
-  const addOneRelationship = constructRelationshipById("4", "1", "2");
+  const firstRelationship = constructRelationshipById("4", "1", "2");
 
-  const repeatAddRelationship = constructRelationshipById("5", "1", "3");
+  const secondRelationship = constructRelationshipById("5", "1", "3");
 
-  graph.addRelationships([addOneRelationship, repeatAddRelationship]);
+  graph.addRelationships([firstRelationship, secondRelationship]);
 
-  graph.addRelationships([repeatAddRelationship]);
+  graph.addRelationships([secondRelationship]);
 
-  expect(graph.relationships).toStrictEqual([addOneRelationship, repeatAddRelationship]);
+  expect(graph.relationships).toStrictEqual([firstRelationship, secondRelationship]);
 });
 
-test("Find contains relationship using the containsRelationship function", () => {
-  const haveRelationship = constructRelationshipById("4", "1", "2");
+test("Find contains relationship from graph relationships", () => {
+  const graphRelationship = constructRelationshipById("4", "1", "2");
 
-  graph.addRelationships([haveRelationship]);
+  graph.addRelationships([graphRelationship]);
 
-  expect(graph.containsRelationship(haveRelationship.id)).toBeTruthy();
+  expect(graph.containsRelationship(graphRelationship.id)).toBeTruthy();
 });
 
 test("Find a relationship by relationship's id", () => {
-  const findRelationshipById = constructRelationshipById("4", "1", "2");
+  const relationship = constructRelationshipById("4", "1", "2");
 
-  graph.addRelationships([findRelationshipById]);
+  graph.addRelationships([relationship]);
 
-  expect(graph.findRelationship("4")).toStrictEqual(findRelationshipById);
+  expect(graph.findRelationship("4")).toStrictEqual(relationship);
 });
 
-test("Find all neighbor ids Of node using the findAllNeighborIdsOfNode function", () => {
-  const startNode = constructNodeById("1");
+test("Find all neighbor ids Of node", () => {
+  const masterNode = constructNodeById("1");
 
   const neighborNode = constructNodeById("2");
 
   const relationshipOfNode = constructRelationshipById("4", "1", "2");
 
-  graph.addNodes([startNode, neighborNode]);
+  graph.addNodes([masterNode, neighborNode]);
 
   graph.addRelationships([relationshipOfNode]);
 
-  expect(graph.findAllNeighborIdsOfNode(startNode.id)).toStrictEqual([relationshipOfNode.target.id]);
+  expect(graph.findAllNeighborIdsOfNode(masterNode.id)).toStrictEqual([relationshipOfNode.target.id]);
 });
 
-test("Find all neighbor ids Of a separate node using the findAllNeighborIdsOfNode function", () => {
+test("Find all neighbor ids Of a separate node", () => {
   const separateNode = constructNodeById("1");
 
   graph.addNodes([separateNode]);
@@ -120,28 +120,25 @@ test("Find all neighbor ids Of a separate node using the findAllNeighborIdsOfNod
   expect(graph.findAllNeighborIdsOfNode(separateNode.id)).toStrictEqual([]);
 });
 
-test("Find all relationships to node using the findAllRelationshipsToNode function", () => {
-  const starNode = constructNodeById("1");
+test("Find all relationships to node", () => {
+  const masterNode = constructNodeById("1");
 
   const neighborNode1 = constructNodeById("2");
 
   const neighborNode2 = constructNodeById("3");
 
-  graph.addNodes([starNode, neighborNode1, neighborNode2]);
+  graph.addNodes([masterNode, neighborNode1, neighborNode2]);
 
-  const relationshipOfStarNode1 = constructRelationshipById("4", "1", "2");
+  const firstRelationship = constructRelationshipById("4", "1", "2");
 
-  const relationshipOfStarNode2 = constructRelationshipById("5", "1", "3");
+  const secondRelationship = constructRelationshipById("5", "1", "3");
 
-  graph.addRelationships([relationshipOfStarNode1, relationshipOfStarNode2]);
+  graph.addRelationships([firstRelationship, secondRelationship]);
 
-  expect(graph.findAllRelationshipsToNode(starNode.id)).toStrictEqual([
-    relationshipOfStarNode1,
-    relationshipOfStarNode2,
-  ]);
+  expect(graph.findAllRelationshipsToNode(masterNode.id)).toStrictEqual([firstRelationship, secondRelationship]);
 });
 
-test("A separate node using the findAllRelationshipsToNode function", () => {
+test("Finds all relationships for a node that has no relationship ", () => {
   const separateNode = constructNodeById("1");
 
   graph.addNodes([separateNode]);
@@ -166,7 +163,7 @@ test("findAllRelationshipsToNode on loop", () => {
   expect(graph.findAllRelationshipsToNode(singleNode.id)).toStrictEqual([selfPointingLink]);
 });
 
-test("Remove connected relationships", () => {
+test("Remove the relationship on the node", () => {
   const originalNode = constructNodeById("1");
 
   graph.addNodes([originalNode]);
@@ -182,18 +179,22 @@ test("Remove connected relationships", () => {
   expect(graph.relationshipMap[relationshipOnNode.id]).toStrictEqual(undefined);
 });
 
-test("Add expand nodes of the node", () => {
+test("Expanded nodes are added as regular graph nodes and mappings for them are also created", () => {
   const expandedNode = constructNodeById("1");
 
   const expandingNode = constructNodeById("2");
 
-  const expandedNodes = [expandedNode];
+  graph.addExpandedNodes(expandingNode, [expandedNode]);
 
-  graph.addExpandedNodes(expandingNode, expandedNodes);
+  const expandingNodeId = expandingNode.id;
 
-  expect(graph.expandedNodeIdMap[expandingNode.id]).not.toBe(null);
+  const expectedMap: Record<string, string[]> = {};
 
-  expect(graph.expandedNodeIdMap[expandingNode.id]).toStrictEqual([expandedNode.id]);
+  expectedMap[expandingNodeId] = [expandedNode.id];
+
+  expect(graph.expandedNodeIdMap).toStrictEqual(expectedMap);
+
+  expect(graph.nodes).toStrictEqual([expandedNode]);
 });
 
 test("[sanity check] collapsing a direct neighbor removes both the neighbor and the relationship", () => {
