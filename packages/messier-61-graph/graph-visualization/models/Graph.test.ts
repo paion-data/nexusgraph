@@ -202,13 +202,17 @@ test("[sanity check] collapsing a direct neighbor removes both the neighbor and 
 
   const expandedNode = constructNodeById("2");
 
-  const expandedNodes = [expandedNode];
+  graph.addExpandedNodes(expandingNode, [expandedNode]);
 
-  graph.addExpandedNodes(expandingNode, expandedNodes);
+  expect(graph.nodes).toStrictEqual([expandedNode]);
 
   graph.collapseNode(expandingNode);
 
-  expect(graph.expandedNodeIdMap[expandingNode.id]).toStrictEqual([]);
+  const expectedMap: Record<string, string[]> = {};
+
+  expectedMap[expandingNode.id] = [];
+
+  expect(graph.expandedNodeIdMap).toStrictEqual(expectedMap);
 
   expect(graph.nodes).toStrictEqual([]);
 
@@ -230,9 +234,21 @@ test("[sanity check] collapsing a direct neighbor removes both the neighbor and 
 
   graph.addExpandedNodes(recursionExpandedNode, [quadraticRecursionNode]);
 
+  expect(graph.nodes).toStrictEqual([expandedNode, recursionExpandedNode, quadraticRecursionNode]);
+
   graph.collapseNode(expandingNode);
 
-  expect(graph.expandedNodeIdMap[expandingNode.id]).toStrictEqual([]);
+  const expectedMap: Record<string, string[]> = {};
+
+  expectedMap[expandingNode.id] = [];
+
+  expectedMap[expandedNode.id] = [];
+
+  expectedMap[recursionExpandedNode.id] = [];
+
+  expect(graph.expandedNodeIdMap).toStrictEqual(expectedMap);
+
+  expect(graph.expandedNodeIdMap).toStrictEqual(expectedMap);
 
   expect(graph.nodes).toStrictEqual([]);
 
