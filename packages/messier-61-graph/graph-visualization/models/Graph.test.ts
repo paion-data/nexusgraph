@@ -232,14 +232,6 @@ test("collapsing a direct neighbor removes both the neighbor and the relationshi
 
   graph.collapseNode(expandingNode);
 
-  const expectedMap: Record<string, string[]> = {};
-
-  // expectedMap[expandingNode.id] = [];
-
-  // expectedMap[expandedNode.id] = [];
-
-  // expectedMap[recursionExpandedNode.id] = [];
-
   expect(graph.expandedNodeIdMap).toStrictEqual({});
 
   expect(graph.nodes).toStrictEqual([expandingNode]);
