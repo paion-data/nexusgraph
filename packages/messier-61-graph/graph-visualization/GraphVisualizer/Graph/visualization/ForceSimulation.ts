@@ -139,7 +139,7 @@ export class ForceSimulation {
    *
    * @returns PERIMETER / (2 * PI)
    */
-  private getRadius(numNodes: number): number {
+  public getRadius(numNodes: number): number {
     return (numNodes * LINK_DISTANCE) / (Math.PI * 2);
   }
 
@@ -151,10 +151,14 @@ export class ForceSimulation {
    * @param center The coordinates of the center of the circle
    * @param radius The radius of the circle
    */
-  private circularLayout(nodes: NodeModel[], center: { x: number; y: number }, radius: number): void {
+  public circularLayout(nodes: NodeModel[], center: { x: number; y: number }, radius: number): void {
     const unlocatedNodes = nodes.filter((node) => !node.initialPositionCalculated);
 
     unlocatedNodes.forEach((node, i) => {
+      console.log(
+        ` Math.cos((2 * Math.PI * i) / unlocatedNodes.length) = ${Math.cos((2 * Math.PI * i) / unlocatedNodes.length)}`
+      );
+
       node.x = center.x + radius * Math.cos((2 * Math.PI * i) / unlocatedNodes.length);
       node.y = center.y + radius * Math.sin((2 * Math.PI * i) / unlocatedNodes.length);
       node.initialPositionCalculated = true;
@@ -199,7 +203,7 @@ export class ForceSimulation {
    *
    * @returns a sub-list of relationships, each of which connects a unique pair of nodes
    */
-  private getAllRelationshipsPerPairOfNodes(relationships: RelationshipModel[]): RelationshipModel[] {
+  public getAllRelationshipsPerPairOfNodes(relationships: RelationshipModel[]): RelationshipModel[] {
     return relationships.filter(
       (relationship, idx, self) =>
         idx === self.findIndex((it) => it.source === relationship.source && it.target === relationship.target)
