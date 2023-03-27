@@ -5,6 +5,11 @@ import { NodeModel } from "../../../models/Node";
 const CLOSE_TO_ZERO: number = 0 + 0.00000000000001;
 const CLOSE_TO_SQUARE_ROOT_TWO: number = Math.sqrt(2) / 2 + 0.000000000234;
 const CLOSE_TO_SQUARE_ROOT_THREE: number = Math.sqrt(3) / 2 + 0.000000000234;
+const CENTER = {
+  x: 0,
+  y: 0,
+};
+const RADIUS = 10;
 
 let forceSimulation: ForceSimulation;
 
@@ -24,17 +29,10 @@ test("When there are four nodes uniformly distributed on the ring, the coordinat
   const nodeNegativeAxisX = constructNodeById("3");
   const nodeNegativeAxisY = constructNodeById("4");
 
-  const center = {
-    x: 0,
-    y: 0,
-  };
-
-  const radius = 10;
-
   forceSimulation.circularLayout(
     [nodePositiveAxisX, nodePositiveAxisY, nodeNegativeAxisX, nodeNegativeAxisY],
-    center,
-    radius
+    CENTER,
+    RADIUS
   );
 
   expect(nodePositiveAxisX.x).toBe(10);
@@ -61,13 +59,6 @@ test("When there are eight nodes uniformly distributed on the ring, the coordina
   const nodeThirdQuadrant = constructNodeById("7");
   const nodeFourthQuadrant = constructNodeById("8");
 
-  const center = {
-    x: 0,
-    y: 0,
-  };
-
-  const radius = 10;
-
   forceSimulation.circularLayout(
     [
       nodePositiveAxisX,
@@ -79,9 +70,21 @@ test("When there are eight nodes uniformly distributed on the ring, the coordina
       nodeNegativeAxisY,
       nodeFourthQuadrant,
     ],
-    center,
-    radius
+    CENTER,
+    RADIUS
   );
+
+  expect(nodePositiveAxisX.x).toBe(10);
+  expect(nodePositiveAxisX.y).toBe(0);
+
+  expect(nodePositiveAxisY.x).toBeLessThan(CLOSE_TO_ZERO);
+  expect(nodePositiveAxisY.y).toBe(10);
+
+  expect(nodeNegativeAxisX.x).toBe(-10);
+  expect(nodeNegativeAxisX.y).toBeLessThan(CLOSE_TO_ZERO);
+
+  expect(nodeNegativeAxisY.x).toBeLessThan(CLOSE_TO_ZERO);
+  expect(nodeNegativeAxisY.y).toBe(-10);
 
   expect(nodeFirstQuadrant.x).toBeLessThanOrEqual(10 * CLOSE_TO_SQUARE_ROOT_TWO);
   expect(nodeFirstQuadrant.y).toBeLessThanOrEqual(10 * CLOSE_TO_SQUARE_ROOT_TWO);
@@ -112,13 +115,6 @@ test("When there are twelve nodes uniformly distributed on the ring, the coordin
   const nodeThirdQuadrant2 = constructNodeById("7");
   const nodeFourthQuadrant2 = constructNodeById("8");
 
-  const center = {
-    x: 0,
-    y: 0,
-  };
-
-  const radius = 10;
-
   forceSimulation.circularLayout(
     [
       nodePositiveAxisX,
@@ -134,9 +130,22 @@ test("When there are twelve nodes uniformly distributed on the ring, the coordin
       nodeFourthQuadrant1,
       nodeFourthQuadrant2,
     ],
-    center,
-    radius
+    CENTER,
+    RADIUS
   );
+
+
+  expect(nodePositiveAxisX.x).toBe(10);
+  expect(nodePositiveAxisX.y).toBe(0);
+
+  expect(nodePositiveAxisY.x).toBeLessThan(CLOSE_TO_ZERO);
+  expect(nodePositiveAxisY.y).toBe(10);
+
+  expect(nodeNegativeAxisX.x).toBe(-10);
+  expect(nodeNegativeAxisX.y).toBeLessThan(CLOSE_TO_ZERO);
+
+  expect(nodeNegativeAxisY.x).toBeLessThan(CLOSE_TO_ZERO);
+  expect(nodeNegativeAxisY.y).toBe(-10);
 
   expect(nodeFirstQuadrant1.x).toBeLessThanOrEqual(10 * CLOSE_TO_SQUARE_ROOT_THREE);
   expect(nodeFirstQuadrant1.y).toBeLessThanOrEqual(5);
