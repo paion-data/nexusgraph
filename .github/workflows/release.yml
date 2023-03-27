@@ -73,6 +73,12 @@ jobs:
         run: |
           cd ../
           npm install
+
+          cd packages/messier-61-graph
+          npm install
+
+          cd ../messier-61-graphql-server
+          npm install
       - name: Install doc dependencies
         run: yarn install
       - name: Build documentation
