@@ -134,7 +134,6 @@ test("When there are twelve nodes uniformly distributed on the ring, the coordin
     RADIUS
   );
 
-
   expect(nodePositiveAxisX.x).toBe(10);
   expect(nodePositiveAxisX.y).toBe(0);
 
