@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { ForceSimulation } from "./ForceSimulation";
-import { NodeModel } from "../../../models/Node";
+import { NodeModel } from "./models/Node";
 
 const CLOSE_TO_ZERO: number = 0 + 0.00000000000001;
 const CLOSE_TO_SQUARE_ROOT_TWO: number = Math.sqrt(2) / 2 + 0.000000000234;
