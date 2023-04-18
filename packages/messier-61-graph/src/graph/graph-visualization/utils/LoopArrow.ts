@@ -1,36 +1,52 @@
-/*
- * Copyright Jiaqi Liu
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+// Copyright 2023 Paion Data. All rights reserved.
+import { Point } from './Point'
+
+/**
+ * Draws a loop arrow on loop nodes
  */
-class Point {
-  x: number
-  y: number
-  constructor(x: number, y: number) {
-    this.x = x
-    this.y = y
-  }
-
-  toString() {
-    return `${this.x} ${this.y}`
-  }
-}
-
 export class LoopArrow {
-  midShaftPoint: Point
-  outline: () => string
-  overlay: (minWidth: number) => string
+  public midShaftPoint: Point
+  public outline: () => string
+  public overlay: (minWidth: number) => string
   shaftLength: number
+
+  /**
+   * All-args constructor.
+   *
+   * Define the relationship curve of loop nodes
+   *
+   * We use the path to create the graph.  It's plotted by giving us a set of coordinates of points.  It is used to
+   * give a coordinate point, before the coordinate point to add an English letter, indicating how to move to this
+   * coordinate point. See [path](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths) for more details.
+   *
+   * The configuraion is the following:
+   *
+   * - Obtain the x and y coordinates of the tangent point of the relationship.  In mathematics the word ‘normal’ has a
+   * very specific meaning.   Itmeans ‘perpendicular’ or ‘atright angles’.  If we have a curve , we can choose a point
+   * and draw in the tangentto the curve at that point. The normal is then at right angles to the curve so it is also
+   * at rightangles (perpendicular) to the tangent.Use the "normalPoint" function, whose arguments include "sweep" (The
+   * Angle at which the arc intersects the tangent line), "radius" (The radius of the arc where the tangent point is),
+   * "displacement" (The offset of the tangent point of the relationship, that is, half of the "shaftWidth")
+   *
+   * - Draw the relationship curve of loop nodes. We use path to create curves.
+   *
+   * - Draw the graph of the overlay relationship, when the mouse moves over the relationship
+   *
+   * @param nodeRadius The radius of the source node of the relationship
+   *
+   * @param straightLength The minimum distance from the vertex of a node to the center of an arc
+   *
+   * @param spreadDegrees The Angle at which the arc unfolds
+   *
+   * @param shaftWidth  The line width of relationship. See
+   * [Shaft](https://en.wikipedia.org/wiki/Shaft_(mechanical_engineering)) for more details
+   *
+   * @param headWidth  The width of the arrows
+   *
+   * @param headLength  The height of the arrows
+   *
+   * @param captionHeight The height of the caption on the relationship
+   */
   constructor(
     nodeRadius: number,
     straightLength: number,
@@ -52,7 +68,7 @@ export class LoopArrow {
       sweep: number,
       radius: number,
       displacement: number
-    ) {
+    ): Point {
       const localLoopRadius = radius * Math.tan(spread / 2)
       const cy = radius / Math.cos(spread / 2)
       return new Point(
@@ -61,12 +77,12 @@ export class LoopArrow {
       )
     }
     this.midShaftPoint = normalPoint(0, r3, shaftRadius + captionHeight / 2 + 2)
-    const startPoint = (radius: number, displacement: number) =>
+    const startPoint = (radius: number, displacement: number): Point =>
       normalPoint((Math.PI + spread) / 2, radius, displacement)
-    const endPoint = (radius: number, displacement: number) =>
+    const endPoint = (radius: number, displacement: number): Point =>
       normalPoint(-(Math.PI + spread) / 2, radius, displacement)
 
-    this.outline = function () {
+    this.outline = function (): string {
       const inner = loopRadius - shaftRadius
       const outer = loopRadius + shaftRadius
       return [

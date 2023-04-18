@@ -1,28 +1,43 @@
-/*
- * Copyright Jiaqi Liu
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+// Copyright 2023 Paion Data. All rights reserved.
+import type { RelationshipCaptionLayout } from '../models/Relationship'
+
+/**
+ * Draws a straigth arrow on nodes
  */
-import { RelationshipCaptionLayout } from '../models/Relationship'
-
 export class StraightArrow {
-  length: number
-  midShaftPoint: { x: number; y: number }
-  outline: (shortCaptionLength: number) => string
-  overlay: (minWidth: number) => string
+  public midShaftPoint: { x: number; y: number }
+  public outline: (shortCaptionLength: number) => string
+  public overlay: (minWidth: number) => string
   shaftLength: number
-  deflection = 0
 
+  /**
+   * Creates a new straight arrow DOM object with a specified arrow configuration.
+   *
+   * We use the path to create the graph.  It's plotted by giving us a set of coordinates of points.  It is used to
+   * give a coordinate point, before the coordinate point to add an English letter, indicating how to move to this
+   * coordinate point. See [path](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths) for more details.
+   *
+   * The configuraion is the following:
+   *
+   * - The straight arrow generated when the captionLayout attribute is "external" is divided into two segments.Draw the
+   *  first part of the arrow according to the coordinates of the first set of points "M, L, L, L, Z"，draw the second
+   * part of the arrow according to the coordinates of the second set of points "M, L, L, L, L, L, L, Z".The entire
+   * arrow is generated when the captionLayout property is "internal".Draw thearrow accordingto the coordinates of the
+   * point "M, L, L, L, L, L, L, Z"
+   * - Draw a rectangular overlay arrow based on the point's coordinate "M, L, L, L, Z"，when the mouse moves over the
+   * relationship
+   *
+   * <img src="media://straight-arrow-document.png" width="60%" />
+   *
+   * @param startRadius The radius of the source node of the relationship
+   * @param endRadius The radius of the targrt node of the relationship
+   * @param centreDistance The line length of relationship
+   * @param shaftWidth The line width of relationship. See
+   * [Shaft](https://en.wikipedia.org/wiki/Shaft_(mechanical_engineering)) for more details
+   * @param headWidth The width of the arrows
+   * @param headHeight The height of the arrows
+   * @param captionLayout The caption layout is "internal" or "external"
+   */
   constructor(
     startRadius: number,
     endRadius: number,
@@ -32,12 +47,12 @@ export class StraightArrow {
     headHeight: number,
     captionLayout: RelationshipCaptionLayout
   ) {
-    this.length = centreDistance - (startRadius + endRadius)
-
-    this.shaftLength = this.length - headHeight
+    let length: number
+    length = centreDistance - (startRadius + endRadius)
+    this.shaftLength = length - headHeight
     const startArrow = startRadius
     const endShaft = startArrow + this.shaftLength
-    const endArrow = startArrow + this.length
+    const endArrow = startArrow + length
     const shaftRadius = shaftWidth / 2
     const headRadius = headWidth / 2
 

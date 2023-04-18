@@ -1,30 +1,31 @@
-/*
- * Copyright Jiaqi Liu
+// Copyright 2023 Paion Data. All rights reserved.
+import { Point } from './Point'
+import type { RelationshipCaptionLayout } from '../models/Relationship'
+
+const square = (l: number): number => l * l
+
+/**
+ * Calculate the coordinates of the points where the arc intersects with other circles
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * @param fixedPoint The point at which the starting node intersects the arc
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * @param radius The sum of the target node and the arrow height is the radius of the circle
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * @param xCenter The distance between the center of the source node and the center of the target node
+ *
+ * @param polarity
+ *
+ * @param homotheticCenter
+ *
+ * @returns
  */
-import { RelationshipCaptionLayout } from '../models/Relationship'
-
-type Point = { x: number; y: number }
-const square = (l: number) => l * l
-
 const intersectWithOtherCircle = function (
   fixedPoint: Point,
   radius: number,
   xCenter: number,
   polarity: number,
   homotheticCenter: number
-) {
+): Point {
   const gradient = fixedPoint.y / (fixedPoint.x - homotheticCenter)
   const hc = fixedPoint.y - gradient * fixedPoint.x
 
@@ -42,9 +43,9 @@ const intersectWithOtherCircle = function (
 }
 export class ArcArrow {
   deflection: number
-  midShaftPoint: Point
-  outline: (shortCaptionLength: number) => string
-  overlay: (minWidth: number) => string
+  public midShaftPoint: Point
+  public outline: (shortCaptionLength: number) => string
+  public overlay: (minWidth: number) => string
   shaftLength: number
   constructor(
     startRadius: number,
@@ -108,7 +109,7 @@ export class ArcArrow {
       y: cy - arcRadius * Math.cos(midShaftAngle)
     }
 
-    const startTangent = function (dr: number) {
+    const startTangent = function (dr: number): Point {
       const dx = (dr < 0 ? 1 : -1) * Math.sqrt(square(dr) / (1 + square(g1)))
       const dy = g1 * dx
       return {
@@ -117,7 +118,7 @@ export class ArcArrow {
       }
     }
 
-    const endTangent = function (dr: number) {
+    const endTangent = function (dr: number): Point {
       const dx = (dr < 0 ? -1 : 1) * Math.sqrt(square(dr) / (1 + square(g2)))
       const dy = g2 * dx
       return {
@@ -126,12 +127,12 @@ export class ArcArrow {
       }
     }
 
-    const angleTangent = (angle: number, dr: number) => ({
+    const angleTangent = (angle: number, dr: number): Point => ({
       x: cx + (arcRadius + dr) * Math.sin(angle),
       y: cy - (arcRadius + dr) * Math.cos(angle)
     })
 
-    const endNormal = function (dc: number) {
+    const endNormal = function (dc: number): Point {
       const dx =
         (dc < 0 ? -1 : 1) * Math.sqrt(square(dc) / (1 + square(1 / g2)))
       const dy = dx / g2
@@ -141,7 +142,7 @@ export class ArcArrow {
       }
     }
 
-    const endOverlayCorner = function (dr: number, dc: number) {
+    const endOverlayCorner = function (dr: number, dc: number): Point {
       const shoulder = endTangent(dr)
       const arrowTip = endNormal(dc)
       return {
@@ -150,7 +151,7 @@ export class ArcArrow {
       }
     }
 
-    const coord = (point: Point) => `${point.x},${point.y}`
+    const coord = (point: Point): string => `${point.x},${point.y}`
 
     const shaftRadius = arrowWidth / 2
     const headRadius = headWidth / 2
