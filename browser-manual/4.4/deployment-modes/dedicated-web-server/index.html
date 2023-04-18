@@ -13,12 +13,15 @@
     <meta property="og:type" content="article" />
 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WK23PSS');</script>
-    <title>Page Not Found</title>
+    <title>Dedicated web server - Neo4j Browser</title>
+    <link rel="prev" href="../neo4j-aura/">
+    <link rel="next" href="../../visual-tour/">
+      <meta name="description" content="Host Neo4j Browser on a dedicated web server.">
 <link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/bundle.css" />
 <link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/utilities.min.css" />
 
-    <link rel="preload" href="/docs/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
-    <link rel="stylesheet" href="/docs/assets/css/site.css">
+    <link rel="preload" href="../../../../assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
+    <link rel="stylesheet" href="../../../../assets/css/site.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
@@ -35,14 +38,14 @@
     <meta name="twitter:creator" content="@neo4j" />
     <meta name="twitter:site" content="@neo4j" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Page Not Found - " />
+    <meta property="og:title" content="Dedicated web server - Neo4j Browser" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://dist.neo4j.com/wp-content/uploads/20210423062553/neo4j-social-share-21.png" />
-    <meta property="og:description" content="Page Not Found - " />
-    <meta property="og:url" content="https://neo4j.com/docs" />
+    <meta property="og:description" content="Host Neo4j Browser on a dedicated web server." />
+    <meta property="og:url" content="https://neo4j.com/docs/browser-manual/4.4/deployment-modes/dedicated-web-server/" />
     <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
   </head>
-  <body class="status-404">
+  <body class="article docs">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK23PSS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -307,32 +310,439 @@ mixpanel.track("Page View", {
   </nav>
 </header>
 <div class="body">
-<div class="nav-container">
+<div class="nav-container" data-component="browser-manual" data-version="4.4">
   <aside class="nav">
     <div class="panels">
-                </div>
+            <div class="nav-panel-menu is-active" data-panel="menu">
+    <nav class="nav-menu">
+    <ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../about-browser/">About Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../">Deployment modes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../neo4j-server/">Neo4j Server</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../neo4j-desktop/">Neo4j Desktop</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../web-application/">Web application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../neo4j-sandbox/">Neo4j Sandbox</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../neo4j-aura/">Neo4j Aura</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Dedicated web server</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../visual-tour/">Visual tour</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../../operations/">Browser operations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/dbms-connection/">Connect to a Neo4j DBMS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/credentials-handling/">Browser credentials handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/browser-sso/">Browser Single Sign-On</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/browser-settings/">Browser settings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/initial-command/">Initial command</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/result-frames/">Result frames</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/export-results/">Export results</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/browser-styling/">Browser styling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/query-parameters/">Query parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/browser-url-parameters/">Browser URL parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/rest-requests/">HTTP REST requests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/browser-rbac-count/">Node and relationship counts with role-based access control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../operations/product-analytics/">Product analytics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference-commands/">Command reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
   </aside>
 </div>
 <main class="article">
 <div class="toolbar" role="navigation">
   <div class="toolbar-wrapper">
     <button class="nav-toggle" aria-label="Toggle Table of Contents"></button>
-    <a href="/docs/browser-manual/4.4/" class="home-link" aria-label="Go to home page"></a>
+    <a href="../../" class="home-link" aria-label="Go to home page"></a>
     <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Neo4j Browser</a></li>
+    <li><a href="../">
+        Deployment modes
+    </a></li>
+    <li><a href="./">
+        Dedicated web server
+    </a></li>
+  </ul>
 </nav>
       </div>
 </div>
 
   <div class="content">
 <article class="doc">
-<h1 class="page">Page Not Found</h1>
+<div class="sect-header">
+<h1 class="page">Dedicated web server</h1>
+</div>
+
+
+
+
+
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>The page you&#8217;re looking for does not exist. It may have been moved.</p>
+<p>The Neo4j Browser is a client-side single-page application (SPA), which uses an HTTP server for its static content.
+It is possible to host a dedicated web server to serve Neo4j Browser as a web application.
+Download Neo4j Browser from <a href="https://search.maven.org/artifact/org.neo4j.client/neo4j-browser" target="_blank" rel="noopener">Maven</a>.</p>
 </div>
 <div class="paragraph">
-<p>If you arrived on this page by clicking on a link, please notify the owner of the site that the link is broken.
-If you typed the URL of this page manually, please double check that you entered the address correctly.</p>
+<p>Here are some use cases of why this deployment mode could be useful.</p>
 </div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Neo4j Browser local hosted</dt>
+<dd>
+<p>This case is valid if you have access to a Neo4j instance and do not want to install Neo4j Desktop or do not want to use a hosted Neo4j Browser web application.
+It is a simple solution, start a local hosted Neo4j Browser web application on your machine with a simple one-line command.
+It is also easy to run a specific version of Neo4j Browser, download the preferred version from <a href="https://search.maven.org/artifact/org.neo4j.client/neo4j-browser" target="_blank" rel="noopener">Maven</a>.</p>
+</dd>
+<dt class="hdlist1">Neo4j Browser deployed web application</dt>
+<dd>
+<p>If you want to have specific network configurations within your network and host Neo4j Browser for quick access within your organization, you can host Neo4j Browser with an HTTP web server.
+This allows for full control of configuring the HTTP web server as needed.
+For example you way want to add a layer of access control to access the Neo4j Browser web application and configure the HTTP web server connection to use TLS.</p>
+</dd>
+<dt class="hdlist1">Extend or improve the source code</dt>
+<dd>
+<p>Neo4j Browser is open source, and the source code can be found at <a href="https://github.com/neo4j/neo4j-browser" target="_blank" rel="noopener"><em>https://github.com/neo4j/neo4j-browser</em></a>.
+If you want to extend or contribute to the project, you can alter the code.
+This allows you to run a modified version of Neo4j Browser.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you have installed Neo4j on your system, then disable the browser module (<code>BROWSER</code>) from running.<br>
+For more information, see <a href="https://neo4j.com/docs/operations-manual/current/reference/configuration-settings/#config_dbms.http_enabled_modules" target="_blank" rel="noopener">dbms.http_enabled_modules</a> configuration setting.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="http-web-servers"><a class="anchor" href="#http-web-servers"></a>1. HTTP web servers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Here is a list of suggestions for simple HTTP web servers that can be used to host Neo4j Browser.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Python3&#8201;&#8212;&#8201;<code>http.server</code></dt>
+<dd>
+<p>A simple HTTP server that is bundled with Python 3. Do not use in production environment.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">python -m http.server --directory neo4j-browser/ 8080</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="https://docs.python.org/3/library/http.server.html" target="_blank" rel="noopener"><em>https://docs.python.org/3/library/http.server.html</em></a>.</p>
+</div>
+</dd>
+<dt class="hdlist1">Node.js&#8201;&#8212;&#8201;<code>http-server</code></dt>
+<dd>
+<p>A simple, zero-configuration command-line HTTP server.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">npx http-server -p 8080 neo4j-browser/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="https://www.npmjs.com/package/http-server" target="_blank" rel="noopener"><em>https://www.npmjs.com/package/http-server</em></a>.</p>
+</div>
+</dd>
+<dt class="hdlist1">Node.js&#8201;&#8212;&#8201;<code>serve</code></dt>
+<dd>
+<p>A simple HTTP server is ideal for serving a static site, single page application or just a static file.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">npx serve -l 8080 neo4j-browser/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="https://www.npmjs.com/package/serve" target="_blank" rel="noopener"><em>https://www.npmjs.com/package/serve</em></a>.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>HTTP servers suitable for production use:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Nginx</dt>
+<dd>
+<p>A web server that can also be used as a reverse proxy and a load balancer.<br>
+For more information, see <a href="https://www.nginx.com/" target="_blank" rel="noopener"><em>https://www.nginx.com/</em></a>.</p>
+</dd>
+<dt class="hdlist1">Apache HTTP Server</dt>
+<dd>
+<p>For more information, see <a href="https://httpd.apache.org/" target="_blank" rel="noopener"><em>https://httpd.apache.org/</em></a>.</p>
+</dd>
+<dt class="hdlist1">Internet Information Services (IIS)</dt>
+<dd>
+<p>For more information, see <a href="https://www.iis.net/" target="_blank" rel="noopener"><em>https://www.iis.net/</em></a>.</p>
+</dd>
+</dl>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="pre-built-neo4j-browser"><a class="anchor" href="#pre-built-neo4j-browser"></a>2. Pre-built Neo4j Browser</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can download Neo4j Browser from Maven (<a href="https://search.maven.org/artifact/org.neo4j.client/neo4j-browser" target="_blank" rel="noopener"><em>https://search.maven.org/artifact/org.neo4j.client/neo4j-browser</em></a>) and serve the web application with an HTTP server.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Get pre-built Neo4j Browser and run an HTTP web server</div>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Download Neo4j Browser from Maven.</strong></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">wget https://repo1.maven.org/maven2/org/neo4j/client/neo4j-browser/4.4.6/neo4j-browser-4.4.6.jar</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, manually go to <a href="https://search.maven.org/artifact/org.neo4j.client/neo4j-browser" target="_blank" rel="noopener"><em>https://search.maven.org/artifact/org.neo4j.client/neo4j-browser</em></a> and download Neo4j Browser.</p>
+</div>
+</li>
+<li>
+<p><strong>Unzip the .jar file.</strong></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">unzip neo4j-browser-4.4.6.jar</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Host Neo4j Browser with an HTTP server.</strong></p>
+<div class="paragraph">
+<p>Start a web server to serve the content.
+In this example, you start a web server with Python 3.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">python -m http.server --directory browser/ 8080</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Point your web browser to <a href="http://localhost:8080" target="_blank" rel="noopener"><em>http://localhost:8080</em></a>.</p>
+</div>
+</li>
+<li>
+<p><strong>Test the connection to a Neo4j database instance.</strong></p>
+<div class="paragraph">
+<p>If you have the Neo4j tarball, you can start the database instance with the command (assuming that the current working directory is <em>&lt;neo4j-home&gt;</em>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">bin/neo4j start</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In Neo4j Browser, connect to the Neo4j database instance with the URI:</p>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">neo4j://localhost:7687</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For details on how to set up a connection to Neo4j in Neo4j Browser, see <a href="../../operations/dbms-connection/" class="xref page">Connect to a Neo4j DBMS</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="build-neo4j-browser"><a class="anchor" href="#build-neo4j-browser"></a>3. Build Neo4j Browser</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can build the source code and host Neo4j Browser.</p>
+</div>
+<div class="paragraph">
+<p>The source code can be found at <a href="https://github.com/neo4j/neo4j-browser" target="_blank" rel="noopener">https://github.com/neo4j/neo4j-browser</a>.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. Build Neo4j Browser and run an HTTP web server</div>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Get the source code from Github</strong></p>
+<div class="paragraph">
+<p>Clone the Neo4j Browser Git repository.
+The command gets only the <code>master</code> branch to save bandwidth and file space.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">git clone --single-branch --branch=master https://github.com/neo4j/neo4j-browser/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Change the current working directory to the root of the Git repository.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cd neo4j-browser</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Build with Node.js.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Install Node.js dependencies.</strong></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">npm install</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Build the project.</strong></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">npm build</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Host web application with an HTTP server.</strong></p>
+<div class="paragraph">
+<p>Start a web server to serve the content.
+In this example you, start a web server with Python 3.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">python -m http.server --directory dist/ 8080</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Point your web browser to <a href="http://localhost:8080" target="_blank" rel="noopener"><em>http://localhost:8080</em></a>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For details on how to set up a connection to Neo4j in Neo4j Browser, see <a href="../../operations/dbms-connection/" class="xref page">Connect to a Neo4j DBMS</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../neo4j-aura/">Neo4j Aura</a></span>
+
+  <span class="next"><a href="../../visual-tour/">Visual tour</a></span>
+</nav>
   <div class="feedback">
     <div class="header question">
         <p><strong>Was this page helpful?</strong></p>
@@ -428,10 +838,10 @@ If you typed the URL of this page manually, please double check that you entered
 </div>
 </footer>
 
-  <script src="/docs/assets/js/vendor/auth0.js"></script>
-  <script src="/docs/assets/js/site.js"></script>
-  <script async src="/docs/assets/js/vendor/highlight.js"></script>
-  <script async src="/docs/assets/js/vendor/image-zoom.js"></script>
+  <script src="../../../../assets/js/vendor/auth0.js"></script>
+  <script src="../../../../assets/js/site.js"></script>
+  <script async src="../../../../assets/js/vendor/highlight.js"></script>
+  <script async src="../../../../assets/js/vendor/image-zoom.js"></script>
 
 
 <div id="neo4j-algolia-search-v2"></div>

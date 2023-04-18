@@ -13,12 +13,14 @@
     <meta property="og:type" content="article" />
 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WK23PSS');</script>
-    <title>Page Not Found</title>
+    <title>Command reference - Neo4j Browser</title>
+    <link rel="prev" href="../operations/product-analytics/">
+      <meta name="description" content="This section list all the Browser commands.">
 <link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/bundle.css" />
 <link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/utilities.min.css" />
 
-    <link rel="preload" href="/docs/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
-    <link rel="stylesheet" href="/docs/assets/css/site.css">
+    <link rel="preload" href="../../../assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
+    <link rel="stylesheet" href="../../../assets/css/site.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
@@ -35,14 +37,14 @@
     <meta name="twitter:creator" content="@neo4j" />
     <meta name="twitter:site" content="@neo4j" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Page Not Found - " />
+    <meta property="og:title" content="Command reference - Neo4j Browser" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://dist.neo4j.com/wp-content/uploads/20210423062553/neo4j-social-share-21.png" />
-    <meta property="og:description" content="Page Not Found - " />
-    <meta property="og:url" content="https://neo4j.com/docs" />
+    <meta property="og:description" content="This section list all the Browser commands." />
+    <meta property="og:url" content="https://neo4j.com/docs/browser-manual/4.4/reference-commands/" />
     <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
   </head>
-  <body class="status-404">
+  <body class="article docs">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK23PSS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -307,32 +309,589 @@ mixpanel.track("Page View", {
   </nav>
 </header>
 <div class="body">
-<div class="nav-container">
+<div class="nav-container" data-component="browser-manual" data-version="4.4">
   <aside class="nav">
     <div class="panels">
-                </div>
+            <div class="nav-panel-menu is-active" data-panel="menu">
+    <nav class="nav-menu">
+    <ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../">Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../about-browser/">About Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../deployment-modes/">Deployment modes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/neo4j-server/">Neo4j Server</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/neo4j-desktop/">Neo4j Desktop</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/web-application/">Web application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/neo4j-sandbox/">Neo4j Sandbox</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/neo4j-aura/">Neo4j Aura</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/dedicated-web-server/">Dedicated web server</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../visual-tour/">Visual tour</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../operations/">Browser operations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/dbms-connection/">Connect to a Neo4j DBMS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/credentials-handling/">Browser credentials handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/browser-sso/">Browser Single Sign-On</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/browser-settings/">Browser settings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/initial-command/">Initial command</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/result-frames/">Result frames</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/export-results/">Export results</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/browser-styling/">Browser styling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/query-parameters/">Query parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/browser-url-parameters/">Browser URL parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/rest-requests/">HTTP REST requests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/browser-rbac-count/">Node and relationship counts with role-based access control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/product-analytics/">Product analytics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="./">Command reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
   </aside>
 </div>
 <main class="article">
 <div class="toolbar" role="navigation">
   <div class="toolbar-wrapper">
     <button class="nav-toggle" aria-label="Toggle Table of Contents"></button>
-    <a href="/docs/browser-manual/4.4/" class="home-link" aria-label="Go to home page"></a>
+    <a href="../" class="home-link" aria-label="Go to home page"></a>
     <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Neo4j Browser</a></li>
+    <li><a href="./">
+        Command reference
+    </a></li>
+  </ul>
 </nav>
       </div>
 </div>
 
   <div class="content">
 <article class="doc">
-<h1 class="page">Page Not Found</h1>
-<div class="paragraph">
-<p>The page you&#8217;re looking for does not exist. It may have been moved.</p>
+<div class="sect-header">
+<h1 class="page">Command reference</h1>
 </div>
+
+
+
+
+
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>If you arrived on this page by clicking on a link, please notify the owner of the site that the link is broken.
-If you typed the URL of this page manually, please double check that you entered the address correctly.</p>
+<p>The editor in Neo4j Browser understands a few client-side commands, which begin with a colon (<code>:</code>).</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="browser-commands"><a class="anchor" href="#browser-commands"></a>1. Browser commands</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. List of commands</caption>
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:auto &lt;Cypher query&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Send the Cypher query in an auto-commit transaction.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In general, auto-committing transactions is not recommended because of the lack of support for retrying the Cypher query on errors.
+However, some query types need to be sent in auto-committing transactions, such as <code>CALL { &#8230;&#8203; } IN TRANSACTIONS</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:clear</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Remove all frames from the stream.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:config</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Show the configuration settings.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:config &lt;key-value&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set one configuration setting.<br>
+The key-value can be specified as <code>"x": 1</code>, <code>'x': 1</code>, or <code>x: 1</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:config {}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reset the configuration settings to the default configuration.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:config {&lt;key-value pairs&gt;}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reset the configuration settings to default and then set the key-value pairs.<br>
+The key-value pairs can be specified as <code>{"x": 1, "y": 2}</code>, <code>{'x': 1, 'y': 2}</code>, or <code>{x: 1, y: 2}</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:dbs</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Show databases available for the current user.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:delete &lt;request&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>REST command, send an HTTP DELETE request.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:get &lt;request&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>REST command, send an HTTP GET request.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:guide</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Show the guide drawer.
+The guide drawer contains interactive Neo4j Browser guides for learning concepts and tools with Neo4j.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:guide &lt;guide-name&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Show the guide drawer with a specific Neo4j Browser guide.
+The name can be specified with or without the Hyphen (<code>-</code>) character, e.g, <code>:guide movie-graph</code> or <code>:guide movie graph</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:guide &lt;URL&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Show the guide drawer with a custom Neo4j Browser guide from the specified URL.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>There are also other Neo4j Browser guides created by Neo4j staff and community members to help others learn Neo4j or how to use the tools in its ecosystem.
+You can check out the currently published list on the <a href="https://portal.graphgist.org/graph_guides" target="_blank" rel="noopener">GraphGist Portal (Graph Guides section)</a>.<br>
+For more information on how to create a custom Browser guide, see <a href="https://neo4j.com/developer/guide-create-neo4j-browser-guide/" target="_blank" rel="noopener">creating a custom Browser guide</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:help</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Display help about topics and commands.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:head &lt;request&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>REST command, send an HTTP HEAD request.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:history</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Display Neo4j Browser history of your executed commands.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:history clear</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Remove all commands from Neo4j Browser history.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:put &lt;request&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>REST command, send an HTTP PUT request.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:play</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Play Neo4j Browser guides.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:play &lt;guide-name&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Play a specific Neo4j Browser guide.
+The name can be specified with or without the Hyphen (<code>-</code>) character, e.g, <code>:play movie-graph</code> or <code>:play movie graph</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:play &lt;URL&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Play a custom Neo4j Browser guide from the specified URL.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>There are also other Neo4j Browser guides created by Neo4j staff and community members to help others learn Neo4j or how to use the tools in its ecosystem.
+You can check out the currently published list on the <a href="https://portal.graphgist.org/graph_guides" target="_blank" rel="noopener">GraphGist Portal (Graph Guides section)</a>.<br>
+For more information on how to create a custom Browser guide, see <a href="https://neo4j.com/developer/guide-create-neo4j-browser-guide/" target="_blank" rel="noopener">creating a custom Browser guide</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:post &lt;request&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>REST command, send an HTTP POST request.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:param &lt;key-value&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set one parameter.<br>
+The key-value can be specified as <code>"x" =&gt; 1</code> or <code>x =&gt; 1</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:params</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Show all parameters.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:params {}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Remove all parameters.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:params {&lt;key-value pairs&gt;}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Remove all parameters and then set the parameters to the specified key-value pairs.<br>
+The key-value pairs can be specified as <code>{"x": 1, "y": 2}</code>, <code>{'x': 1, 'y': 2}</code>, or <code>{x: 1, y: 2}</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Integers will be set as floats in this form.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:queries</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>List your servers and clusters that are running queries.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:style</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Show the current style configuration.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:style &lt;CSS&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Modify the visual aspects of your graph.<br>
+CSS classes are overwritten with the new styling.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:style reset</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reset the style to the default styling.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:server change-password</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Change password.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:server connect</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Manage a connection to Neo4j.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:server disconnect</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Disconnect the currently open connection to Neo4j.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:server status</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Show metadata for the currently open connection.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:schema</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Show information about database schema indexes and constraints.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:sysinfo</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Show information about <em>Store Size</em>, <em>Id Allocation</em>, <em>Page Cache</em>, <em>Transactions</em>, and <em>Databases</em>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:use &lt;database&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set the database to query by default (the default database is set to <code>neo4j</code>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also use Cypher, <code>USE &lt;database&gt; ...</code>, to specify a database.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="help-commands"><a class="anchor" href="#help-commands"></a>2. Help commands</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>List of help commands available.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:help bolt</code></p>
+</li>
+<li>
+<p><code>:help bolt-encryption</code></p>
+</li>
+<li>
+<p><code>:help bolt-routing</code></p>
+</li>
+<li>
+<p><code>:help clear</code></p>
+</li>
+<li>
+<p><code>:help commands</code></p>
+</li>
+<li>
+<p><code>:help contains</code></p>
+</li>
+<li>
+<p><code>:help create</code></p>
+</li>
+<li>
+<p><code>:help create-index</code></p>
+</li>
+<li>
+<p><code>:help create-unique</code></p>
+</li>
+<li>
+<p><code>:help cypher</code></p>
+</li>
+<li>
+<p><code>:help delete</code></p>
+</li>
+<li>
+<p><code>:help detach-delete</code></p>
+</li>
+<li>
+<p><code>:help ends-with</code></p>
+</li>
+<li>
+<p><code>:help explain</code></p>
+</li>
+<li>
+<p><code>:help foreach</code></p>
+</li>
+<li>
+<p><code>:help history</code></p>
+</li>
+<li>
+<p><code>:help history clear</code></p>
+</li>
+<li>
+<p><code>:help keys</code></p>
+</li>
+<li>
+<p><code>:help load csv</code></p>
+</li>
+<li>
+<p><code>:help match</code></p>
+</li>
+<li>
+<p><code>:help merge</code></p>
+</li>
+<li>
+<p><code>:help param</code></p>
+</li>
+<li>
+<p><code>:help params</code></p>
+</li>
+<li>
+<p><code>:help play</code></p>
+</li>
+<li>
+<p><code>:help profile</code></p>
+</li>
+<li>
+<p><code>:help queries</code></p>
+</li>
+<li>
+<p><code>:help rest</code></p>
+</li>
+<li>
+<p><code>:help rest-delete</code></p>
+</li>
+<li>
+<p><code>:help rest-get</code></p>
+</li>
+<li>
+<p><code>:help rest-post</code></p>
+</li>
+<li>
+<p><code>:help rest-put</code></p>
+</li>
+<li>
+<p><code>:help return</code></p>
+</li>
+<li>
+<p><code>:help server</code></p>
+</li>
+<li>
+<p><code>:help server-user</code></p>
+</li>
+<li>
+<p><code>:help set</code></p>
+</li>
+<li>
+<p><code>:help start</code></p>
+</li>
+<li>
+<p><code>:help starts-with</code></p>
+</li>
+<li>
+<p><code>:help unwind</code></p>
+</li>
+<li>
+<p><code>:help where</code></p>
+</li>
+<li>
+<p><code>:help with</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../operations/product-analytics/">Product analytics</a></span>
+
+</nav>
   <div class="feedback">
     <div class="header question">
         <p><strong>Was this page helpful?</strong></p>
@@ -428,10 +987,10 @@ If you typed the URL of this page manually, please double check that you entered
 </div>
 </footer>
 
-  <script src="/docs/assets/js/vendor/auth0.js"></script>
-  <script src="/docs/assets/js/site.js"></script>
-  <script async src="/docs/assets/js/vendor/highlight.js"></script>
-  <script async src="/docs/assets/js/vendor/image-zoom.js"></script>
+  <script src="../../../assets/js/vendor/auth0.js"></script>
+  <script src="../../../assets/js/site.js"></script>
+  <script async src="../../../assets/js/vendor/highlight.js"></script>
+  <script async src="../../../assets/js/vendor/image-zoom.js"></script>
 
 
 <div id="neo4j-algolia-search-v2"></div>

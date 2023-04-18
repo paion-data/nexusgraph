@@ -13,12 +13,15 @@
     <meta property="og:type" content="article" />
 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WK23PSS');</script>
-    <title>Page Not Found</title>
+    <title>Query parameters - Neo4j Browser</title>
+    <link rel="prev" href="../browser-styling/">
+    <link rel="next" href="../browser-url-parameters/">
+      <meta name="description" content="Cypher query parameters.">
 <link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/bundle.css" />
 <link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/utilities.min.css" />
 
-    <link rel="preload" href="/docs/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
-    <link rel="stylesheet" href="/docs/assets/css/site.css">
+    <link rel="preload" href="../../../../assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
+    <link rel="stylesheet" href="../../../../assets/css/site.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
@@ -35,14 +38,14 @@
     <meta name="twitter:creator" content="@neo4j" />
     <meta name="twitter:site" content="@neo4j" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Page Not Found - " />
+    <meta property="og:title" content="Query parameters - Neo4j Browser" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://dist.neo4j.com/wp-content/uploads/20210423062553/neo4j-social-share-21.png" />
-    <meta property="og:description" content="Page Not Found - " />
-    <meta property="og:url" content="https://neo4j.com/docs" />
+    <meta property="og:description" content="Cypher query parameters." />
+    <meta property="og:url" content="https://neo4j.com/docs/browser-manual/4.4/operations/query-parameters/" />
     <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
   </head>
-  <body class="status-404">
+  <body class="article docs">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK23PSS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -307,32 +310,612 @@ mixpanel.track("Page View", {
   </nav>
 </header>
 <div class="body">
-<div class="nav-container">
+<div class="nav-container" data-component="browser-manual" data-version="4.4">
   <aside class="nav">
     <div class="panels">
-                </div>
+            <div class="nav-panel-menu is-active" data-panel="menu">
+    <nav class="nav-menu">
+    <ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../about-browser/">About Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../../deployment-modes/">Deployment modes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-server/">Neo4j Server</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-desktop/">Neo4j Desktop</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/web-application/">Web application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-sandbox/">Neo4j Sandbox</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-aura/">Neo4j Aura</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/dedicated-web-server/">Dedicated web server</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../visual-tour/">Visual tour</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../">Browser operations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../dbms-connection/">Connect to a Neo4j DBMS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../credentials-handling/">Browser credentials handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-sso/">Browser Single Sign-On</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-settings/">Browser settings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../initial-command/">Initial command</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../result-frames/">Result frames</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../export-results/">Export results</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-styling/">Browser styling</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Query parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-url-parameters/">Browser URL parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rest-requests/">HTTP REST requests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-rbac-count/">Node and relationship counts with role-based access control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../product-analytics/">Product analytics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference-commands/">Command reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
   </aside>
 </div>
 <main class="article">
 <div class="toolbar" role="navigation">
   <div class="toolbar-wrapper">
     <button class="nav-toggle" aria-label="Toggle Table of Contents"></button>
-    <a href="/docs/browser-manual/4.4/" class="home-link" aria-label="Go to home page"></a>
+    <a href="../../" class="home-link" aria-label="Go to home page"></a>
     <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Neo4j Browser</a></li>
+    <li><a href="../">
+        Browser operations
+    </a></li>
+    <li><a href="./">
+        Query parameters
+    </a></li>
+  </ul>
 </nav>
       </div>
 </div>
 
   <div class="content">
 <article class="doc">
-<h1 class="page">Page Not Found</h1>
+<div class="sect-header">
+<h1 class="page">Query parameters</h1>
+</div>
+
+
+
+
+
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>The page you&#8217;re looking for does not exist. It may have been moved.</p>
+<p>Neo4j Browser supports querying based on parameters.
+It allows the Cypher query planner to re-use your queries instead of parse and build new execution plans.</p>
 </div>
 <div class="paragraph">
-<p>If you arrived on this page by clicking on a link, please notify the owner of the site that the link is broken.
-If you typed the URL of this page manually, please double check that you entered the address correctly.</p>
+<p>Parameters can be used for:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>literals and expressions</p>
+</li>
+<li>
+<p>node and relationship IDs</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Parameters cannot be used for the following constructs, as these form part of the query structure that is compiled into a query plan:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>property keys</p>
+</li>
+<li>
+<p>relationship types</p>
+</li>
+<li>
+<p>labels</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Parameters may consist of letters and numbers and any combination of these but cannot start with a number or a currency symbol.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For more details on the Cypher parameters, see <a href="https://neo4j.com/docs/cypher-manual/4.4/syntax/parameters/" target="_blank" rel="noopener">Cypher Manual v.4.4 - Parameters</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="set-params"><a class="anchor" href="#set-params"></a>1. Set query parameters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can set a parameter to be sent with your queries by using the <code>:param</code> command.
+Using parameters rather than hard-coded values allows for the reuse of the query plan cache.</p>
+</div>
+<div class="paragraph">
+<p>The <code>:param name =&gt; 'Example'</code> command defines a parameter named <code>name</code>, which will be sent along with your queries.<br>
+The right hand side of <code>&#8658;</code> is sent to the server and evaluated as Cypher with an implicit <code>RETURN</code> in front.
+This gives better type safety since some types (especially numbers) in JavaScript are hard to match with Neo4j:s type system.
+To see the list of all currently set query parameters and their values, use the <code>:params</code> command.
+For more information on how to use the commands, see <code>:help param</code> and <code>:help params</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are using a multi-database DBMS, parameters cannot be declared when using the <code>system</code> database.
+Switch to a different database and declare, then switch back to the <code>system</code> database and use them.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Set a parameter as an integer</div>
+<div class="content">
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param x =&gt; 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. Set a parameter as a float</div>
+<div class="content">
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param x =&gt; 1.0</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 3. Set a parameter as a string</div>
+<div class="content">
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param x =&gt; "Example"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 4. Set a parameter as an object</div>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Map</p>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param obj1 =&gt; ({props: {name: "Tom Hanks", born:1956}})</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="title">The obj1 parameter</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$obj1 = {"props": {"name": "Tom Hanks", "born": 1956}}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Maps like <code>{x: 1, y: 2}</code> must be wrapped in parentheses <code>({x: 1, y: 2})</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>List</p>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param obj2 =&gt; [1, 2, 3, 4]</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="title">The obj2 parameter</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$obj2 = [1, 2, 3, 4]</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 5. Cypher query example with a parameter</div>
+<div class="content">
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param name =&gt; 'Tom Hanks';</code></pre>
+</div>
+</div>
+<div class="listingblock noplay">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cypher hljs" data-lang="cypher">MATCH (n:Person)
+WHERE n.name = $name
+RETURN n</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To run this example, in the <strong>Browser Settings</strong> drawer, check <strong>Enable multi statement query editor</strong>.
+Note that the results are displayed in a different way when you run multiple statements.
+In Neo4j Browser, the current state of multi-statement is to set up your environment with multiple statements so that you can execute queries and examine the results, one by one.
+Alternatively, you can run the <code>:param</code> command separately from the <code>MATCH</code> query.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cypher_result"><a class="anchor" href="#_cypher_result"></a>2. Cypher result</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is possible to save the result from a Cypher query to a parameter.</p>
+</div>
+<div class="paragraph">
+<p>The syntax is:</p>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param &lt;parameter_name&gt; =&gt; { CYPHER STATEMENT }</code></pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 6. One row returned</div>
+<div class="content">
+<div class="paragraph">
+<p>This example shows a result of one record returned.</p>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param result1 =&gt; { RETURN 1 AS foo }</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="title">The result1 parameter</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$result1 = [{foo: 1}]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 7. Several rows returned</div>
+<div class="content">
+<div class="paragraph">
+<p>This example shows a result of three records returned.</p>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param result2 =&gt; { UNWIND [1, 2, 3] AS nbr RETURN nbr }</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="title">The result2 parameter</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$result2 = [{"nbr": 1}, {"nbr": 2}, {"nbr": 3}]}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 8. One row with a node returned</div>
+<div class="content">
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param result3 =&gt; { MATCH (n) WHERE n.name = "Example" RETURN n }</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="title">The result3 parameter</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$result3 = [{"n": {"identity": 4, "labels": [], "properties": {"name": "Example"}}}]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_destructuring"><a class="anchor" href="#_destructuring"></a>2.1. Destructuring</h3>
+<div class="paragraph">
+<p>It is possible to pick individual values from your result using destructuring and set a specific parameter to a specific value.</p>
+</div>
+<div class="paragraph">
+<p>The syntax is:</p>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param [{&lt;returned_parameter&gt;: &lt;parameter_name&gt;, ...}, ...] =&gt; { CYPHER STATEMENT }</code></pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 9. One row returned</div>
+<div class="content">
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param [{foo}] =&gt; { RETURN 1 AS foo }</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$foo = 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 10. Rename destructured parameter</div>
+<div class="content">
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param [{foo: bar}] =&gt; { RETURN 1 AS foo }</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$bar = 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 11. Syntax</div>
+<div class="content">
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param [{foo1: bar1, foo2: bar2}] =&gt; { RETURN 1 AS foo1, 2 AS foo2 }</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$bar1 = 1
+$bar2 = 2</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 12. Several rows returned</div>
+<div class="content">
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param [{nbr: x}] =&gt; { UNWIND [2, 3, 1] AS nbr RETURN nbr ORDER BY nbr ASCENDING }</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$x = 1</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param [nbr, nbr, nbr] =&gt; { UNWIND [2, 3, 1] AS nbr RETURN nbr ORDER BY nbr ASC }</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$nbr = 3</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param [{nbr: x}, nbr, nbr] =&gt; { UNWIND [2, 3, 1] AS nbr RETURN nbr ORDER BY nbr ASC }</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$x = 1
+$nbr = 3</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param [{nbr: x}, {nbr: y}, {nbr: z}] =&gt; { UNWIND [2, 3, 1] AS nbr RETURN nbr ORDER BY nbr ASC }</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$x = 1
+$y = 2
+$z = 3</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:param [{n: example}] =&gt; { MATCH (n) WHERE n.name = "Example" RETURN n LIMIT 1}</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$example = {"identity": 4, "labels": [], "properties": {"name": "Example"}}}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clear-params"><a class="anchor" href="#clear-params"></a>2.2. Clear parameters</h3>
+<div class="paragraph">
+<p>You can clear all currently set parameters from Neo4j Browser by running:</p>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:params {}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_set_several_parameters"><a class="anchor" href="#_set_several_parameters"></a>2.3. Set several parameters</h3>
+<div class="paragraph">
+<p>You can set several parameters with the <code>:params</code> command, this also clears all currently set parameters.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Integers are set to float with this style.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="title">Example 13. Set several parameters</div>
+<div class="content">
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:params {x: 1, y: 2.0, z: 'abc', d: null, e: true, f: false}</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-parameter hljs" data-lang="parameter">$x = 1.0
+$y = 2.0
+$z = "abc"
+$d = null
+$e = true
+$f = false</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_parameter_assistance"><a class="anchor" href="#_parameter_assistance"></a>3. Parameter assistance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you run a query using parameters without first declaring them all, Browser returns a <code>ParameterMissing</code> error and lists the missing parameter(s).
+You can click the provided template to populate the editor with the command for setting parameters and all you have to do is enter the value(s) for the missing parameter(s).
+Since the result frame is reusable, once you have set your parameter(s), you can run the same Cypher query again without having to re-enter it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/param-assist.png" alt="param assist">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The command offered with parameter assistance is always <code>:params</code> even if you only have one parameter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_duration_for_the_query_parameters"><a class="anchor" href="#_duration_for_the_query_parameters"></a>4. Duration for the query parameters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parameters are not saved when you close the browser.
+You can save a <code>:params</code> command as a favorite to quickly populate parameters again.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../browser-styling/">Browser styling</a></span>
+
+  <span class="next"><a href="../browser-url-parameters/">Browser URL parameters</a></span>
+</nav>
   <div class="feedback">
     <div class="header question">
         <p><strong>Was this page helpful?</strong></p>
@@ -428,10 +1011,10 @@ If you typed the URL of this page manually, please double check that you entered
 </div>
 </footer>
 
-  <script src="/docs/assets/js/vendor/auth0.js"></script>
-  <script src="/docs/assets/js/site.js"></script>
-  <script async src="/docs/assets/js/vendor/highlight.js"></script>
-  <script async src="/docs/assets/js/vendor/image-zoom.js"></script>
+  <script src="../../../../assets/js/vendor/auth0.js"></script>
+  <script src="../../../../assets/js/site.js"></script>
+  <script async src="../../../../assets/js/vendor/highlight.js"></script>
+  <script async src="../../../../assets/js/vendor/image-zoom.js"></script>
 
 
 <div id="neo4j-algolia-search-v2"></div>

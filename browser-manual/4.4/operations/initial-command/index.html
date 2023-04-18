@@ -13,12 +13,15 @@
     <meta property="og:type" content="article" />
 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WK23PSS');</script>
-    <title>Page Not Found</title>
+    <title>Initial command - Neo4j Browser</title>
+    <link rel="prev" href="../browser-settings/">
+    <link rel="next" href="../result-frames/">
+      <meta name="description" content="Execute an initial command at startup.">
 <link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/bundle.css" />
 <link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/utilities.min.css" />
 
-    <link rel="preload" href="/docs/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
-    <link rel="stylesheet" href="/docs/assets/css/site.css">
+    <link rel="preload" href="../../../../assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
+    <link rel="stylesheet" href="../../../../assets/css/site.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
@@ -35,14 +38,14 @@
     <meta name="twitter:creator" content="@neo4j" />
     <meta name="twitter:site" content="@neo4j" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Page Not Found - " />
+    <meta property="og:title" content="Initial command - Neo4j Browser" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://dist.neo4j.com/wp-content/uploads/20210423062553/neo4j-social-share-21.png" />
-    <meta property="og:description" content="Page Not Found - " />
-    <meta property="og:url" content="https://neo4j.com/docs" />
+    <meta property="og:description" content="Execute an initial command at startup." />
+    <meta property="og:url" content="https://neo4j.com/docs/browser-manual/4.4/operations/initial-command/" />
     <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
   </head>
-  <body class="status-404">
+  <body class="article docs">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK23PSS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -307,32 +310,167 @@ mixpanel.track("Page View", {
   </nav>
 </header>
 <div class="body">
-<div class="nav-container">
+<div class="nav-container" data-component="browser-manual" data-version="4.4">
   <aside class="nav">
     <div class="panels">
-                </div>
+            <div class="nav-panel-menu is-active" data-panel="menu">
+    <nav class="nav-menu">
+    <ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../about-browser/">About Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../../deployment-modes/">Deployment modes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-server/">Neo4j Server</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-desktop/">Neo4j Desktop</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/web-application/">Web application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-sandbox/">Neo4j Sandbox</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-aura/">Neo4j Aura</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/dedicated-web-server/">Dedicated web server</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../visual-tour/">Visual tour</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../">Browser operations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../dbms-connection/">Connect to a Neo4j DBMS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../credentials-handling/">Browser credentials handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-sso/">Browser Single Sign-On</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-settings/">Browser settings</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Initial command</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../result-frames/">Result frames</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../export-results/">Export results</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-styling/">Browser styling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../query-parameters/">Query parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-url-parameters/">Browser URL parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rest-requests/">HTTP REST requests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-rbac-count/">Node and relationship counts with role-based access control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../product-analytics/">Product analytics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference-commands/">Command reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
   </aside>
 </div>
 <main class="article">
 <div class="toolbar" role="navigation">
   <div class="toolbar-wrapper">
     <button class="nav-toggle" aria-label="Toggle Table of Contents"></button>
-    <a href="/docs/browser-manual/4.4/" class="home-link" aria-label="Go to home page"></a>
+    <a href="../../" class="home-link" aria-label="Go to home page"></a>
     <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Neo4j Browser</a></li>
+    <li><a href="../">
+        Browser operations
+    </a></li>
+    <li><a href="./">
+        Initial command
+    </a></li>
+  </ul>
 </nav>
       </div>
 </div>
 
   <div class="content">
 <article class="doc">
-<h1 class="page">Page Not Found</h1>
+<div class="sect-header">
+<h1 class="page">Initial command</h1>
+</div>
+
+
+
+
+
 <div class="paragraph">
-<p>The page you&#8217;re looking for does not exist. It may have been moved.</p>
+<p>When you first open Neo4j Browser and connect to a Neo4j DBMS, it automatically executes the command:</p>
+</div>
+<div class="listingblock noheader">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-browser command hljs" data-lang="browser command">:play start</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>If you arrived on this page by clicking on a link, please notify the owner of the site that the link is broken.
-If you typed the URL of this page manually, please double check that you entered the address correctly.</p>
+<p>The <code>:play start</code> browser command outputs an entry page containing interactive guides that you can use to learn some Neo4j concepts, try Neo4j with live data (MovieGraph), and write some basic Cypher queries.</p>
 </div>
+<div class="paragraph">
+<p>Besides, you can also navigate to the <strong>Help &amp; Learn</strong> drawer in the sidebar, where you will find more information about useful commands, a lot of built-in guides, and links to documentation.</p>
+</div>
+<div class="paragraph">
+<p>If you want to change the initially executed command, navigate to the <strong>Browser Settings</strong> drawer in the sidebar and add a new value for the <strong>Initial command to execute</strong> setting.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For more information on how to enter and run Cypher queries and commands, see <a href="../../visual-tour/#editor" class="xref page">Cypher editor</a>.<br>
+For more information about Cypher, see <a href="https://neo4j.com/docs/cypher-manual/4.4/" target="_blank" rel="noopener">Cypher Manual</a> and <a href="https://neo4j.com/docs/cypher-refcard/4.4/" target="_blank" rel="noopener">Neo4j Cypher Refcard</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../browser-settings/">Browser settings</a></span>
+
+  <span class="next"><a href="../result-frames/">Result frames</a></span>
+</nav>
   <div class="feedback">
     <div class="header question">
         <p><strong>Was this page helpful?</strong></p>
@@ -428,10 +566,10 @@ If you typed the URL of this page manually, please double check that you entered
 </div>
 </footer>
 
-  <script src="/docs/assets/js/vendor/auth0.js"></script>
-  <script src="/docs/assets/js/site.js"></script>
-  <script async src="/docs/assets/js/vendor/highlight.js"></script>
-  <script async src="/docs/assets/js/vendor/image-zoom.js"></script>
+  <script src="../../../../assets/js/vendor/auth0.js"></script>
+  <script src="../../../../assets/js/site.js"></script>
+  <script async src="../../../../assets/js/vendor/highlight.js"></script>
+  <script async src="../../../../assets/js/vendor/image-zoom.js"></script>
 
 
 <div id="neo4j-algolia-search-v2"></div>

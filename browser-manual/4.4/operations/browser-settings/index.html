@@ -13,12 +13,15 @@
     <meta property="og:type" content="article" />
 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WK23PSS');</script>
-    <title>Page Not Found</title>
+    <title>Browser settings - Neo4j Browser</title>
+    <link rel="prev" href="../browser-sso/">
+    <link rel="next" href="../initial-command/">
+      <meta name="description" content="Adjust Neo4j Browser settings.">
 <link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/bundle.css" />
 <link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/utilities.min.css" />
 
-    <link rel="preload" href="/docs/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
-    <link rel="stylesheet" href="/docs/assets/css/site.css">
+    <link rel="preload" href="../../../../assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
+    <link rel="stylesheet" href="../../../../assets/css/site.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
@@ -35,14 +38,14 @@
     <meta name="twitter:creator" content="@neo4j" />
     <meta name="twitter:site" content="@neo4j" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Page Not Found - " />
+    <meta property="og:title" content="Browser settings - Neo4j Browser" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://dist.neo4j.com/wp-content/uploads/20210423062553/neo4j-social-share-21.png" />
-    <meta property="og:description" content="Page Not Found - " />
-    <meta property="og:url" content="https://neo4j.com/docs" />
+    <meta property="og:description" content="Adjust Neo4j Browser settings." />
+    <meta property="og:url" content="https://neo4j.com/docs/browser-manual/4.4/operations/browser-settings/" />
     <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
   </head>
-  <body class="status-404">
+  <body class="article docs">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK23PSS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -307,32 +310,465 @@ mixpanel.track("Page View", {
   </nav>
 </header>
 <div class="body">
-<div class="nav-container">
+<div class="nav-container" data-component="browser-manual" data-version="4.4">
   <aside class="nav">
     <div class="panels">
-                </div>
+            <div class="nav-panel-menu is-active" data-panel="menu">
+    <nav class="nav-menu">
+    <ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../about-browser/">About Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../../deployment-modes/">Deployment modes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-server/">Neo4j Server</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-desktop/">Neo4j Desktop</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/web-application/">Web application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-sandbox/">Neo4j Sandbox</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/neo4j-aura/">Neo4j Aura</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../deployment-modes/dedicated-web-server/">Dedicated web server</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../visual-tour/">Visual tour</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../">Browser operations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../dbms-connection/">Connect to a Neo4j DBMS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../credentials-handling/">Browser credentials handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-sso/">Browser Single Sign-On</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Browser settings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../initial-command/">Initial command</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../result-frames/">Result frames</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../export-results/">Export results</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-styling/">Browser styling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../query-parameters/">Query parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-url-parameters/">Browser URL parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rest-requests/">HTTP REST requests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../browser-rbac-count/">Node and relationship counts with role-based access control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../product-analytics/">Product analytics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference-commands/">Command reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
   </aside>
 </div>
 <main class="article">
 <div class="toolbar" role="navigation">
   <div class="toolbar-wrapper">
     <button class="nav-toggle" aria-label="Toggle Table of Contents"></button>
-    <a href="/docs/browser-manual/4.4/" class="home-link" aria-label="Go to home page"></a>
+    <a href="../../" class="home-link" aria-label="Go to home page"></a>
     <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Neo4j Browser</a></li>
+    <li><a href="../">
+        Browser operations
+    </a></li>
+    <li><a href="./">
+        Browser settings
+    </a></li>
+  </ul>
 </nav>
       </div>
 </div>
 
   <div class="content">
 <article class="doc">
-<h1 class="page">Page Not Found</h1>
+<div class="sect-header">
+<h1 class="page">Browser settings</h1>
+</div>
+
+
+
+
+
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>The page you&#8217;re looking for does not exist. It may have been moved.</p>
+<p>The Neo4j Browser defaults for all settings can be adjusted at any time in Neo4j Browser and globally.</p>
 </div>
 <div class="paragraph">
-<p>If you arrived on this page by clicking on a link, please notify the owner of the site that the link is broken.
-If you typed the URL of this page manually, please double check that you entered the address correctly.</p>
+<p>To view all currently configured settings, run <code>:config</code>.</p>
 </div>
+<div class="exampleblock">
+<div class="title">Example 1. Show the configuration settings</div>
+<div class="content">
+<div class="listingblock noplay">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">:config</code></pre>
+</div>
+</div>
+<div class="listingblock noheader">
+<div class="title">Example output</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">{
+  "maxHistory": 20,
+  "theme": "auto",
+  "initCmd": ":play start",
+  "playImplicitInitCommands": true,
+  "initialNodeDisplay": 300,
+  "maxNeighbours": 100,
+  "showSampleScripts": true,
+  "browserSyncDebugServer": null,
+  "maxRows": 1000,
+  "maxFieldItems": 500,
+  "shouldReportUdc": true,
+  "autoComplete": true,
+  "scrollToTop": true,
+  "maxFrames": 30,
+  "codeFontLigatures": true,
+  "useBoltRouting": false,
+  "editorLint": false,
+  "enableMultiStatementMode": true,
+  "connectionTimeout": 30000,
+  "showPerformanceOverlay": false
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Available Browser settings</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Browser Setting</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Configurable in the <strong>Browser Settings</strong> drawer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxHistory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>30</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of recently executed queries kept in Browser.
+When reached, old entries get retired.
+The command history is persisted across Browser restarts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>theme</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auto</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Neo4j Browser UI theme.
+Possible values: <code>auto</code>, <code>normal</code>, <code>outline</code>, and <code>dark</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>initCmd</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:play start</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The initial command that is run when connected to the graph.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>playImplicitInitCommands</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If <code>true</code>, Browser automatically runs the command set in <code>initCmd</code> on startup, for example <code>:play start</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>initialNodeDisplay</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>300</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Limit the number of nodes displayed on the first load of the graph visualization.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxNeighbours</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>100</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of neighbours for a node.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>showSampleScripts</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to display the <strong>Sample Scripts</strong> tab in <strong>Favorites</strong>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>browserSyncDebugServer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internal setting, used for debugging Browser Sync.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxRows</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1000</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum rows to render in the <strong>Table</strong> and <strong>Text</strong> result views.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxFieldItems</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>500</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Limit the length of the returned lists.
+For example, if a node has 1000 labels, the list will be cut off to the value set in <code>maxFieldItems</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>shouldReportUdc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Report less user metrics (user data collection).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>autoComplete</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Automatic completion of missing relationships.<br>
+When you execute a query, any relationships not explicitly returned by the query, but that exist between the nodes will be shown in the graph.
+You can disable for queries where it is important to see only the relationships the query returns.
+This behavior is controlled by the <code>Connect result nodes</code> in <strong>Browser Settings</strong>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>scrollToTop</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Automatically scroll stream to top on new frames.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxFrames</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>30</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of result frames.
+When reached, old frames get retired.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>codeFontLigatures</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow font ligatures for the Cypher editor bar and Cypher snippets.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>useBoltRouting</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to use Bolt routing.
+The Bolt+routing feature on Neo4j drivers discovers a cluster member (drivers have a load-balancing feature).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editorLint</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable/disable squiggly lines under text.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enableMultiStatementMode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows you to write and edit multi-line queries (use a semicolon (<code>;</code>) to separate statements).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>connectionTimeout</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>30000</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timeout in ms when establishing a connection to Neo4j.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>showPerformanceOverlay</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internal setting, used for showing a performance overlay (FPS and memory usage).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editorAutocomplete</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Trigger autocomplete when typing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="adjust-in-browser"><a class="anchor" href="#adjust-in-browser"></a>1. Adjust settings in Browser</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To change the configuration settings in Neo4j Browser, you can either use the tabs in the Browser Settings drawer or, in the Editor, type the command <code>:config</code> together with the setting and the new value.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. Adjust the Graph Vizualization settings in the Browser Settings drawer</div>
+<div class="content">
+<div class="paragraph">
+<p><span class="image"><img src="../../_images/adjust-settings.png" alt="adjust settings" width="40%"></span></p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 3. Adjust an individual setting using <code>:config</code></div>
+<div class="content">
+<div class="paragraph">
+<p>The example shows how to change the maximum number of neighbors for a node using the <code>:config</code> command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cypher hljs" data-lang="cypher">:config maxNeighbours:100</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 4. Adjust several settings</div>
+<div class="content">
+<div class="paragraph">
+<p>The example shows how to change the <code>maxFrames</code> from its default of <code>50</code> to <code>10</code> and the theme to <code>outline</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cypher hljs" data-lang="cypher">:config {maxFrames: 10, theme: "outline"}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After making the change, re-running <code>:config</code> reports that <code>maxFrames</code> has been set to <code>10</code>, and the theme is defined to <code>outline</code>.
+The <strong>Browser Settings</strong> drawer also reflects this change.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Adjusting the settings first resets the configuration to the default configuration and then sets the given configurations.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="adjust-globally"><a class="anchor" href="#adjust-globally"></a>2. Adjust settings globally</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To change the configuration settings for all users of Neo4j Browser, modify the <em>neo4j.conf</em> file, or if using <a href="">Neo4j Desktop</a>, navigate to the DBMS which settings you want to update, click the ellipsis dropdown menu, and select <strong>Settings</strong>.</p>
+</div>
+<div class="paragraph">
+<p>For example, to change the <code>maxFrames</code> from its default of <code>50</code> to <code>10</code> and the theme to <code>outline</code>, add the following line to <em>neo4j.conf</em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">browser.post_connect_cmd=config {maxFrames:10, theme: "outline"}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This changes the <code>maxFrames</code> from its default of <code>50</code> to <code>10</code> and then restarts Neo4j.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Global Browser settings</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Browser Setting</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>browser.allow_outgoing_connections</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configure the policy for outgoing Neo4j Browser connections.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>browser.credential_timeout</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configure the Neo4j Browser to time out logged-in users after this idle period.
+Setting this to <code>0</code> indicates no limit.
+Valid units are <code>ns</code>, <code>μs</code>, <code>ms</code>, <code>s</code>, <code>m</code>, <code>h</code>, and <code>d</code>; default unit is <code>s</code>).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>browser.post_connect_cmd</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Commands to be run when Neo4j Browser successfully connects to the server.
+Separate multiple commands with a semicolon (<code>;</code>).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>browser.remote_content_hostname_whitelist</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>guides.neo4j.com,localhost</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whitelist of hosts for the Neo4j Browser to be allowed to fetch content from.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>browser.retain_connection_credentials</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configure the Neo4j Browser to store or not store user credentials.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>browser.retain_editor_history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configure the Neo4j Browser to store or not store editor history.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../browser-sso/">Browser Single Sign-On</a></span>
+
+  <span class="next"><a href="../initial-command/">Initial command</a></span>
+</nav>
   <div class="feedback">
     <div class="header question">
         <p><strong>Was this page helpful?</strong></p>
@@ -428,10 +864,10 @@ If you typed the URL of this page manually, please double check that you entered
 </div>
 </footer>
 
-  <script src="/docs/assets/js/vendor/auth0.js"></script>
-  <script src="/docs/assets/js/site.js"></script>
-  <script async src="/docs/assets/js/vendor/highlight.js"></script>
-  <script async src="/docs/assets/js/vendor/image-zoom.js"></script>
+  <script src="../../../../assets/js/vendor/auth0.js"></script>
+  <script src="../../../../assets/js/site.js"></script>
+  <script async src="../../../../assets/js/vendor/highlight.js"></script>
+  <script async src="../../../../assets/js/vendor/image-zoom.js"></script>
 
 
 <div id="neo4j-algolia-search-v2"></div>

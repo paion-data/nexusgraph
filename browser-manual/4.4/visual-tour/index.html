@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1">
+    <meta name="msvalidate.01" content="B5163518CBE4A854B63801277FE5E35C" />
+    <meta name="google-site-verification" content="ucqagxjVuq0lJZeLKs0F5AppzK111lNt3IoxU6mzlJE" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WK23PSS');</script>
+    <title>Visual tour - Neo4j Browser</title>
+    <link rel="prev" href="../deployment-modes/dedicated-web-server/">
+    <link rel="next" href="../operations/">
+      <meta name="description" content="This chapter presents a visual overview of the UI of Neo4j Browser.">
+<link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/bundle.css" />
+<link rel="stylesheet" href="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/utilities.min.css" />
+
+    <link rel="preload" href="../../../assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
+    <link rel="stylesheet" href="../../../assets/css/site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
+
+
+
+    <meta property="neo:type" content="Docs">
+    <meta property="neo:site" content="Reference Docs">
+
+
+    <meta property="og:site_name" content="Neo4j Graph Data Platform" />
+    <meta property="article:publisher" content="https://www.facebook.com/neo4j.graph.database" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@neo4j" />
+    <meta name="twitter:site" content="@neo4j" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Visual tour - Neo4j Browser" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://dist.neo4j.com/wp-content/uploads/20210423062553/neo4j-social-share-21.png" />
+    <meta property="og:description" content="This chapter presents a visual overview of the UI of Neo4j Browser." />
+    <meta property="og:url" content="https://neo4j.com/docs/browser-manual/4.4/visual-tour/" />
+    <link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
+  </head>
+  <body class="article docs">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK23PSS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script>(function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e,call2])}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?
+MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
+mixpanel.init("4bfb2414ab973c741b6f067bf06d5575", {batch_requests: true})
+mixpanel.track("Page View", {
+    pathname: window.location.origin + window.location.pathname,
+    search: window.location.search,
+    hash: window.location.hash,
+    referrer: document.referrer,
+})
+</script>
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+
+      <img class="navbar-logo" src="https://dist.neo4j.com/wp-content/uploads/20210422142941/neo4j-logo-2020.svg" alt="Neo4j Docs" />
+      <a href="/docs/" class="navbar-item no-left-padding" aria-label="Docs">
+        Docs
+      </a>
+
+      </div>
+
+      <button class="navbar-search search-button" data-target="topbar-nav" id="search_open_mobile" aria-label="Open Search">
+        <svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" class="fill-current float-right" id="searchx" role="button" title="Search Website">
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round"
+            stroke-linejoin="round">
+            <g transform="translate(-2.000000, -2.000000)" stroke="#a0aec0" stroke-width="1.5">
+              <circle
+                transform="translate(11.389364, 11.388564) rotate(-23.025000) translate(-11.389364, -11.388564) "
+                cx="11.3893642" cy="11.3885639" r="8.056"></circle>
+              <path d="M17.0853333,17.0844444 L23.3333333,23.3333333" ></path>
+            </g>
+          </g>
+        </svg>
+      </button>
+      <button class="navbar-burger" data-target="topbar-nav" aria-label="Mobile Navigation Button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+
+
+        <div class="navbar-item has-dropdown is-hoverable docs">
+          <a class="navbar-link" href="/docs/">Docs</a>
+          <div class="navbar-dropdown">
+            <div class="navbar-item project">
+              <span class="project-name">Neo4j DBMS</span>
+              <ul class="project-links">
+                <li><a href="/docs/getting-started/current/" class="project-link">Getting Started</a></li>
+                <li><a href="/docs/operations-manual/current/" class="project-link">Operations</a></li>
+                <li><a href="/docs/migration-guide/current/" class="project-link">Migration and Upgrade</a></li>
+                <li><a href="/docs/status-codes/current/" class="project-link">Status Codes</a></li>
+                <li><a href="/docs/java-reference/current/" class="project-link">Java Reference</a></li>
+                <li><a href="/docs/kerberos-add-on/current/" class="project-link">Kerberos Add-on</a></li>
+              </ul>
+            </div>
+
+            <div class="navbar-item project">
+              <a class="project-name" href="/docs/aura/">Neo4j Aura</a>
+              <ul class="project-links">
+                <li><a class="project-link" href="/docs/aura">Neo4j Aura</a></li>
+                <li><a class="project-link" href="/docs/aura/auradb/">Neo4j AuraDB</a></li>
+                <li><a class="project-link" href="/docs/aura/aurads/">Neo4j AuraDS</a></li>
+              </ul>
+            </div>
+
+            <div class="navbar-item project">
+              <span class="project-name">Neo4j Tools</span>
+              <ul class="project-links">
+                <li><a href="/docs/bloom-user-guide/current/" class="project-link">Neo4j Bloom</a></li>
+                <li><a href="/docs/browser-manual/current/" class="project-link">Neo4j Browser</a></li>
+                <li><a href="/docs/desktop-manual/current/" class="project-link">Neo4j Desktop</a></li>
+                <li><a href="/docs/ops-manager/current/" class="project-link">Neo4j Ops Manager</a></li>
+              </ul>
+            </div>
+
+            <div class="navbar-item project">
+              <span class="project-name">Neo4j Graph Data Science</span>
+              <ul class="project-links">
+                <li><a href="/docs/graph-data-science/current/" class="project-link">Neo4j Graph Data Science Library</a></li>
+              </ul>
+            </div>
+
+            <div class="navbar-item project">
+              <span class="project-name">Cypher Query Language</span>
+              <ul class="project-links">
+                <li><a href="/docs/cypher-manual/current/" class="project-link">Cypher</a></li>
+                <li><a href="/docs/cypher-cheat-sheet/current/" class="project-link">Cypher Cheat Sheet</a></li>
+                <li><a href="/docs/apoc/current/" class="project-link">APOC Library</a></li>
+              </ul>
+            </div>
+
+            <div class="navbar-item project">
+              <span class="project-name" href="/docs/drivers-apis">Create applications</span>
+              <ul class="project-links">
+                <li><a href="/docs/python-manual/current/" class="project-link">Python Driver</a></li>
+                <li><a href="/docs/go-manual/current/" class="project-link">Go Driver</a></li>
+                <li><a href="/docs/java-manual/current/" class="project-link">Java Driver</a></li>
+                <li><a href="/docs/javascript-manual/current/" class="project-link">JavaScript Driver</a></li>
+                <li><a href="/docs/dotnet-manual/current/" class="project-link">.Net Driver</a></li>
+                <li><a href="/docs/graphql-manual/current/" class="project-link">Neo4j GraphQL Library</a></li>
+                <li><a href="/docs/http-api/current/" class="project-link">HTTP API</a></li>
+                <li><a href="/docs/ogm-manual/current/" class="project-link">OGM Library</a></li>
+                <li><a href="https://docs.spring.io/spring-data/neo4j/docs/current/reference/html/#reference" class="project-link">Spring Data Neo4j</a></li>
+                <li><a href="/docs/spark/" class="project-link">Neo4j Connector for Apache Spark</a></li>
+                <li><a href="/docs/kafka/" class="project-link">Neo4j Connector for Apache Kafka</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable labs">
+          <a class="navbar-link" href="/labs/">Labs</a>
+          <div class="navbar-dropdown">
+            <div class="navbar-item project">
+              <a class="project-name" href="/labs/arrows/">arrows.app</a>
+              <ul class="project-links">
+                <li><a href="/labs/arrows/" class="project-link">Details</a></li>
+                <li><a href="https://arrows.app" class="project-link">arrows.app</a></li>
+              </ul>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="/labs/apoc/">APOC Extended</a>
+
+              <ul class="project-links">
+                <li><a href="/labs/apoc/5/" class="project-link">Documentation</a></li>
+                <li><a href="/developer/neo4j-apoc/" class="project-link">Developer Guide</a></li>
+              </ul>
+            </div>
+
+            <div class="navbar-item project">
+              <a class="project-name" href="/labs/grandstack-graphql/">GraphQL &amp; GRANDStack</a>
+
+              <ul class="project-links">
+                <li><a href="/labs/grandstack-graphql/" class="project-link">Details</a></li>
+                <li><a href="https://grandstack.io/" class="project-link">GRANDstack.io</a></li>
+              </ul>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="/labs/halin/">Halin</a>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="/labs/etl-tool/">ETL Tool</a>
+              <ul class="project-links">
+                <li><a href="/labs/etl-tool/" class="project-link">Details</a></li>
+                <li><a href="/labs/etl-tool/1.5.0/" class="project-link">Documentation</a></li>
+              </ul>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="/labs/neo4j-migrations/">Neo4j Migrations</a>
+              <ul class="project-links">
+                <li><a href="/labs/neo4j-migrations/" class="project-link">Details</a></li>
+                <li><a href="/labs/neo4j-migrations/2.0/" class="project-link">Documentation</a></li>
+              </ul>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="/labs/liquibase/">Neo4j Plugin For Liquibase</a>
+              <ul class="project-links">
+                <li><a href="/labs/liquibase/" class="project-link">Details</a></li>
+                <li><a href="https://github.com/liquibase/liquibase-neo4j" class="project-link">Documentation</a></li>
+              </ul>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="/labs/neosemantics/">Neosemantics</a>
+              <ul class="project-links">
+                <li><a href="/labs/neosemantics/tutorial/" class="project-link">Getting Started</a></li>
+                <li><a href="/labs/neosemantics/4.0/" class="project-link">Documentation</a></li>
+              </ul>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="/labs/neo4j-helm/">Neo4j Helm</a>
+              <ul class="project-links">
+                <li><a href="/labs/neo4j-helm/" class="project-link">Details</a></li>
+                <li><a href="/labs/neo4j-helm/1.0.0/" class="project-link">Documentation</a></li>
+              </ul>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="/labs/neodash/">NeoDash</a>
+              <ul class="project-links">
+                <li><a href="/labs/neodash/" class="project-link">Details</a></li>
+                <li><a href="/labs/neodash/2.1/" class="project-link">Documentation</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable developer">
+          <a class="navbar-link" href="/developer/resources/">Get Help</a>
+          <div class="navbar-dropdown">
+            <div class="navbar-item project">
+              <a class="project-name" href="https://graphacademy.neo4j.com/?ref=docs" target="_blank">GraphAcademy</a>
+              <ul class="project-links">
+                <li><a class="project-link" href="https://graphacademy.neo4j.com/?ref=docs">Free, Self Paced Training</a></li>
+                <li><a class="project-link" href="https://graphacademy.neo4j.com/certification/?ref=docs" target="_blank">Certification</a></li>
+              </ul>
+            </div>
+
+            <div class="navbar-item project">
+              <a class="project-name" href="https://dev.neo4j.com/forum" target="_blank">Community Forum</a>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="https://dev.neo4j.com/chat" target="_blank">Discord Chat</a>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="/developer/kb" target="_blank">Knowledge Base</a>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="https://medium.com/neo4j" target="_blank">Neo4j Developer Blog</a>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="https://www.youtube.com/neo4j" target="_blank">Neo4j Videos</a>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable getting-started-cta">
+          <a class="navbar-link primary" href="https://neo4j.com/cloud/aura/?ref=docs-nav-get-started">Get Started</a>
+          <div class="navbar-dropdown">
+            <div class="navbar-item project">
+              <a class="project-name" href="https://neo4j.com/cloud/aura/?ref=docs-get-started-dropdown">
+                <div>Neo4j AuraDB <span class="aura-ticker">Start Free</span></div>
+                <div class="project-subtitle">Start your fully managed Neo4j cloud database</div>
+              </a>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="https://sandbox.neo4j.com/?ref=docs-get-started-dropdown-cta&persona=data-scientist">
+                <div>Neo4j Sandbox</div>
+                <div class="project-subtitle">Learn and use Neo4j for data science & more</div>
+              </a>
+            </div>
+            <div class="navbar-item project">
+              <a class="project-name" href="https://neo4j.com/download/?ref=docs-get-started-dropdown">
+                <div>Neo4j Desktop</div>
+                <div class="project-subtitle">Manage multiple local or remote Neo4j projects</div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <a class="navbar-link search-button" href="#search" id="search_open"><svg width="23px" height="23px" viewBox="0 0 23 23"
+              version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              class="fill-current float-right" id="search" role="button" title="Search Website">
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round"
+                stroke-linejoin="round">
+                <g transform="translate(-2.000000, -2.000000)" stroke="#a0aec0" stroke-width="1.5">
+                  <circle
+                    transform="translate(11.389364, 11.388564) rotate(-23.025000) translate(-11.389364, -11.388564) "
+                    cx="11.3893642" cy="11.3885639" r="8.056"></circle>
+                  <path d="M17.0853333,17.0844444 L23.3333333,23.3333333" ></path>
+                </g>
+              </g>
+            </svg><span class="navbar-mobile">Search</span></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="browser-manual" data-version="4.4">
+  <aside class="nav">
+    <div class="panels">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+    <nav class="nav-menu">
+    <ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../">Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../about-browser/">About Neo4j Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../deployment-modes/">Deployment modes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/neo4j-server/">Neo4j Server</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/neo4j-desktop/">Neo4j Desktop</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/web-application/">Web application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/neo4j-sandbox/">Neo4j Sandbox</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/neo4j-aura/">Neo4j Aura</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment-modes/dedicated-web-server/">Dedicated web server</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="./">Visual tour</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link nav-item-toggle" href="../operations/">Browser operations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/dbms-connection/">Connect to a Neo4j DBMS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/credentials-handling/">Browser credentials handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/browser-sso/">Browser Single Sign-On</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/browser-settings/">Browser settings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/initial-command/">Initial command</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/result-frames/">Result frames</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/export-results/">Export results</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/browser-styling/">Browser styling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/query-parameters/">Query parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/browser-url-parameters/">Browser URL parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/rest-requests/">HTTP REST requests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/browser-rbac-count/">Node and relationship counts with role-based access control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operations/product-analytics/">Product analytics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference-commands/">Command reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+  <div class="toolbar-wrapper">
+    <button class="nav-toggle" aria-label="Toggle Table of Contents"></button>
+    <a href="../" class="home-link" aria-label="Go to home page"></a>
+    <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Neo4j Browser</a></li>
+    <li><a href="./">
+        Visual tour
+    </a></li>
+  </ul>
+</nav>
+      </div>
+</div>
+
+  <div class="content">
+<article class="doc">
+<div class="sect-header">
+<h1 class="page">Visual tour</h1>
+</div>
+
+
+
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section walks you through the UI of Neo4j Browser.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="anchor" href="#overview"></a>1. Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="image"><img src="../_images/overview1.png" alt="overview1"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sidebar"><a class="anchor" href="#sidebar"></a>2. Sidebar</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The sidebar contains a set of drawers to set up the environment for graph management and explore your data.</p>
+</div>
+<div class="sect2">
+<h3 id="database-info"><a class="anchor" href="#database-info"></a>2.1. Database Information</h3>
+<div class="paragraph">
+<p>The Database Information drawer provides information about the currently used database, the current user&#8217;s roles, the Neo4j DBMS version, and some helpful DBMS administrative commands.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/database-information.png" alt="database information" width="40%"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Use database</strong>&#8201;&#8212;&#8201;A dropdown menu, where you can select the database you want to work with.</p>
+</li>
+<li>
+<p><strong>Node Labels</strong>, <strong>Relationship Types</strong>, and <strong>Property keys</strong>&#8201;&#8212;&#8201; List the Node Labels, Relationship Types, and Property keys contained in that database, presented in an alphabetized order and displayed in groupings of 50.
+Clicking any one of those options runs a quick query to show you a sample of the graph with those elements.</p>
+</li>
+<li>
+<p><strong>Node Counts</strong> and <strong>Relationship counts</strong> &#8201;&#8212;&#8201; Displayed in parentheses after the *.</p>
+<div class="paragraph">
+<p>Note that the counts stop updating automatically on big graphs for users who don&#8217;t have access to all data, see <a href="../operations/browser-rbac-count/" class="xref page">Node and relationship counts with role-based access control</a>.</p>
+</div>
+</li>
+<li>
+<p><strong>Connected as</strong>&#8201;&#8212;&#8201;Shows the current user and their roles and the Cypher command to disconnect from the server.
+If the current user has an administrative role, two more options are available: <code>:server user add</code> and <code>:server user list</code>.
+For more information about user&#8217;s built-in roles and the default privileges, see <a href="https://neo4j.com/docs/operations-manual/current/authentication-authorization/built-in-roles/" target="_blank" rel="noopener">Operations Manual &#8594; Built-in roles</a>.</p>
+</li>
+<li>
+<p><strong>DBMS</strong>&#8201;&#8212;&#8201;Provides information about the Neo4j version and edition, and some helpful DBMS administrative commands:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:dbs</code>&#8201;&#8212;&#8201;List all databases available for the current user.</p>
+</li>
+<li>
+<p><code>:sysinfo</code>&#8201;&#8212;&#8201;Display data about the Neo4j system, such as store size, ID allocation, page cache, transactions, and databases (name, address, role, status, default database, and errors).</p>
+</li>
+<li>
+<p><code>:queries</code>&#8201;&#8212;&#8201;List all currently running queries on the server.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="favorites"><a class="anchor" href="#favorites"></a>2.2. Favorites</h3>
+<div class="paragraph">
+<p>The <strong>Favorites</strong> drawer is where you keep your bookmarked queries and commands.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/favorites1.png" alt="favorites1"></span></p>
+</div>
+<div class="sect3">
+<h4 id="_save_a_query_as_a_favorite"><a class="anchor" href="#_save_a_query_as_a_favorite"></a>2.2.1. Save a query as a favorite</h4>
+<div class="paragraph">
+<p>You can save Cypher queries and commands as favorites by "starring" them.
+Use the <strong>Add empty favorite</strong> option to open an empty script in the Cypher editor, then write the query that you want to bookmark.
+Clicking the <strong>Save as Favorite</strong> icon to the right of the editor adds the query to your <strong>Favorites</strong> list in the left-side menu.
+All favorites are stored in your local browser storage and are centric to the user/browser who has recorded those favorites.
+Clearing your Browser cache removes all your local favorites.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can save your favorites, settings, and styles in the cloud with Neo4j Browser Sync.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_run_a_favorite"><a class="anchor" href="#_run_a_favorite"></a>2.2.2. Run a favorite</h4>
+<div class="paragraph">
+<p>To run one of your favorites, click the left-side menu <strong>Favorites</strong>, choose the query, and run it.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_add_a_title_to_a_favorite"><a class="anchor" href="#_add_a_title_to_a_favorite"></a>2.2.3. Add a title to a favorite</h4>
+<div class="paragraph">
+<p>The first line of the Cypher query or command is used to name your favorite.
+To provide a title or helpful info to your favorite, you can use a comment <code>//comment</code> above your query.
+The <strong>Favorites</strong> menu uses this comment to name the saved query.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Favorite: Hello Cypher</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cypher hljs" data-lang="cypher">//Hello Cypher
+MATCH (n)
+RETURN n
+LIMIT 100</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_organize_your_favorites"><a class="anchor" href="#_organize_your_favorites"></a>2.2.4. Organize your favorites</h4>
+<div class="paragraph">
+<p>Creating folders can help organize your favorites.
+You can rearrange them by dragging and delete them if they are no longer useful.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sample_scripts"><a class="anchor" href="#_sample_scripts"></a>2.2.5. Sample Scripts</h4>
+<div class="paragraph">
+<p>There are several built-in favorites, which can help you manage and explore your data.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/sample-scripts.png" alt="sample scripts" width="40%"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Basic Queries</strong> contains simple queries to get you started with Neo4j.
+For example, clicking and running the <strong>Get Some Data</strong> query executes the statement <code>MATCH (n) RETURN n LIMIT 100</code>, which fetches some nodes.</p>
+</li>
+<li>
+<p><strong>Example Graphs</strong> contains queries that run the built-in guides The Movie Graph and The Northwind Database.
+For more information on the Neo4j Browser built-in guides, see <a href="#guides">Guides</a>.</p>
+</li>
+<li>
+<p><strong>Data Profiling</strong> contains queries that you can use to collect statistics and produce informative summaries about the underlying data.
+For example, clicking and running the <strong>What is related, and how</strong> query executes the procedure <code>CALL db.schema.visualization()</code>, which shows the graph data model (graph schema).</p>
+</li>
+<li>
+<p><strong>Common Procedures</strong> contains a few Neo4j procedures, two of which list all available Neo4j functions and procedures.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saved-files"><a class="anchor" href="#saved-files"></a>2.3. Project Files</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <strong>Project files</strong> tab is <strong>Neo4j Desktop</strong> specific.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Project files allow you to save queries, guides, and other scripts, as Cypher files.
+Unlike favorites, which are saved in your local browser storage, project files are project-specific and are actual files stored in the project directory on your hard drive.
+All save files are listed under the project they refer to.
+For more information, see <a href="https://neo4j.com/docs/desktop-manual/current/visual-tour/#files" target="_blank" rel="noopener">Neo4j Desktop Manual &#8594; Files</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="guides"><a class="anchor" href="#guides"></a>2.4. Guides</h3>
+<div class="paragraph">
+<p>The Neo4j Browser Guides drawer provides many interactive guides for learning concepts and tools with Neo4j.
+Some of them come with Neo4j Browser out-of-the-box, no matter what system or installation you are using.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/guides.png" alt="guides" width="60%"></span></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Built-in guides and commands</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Guide command</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:guide intro</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Neo4j Browser User Interface.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:guide concepts</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Basic property-graph concepts to get you going.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:guide cypher</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cypher basics - create, match, patterns.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:guide movie-graph</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Movie Graph, a mini graph model of connections between actors and movies.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:guide northwind-graph</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Northwind Database, a classic use case of RDBMS to graph with import instructions and queries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>There are also other Neo4j Browser guides created by Neo4j staff and community members to help others learn Neo4j or how to use the tools in its ecosystem.
+One of them is <code>:guide graph-data-science</code>, a remote guide also featured on Browser.
+You can check out the currently published list on the <a href="https://portal.graphgist.org/graph_guides" target="_blank" rel="noopener">GraphGist Portal (Graph Guides section)</a>.<br>
+For more information on how to create a custom Browser guide, see <a href="https://neo4j.com/developer/guide-create-neo4j-browser-guide/" target="_blank" rel="noopener">creating a custom Browser guide</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="help-learn"><a class="anchor" href="#help-learn"></a>2.5. Help &amp; Learn</h3>
+<div class="paragraph">
+<p>The <strong>Help &amp; Learn</strong> drawer contains useful commands, links to documentation, notifications, and a send feedback button.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/help.png" alt="help" width="40%"></span></p>
+</div>
+<div class="sect3">
+<h4 id="useful-commands"><a class="anchor" href="#useful-commands"></a>2.5.1. Useful commands</h4>
+<div class="paragraph">
+<p>Most of the commands in the <strong>Useful commands</strong> tab work as an entry point to a help page, where you can find a lot of handy commands and keyboard shortcuts you can use in Neo4j Browser.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Useful commands</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Help System</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:help cypher</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provide a list of the most useful Cypher commands, with an overview and a quick way to find help.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:help commands</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all available <code>:help</code> commands.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:help keys</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List some of the Cypher editor keyboard shortcuts.<br>
+To access the list of all available editor keybindings, press F1 in the Cypher editor.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display the most recently executed statements and commands.
+You can click a block shown in the history result to bring it into the editor.
+The command history is persisted across Browser restarts.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CALL db.schema.visualization()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show database schema.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:sysinfo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display data about the Neo4j system, such as store size, ID allocation, page cache, transactions, and databases (name, address, role, status, default database, and errors).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For the complete list of all Neo4j Browser commands, see <a href="../reference-commands/" class="xref page">Command reference</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="settings"><a class="anchor" href="#settings"></a>2.6. Browser Settings</h3>
+<div class="paragraph">
+<p>The <strong>Browser Settings</strong> drawer contains configurations related to the UI, result frames, and graph visualization.
+You can adjust some of them in place, for example, <em>Enable multi statement query editor</em>, <em>Initial command to execute</em>, graph limits, result limits, or by using the <code>:config</code> command.
+For the full list of the Neo4j Browser settings and how to adjust them in the Browser and globally, see <a href="../operations/browser-settings/" class="xref page">Browser settings</a>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/settings.png" alt="settings" width="40%"></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="editor"><a class="anchor" href="#editor"></a>3. Cypher editor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Cypher editor is the primary interface for entering and running Cypher queries and commands.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/screen_editor.png" alt="screen editor"></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>From Neo4j Browser 4.2.4, the Cypher editor is based on <a href="https://microsoft.github.io/monaco-editor/" target="_blank" rel="noopener">Monaco Editor</a>, the code editor that powers <a href="https://github.com/Microsoft/vscode" target="_blank" rel="noopener">Visual Studio Code (VS Code)</a>.
+Even though it is the same text editor as VS Code, it is not the entire VS Code package.
+For example, plugins are not included and are not possible to implement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Some of the Cypher editor features include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cypher queries to work with graph data.</p>
+</li>
+<li>
+<p>The editor can be instantiated several times, which allows you to edit the query inside the result frame and re-run it.</p>
+</li>
+<li>
+<p>Single-line editing for brief queries or commands.</p>
+</li>
+<li>
+<p>Multi-line editing for long queries or commands.</p>
+</li>
+<li>
+<p>REST request commands (<code>:GET</code>, <code>:POST</code>, <code>:PUT</code>, and <code>:DELETE</code>).</p>
+</li>
+<li>
+<p>Syntax highlighting:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A smart highlight of matching pairs around the current position of the cursor, for example, matching brackets, braces, and parenthesis.</p>
+</li>
+<li>
+<p>Matching pairs are auto-closed.</p>
+</li>
+<li>
+<p>A smart highlight of identical words on a word click.</p>
+</li>
+<li>
+<p>Words, such as attributes, anon name, and values, are highlighted in different colors.</p>
+</li>
+<li>
+<p>Any punctuation, such as parenthesis and comma, has a slightly different color than text.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Quick comment/uncomment.</p>
+</li>
+<li>
+<p>Indentation and folding.<br>
+You can fold an indented code snippet.
+This way, you can hide lots of code.</p>
+</li>
+<li>
+<p>Search and replace.<br>
+For example, you can search for a particular label (e.g., <code>: Actor</code>) and replace all its occurrences (with <code>: Person</code>).</p>
+</li>
+<li>
+<p>Autocomplete for browser commands can autocomplete several words.</p>
+</li>
+<li>
+<p>Warnings are displayed with a squiggly line that you hover, and you get a pop-up.</p>
+</li>
+<li>
+<p>Client-side commands like <code>:help</code> for other operations.</p>
+</li>
+<li>
+<p>Command palette (F1) with all of the available commands with their shortcuts.
+The currently available commands can be turned on and off.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/command-palette.png" alt="command palette"></span></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Useful shortcuts</caption>
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 28.5714%;">
+<col style="width: 28.5715%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Keyboard shortcut (Mac OS)</th>
+<th class="tableblock halign-left valign-top">Keyboard shortcut (Windows and Linux)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select highlighted identical words one by one.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>command + D</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ctrl + D</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select all highlighted identical words.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>command + shift + L</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ctrl + shift + L</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Move a query line up and down.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ALT + arrow</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ALT + arrow</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete a query line.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>command + shift + K</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ctrl + shift + K</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add multiple cursors, if you want to add several lines at the same time.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>command + ALT + arrow</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ctrl + ALT + arrow</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Toggle comment on the currently selected row(s).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>command + /</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ctrl + /</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Search and replace.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>command + F</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ctrl + F</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run a query.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>command + enter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ctrl + Enter</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch to multi-line editing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Shift + enter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Shift + Enter</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Move focus to the Cypher editor.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>/</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>/</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Toggle the Cypher editor to full screen.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ESC</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ESC</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For more information about keyboard shortcuts, use the command <code>:help keys</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reusable-frames"><a class="anchor" href="#reusable-frames"></a>4. Reusable result frames</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Neo4j Browser reusable result frames allow you to edit the query of an existing result directly in the result frame and re-run it to update the result in situ.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/inline-result-editor.gif" alt="inline result editor"></span></p>
+</div>
+<div class="paragraph">
+<p>You can also use <em>Cmd/Ctrl + click</em> to send it back to the main editor and re-run it from there.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/reusable-frame.png" alt="reusable frame"></span></p>
+</div>
+<div class="paragraph">
+<p>Each reusable frame maintains its own local history of commands and updates the main one in the Cypher editor, should you need to instantiate a new result frame from there.</p>
+</div>
+<div class="sect2">
+<h3 id="frame-views"><a class="anchor" href="#frame-views"></a>4.1. Result frame views</h3>
+<div class="paragraph">
+<p>Neo4j Browser supports different result frame views to suit your needs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Graph&#8201;&#8212;&#8201;Display the result as nodes and relationships and allow <a href="../operations/browser-styling/" class="xref page">styling</a> to be configured.</p>
+</li>
+<li>
+<p>Table&#8201;&#8212;&#8201;Display the result as JSON formatted rows.</p>
+</li>
+<li>
+<p>Text&#8201;&#8212;&#8201;Display the result as a plain text table.</p>
+</li>
+<li>
+<p>Code&#8201;&#8212;&#8201;Display the submitted request, the Neo4j Server version and address, and the response.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more details on the different ways of viewing data in Neo4j Browser, see <a href="../operations/result-frames/" class="xref page">Result frames</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="stream"><a class="anchor" href="#stream"></a>4.2. Stream</h3>
+<div class="paragraph">
+<p>A stream is a scrolling series of result frames.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/screen_stream.png" alt="screen stream"></span></p>
+</div>
+<div class="paragraph">
+<p>A reusable result frame is created for each command execution, added to the top of the stream to create a scrollable collection in reverse chronological order.
+You can expand and collapse the result frames using the <strong>Collapse</strong> icon.<br>
+To remove all the frames from the stream, use the <code>:clear</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Browser settings that maybe useful for you are the maximum number of result frames to display (<code>maxFrames</code>) and the size of the command and statement history (<code>maxHistory</code>).
+When reached, old frames and history entries get retired.
+For more information on how to adjust Browser Settings, see <a href="../operations/browser-settings/" class="xref page">Browser settings</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../deployment-modes/dedicated-web-server/">Dedicated web server</a></span>
+
+  <span class="next"><a href="../operations/">Browser operations</a></span>
+</nav>
+  <div class="feedback">
+    <div class="header question">
+        <p><strong>Was this page helpful?</strong></p>
+
+        <svg width="22px" height="22px" viewBox="0 0 22 22" role="button" class="no" aria-label="No, this page isn't helpful">
+            <path
+                d="M6.25,15.8333333 C6.25,13.7622655 7.92893219,12.0833333 10,12.0833333 C12.0710678,12.0833333 13.75,13.7622655 13.75,15.8333333"
+                ></path>
+            <circle  cx="10" cy="10" r="9.58333333"></circle>
+            <path
+                d="M12.5,4.58333333 C12.8934466,4.05873783 13.5109223,3.75 14.1666667,3.75 C14.822411,3.75 15.4398867,4.05873783 15.8333333,4.58333333"
+                ></path>
+            <line x1="4.58333333" y1="7.91666667" x2="7.08333333" y2="7.91666667" ></line>
+            <path
+                d="M7.08333333,8.54166667 C6.96827401,8.54166667 6.875,8.44839266 6.875,8.33333333 C6.875,8.21827401 6.96827401,8.125 7.08333333,8.125 C7.19839266,8.125 7.29166667,8.21827401 7.29166667,8.33333333 C7.29166667,8.44839266 7.19839266,8.54166667 7.08333333,8.54166667"
+                ></path>
+            <line x1="12.9166667" y1="7.91666667" x2="15.4166667" y2="7.91666667" ></line>
+            <path
+                d="M15.4166667,8.54166667 C15.3016073,8.54166667 15.2083333,8.44839266 15.2083333,8.33333333 C15.2083333,8.21827401 15.3016073,8.125 15.4166667,8.125 C15.531726,8.125 15.625,8.21827401 15.625,8.33333333 C15.625,8.44839266 15.531726,8.54166667 15.4166667,8.54166667"
+                ></path>
+            <path
+                d="M4.16666667,4.58333333 C4.5601133,4.05873783 5.17758895,3.75 5.83333333,3.75 C6.48907772,3.75 7.10655337,4.05873783 7.5,4.58333333"
+                ></path>
+        </svg>
+
+        <svg width="22px" height="22px" viewBox="0 0 22 22" role="button" class="yes" aria-label="Yes, this page is helpful">
+            <circle  cx="10" cy="10" r="9.58333333"></circle>
+            <path
+                d="M5.41666667,8.125 C5.53172599,8.125 5.625,8.21827401 5.625,8.33333333 C5.625,8.44839266 5.53172599,8.54166667 5.41666667,8.54166667 C5.30160734,8.54166667 5.20833333,8.44839266 5.20833333,8.33333333 C5.20833333,8.21827401 5.30160734,8.125 5.41666667,8.125"
+                ></path>
+            <path
+                d="M14.5833333,8.125 C14.468274,8.125 14.375,8.21827401 14.375,8.33333333 C14.375,8.44839266 14.468274,8.54166667 14.5833333,8.54166667 C14.6983927,8.54166667 14.7916667,8.44839266 14.7916667,8.33333333 C14.7916667,8.21827401 14.6983927,8.125 14.5833333,8.125"
+                ></path>
+            <path
+                d="M13.2275,12.9166657 C13.4853075,12.9162808 13.7287776,13.035241 13.8869095,13.2388563 C14.0450415,13.4424715 14.1000278,13.7078123 14.0358333,13.9575 C13.562901,15.7999679 11.9021969,17.0882321 10,17.0882321 C8.09780311,17.0882321 6.43709903,15.7999679 5.96416667,13.9575 C5.89997223,13.7078123 5.95495852,13.4424715 6.11309045,13.2388563 C6.27122239,13.035241 6.51469246,12.9162808 6.7725,12.9166657 L13.2275,12.9166657 Z"
+                ></path>
+        </svg>
+    </div>
+
+
+</div></article>
+<aside class="toc sidebar" data-title="Contents"
+  data-levels="2">
+  <div class="toc-menu">
+    <div class="toc-menu-placeholder"></div>
+
+      </div>
+  </aside>  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="wrapper">
+  <div class="column">
+    <div class="logo-footer"></div>
+    <p>© <span id="footer-copyright-year">2023</span> Neo4j, Inc.<br>
+      <a href="https://neo4j.com/terms/">Terms</a> | <a href="https://neo4j.com/privacy-policy/">Privacy </a> | <a href="https://neo4j.com/sitemap/">Sitemap</a></p>
+    <p>Neo4j<sup>®</sup>, Neo Technology<sup>®</sup>, Cypher<sup>®</sup>, Neo4j<sup>®</sup> Bloom<sup>™</sup> and
+      Neo4j<sup>®</sup> Aura<sup>™</sup> are registered trademarks
+      of Neo4j, Inc. All other marks are owned by their respective companies.</p>
+  </div>
+
+  <div class="column">
+    <h2><a href="https://neo4j.com/contact-us/?ref=footer">Contact Us →</a></h2>
+    <p>US: 1-855-636-4532<br>
+      Sweden +46 171 480 113<br>
+      UK: +44 20 3868 3223<br>
+      France: +33 (0) 1 88 46 13 20<br>
+      <!--Germany: +49 (0)89 26204 6300</p>-->
+    </p>
+  </div>
+  <div class="column links">
+    <h2>Learn</h2>
+    <ul>
+      <li><i class="fa fa-wrench" aria-hidden="true"></i> <a rel="noopener" href="https://neo4j.com/sandbox/?ref=developer-footer">Sandbox</a></li>
+      <li><i class="fa fa-comments-o" aria-hidden="true"></i> <a rel="noopener" href="https://community.neo4j.com?ref=developer-footer" target="_blank">Neo4j Community Site</a></li>
+      <li><i class="fa fa-book" aria-hidden="true"></i> <a rel="noopener" href="https://medium.com/neo4j" target="_blank">Neo4j Developer Blog</a></li>
+      <li><i class="fa fa-youtube" aria-hidden="true"></i> <a rel="noopener" href="https://www.youtube.com/neo4j" target="_blank">Neo4j Videos</a></li>
+      <li><i class="fa fa-graduation-cap" aria-hidden="true"></i> <a rel="noopener" href="https://neo4j.com/graphacademy/?ref=developer-footer">GraphAcademy</a></li>
+      <li><i class="fa fa-flask" aria-hidden="true"></i> <a href="https://neo4j.com/labs/?ref=developer-footer">Neo4j Labs</a></li>
+    </ul>
+  </div>
+  <div class="column links">
+    <h2>Social</h2>
+    <ul>
+      <li><i class="fa fa-twitter" aria-hidden="true"></i> <a rel="noopener" href="https://twitter.com/neo4j" target="_blank">Twitter</a></li>
+      <li><i class="fa fa-meetup" aria-hidden="true"></i> <a rel="noopener" href="https://www.meetup.com/Neo4j-Online-Meetup/" target="_blank">Meetups</a></li>
+      <li><i class="fa fa-github" aria-hidden="true"></i> <a rel="noopener" href="https://github.com/neo4j/neo4j" target="_blank">Github</a></li>
+      <li><i class="fa fa-stack-overflow" aria-hidden="true"></i> <a rel="noopener" href="https://stackoverflow.com/questions/tagged/neo4j" target="_blank">Stack Overflow</a></li>
+
+      <li class="speaker-program"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdEcNnMruES5iwvOVYovmS1D_P1ZL_HdUOitFrwrvruv5PZvA/viewform">Want to Speak?</a></li>
+    </ul>
+  </div>
+</div>
+</footer>
+
+  <script src="../../../assets/js/vendor/auth0.js"></script>
+  <script src="../../../assets/js/site.js"></script>
+  <script async src="../../../assets/js/vendor/highlight.js"></script>
+  <script async src="../../../assets/js/vendor/image-zoom.js"></script>
+
+
+<div id="neo4j-algolia-search-v2"></div>
+<script src="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/bundle.js"></script>
+<script src="https://neo4j.com/wp-content/themes/neo4jweb/assets/neo4j-react-modules-assets/search-preact/chunkless/polyfill.js"></script>
+<script>window.algoliaSearchOptions = {indexName: "docs",placeholder: "Search Documentation",template: "docs"}</script>  </body>
+</html>
