@@ -1,0 +1,30 @@
+/*
+ * Copyright Jiaqi Liu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+import React from 'react'
+
+export default function DbsOnSystemDb() {
+  return (
+    <p>
+      <strong>A note on system database</strong>
+      <br />
+      Neo4j allows the same server to manage multiple databases. The metadata
+      for these databases, including the associated security model, is
+      maintained in a special database called the <code>system</code> database.
+      All multi-database administrative commands need to be executing against
+      the <code>system</code> database.
+    </p>
+  )
+}

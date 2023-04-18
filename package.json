@@ -1,5 +1,5 @@
 {
-  "name": "@paiondata/messier-61",
+  "name": "messier-61",
   "version": "0.1.0",
   "engines": {
     "node": ">=16.0.0 <18.0.0"
@@ -8,14 +8,15 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "jest",
+    "test": "yarn test:graph",
+    "test:graph": "cd packages/messier-61-graph && yarn install && yarn test",
     "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/paion-data/Messier-61.git"
   },
-  "author": "Paion Data Development Team",
+  "author": "Jiaqi Liu",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/paion-data/Messier-61/issues"
