@@ -47,6 +47,7 @@ import {
   syncReducer
 } from 'shared/modules/sync/syncDuck'
 import udcReducer, { NAME as udc } from 'shared/modules/udc/udcDuck'
+import graphEditorReducer, { NAME as graphEditor } from 'shared/modules/graphEditor/graphEditorDuck'
 
 export default {
   [connections]: connectionsReducer,
@@ -69,5 +70,6 @@ export default {
   [udc]: udcReducer,
   [app]: appReducer,
   [guides]: guideReducer,
-  [experimentalFeatures]: experimentalFeaturesReducer
+  [experimentalFeatures]: experimentalFeaturesReducer,
+  [graphEditor]: graphEditorReducer
 }

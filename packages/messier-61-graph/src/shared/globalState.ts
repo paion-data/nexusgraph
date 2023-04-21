@@ -28,6 +28,8 @@ import { NAME as grass } from './modules/grass/grassDuck'
 import { GuideState, NAME as guides } from './modules/guides/guidesDuck'
 import { NAME as history } from './modules/history/historyDuck'
 import { NAME as params } from './modules/params/paramsDuck'
+import { NAME as editor, GraphEditorState } from './modules/graphEditor/graphEditorDuck'
+
 import { RequestState, NAME as requests } from './modules/requests/requestsDuck'
 import {
   SettingsState,
@@ -66,4 +68,5 @@ export interface GlobalState {
   [app]: AppState
   [experimentalFeatures]: typeof experimentalFeaturesInitialState
   [guides]: GuideState
+  [editor]: GraphEditorState
 }

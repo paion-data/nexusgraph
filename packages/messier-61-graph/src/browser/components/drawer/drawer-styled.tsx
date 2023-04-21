@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { primaryLightColor } from 'browser-styles/themes'
 
 export const Drawer = styled.div`
-  width: 290px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 40vh;
 `
 
 export const DrawerHeader = styled.h4`

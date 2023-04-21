@@ -32,7 +32,9 @@ function mockVizProps(
     setNodePropertiesExpandedByDefault: jest.fn(),
     wheelZoomInfoMessageEnabled: false,
     disableWheelZoomInfoMessage: jest.fn(),
-    ...overrides
+    ...overrides,
+    editorNodes: [],
+    editorRelationships: []
   }
 }
 const mockStore = configureMockStore()

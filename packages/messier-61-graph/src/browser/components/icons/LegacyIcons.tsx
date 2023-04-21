@@ -10,9 +10,6 @@ import arrowRight from './svgs/arrow-right.svg'
 import backArrow from './svgs/back-arrow.svg'
 import cannyFeedback from './svgs/canny-feedback.svg'
 import cannyNotifications from './svgs/canny-notifications.svg'
-import cloudCheck from './svgs/cloud-check.svg'
-import cloudRemove from './svgs/cloud-remove.svg'
-import cog from './svgs/cog.svg'
 import databaseCheck from './svgs/database-check.svg'
 import saveFavorite from './svgs/favorite.svg'
 import file from './svgs/file.svg'
@@ -24,13 +21,10 @@ import downCaret from './svgs/frame-expand.svg'
 import expand from './svgs/frame-fullscreen.svg'
 import pin from './svgs/frame-pin.svg'
 import shrink from './svgs/frame-shrink.svg'
-import help from './svgs/help.svg'
 import vizIcon from './svgs/hierarchy-9.svg'
 import hollowPlay from './svgs/hollow-run-icon.svg'
-import monitorPlay from './svgs/monitor-play.svg'
+import editorPlay from './svgs/editor-svgrepo-com.svg'
 import navigationMenuVertical from './svgs/navigation-menu-vertical.svg'
-import neo4j from './svgs/neo4j-icon.svg'
-import ratingStar from './svgs/rating-star.svg'
 import run from './svgs/run-icon.svg'
 import download from './svgs/save.svg'
 import skipPrev from './svgs/skip-prev.svg'
@@ -63,6 +57,7 @@ const warningRed = `
 `
 const white = `
   color: #ffffff;
+  fill: #ffffff;
 `
 const lightBlue = `
   color: #5dade2;
@@ -124,14 +119,14 @@ export const DatabaseIcon = (props: {
   )
 }
 
-export const GuideDrawerIcon = (props: { isOpen: boolean }): JSX.Element => (
+export const EditorIcon = (props: { isOpen: boolean }): JSX.Element => (
   <IconContainer
     activeStyle={white}
     inactiveStyle={inactive}
     width={28}
     isOpen={props.isOpen}
-    icon={monitorPlay}
-    title="Guides"
+    icon={editorPlay}
+    title="Editor"
   />
 )
 
@@ -139,88 +134,6 @@ interface SidebarIconProps {
   isOpen: boolean
   title: string
 }
-
-export const FavoritesIcon = ({
-  isOpen,
-  title
-}: SidebarIconProps): JSX.Element => (
-  <IconContainer
-    activeStyle={white}
-    inactiveStyle={inactive}
-    icon={ratingStar}
-    width={SIDEBAR_SIZE}
-    isOpen={isOpen}
-    title={title}
-  />
-)
-export const ProjectFilesIcon = ({
-  isOpen,
-  title
-}: SidebarIconProps): JSX.Element => (
-  <IconContainer
-    activeStyle={white}
-    inactiveStyle={inactive}
-    icon={file}
-    width={SIDEBAR_SIZE}
-    isOpen={isOpen}
-    title={title}
-  />
-)
-
-export const DocumentsIcon = ({
-  isOpen,
-  title
-}: SidebarIconProps): JSX.Element => (
-  <IconContainer
-    activeStyle={white}
-    inactiveStyle={inactive}
-    icon={help}
-    width={SIDEBAR_SIZE}
-    isOpen={isOpen}
-    title={title}
-  />
-)
-
-export const CloudSyncIcon = ({
-  isOpen,
-  title,
-  connected
-}: SidebarIconProps & { connected: boolean }): JSX.Element => {
-  return (
-    <IconContainer
-      activeStyle={connected ? successGreen : warningRed}
-      inactiveStyle={connected ? inactive : warningRed}
-      icon={connected ? cloudCheck : cloudRemove}
-      width={SIDEBAR_SIZE}
-      isOpen={isOpen}
-      title={title}
-    />
-  )
-}
-
-export const SettingsIcon = ({
-  isOpen,
-  title
-}: SidebarIconProps): JSX.Element => (
-  <IconContainer
-    activeStyle={white}
-    inactiveStyle={inactive}
-    icon={cog}
-    width={SIDEBAR_SIZE}
-    isOpen={isOpen}
-    title={title}
-  />
-)
-export const AboutIcon = ({ isOpen, title }: SidebarIconProps): JSX.Element => (
-  <IconContainer
-    activeStyle={credits}
-    inactiveStyle={inactive}
-    icon={neo4j}
-    width={SIDEBAR_SIZE}
-    isOpen={isOpen}
-    title={title}
-  />
-)
 
 export const SlidePreviousIcon = (): JSX.Element => (
   <IconContainer icon={arrowLeft} width={LARGE_SIZE} />

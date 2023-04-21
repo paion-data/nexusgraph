@@ -16,8 +16,8 @@ import {
 import { GUIDE_DRAWER_ID } from 'shared/modules/sidebar/sidebarDuck'
 import { Resizable } from 're-resizable'
 
-export const LARGE_DRAWER_WIDTH = 500
-export const STANDARD_DRAWER_WIDTH = 300
+export const LARGE_DRAWER_WIDTH = '50%'
+export const STANDARD_DRAWER_WIDTH = '50%'
 
 const Closing = 'CLOSING'
 const Closed = 'CLOSED'
@@ -47,7 +47,7 @@ interface NavigationProps {
 interface NavigationState {
   transitionState: DrawerTransitionState
   closingDrawerName: string | null
-  guideWidth: number
+  guideWidth: string
   isResizing: boolean
 }
 
@@ -114,7 +114,7 @@ class Navigation extends Component<NavigationProps, NavigationState> {
       list: NavItem[],
       selectedDrawerName?: null | string
     ) =>
-      list.map(item => {
+      list.filter(item => item.name === 'Editor').map(item => {
         const isOpen = item.name.toLowerCase() === selectedDrawerName
         return (
           <div key={item.name}>
@@ -170,50 +170,50 @@ class Navigation extends Component<NavigationProps, NavigationState> {
     const width = isOpenOrOpening ? drawerWidth : 0
 
     return (
-      <StyledSidebar>
-        <StyledTabsWrapper>
-          <StyledTopNav>{topNavItemsList}</StyledTopNav>
-          <StyledBottomNav>{bottomNavItemsList}</StyledBottomNav>
-        </StyledTabsWrapper>
+        <StyledSidebar style={{ width: isOpenOrOpening ? STANDARD_DRAWER_WIDTH : 60}}>
+          <StyledTabsWrapper>
+            <StyledTopNav>{topNavItemsList}</StyledTopNav>
+            <StyledBottomNav>{bottomNavItemsList}</StyledBottomNav>
+          </StyledTabsWrapper>
 
-        <StyledDrawer
-          onTransitionEnd={this.onTransitionEnd}
-          style={{
-            width: this.state.isResizing ? 'unset' : width
-          }}
-        >
-          <Resizable
-            minWidth={guideDrawerSelected ? STANDARD_DRAWER_WIDTH : 0}
-            maxWidth={'70vw'}
-            size={{ width: width, height: '100%' }}
-            onResizeStart={() => {
-              this.setState({ isResizing: true })
+          <StyledDrawer
+            onTransitionEnd={this.onTransitionEnd}
+            style={{
+              width: this.state.isResizing ? 'unset' : width
             }}
-            onResizeStop={(_e, _direction, _ref, d) => {
-              this.setState({
-                guideWidth: this.state.guideWidth + d.width,
-                isResizing: false
-              })
-            }}
-            enable={{
-              top: false,
-              right: guideDrawerSelected,
-              bottom: false,
-              left: false,
-              topRight: false,
-              bottomRight: false,
-              bottomLeft: false,
-              topLeft: false
-            }}
-            style={{ zIndex: 100 }}
           >
-            {drawerIsVisible &&
-              getContentToShow(
-                this.props.selectedDrawerName || this.state.closingDrawerName
-              )}
-          </Resizable>
-        </StyledDrawer>
-      </StyledSidebar>
+            <Resizable
+              minWidth={guideDrawerSelected ? STANDARD_DRAWER_WIDTH : 0}
+              maxWidth={'70vw'}
+              size={{ width: '100%', height: '100%' }}
+              onResizeStart={() => {
+                this.setState({ isResizing: true })
+              }}
+              onResizeStop={(_e, _direction, _ref, d) => {
+                this.setState({
+                  guideWidth: this.state.guideWidth + d.width,
+                  isResizing: false
+                })
+              }}
+              enable={{
+                top: false,
+                right: guideDrawerSelected,
+                bottom: false,
+                left: false,
+                topRight: false,
+                bottomRight: false,
+                bottomLeft: false,
+                topLeft: false
+              }}
+              style={{ zIndex: 100 }}
+            >
+              {drawerIsVisible &&
+                getContentToShow(
+                  this.props.selectedDrawerName || this.state.closingDrawerName
+                )}
+            </Resizable>
+          </StyledDrawer>
+        </StyledSidebar>
     )
   }
 }

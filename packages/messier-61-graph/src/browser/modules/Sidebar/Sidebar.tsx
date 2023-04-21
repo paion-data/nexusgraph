@@ -3,30 +3,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import {
-  AboutIcon,
-  CloudSyncIcon,
   DatabaseIcon,
-  DocumentsIcon,
-  FavoritesIcon,
-  GuideDrawerIcon,
-  ProjectFilesIcon,
-  SettingsIcon
+  EditorIcon,
 } from 'browser-components/icons/LegacyIcons'
 
 import DatabaseDrawer from '../DBMSInfo/DBMSInfo'
-import BrowserSync from '../Sync/BrowserSync'
-import AboutDrawer from './About'
-import DocumentsDrawer from './Documents'
-import GuideDrawer from './GuideDrawer'
-import ProjectFilesDrawer from './ProjectFiles'
-import UserSettingsDrawer from './UserSettings'
-import Favorites from './favorites'
-import StaticScripts from './static-scripts'
 import TabNavigation, {
   NavItem,
-  STANDARD_DRAWER_WIDTH
 } from 'browser-components/TabNavigation/Navigation'
-import { DrawerHeader } from 'browser-components/drawer/drawer-styled'
 import { GlobalState } from 'shared/globalState'
 import { isRelateAvailable } from 'shared/modules/app/appDuck'
 import {
@@ -37,6 +21,7 @@ import {
 import { utilizeBrowserSync } from 'shared/modules/features/featuresDuck'
 import { getCurrentDraft } from 'shared/modules/sidebar/sidebarDuck'
 import { isUserSignedIn } from 'shared/modules/sync/syncDuck'
+import { EditorContainer } from './EditorContainer'
 
 interface SidebarProps {
   selectedDrawerName: string
@@ -53,15 +38,10 @@ const Sidebar = ({
   selectedDrawerName,
   onNavClick,
   neo4jConnectionState,
-  showStaticScripts,
-  syncConnected,
   loadSync,
-  isRelateAvailable,
-  scriptDraft
 }: SidebarProps) => {
   const topNavItems: NavItem[] = [
     {
-      // Consider use constant variable to store those keys
       name: 'DBMS',
       title: 'Database Information',
       icon: function dbIcon(isOpen: boolean): JSX.Element {
@@ -76,86 +56,17 @@ const Sidebar = ({
       content: DatabaseDrawer
     },
     {
-      name: 'Favorites',
-      title: 'Favorites',
-      icon: function favIcon(isOpen: boolean): JSX.Element {
-        return <FavoritesIcon isOpen={isOpen} title="Favorites" />
-      },
-      content: function FavoritesDrawer(): JSX.Element {
-        return (
-          <div style={{ width: STANDARD_DRAWER_WIDTH }}>
-            <DrawerHeader> Favorites </DrawerHeader>
-            <Favorites />
-            {showStaticScripts && <StaticScripts />}
-          </div>
-        )
-      }
-    },
-    ...(isRelateAvailable
-      ? [
-          {
-            name: 'Project Files',
-            title: 'Project Files',
-            icon: function projectFilesIcon(isOpen: boolean): JSX.Element {
-              return <ProjectFilesIcon isOpen={isOpen} title="Project Files" />
-            },
-            content: function ProjectDrawer(): JSX.Element {
-              return <ProjectFilesDrawer scriptDraft={scriptDraft || ''} />
-            }
-          }
-        ]
-      : []),
-    {
-      name: 'Guides',
-      title: 'Guides',
+      name: 'Editor',
+      title: 'Editor',
       icon: function GuideDrawerIconComp(isOpen: boolean): JSX.Element {
-        return <GuideDrawerIcon isOpen={isOpen} />
+        return <EditorIcon isOpen={isOpen} />
       },
-      content: GuideDrawer
+      content: EditorContainer
     }
   ]
 
-  const bottomNavItems: NavItem[] = [
-    {
-      name: 'Documents',
-      title: 'Help &amp; Resources',
-      icon: function docsIcon(isOpen: boolean): JSX.Element {
-        return <DocumentsIcon isOpen={isOpen} title="Help &amp; Resources" />
-      },
-      content: DocumentsDrawer,
-      enableCannyBadge: true
-    },
-    {
-      name: 'Sync',
-      title: 'Browser Sync',
-      icon: function syncIcon(isOpen: boolean): JSX.Element {
-        return (
-          <CloudSyncIcon
-            isOpen={isOpen}
-            connected={syncConnected}
-            title="Browser Sync"
-          />
-        )
-      },
-      content: BrowserSync
-    },
-    {
-      name: 'Settings',
-      title: 'Settings',
-      icon: function settingIcon(isOpen: boolean): JSX.Element {
-        return <SettingsIcon isOpen={isOpen} title="Browser Settings" />
-      },
-      content: UserSettingsDrawer
-    },
-    {
-      name: 'About',
-      title: 'About Neo4j',
-      icon: function aboutIcon(isOpen: boolean): JSX.Element {
-        return <AboutIcon isOpen={isOpen} title="About Neo4j" />
-      },
-      content: AboutDrawer
-    }
-  ].filter(({ name }) => loadSync || name !== 'Sync')
+  // we don't need any bottom navigation items for now
+  const bottomNavItems: NavItem[] = [].filter(({ name }) => loadSync || name !== 'Sync')
 
   return (
     <TabNavigation

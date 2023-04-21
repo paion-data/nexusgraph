@@ -10,10 +10,10 @@ export const StyledSidebar = styled.div`
 `
 export const StyledDrawer = styled.div`
   height: 100%;
-  flex: 0 0 auto;
+  flex: 1 0 auto;
   background-color: #31333b;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   transition: 0.2s ease-out;
   z-index: 1;
 `

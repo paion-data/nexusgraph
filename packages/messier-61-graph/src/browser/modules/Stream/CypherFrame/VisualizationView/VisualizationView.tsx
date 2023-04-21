@@ -32,6 +32,7 @@ import {
 } from 'shared/modules/frames/framesDuck'
 import { DetailsPane } from './PropertiesPanelContent/DetailsPane'
 import OverviewPane from './PropertiesPanelContent/OverviewPane'
+import { NAME, getEditorNodes, getEditorRelationships } from 'shared/modules/graphEditor/graphEditorDuck'
 
 type VisualizationState = {
   updated: number
@@ -57,6 +58,8 @@ export type VisualizationProps = {
   setNodePropertiesExpandedByDefault: (expandedByDefault: boolean) => void
   wheelZoomInfoMessageEnabled: boolean
   disableWheelZoomInfoMessage: () => void
+  editorNodes: BasicNode[]
+  editorRelationships: BasicRelationship[]
 }
 
 export class Visualization extends Component<
@@ -73,7 +76,7 @@ export class Visualization extends Component<
     relationships: [],
     updated: 0,
     nodeLimitHit: false,
-    hasTruncatedFields: false
+    hasTruncatedFields: false,
   }
 
   componentDidMount(): void {
@@ -94,7 +97,7 @@ export class Visualization extends Component<
       this.state.updated !== state.updated ||
       this.props.autoComplete !== props.autoComplete ||
       this.props.wheelZoomInfoMessageEnabled !==
-        props.wheelZoomInfoMessageEnabled
+      props.wheelZoomInfoMessageEnabled
     )
   }
 
@@ -116,17 +119,17 @@ export class Visualization extends Component<
       )
 
     const { nodes: uniqNodes, nodeLimitHit } = deduplicateNodes(
-      nodes,
+      nodes.concat(this.props.editorNodes),
       this.props.initialNodeDisplay
     )
 
     const uniqRels = nodeLimitHit
       ? relationships.filter(
-          rel =>
-            !!uniqNodes.find(node => node.id === rel.startNodeId) &&
-            !!uniqNodes.find(node => node.id === rel.endNodeId)
-        )
-      : relationships
+        rel =>
+          !!uniqNodes.find(node => node.id === rel.startNodeId) &&
+          !!uniqNodes.find(node => node.id === rel.endNodeId)
+      ).concat(this.props.editorRelationships)
+      : relationships.concat(this.props.editorRelationships)
 
     const hasTruncatedFields = resultHasTruncatedFields(
       props.result,
@@ -188,10 +191,10 @@ LIMIT ${maxNewNeighbours}`
               const allNeighboursCount =
                 response.result.records.length > 0
                   ? parseInt(
-                      response.result.records[0]
-                        .get('allNeighboursCount')
-                        .toString()
-                    )
+                    response.result.records[0]
+                      .get('allNeighboursCount')
+                      .toString()
+                  )
                   : 0
               const resultGraph =
                 bolt.extractNodesAndRelationshipsFromRecordsForOldVis(
@@ -301,7 +304,9 @@ const mapStateToProps = (state: GlobalState) => ({
   graphStyleData: grassActions.getGraphStyleData(state),
   maxFieldItems: getMaxFieldItems(state),
   nodePropertiesExpandedByDefault: getNodePropertiesExpandedByDefault(state),
-  wheelZoomInfoMessageEnabled: shouldShowWheelZoomInfo(state)
+  wheelZoomInfoMessageEnabled: shouldShowWheelZoomInfo(state),
+  editorNodes: getEditorNodes(state),
+  editorRelationships: getEditorRelationships(state),
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({

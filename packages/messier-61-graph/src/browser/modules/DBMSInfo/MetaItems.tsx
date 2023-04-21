@@ -214,48 +214,5 @@ type PropertyItemsProps = {
   moreStep: number
   onMoreClick: (num: number) => any
 }
-const PropertyItems = ({
-  properties,
-  totalNumItems,
-  onItemClick,
-  moreStep,
-  onMoreClick
-}: PropertyItemsProps) => {
-  let propertyItems: any = <p>There are no properties in database</p>
-  if (properties.length > 0) {
-    const editorCommandTemplate = (text: any) => {
-      return `MATCH (n) WHERE (n.${escapeCypherIdentifier(text)}) IS NOT NULL
-RETURN DISTINCT "node" as entity, n.${escapeCypherIdentifier(
-        text
-      )} AS ${escapeCypherIdentifier(text)} LIMIT 25
-UNION ALL
-MATCH ()-[r]-() WHERE (r.${escapeCypherIdentifier(text)}) IS NOT NULL
-RETURN DISTINCT "relationship" AS entity, r.${escapeCypherIdentifier(
-        text
-      )} AS ${escapeCypherIdentifier(text)} LIMIT 25`
-    }
-    propertyItems = createItems(
-      properties,
-      onItemClick,
-      { component: StyledPropertyChip },
-      editorCommandTemplate,
-      false
-    )
-  }
-  return (
-    <DrawerSection>
-      <DrawerSubHeader>Property keys</DrawerSubHeader>
-      <DrawerSectionBody className={wrapperStyle}>
-        {propertyItems}
-      </DrawerSectionBody>
-      <ShowMoreOrAll
-        total={totalNumItems}
-        shown={properties.length}
-        moreStep={moreStep}
-        onMore={onMoreClick}
-      />
-    </DrawerSection>
-  )
-}
 
-export { LabelItems, RelationshipItems, PropertyItems }
+export { LabelItems, RelationshipItems }
