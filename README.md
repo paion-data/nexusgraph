@@ -25,10 +25,14 @@ As a mono-repo, Messier-61 sub-projects of re-usable packages.
 
 ### Development
 
-Using Messier-61 Node 16 and for dependencies we use yarn (`npm install -g yarn`). To install dependencies:
+Using Messier-61 Node 16 and for dependencies we use yarn (`npm install -g yarn`). Install and start:
 
 ```shell
 yarn install
+
+cd packages/messier-61-graph
+
+yarn start
 ```
 
 ### Testing overview

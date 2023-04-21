@@ -46,6 +46,7 @@ import {
 } from 'shared/modules/frames/framesDuck'
 import { DetailsPane } from './PropertiesPanelContent/DetailsPane'
 import OverviewPane from './PropertiesPanelContent/OverviewPane'
+import { getEditorNodes, getEditorRelationships, updateNodesAndRels } from 'shared/modules/graphEditor/graphEditorDuck'
 
 type VisualizationState = {
   updated: number
@@ -71,6 +72,7 @@ export type VisualizationProps = {
   setNodePropertiesExpandedByDefault: (expandedByDefault: boolean) => void
   wheelZoomInfoMessageEnabled: boolean
   disableWheelZoomInfoMessage: () => void
+  graphData: BasicNodesAndRels
 }
 
 export class Visualization extends Component<
@@ -315,7 +317,10 @@ const mapStateToProps = (state: GlobalState) => ({
   graphStyleData: grassActions.getGraphStyleData(state),
   maxFieldItems: getMaxFieldItems(state),
   nodePropertiesExpandedByDefault: getNodePropertiesExpandedByDefault(state),
-  wheelZoomInfoMessageEnabled: shouldShowWheelZoomInfo(state)
+  wheelZoomInfoMessageEnabled: shouldShowWheelZoomInfo(state),
+  // editorNodesAndRels: getEditorNodesAndRels(state),
+  editorNode: getEditorNodes(state),
+  editorRelaionship: getEditorRelationships(state),
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({

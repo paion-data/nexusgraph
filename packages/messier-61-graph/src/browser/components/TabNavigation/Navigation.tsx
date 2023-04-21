@@ -31,7 +31,7 @@ import { GUIDE_DRAWER_ID } from 'shared/modules/sidebar/sidebarDuck'
 import { Resizable } from 're-resizable'
 
 export const LARGE_DRAWER_WIDTH = 500
-export const STANDARD_DRAWER_WIDTH = 300
+export const STANDARD_DRAWER_WIDTH = 500
 
 const Closing = 'CLOSING'
 const Closed = 'CLOSED'

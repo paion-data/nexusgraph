@@ -92,6 +92,7 @@ import {
   updateUdcData
 } from 'shared/modules/udc/udcDuck'
 import { getTelemetrySettings } from 'shared/utils/selectors'
+import Editor from '../Sidebar/Editor'
 
 export const MAIN_WRAPPER_DOM_ID = 'MAIN_WRAPPER_DOM_ID'
 
