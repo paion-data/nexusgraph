@@ -4,6 +4,9 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "target": "ES2019",
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "strict": true,
     "sourceMap": true,
     "noImplicitAny": true,
@@ -38,5 +41,10 @@
     }
   },
   "include": ["./src/**/*"],
-  "exclude": ["./src/neo4j-arc/dist*"]
+  "exclude": [
+    "node_modules",
+    "../../node_modules",
+    "../../node_modules/*",
+    "./src/neo4j-arc/dist*"
+  ]
 }

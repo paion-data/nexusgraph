@@ -4,7 +4,6 @@ import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
-import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
@@ -17,33 +16,30 @@ import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPl
 import { TRANSFORMERS } from "@lexical/markdown";
 import React, { useCallback } from "react";
 import { $getRoot, $getSelection, EditorState } from 'lexical';
-import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
+import { OnChangePlugin } from './lexical/LexicalOnChangePlugin';
 import { addEditorNodeAndRel } from "./AddEditorNodesAndRels";
-import { NAME, updateNodesAndRels } from "shared/modules/graphEditor/graphEditorDuck";
-import { useDispatch } from "react-redux";
-import { BasicNodesAndRels } from "neo4j-arc";
+import { addNodesAndRels } from "shared/modules/graphEditor/graphEditorDuck";
+import { withBus } from "react-suber";
+import { connect } from "react-redux";
+import { Action, Dispatch } from "redux";
+import { InputContainer, PlaceholderContainer } from "./styles/EditorContainer.styled";
+import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
 
-export function onChange(editorState: EditorState) {
+
+export type EditorProps = {
+  updateGraph: (graphData: any) => void
+}
+
+export function onChange(editorState: EditorState, updateGraph: (graphData: any) => void) {
   editorState.read(() => {
     // Read the contents of the EditorState here.
     const root = $getRoot();
     const selection = $getSelection();
 
-    // console.log(`editorState.json=${JSON.stringify(editorState)}`)
-    // console.log("editorState=")
-    // console.log(editorState)
-
-    // console.log(JSON.parse(JSON.stringify(editorState)).root)
-
     addEditorNodeAndRel(editorState)
 
-    const nodesAndRels: BasicNodesAndRels = addEditorNodeAndRel(editorState)
-    console.log(nodesAndRels)
+    updateGraph(addEditorNodeAndRel(editorState))
 
-    const dispatch = useDispatch()
-    dispatch({ type: NAME, payload: nodesAndRels })
-
-    // updateNodesAndRels(addEditorNodeAndRel(editorState))
   })
 }
 
@@ -76,19 +72,26 @@ const editorConfig = {
   ]
 };
 
-export default function Editor(): JSX.Element {
+function Editor(props: EditorProps): JSX.Element {
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className="editor-container">
         <div className="editor-inner">
           <RichTextPlugin
-            contentEditable={<ContentEditable className="editor-input" />}
-            placeholder={<Placeholder />}
+            contentEditable={
+              <InputContainer>
+                <ContentEditable className="editor-input" />
+              </InputContainer>
+            }
+            placeholder={
+              <PlaceholderContainer>
+                <Placeholder />
+              </PlaceholderContainer>
+            }
             ErrorBoundary={LexicalErrorBoundary}
           />
-          <OnChangePlugin onChange={onChange} />
+          <OnChangePlugin updateGraph={props.updateGraph} onChange={onChange} />
           <HistoryPlugin />
-          <AutoFocusPlugin />
           <ListPlugin />
           <LinkPlugin />
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
@@ -97,3 +100,13 @@ export default function Editor(): JSX.Element {
     </LexicalComposer>
   );
 }
+
+const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
+  updateGraph: (graphData: any) => {
+    dispatch(addNodesAndRels(graphData))
+  }
+})
+
+export default withBus(
+  connect(null, mapDispatchToProps)(Editor)
+)

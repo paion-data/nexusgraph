@@ -46,7 +46,7 @@ import {
 } from 'shared/modules/frames/framesDuck'
 import { DetailsPane } from './PropertiesPanelContent/DetailsPane'
 import OverviewPane from './PropertiesPanelContent/OverviewPane'
-import { getEditorNodes, getEditorRelationships, updateNodesAndRels } from 'shared/modules/graphEditor/graphEditorDuck'
+import { NAME, getEditorNodes, getEditorRelationships } from 'shared/modules/graphEditor/graphEditorDuck'
 
 type VisualizationState = {
   updated: number
@@ -72,7 +72,8 @@ export type VisualizationProps = {
   setNodePropertiesExpandedByDefault: (expandedByDefault: boolean) => void
   wheelZoomInfoMessageEnabled: boolean
   disableWheelZoomInfoMessage: () => void
-  graphData: BasicNodesAndRels
+  editorNodes: BasicNode[]
+  editorRelationships: BasicRelationship[]
 }
 
 export class Visualization extends Component<
@@ -89,7 +90,7 @@ export class Visualization extends Component<
     relationships: [],
     updated: 0,
     nodeLimitHit: false,
-    hasTruncatedFields: false
+    hasTruncatedFields: false,
   }
 
   componentDidMount(): void {
@@ -123,7 +124,7 @@ export class Visualization extends Component<
     }
   }
 
-  populateDataToStateFromProps(props: VisualizationProps): void {
+  populateDataToStateFromProps(props: VisualizationProps): void { //???
     const { nodes, relationships } =
       bolt.extractNodesAndRelationshipsFromRecordsForOldVis(
         props.result.records,
@@ -132,7 +133,7 @@ export class Visualization extends Component<
       )
 
     const { nodes: uniqNodes, nodeLimitHit } = deduplicateNodes(
-      nodes,
+      nodes.concat(this.props.editorNodes),
       this.props.initialNodeDisplay
     )
 
@@ -141,8 +142,8 @@ export class Visualization extends Component<
           rel =>
             !!uniqNodes.find(node => node.id === rel.startNodeId) &&
             !!uniqNodes.find(node => node.id === rel.endNodeId)
-        )
-      : relationships
+        ).concat(this.props.editorRelationships)
+      : relationships.concat(this.props.editorRelationships)
 
     const hasTruncatedFields = resultHasTruncatedFields(
       props.result,
@@ -280,9 +281,9 @@ LIMIT ${maxNewNeighbours}`
           graphStyleData={this.props.graphStyleData}
           updateStyle={this.props.updateStyle}
           getNeighbours={this.getNeighbours.bind(this)}
-          nodes={this.state.nodes}
+          nodes={this.state.nodes} //???
           autocompleteRelationships={this.props.autoComplete ?? false}
-          relationships={this.state.relationships}
+          relationships={this.state.relationships} //???
           isFullscreen={this.props.isFullscreen}
           assignVisElement={this.props.assignVisElement}
           nodeLimitHit={this.state.nodeLimitHit}
@@ -318,9 +319,8 @@ const mapStateToProps = (state: GlobalState) => ({
   maxFieldItems: getMaxFieldItems(state),
   nodePropertiesExpandedByDefault: getNodePropertiesExpandedByDefault(state),
   wheelZoomInfoMessageEnabled: shouldShowWheelZoomInfo(state),
-  // editorNodesAndRels: getEditorNodesAndRels(state),
-  editorNode: getEditorNodes(state),
-  editorRelaionship: getEditorRelationships(state),
+  editorNodes: getEditorNodes(state),
+  editorRelationships: getEditorRelationships(state),
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
@@ -344,7 +344,7 @@ type DeduplicateHelper = {
   nodeLimitHit: boolean
 }
 
-const deduplicateNodes = (
+const deduplicateNodes = ( //???
   nodes: BasicNode[],
   limit: number
 ): { nodes: BasicNode[]; nodeLimitHit: boolean } =>

@@ -3,7 +3,8 @@ import { addEditorNodeAndRel } from "browser/modules/Sidebar/AddEditorNodesAndRe
 import { BasicNode, BasicNodesAndRels, BasicRelationship } from "neo4j-arc"
 import { GlobalState } from "shared/globalState";
 
-export const NAME = 'nodeAndRel'
+export const NAME = "nodeAndRel"
+
 const initialState = {
   nodes: [],
   relationship: []
@@ -25,15 +26,19 @@ export default function reducer(
 ) {
   switch (action.type) {
     case NAME:
+      // console.log(`graphReducer被调用`)
       return {
         ...state,
         ...action.payload
       }
+      default:
+        return state
   }
-  return state
 }
 
 export function getEditorNodes(state: GlobalState) {
+  // console.log(`getEditorNodes被调用=${state[NAME].nodes}`)
+  // console.log(state[NAME])
   return state[NAME].nodes
 }
 
@@ -41,7 +46,12 @@ export function getEditorRelationships(state: GlobalState) {
   return state[NAME].relationships
 }
 
-export const updateNodesAndRels = (graphData: BasicNodesAndRels): GraphEditorAction => {
+export function getEditorAll(state: GlobalState) {
+  return state[NAME]
+}
+
+export const addNodesAndRels = (graphData: BasicNodesAndRels): GraphEditorAction => {
+  // console.log(`updateNodesAndRels被调用`)
   return {
     type: NAME,
     payload: graphData

@@ -13,5 +13,23 @@ font-weight: 400;
 text-align: left;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
-font-size: 15px
+font-size: 15px;
+`
+export const PlaceholderContainer = styled.div`
+  color: #888;
+${StyledEditorContainer}:focus-within & {
+  display: none;
+}
+`
+
+export const InputContainer = styled.div`
+resize: none;
+font-size: 15px;
+caret-color: rgb(5, 5, 5);
+position: relative;
+tab-size: 1;
+outline: 0;
+padding: 5px 3px 0px 3px;
+caret-color: #444;
+}
 `

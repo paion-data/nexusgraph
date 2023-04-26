@@ -51,8 +51,8 @@ import {
 import { utilizeBrowserSync } from 'shared/modules/features/featuresDuck'
 import { getCurrentDraft } from 'shared/modules/sidebar/sidebarDuck'
 import { isUserSignedIn } from 'shared/modules/sync/syncDuck'
-import Editor from './Editor'
-import { StyledEditorContainer } from './styles/EditorContainer.styled'
+// import Editor from './Editor'
+// import { StyledEditorContainer } from './styles/EditorContainer.styled'
 import { EditorContainer } from './EditorContainer'
 
 interface SidebarProps {

@@ -18,14 +18,14 @@ export function addEditorNodeAndRel(editorState: EditorState): BasicNodesAndRels
           if (nodeAndRel.length === 3) {
             const startNode: BasicNode = {
               id: nodeAndRel[0],
-              labels: [],
+              labels: [`${nodeAndRel[0]}`],
               properties: {},
               propertyTypes: {}
             }
 
             const endNode: BasicNode = {
               id: nodeAndRel[2],
-              labels: [],
+              labels: [`${nodeAndRel[2]}`],
               properties: {},
               propertyTypes: {}
             }
@@ -38,9 +38,8 @@ export function addEditorNodeAndRel(editorState: EditorState): BasicNodesAndRels
               properties: {},
               propertyTypes: {}
             }
-
-            nodes = [startNode, endNode]
-            relationships = [relationship]
+            nodes = nodes.concat([startNode, endNode])
+            relationships = relationships.concat([relationship])
             // console.log(startNode, 'start')
             // console.log(endNode, 'endnode')
             // console.log(relationship, 'relationship')
