@@ -111,7 +111,7 @@ export class Visualization extends Component<
       this.state.updated !== state.updated ||
       this.props.autoComplete !== props.autoComplete ||
       this.props.wheelZoomInfoMessageEnabled !==
-        props.wheelZoomInfoMessageEnabled
+      props.wheelZoomInfoMessageEnabled
     )
   }
 
@@ -124,7 +124,7 @@ export class Visualization extends Component<
     }
   }
 
-  populateDataToStateFromProps(props: VisualizationProps): void { //???
+  populateDataToStateFromProps(props: VisualizationProps): void {
     const { nodes, relationships } =
       bolt.extractNodesAndRelationshipsFromRecordsForOldVis(
         props.result.records,
@@ -139,10 +139,10 @@ export class Visualization extends Component<
 
     const uniqRels = nodeLimitHit
       ? relationships.filter(
-          rel =>
-            !!uniqNodes.find(node => node.id === rel.startNodeId) &&
-            !!uniqNodes.find(node => node.id === rel.endNodeId)
-        ).concat(this.props.editorRelationships)
+        rel =>
+          !!uniqNodes.find(node => node.id === rel.startNodeId) &&
+          !!uniqNodes.find(node => node.id === rel.endNodeId)
+      ).concat(this.props.editorRelationships)
       : relationships.concat(this.props.editorRelationships)
 
     const hasTruncatedFields = resultHasTruncatedFields(
@@ -205,10 +205,10 @@ LIMIT ${maxNewNeighbours}`
               const allNeighboursCount =
                 response.result.records.length > 0
                   ? parseInt(
-                      response.result.records[0]
-                        .get('allNeighboursCount')
-                        .toString()
-                    )
+                    response.result.records[0]
+                      .get('allNeighboursCount')
+                      .toString()
+                  )
                   : 0
               const resultGraph =
                 bolt.extractNodesAndRelationshipsFromRecordsForOldVis(
@@ -281,9 +281,9 @@ LIMIT ${maxNewNeighbours}`
           graphStyleData={this.props.graphStyleData}
           updateStyle={this.props.updateStyle}
           getNeighbours={this.getNeighbours.bind(this)}
-          nodes={this.state.nodes} //???
+          nodes={this.state.nodes}
           autocompleteRelationships={this.props.autoComplete ?? false}
-          relationships={this.state.relationships} //???
+          relationships={this.state.relationships}
           isFullscreen={this.props.isFullscreen}
           assignVisElement={this.props.assignVisElement}
           nodeLimitHit={this.state.nodeLimitHit}
@@ -344,7 +344,7 @@ type DeduplicateHelper = {
   nodeLimitHit: boolean
 }
 
-const deduplicateNodes = ( //???
+const deduplicateNodes = (
   nodes: BasicNode[],
   limit: number
 ): { nodes: BasicNode[]; nodeLimitHit: boolean } =>

@@ -4,12 +4,6 @@ import Editor from "./Editor";
 import { StyledEditorContainer } from "./styles/EditorContainer.styled";
 import { StyledDrawer } from "browser-components/TabNavigation/styled";
 
-// function EditorCaption(): JSX.Element {
-//   return (
-//     <h1>Editor</h1>
-//     )
-// }
-
 export function EditorContainer(): JSX.Element {
   return (
     <StyledDrawer>

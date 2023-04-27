@@ -26,19 +26,16 @@ export default function reducer(
 ) {
   switch (action.type) {
     case NAME:
-      // console.log(`graphReducer被调用`)
       return {
         ...state,
         ...action.payload
       }
-      default:
-        return state
+    default:
+      return state
   }
 }
 
 export function getEditorNodes(state: GlobalState) {
-  // console.log(`getEditorNodes被调用=${state[NAME].nodes}`)
-  // console.log(state[NAME])
   return state[NAME].nodes
 }
 
@@ -51,7 +48,6 @@ export function getEditorAll(state: GlobalState) {
 }
 
 export const addNodesAndRels = (graphData: BasicNodesAndRels): GraphEditorAction => {
-  // console.log(`updateNodesAndRels被调用`)
   return {
     type: NAME,
     payload: graphData

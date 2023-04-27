@@ -16,7 +16,7 @@ import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPl
 import { TRANSFORMERS } from "@lexical/markdown";
 import React, { useCallback } from "react";
 import { $getRoot, $getSelection, EditorState } from 'lexical';
-import { OnChangePlugin } from './lexical/LexicalOnChangePlugin';
+import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { addEditorNodeAndRel } from "./AddEditorNodesAndRels";
 import { addNodesAndRels } from "shared/modules/graphEditor/graphEditorDuck";
 import { withBus } from "react-suber";
@@ -25,22 +25,8 @@ import { Action, Dispatch } from "redux";
 import { InputContainer, PlaceholderContainer } from "./styles/EditorContainer.styled";
 import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
 
-
 export type EditorProps = {
   updateGraph: (graphData: any) => void
-}
-
-export function onChange(editorState: EditorState, updateGraph: (graphData: any) => void) {
-  editorState.read(() => {
-    // Read the contents of the EditorState here.
-    const root = $getRoot();
-    const selection = $getSelection();
-
-    addEditorNodeAndRel(editorState)
-
-    updateGraph(addEditorNodeAndRel(editorState))
-
-  })
 }
 
 function Placeholder() {
@@ -73,6 +59,18 @@ const editorConfig = {
 };
 
 function Editor(props: EditorProps): JSX.Element {
+  const onChange = function (editorState: EditorState): void {
+    editorState.read(() => {
+      // Read the contents of the EditorState here.
+      const root = $getRoot();
+      const selection = $getSelection();
+
+      addEditorNodeAndRel(editorState)
+
+      props.updateGraph(addEditorNodeAndRel(editorState))
+    })
+  }
+
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className="editor-container">
@@ -80,7 +78,7 @@ function Editor(props: EditorProps): JSX.Element {
           <RichTextPlugin
             contentEditable={
               <InputContainer>
-                <ContentEditable className="editor-input" />
+                <ContentEditable style={{ outline: 0 }} className="editor-input" />
               </InputContainer>
             }
             placeholder={
@@ -90,7 +88,8 @@ function Editor(props: EditorProps): JSX.Element {
             }
             ErrorBoundary={LexicalErrorBoundary}
           />
-          <OnChangePlugin updateGraph={props.updateGraph} onChange={onChange} />
+          {/* <OnChangePlugin updateGraph={props.updateGraph} onChange={onChange2} /> */}
+          <OnChangePlugin onChange={onChange} />
           <HistoryPlugin />
           <ListPlugin />
           <LinkPlugin />

@@ -2,9 +2,9 @@
 import { EditorState } from "lexical"
 import { BasicNode, BasicNodesAndRels, BasicRelationship } from "neo4j-arc"
 
-export function addEditorNodeAndRel(editorState: EditorState): BasicNodesAndRels{
+export function addEditorNodeAndRel(editorState: EditorState): BasicNodesAndRels {
   let nodes: BasicNode[] = []
-  let relationships :BasicRelationship[] = []
+  let relationships: BasicRelationship[] = []
 
   const children = JSON.parse(JSON.stringify(editorState)).root['children']
 
@@ -40,9 +40,6 @@ export function addEditorNodeAndRel(editorState: EditorState): BasicNodesAndRels
             }
             nodes = nodes.concat([startNode, endNode])
             relationships = relationships.concat([relationship])
-            // console.log(startNode, 'start')
-            // console.log(endNode, 'endnode')
-            // console.log(relationship, 'relationship')
           }
         }
       }

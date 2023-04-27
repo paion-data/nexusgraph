@@ -16,7 +16,16 @@ border-top-right-radius: 10px;
 font-size: 15px;
 `
 export const PlaceholderContainer = styled.div`
-  color: #888;
+color: #999;
+overflow: hidden;
+position: absolute;
+text-overflow: ellipsis;
+top: 10px;
+left: 10px;
+font-size: 15px;
+user-select: none;
+display: inline-block;
+pointer-events: none;
 ${StyledEditorContainer}:focus-within & {
   display: none;
 }
@@ -29,7 +38,7 @@ caret-color: rgb(5, 5, 5);
 position: relative;
 tab-size: 1;
 outline: 0;
-padding: 5px 3px 0px 3px;
+padding: 10px 3px 0px 3px;
 caret-color: #444;
 }
 `
