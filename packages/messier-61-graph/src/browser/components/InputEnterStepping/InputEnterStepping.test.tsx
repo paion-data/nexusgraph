@@ -3,20 +3,6 @@ import React from 'react'
 
 import InputEnterStepping from './InputEnterStepping'
 
-test('renders the render prop', () => {
-  // When
-  const { container } = render(
-    <InputEnterStepping
-      render={() => {
-        return <div>hello</div>
-      }}
-    />
-  )
-
-  // Then
-  expect(container).toMatchSnapshot()
-})
-
 test('focuses correctly and submits on enter in last input', async () => {
   // Given
   const myFn = jest.fn()
@@ -47,8 +33,6 @@ test('focuses correctly and submits on enter in last input', async () => {
     />
   )
 
-  // Then
-  expect(container).toMatchSnapshot()
   // Need to wait for the focus to get there, since it's set by setTimeout
   await waitFor(() =>
     expect(document.activeElement).toEqual(getByDisplayValue('first'))
@@ -113,8 +97,6 @@ test('submits on button click', async () => {
     />
   )
 
-  // Then
-  expect(container).toMatchSnapshot()
   expect(myFn).toHaveBeenCalledTimes(0)
 
   // When

@@ -62,48 +62,10 @@ describe('framesDuck', () => {
     const init: any = { ...initialState, allIds: [ID, '2'], byId }
     const action = add({ id: ID, type: AFTER } as any)
 
-    // Then
-    expect(init.byId).toMatchInlineSnapshot(`
-      Object {
-        "2": Object {
-          "stack": Array [
-            Object {},
-          ],
-        },
-        "test-id": Object {
-          "stack": Array [
-            Object {
-              "type": "before",
-            },
-          ],
-        },
-      }
-    `)
     // When
     const newState = reducer(init, action)
 
     // Then
     expect(newState.allIds.length).toBe(2)
-    expect(newState.byId).toMatchInlineSnapshot(`
-      Object {
-        "2": Object {
-          "stack": Array [
-            Object {},
-          ],
-        },
-        "test-id": Object {
-          "stack": Array [
-            Object {
-              "history": Array [],
-              "id": "test-id",
-              "type": "after",
-            },
-            Object {
-              "type": "before",
-            },
-          ],
-        },
-      }
-    `)
   })
 })

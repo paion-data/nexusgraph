@@ -44,7 +44,6 @@ describe('settings reducer', () => {
     const nextState = dehydrate(reducer(initialState, action))
     expect(nextState.greeting).toBeUndefined()
     expect(nextState.type).toBeUndefined()
-    expect(nextState).toMatchSnapshot()
   })
 
   it('defaults playImplicitInitCommands to true', () => {

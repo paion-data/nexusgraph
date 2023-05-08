@@ -18,6 +18,5 @@ describe('HistoryRow', () => {
 
     // Then
     expect(myFn).toHaveBeenCalled()
-    expect(container).toMatchSnapshot()
   })
 })

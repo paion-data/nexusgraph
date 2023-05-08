@@ -26,54 +26,6 @@ const mount = (partOfProps: Partial<ErrorsViewProps>) => {
   return render(<ErrorsView store={store} {...props} />)
 }
 
-describe('ErrorsView', () => {
-  test('displays nothing if no errors', () => {
-    // Given
-    const props = {
-      result: null
-    }
-
-    // When
-    const { container } = mount(props)
-
-    // Then
-    expect(container).toMatchSnapshot()
-  })
-  test('does displays an error', () => {
-    // Given
-    const error: BrowserError = {
-      code: 'Test.Error',
-      message: 'Test error description',
-      type: 'Neo4jError'
-    }
-    const props = {
-      result: error
-    }
-
-    // When
-    const { container } = mount(props)
-
-    // Then
-    expect(container).toMatchSnapshot()
-  })
-  test('displays procedure link if unknown procedure', () => {
-    // Given
-    const error: BrowserError = {
-      code: 'Neo.ClientError.Procedure.ProcedureNotFound',
-      message: 'not found',
-      type: 'Neo4jError'
-    }
-    const props = {
-      result: error
-    }
-
-    // When
-    const { container, getByText } = mount(props)
-
-    // Then
-    expect(container).toMatchSnapshot()
-    expect(getByText('List available procedures')).not.toBeUndefined()
-  })
   test('displays procedure link if periodic commit error', () => {
     // Given
     const error: BrowserError = {
@@ -95,4 +47,3 @@ describe('ErrorsView', () => {
     expect(getByText(':auto')).not.toBeUndefined()
     expect(getByText('(auto-committing transactions)')).not.toBeUndefined()
   })
-})

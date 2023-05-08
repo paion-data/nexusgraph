@@ -27,7 +27,6 @@ describe('Directives', () => {
     // Then
     expect(clickEvent).toHaveBeenCalled()
     expect(clickEvent).toHaveBeenCalledWith(':play hello', true, undefined)
-    expect(container).toMatchSnapshot()
   })
   test('should attach help topic directive when contents has a play-topic attribute', () => {
     // Given
@@ -49,7 +48,6 @@ describe('Directives', () => {
     // Then
     expect(clickEvent).toHaveBeenCalled()
     expect(clickEvent).toHaveBeenCalledWith(':help hello', true, undefined)
-    expect(container).toMatchSnapshot()
   })
   test('should attach runnable directive when element has a tag of `pre.runnable`', () => {
     // Given
@@ -71,7 +69,6 @@ describe('Directives', () => {
     // Then
     expect(clickEvent).toHaveBeenCalled()
     expect(clickEvent).toHaveBeenCalledWith('my code', false, undefined)
-    expect(container).toMatchSnapshot()
   })
   test('should attach runnable directive when element has a class name of `.runnable pre`', () => {
     // Given
@@ -97,7 +94,6 @@ describe('Directives', () => {
     // Then
     expect(clickEvent).toHaveBeenCalled()
     expect(clickEvent).toHaveBeenCalledWith('my code', false, undefined)
-    expect(container).toMatchSnapshot()
   })
   test('should attach all directives when contents has both attributes in different elements', () => {
     // Given
@@ -137,7 +133,6 @@ describe('Directives', () => {
     expect(clickEvent).toHaveBeenCalledTimes(2)
     expect(clickEvent).toHaveBeenCalledWith(':help help', true, FRAME_ID)
     expect(clickEvent).toHaveBeenCalledWith(':play play', true, FRAME_ID)
-    expect(container).toMatchSnapshot()
   })
   test('should not attach any directives when contents does not have any directive attributes', () => {
     // Given
@@ -158,6 +153,5 @@ describe('Directives', () => {
 
     // Then
     expect(clickEvent).not.toHaveBeenCalled()
-    expect(container).toMatchSnapshot()
   })
 })

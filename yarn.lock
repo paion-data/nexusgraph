@@ -1149,7 +1149,6 @@
     jest-resolve-dependencies "^27.5.1"
     jest-runner "^27.5.1"
     jest-runtime "^27.5.1"
-    jest-snapshot "^27.5.1"
     jest-util "^27.5.1"
     jest-validate "^27.5.1"
     jest-watcher "^27.5.1"
@@ -4843,7 +4842,6 @@ jest-circus@^27.5.1:
     jest-matcher-utils "^27.5.1"
     jest-message-util "^27.5.1"
     jest-runtime "^27.5.1"
-    jest-snapshot "^27.5.1"
     jest-util "^27.5.1"
     pretty-format "^27.5.1"
     slash "^3.0.0"
@@ -5009,7 +5007,6 @@ jest-jasmine2@^27.5.1:
     jest-matcher-utils "^27.5.1"
     jest-message-util "^27.5.1"
     jest-runtime "^27.5.1"
-    jest-snapshot "^27.5.1"
     jest-util "^27.5.1"
     pretty-format "^27.5.1"
     throat "^6.0.1"
@@ -5097,7 +5094,6 @@ jest-resolve-dependencies@^27.5.1:
   dependencies:
     "@jest/types" "^27.5.1"
     jest-regex-util "^27.5.1"
-    jest-snapshot "^27.5.1"
 
 jest-resolve@^27.5.1:
   version "27.5.1"
@@ -5165,7 +5161,6 @@ jest-runtime@^27.5.1:
     jest-mock "^27.5.1"
     jest-regex-util "^27.5.1"
     jest-resolve "^27.5.1"
-    jest-snapshot "^27.5.1"
     jest-util "^27.5.1"
     slash "^3.0.0"
     strip-bom "^4.0.0"
@@ -5177,34 +5172,6 @@ jest-serializer@^27.5.1:
   dependencies:
     "@types/node" "*"
     graceful-fs "^4.2.9"
-
-jest-snapshot@^27.5.1:
-  version "27.5.1"
-  resolved "https://registry.yarnpkg.com/jest-snapshot/-/jest-snapshot-27.5.1.tgz#b668d50d23d38054a51b42c4039cab59ae6eb6a1"
-  integrity sha512-yYykXI5a0I31xX67mgeLw1DZ0bJB+gpq5IpSuCAoyDi0+BhgU/RIrL+RTzDmkNTchvDFWKP8lp+w/42Z3us5sA==
-  dependencies:
-    "@babel/core" "^7.7.2"
-    "@babel/generator" "^7.7.2"
-    "@babel/plugin-syntax-typescript" "^7.7.2"
-    "@babel/traverse" "^7.7.2"
-    "@babel/types" "^7.0.0"
-    "@jest/transform" "^27.5.1"
-    "@jest/types" "^27.5.1"
-    "@types/babel__traverse" "^7.0.4"
-    "@types/prettier" "^2.1.5"
-    babel-preset-current-node-syntax "^1.0.0"
-    chalk "^4.0.0"
-    expect "^27.5.1"
-    graceful-fs "^4.2.9"
-    jest-diff "^27.5.1"
-    jest-get-type "^27.5.1"
-    jest-haste-map "^27.5.1"
-    jest-matcher-utils "^27.5.1"
-    jest-message-util "^27.5.1"
-    jest-util "^27.5.1"
-    natural-compare "^1.4.0"
-    pretty-format "^27.5.1"
-    semver "^7.3.2"
 
 jest-util@^27.0.0, jest-util@^27.5.1:
   version "27.5.1"

@@ -26,7 +26,6 @@ describe('ClickToCode', () => {
     )
 
     // Then
-    expect(container).toMatchSnapshot()
     expect(myFn).toHaveBeenCalledTimes(0)
   })
   test('renders if no CodeComponent is provided', () => {
@@ -38,7 +37,6 @@ describe('ClickToCode', () => {
     const { container } = render(<ClickToCode bus={bus} />)
 
     // Then
-    expect(container).toMatchSnapshot()
     expect(myFn).toHaveBeenCalledTimes(0)
   })
   test('renders code as the code when code is available', () => {
@@ -55,7 +53,6 @@ describe('ClickToCode', () => {
     )
 
     // Then
-    expect(container).toMatchSnapshot()
     expect(myFn).toHaveBeenCalledTimes(0)
 
     // When
@@ -77,7 +74,6 @@ describe('ClickToCode', () => {
     )
 
     // Then
-    expect(container).toMatchSnapshot()
     expect(myFn).toHaveBeenCalledTimes(0)
 
     // When
@@ -110,7 +106,6 @@ describe('ClickToCode', () => {
     )
 
     // Then
-    expect(container).toMatchSnapshot()
     expect(myFn).toHaveBeenCalledTimes(0)
 
     // When

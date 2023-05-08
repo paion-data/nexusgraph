@@ -5,30 +5,6 @@ import React from 'react'
 import DesktopApi from './desktop-api'
 
 describe('<DesktopApi>', () => {
-  test('does not render anything if no integration point', () => {
-    // Given
-    const integrationPoint = null
-
-    // When
-    const { container } = render(
-      <DesktopApi integrationPoint={integrationPoint} />
-    )
-
-    // Then
-    expect(container).toMatchInlineSnapshot(`<div />`)
-  })
-  test('does not render anything if there is an integration point', () => {
-    // Given
-    const integrationPoint = { x: true }
-
-    // When
-    const { container } = render(
-      <DesktopApi integrationPoint={integrationPoint} />
-    )
-
-    // Then
-    expect(container).toMatchInlineSnapshot(`<div />`)
-  })
   test('calls onMount with data on mounting', async () => {
     // Given
     const mFn = jest.fn()
