@@ -37,24 +37,9 @@ interface SidebarProps {
 const Sidebar = ({
   selectedDrawerName,
   onNavClick,
-  neo4jConnectionState,
   loadSync,
 }: SidebarProps) => {
   const topNavItems: NavItem[] = [
-    {
-      name: 'DBMS',
-      title: 'Database Information',
-      icon: function dbIcon(isOpen: boolean): JSX.Element {
-        return (
-          <DatabaseIcon
-            isOpen={isOpen}
-            connectionState={neo4jConnectionState}
-            title="Database"
-          />
-        )
-      },
-      content: DatabaseDrawer
-    },
     {
       name: 'Editor',
       title: 'Editor',

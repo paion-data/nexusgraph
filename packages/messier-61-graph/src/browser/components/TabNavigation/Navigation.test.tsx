@@ -12,16 +12,10 @@ describe('<Navigation />', () => {
 
   const topNavItems = [
     {
-      name: 'DBMS',
-      title: 'DBMS',
-      icon: div('dbms-icon'),
-      content: div('dbms-content')
-    },
-    {
-      name: 'Favorites',
-      title: 'Favorites',
-      icon: div('favorites-icon'),
-      content: div('favorites-icon')
+      name: 'Editor',
+      title: 'Editor',
+      icon: div('editor-icon'),
+      content: div('editor-content')
     }
   ]
 
@@ -89,7 +83,7 @@ describe('<Navigation />', () => {
     )
 
     // click DBMS button
-    fireEvent.click(screen.getByTestId('dbms-icon'))
+    fireEvent.click(screen.getByTestId('editor-icon'))
 
     // rerender with updated selectedDrawerName value
     rerender(
@@ -102,7 +96,7 @@ describe('<Navigation />', () => {
     )
 
     // expect DBMS drawer to be open
-    expect(screen.queryByTestId('dbms-content')).toBeTruthy()
+    expect(screen.queryByTestId('editor-content')).toBeTruthy()
     expect(screen.queryByTestId('documents-content')).toBeNull()
   })
 })

@@ -114,7 +114,7 @@ class Navigation extends Component<NavigationProps, NavigationState> {
       list: NavItem[],
       selectedDrawerName?: null | string
     ) =>
-      list.filter(item => item.name === 'Editor').map(item => {
+      list.map(item => {
         const isOpen = item.name.toLowerCase() === selectedDrawerName
         return (
           <div key={item.name}>
