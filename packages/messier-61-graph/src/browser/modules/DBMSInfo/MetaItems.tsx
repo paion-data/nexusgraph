@@ -207,12 +207,4 @@ const RelationshipItems = ({
   )
 }
 
-type PropertyItemsProps = {
-  properties: string[]
-  totalNumItems: number
-  onItemClick: () => void
-  moreStep: number
-  onMoreClick: (num: number) => any
-}
-
 export { LabelItems, RelationshipItems }
