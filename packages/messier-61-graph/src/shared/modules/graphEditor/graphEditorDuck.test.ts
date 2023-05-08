@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import reducer, { getEditorAction, getEditorNodes, getEditorRelationships, GraphEditorAction, initialState, NAME, UPDATE_GRAPH_EDITOR_STATE } from "./graphEditorDuck"
+import reducer, { getEditorAction, getEditorNodes, getEditorRelationships, GraphEditorAction, initialState, NAME, UPDATE_GRAPH } from "./graphEditorDuck"
 import { NAME as editor, GraphEditorState } from '../graphEditor/graphEditorDuck'
 
 const EDITOR_STATE: GraphEditorState = {
@@ -30,7 +30,7 @@ const EDITOR_STATE: GraphEditorState = {
 }
 
 const EDITOR_ACTION: GraphEditorAction = {
-  type: UPDATE_GRAPH_EDITOR_STATE,
+  type: UPDATE_GRAPH,
   payload: EDITOR_STATE
 }
 
@@ -49,7 +49,7 @@ test("Gets relationships according to the editor's state", () => {
 test("Gets the action for editor", () => {
   expect(getEditorAction(EDITOR_STATE)).toStrictEqual(
     {
-      type: UPDATE_GRAPH_EDITOR_STATE,
+      type: UPDATE_GRAPH,
       payload: EDITOR_STATE
     })
 })

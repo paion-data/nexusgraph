@@ -32,7 +32,7 @@ import {
 } from 'shared/modules/frames/framesDuck'
 import { DetailsPane } from './PropertiesPanelContent/DetailsPane'
 import OverviewPane from './PropertiesPanelContent/OverviewPane'
-import { NAME, getEditorNodes, getEditorRelationships } from 'shared/modules/graphEditor/graphEditorDuck'
+import { getEditorNodes, getEditorRelationships } from 'shared/modules/graphEditor/graphEditorDuck'
 
 type VisualizationState = {
   updated: number

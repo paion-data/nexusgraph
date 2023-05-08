@@ -3,7 +3,7 @@ import { BasicNode, BasicRelationship } from "neo4j-arc"
 import { GlobalState } from "shared/globalState";
 
 export const NAME = "graphEditor"
-export const UPDATE_GRAPH_EDITOR_STATE = 'graphEditor/UPDATE_GRAPH_EDITOR_STATE'
+export const UPDATE_GRAPH = 'graphEditor/UPDATE_GRAPH'
 
 export const initialState = {
   nodes: [],
@@ -11,7 +11,7 @@ export const initialState = {
 }
 
 export interface GraphEditorAction {
-  type: typeof UPDATE_GRAPH_EDITOR_STATE;
+  type: typeof UPDATE_GRAPH;
   payload: GraphEditorState
 }
 
@@ -25,7 +25,7 @@ export default function reducer(
   action: GraphEditorAction
 ) {
   switch (action.type) {
-    case UPDATE_GRAPH_EDITOR_STATE:
+    case UPDATE_GRAPH:
       return {
         ...state,
         ...action.payload
@@ -45,7 +45,7 @@ export function getEditorRelationships(state: GlobalState) {
 
 export const getEditorAction = (graphData: GraphEditorState): GraphEditorAction => {
   return {
-    type: UPDATE_GRAPH_EDITOR_STATE,
+    type: UPDATE_GRAPH,
     payload: graphData
   }
 }
