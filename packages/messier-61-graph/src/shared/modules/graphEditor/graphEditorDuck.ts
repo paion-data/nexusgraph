@@ -1,8 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { BasicNode, BasicNodesAndRels, BasicRelationship } from "neo4j-arc"
+import { BasicNode, BasicRelationship } from "neo4j-arc"
 import { GlobalState } from "shared/globalState";
 
-export const NAME = "nodeAndRel"
+export const NAME = "graphEditor"
+export const UPDATE_GRAPH_EDITOR_STATE = 'graphEditor/UPDATE_GRAPH_EDITOR_STATE'
 
 export const initialState = {
   nodes: [],
@@ -10,8 +11,8 @@ export const initialState = {
 }
 
 export interface GraphEditorAction {
-  type: typeof NAME;
-  payload: BasicNodesAndRels
+  type: typeof UPDATE_GRAPH_EDITOR_STATE;
+  payload: GraphEditorState
 }
 
 export interface GraphEditorState {
@@ -24,7 +25,7 @@ export default function reducer(
   action: GraphEditorAction
 ) {
   switch (action.type) {
-    case NAME:
+    case UPDATE_GRAPH_EDITOR_STATE:
       return {
         ...state,
         ...action.payload
@@ -42,9 +43,9 @@ export function getEditorRelationships(state: GlobalState) {
   return state[NAME].relationships
 }
 
-export const getEditorAction = (graphData: BasicNodesAndRels): GraphEditorAction => {
+export const getEditorAction = (graphData: GraphEditorState): GraphEditorAction => {
   return {
-    type: NAME,
+    type: UPDATE_GRAPH_EDITOR_STATE,
     payload: graphData
   }
 }

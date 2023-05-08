@@ -13,14 +13,14 @@ import React from "react";
 import { EditorState } from 'lexical';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { getEditorNodesAndRels } from "./AddEditorNodesAndRels";
-import { getEditorAction } from "shared/modules/graphEditor/graphEditorDuck";
+import { GraphEditorState, getEditorAction } from "shared/modules/graphEditor/graphEditorDuck";
 import { withBus } from "react-suber";
 import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
 import { InputContainer, PlaceholderContainer } from "./styles/EditorContainer.styled";
 
 export interface EditorProps {
-  updateGraph: (graphData: any) => void
+  updateGraph: (graphData: GraphEditorState) => void
 }
 
 function Placeholder() {
@@ -75,7 +75,7 @@ export function Editor(props: EditorProps): JSX.Element {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
-  updateGraph: (graphData: any) => {
+  updateGraph: (graphData: GraphEditorState) => {
     dispatch(getEditorAction(graphData))
   }
 })

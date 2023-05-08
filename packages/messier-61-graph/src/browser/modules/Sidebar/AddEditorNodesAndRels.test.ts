@@ -63,7 +63,7 @@ test("Convert all the text entered in the editor to nodes and relationships in t
         id: "like",
         startNodeId: "i",
         endNodeId: "dog",
-        type: '',
+        type: 'like',
         properties: {},
         propertyTypes: {}
       },
@@ -71,7 +71,7 @@ test("Convert all the text entered in the editor to nodes and relationships in t
         id: "love",
         startNodeId: "i",
         endNodeId: "cat",
-        type: '',
+        type: 'love',
         properties: {},
         propertyTypes: {}
       }
@@ -102,7 +102,7 @@ test("Converts a line of words entered in the editor to nodes and relationships 
         id: "like",
         startNodeId: "i",
         endNodeId: "dog",
-        type: '',
+        type: 'like',
         properties: {},
         propertyTypes: {}
       }
@@ -132,7 +132,7 @@ test("Entering text in the editor gets the nodes and relationships", () => {
         id: "like",
         startNodeId: "i",
         endNodeId: "dog",
-        type: '',
+        type: 'like',
         properties: {},
         propertyTypes: {}
       }
