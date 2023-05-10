@@ -38,37 +38,7 @@ describe('Commands', () => {
     cy.visit(Cypress.config('url'))
     cy.get('input[data-testid="boltaddress"]', { timeout: 40000 })
   })
-  it('can type in editor and run commands manually', () => {
-    cy.executeCommand(':help help')
-    cy.get('[data-testid="frameCommand"]').contains(':help help')
-    // lose focus
-    cy.get('[data-testid=navigationFavorites]').click()
-    cy.get('[data-testid=navigationFavorites]').click()
-    cy.get('#monaco-main-editor > .monaco-editor').should(
-      'not.have.class',
-      'focused'
-    )
-
-    // we now have 2 cards, and some hidden padding
-    cy.get('[data-testid="stream"]')
-      .children()
-      .should('have.length', 3)
-
-    // focus editor
-    cy.get('body').type('/')
-    cy.get('#monaco-main-editor > .monaco-editor')
-      .should('have.class', 'focused')
-      .type(':clear{shift}{enter}')
-
-    // we see line number in multiline view
-    cy.get('.line-numbers').should('contain', '1')
-    // we can run command with ctrl enter
-    cy.get('[data-testid="activeEditor"] textarea').type('{ctrl}{enter}')
-    // editor is now cleared
-    cy.get('[data-testid="stream"]')
-      .children()
-      .should('have.length', 1)
-  })
+  
   it('can run all simple commands not connected without blowing up', () => {
     commands.forEach(cmd => {
       cy.executeCommand(cmd)

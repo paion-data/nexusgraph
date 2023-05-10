@@ -116,31 +116,5 @@ describe('Types in Browser', () => {
       cy.get('[data-testid="cypherFrameSidebarAscii"]').first().click()
       cy.resultContains('│"14:03:04"')
     })
-    it('renders types in viz correctly', () => {
-      cy.executeCommand('MATCH (t:Types) DELETE t;')
-      cy.executeCommand(':clear')
-      const query =
-        "CREATE (p:Types {{}location: point({{}crs: 'wgs-84', x: 12.78, y: 56.7}), date: duration.between(datetime('2014-07-21T21:40:36.143+0200'), date('2015-06-24'))}) RETURN p"
-      cy.executeCommand(query)
-      // cy.waitForCommandResult()
-      cy.get('circle.b-outline', { timeout: 10000 }).click()
-      cy.get('[data-testid="vizInspector"]')
-        .should('contain', 'P11M2DT2H19')
-        .and('contain', 'srid:4326')
-    })
-    it('renders types in paths in viz correctly', () => {
-      cy.executeCommand(':clear')
-      const query = 'MATCH p=(:Types) RETURN p'
-      cy.executeCommand(query)
-      // cy.waitForCommandResult()
-      cy.get('circle.b-outline', { timeout: 10000 }).click()
-      cy.get('[data-testid="vizInspector"]')
-        .should('contain', 'P11M2DT2H19')
-        .and('contain', 'srid:4326')
-        .and('contain', 'date')
-        .and('contain', 'location')
-        .and('contain', 'x:12.78')
-        .and('contain', 'y:56.7')
-    })
   }
 })

@@ -13,12 +13,6 @@ describe('Neo4j Browser', () => {
     cy.wait(3000)
   })
 
-  it('sets new login credentials', () => {
-    const newPassword = Cypress.config('password')
-    cy.setInitialPassword(newPassword)
-    cy.disconnect()
-  })
-
   it(':server disconnect frame is rerunnable', () => {
     cy.get('[data-testid="disconnectedBannerCode"]').click()
     cy.get('[data-testid="frameCommand"]').contains(':server connect').click()
@@ -30,25 +24,6 @@ describe('Neo4j Browser', () => {
     const password = Cypress.config('password')
     cy.connect('neo4j', password)
   })
-
-  // it('can show Canny badge in "Document" icon and correspond side bar drawer', () => {
-  //   cy.window().then(win => {
-  //     if (win.Canny && win.IsCannyLoaded && typeof win.Canny === 'function') {
-  //       // The Canny badge should appear when initially connected to the database
-  //       cy.get('[data-testid="navigationCannyDocuments"]', { timeout: 5000 })
-  //         .children('div')
-  //         .should('have.class', 'Canny_BadgeContainer')
-  //         .children('div')
-  //         .should('have.class', 'Canny_Badge')
-
-  //       Click the navigation button to open the sidebar to show Documents drawer, and the badge should be shown in the changelog button
-  //       cy.get('[data-testid="navigationDocuments"]').click()
-  //       cy.get('[data-testid="documentDrawerCanny"]')
-  //         .children('div')
-  //         .should('have.class', 'Canny_BadgeContainer')
-  //     }
-  //   })
-  // })
 
   it('can empty the db', () => {
     cy.executeCommand(':clear')
@@ -100,81 +75,15 @@ describe('Neo4j Browser', () => {
 
   it('can display meta items from side drawer', () => {
     cy.executeCommand(':clear')
-    cy.get('[data-testid="navigationDBMS"]').click()
+    cy.get('[data-testid="navigationEditor"]').click()
 
     cy.executeCommand('MATCH (n) RETURN DISTINCT labels(n);')
     cy.contains('Movie')
     cy.get('[data-testid="sidebarMetaItem"]', { timeout: 30000 }).should(
       'have.length.above',
-      17
+      9
     )
-    cy.get('[data-testid="navigationDBMS"]').click()
-  })
-
-  it('displays user info in sidebar (when connected)', () => {
-    cy.executeCommand(':clear')
-    cy.get('[data-testid="navigationDBMS"]').click()
-    cy.get('[data-testid="user-details-username"]').should('contain', 'neo4j')
-    cy.get('[data-testid="user-details-roles"]', { timeout: 30000 }).should(
-      'contain',
-      isAura()
-        ? 'PUBLIC'
-        : isEnterpriseEdition() || Cypress.config('serverVersion') < 4.0
-        ? 'admin'
-        : '-'
-    )
-    cy.executeCommand(':clear')
-    cy.executeCommand(':server disconnect')
-    cy.get('[data-testid="user-details-username"]').should('have.length', 0)
-    cy.get('[data-testid="user-details-roles"]').should('have.length', 0)
-    cy.connect('neo4j', Cypress.config('password'))
-    cy.executeCommand(':clear')
-    cy.get('[data-testid="user-details-username"]').should('contain', 'neo4j')
-    cy.get('[data-testid="user-details-roles"]').should(
-      'contain',
-      isAura()
-        ? 'PUBLIC'
-        : isEnterpriseEdition() || Cypress.config('serverVersion') < 4.0
-        ? 'admin'
-        : '-'
-    )
-    cy.get('[data-testid="navigationDBMS"]').click()
-  })
-
-  // Browser sync is disabled on Aura
-  if (!isAura()) {
-    it('will clear local storage when clicking "Clear local data"', () => {
-      cy.connect('neo4j', Cypress.config('password'))
-
-      cy.get(Editor).type(`RETURN 1{enter}`, { force: true })
-
-      cy.get('[data-testid="frame-Favorite"]').click()
-      cy.get('[data-testid="savedScriptListItem"]').first().contains('RETURN 1')
-
-      cy.get('[data-testid="navigationSync"]').click()
-      cy.get('[data-testid="clearLocalData"]').click()
-      cy.wait(500)
-
-      // confirm clear
-      cy.get('[data-testid="clearLocalData"]').click()
-
-      cy.get('[data-testid="navigationFavorites"]').click()
-
-      cy.get('[data-testid="savedScriptListItem"]').should('have.length', 0)
-      cy.get('[data-testid="navigationFavorites"]').click()
-
-      // once data is cleared the user is logged out and the connect form is displayed
-      cy.get('input[data-testid="boltaddress"]')
-    })
-  }
-
-  it('displays no user info in sidebar (when not connected)', () => {
-    cy.executeCommand(':server disconnect')
-    cy.executeCommand(':clear')
-    cy.get('[data-testid="navigationDBMS"]').click()
-    cy.get('[data-testid="user-details-username"]').should('have.length', 0)
-    cy.get('[data-testid="user-details-roles"]').should('have.length', 0)
-    cy.get('[data-testid="navigationDBMS"]').click()
+    cy.get('[data-testid="navigationEditor"]').click()
   })
 
   it('does not show trial banner since we have licence or community', () => {

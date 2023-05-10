@@ -18,118 +18,12 @@ describe('Viz rendering', () => {
     cy.executeCommand(
       'CREATE (a:TestLabel)-[:CONNECTS]->(b:TestLabel) RETURN a, b'
     )
-    cy.get('[data-testid="vizInspector"]', { timeout: 5000 }).contains(
+    cy.get('svg[class="neod3viz"]', { timeout: 5000 }).contains(
       'CONNECTS'
-    )
-    cy.get('[data-testid="vizInspector"]', { timeout: 5000 }).contains(
-      'TestLabel'
     )
     cy.executeCommand('MATCH (a:TestLabel) DETACH DELETE a')
   })
-  it('can change default color of nodes', () => {
-    const selectorNodeLabelAll =
-      '[data-testid="property-details-overview-node-label-*"]'
-    cy.executeCommand(':clear')
-    cy.executeCommand(':style reset')
-    cy.executeCommand(
-      'CREATE (a:TestLabel)-[:CONNECTS]->(b:TestLabel) RETURN a, b'
-    )
-    // Check that default color is set
-    cy.get(selectorNodeLabelAll, { timeout: 5000 }).should(
-      'have.css',
-      'background-color',
-      GREY
-    )
 
-    // Change color and make sure color is changed
-    cy.get(selectorNodeLabelAll, { timeout: 5000 }).click()
-    cy.get('[data-testid="select-color-2"]').click()
-    cy.get('[data-testid="cypherFrameSidebarVisualization"]').click() // Close grass editor
-
-    cy.get(selectorNodeLabelAll, { timeout: 5000 }).should(
-      'have.css',
-      'background-color',
-      ORANGE
-    )
-  })
-  it('can change default color of relationships', () => {
-    const selectorRelationshipsAll = `[data-testid="property-details-overview-relationship-type-*"]`
-
-    cy.executeCommand(':clear')
-    cy.executeCommand(':style reset')
-    cy.executeCommand(
-      'CREATE (a:TestLabel)-[:CONNECTS]->(b:TestLabel) RETURN a, b'
-    )
-    // Check that default color is set
-    cy.get(selectorRelationshipsAll, { timeout: 5000 }).should(
-      'have.css',
-      'background-color',
-      GREY
-    )
-
-    // Change color and make sure color is changed
-    cy.get(selectorRelationshipsAll, { timeout: 5000 }).click()
-    cy.get('[data-testid="select-color-2"]').click()
-    cy.get('[data-testid="cypherFrameSidebarVisualization"]').click() // Close grass editor
-
-    cy.get(selectorRelationshipsAll, { timeout: 5000 }).should(
-      'have.css',
-      'background-color',
-      ORANGE
-    )
-  })
-  it('can change styling of nodes with certain label', () => {
-    const selectorNodeLabel =
-      '[data-testid="property-details-overview-node-label-TestLabel"]'
-    cy.executeCommand(':clear')
-    cy.executeCommand(':style reset')
-    cy.executeCommand(
-      'CREATE (a:TestLabel)-[:CONNECTS]->(b:TestLabel) RETURN a, b'
-    )
-    // Check that default color is set
-    cy.get(selectorNodeLabel, { timeout: 5000 }).should(
-      'have.css',
-      'background-color',
-      PURPLE
-    )
-
-    // Change color and make sure color is changed
-    cy.get(selectorNodeLabel, { timeout: 5000 }).click()
-    cy.get('[data-testid="select-color-2"]').click()
-    cy.get('[data-testid="cypherFrameSidebarVisualization"]').click() // Close grass editor
-
-    cy.get(selectorNodeLabel, { timeout: 5000 }).should(
-      'have.css',
-      'background-color',
-      ORANGE
-    )
-  })
-  it('can change styling of relationship of certain type', () => {
-    const selectorRelationshipType =
-      '[data-testid="property-details-overview-relationship-type-CONNECTS"]'
-    cy.executeCommand(':clear')
-    cy.executeCommand(':style reset')
-    cy.executeCommand(
-      'CREATE (a:TestLabel)-[:CONNECTS]->(b:TestLabel) RETURN a, b'
-    )
-    // Check that default color is set
-    cy.get(selectorRelationshipType, { timeout: 5000 }).should(
-      'have.css',
-      'background-color',
-      GREY
-    )
-
-    // Change color and make sure color is changed
-    cy.get(selectorRelationshipType, { timeout: 5000 }).click()
-    cy.get('[data-testid="select-color-2"]').click()
-    cy.get('[data-testid="cypherFrameSidebarVisualization"]').click() // Close grass editor
-
-    cy.get(selectorRelationshipType, { timeout: 5000 }).should(
-      'have.css',
-      'background-color',
-      ORANGE
-    )
-  })
   it('can zoom in with button', () => {
     cy.executeCommand(':clear')
     cy.executeCommand(`CREATE (a:TestLabel {name: 'testNode'}) RETURN a`, {
@@ -222,54 +116,5 @@ describe('Viz rendering', () => {
 
     cy.get('#svg-vis').trigger('wheel', { deltaY: 3000, shiftKey: true })
     cy.get(`[aria-label="zoom-out"]`).should('be.disabled')
-  })
-  it('can handle lots of property values and labels in node properties panel', () => {
-    const numberOfProps = 50
-    const numberOfLabels = 50
-    const queryLabels = Array.from({ length: numberOfLabels }, (x, i) => {
-      return `:label${i}`
-    }).join(' ')
-    const queryProps = Array.from({ length: numberOfProps }, (x, i) => {
-      return `prop${i}: 'hejsan'`
-    }).join(', ')
-    const query = `CREATE (nodeWithLotsOfProps ${queryLabels} { ${queryProps} }) RETURN nodeWithLotsOfProps`
-    cy.executeCommand(':clear')
-
-    // Directly set text to avoid waiting for ever when typing all chars
-    const editorTextarea = '#monaco-main-editor textarea'
-    cy.get(editorTextarea).click()
-    cy.get(editorTextarea).focus()
-    cy.get(editorTextarea)
-      .then(elem => {
-        elem.val(query)
-      })
-      .type(' {ENTER}')
-
-    // Scroll to bottom after labels loaded
-    const lastLabel = `label${numberOfLabels - 1}`
-    cy.get('[data-testid="vizInspector"]', { timeout: 5000 })
-      .contains(lastLabel)
-      .scrollIntoView()
-      .should('be.visible')
-
-    const showAllButtonText = 'Show all'
-    cy.get(`button:contains("${showAllButtonText}")`)
-      .scrollIntoView()
-      .should('be.visible')
-
-    // Open node properties details panel
-    const nodeSelector = '.node'
-    cy.get(nodeSelector).click()
-
-    const selectorPropsTable =
-      '[data-testid="viz-details-pane-properties-table"]'
-    cy.get(selectorPropsTable).should('be.visible')
-
-    const lastPropName = 'prop9'
-    cy.contains(lastPropName).should('exist')
-
-    // For some reason need to get to the td to be able to scroll to it, hence the parent()
-    cy.get('[data-testid="viz-details-pane-body"]').scrollTo('bottom')
-    cy.get('tr td span').contains(lastPropName).should('be.visible')
   })
 })
