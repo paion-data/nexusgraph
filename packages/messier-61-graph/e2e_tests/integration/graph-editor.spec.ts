@@ -1,7 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
+const SELECT_ALL_NODES_BUTTON = '*'
+
 describe('Entering the texts in editor generates the corresponding graph', () => {
-  const SELECT_ALL_NODES_BUTTON = '*'
-  beforeEach(() => {
+  before(() => {
     cy.visit(Cypress.config('url')).title().should('include', 'Neo4j Browser')
     cy.wait(3000)
     const password = Cypress.config('password')
