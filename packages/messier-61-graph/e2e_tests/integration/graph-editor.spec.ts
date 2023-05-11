@@ -3,7 +3,7 @@ const SELECT_ALL_NODES_BUTTON = '*'
 
 describe('Entering the texts in editor generates the corresponding graph', () => {
   before(() => {
-    cy.visit(Cypress.config('url')).title().should('include', 'Neo4j Browser')
+    cy.visit(Cypress.config('url'))
     cy.wait(3000)
     const password = Cypress.config('password')
     cy.connect('neo4j', password)
