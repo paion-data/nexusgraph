@@ -12,6 +12,7 @@ name: Messier-61 CI/CD
 env:
   USER: QubitPi
   EMAIL: jack20220723@gmail.com
+  HASHICORP_PRODUCT_VERSION: "latest"
 
 jobs:
   yaml-lint:
@@ -129,3 +130,52 @@ jobs:
           publish_dir: ./docs/build
           user_name: ${{ env.USER }}
           user_email: ${{ env.EMAIL }}
+
+  hashicorp:
+    name: Publish Messier-61 AMI image and Deploy It to EC2 through HashiCorp
+    needs: test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hashicorp
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        if: github.ref == 'refs/heads/master'
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEPLOY_REGION }}
+
+      - name: Setup HashiCorp Packer
+        uses: hashicorp/setup-packer@main
+        with:
+          version: ${{ env.HASHICORP_PRODUCT_VERSION }}
+      - name: Initialize Packer configuration
+        run: packer init .
+        working-directory: hashicorp/images
+      - name: Validate Packer template
+        run: packer validate -var "aws_image_region=${{ secrets.AWS_IMAGE_REGION }}" .
+        working-directory: hashicorp/images
+      - name: Build and release AMI image
+        if: github.ref == 'refs/heads/master'
+        run: packer build -var "aws_image_region=${{ secrets.AWS_IMAGE_REGION }}" .
+        working-directory: hashicorp/images
+
+      - name: Setup HashiCorp Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: ${{ env.HASHICORP_PRODUCT_VERSION }}
+      - name: Initialize Terraform configuration
+        run: terraform init
+        working-directory: hashicorp/instances
+      - name: Validate Terraform template
+        run: terraform validate
+        working-directory: hashicorp/instances
+      - name: Create EC2 instance
+        if: github.ref == 'refs/heads/master'
+        run: terraform apply -auto-approve -var="aws_deploy_region=${{ secrets.AWS_DEPLOY_REGION }}"
+        working-directory: hashicorp/instances
