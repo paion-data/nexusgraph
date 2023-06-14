@@ -8,10 +8,8 @@ Messier-61 <sup>![Node Version Badge is Missing][node version badge]</sup>
 [![npm registry][npm registry]](https://www.npmjs.com/package/@paiondata/messier-61)
 [![Prettier][Prettier badge]](https://prettier.io/)
 [![License Badge][license badge]](https://www.apache.org/licenses/LICENSE-2.0)
-[![GitHub Workflow Status][release status]](https://github.com/paion-data/messier-61/actions/workflows/release.yml)
+[![GitHub Workflow Status][release status]](https://github.com/paion-data/messier-61/actions/workflows/ci-cd.yml)
 ![GitHub last commit (master)](https://img.shields.io/github/last-commit/paion-data/messier-61/master?logo=github&style=for-the-badge)
-
-_**Messier-61 is under busy development for its Feb. beta release. Stay tunned.**_
 
 > _Messier-61_ is named after the [supermassive black hole "Messier-61"][Messier-61 Wikipedia]. In the world of Physics,
 > it's the "entry" of interstellar travelling that eventually takes people to a fresh set of world-view of galaxies
@@ -47,4 +45,4 @@ The use and distribution terms for [Messier-61][Messier-61 documentation] are co
 
 [Prettier badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge&logo=Prettier
 
-[release status]: https://img.shields.io/github/actions/workflow/status/paion-data/messier-61/release.yml?branch=master&logo=github&style=for-the-badge
+[release status]: https://img.shields.io/github/actions/workflow/status/paion-data/messier-61/ci-cd.yml?branch=master&logo=github&style=for-the-badge
