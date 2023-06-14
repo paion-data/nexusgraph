@@ -78,16 +78,6 @@ cd docs
 yarn typedoc
 ```
 
-:::info
-
-TypeDoc processes all source files under `Messier-61/packages/` except for the following
-
-- Test files (`*.test.*`)
-- `Messier-61/packages/messier-61-app/messier-61-env.d.ts`
-- `Messier-61/packages/messier-61-app/setupTests.ts`
-
-:::
-
 We can have TypeDoc watch for changes from the command line by using
 
 ```bash
