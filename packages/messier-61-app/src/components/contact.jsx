@@ -1,3 +1,6 @@
+/*
+ * Copyright 2023 Paion Data. All rights reserved.
+ */
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import React from "react";
@@ -146,7 +149,7 @@ export const Contact = (props) => {
       <div id="footer">
         <div className="container text-center">
           <p>
-            &copy; 2023 Paion Data
+            &copy; 2023 Paion Data.
           </p>
         </div>
       </div>

@@ -8,7 +8,7 @@ export const Services = (props) => {
     <div id="services" className="text-center">
       <div className="container">
         <div className="section-title">
-          <h2>Features</h2>
+          <h2>Highlights</h2>
           <p>Paion Data's External Brain is a hightlyl automated Knowledge Management Tool</p>
         </div>
         <div className="row">

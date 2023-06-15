@@ -1,3 +1,6 @@
+/*
+ * Copyright 2023 Paion Data. All rights reserved.
+ */
 import React from "react";
 
 export const Navigation = (props) => {
@@ -34,7 +37,7 @@ export const Navigation = (props) => {
             </li>
             <li>
               <a href="#services" className="page-scroll">
-                Features
+                Highlights
               </a>
             </li>
             {/* <li>

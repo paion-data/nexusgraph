@@ -1,3 +1,6 @@
+/*
+ * Copyright 2023 Paion Data. All rights reserved.
+ */
 import { Image } from "./image";
 import React from "react";
 
