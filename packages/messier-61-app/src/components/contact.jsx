@@ -40,9 +40,7 @@ export const Contact = (props) => {
             <div className="row">
               <div className="section-title">
                 <h2>We are Hiring!</h2>
-                <p>
-                  We are hiring!
-                </p>
+                <p>We are hiring!</p>
               </div>
               {/* <form name="sentMessage" validate onSubmit={handleSubmit}>
                 <div className="row">
@@ -148,9 +146,7 @@ export const Contact = (props) => {
       </div>
       <div id="footer">
         <div className="container text-center">
-          <p>
-            &copy; 2023 Paion Data.
-          </p>
+          <p>&copy; 2023 Paion Data.</p>
         </div>
       </div>
     </div>
