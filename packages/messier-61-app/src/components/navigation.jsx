@@ -2,8 +2,11 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export const Navigation = (props) => {
+  const { t } = useTranslation();
+
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container">
@@ -25,29 +28,24 @@ export const Navigation = (props) => {
 
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav navbar-right">
-            {/* <li>
-              <a href="#features" className="page-scroll">
-                Features
-              </a>
-            </li> */}
             <li>
               <a href="#about" className="page-scroll">
-                About
+                {t("About")}
               </a>
             </li>
             <li>
               <a href="#services" className="page-scroll">
-                Highlights
+                {t("Highlights")}
               </a>
             </li>
             <li>
               <a href="#team" className="page-scroll">
-                Team
+                {t("Team")}
               </a>
             </li>
             <li>
               <a href="#contact" className="page-scroll">
-                Contact
+                {t("Contact")}
               </a>
             </li>
           </ul>

@@ -1,51 +1,8 @@
 {
-  "Header": {
-    "title": "External Brain",
-    "paragraph": "A completely new way for personal knowledge management"
-  },
-  "About": {
-    "paragraph": "Everything we do, we believe data through technology reveals the hidden truth of the world. We believe in challenging the status quo. We believe in thinking differently.",
-    "Why": ["beautifully designed", "user friendly"],
-    "Why2": ["simple to use"]
-  },
-  "Services": [
-    {
-      "icon": "fa fa-github",
-      "name": "Free & Open Source",
-      "text": "Most External Brain features are free and will always be free in the future."
-    },
-    {
-      "icon": "fa fa-heart",
-      "name": "Machine Learning",
-      "text": "We revolutionize the personal management by baking Machine Learning as our knowledge management assistant"
-    },
-    {
-      "icon": "fa fa-cloud",
-      "name": "Cloud",
-      "text": "You can host your own External Brain instance on your own infrastructure or simply use our service online. Register today to start a new knowledge journey!"
-    }
-  ],
-  "Team": [
-    {
-      "img": "img/team/ceo.png",
-      "name": "Jack",
-      "job": "CEO"
-    },
-    {
-      "img": "img/team/02.jpg",
-      "name": "Shenggao",
-      "job": "Angel Investor"
-    },
-    {
-      "img": "img/team/Minghui.png",
-      "name": "Minghui",
-      "job": "Frontend Developer"
-    }
-  ],
   "Contact": {
-    "address": "Nanshan District, 5001th Huanggang Rd, WeWork Shenyeshangcheng LOFT Building B, 6th floor, Shenzhen, China, 518000 ",
-    "phone": "13923433392",
-    "email": "jack20191124@paion-data.dev",
-    "github": "https://github.com/paion-data"
+    "address": " ",
+    "phone": "",
+    "email": "",
+    "github": ""
   }
 }
