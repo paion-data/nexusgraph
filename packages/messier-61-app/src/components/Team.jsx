@@ -31,7 +31,7 @@ export const Team = (props) => {
           <div key="member-2" className="col-md-4 col-sm-6 team">
             <div className="thumbnail">
               {" "}
-              <img src="img/team/02.jpg" alt="Member 2" className="team-img" />
+              <img src="img/team/investor.png" alt="Member 2" className="team-img" />
               <div className="caption">
                 <h4>{t("Team Member 2 Name")}</h4>
                 <p>{t("Team Member 2 Title")}</p>
