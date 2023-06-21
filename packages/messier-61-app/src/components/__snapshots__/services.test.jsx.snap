@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`services part renders correctly 1`] = `
 <div
   className="text-center"
   id="services"

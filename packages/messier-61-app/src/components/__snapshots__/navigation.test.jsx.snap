@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`navigation part renders correctly 1`] = `
 <nav
   className="navbar navbar-default navbar-fixed-top"
   id="menu"
