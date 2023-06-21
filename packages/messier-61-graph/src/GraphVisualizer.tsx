@@ -103,9 +103,7 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
     rebasedStyle();
   }
 
-  setGraphStyle(freezeLegend
-    ? new GraphStyleModel(props.useGeneratedDefaultColors)
-    : graphStyle)
+  setGraphStyle(freezeLegend ? new GraphStyleModel(props.useGeneratedDefaultColors) : graphStyle);
 
   useEffect(() => {
     return () => {
