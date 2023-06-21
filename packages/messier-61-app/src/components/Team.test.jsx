@@ -4,7 +4,7 @@
 import renderer from "react-test-renderer";
 import { Team } from "./Team";
 
-it("renders correctly", () => {
+it("team part renders correctly", () => {
   const tree = renderer.create(<Team />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -4,7 +4,7 @@
 import renderer from "react-test-renderer";
 import { Navigation } from "./navigation";
 
-it("renders correctly", () => {
+it("navigation part renders correctly", () => {
   const tree = renderer.create(<Navigation />).toJSON();
   expect(tree).toMatchSnapshot();
 });

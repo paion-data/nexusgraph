@@ -4,7 +4,7 @@
 import renderer from "react-test-renderer";
 import { Services } from "./services";
 
-it("renders correctly", () => {
+it("services part renders correctly", () => {
   const tree = renderer.create(<Services />).toJSON();
   expect(tree).toMatchSnapshot();
 });

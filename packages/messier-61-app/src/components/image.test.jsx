@@ -4,7 +4,7 @@
 import renderer from "react-test-renderer";
 import { Image } from "./image";
 
-it("renders correctly", () => {
+it("image part renders correctly", () => {
   const tree = renderer.create(<Image />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -52,7 +52,11 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
       - name: Install dependencies
-        run: yarn
+        run: |
+          yarn
+          cd packages/messier-61-app
+          yarn
+
       - name: Code style check
         run: npx prettier --check .
       # - name: Static code analysis
