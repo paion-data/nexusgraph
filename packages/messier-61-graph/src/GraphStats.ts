@@ -20,14 +20,9 @@ export function getGraphStats(graph: GraphModel): GraphStats {
   const allRelType: GraphStatsRelationshipTypes = {};
   allRelType[ALL_REL_TYPE_SETS] = { count: graph.relationships.length, properties: {} };
 
-  const labelStats: GraphStatsLabels = {};
-  if (graph.nodes.length !== 0) {
-    labelStats[ALL_NODE_LABELS_SETS] = { count: 1, properties: {} };
-  }
-  const relTypeStats: GraphStatsRelationshipTypes = {};
-  if (graph.relationships.length !== 0) {
-    labelStats[ALL_REL_TYPE_SETS] = { count: 1, properties: {} };
-  }
+  const labelStats: GraphStatsLabels = graph.nodes.length === 0 ? {} : allNodeLable;
+
+  const relTypeStats: GraphStatsRelationshipTypes = graph.relationships.length === 0 ? {} : allRelType;
   graph.nodes.forEach((node) => {
     node.labels.forEach((label) => {
       if (labelStats[label] == null) {

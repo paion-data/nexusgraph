@@ -7,16 +7,16 @@ import { VizItem } from "../VizItem";
 import { GraphStats } from "../GraphStats";
 import { RelationshipModel } from "../models/Relationship";
 
-jest.mock("./models/Node");
+jest.mock("../models/Node");
 const MockedNodeModel = NodeModel as jest.Mock<NodeModel>;
 
-jest.mock("./models/Graph");
+jest.mock("../models/Graph");
 const MockedGraphModel = GraphModel as jest.Mock<GraphModel>;
 
-jest.mock("./Visualization");
+jest.mock("../Visualization");
 const MockedVisualization = Visualization as jest.Mock<Visualization>;
 
-jest.mock("./models/Relationship");
+jest.mock("../models/Relationship");
 const MockedRelationshipModel = RelationshipModel as jest.Mock<RelationshipModel>;
 
 beforeAll(() => {
