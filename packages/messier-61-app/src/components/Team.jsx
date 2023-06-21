@@ -3,6 +3,7 @@
  */
 import React from "react";
 import { useTranslation } from "react-i18next";
+import "../i18n";
 
 export const Team = (props) => {
   const { t } = useTranslation();
