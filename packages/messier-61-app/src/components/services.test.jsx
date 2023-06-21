@@ -1,12 +1,10 @@
 /*
  * Copyright 2023 Paion Data. All rights reserved.
  */
-import renderer from 'react-test-renderer';
-import { Services } from './services';
+import renderer from "react-test-renderer";
+import { Services } from "./services";
 
-it('renders correctly', () => {
-  const tree = renderer
-    .create(<Services />)
-    .toJSON();
+it("renders correctly", () => {
+  const tree = renderer.create(<Services />).toJSON();
   expect(tree).toMatchSnapshot();
 });
