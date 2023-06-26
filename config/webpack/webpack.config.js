@@ -11,7 +11,7 @@ module.exports = function (webpackEnv) {
   const isProdEnvironment = webpackEnv === "production";
 
   return {
-    entry: "./packages/messier-61-app/src/index.js",
+    entry: "./packages/messier-61-landing-page/src/index.js",
     mode: isProdEnvironment ? "production" : "development",
     output: {
       publicPath: "/",
