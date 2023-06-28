@@ -34,9 +34,12 @@ interface GraphVisualizerDefaultProps {
   useGeneratedDefaultColors: boolean;
 }
 
-type GraphVisualizerProps = GraphVisualizerDefaultProps & {
+type GraphVisualizerProps = {
   relationships: RelationshipModel[];
   nodes: NodeModel[];
+};
+
+type GraphStyleVisualizerProps = GraphVisualizerDefaultProps & {
   maxNeighbours?: number;
   graphStyleData?: any;
   getNeighbours?: (
@@ -62,19 +65,21 @@ type GraphVisualizerProps = GraphVisualizerDefaultProps & {
   autocompleteRelationships: boolean;
 };
 
-export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
+export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphStyleVisualizerProps): JSX.Element {
   let defaultStyle: any;
 
   const [stats, setStats] = useState<GraphStats>({
     labels: {},
     relTypes: {},
   });
-  const [graphStyle, setGraphStyle] = useState<GraphStyleModel>(new GraphStyleModel(props.useGeneratedDefaultColors));
+  const [graphStyle, setGraphStyle] = useState<GraphStyleModel>(
+    new GraphStyleModel(styleProps.useGeneratedDefaultColors)
+  );
   const [styleVersion, setStyleVersion] = useState<number>(0);
   const [nodes, setNode] = useState<NodeModel[]>(props.nodes);
   const [relationships, setRelationships] = useState<RelationshipModel[]>(props.relationships);
   const [selectedItem, setSelectedItem] = useState<VizItem>(
-    props.nodeLimitHit
+    styleProps.nodeLimitHit
       ? {
           type: "status-item",
           item: `Not all return nodes are being displayed due to Initial Node Display setting. Only first ${props.nodes.length} nodes are displayed.`,
@@ -90,20 +95,22 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
   const [hoveredItem, setHoveredItem] = useState<VizItem>(selectedItem);
   const [freezeLegend, setFreezeLegend] = useState<boolean>(false);
   const [width, setWidth] = useState<number>(defaultPanelWidth());
-  const [nodePropertiesExpanded, setNodePropertiesExpanded] = useState<boolean>(props.nodePropertiesExpandedByDefault);
+  const [nodePropertiesExpanded, setNodePropertiesExpanded] = useState<boolean>(
+    styleProps.nodePropertiesExpandedByDefault
+  );
 
   defaultStyle = graphStyle.toSheet();
 
   function rebasedStyle() {
-    const rebasedStyle = deepmerge(defaultStyle, props.graphStyleData);
+    const rebasedStyle = deepmerge(defaultStyle, styleProps.graphStyleData);
     graphStyle.loadRules(rebasedStyle);
   }
 
-  if (props.graphStyleData) {
+  if (styleProps.graphStyleData) {
     rebasedStyle();
   }
 
-  setGraphStyle(freezeLegend ? new GraphStyleModel(props.useGeneratedDefaultColors) : graphStyle);
+  setGraphStyle(freezeLegend ? new GraphStyleModel(styleProps.useGeneratedDefaultColors) : graphStyle);
 
   useEffect(() => {
     return () => {
@@ -112,7 +119,7 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
   }, []);
 
   useEffect(() => {
-    if (props.graphStyleData) {
+    if (styleProps.graphStyleData) {
       rebasedStyle();
       setGraphStyle(graphStyle);
       setStyleVersion(styleVersion + 1);
@@ -123,22 +130,22 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
 
       () => {
         setFreezeLegend(false);
-        props.updateStyle(graphStyle.toSheet());
+        styleProps.updateStyle(graphStyle.toSheet());
       };
     }
   }, [props, stats, graphStyle, styleVersion, selectedItem, hoveredItem, freezeLegend, width, nodePropertiesExpanded]);
   const getNodeNeighbours: GetNodeNeighboursFn = (node, currentNeighbourIds, callback) => {
-    if (currentNeighbourIds.length > props.maxNeighbours) {
+    if (currentNeighbourIds.length > styleProps.maxNeighbours) {
       callback({ nodes: [], relationships: [] });
     }
     // execute callback function in "GraphEventHandlerModel.getNodeNeighbours"
-    if (props.getNeighbours) {
-      props.getNeighbours(node.id, currentNeighbourIds).then(
+    if (styleProps.getNeighbours) {
+      styleProps.getNeighbours(node.id, currentNeighbourIds).then(
         ({ nodes, relationships, allNeighboursCount }) => {
-          if (allNeighboursCount > props.maxNeighbours) {
+          if (allNeighboursCount > styleProps.maxNeighbours) {
             setSelectedItem({
               type: "status-item",
-              item: `Rendering was limited to ${props.maxNeighbours} of the node's total ${allNeighboursCount} neighbours due to browser config maxNeighbours.`,
+              item: `Rendering was limited to ${styleProps.maxNeighbours} of the node's total ${allNeighboursCount} neighbours due to browser config maxNeighbours.`,
             });
           }
           callback({ nodes, relationships });
@@ -173,7 +180,7 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
   return (
     <StyledFullSizeContainer id="svg-vis">
       <Graph
-        isFullscreen={props.isFullscreen}
+        isFullscreen={styleProps.isFullscreen}
         relationships={relationships}
         nodes={nodes}
         getNodeNeighbours={getNodeNeighbours}
@@ -182,20 +189,20 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
         graphStyle={graphStyle}
         styleVersion={styleVersion}
         onGraphModelChange={onGraphModelChange}
-        assignVisElement={props.assignVisElement}
-        getAutoCompleteCallback={props.getAutoCompleteCallback}
-        autocompleteRelationships={props.autocompleteRelationships}
-        setGraph={props.setGraph}
+        assignVisElement={styleProps.assignVisElement}
+        getAutoCompleteCallback={styleProps.getAutoCompleteCallback}
+        autocompleteRelationships={styleProps.autocompleteRelationships}
+        setGraph={styleProps.setGraph}
         offset={(nodePropertiesExpanded ? width + 8 : 0) + 8}
-        wheelZoomRequiresModKey={props.wheelZoomRequiresModKey}
-        wheelZoomInfoMessageEnabled={props.wheelZoomInfoMessageEnabled}
-        disableWheelZoomInfoMessage={props.disableWheelZoomInfoMessage}
-        initialZoomToFit={props.initialZoomToFit}
-        onGraphInteraction={props.onGraphInteraction}
+        wheelZoomRequiresModKey={styleProps.wheelZoomRequiresModKey}
+        wheelZoomInfoMessageEnabled={styleProps.wheelZoomInfoMessageEnabled}
+        disableWheelZoomInfoMessage={styleProps.disableWheelZoomInfoMessage}
+        initialZoomToFit={styleProps.initialZoomToFit}
+        onGraphInteraction={styleProps.onGraphInteraction}
       />
       <NodeInspectorPanel
         graphStyle={graphStyle}
-        hasTruncatedFields={props.hasTruncatedFields}
+        hasTruncatedFields={false}
         hoveredItem={hoveredItem}
         selectedItem={selectedItem}
         stats={stats}
@@ -203,11 +210,11 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
         setWidth={(width: number) => setWidth(Math.max(panelMinWidth, width))}
         expanded={nodePropertiesExpanded}
         toggleExpanded={() => {
-          props.setNodePropertiesExpandedByDefault(!nodePropertiesExpanded);
+          styleProps.setNodePropertiesExpandedByDefault(!nodePropertiesExpanded);
           setNodePropertiesExpanded(!nodePropertiesExpanded);
         }}
-        DetailsPaneOverride={props.DetailsPaneOverride}
-        OverviewPaneOverride={props.OverviewPaneOverride}
+        DetailsPaneOverride={styleProps.DetailsPaneOverride}
+        OverviewPaneOverride={styleProps.OverviewPaneOverride}
       />
     </StyledFullSizeContainer>
   );
