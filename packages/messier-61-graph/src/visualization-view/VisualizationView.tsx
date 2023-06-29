@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 import { GlobalState } from "../shared/globalState";
 import { getEditorNodes, getEditorRelationships } from "../shared/editor/editorDuck";
 import { withBus } from "react-suber";
-import { Bus } from "suber";
 
 export interface VisualizationProps {
   editorNodes: NodeModel[];
