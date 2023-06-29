@@ -16,13 +16,44 @@ import { ResizeObserver } from "@juggle/resize-observer";
 import { RelationshipModel } from "./models/Relationship";
 import { NodeModel } from "./models/Node";
 
+const mapProperties = (_: any) => Object.assign({}, ...stringifyValues(_))
+const stringifyValues = (obj: any) =>
+  Object.keys(obj).map(k => ({
+    [k]: obj[k] === null ? 'null' : optionalToString(obj[k])
+  }))
+
+function isNullish(x: unknown): x is null | undefined {
+  return x === null || x === undefined
+}
+
+function optionalToString(value: any) {
+  return !isNullish(value) && typeof value?.toString === 'function'
+    ? value.toString()
+    : value
+}
+
 const ZOOM_ICONS_DEFAULT_SIZE_IN_PX = 15;
 const ZOOM_ICONS_LARGE_SCALE_FACTOR = 1.2;
 
+export type BasicNode = {
+  id: string
+  labels: string[]
+  properties: Record<string, string>
+  propertyTypes: Record<string, string>
+}
+export type BasicRelationship = {
+  id: string
+  startNodeId: string
+  endNodeId: string
+  type: string
+  properties: Record<string, string>
+  propertyTypes: Record<string, string>
+}
+
 export type GraphProps = {
   isFullscreen: boolean;
-  relationships: RelationshipModel[];
-  nodes: NodeModel[];
+  relationships: BasicRelationship[];
+  nodes: BasicNode[];
   getNodeNeighbours: GetNodeNeighboursFn;
   onItemMouseOver: (item: VizItem) => void;
   onItemSelect: (item: VizItem) => void;
@@ -214,11 +245,41 @@ export function Graph(props: GraphProps): JSX.Element {
   );
 }
 
-function createGraph(nodes: NodeModel[], relationships: RelationshipModel[]): GraphModel {
+function createGraph(nodes: BasicNode[], relationships: BasicRelationship[]): GraphModel {
   const graph = new GraphModel();
-  graph.addNodes(nodes);
-  graph.addRelationships(relationships);
+  graph.addNodes(mapNodes(nodes));
+  graph.addRelationships(mapRelationships(relationships, graph));
   return graph;
+}
+
+export function mapNodes(nodes: BasicNode[]): NodeModel[] {
+  return nodes.map(
+    node =>
+      new NodeModel(
+        node.id,
+        node.labels,
+        mapProperties(node.properties),
+        node.propertyTypes
+      )
+  )
+}
+
+export function mapRelationships(
+  relationships: BasicRelationship[],
+  graph: GraphModel
+): RelationshipModel[] {
+  return relationships.map(rel => {
+    const source = graph.findNode(rel.startNodeId)
+    const target = graph.findNode(rel.endNodeId)
+    return new RelationshipModel(
+      rel.id,
+      source,
+      target,
+      rel.type,
+      mapProperties(rel.properties),
+      rel.propertyTypes
+    )
+  })
 }
 
 function ZoomInIcon({ large = false }: { large?: boolean }): JSX.Element {

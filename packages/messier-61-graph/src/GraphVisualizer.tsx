@@ -11,9 +11,8 @@ import { GraphStyleModel } from "./GraphStyle";
 import { GetNodeNeighboursFn, GraphInteractionCallBack, NodesAndRels } from "./event-handler/GraphEventHandlerModel";
 import { VizItem } from "./VizItem";
 import { GraphStats } from "./GraphStats";
-import { Graph } from "./Graph";
+import { BasicNode, BasicRelationship, Graph } from "./Graph";
 import { RelationshipModel } from "./models/Relationship";
-import { NodeModel } from "./models/Node";
 import { GraphModel } from "./models/Graph";
 
 const DEFAULT_MAX_NEIGHBOURS = 100;
@@ -35,8 +34,8 @@ interface GraphVisualizerDefaultProps {
 }
 
 type GraphVisualizerProps = {
-  relationships: RelationshipModel[];
-  nodes: NodeModel[];
+  relationships: BasicRelationship[];
+  nodes: BasicNode[];
 };
 
 type GraphStyleVisualizerProps = GraphVisualizerDefaultProps & {
@@ -67,6 +66,7 @@ type GraphStyleVisualizerProps = GraphVisualizerDefaultProps & {
 
 export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphStyleVisualizerProps): JSX.Element {
   let defaultStyle: any;
+  console.log("GraphView.nodes", props.nodes);
 
   const [stats, setStats] = useState<GraphStats>({
     labels: {},
@@ -76,8 +76,8 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
     new GraphStyleModel(styleProps.useGeneratedDefaultColors)
   );
   const [styleVersion, setStyleVersion] = useState<number>(0);
-  const [nodes, setNode] = useState<NodeModel[]>(props.nodes);
-  const [relationships, setRelationships] = useState<RelationshipModel[]>(props.relationships);
+  const [nodes, setNode] = useState<BasicNode[]>(props.nodes);
+  const [relationships, setRelationships] = useState<BasicRelationship[]>(props.relationships);
   const [selectedItem, setSelectedItem] = useState<VizItem>(
     styleProps.nodeLimitHit
       ? {

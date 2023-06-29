@@ -10,12 +10,16 @@ import rootReducers from "../../messier-61-graph/src/shared/rootReducer";
 
 const reducer = combineReducers<GlobalState>({ ...(rootReducers as any) });
 const store = configureStore({ reducer });
+console.log("Store状态storeState", store.getState())
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
+  // <React.StrictMode>
+  <>
+    <App />
+    <Provider store={store} >
       <App />
     </Provider>
-  </React.StrictMode>
+  </>
+  // </React.StrictMode>
 );

@@ -1,27 +1,38 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect, useState } from "react";
-import { NodeModel } from "../models/Node";
-import { RelationshipModel } from "../models/Relationship";
 import { GraphVisualizer } from "../GraphVisualizer";
 import { StyledVisContainer } from "./VisualizationView.styled";
 import { connect } from "react-redux";
 import { GlobalState } from "../shared/globalState";
 import { getEditorNodes, getEditorRelationships } from "../shared/editor/editorDuck";
 import { withBus } from "react-suber";
+import { BasicNode, BasicRelationship } from "../Graph";
 
 export interface VisualizationProps {
-  editorNodes: NodeModel[];
-  editorRelationships: RelationshipModel[];
+  editorNodes: BasicNode[];
+  editorRelationships: BasicRelationship[];
 }
 
-export default function Visualization(props: VisualizationProps): JSX.Element | null {
-  const [nodes, setNodes] = useState<NodeModel[]>([]);
-  const [relationships, setRelationships] = useState<RelationshipModel[]>([]);
+export function Visualization(props: VisualizationProps): JSX.Element {
+  const [nodes, setNodes] = useState<BasicNode[]>(
+    [{
+      id: "1",
+      labels: ["label1", "label2"],
+      properties: {name: 'Tom', age: '18'},
+      propertyTypes: { name: "string", age: "string" }
+    }]);
+
+  const [relationships, setRelationships] = useState<BasicRelationship[]>([]);
 
   useEffect(() => {
-    setNodes(props.editorNodes);
-    setRelationships(props.editorRelationships);
-  }, [props.editorNodes, props.editorNodes]);
+    console.log("graph");
+    
+    setNodes(nodes.concat(props.editorNodes));
+    setRelationships(relationships.concat(props.editorRelationships));
+  }, [props.editorNodes, props.editorRelationships]);
+
+  console.log("......................................................................");
+  console.log("VisualizationView被调用", nodes);
 
   return (
     <StyledVisContainer isFullscreen={true}>
@@ -33,6 +44,8 @@ export default function Visualization(props: VisualizationProps): JSX.Element | 
 const mapStateToProps = (state: GlobalState) => ({
   editorNodes: getEditorNodes(state),
   editorRelationships: getEditorRelationships(state),
+  log: () => {console.log("mapStateToProps");}
 });
 
-export const VisualizationConnectedBus = withBus(connect(mapStateToProps, null)(Visualization));
+export const VisualizationConnectedBus = withBus(connect(mapStateToProps)(Visualization));
+console.log("VisualizationConnectedBus", VisualizationConnectedBus);

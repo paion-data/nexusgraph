@@ -1,14 +1,25 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { NodeModel } from "../../models/Node";
-import { RelationshipModel } from "../../models/Relationship";
+import { BasicNode, BasicRelationship } from "../../Graph";
 import { GlobalState } from "../globalState";
 
 export const NAME = "graphEditor";
 export const UPDATE_GRAPH = "graphEditor/UPDATE_GRAPH";
 
-export const initialState = {
-  nodes: [],
-  relationships: [],
+export const initialState: GraphEditorState = {
+  nodes: [{
+    id: "2",
+    labels: ["label1", "label2"],
+    properties: {name: 'Boy', age: '18'},
+    propertyTypes: { name: "string", age: "string" }
+  }],
+  relationships: [{
+    id: '3',
+    startNodeId: "1",
+    endNodeId: "2",
+    type: "asd",
+    properties: {name: 'Boy', age: '18'},
+    propertyTypes: { name: "string", age: "string" }
+  }],
 };
 
 export interface GraphEditorAction {
@@ -17,11 +28,13 @@ export interface GraphEditorAction {
 }
 
 export interface GraphEditorState {
-  nodes: NodeModel[];
-  relationships: RelationshipModel[];
+  nodes: BasicNode[];
+  relationships: BasicRelationship[];
 }
 
 export default function editorReducer(state = initialState, action: GraphEditorAction) {
+  console.log("editorReducer被调用");
+
   switch (action.type) {
     case UPDATE_GRAPH:
       return {
@@ -30,10 +43,12 @@ export default function editorReducer(state = initialState, action: GraphEditorA
       };
     default:
       return state;
-  }
+  }  
 }
 
 export function getEditorNodes(state: GlobalState) {
+  console.log(`editorDuck:${state}`);
+  
   return state[NAME].nodes;
 }
 
