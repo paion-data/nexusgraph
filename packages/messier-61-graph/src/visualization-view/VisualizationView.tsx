@@ -18,7 +18,6 @@ export default function Visualization(props: VisualizationProps): JSX.Element | 
   const [nodes, setNodes] = useState<NodeModel[]>([]);
   const [relationships, setRelationships] = useState<RelationshipModel[]>([]);
 
-
   useEffect(() => {
     setNodes(props.editorNodes);
     setRelationships(props.editorRelationships);
