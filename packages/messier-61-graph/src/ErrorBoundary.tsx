@@ -1,18 +1,18 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import * as Sentry from '@sentry/react'
-import React from 'react'
-import styled from 'styled-components'
+import * as Sentry from "@sentry/react";
+import React from "react";
+import styled from "styled-components";
 
 const ErrorWrapper = styled.div`
   background-color: #fbf1f0;
   padding: 10px;
   text-align: center;
   color: #da4433;
-`
+`;
 type ErrorBoundaryProps = {
-  caption?: string
-  children: React.ReactNode
-}
+  caption?: string;
+  children: React.ReactNode;
+};
 
 export default function ErrorBoundary(props: ErrorBoundaryProps): JSX.Element {
   return (
@@ -20,13 +20,12 @@ export default function ErrorBoundary(props: ErrorBoundaryProps): JSX.Element {
       fallback={({ error }) => (
         <ErrorWrapper>
           <p>
-            Something went wrong: <em>"{(error || '').toString()}"</em> and the
-            application can't recover.
+            Something went wrong: <em>"{(error || "").toString()}"</em> and the application can't recover.
           </p>
         </ErrorWrapper>
       )}
     >
       {props.children}
     </Sentry.ErrorBoundary>
-  )
+  );
 }

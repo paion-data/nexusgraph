@@ -4,5 +4,5 @@ import { NAME as visualization, VisualizationDataState } from "./visualizationVi
 
 export interface GlobalState {
   [editor]: GraphEditorState;
-  [visualization]: VisualizationDataState
+  [visualization]: VisualizationDataState;
 }
