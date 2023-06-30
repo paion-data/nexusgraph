@@ -6,7 +6,7 @@ import { GraphBrowser } from "../../messier-61-graph/src/graph-browser/GraphBrow
 import ErrorBoundary from "../../messier-61-graph/src/ErrorBoundary";
 
 export default function App(): JSX.Element {
-  console.log("外部App被调用")
+  console.log("App被调用")
   return (
     <Router>
       <Routes>

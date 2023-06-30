@@ -7,17 +7,17 @@ export const UPDATE_GRAPH = "graphEditor/UPDATE_GRAPH";
 
 export const initialState: GraphEditorState = {
   nodes: [{
-    id: "2",
+    id: "E-node",
     labels: ["label1", "label2"],
-    properties: {name: 'Boy', age: '18'},
+    properties: { name: 'E-node', age: '18' },
     propertyTypes: { name: "string", age: "string" }
   }],
   relationships: [{
     id: '3',
-    startNodeId: "1",
+    startNodeId: "E-node",
     endNodeId: "2",
     type: "asd",
-    properties: {name: 'Boy', age: '18'},
+    properties: { name: 'E-node', age: '18' },
     propertyTypes: { name: "string", age: "string" }
   }],
 };
@@ -32,7 +32,7 @@ export interface GraphEditorState {
   relationships: BasicRelationship[];
 }
 
-export default function editorReducer(state = initialState, action: GraphEditorAction) {
+export default function editorReducer(state = initialState, action: GraphEditorAction): GraphEditorState {
   console.log("editorReducer被调用");
 
   switch (action.type) {
@@ -43,16 +43,16 @@ export default function editorReducer(state = initialState, action: GraphEditorA
       };
     default:
       return state;
-  }  
+  }
 }
 
-export function getEditorNodes(state: GlobalState) {
+export function getEditorNodes(state: GlobalState): BasicNode[] {
   console.log(`editorDuck:${state}`);
-  
+
   return state[NAME].nodes;
 }
 
-export function getEditorRelationships(state: GlobalState) {
+export function getEditorRelationships(state: GlobalState): BasicRelationship[] {
   return state[NAME].relationships;
 }
 

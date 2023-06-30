@@ -50,6 +50,11 @@ export type BasicRelationship = {
   propertyTypes: Record<string, string>
 }
 
+export type BasicNodesAndRels = {
+  nodes: BasicNode[]
+  relationships: BasicRelationship[]
+}
+
 export type GraphProps = {
   isFullscreen: boolean;
   relationships: BasicRelationship[];
@@ -194,12 +199,12 @@ export function Graph(props: GraphProps): JSX.Element {
       }
     }
   }, [
-    zoomInLimitReached,
-    zoomOutLimitReached,
-    displayingWheelZoomInfoMessage,
-    props,
-    wrapperRef.current,
-    svgRef.current,
+    // zoomInLimitReached,
+    // zoomOutLimitReached,
+    // displayingWheelZoomInfoMessage,
+    // props,
+    // wrapperRef.current,
+    // svgRef.current,
   ]);
 
   function zoomInClicked(): void {
@@ -224,7 +229,7 @@ export function Graph(props: GraphProps): JSX.Element {
           disabled={zoomInLimitReached}
           onClick={zoomInClicked}
         >
-          <ZoomInIcon large={props.isFullscreen} />
+          {/* <ZoomInIcon large={props.isFullscreen} /> */}
         </StyledZoomButton>
         <StyledZoomButton
           aria-label={"zoom-out"}
@@ -232,7 +237,7 @@ export function Graph(props: GraphProps): JSX.Element {
           disabled={zoomOutLimitReached}
           onClick={zoomOutClicked}
         >
-          <ZoomOutIcon large={props.isFullscreen} />
+          {/* <ZoomOutIcon large={props.isFullscreen} /> */}
         </StyledZoomButton>
         <StyledZoomButton aria-label={"zoom-to-fit"} onClick={zoomToFitClicked}>
           <ZoomToFitIcon large={props.isFullscreen} />
@@ -282,25 +287,25 @@ export function mapRelationships(
   })
 }
 
-function ZoomInIcon({ large = false }: { large?: boolean }): JSX.Element {
-  const scale = large ? ZOOM_ICONS_LARGE_SCALE_FACTOR : 1;
-  return (
-    <MagnifyingGlassPlusIcon
-      width={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
-      height={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
-    />
-  );
-}
+// function ZoomInIcon({ large = false }: { large?: boolean }): JSX.Element {
+//   const scale = large ? ZOOM_ICONS_LARGE_SCALE_FACTOR : 1;
+//   return (
+//     <MagnifyingGlassPlusIcon
+//       width={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
+//       height={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
+//     />
+//   );
+// }
 
-function ZoomOutIcon({ large = false }: { large?: boolean }): JSX.Element {
-  const scale = large ? ZOOM_ICONS_LARGE_SCALE_FACTOR : 1;
-  return (
-    <MagnifyingGlassMinusIcon
-      width={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
-      height={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
-    />
-  );
-}
+// function ZoomOutIcon({ large = false }: { large?: boolean }): JSX.Element {
+//   const scale = large ? ZOOM_ICONS_LARGE_SCALE_FACTOR : 1;
+//   return (
+//     <MagnifyingGlassMinusIcon
+//       width={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
+//       height={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
+//     />
+//   );
+// }
 
 function ZoomToFitIcon({ large = false }: { large?: boolean }): JSX.Element {
   const scale = large ? ZOOM_ICONS_LARGE_SCALE_FACTOR : 1;
@@ -321,10 +326,10 @@ function ZoomToFitIcon({ large = false }: { large?: boolean }): JSX.Element {
   );
 }
 
-declare const MagnifyingGlassPlusIcon: React.ForwardRefExoticComponent<
-  React.SVGProps<SVGSVGElement> & { title?: string; titleId?: string }
->;
+// declare const MagnifyingGlassPlusIcon: React.ForwardRefExoticComponent<
+//   React.SVGProps<SVGSVGElement> & { title?: string; titleId?: string }
+// >;
 
-declare const MagnifyingGlassMinusIcon: React.ForwardRefExoticComponent<
-  React.SVGProps<SVGSVGElement> & { title?: string; titleId?: string }
->;
+// declare const MagnifyingGlassMinusIcon: React.ForwardRefExoticComponent<
+//   React.SVGProps<SVGSVGElement> & { title?: string; titleId?: string }
+// >;

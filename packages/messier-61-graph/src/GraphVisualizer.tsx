@@ -66,7 +66,7 @@ type GraphStyleVisualizerProps = GraphVisualizerDefaultProps & {
 
 export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphStyleVisualizerProps): JSX.Element {
   let defaultStyle: any;
-  console.log("GraphView.nodes", props.nodes);
+  console.log("GraphVisualizer.nodes1", props.nodes);
 
   const [stats, setStats] = useState<GraphStats>({
     labels: {},
@@ -76,7 +76,10 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
     new GraphStyleModel(styleProps.useGeneratedDefaultColors)
   );
   const [styleVersion, setStyleVersion] = useState<number>(0);
-  const [nodes, setNode] = useState<BasicNode[]>(props.nodes);
+
+  const [nodes, setNodes] = useState<BasicNode[]>(props.nodes);
+  console.log(nodes);
+ 
   const [relationships, setRelationships] = useState<BasicRelationship[]>(props.relationships);
   const [selectedItem, setSelectedItem] = useState<VizItem>(
     styleProps.nodeLimitHit
@@ -99,18 +102,21 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
     styleProps.nodePropertiesExpandedByDefault
   );
 
-  defaultStyle = graphStyle.toSheet();
+  // defaultStyle = graphStyle.toSheet();
 
-  function rebasedStyle() {
-    const rebasedStyle = deepmerge(defaultStyle, styleProps.graphStyleData);
-    graphStyle.loadRules(rebasedStyle);
-  }
+  // function rebasedStyle() {
+  //   const rebasedStyle = deepmerge(defaultStyle, styleProps.graphStyleData);
+  //   graphStyle.loadRules(rebasedStyle);
+  // }
 
-  if (styleProps.graphStyleData) {
-    rebasedStyle();
-  }
+  // if (styleProps.graphStyleData) {
+  //   rebasedStyle();
+  // }
 
-  setGraphStyle(freezeLegend ? new GraphStyleModel(styleProps.useGeneratedDefaultColors) : graphStyle);
+  // setGraphStyle(freezeLegend ? new GraphStyleModel(styleProps.useGeneratedDefaultColors) : graphStyle);
+
+  console.log("GraphVisualizer.node2", props.nodes);
+  
 
   useEffect(() => {
     return () => {
@@ -120,7 +126,7 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
 
   useEffect(() => {
     if (styleProps.graphStyleData) {
-      rebasedStyle();
+      // rebasedStyle();
       setGraphStyle(graphStyle);
       setStyleVersion(styleVersion + 1);
     } else {
@@ -133,7 +139,7 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
         styleProps.updateStyle(graphStyle.toSheet());
       };
     }
-  }, [props, stats, graphStyle, styleVersion, selectedItem, hoveredItem, freezeLegend, width, nodePropertiesExpanded]);
+  }, [props, stats, graphStyle, styleVersion, selectedItem, hoveredItem, freezeLegend, width, nodePropertiesExpanded, nodes, relationships]);
   const getNodeNeighbours: GetNodeNeighboursFn = (node, currentNeighbourIds, callback) => {
     if (currentNeighbourIds.length > styleProps.maxNeighbours) {
       callback({ nodes: [], relationships: [] });
@@ -182,7 +188,7 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
       <Graph
         isFullscreen={styleProps.isFullscreen}
         relationships={relationships}
-        nodes={nodes}
+        nodes={props.nodes}
         getNodeNeighbours={getNodeNeighbours}
         onItemMouseOver={onItemMouseOver}
         onItemSelect={onItemSelect}
