@@ -11,5 +11,4 @@ const app = express();
 const data = JSON.parse(readFileSync(process.argv[2]).toString());
 
 app.use("/graphql", jsonGraphqlExpress(data));
-
 app.listen(PORT);

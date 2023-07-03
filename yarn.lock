@@ -3573,6 +3573,7 @@ __metadata:
   resolution: "@paiondata/nexusgraph-editor@workspace:packages/nexusgraph-editor"
   dependencies:
     "@lexical/react": ^0.8.1
+    axios: ^1.4.0
     lexical: ^0.8.1
   languageName: unknown
   linkType: soft
@@ -3637,6 +3638,7 @@ __metadata:
     "@types/styled-components": ^5.1.26
     babel-jest: ^27.4.2
     babel-loader: ^9.1.2
+    cors: ^2.8.5
     css-loader: ^6.7.3
     eslint: ^8.42.0
     eslint-config-prettier: ^8.6.0
@@ -6218,6 +6220,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "axios@npm:1.4.0"
+  dependencies:
+    follow-redirects: ^1.15.0
+    form-data: ^4.0.0
+    proxy-from-env: ^1.1.0
+  checksum: 7fb6a4313bae7f45e89d62c70a800913c303df653f19eafec88e56cea2e3821066b8409bc68be1930ecca80e861c52aa787659df0ffec6ad4d451c7816b9386b
+  languageName: node
+  linkType: hard
+
 "axobject-query@npm:^3.1.1":
   version: 3.2.1
   resolution: "axobject-query@npm:3.2.1"
@@ -7398,6 +7411,16 @@ __metadata:
   version: 1.0.3
   resolution: "core-util-is@npm:1.0.3"
   checksum: 9de8597363a8e9b9952491ebe18167e3b36e7707569eed0ebf14f8bba773611376466ae34575bca8cfe3c767890c859c74056084738f09d4e4a6f902b2ad7d99
+  languageName: node
+  linkType: hard
+
+"cors@npm:^2.8.5":
+  version: 2.8.5
+  resolution: "cors@npm:2.8.5"
+  dependencies:
+    object-assign: ^4
+    vary: ^1
+  checksum: ced838404ccd184f61ab4fdc5847035b681c90db7ac17e428f3d81d69e2989d2b680cc254da0e2554f5ed4f8a341820a1ce3d1c16b499f6e2f47a1b9b07b5006
   languageName: node
   linkType: hard
 
@@ -9823,7 +9846,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.7":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.7, follow-redirects@npm:^1.15.0":
   version: 1.15.2
   resolution: "follow-redirects@npm:1.15.2"
   peerDependenciesMeta:
@@ -9891,6 +9914,17 @@ __metadata:
     combined-stream: ^1.0.8
     mime-types: ^2.1.12
   checksum: b019e8d35c8afc14a2bd8a7a92fa4f525a4726b6d5a9740e8d2623c30e308fbb58dc8469f90415a856698933c8479b01646a9dff33c87cc4e76d72aedbbf860d
+  languageName: node
+  linkType: hard
+
+"form-data@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "form-data@npm:4.0.0"
+  dependencies:
+    asynckit: ^0.4.0
+    combined-stream: ^1.0.8
+    mime-types: ^2.1.12
+  checksum: 01135bf8675f9d5c61ff18e2e2932f719ca4de964e3be90ef4c36aacfc7b9cb2fceb5eca0b7e0190e3383fe51c5b37f4cb80b62ca06a99aaabfcfd6ac7c9328c
   languageName: node
   linkType: hard
 
@@ -13560,7 +13594,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-assign@npm:^4.0.1, object-assign@npm:^4.1.0, object-assign@npm:^4.1.1":
+"object-assign@npm:^4, object-assign@npm:^4.0.1, object-assign@npm:^4.1.0, object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
   checksum: fcc6e4ea8c7fe48abfbb552578b1c53e0d194086e2e6bbbf59e0a536381a292f39943c6e9628af05b5528aa5e3318bb30d6b2e53cadaf5b8fe9e12c4b69af23f
@@ -15203,6 +15237,13 @@ __metadata:
     forwarded: 0.2.0
     ipaddr.js: 1.9.1
   checksum: 29c6990ce9364648255454842f06f8c46fcd124d3e6d7c5066df44662de63cdc0bad032e9bf5a3d653ff72141cc7b6019873d685708ac8210c30458ad99f2b74
+  languageName: node
+  linkType: hard
+
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: ed7fcc2ba0a33404958e34d95d18638249a68c430e30fcb6c478497d72739ba64ce9810a24f53a7d921d0c065e5b78e3822759800698167256b04659366ca4d4
   languageName: node
   linkType: hard
 
@@ -18459,7 +18500,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vary@npm:~1.1.2":
+"vary@npm:^1, vary@npm:~1.1.2":
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
   checksum: ae0123222c6df65b437669d63dfa8c36cee20a504101b2fcd97b8bf76f91259c17f9f2b4d70a1e3c6bbcee7f51b28392833adb6b2770b23b01abec84e369660b
