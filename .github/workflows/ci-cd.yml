@@ -54,7 +54,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
         env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false  # https://stackoverflow.com/a/67740771
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
       - name: Code style check
         run: npx prettier --check .
       # - name: Static code analysis
@@ -113,7 +113,7 @@ jobs:
       - name: Install Messier-61 dependencies so that TypeDoc process source files properly
         run: cd ../ && yarn install
         env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false  # https://stackoverflow.com/a/67740771
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
       - name: Build documentation
         run: yarn build-without-typedoc
       - name: Deploy to GitHub Pages
