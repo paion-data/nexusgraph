@@ -12,6 +12,7 @@ import { GraphStats } from "./GraphStats";
 import { BasicNode, BasicRelationship, Graph } from "./Graph";
 import { RelationshipModel } from "./models/Relationship";
 import { GraphModel } from "./models/Graph";
+import { DetailsPane } from "./inspection-panel/properties-panel-content/properties-panel-content/DetailsPane";
 
 /**
  * Both {@link GraphVisualizerProps.relationships} and {@link GraphVisualizerProps.nodes} are immutable.
@@ -52,7 +53,7 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
   );
   const [hoveredItem, setHoveredItem] = useState<VizItem>(selectedItem);
   const [graphStyle, setGraphStyle] = useState<GraphStyleModel>(new GraphStyleModel());
-  const [nodePropertiesExpanded, setNodePropertiesExpanded] = useState<boolean>(false);
+  const [nodePropertiesExpanded, setNodePropertiesExpanded] = useState<boolean>(true);
 
   const [width, setWidth] = useState<number>(defaultPanelWidth());
 
@@ -109,7 +110,9 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
         width={width}
         setWidth={(width: number) => setWidth(Math.max(panelMinWidth, width))}
         expanded={nodePropertiesExpanded}
-        toggleExpanded={() => {}}
+        toggleExpanded={() => {
+          setNodePropertiesExpanded(!nodePropertiesExpanded);
+        }}
         DetailsPaneOverride={undefined}
         OverviewPaneOverride={undefined}
       />

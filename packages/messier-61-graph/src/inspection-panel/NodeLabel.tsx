@@ -20,6 +20,7 @@ export function NodeLabel({ graphStyle, selectedLabel, allNodesCount }: NodeLabe
   const graphStyleForLabel = graphStyle.forNode({
     labels: labels,
   });
+
   const count = selectedLabel.label === "*" ? allNodesCount : selectedLabel.count;
 
   return (
