@@ -258,18 +258,18 @@ export function Graph(props: GraphProps): JSX.Element {
   );
 }
 
-function createGraph(nodes: BasicNode[], relationships: BasicRelationship[]): GraphModel {
+function createGraph(nodes: readonly BasicNode[], relationships: readonly BasicRelationship[]): GraphModel {
   const graph = new GraphModel();
   graph.addNodes(mapNodes(nodes));
   graph.addRelationships(mapRelationships(relationships, graph));
   return graph;
 }
 
-export function mapNodes(nodes: BasicNode[]): NodeModel[] {
+export function mapNodes(nodes: readonly BasicNode[]): NodeModel[] {
   return nodes.map((node) => new NodeModel(node.id, node.labels, mapProperties(node.properties), node.propertyTypes));
 }
 
-export function mapRelationships(relationships: BasicRelationship[], graph: GraphModel): RelationshipModel[] {
+export function mapRelationships(relationships: readonly BasicRelationship[], graph: GraphModel): RelationshipModel[] {
   return relationships.map((rel) => {
     const source = graph.findNode(rel.startNodeId);
     const target = graph.findNode(rel.endNodeId);
