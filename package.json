@@ -6,7 +6,8 @@
     "./packages/messier-61-editor",
     "./packages/messier-61-graph",
     "./packages/messier-61-nlp",
-    "./packages/messier-61-landing-page"
+    "./packages/messier-61-landing-page",
+    "./docs"
   ],
   "version": "0.1.0",
   "engines": {
