@@ -15,13 +15,9 @@ import OnChangePlugin from "./plugins/Messier61OnChangePlugin";
 import styles from "./LexicalEditor.module.css";
 
 export default function LexicalEditor({
-  lexicalEditorConfig,
-  transformer,
-  exporter,
+  lexicalEditorConfig
 }: {
   lexicalEditorConfig: any;
-  transformer: (editorContentLines: string[]) => any;
-  exporter: (exportLocation: any) => void;
 }): JSX.Element {
   return (
     <LexicalComposer initialConfig={lexicalEditorConfig}>
@@ -33,7 +29,7 @@ export default function LexicalEditor({
         />
         <HistoryPlugin />
         <AutoFocusPlugin />
-        <OnChangePlugin transformer={transformer} exporter={exporter} />
+        <OnChangePlugin />
       </div>
     </LexicalComposer>
   );
