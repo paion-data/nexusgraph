@@ -78,7 +78,6 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
   const [styleVersion, setStyleVersion] = useState<number>(0);
 
   const [nodes, setNodes] = useState<BasicNode[]>(props.nodes);
-  console.log(nodes);
  
   const [relationships, setRelationships] = useState<BasicRelationship[]>(props.relationships);
   const [selectedItem, setSelectedItem] = useState<VizItem>(
@@ -119,10 +118,8 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
   
 
   useEffect(() => {
-    return () => {
-      mounted = false;
-    };
-  }, []);
+    setNodes(props.nodes)
+  }, [props.nodes]);
 
   useEffect(() => {
     if (styleProps.graphStyleData) {
@@ -139,7 +136,7 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
         styleProps.updateStyle(graphStyle.toSheet());
       };
     }
-  }, [props, stats, graphStyle, styleVersion, selectedItem, hoveredItem, freezeLegend, width, nodePropertiesExpanded, nodes, relationships]);
+  }, [props.nodes]);
   const getNodeNeighbours: GetNodeNeighboursFn = (node, currentNeighbourIds, callback) => {
     if (currentNeighbourIds.length > styleProps.maxNeighbours) {
       callback({ nodes: [], relationships: [] });
@@ -188,7 +185,7 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
       <Graph
         isFullscreen={styleProps.isFullscreen}
         relationships={relationships}
-        nodes={props.nodes}
+        nodes={nodes}
         getNodeNeighbours={getNodeNeighbours}
         onItemMouseOver={onItemMouseOver}
         onItemSelect={onItemSelect}

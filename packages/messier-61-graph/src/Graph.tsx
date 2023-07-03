@@ -93,6 +93,11 @@ export function Graph(props: GraphProps): JSX.Element {
     visualization?.resize(props.isFullscreen, !!props.wheelZoomRequiresModKey);
   });
 
+  console.log("Graph useffect外", props.nodes);
+
+  const graph = createGraph(props.nodes, props.relationships);
+  console.log(graph.nodes.length);
+
   useEffect(() => {
     return () => {
       wrapperResizeObserver.disconnect();
@@ -107,7 +112,8 @@ export function Graph(props: GraphProps): JSX.Element {
       height: svgRef.current?.parentElement?.clientHeight ?? 200,
     });
 
-    const graph = createGraph(props.nodes, props.relationships);
+
+
     visualization = new Visualization(
       svgRef.current,
       measureSize,
@@ -205,6 +211,7 @@ export function Graph(props: GraphProps): JSX.Element {
     // props,
     // wrapperRef.current,
     // svgRef.current,
+    props.nodes
   ]);
 
   function zoomInClicked(): void {
