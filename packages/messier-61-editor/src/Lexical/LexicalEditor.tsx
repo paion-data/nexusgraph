@@ -14,11 +14,7 @@ import OnChangePlugin from "./plugins/Messier61OnChangePlugin";
 
 import styles from "./LexicalEditor.module.css";
 
-export default function LexicalEditor({
-  lexicalEditorConfig
-}: {
-  lexicalEditorConfig: any;
-}): JSX.Element {
+export default function LexicalEditor({ lexicalEditorConfig }: { lexicalEditorConfig: any }): JSX.Element {
   return (
     <LexicalComposer initialConfig={lexicalEditorConfig}>
       <div className={styles["editor-container"]}>

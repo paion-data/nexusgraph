@@ -32,7 +32,7 @@ export default function Messier61OnChangePlugin(): null {
       editorState.read(() => {
         const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
 
-        const editorLines: string[] = parse(jsonObject)
+        const editorLines: string[] = parse(jsonObject);
 
         // @fannifanni
         // TODO - 调用后台机器学习服务，将 editorLines 转换成知识图谱图数据，送入 Redux Store
