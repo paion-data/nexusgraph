@@ -21,5 +21,8 @@ export function relationshipEventHandlers(
     trigger(REL_MOUSE_OUT, rel);
   }
 
-  return selection.on("mousedown", onRelationshipClick).on("mouseover", onRelMouseOver).on("mouseout", onRelMouseOut);
+  return selection
+    .on(RELATIONSHIO_CLICKED, onRelationshipClick)
+    .on(REL_MOUSE_OVER, onRelMouseOver)
+    .on(REL_MOUSE_OUT, onRelMouseOut);
 }
