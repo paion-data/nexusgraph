@@ -274,7 +274,6 @@ export class GraphStyleModel {
       if (hits.length) {
         return `{${hits[0].key}}`;
       } else {
-
         return leading;
       }
     }, "");
