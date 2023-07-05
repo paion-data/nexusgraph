@@ -26,12 +26,10 @@ Available Scripts
 
 After that, inside _Messier-61_ directory, we can run several commands:
 
-<!-- markdown-link-check-disable -->
-- `yarn start`: Runs the app in the development mode. Open [http://localhost:8080](http://localhost:8080) to view it in
+- `yarn start`: Runs the app in the development mode. Open `http://localhost:8080` to view it in
   the browser. The page will reload if you make edits. You will also see any lint errors in the console.
-<!-- markdown-link-check-enable -->
 - `yarn test`: Runs all tests, including unit and integration tests
-- `yarn build`: Builds the app for production to the `build` folder. It correctly bundles React in production mode and 
+- `yarn build`: Builds the app for production to the `build` folder. It correctly bundles React in production mode and
   optimizes the build for the best performance. The build is minified and the filenames include the hashes.
 
 Happy building awesome knowledge graph app!
@@ -120,7 +118,6 @@ doesn't know what type `node` is
 [node.js]: https://nodejs.org/en
 
 [onchange]: https://www.npmjs.com/package/onchange
-
 
 [TypeDoc]: https://typedoc.org/guides/overview/
 
