@@ -38,7 +38,7 @@ export function WheelZoomInfoOverlay({ onDisableWheelZoomInfoMessage }: WheelZoo
   };
   return (
     <StyledZoomInfoOverlay>
-      <StyledZoomInfo>
+      {/* <StyledZoomInfo>
         <StyledZoomInfoTextContainer>
           <StyledZoomInfoIconContainer>
             <InfoIcon />
@@ -51,7 +51,7 @@ export function WheelZoomInfoOverlay({ onDisableWheelZoomInfoMessage }: WheelZoo
         >
           {"Don't show again"}
         </StyledZoomInfoOverlayDoNotDisplayButton>
-      </StyledZoomInfo>
+      </StyledZoomInfo> */}
     </StyledZoomInfoOverlay>
   );
 }

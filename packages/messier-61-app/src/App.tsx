@@ -3,12 +3,15 @@
  */
 import { Editor } from "../../messier-61-editor";
 import { GraphBrowser } from "../../messier-61-graph";
-import { AppWrapper, EditorWrapper, GraphBrowserWrapper } from "./styled";
+import { AppWrapper, EditorCaption, EditorWrapper, GraphBrowserWrapper } from "./styled";
 
 export default function App(): JSX.Element {
   return (
     <AppWrapper>
       <EditorWrapper>
+        <EditorCaption>
+          <h1>Editor</h1>
+        </EditorCaption>
         <Editor />
       </EditorWrapper>
       <GraphBrowserWrapper>
