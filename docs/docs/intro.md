@@ -6,13 +6,6 @@ title: Home
 Nexus Graph Documentation - Home
 ================================
 
-:::tip
-
-_nexusgraph_ is named after the [supermassive black hole "nexusgraph"][nexusgraph Wikipedia]. In the world of Physics,
-it's the "entry" of interstellar travelling that eventually takes people to a fresh set of world-view of galaxies
-
-:::
-
 Welcome to nexusgraph's documentation hub! We're still building out documentation on many aspects of nexusgraph, but
 here you'll find what documentation we do have. To make it easier to find the help you need, we've broken the
 documentation down into a few categories, but if you can't find what you're looking for, please don't hesitate to
