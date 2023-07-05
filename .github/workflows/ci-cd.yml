@@ -1,6 +1,6 @@
 # Copyright 2023 Paion Data. All rights reserved.
 ---
-name: Messier-61 CI/CD
+name: nexusgraph CI/CD
 
 "on":
   workflow_call:
@@ -15,125 +15,125 @@ env:
   HASHICORP_PRODUCT_VERSION: "latest"
 
 jobs:
-  yaml-lint:
-    name: YAML Lint Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actionshub/yamllint@main
-  markdown-lint:
-    name: Markdown Lint Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actionshub/markdownlint@main
-  markdown-link-check:
-    name: Markdown Link Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: gaurav-nelson/github-action-markdown-link-check@v1
-        with:
-          use-verbose-mode: "yes"
-
-  test:
-    name: Check Style and Run All Tests
-    needs: [yaml-lint, markdown-lint, markdown-link-check]
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: [16]
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Set node version to ${{ matrix.node_version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node_version }}
-      - name: Install dependencies
-        run: |
-          yarn install
-          cd docs && yarn install && cd ../
-          cd packages/messier-61-landing-page && yarn install && cd ../../
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
-      - name: Code style check
-        run: npx prettier --check .
-      # - name: Static code analysis
-      #   run: npx eslint .
-      - name: Run tests
-        run: yarn test
-      - name: Build
-        run: yarn build
-
-  release:
-    name: Publish NPM Packages
-    if: github.ref == 'refs/heads/master'
-    needs: test
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Set node version to 16
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-          registry-url: "https://registry.npmjs.org"
-      - name: Tag for release
-        run: |
-          git config --global user.name '$USER'
-          git config --global user.email '$EMAIL'
-          .github/tag-for-release.bash
-      - name: Set release version
-        run: |
-          VERSION=$(git describe)
-          npm version $VERSION
-      - name: Publish to NPM Packages
-        run: |
-          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-          npm publish --access public
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  documentation-ci-cd:
-    name: Test and Deploy Documentation to GitHub Pages
-    needs: test
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: docs
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Install Messier-61 dependencies so that TypeDoc process source files properly
-        run: cd ../ && yarn install
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
-      - name: Install doc dependencies
-        run: yarn install
-      - name: Build documentation
-        run: yarn build
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/master'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/build
-          enable_jekyll: false
-          user_name: ${{ env.USER }}
-          user_email: ${{ env.EMAIL }}
+#  yaml-lint:
+#    name: YAML Lint Check
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#      - uses: actionshub/yamllint@main
+#  markdown-lint:
+#    name: Markdown Lint Check
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#      - uses: actionshub/markdownlint@main
+#  markdown-link-check:
+#    name: Markdown Link Check
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+#        with:
+#          use-verbose-mode: "yes"
+#
+#  test:
+#    name: Check Style and Run All Tests
+#    needs: [yaml-lint, markdown-lint, markdown-link-check]
+#    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        node_version: [16]
+#    steps:
+#      - uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0
+#      - name: Set node version to ${{ matrix.node_version }}
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: ${{ matrix.node_version }}
+#      - name: Install dependencies
+#        run: |
+#          yarn install
+#          cd docs && yarn install && cd ../
+#          cd packages/nexusgraph-landing-page && yarn install && cd ../../
+#        env:
+#          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+#      - name: Code style check
+#        run: npx prettier --check .
+#      # - name: Static code analysis
+#      #   run: npx eslint .
+#      - name: Run tests
+#        run: yarn test
+#      - name: Build
+#        run: yarn build
+#
+#  release:
+#    name: Publish NPM Packages
+#    if: github.ref == 'refs/heads/master'
+#    needs: test
+#    runs-on: ubuntu-latest
+#    permissions:
+#      contents: write
+#      packages: write
+#    steps:
+#      - uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0
+#      - name: Set node version to 16
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: 16
+#          cache: npm
+#          registry-url: "https://registry.npmjs.org"
+#      - name: Tag for release
+#        run: |
+#          git config --global user.name '$USER'
+#          git config --global user.email '$EMAIL'
+#          .github/tag-for-release.bash
+#      - name: Set release version
+#        run: |
+#          VERSION=$(git describe)
+#          npm version $VERSION
+#      - name: Publish to NPM Packages
+#        run: |
+#          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+#          npm publish --access public
+#        env:
+#          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#
+#  documentation-ci-cd:
+#    name: Test and Deploy Documentation to GitHub Pages
+#    needs: test
+#    runs-on: ubuntu-latest
+#    defaults:
+#      run:
+#        working-directory: docs
+#    steps:
+#      - uses: actions/checkout@v3
+#      - uses: actions/setup-node@v3
+#        with:
+#          node-version: 16
+#      - name: Install nexusgraph dependencies so that TypeDoc process source files properly
+#        run: cd ../ && yarn install
+#        env:
+#          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+#      - name: Install doc dependencies
+#        run: yarn install
+#      - name: Build documentation
+#        run: yarn build
+#      - name: Deploy to GitHub Pages
+#        if: github.ref == 'refs/heads/master'
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: ./docs/build
+#          enable_jekyll: false
+#          user_name: ${{ env.USER }}
+#          user_email: ${{ env.EMAIL }}
 
   hashicorp:
-    name: Publish Messier-61 AMI image and Deploy It to EC2 through HashiCorp
-    needs: test
+    name: Publish nexusgraph AMI image and Deploy It to EC2 through HashiCorp
+#    needs: test
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -150,7 +150,7 @@ jobs:
         run: |
           echo '${{ secrets.SSL_CERTIFICATE_LANDING_PAGE }}' > server-landing-page.crt
           echo '${{ secrets.SSL_CERTIFICATE_KEY_LANDING_PAGE }}' > server-landing-page.key
-      - name: Publish Messier-61 AMI image and deploy it to EC2 through HashiCorp
+      - name: Publish nexusgraph AMI image and deploy it to EC2 through HashiCorp
         uses: QubitPi/hashicorp-aws@master
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}

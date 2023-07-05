@@ -1,5 +1,5 @@
 {
-  "name": "@paiondata/messier-61-graphql-server",
+  "name": "@paiondata/nexusgraph-graphql-server",
   "version": "0.1.0",
   "description": "Offering knowledge graph data without a backend",
   "scripts": {

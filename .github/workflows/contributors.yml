@@ -1,6 +1,6 @@
 # Copyright 2023 Paion Data. All rights reserved.
 ---
-name: Get Contributor List of Messier-61
+name: Get Contributor List of nexusgraph
 
 "on":
   workflow_dispatch:

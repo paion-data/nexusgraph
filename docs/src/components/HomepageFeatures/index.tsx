@@ -15,7 +15,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: "Free & Open Source",
     Svg: require("@site/static/img/github.svg").default,
-    description: <>All Messier-61 features are free and can be easily customized</>,
+    description: <>All nexusgraph features are free and can be easily customized</>,
   },
   {
     title: "Machine Learning",
