@@ -16,7 +16,7 @@ export const Header = (props) => {
             <div className="row">
               <div className="col-md-8 col-md-offset-2 intro-text">
                 <h1>
-                  External Brain
+                  Nexus Graph
                   <span></span>
                 </h1>
                 <p>{t("Tag Line")}</p>

@@ -29,7 +29,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require("@site/static/img/cloud-native.svg").default,
     description: (
       <>
-        You can host your own External Brain instance on your own infrastructure or simply use our service online.
+        You can host your own nexusgraph instance on your own infrastructure or simply use our service online.
         Register today to start a new knowledge journey!
       </>
     ),

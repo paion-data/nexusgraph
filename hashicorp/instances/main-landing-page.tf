@@ -47,6 +47,7 @@ resource "aws_instance" "nexusgraph-landing-page" {
     Name = "Nexus Graph Landing Page"
   }
   security_groups = ["nexusgraph Landing Page"]
+  key_name = "testKey"
 
   user_data = <<-EOF
     #!/bin/bash
