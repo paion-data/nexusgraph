@@ -15,7 +15,7 @@ exports[`services part renders correctly 1`] = `
         Highlights
       </h2>
       <p>
-        Paion Data's External Brain is a hightlyl automated Knowledge Management Tool
+        Paion Data's nexusgraph is a hightlyl automated Knowledge Management Tool
       </p>
     </div>
     <div
@@ -35,7 +35,7 @@ exports[`services part renders correctly 1`] = `
             Free & Open Source
           </h3>
           <p>
-            Most External Brain features are free and will always be free in the future.
+            Most nexusgraph features are free and will always be free in the future.
           </p>
         </div>
       </div>
@@ -71,7 +71,7 @@ exports[`services part renders correctly 1`] = `
             Cloud Native
           </h3>
           <p>
-            You can host your own External Brain instance on your own infrastructure or simply use our service online. Register today to start a new knowledge journey!
+            You can host your own nexusgraph instance on your own infrastructure or simply use our service online. Register today to start a new knowledge journey!
           </p>
         </div>
       </div>

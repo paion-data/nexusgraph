@@ -15,6 +15,9 @@ sudo apt install -y nodejs
 sudo npm install -g npm
 sudo npm install -g yarn
 
+# Install landing-page specific dependencies
+sudo npm install -g serve
+
 # Bundle up landing page
 git clone https://github.com/paion-data/nexusgraph.git
 cd /home/ubuntu/nexusgraph

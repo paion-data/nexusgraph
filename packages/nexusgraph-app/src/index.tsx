@@ -5,8 +5,8 @@ import App from "./App";
 import React from "react";
 import { Provider } from "react-redux";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { GlobalState } from "../../messier-61-graph/src/shared/globalState";
-import rootReducers from "../../messier-61-graph/src/shared/rootReducer";
+import { GlobalState } from "../../nexusgraph-graph/src/shared/globalState";
+import rootReducers from "../../nexusgraph-graph/src/shared/rootReducer";
 
 const reducer = combineReducers<GlobalState>({ ...(rootReducers as any) });
 export const store = configureStore({ reducer });

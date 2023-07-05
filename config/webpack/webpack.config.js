@@ -11,7 +11,7 @@ module.exports = function (webpackEnv) {
   const isProdEnvironment = webpackEnv === "production";
 
   return {
-    entry: "./packages/messier-61-app/src/index.tsx",
+    entry: "./packages/nexusgraph-app/src/index.tsx",
     mode: isProdEnvironment ? "production" : "development",
     output: {
       publicPath: "/",
@@ -58,7 +58,7 @@ module.exports = function (webpackEnv) {
           {},
           {
             inject: true,
-            template: "./packages/messier-61-app/public/index.html",
+            template: "./packages/nexusgraph-app/public/index.html",
           },
           isProdEnvironment
             ? {

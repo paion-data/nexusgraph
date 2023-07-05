@@ -1,5 +1,5 @@
 {
-  "name": "@paiondata/messier-61-landing-page",
+  "name": "@paiondata/nexusgraph-landing-page",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

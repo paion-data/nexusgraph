@@ -8,10 +8,10 @@ import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext
 import parse from "../parser/RawTextParser";
 
 /**
- * {@link Messier61OnChangePlugin} implements the real-time capturing of editor content.
+ * {@link NexusgraphOnChangePlugin} implements the real-time capturing of editor content.
  *
  * When user enters arbitrary text into the Editor, the
- * [side effect](https://qubitpi.github.io/reactjs.org/reference/react/useEffect) of this component gets
+ * [side effect](https://react.dev/reference/react/useEffect) of this component gets
  * immediately triggered.
  *
  * The side effects performs the following two operations:
@@ -21,10 +21,8 @@ import parse from "../parser/RawTextParser";
  * 3. Sends the knowledge graph data to Redux store for graphing component to consume
  *
  * @returns a standar lexical plugin
- *
- * @see [Lexical Plugin](https://qubitpi.github.io/lexical/docs/react/plugins)
  */
-export default function Messier61OnChangePlugin(): null {
+export default function NexusgraphOnChangePlugin(): null {
   const [editor] = useLexicalComposerContext();
 
   useEffect(() => {

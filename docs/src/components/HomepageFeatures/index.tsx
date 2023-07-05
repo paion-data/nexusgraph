@@ -15,7 +15,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: "Free & Open Source",
     Svg: require("@site/static/img/github.svg").default,
-    description: <>All Messier-61 features are free and can be easily customized</>,
+    description: <>All nexusgraph features are free and can be easily customized</>,
   },
   {
     title: "Machine Learning",
@@ -29,8 +29,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require("@site/static/img/cloud-native.svg").default,
     description: (
       <>
-        You can host your own External Brain instance on your own infrastructure or simply use our service online.
-        Register today to start a new knowledge journey!
+        You can host your own nexusgraph instance on your own infrastructure or simply use our service online. Register
+        today to start a new knowledge journey!
       </>
     ),
   },

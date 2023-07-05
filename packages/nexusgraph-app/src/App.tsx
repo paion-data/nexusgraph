@@ -1,8 +1,8 @@
 /*
  * Copyright 2023 Paion Data. All rights reserved.
  */
-import { Editor } from "../../messier-61-editor";
-import { GraphBrowser } from "../../messier-61-graph";
+import { Editor } from "../../nexusgraph-editor";
+import { GraphBrowser } from "../../nexusgraph-graph";
 import { AppWrapper, EditorCaption, EditorWrapper, GraphBrowserWrapper } from "./styled";
 
 export default function App(): JSX.Element {

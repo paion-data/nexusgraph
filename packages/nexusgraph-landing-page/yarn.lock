@@ -2330,9 +2330,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paiondata/messier-61-landing-page@workspace:.":
+"@paiondata/nexusgraph-landing-page@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@paiondata/messier-61-landing-page@workspace:."
+  resolution: "@paiondata/nexusgraph-landing-page@workspace:."
   dependencies:
     "@testing-library/jest-dom": ^4.2.4
     "@testing-library/react": ^9.3.2

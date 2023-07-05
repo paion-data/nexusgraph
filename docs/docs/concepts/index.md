@@ -8,18 +8,18 @@ title: Concepts
 Concepts
 ========
 
-Messier-61 is organized into 2 components:
+nexusgraph is organized into 2 components:
 
 1. Editor
 2. Graphing Area that displays a knowledge graph representatin inside the editor
 
 Each component can be swapped with their own implementation.
 
-Messier-61's core philosophy is to automating personal knowledge management with the help of machine learning
+nexusgraph's core philosophy is to automating personal knowledge management with the help of machine learning
 techniques, spotlighting the insights about what we learned and representing them in a brand-new technology via
-knowledge graph. At the same time, Messier-61 aims to build a knowledge-graph-based personal knowledge management
+knowledge graph. At the same time, nexusgraph aims to build a knowledge-graph-based personal knowledge management
 platform by making some of its capabilities reusable and customizable by communities. On this page, we describe a
-typcal knowledge management workflow and where Messier-61 fits in.
+typcal knowledge management workflow and where nexusgraph fits in.
 
 The Knowledge Management Workflow
 ---------------------------------
@@ -41,12 +41,12 @@ Being productive with personal knowledge management can therefore be challenging
 Moreover, although there are already knowlege-graph based toosl out there, such as
 [RoamResearch](https://roamresearch.com/) and [Obsidian](https://obsidian.md/), to get the best out of personal
 knowledge management still requires lots of manual work and their graph visuals are very "preliminary". To summarize,
-they focus introduct knowledge graph to people in daily lives. Messier-61, however, makes people love knowledge graph.
+they focus introduct knowledge graph to people in daily lives. nexusgraph, however, makes people love knowledge graph.
 
-Messier-61 Components
+nexusgraph Components
 ---------------------
 
-Messier-61 provides 2 components to help manage our daily knowledge consumption:
+nexusgraph provides 2 components to help manage our daily knowledge consumption:
 
 **Editor** is a traditional input tool for our user. Our user should find it very similar to the existing online editors
 we find everywhere
@@ -57,12 +57,12 @@ ideas in the editor area and a knowledge graph representation of that idea will 
 Example Use Cases
 -----------------
 
-There are multiple ways people may find Messier-61 useful, whether you are a student taking class notes or someone
+There are multiple ways people may find nexusgraph useful, whether you are a student taking class notes or someone
 working in office trying to analyze and solve some complex problems
 
-**Students** can use Messier-61 to visualize the new concepts learn in class, helping them to better understand the
+**Students** can use nexusgraph to visualize the new concepts learn in class, helping them to better understand the
 connections between multiple new ideas
 
-**People trying to tackle a challenge in daily or work environment** can let Messier-61 collect various information for
+**People trying to tackle a challenge in daily or work environment** can let nexusgraph collect various information for
 them, visualize the information using a knowledge graph, and ultimately allowing them to see the problem from different
 perspective.
