@@ -28,9 +28,6 @@ Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 
-> _nexusgraph_ is named after the [supermassive black hole "nexusgraph"][nexusgraph Wikipedia]. In the world of Physics,
-> it's the "entry" of interstellar travelling that eventually takes people to a fresh set of world-view of galaxies
-
 We've been intrigued by this question of whether we can evolve or develop an external brain, a brain that through data,
 can give us seamless access and easy access to meta information or information that may exists somewhere that may be
 relevant to help us make the right decision about anything.
