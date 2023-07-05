@@ -46,6 +46,7 @@ resource "aws_instance" "nexusgraph-landing-page" {
   tags = {
     Name = "Nexus Graph Landing Page"
   }
+  security_groups = ["nexusgraph Landing Page"]
 
   user_data = <<-EOF
     #!/bin/bash
