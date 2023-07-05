@@ -115,7 +115,7 @@ jobs:
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
       - name: Build documentation
-        run: yarn build-without-typedoc
+        run: yarn build
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3

@@ -9,7 +9,6 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build && node scripts/typedoc.js",
-    "build-without-typedoc": "docusaurus build",
     "typedoc": "node scripts/typedoc.js",
     "typedoc-watch": "onchange \"../**/*\" -- yarn typedoc",
     "swizzle": "docusaurus swizzle",

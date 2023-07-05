@@ -58,9 +58,9 @@ The CI/CD for documentation achieves 2 goals:
 
 The documentation build is a 2-step process:
 
-1. A regular [Docusaurus `build`][Docusaurus Build] command that generates the static HTML of
+1. A regular [Docusaurus `build`][Docusaurus Build] command that generates the static doc HTML of
    [documentation site][documentation]
-2. An execution of TypeDoc Node API that generates the [Messier-61 API documentation][documentation on API]
+2. An execution of TypeDoc Node API that generates the [Messier-61 API documentation][API documentation]
 
 The output of both of the 2 steps above will be picked up and pushed to GitHub Pages for serving.
 
@@ -113,7 +113,10 @@ npm run prettier-watch
 
 :::
 
-[Documentation source root]: https://github.com/QubitPi/Messier-61/tree/master/docs
+[Documentation]: https://paion-data.github.io/Messier-61/
+[Documentation on API]: https://paion-data.github.io/Messier-61/api
+[Documentation source root]: https://github.com/paion-data/Messier-61/tree/master/docs
+[Docusaurus Build]: https://docusaurus.io/docs/cli#docusaurus-build-sitedir
 
 [ESLint]: https://eslint.org/
 
