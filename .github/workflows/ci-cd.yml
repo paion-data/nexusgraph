@@ -38,7 +38,7 @@ jobs:
 
   test:
     name: Check Style and Run All Tests
-    needs: [yaml-lint, markdown-lint, markdown-link-check]
+    needs: [yaml-lint, markdown-lint]
     runs-on: ubuntu-latest
     strategy:
       matrix:
