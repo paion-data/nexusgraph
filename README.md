@@ -6,7 +6,6 @@ Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 </div>
 
 [![npm registry][npm registry]](https://www.npmjs.com/package/@paiondata/nexusgraph)
-[![Prettier][Prettier badge]](https://prettier.io/)
 [![License Badge][license badge]](https://www.apache.org/licenses/LICENSE-2.0)
 [![GitHub Workflow Status][release status]](https://github.com/paion-data/nexusgraph/actions/workflows/ci-cd.yml)
 ![GitHub last commit (master)](https://img.shields.io/github/last-commit/paion-data/nexusgraph/master?logo=github&style=for-the-badge)
@@ -67,9 +66,7 @@ The use and distribution terms for [nexusgraph][nexusgraph documentation] are co
 
 [nexusgraph documentation]: https://paion-data.github.io/nexusgraph/
 
-[node version badge]: https://img.shields.io/node/v/nexusgraph?logo=Node.js&logoColor=white&style=for-the-badge
+[node version badge]: https://img.shields.io/node/v/@paiondata/nexusgraph?logo=Node.js&logoColor=white&style=for-the-badge
 [npm registry]: https://img.shields.io/npm/v/@paiondata/nexusgraph?logo=npm&style=for-the-badge
-
-[Prettier badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge&logo=Prettier
 
 [release status]: https://img.shields.io/github/actions/workflow/status/paion-data/nexusgraph/ci-cd.yml?branch=master&logo=github&style=for-the-badge
