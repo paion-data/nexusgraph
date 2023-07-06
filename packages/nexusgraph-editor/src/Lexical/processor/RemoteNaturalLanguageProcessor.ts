@@ -9,12 +9,11 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
   entityExtraction(editorLines: string[]): GraphEditorState {
     // let rootUrl = "https://machine-learning.paion-data.dev/entityExtraction?";
     let basicNodes: BasicNode[] = [];
-    const arr = new Array(editorLines); 
     axios
       .get('https://machine-learning.paion-data.dev/entityExtraction',
         {
           params: {
-            sentence: arr.join(" ")
+            sentence: editorLines.join(" ")
           }
         }
       )

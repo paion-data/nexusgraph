@@ -3,7 +3,7 @@
  */
 import { RemoteNaturalLanguageProcessor } from "./RemoteNaturalLanguageProcessor";
 test("Returns an empty 'nodes' and 'relationships' with no input from the user", () => {
-  const editorLines: any = "";
+  const editorLines: any = [];
   const classInstantiated = new RemoteNaturalLanguageProcessor();
   expect(classInstantiated.entityExtraction(editorLines)).toEqual({ nodes: [], relationships: [] });
 });
