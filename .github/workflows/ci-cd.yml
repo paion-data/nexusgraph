@@ -143,10 +143,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Load custom APP environment variables
+        run: |
+          sed -i -e 's/SENTRY_IO_DSN_INJECTED_BY_CI_CD/${{ secrets.SENTRY_IO_DSN }}/g' ../packages/nexusgraph-app/src/index.tsx
       - name: Load custom environment variables into HC variable file
         run: |
           sed -i -e 's/ZONE_ID_INJECTED_BY_CI_CD/${{ secrets.ZONE_ID }}/g' instances/main.auto.tfvars
-
       - name: Load SSL Certificates
         working-directory: hashicorp/images
         run: |
