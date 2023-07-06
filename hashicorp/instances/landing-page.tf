@@ -1,15 +1,5 @@
 # Copyright 2023 Paion Data. All rights reserved.
 
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.42.0"
-    }
-  }
-  required_version = ">= 0.14.5"
-}
-
 data "aws_ami" "latest-nexusgraph-landing-page" {
   most_recent = true
   owners = ["899075777617"]
