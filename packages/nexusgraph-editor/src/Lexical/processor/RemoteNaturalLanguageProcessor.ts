@@ -10,16 +10,14 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
     // let rootUrl = "https://machine-learning.paion-data.dev/entityExtraction?";
     let basicNodes: BasicNode[] = [];
     axios
-      .get('https://machine-learning.paion-data.dev/entityExtraction',
-        {
-          params: {
-            sentence: editorLines.join(" ")
-          }
-        }
-      )
+      .get("https://machine-learning.paion-data.dev/entityExtraction", {
+        params: {
+          sentence: editorLines.join(" "),
+        },
+      })
       .then((res) => {
         const data = res.data;
-        basicNodes = this.getBasicNode(data);       
+        basicNodes = this.getBasicNode(data);
       })
       .catch((err) => {
         console.log(err);

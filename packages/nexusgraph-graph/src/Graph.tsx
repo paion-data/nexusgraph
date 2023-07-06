@@ -35,9 +35,9 @@ const ZOOM_ICONS_LARGE_SCALE_FACTOR = 1.2;
 
 export type BasicNode = {
   id: string;
-  labels: string[]; 
-  properties: Record<string, string>; 
-  propertyTypes: Record<string, string>; 
+  labels: string[];
+  properties: Record<string, string>;
+  propertyTypes: Record<string, string>;
 };
 export type BasicRelationship = {
   id: string;
