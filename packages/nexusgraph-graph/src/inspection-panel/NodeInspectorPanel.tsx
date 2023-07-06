@@ -38,7 +38,9 @@ export function defaultPanelWidth(): number {
 export function NodeInspectorPanel(props: NodeInspectorPanelProps): JSX.Element {
   const relevantItems = ["node", "relationship"];
   const hoveringNodeOrRelationship = props.hoveredItem && relevantItems.includes(props.hoveredItem.type);
+
   const shownEl = hoveringNodeOrRelationship ? props.hoveredItem : props.selectedItem;
+
   const DetailsPane = props.DetailsPaneOverride === undefined ? DefaultDetailsPane : props.DetailsPaneOverride;
 
   const OverviewPane = props.OverviewPaneOverride === undefined ? DefaultOverviewPane : props.OverviewPaneOverride;

@@ -250,7 +250,7 @@ export class Visualization {
   };
 
   public on(event: string, callback: (...args: any[]) => void): this {
-    if (this.isNullish(this.callbacks[event])) {
+    if (this.callbacks[event] == null) {
       this.callbacks[event] = [];
     }
 
@@ -258,14 +258,10 @@ export class Visualization {
     return this;
   }
 
-  public isNullish(x: unknown): x is null | undefined {
-    return x === null || x === undefined;
-  }
-
-  public trigger(event: string, ...args: any[]): void {
+  public trigger = (event: string, ...args: any[]): void => {
     const callbacksForEvent = this.callbacks[event] ?? [];
     callbacksForEvent.forEach((callback) => callback.apply(null, args));
-  }
+  };
 
   public init(): void {
     this.container
