@@ -8,12 +8,12 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { GlobalState } from "../../nexusgraph-graph/src/shared/globalState";
 import rootReducers from "../../nexusgraph-graph/src/shared/rootReducer";
 
-import * as Sentry from '@sentry/react'
+import * as Sentry from "@sentry/react";
 
 const reducer = combineReducers<GlobalState>({ ...(rootReducers as any) });
 export const store = configureStore({ reducer });
 
-setupSentry()
+setupSentry();
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
