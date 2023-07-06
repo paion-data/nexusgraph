@@ -30,7 +30,7 @@ resource "aws_instance" "nexusgraph-app" {
   EOF
 }
 
-resource "aws_route53_record" "nexusgraph-com" {
+resource "aws_route53_record" "app-nexusgraph" {
   zone_id         = var.zone_id
   name            = "nexusgraph.com"
   type            = "A"
