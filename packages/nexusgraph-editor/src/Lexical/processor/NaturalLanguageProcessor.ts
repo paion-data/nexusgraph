@@ -1,5 +1,4 @@
-import { GraphEditorState } from "../../../../messier-61-graph";
-
+import { GraphEditorState } from "../../../../nexusgraph-graph";
 export interface NaturalLanguageProcessor {
   /**
    * Given an array of editor lines, this method performs entity extration on them and converts the extracted entities

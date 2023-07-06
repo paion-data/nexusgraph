@@ -1,9 +1,8 @@
 /*
  * Copyright 2023 Paion Data. All rights reserved.
  */
-
-import { GraphEditorState } from "../../../../messier-61-graph";
-import { BasicNode } from "../../../../messier-61-graph/src/Graph";
+import { GraphEditorState } from "../../../../nexusgraph-graph";
+import { BasicNode } from "../../../../nexusgraph-graph/src/Graph";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 import axios from "axios";
 
