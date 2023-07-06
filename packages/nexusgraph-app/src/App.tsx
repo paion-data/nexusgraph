@@ -7,16 +7,16 @@ import { AppWrapper, EditorCaption, EditorWrapper, GraphBrowserWrapper } from ".
 
 export default function App(): JSX.Element {
   return (
-      <AppWrapper>
-        <EditorWrapper>
-          <EditorCaption>
-            <h1>Editor</h1>
-          </EditorCaption>
-          <Editor />
-        </EditorWrapper>
-        <GraphBrowserWrapper>
-          <GraphBrowser />
-        </GraphBrowserWrapper>
-      </AppWrapper>
+    <AppWrapper>
+      <EditorWrapper>
+        <EditorCaption>
+          <h1>Editor</h1>
+        </EditorCaption>
+        <Editor />
+      </EditorWrapper>
+      <GraphBrowserWrapper>
+        <GraphBrowser />
+      </GraphBrowserWrapper>
+    </AppWrapper>
   );
 }
