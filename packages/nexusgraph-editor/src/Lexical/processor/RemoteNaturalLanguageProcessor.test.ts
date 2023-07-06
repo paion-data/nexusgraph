@@ -2,6 +2,7 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import { RemoteNaturalLanguageProcessor } from "./RemoteNaturalLanguageProcessor";
+
 test("Returns an empty 'nodes' and 'relationships' with no input from the user", () => {
   const editorLines: any = [];
   const classInstantiated = new RemoteNaturalLanguageProcessor();

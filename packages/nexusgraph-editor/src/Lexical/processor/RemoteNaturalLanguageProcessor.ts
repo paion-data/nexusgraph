@@ -7,7 +7,6 @@ import axios from "axios";
 
 export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
   entityExtraction(editorLines: string[]): GraphEditorState {
-    // let rootUrl = "https://machine-learning.paion-data.dev/entityExtraction?";
     let basicNodes: BasicNode[] = [];
     axios
       .get("https://machine-learning.paion-data.dev/entityExtraction", {

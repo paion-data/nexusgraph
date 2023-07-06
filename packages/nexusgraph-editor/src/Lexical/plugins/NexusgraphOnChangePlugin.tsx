@@ -32,7 +32,6 @@ export default function NexusgraphOnChangePlugin(): null {
     return editor.registerUpdateListener(({ editorState }) => {
       editorState.read(() => {
         const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
-
         const editorLines: string[] = parse(jsonObject);
         naturalLanguageProcessor.entityExtraction(editorLines);
 
