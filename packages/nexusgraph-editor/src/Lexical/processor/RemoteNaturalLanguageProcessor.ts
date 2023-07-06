@@ -1,20 +1,26 @@
 /*
  * Copyright 2023 Paion Data. All rights reserved.
  */
-import { GraphEditorState } from "../../../../nexusgraph-graph";
-import { BasicNode } from "../../../../nexusgraph-graph/src/Graph";
+import { BasicNode, GraphEditorState } from "../../../../nexusgraph-graph";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 import axios from "axios";
 
 export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
   entityExtraction(editorLines: string[]): GraphEditorState {
-    let rootUrl = "https://machine-learning.paion-data.dev/entityExtraction?";
+    // let rootUrl = "https://machine-learning.paion-data.dev/entityExtraction?";
     let basicNodes: BasicNode[] = [];
+    const arr = new Array(editorLines); 
     axios
-      .get(rootUrl + "sentence=" + editorLines)
+      .get('https://machine-learning.paion-data.dev/entityExtraction',
+        {
+          params: {
+            sentence: arr.join(" ")
+          }
+        }
+      )
       .then((res) => {
-        let data = res.data;
-        basicNodes = this.getBasicNode(data);
+        const data = res.data;
+        basicNodes = this.getBasicNode(data);       
       })
       .catch((err) => {
         console.log(err);
@@ -24,11 +30,12 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
       relationships: [],
     };
   }
+
   getBasicNode(data: any) {
-    let initNodes = data.nodes;
-    let basicNodesList: BasicNode[] = [];
+    const initNodes = data.nodes;
+    const basicNodesList: BasicNode[] = [];
     for (let i = 0; i < initNodes.length; i++) {
-      let node: BasicNode = {
+      const node: BasicNode = {
         id: `${initNodes[i].id}`,
         labels: [`${initNodes[i].fields.type}`],
         properties: { name: `${initNodes[i].fields.label}` },
