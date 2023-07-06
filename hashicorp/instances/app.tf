@@ -32,7 +32,7 @@ resource "aws_instance" "nexusgraph-app" {
 
 resource "aws_route53_record" "app-nexusgraph" {
   zone_id         = var.zone_id
-  name            = "nexusgraph.com"
+  name            = "app.nexusgraph.com"
   type            = "A"
   ttl             = 300
   records         = [aws_instance.nexusgraph-app.public_ip]
