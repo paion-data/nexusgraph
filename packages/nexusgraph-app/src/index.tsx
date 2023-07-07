@@ -26,7 +26,7 @@ root.render(
 
 export function setupSentry(): void {
   Sentry.init({
-    dsn: "SENTRY_IO_DSN_INJECTED_BY_CI_CD",
+    dsn: "https://4e597714b8494ecbab3446f0347907fa@o4505480921022464.ingest.sentry.io/4505480923643904",
     integrations: [
       new Sentry.BrowserTracing({
         tracePropagationTargets: ["localhost", /^https:\/\/app\.nexusgraph\.com/],
