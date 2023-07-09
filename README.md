@@ -9,6 +9,7 @@ Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 [![License Badge][license badge]](https://www.apache.org/licenses/LICENSE-2.0)
 [![GitHub Workflow Status][release status]](https://github.com/paion-data/nexusgraph/actions/workflows/ci-cd.yml)
 ![GitHub last commit (master)](https://img.shields.io/github/last-commit/paion-data/nexusgraph/master?logo=github&style=for-the-badge)
+![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=for-the-badge)
 
 <a href="https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph">
     <img align="left" width="17%" alt="Quality gate" src="https://sonarcloud.io/api/project_badges/quality_gate?project=paion-data_nexusgraph">
@@ -27,9 +28,9 @@ Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 
-We've been intrigued by this question of whether we can evolve or develop an external brain, a brain that through data,
-can give us seamless access and easy access to meta information or information that may exists somewhere that may be
-relevant to help us make the right decision about anything.
+> We've been intrigued by this question of whether we can evolve or develop an external brain, a brain that through
+> data, can give us seamless access and easy access to meta information or information that may exist somewhere that
+> may be relevant to help us make the right decision about anything.
 
 Contributors <sup>[![Update Link Missing!](https://img.shields.io/badge/Click%20To%20Update-00AA00.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/paion-data/nexusgraph/actions/workflows/contributors.yml)</sup>
 ------------

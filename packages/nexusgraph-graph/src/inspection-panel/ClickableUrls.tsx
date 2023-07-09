@@ -1,8 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import React from "react";
 
+/* eslint-disable no-alert, no-useless-escape */
 const URL_REGEX =
   /(?:https?|s?ftp|bolt):\/\/(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/gi;
+/* eslint-enable no-alert, no-useless-escape */
 
 interface ClickableUrlsProps {
   text?: string | null;

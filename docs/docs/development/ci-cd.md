@@ -1,16 +1,43 @@
 ---
-sidebar_position: 2
+sidebar_position: 9
 title: CI/CD
 ---
 
+Nexus Graph uses a variety of CI/CD services to help ensure we don't accidentally break the application.
+
+Deployments
+-----------
+
+We use HashiCorp for deployment. Every single commit (including from PRs) gets built, tested and its logs are available
+at [GitHub Action logs][GitHub Action logs] with no retention guarantees. Every push to master gets built, tested and
+deployed to AWS EC2. The deployment logics are defined by the following components:
+
+- [GitHub Action](https://github.com/paion-data/nexusgraph/blob/master/.github/workflows/ci-cd.yml)
+- [HashiCorp Configuration](https://github.com/paion-data/nexusgraph/tree/master/hashicorp)
+- [HashiCorp AWS](https://github.com/marketplace/actions/hashicorp-aws)
+
+![Error loading nexusgraph-ci-cd.png](./img/nexusgraph-ci-cd.png)
+
+GitHub Actions
+--------------
+
+GitHub actions is our primary CI system and runs our tests on every pull request and on merges to master. It is
+required that tests pass before changes can be merged.
+
 Testing
 -------
+
+We run several kinds of tests at Nexus Graph as part of our CI process, including:
 
 1. Code style check
 
    - YAML lint
    - Markdown lint
    - Markdown link check
+   - Code Style Check
+
+     - [Prettier](https://prettier.io/) formatting check
+     - [ESLint](https://typescript-eslint.io/) linting check
 
 2. Build and test nexusgraph
 
@@ -121,6 +148,7 @@ npm run prettier-watch
 [ESLint]: https://eslint.org/
 
 [GitHub Actions]: https://docusaurus.io/docs/deployment#deploying-to-github-pages
+[GitHub Action logs]: https://github.com/paion-data/nexusgraph/actions/workflows/ci-cd.yml
 [GitHub Packages]: https://github.com/features/packages
 
 [nexusgraph npm repo]: https://www.npmjs.com/package/@paiondata/nexusgraph

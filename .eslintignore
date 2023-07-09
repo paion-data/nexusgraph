@@ -1,4 +1,5 @@
 # Copyright 2023 Paion Data. All rights reserved.
 docs/**
 build/**
-
+config/**
+scripts/**

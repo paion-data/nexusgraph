@@ -35,7 +35,7 @@ Being productive with personal knowledge management can therefore be challenging
   we need to spend on re-reding the notes after 6 monts.
 - **It's difficult to pre-evalutate the knowlege we are learning and consuming**. How many times did people picked up
   a new book and spend couple of hours skiming through it only to find that the book doesn't help them much?
-- **There’s no standard way to share knowledge among people**. You have a fantastic learning, put them down on some
+- **There's no standard way to share knowledge among people**. You have a fantastic learning, put them down on some
   media, and send them to your friend, who later ask you: "What the heck is this?"
 
 Moreover, although there are already knowlege-graph based toosl out there, such as

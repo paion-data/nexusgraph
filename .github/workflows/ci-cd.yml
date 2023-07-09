@@ -35,10 +35,31 @@ jobs:
       - uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
           use-verbose-mode: "yes"
+  code-style:
+    name: Code Style Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set node version to 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: |
+          yarn install
+          cd docs && yarn install && cd ../
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+      - name: Code style check
+        run: yarn prettier . --check
+      - name: ESLint
+        run: yarn eslint .
 
   test:
-    name: Check Style and Run All Tests
-    needs: [yaml-lint, markdown-lint, markdown-link-check]
+    name: Run All Tests
+    needs: [yaml-lint, markdown-lint, markdown-link-check, code-style]
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -55,16 +76,11 @@ jobs:
         run: |
           yarn install
           cd docs && yarn install && cd ../
-          cd packages/nexusgraph-landing-page && yarn install && cd ../../
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
-      - name: Code style check
-        run: npx prettier --check .
-      # - name: Static code analysis
-      #   run: npx eslint .
       - name: Run tests
         run: yarn test
-      - name: Build
+      - name: Bundle up a production build without error
         run: yarn build
 
   release:
@@ -145,12 +161,10 @@ jobs:
         uses: actions/checkout@v3
       - name: Load custom environment variables into HC variable file
         run: |
-          sed -i -e 's/ZONE_ID_INJECTED_BY_CI_CD/${{ secrets.ZONE_ID }}/g' instances/main.auto.tfvars
+          sed -i -e 's/ZONE_ID_INJECTED_BY_CI_CD/${{ secrets.ZONE_ID }}/g' instances/variables.auto.tfvars
       - name: Load SSL Certificates
         working-directory: hashicorp/images
         run: |
-          echo '${{ secrets.SSL_CERTIFICATE_LANDING_PAGE }}' > server-landing-page.crt
-          echo '${{ secrets.SSL_CERTIFICATE_KEY_LANDING_PAGE }}' > server-landing-page.key
           echo '${{ secrets.SSL_CERTIFICATE_APP }}' > server-app.crt
           echo '${{ secrets.SSL_CERTIFICATE_KEY_APP }}' > server-app.key
       - name: Publish all nexusgraph AMI images and deploy them to EC2 through HashiCorp

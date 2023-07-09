@@ -94,7 +94,7 @@ export function Graph(props: GraphProps): JSX.Element {
 
   let visualization: Visualization | null = null;
 
-  let wrapperResizeObserver: ResizeObserver = new ResizeObserver(() => {
+  const wrapperResizeObserver: ResizeObserver = new ResizeObserver(() => {
     visualization?.resize(props.isFullscreen, !!props.wheelZoomRequiresModKey);
   });
 
