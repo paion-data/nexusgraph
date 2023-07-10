@@ -104,116 +104,115 @@ export function Graph(props: GraphProps): JSX.Element {
     };
   }, []);
 
-  useEffect(
-    () => {
-      if (!svgRef.current) return;
+  useEffect(() => {
+    if (!svgRef.current) return;
 
-      const measureSize = () => ({
-        width: svgRef.current?.parentElement?.clientWidth ?? 200,
-        height: svgRef.current?.parentElement?.clientHeight ?? 200,
+    const measureSize = () => ({
+      width: svgRef.current?.parentElement?.clientWidth ?? 200,
+      height: svgRef.current?.parentElement?.clientHeight ?? 200,
+    });
+
+    const graph = createGraph(props.nodes, props.relationships);
+    visualization = new Visualization(
+      svgRef.current,
+      measureSize,
+      handleZoomEvent,
+      handleDisplayZoomWheelInfoMessage,
+      graph,
+      props.graphStyle,
+      props.isFullscreen,
+      props.wheelZoomRequiresModKey,
+      props.initialZoomToFit
+    );
+
+    const graphEventHandler = new GraphEventHandlerModel(
+      graph,
+      visualization,
+      props.getNodeNeighbours,
+      props.onItemMouseOver,
+      props.onItemSelect,
+      props.onGraphModelChange,
+      props.onGraphInteraction
+    );
+    graphEventHandler.bindEventHandlers();
+
+    props.onGraphModelChange(getGraphStats(graph));
+    visualization.resize(props.isFullscreen, !!props.wheelZoomRequiresModKey);
+
+    if (props.setGraph) {
+      props.setGraph(graph);
+    }
+    if (props.autocompleteRelationships) {
+      props.getAutoCompleteCallback((internalRelationships: RelationshipModel[], initialRun: boolean) => {
+        if (initialRun) {
+          visualization?.init();
+          graph.addRelationships(internalRelationships);
+          props.onGraphModelChange(getGraphStats(graph));
+          visualization?.update({
+            updateNodes: false,
+            updateRelationships: true,
+            restartSimulation: false,
+          });
+          visualization?.precomputeAndStart();
+          graphEventHandler.onItemMouseOut();
+        } else {
+          graph.addRelationships(internalRelationships);
+          props.onGraphModelChange(getGraphStats(graph));
+          visualization?.update({
+            updateNodes: false,
+            updateRelationships: true,
+            restartSimulation: false,
+          });
+        }
       });
+    } else {
+      visualization?.init();
+      visualization?.precomputeAndStart();
+    }
+    if (props.assignVisElement) {
+      props.assignVisElement(svgRef.current, visualization);
+    }
 
-      const graph = createGraph(props.nodes, props.relationships);
-      visualization = new Visualization(
-        svgRef.current,
-        measureSize,
-        handleZoomEvent,
-        handleDisplayZoomWheelInfoMessage,
-        graph,
-        props.graphStyle,
-        props.isFullscreen,
-        props.wheelZoomRequiresModKey,
-        props.initialZoomToFit
-      );
+    wrapperResizeObserver.observe(svgRef.current);
 
-      const graphEventHandler = new GraphEventHandlerModel(
-        graph,
-        visualization,
-        props.getNodeNeighbours,
-        props.onItemMouseOver,
-        props.onItemSelect,
-        props.onGraphModelChange,
-        props.onGraphInteraction
-      );
-      graphEventHandler.bindEventHandlers();
+    visualization?.resize(props.isFullscreen, !!props.wheelZoomRequiresModKey);
 
-      props.onGraphModelChange(getGraphStats(graph));
-      visualization.resize(props.isFullscreen, !!props.wheelZoomRequiresModKey);
+    visualization?.update({
+      updateNodes: true,
+      updateRelationships: true,
+      restartSimulation: false,
+    });
 
-      if (props.setGraph) {
-        props.setGraph(graph);
+    function handleZoomEvent(limitsReached: ZoomLimitsReached): void {
+      if (
+        limitsReached.zoomInLimitReached !== zoomInLimitReached ||
+        limitsReached.zoomOutLimitReached !== zoomOutLimitReached
+      ) {
+        setZoomInLimitReached(limitsReached.zoomInLimitReached);
+
+        setZoomOutLimitReached(limitsReached.zoomOutLimitReached);
       }
-      if (props.autocompleteRelationships) {
-        props.getAutoCompleteCallback((internalRelationships: RelationshipModel[], initialRun: boolean) => {
-          if (initialRun) {
-            visualization?.init();
-            graph.addRelationships(internalRelationships);
-            props.onGraphModelChange(getGraphStats(graph));
-            visualization?.update({
-              updateNodes: false,
-              updateRelationships: true,
-              restartSimulation: false,
-            });
-            visualization?.precomputeAndStart();
-            graphEventHandler.onItemMouseOut();
-          } else {
-            graph.addRelationships(internalRelationships);
-            props.onGraphModelChange(getGraphStats(graph));
-            visualization?.update({
-              updateNodes: false,
-              updateRelationships: true,
-              restartSimulation: false,
-            });
-          }
-        });
-      } else {
-        visualization?.init();
-        visualization?.precomputeAndStart();
-      }
-      if (props.assignVisElement) {
-        props.assignVisElement(svgRef.current, visualization);
+    }
+
+    function handleDisplayZoomWheelInfoMessage(): void {
+      if (!displayingWheelZoomInfoMessage && props.wheelZoomRequiresModKey && props.wheelZoomInfoMessageEnabled) {
+        displayZoomWheelInfoMessage(true);
       }
 
-      wrapperResizeObserver.observe(svgRef.current);
-
-      visualization?.resize(props.isFullscreen, !!props.wheelZoomRequiresModKey);
-
-      visualization?.update({
-        updateNodes: true,
-        updateRelationships: true,
-        restartSimulation: false,
-      });
-
-      function handleZoomEvent(limitsReached: ZoomLimitsReached): void {
-        if (
-          limitsReached.zoomInLimitReached !== zoomInLimitReached ||
-          limitsReached.zoomOutLimitReached !== zoomOutLimitReached
-        ) {
-          setZoomInLimitReached(limitsReached.zoomInLimitReached);
-
-          setZoomOutLimitReached(limitsReached.zoomOutLimitReached);
-        }
+      function displayZoomWheelInfoMessage(display: boolean): void {
+        setDisplayingWheelZoomInfoMessage(display);
       }
-
-      function handleDisplayZoomWheelInfoMessage(): void {
-        if (!displayingWheelZoomInfoMessage && props.wheelZoomRequiresModKey && props.wheelZoomInfoMessageEnabled) {
-          displayZoomWheelInfoMessage(true);
-        }
-
-        function displayZoomWheelInfoMessage(display: boolean): void {
-          setDisplayingWheelZoomInfoMessage(display);
-        }
-      }
-    },
-    [
-      // zoomInLimitReached,
-      // zoomOutLimitReached,
-      // displayingWheelZoomInfoMessage,
-      // props,
-      // wrapperRef.current,
-      // svgRef.current,
-    ]
-  );
+    }
+  }, [
+    // zoomInLimitReached,
+    // zoomOutLimitReached,
+    // displayingWheelZoomInfoMessage,
+    // props,
+    // wrapperRef.current,
+    // svgRef.current,
+    props.nodes,
+    props.relationships,
+  ]);
 
   function zoomInClicked(): void {
     visualization?.zoomByType(ZoomType.IN);

@@ -2,11 +2,11 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import { useEffect } from "react";
-
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-
 import parse from "../parser/RawTextParser";
 import { RemoteNaturalLanguageProcessor } from "../processor/RemoteNaturalLanguageProcessor";
+import { useDispatch } from "react-redux";
+import { UPDATE_GRAPH } from "../../../../nexusgraph-graph/src/shared/editor/editorDuck";
 
 /**
  * {@link NexusgraphOnChangePlugin} implements the real-time capturing of editor content.
@@ -25,21 +25,18 @@ import { RemoteNaturalLanguageProcessor } from "../processor/RemoteNaturalLangua
  */
 export default function NexusgraphOnChangePlugin(): null {
   const [editor] = useLexicalComposerContext();
-
   const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
-
   useEffect(() => {
     return editor.registerUpdateListener(({ editorState }) => {
       editorState.read(() => {
         const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
         const editorLines: string[] = parse(jsonObject);
-        naturalLanguageProcessor.entityExtraction(editorLines);
-
-        // @fannifanni
-        // TODO - 将图数据送入 Redux Store
+        naturalLanguageProcessor.entityExtraction(editorLines).then((graphEditorState) => {
+          const dispatch = useDispatch();
+          dispatch({ type: UPDATE_GRAPH, payload: graphEditorState });
+        });
       });
     });
   }, [editor, parse]);
-
   return null;
 }
