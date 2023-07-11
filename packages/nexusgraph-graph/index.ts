@@ -2,3 +2,4 @@
 export { default as GraphBrowser } from "./src/GraphBrowser";
 export type { GraphEditorState } from "./src/shared/editor/editorDuck";
 export type { BasicNode } from "./src/Graph";
+export type { BasicRelationship } from "./src/Graph";
