@@ -64,8 +64,9 @@ function fitCaptionIntoCircle(
   const maxCaptionTextLength = Math.floor((Math.pow(node.radius, 2) * Math.PI) / Math.pow(fontSize, 2));
   const template = style.forNode(node).get("caption");
   const nodeText = style.interpolate(template, node);
-  const captionText =
-    nodeText.length > maxCaptionTextLength ? nodeText.subsubstring(0, maxCaptionTextLength) : nodeText;
+
+  const captionText = nodeText.length > maxCaptionTextLength ? nodeText.substring(0, maxCaptionTextLength) : nodeText;
+
   const measure = (text: string) => measureText(text, fontFamily, fontSize, canvas2DContext);
   const whiteSpaceMeasureWidth = measure(" ");
   const words = captionText.split(" ");

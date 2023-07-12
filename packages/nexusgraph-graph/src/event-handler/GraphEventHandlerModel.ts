@@ -5,6 +5,7 @@ import type { Visualization } from "../Visualization";
 import { NodeModel } from "../models/Node";
 import { RelationshipModel } from "../models/Relationship";
 import { GraphStats, getGraphStats } from "../GraphStats";
+import { BasicNodesAndRels, mapNodes, mapRelationships } from "../Graph";
 
 export const NODE_MOUSE_OVER = "nodeMouseOver";
 export const NODE_MOUSE_OUT = "nodeMouseOut";
@@ -31,7 +32,7 @@ export interface NodesAndRels {
 export type GetNodeNeighboursFn = (
   node: NodeModel,
   currentNeighbourIds: string[],
-  callback: (data: NodesAndRels) => void
+  callback: (data: BasicNodesAndRels) => void
 ) => void;
 
 export class GraphEventHandlerModel {
@@ -63,9 +64,9 @@ export class GraphEventHandlerModel {
     this.onGraphInteraction = onGraphInteraction ?? (() => undefined);
   }
 
-  public graphModelChanged(): void {
+  public graphModelChanged = (): void => {
     this.onGraphModelChange(getGraphStats(this.graph));
-  }
+  };
 
   public selectItem(item: NodeModel | RelationshipModel): void {
     if (this.selectedItem != null) {
@@ -149,11 +150,12 @@ export class GraphEventHandlerModel {
       return;
     }
     node.expanded = true;
+    const graphModelChanged = this.graphModelChanged.bind(this);
     this.getNodeNeighbours(node, this.graph.findAllNeighborIdsOfNode(node.id), ({ nodes, relationships }) => {
-      this.graph.addExpandedNodes(node, nodes);
-      this.graph.addRelationships(relationships);
+      this.graph.addExpandedNodes(node, mapNodes(nodes));
+      this.graph.addRelationships(mapRelationships(relationships, this.graph));
       this.visualization.update({ updateNodes: true, updateRelationships: true });
-      this.graphModelChanged.bind(this);
+      graphModelChanged();
     });
     this.onGraphInteraction("NODE_EXPAND");
   }

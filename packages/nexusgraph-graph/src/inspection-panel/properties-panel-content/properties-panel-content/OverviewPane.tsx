@@ -34,7 +34,7 @@ function PaneBodySectionHeader({ title, numOfElementsVisible, totalNumOfElements
   );
 }
 
-export const OVERVIEW_STEP_SIZE = 50;
+export const OVERVIEW_STEP_SIZE = 5000;
 
 export default function OverviewPane({
   graphStyle,
