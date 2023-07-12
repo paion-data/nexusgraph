@@ -4,11 +4,12 @@
 import React from "react";
 
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
-import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
+import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
+import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 
 import styles from "./LexicalEditor.module.css";
@@ -18,15 +19,46 @@ import { useDispatch } from "react-redux";
 import { UPDATE_GRAPH } from "../../../nexusgraph-graph/src/shared/editor/editorDuck";
 import parse from "./parser/RawTextParser";
 
-export default function LexicalEditor({ lexicalEditorConfig }: { lexicalEditorConfig: any }): JSX.Element {
+import ExampleTheme from "./themes/ExampleTheme";
+
+import { HeadingNode, QuoteNode } from "@lexical/rich-text";
+import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
+import { ListItemNode, ListNode } from "@lexical/list";
+import { CodeHighlightNode, CodeNode } from "@lexical/code";
+import { AutoLinkNode, LinkNode } from "@lexical/link";
+
+const editorConfig = {
+  // The editor theme
+  theme: ExampleTheme,
+  // Handling of errors during update
+  onError(error: any) {
+    throw error;
+  },
+  // Any custom nodes go here
+  nodes: [
+    HeadingNode,
+    ListNode,
+    ListItemNode,
+    QuoteNode,
+    CodeNode,
+    CodeHighlightNode,
+    TableNode,
+    TableCellNode,
+    TableRowNode,
+    AutoLinkNode,
+    LinkNode
+  ]
+};
+
+function Placeholder(): JSX.Element {
+  return <div className={styles["editor-placeholder"]}>Enter some plain text...</div>;
+}
+
+export default function LexicalEditor(): JSX.Element {
 
   const dispatch = useDispatch();
   const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
 
-  function Placeholder(): JSX.Element {
-    return <div className={styles["editor-placeholder"]}>Enter some plain text...</div>;
-  }
-  
   const onChange = function (editorState: EditorState): void {
     editorState.read(() => {
       const jsonObject = JSON.parse(JSON.stringify(editorState));
@@ -39,12 +71,11 @@ export default function LexicalEditor({ lexicalEditorConfig }: { lexicalEditorCo
     });
   }
 
-
-
   return (
-    <LexicalComposer initialConfig={lexicalEditorConfig}>
+    <LexicalComposer initialConfig={editorConfig}>
       <div className={styles["editor-container"]}>
-        <PlainTextPlugin
+        <ToolbarPlugin />
+        <RichTextPlugin
           contentEditable={<ContentEditable className={styles["editor-input"]} />}
           placeholder={<Placeholder />}
           ErrorBoundary={LexicalErrorBoundary}
