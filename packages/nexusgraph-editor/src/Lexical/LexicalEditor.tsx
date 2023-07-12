@@ -32,5 +32,5 @@ export default function LexicalEditor({ lexicalEditorConfig }: { lexicalEditorCo
 }
 
 function Placeholder(): JSX.Element {
-  return <div className={styles["editor-placeholder"]}>Enter some plain text...</div>;
+  return <div className={styles["editor-placeholder"]}>请输入文本......</div>;
 }

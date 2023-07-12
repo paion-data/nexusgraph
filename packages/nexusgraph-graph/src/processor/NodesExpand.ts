@@ -8,7 +8,7 @@ export class NodesExpandProcessor {
     const nodesAndRels: BasicNodesAndRels = { nodes: [], relationships: [] };
 
     const getNeighboursData = async (): Promise<BasicNodesAndRels> => {
-      const response = await axios.get("https://machine-learning.paion-data.dev/expand", {
+      const response = await axios.get("https://theresa.nexusgraph.com/expand", {
         params: {
           node: JSON.stringify(this.transformationNode(selectNode)),
         },
