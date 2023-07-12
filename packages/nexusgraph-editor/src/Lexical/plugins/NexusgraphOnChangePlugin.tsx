@@ -32,9 +32,6 @@ function onChange(editor: any, naturalLanguageProcessor: any, dispatch: any) {
       const currentLine: string = node.getTextContent();
       const previousLine: string = getPreviousLineOrEmpty(node);
 
-      console.log("previousLine=", previousLine);
-      console.log("currentLine=", currentLine);
-
       if (shouldFireRequest(previousLine, currentLine)) {
         const editorLines: string[] = [previousLine];
         if (editorLines.length > 0) {
