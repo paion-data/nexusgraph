@@ -4,7 +4,7 @@
 import React from "react";
 
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
-import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
+import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
@@ -18,7 +18,7 @@ export default function LexicalEditor({ lexicalEditorConfig }: { lexicalEditorCo
   return (
     <LexicalComposer initialConfig={lexicalEditorConfig}>
       <div className={styles["editor-container"]}>
-        <PlainTextPlugin
+        <RichTextPlugin
           contentEditable={<ContentEditable className={styles["editor-input"]} />}
           placeholder={<Placeholder />}
           ErrorBoundary={LexicalErrorBoundary}
