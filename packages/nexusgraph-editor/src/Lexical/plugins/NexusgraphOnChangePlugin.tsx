@@ -13,6 +13,7 @@ function shouldFireRequest(previousLine: string | null, currentLine: string): bo
 }
 
 function getPreviousLineOrEmpty(currentLine: TextNode): string {
+  /* eslint-disable @typescript-eslint/ban-ts-comment */
   if (currentLine.getParent() != null) {
     // @ts-ignore: Object is possibly 'null'.
     if (currentLine.getParent().getPreviousSibling() != null) {
@@ -20,6 +21,7 @@ function getPreviousLineOrEmpty(currentLine: TextNode): string {
       return currentLine.getParent().getPreviousSibling().getTextContent();
     }
   }
+  /* eslint-enable @typescript-eslint/ban-ts-comment */
 
   return NON_EXISTING_PREVIOUS_LINE;
 }
