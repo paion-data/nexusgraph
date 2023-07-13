@@ -1,29 +1,70 @@
-/*
- * Copyright 2023 Paion Data. All rights reserved.
- */
+// Copyright 2023 Paion Data. All rights reserved.
+import React from "react";
+
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
-import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
+import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 
-import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
+import { HeadingNode, QuoteNode } from "@lexical/rich-text";
+import { CodeHighlightNode, CodeNode } from "@lexical/code";
+import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
+import { ListItemNode, ListNode } from "@lexical/list";
+import { AutoLinkNode, LinkNode } from "@lexical/link";
+import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
+import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 
 import styles from "./LexicalEditor.module.css";
+import { Paragraph } from "./plugins/styled";
+import ExampleTheme from "./themes/ExampleTheme";
+import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
+import ToolbarPlugin from "./plugins/ToolbarPlugin";
+import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
 
-export default function LexicalEditor({ lexicalEditorConfig }: { lexicalEditorConfig: any }): JSX.Element {
+export const editorConfig = {
+  // The editor theme
+  namespace: "editor",
+  theme: ExampleTheme,
+  // Handling of errors during update
+  onError(error: any) {
+    throw error;
+  },
+  // Any custom nodes go here
+  nodes: [
+    HeadingNode,
+    ListNode,
+    ListItemNode,
+    QuoteNode,
+    TableNode,
+    TableCellNode,
+    TableRowNode,
+    AutoLinkNode,
+    LinkNode,
+    CodeNode,
+    CodeHighlightNode,
+  ],
+};
+
+export default function LexicalEditor(): JSX.Element {
   return (
-    <LexicalComposer initialConfig={lexicalEditorConfig}>
+    <LexicalComposer initialConfig={editorConfig}>
       <div className={styles["editor-container"]}>
-        <PlainTextPlugin
-          contentEditable={<ContentEditable className={styles["editor-input"]} />}
-          placeholder={<Placeholder />}
-          ErrorBoundary={LexicalErrorBoundary}
-        />
-        <HistoryPlugin />
-        <AutoFocusPlugin />
-        <OnChangePlugin />
+        <ToolbarPlugin />
+        <Paragraph>
+          <RichTextPlugin
+            contentEditable={<ContentEditable className={styles["editor-input"]} />}
+            placeholder={<Placeholder />}
+            ErrorBoundary={LexicalErrorBoundary}
+          />
+          <HistoryPlugin />
+          <AutoFocusPlugin />
+          <CodeHighlightPlugin />
+          <OnChangePlugin />
+          <ListPlugin />
+          <LinkPlugin />
+        </Paragraph>
       </div>
     </LexicalComposer>
   );
