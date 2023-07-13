@@ -28,24 +28,24 @@ export default function NexusgraphOnChangePlugin(): null {
   const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
   const dispatch = useDispatch();
 
-  let editorLines: string[] = []
+  let editorLines: string[] = [];
 
   useEffect(() => {
     const updateGraph = () => {
       if (editorLines.length > 0) {
-        const entityExtrationTexts: string[] = structuredClone(editorLines)
-        editorLines = []
+        const entityExtrationTexts: string[] = structuredClone(editorLines);
+        editorLines = [];
         naturalLanguageProcessor.entityExtraction(entityExtrationTexts).then((graphEditorState) => {
           dispatch({ type: UPDATE_GRAPH, payload: graphEditorState });
         });
       }
-    }
+    };
 
     const t = setInterval(updateGraph, 5000);
 
     return () => clearInterval(t);
-  }, []) 
-  
+  }, []);
+
   useEffect(() => {
     return editor.registerUpdateListener(({ editorState }) => {
       editorState.read(() => {
