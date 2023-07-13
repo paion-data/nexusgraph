@@ -64,7 +64,7 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
     naturalLanguageProcessor.fetchRemote(editorLines).then((graphEditorState) => {
       expect(graphEditorState).toEqual(user);
 
-      expect(axios.get).toHaveBeenCalledWith("https://machine-learning.paion-data.dev/entityExtraction", {
+      expect(axios.get).toHaveBeenCalledWith("https://theresa.nexusgraph.com/entityExtraction", {
         params: { sentence: editorLines.join(" ") },
       });
     });

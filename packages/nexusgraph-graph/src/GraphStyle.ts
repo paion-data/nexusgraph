@@ -69,7 +69,7 @@ class StyleElement {
 const DEFAULT_STYLE = {
   node: {
     diameter: "50px",
-    color: "#A5ABB6",
+    color: "rgba(245, 222, 228, 0.6)",
     "border-color": "#9AA1AC",
     "border-width": "2px",
     "text-color-internal": "#FFFFFF",
@@ -80,8 +80,8 @@ const DEFAULT_STYLE = {
     "shaft-width": "1px",
     "font-size": "8px",
     padding: "3px",
-    "text-color-external": "#000000",
-    "text-color-internal": "#FFFFFF",
+    "text-color-external": "#CBEBF5",
+    "text-color-internal": "#CBEBF5",
     caption: "<type>",
   },
 };
@@ -145,18 +145,18 @@ const DEFAULT_COLORS: DefaultColorType[] = [
     "text-color-internal": "#FFFFFF",
   },
   {
-    color: "#C990C0",
-    "border-color": "#b261a5",
+    color: "rgba(135, 214, 244, 0.85)",
+    "border-color": "rgba(100, 214, 244, 0.7)",
     "text-color-internal": "#FFFFFF",
   },
   {
-    color: "#F79767",
-    "border-color": "#f36924",
+    color: "rgba(176, 240, 240, 0.9)",
+    "border-color": "rgba(120, 240, 240, 0.8)",
     "text-color-internal": "#FFFFFF",
   },
   {
-    color: "#57C7E3",
-    "border-color": "#23b3d7",
+    color: "rgba(69, 170, 224, 0.9)",
+    "border-color": "rgba(100, 170, 224, 0.8)",
     "text-color-internal": "#2A2C34",
   },
   {

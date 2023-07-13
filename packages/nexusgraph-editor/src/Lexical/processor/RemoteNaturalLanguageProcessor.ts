@@ -42,7 +42,7 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
    * @returns a Promise of the WS response data
    */
   private fetchRemote = async (editorLines: string[]) => {
-    return await axios.get("https://machine-learning.paion-data.dev/entityExtraction", {
+    return await axios.get("https://theresa.nexusgraph.com/entityExtraction", {
       params: {
         sentence: editorLines.join(" "),
       },
