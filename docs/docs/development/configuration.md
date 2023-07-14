@@ -8,7 +8,8 @@ This document describes Configuration Management for Nexus Graph.
 Context
 -------
 
-Configuration management is essential for every application that will be deployed into multiple environments, which is pretty much the majority of Apps and APIs. Focusing on React Apps in this post, we will cover how to store
+Configuration management is essential for every application that will be deployed into multiple environments, which is
+pretty much the majority of Apps and APIs. Focusing on React Apps in this post, we will cover how to store
 configurations in Nexus Graph, how to configure them, and finally how to read them.
 
 Configuration Types
@@ -18,12 +19,13 @@ There are different types of configurations in Nexus Graph
 
 ### Environment Dependent
 
-Those are configurations that change from one environment to the other. A good example would be FQDNs (Fully Qualified Domain Names). A URL in local dev environment, might point to https://localhost:6500, however the same URL in
-production, would point to https://theresa-api.com.
+Those are configurations that change from one environment to the other. A good example would be FQDNs (Fully Qualified
+Domain Names). A URL in local dev environment, might point to `https://localhost:6500`, however the same URL in
+production, would point to `https://theresa-api.com`.
 
 #### Storing Environment Dependent Configs
 
-The way we manage these types of configurations is through **env files**. We maintain a separate env file for each 
+The way we manage these types of configurations is through **env files**. We maintain a separate env file for each
 environment.
 
 We have:
@@ -32,7 +34,7 @@ We have:
 - **.env.test**: for test environment
 - **.env.production**: for production
 
-When the application is packaged for each environment by WebPack, the right configuration file will be picked up. 
+When the application is packaged for each environment by WebPack, the right configuration file will be picked up.
 The content of such file is key-value pair, such as below:
 
 ```conf
@@ -63,8 +65,8 @@ To access these config values, we simply use **process.env.(key-name)**
 
 ### Static Configurations
 
-Static configurations are the ones that don't change from one environment to the other. Examples would be telephone 
-numbers, company names, messages and copies, etc. We simply store these values in a separate file, as they might be 
+Static configurations are the ones that don't change from one environment to the other. Examples would be telephone
+numbers, company names, messages and copies, etc. We simply store these values in a separate file, as they might be
 subject to change from time to time, and this makes it easier to find and change them.
 
 #### Storing Static Configuration Values
@@ -80,7 +82,7 @@ One way to manage these configs, is to store them in simple json file, such as b
     "domain": "https://test.com",
     "siteName": "Test",
     "defaultTitle": "Test | Fast Engineering Eco-Systems with No Compromise",
-    "defaultDescription": "Build and transform your software products with Pellerex scalable engineering solutions and save months of product development time.",
+    "defaultDescription": "...",
     "contact": {
       "email": "info@test.com",
       "phone": "+61 2 816238786"
@@ -100,7 +102,7 @@ JSON structure also enables us to store the values in a specific hierarchy which
 
 #### Reading Static Config Values
 
-All we need to do to access such config values, is to import it in our `.ts/.tsx` files and access the values like 
+All we need to do to access such config values, is to import it in our `.ts/.tsx` files and access the values like
 any other json object:
 
 ```typescript
@@ -115,12 +117,12 @@ config.locations.fetchCountriesUrl
 
 ### Constants
 
-The other alternative to manage static values in code, is through TS objects. We typically manage two types of 
+The other alternative to manage static values in code, is through TS objects. We typically manage two types of
 values using TS objects:
 
-- To store/read those values that are highly unlikely to change from time to time, but we want to keep them separate 
+- To store/read those values that are highly unlikely to change from time to time, but we want to keep them separate
   from our code anyway
-- To store/read those values that won't be stored in JSON files as they are (and not as strings), such as Regular 
+- To store/read those values that won't be stored in JSON files as they are (and not as strings), such as Regular
   Expressions (RegEx)
 
 An example would look like below, and you can read them exactly like Option 2, as above:
