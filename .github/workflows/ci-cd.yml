@@ -14,6 +14,8 @@ env:
   EMAIL: jack20220723@gmail.com
   HASHICORP_PRODUCT_VERSION: "latest"
 
+  ENTITY_EXTRACTION_CALL_DELAY_IN_MS: 5000
+
 jobs:
   yaml-lint:
     name: YAML Lint Check
@@ -80,6 +82,12 @@ jobs:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
       - name: Run tests
         run: yarn test
+      - name: Load app environment variables
+        run: |
+          touch .env
+          echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
+          echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
+          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
       - name: Bundle up a production build without error
         run: yarn build
 
@@ -159,7 +167,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Load custom environment variables into HC variable file
+      - name: Load app environment variables
+        run: |
+          touch .env
+          echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
+          echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
+          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
+      - name: Load deployment environment variables into HC variable file
         run: |
           sed -i -e 's/ZONE_ID_INJECTED_BY_CI_CD/${{ secrets.ZONE_ID }}/g' instances/variables.auto.tfvars
       - name: Load SSL Certificates
