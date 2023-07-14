@@ -2360,6 +2360,7 @@ __metadata:
     babel-jest: ^27.4.2
     babel-loader: ^9.1.2
     css-loader: ^6.7.3
+    dotenv: ^16.3.1
     eslint: ^8.44.0
     eslint-config-prettier: ^8.6.0
     eslint-config-standard-with-typescript: ^36.0.0
@@ -5546,6 +5547,13 @@ __metadata:
     no-case: ^3.0.4
     tslib: ^2.0.3
   checksum: a65e3519414856df0228b9f645332f974f2bf5433370f544a681122eab59e66038fc3349b4be1cdc47152779dac71a5864f1ccda2f745e767c46e9c6543b1169
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.3.1":
+  version: 16.3.1
+  resolution: "dotenv@npm:16.3.1"
+  checksum: 15d75e7279018f4bafd0ee9706593dd14455ddb71b3bcba9c52574460b7ccaf67d5cf8b2c08a5af1a9da6db36c956a04a1192b101ee102a3e0cf8817bbcf3dfd
   languageName: node
   linkType: hard
 
