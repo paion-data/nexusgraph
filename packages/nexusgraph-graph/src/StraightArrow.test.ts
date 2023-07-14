@@ -20,3 +20,15 @@ test("Gets the coordinates of the rectangle that covers the relationship", () =>
 
   expect(straightArrow.overlay(3)).toBe("M 10 1.5 L 30 1.5 L 30 -1.5 L 10 -1.5 Z");
 });
+
+test("When short Caption Length is 0, the relationship is continuous", () => {
+  const internalArrow = new StraightArrow(10, 10, 40, 2, 4, 4, "internal");
+
+  expect(internalArrow.outline(0)).toBe("M 10 1 L 26 1 L 26 2 L 30 0 L 26 -2 L 26 -1 L 10 -1 Z");
+
+  const externalArrow = new StraightArrow(10, 10, 40, 2, 4, 4, "external");
+
+  expect(externalArrow.outline(0)).toBe(
+    "M 10 1 L 18 1 L 18 -1 L 10 -1 Z M 18 1 L 26 1 L 26 2 L 30 0 L 26 -2 L 26 -1 L 18 -1 Z"
+  );
+});
