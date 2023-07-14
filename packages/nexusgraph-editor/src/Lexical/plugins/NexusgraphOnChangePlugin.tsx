@@ -40,7 +40,7 @@ export default function NexusgraphOnChangePlugin(): null {
         });
       }
     };
-    
+
     const t = setInterval(updateGraph, Number(String(process.env.ENTITY_EXTRACTION_CALL_DELAY_IN_MS)));
 
     return () => clearInterval(t);

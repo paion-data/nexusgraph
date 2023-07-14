@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 const path = require("path");
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -8,7 +8,6 @@ const imageInlineSizeLimit = parseInt(process.env.IMAGE_INLINE_SIZE_LIMIT || "10
 
 module.exports = function (webpackEnv) {
   const isProdEnvironment = webpackEnv === "production";
-
 
   const env = dotenv.config().parsed;
   const envKeys = Object.keys(env).reduce((prev, next) => {
