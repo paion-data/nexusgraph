@@ -1,5 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import React from "react";
 import { NonClickableRelTypeChip } from "../styles/DefaultPane.styled";
 import { GraphStyleModel } from "../GraphStyle";
 

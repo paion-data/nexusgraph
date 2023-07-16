@@ -1,5 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import React from "react";
 
 /* eslint-disable no-alert, no-useless-escape */
 const URL_REGEX =
