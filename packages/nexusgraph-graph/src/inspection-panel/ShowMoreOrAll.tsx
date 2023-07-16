@@ -1,5 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-
 import { StyledShowMoreButton } from "../styles/StyledShowMoreButton.styled";
 
 interface ShowMoreOrAllProps {

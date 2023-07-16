@@ -1,5 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-
 /* eslint-disable no-alert, no-useless-escape */
 const URL_REGEX =
   /(?:https?|s?ftp|bolt):\/\/(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/gi;
