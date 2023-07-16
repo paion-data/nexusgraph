@@ -1,6 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { ThemeProvider } from "styled-components";
-import React from "react";
 
 export const baseArcTheme = {
   name: "base",
