@@ -52,6 +52,12 @@ build {
     destination = "/home/ubuntu/nginx-ssl.conf"
   }
 
+  # Load React env file into AMI image
+  provisioner "file" {
+    source = "./.env"
+    destination = "/home/ubuntu/.env"
+  }
+
   provisioner "shell" {
     script = "../scripts/setup-app.sh"
   }
