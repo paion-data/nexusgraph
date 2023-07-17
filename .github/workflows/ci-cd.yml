@@ -74,13 +74,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node_version }}
+      - name: Install Python for running production bundle in e2e test
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
       - name: Install dependencies
         run: |
           yarn install
           cd docs && yarn install && cd ../
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
-      - name: Run tests
+      - name: Run unit tests
         run: yarn test
       - name: Load app environment variables
         run: |
@@ -90,6 +94,13 @@ jobs:
           echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
       - name: Bundle up a production build without error
         run: yarn build
+      - name: Start the production server
+        run: |
+          cd dist
+          python3 -m http.server 8080 --bind 127.0.0.1 &
+          yarn wait-on-dev
+      - name: Run end-to-end test
+        run: yarn e2e
 
   release:
     name: Publish NPM Packages
