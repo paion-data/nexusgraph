@@ -20,6 +20,9 @@ const ChevronRightIcon = (): JSX.Element => <ChevronRightIconSolid />;
 const ChevronLeftIcon = (): JSX.Element => <ChevronLeftIconSolid />;
 
 interface NodeInspectorPanelProps {
+  /**
+   * Toggler flag
+   */
   expanded: boolean;
   graphStyle: GraphStyleModel;
   hasTruncatedFields: boolean;
@@ -37,6 +40,21 @@ export function defaultPanelWidth(): number {
   return Math.max(window.innerWidth / 5, panelMinWidth);
 }
 
+/**
+ * The stats panel toggle-displayed on the right side of the graphing area
+ *
+ * The panel first determines the elements (called "shownEl" in code) that are to be shown in the panel. There are two
+ * cases:
+ *
+ * 1. Hover: when mouse pointer is hovering over a node while the panel toggle opens; in this case, info about that
+ *    particular node is displayed
+ * 2. Single-click: when mouse pointer is not over a node; in this case, stats of all on-canvas nodes and relationships
+ *    are calculated and displayed
+ *
+ * @param props  The {@link NodeInspectorPanelProps | pre-computed info and stats data about on-canvas nodes and relationships}
+ *
+ * @returns a DOM object
+ */
 export function NodeInspectorPanel(props: NodeInspectorPanelProps): JSX.Element {
   const relevantItems = ["node", "relationship"];
   const hoveringNodeOrRelationship = props.hoveredItem && relevantItems.includes(props.hoveredItem.type);
