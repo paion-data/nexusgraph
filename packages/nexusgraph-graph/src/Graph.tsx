@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GraphModel } from "./models/Graph";
 import {
   GetNodeNeighboursFn,

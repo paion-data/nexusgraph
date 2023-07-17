@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { WarningMessage } from "./WarningMessage";
 import { ShowMoreOrAll } from "./ShowMoreOrAll";

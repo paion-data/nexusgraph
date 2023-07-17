@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import React, { TransitionEvent, useEffect, useState } from "react";
+import { TransitionEvent, useEffect, useState } from "react";
 
 import { StyledNodeInspectorContainer } from "../styles/InspectorContainer.styled";
 

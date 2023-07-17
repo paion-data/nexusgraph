@@ -1,5 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import React, { Component } from "react";
+import { Component } from "react";
+
+import * as React from "react";
 import {
   ChevronRightIcon as ChevronRightIconSolid,
   ChevronLeftIcon as ChevronLeftIconSolid,

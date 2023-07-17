@@ -1,5 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import React from "react";
 import { useSelector } from "react-redux";
 import { GlobalState } from "./shared/globalState";
 import { getEditorNodes, getEditorRelationships } from "./shared/editor/editorDuck";
