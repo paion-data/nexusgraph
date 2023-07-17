@@ -15,7 +15,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "jest",
-    "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}"
+    "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
+    "cypress:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -52,6 +53,7 @@
     "babel-jest": "^27.4.2",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
+    "cypress": "^12.17.1",
     "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard-with-typescript": "^36.0.0",

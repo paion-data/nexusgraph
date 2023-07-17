@@ -1,8 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { GraphModel } from "./models/Graph";
 
-const ALL_NODE_LABELS_SETS = "*";
-const ALL_REL_TYPE_SETS = "*";
+export const ALL_NODE_LABELS_SETS = "*";
+export const ALL_REL_TYPE_SETS = "*";
 
 export type GraphStatsLabels = Record<string, { count: number; properties: Record<string, string> }>;
 
@@ -41,11 +41,14 @@ export function getGraphStats(graph: GraphModel): GraphStats {
         properties: rel.propertyMap,
       };
     } else {
-      relTypeStats[rel.type].count = relTypeStats[rel.type].count + 1;
-      relTypeStats[rel.type].properties = {
-        ...relTypeStats[rel.type].properties,
-        ...rel.propertyMap,
-      };
+      //The above logic has stats all relationships whose type is "*"
+      if (rel.type != ALL_REL_TYPE_SETS) {
+        relTypeStats[rel.type].count = relTypeStats[rel.type].count + 1;
+        relTypeStats[rel.type].properties = {
+          ...relTypeStats[rel.type].properties,
+          ...rel.propertyMap,
+        };
+      }
     }
   });
 
