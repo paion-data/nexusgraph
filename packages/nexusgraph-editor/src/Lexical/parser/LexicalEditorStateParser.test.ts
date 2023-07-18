@@ -1,6 +1,4 @@
-/*
- * Copyright 2023 Paion Data. All rights reserved.
- */
+// Copyright 2023 Paion Data. All rights reserved.
 import LexicalEditorStateParser from "./LexicalEditorStateParser";
 
 import happyPathJson from "./json/LexicalEditorStateParser-basic.json";

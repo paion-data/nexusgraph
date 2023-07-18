@@ -5,6 +5,8 @@ export default class LexicalEditorStateParser {
    * Given a JSON object representing the current [editor state](https://lexical.dev/docs/concepts/editor-state), this
    * function converts it into a list of strings with each element representing a line of content in the editor.
    *
+   * Empty lines gets filtered out.
+   *
    * @param jsonObject  The JSON representation of the Lexical editor state. It is expected to follow the standard
    * Lexical editor state structure. For example, suppose the editor has 2 lines:
    *
@@ -74,6 +76,8 @@ export default class LexicalEditorStateParser {
 
   /**
    * Converts a [TextNode](https://lexical.dev/docs/concepts/nodes#textnode) into a string.
+   *
+   * If the TextNode encodes an empty line, this method returns an empty string
    *
    * For example, the following TextNode
    *
