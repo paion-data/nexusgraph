@@ -18,6 +18,7 @@ sudo npm install -g yarn
 # Bundle up app
 git clone https://github.com/paion-data/nexusgraph.git
 cd /home/ubuntu/nexusgraph
+mv /home/ubuntu/.env .
 yarn
 yarn build
 
