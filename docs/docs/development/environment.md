@@ -84,7 +84,11 @@ After that, inside _nexusgraph_ directory, we can run several commands:
 - `yarn test`: Runs all tests, including unit and integration tests
 - `yarn build`: Builds the app for production to the `build` folder. It correctly bundles React in production mode and
   optimizes the build for the best performance. The build is minified and the filenames include the hashes.
-- `cypress:open`: Opens up the [Cypress End-to-End testing](https://docs.cypress.io/guides/overview/why-cypress) dashboard
+- `yarn cypress:open`: Opens up the [Cypress End-to-End testing](https://docs.cypress.io/guides/overview/why-cypress) dashboard
+- `yarn e2e`: Run end-to-end test
+
+   - `yarn wait-on-dev`: Auxiliary command for e2e test which waits for production server
+   `http://localhost:9000` to become available on CI/CD server
 
 Happy building awesome knowledge graph app!
 
