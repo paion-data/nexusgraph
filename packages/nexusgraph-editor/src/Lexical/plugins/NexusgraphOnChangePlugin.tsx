@@ -3,7 +3,7 @@
  */
 import { useEffect } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import parse from "../parser/RawTextParser";
+import LexicalEditorStateParser from "../parser/LexicalEditorStateParser";
 import { RemoteNaturalLanguageProcessor } from "../processor/RemoteNaturalLanguageProcessor";
 import { useDispatch } from "react-redux";
 import { UPDATE_GRAPH } from "../../../../nexusgraph-graph/src/shared/editor/editorDuck";
@@ -25,6 +25,7 @@ import { UPDATE_GRAPH } from "../../../../nexusgraph-graph/src/shared/editor/edi
  */
 export default function NexusgraphOnChangePlugin(): null {
   const [editor] = useLexicalComposerContext();
+  const parser = new LexicalEditorStateParser();
   const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
   const dispatch = useDispatch();
 
@@ -50,10 +51,10 @@ export default function NexusgraphOnChangePlugin(): null {
     return editor.registerUpdateListener(({ editorState }) => {
       editorState.read(() => {
         const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
-        editorLines = parse(jsonObject);
+        editorLines = parser.parse(jsonObject);
       });
     });
-  }, [editor, parse, dispatch]);
+  }, [editor, dispatch]);
 
   return null;
 }
