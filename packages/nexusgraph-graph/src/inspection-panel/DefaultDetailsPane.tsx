@@ -37,7 +37,7 @@ export function DefaultDetailsPane({ vizItem, graphStyle, nodeInspectorWidth }: 
     <PaneWrapper>
       <PaneHeader>
         <PaneTitle>
-          <span>{vizItem.type == 'node' ? '节点属性' : '关系类型'}</span>
+          <span>{vizItem.type == "node" ? "节点属性" : "关系类型"}</span>
           <ClipboardCopier
             textToCopy={allItemProperties.map((prop) => `${prop.key}: ${prop.value}`).join("\n")}
             titleText="Copy all properties to clipboard"
