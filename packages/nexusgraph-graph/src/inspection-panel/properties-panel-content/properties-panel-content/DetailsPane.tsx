@@ -2,12 +2,20 @@
 import { useState } from "react";
 import { StyleableRelType } from "./StyleableRelType";
 import { StyleableNodeLabel } from "./StyleableNodeLabel";
-import { DetailsPaneProps, upperFirst } from "../../DefaultDetailsPane";
 import { PaneBody, PaneHeader, PaneTitle, PaneWrapper } from "../../../styles/DefaultPane.styled";
 import { ClipboardCopier } from "../../ClipboardCopier";
 import { PropertiesTable } from "../../PropertiesTable";
+import { NodeItem, RelationshipItem } from "../../../VizItem";
+import { GraphStyleModel } from "../../../GraphStyle";
 
 export const DETAILS_PANE_STEP_SIZE = 1000;
+
+export interface DetailsPaneProps {
+  vizItem: NodeItem | RelationshipItem;
+  graphStyle: GraphStyleModel;
+  nodeInspectorWidth: number;
+}
+
 export function DetailsPane({ vizItem, graphStyle, nodeInspectorWidth }: DetailsPaneProps): JSX.Element {
   const [maxPropertiesCount, setMaxPropertiesCount] = useState(DETAILS_PANE_STEP_SIZE);
 
@@ -26,11 +34,11 @@ export function DetailsPane({ vizItem, graphStyle, nodeInspectorWidth }: Details
     <PaneWrapper>
       <PaneHeader>
         <PaneTitle>
-          <span>{`${upperFirst(vizItem.type)} properties`}</span>
+          <span>{vizItem.type == "node" ? "节点属性" : "关系类型"}</span>
           <ClipboardCopier
             textToCopy={allItemProperties.map((prop) => `${prop.key}: ${prop.value}`).join("\n")}
             titleText="Copy all properties to clipboard"
-            iconSize={12}
+            iconSize={15}
           />
         </PaneTitle>
         {vizItem.type === "relationship" && (
