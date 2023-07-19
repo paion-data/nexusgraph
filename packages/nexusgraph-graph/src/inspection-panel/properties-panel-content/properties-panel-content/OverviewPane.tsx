@@ -9,11 +9,12 @@ import {
   PaneWrapper,
   StyledLegendInlineList,
 } from "../../../styles/DefaultPane.styled";
-import { OverviewPaneProps, numberToUSLocale } from "../../DefaultOverviewPane";
 import { StyleableNodeLabel } from "./StyleableNodeLabel";
 import { ShowMoreOrAll } from "../../ShowMoreOrAll";
 import { StyleableRelType } from "./StyleableRelType";
 import { WarningMessage } from "../../WarningMessage";
+import { GraphStyleModel } from "../../../GraphStyle";
+import { GraphStats } from "../../../GraphStats";
 
 type PaneBodySectionHeaderProps = {
   title: string;
@@ -36,6 +37,15 @@ function PaneBodySectionHeader({ title, numOfElementsVisible, totalNumOfElements
 
 export const OVERVIEW_STEP_SIZE = 5000;
 
+export interface OverviewPaneProps {
+  graphStyle: GraphStyleModel;
+  hasTruncatedFields: boolean;
+  nodeCount: number | null;
+  relationshipCount: number | null;
+  stats: GraphStats;
+  infoMessage: string | null;
+}
+
 export default function OverviewPane({
   graphStyle,
   hasTruncatedFields,
@@ -53,6 +63,19 @@ export default function OverviewPane({
 
   const onMoreRelationshipsClick = (numMore: number) => {
     setMaxRelationshipsCount(maxRelationshipsCount + numMore);
+  };
+
+  const numberToUSLocale = (value: null | undefined | number | string): string | null => {
+    if (value === null || value === undefined) {
+      return null;
+    }
+
+    const n = typeof value === "number" ? value : parseInt(value, 10);
+    if (isNaN(n)) {
+      return n.toString();
+    }
+
+    return n.toLocaleString("en-US");
   };
 
   const { relTypes, labels } = stats;
