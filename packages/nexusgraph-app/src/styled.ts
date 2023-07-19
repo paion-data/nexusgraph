@@ -47,6 +47,7 @@ export const EditorCaption = styled.div`
   top: 0px;
   width: 100px;
   height: 60px;
+  white-space: pre;
   font-size: 41px;
   font-weight: bold;
   color: #fff;

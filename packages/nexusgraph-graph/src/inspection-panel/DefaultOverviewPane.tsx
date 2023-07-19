@@ -88,12 +88,12 @@ function DefaultOverviewPane({
 
   return (
     <PaneWrapper>
-      <PaneHeader>{"Overview"}</PaneHeader>
+      <PaneHeader>{"概述"}</PaneHeader>
       <PaneBody>
         {labels && visibleLabelKeys.length !== 0 && (
           <div>
             <PaneBodySectionHeader
-              title={"Node labels"}
+              title={"节点类型"}
               numOfElementsVisible={visibleLabelKeys.length}
               totalNumOfElements={totalNumOfRelTypes}
             />
@@ -122,7 +122,7 @@ function DefaultOverviewPane({
         {relTypes && visibleRelationshipKeys.length !== 0 && (
           <div>
             <PaneBodySectionHeader
-              title={"Relationship types"}
+              title={"关系类型"}
               numOfElementsVisible={visibleRelationshipKeys.length}
               totalNumOfElements={totalNumOfRelTypes}
             />
@@ -150,7 +150,7 @@ function DefaultOverviewPane({
         <div style={{ paddingBottom: "10px" }}>
           {hasTruncatedFields && (
             <>
-              <WarningMessage text={"Record fields have been truncated."} />
+              <WarningMessage text={"记录字段已被截断。"} />
               <br />
             </>
           )}
@@ -162,7 +162,7 @@ function DefaultOverviewPane({
           )}
           {nodeCount !== null &&
             relationshipCount !== null &&
-            `Displaying ${numberToUSLocale(nodeCount)} nodes, ${numberToUSLocale(relationshipCount)} relationships.`}
+            `显示 ${numberToUSLocale(nodeCount)} 个节点 ${numberToUSLocale(relationshipCount)} 条关系.`}
         </div>
       </PaneBody>
     </PaneWrapper>
