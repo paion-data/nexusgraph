@@ -44,7 +44,7 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
   private fetchRemote = async (editorLines: string[]) => {
     return await axios.get(process.env.ENTITY_EXTRACTION_API_URL as string, {
       params: {
-        sentence: editorLines.join(" "),
+        text: editorLines.join(" "),
       },
     });
   };
