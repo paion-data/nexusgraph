@@ -22,7 +22,7 @@ having to restart the server.
 
 ### Translation
 
-Nexus Graph documentation comes with [internationalization][Docusaurus i18n] supporting both **English** and 
+Nexus Graph documentation comes with [internationalization][Docusaurus i18n] supporting both **English** and
 **Chinese**. The location of Chinese translation is in [i18n/zh-cn](./i18n/zh-cn) directory
 
 To start the localized site in dev mode, use:
