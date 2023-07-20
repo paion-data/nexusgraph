@@ -72,8 +72,8 @@ const config = {
         },
         items: [
           {
-            type: 'localeDropdown',
-            position: 'left',
+            type: "localeDropdown",
+            position: "left",
           },
           {
             type: "doc",
