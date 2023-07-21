@@ -28,6 +28,8 @@ Nexus Graph documentation comes with [internationalization][Docusaurus i18n] sup
 To start the localized site in dev mode, use:
 
 ```bash
+cd docs
+yarn install
 yarn start --locale zh-cn
 ```
 
