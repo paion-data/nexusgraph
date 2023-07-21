@@ -113,7 +113,7 @@ yarn typedoc-watch
 
 使用 GPG Key 的目的是让我们贡献者以作者身份对代码进行签名。
 
-<!-- ![Error loading gpg-example.png](./img/gpg-example.png) -->
+![Error loading gpg-example.png](img/gpg-example.png)
 
 本节将介绍如何在本地创建 GPG 密钥，将其上传到 GitHub，并用于签署未来的提交。
 
