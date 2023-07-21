@@ -59,13 +59,13 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
       ],
       relationship: [],
     };
-    Object(axios.get).mockResolvedValueOnce(user);
+    Object(axios.post).mockResolvedValueOnce(user);
 
     naturalLanguageProcessor["fetchRemote"](editorLines).then((graphEditorState) => {
       expect(graphEditorState).toEqual(user);
 
-      expect(axios.get).toHaveBeenCalledWith(process.env.ENTITY_EXTRACTION_API, {
-        params: { text: editorLines.join(" ") },
+      expect(axios.post).toHaveBeenCalledWith(process.env.ENTITY_EXTRACTION_API, {
+        documents: editorLines,
       });
     });
   });
