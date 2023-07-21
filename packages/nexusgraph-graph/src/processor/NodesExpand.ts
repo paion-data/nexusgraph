@@ -9,10 +9,7 @@ export class NodesExpandProcessor {
     const nodesAndRels: BasicNodesAndRels = { nodes: [], relationships: [] };
 
     const getNeighboursData = async (): Promise<BasicNodesAndRels> => {
-      const response = await axios.post(
-        process.env.EXPAND_API_URL as string,
-        this.transformNode(selectNode)
-      );
+      const response = await axios.post(process.env.EXPAND_API_URL as string, this.transformNode(selectNode));
 
       nodesAndRels.nodes = nodesAndRels.nodes.concat(this.getNodesAndRels(response.data).nodes);
       nodesAndRels.relationships = nodesAndRels.relationships.concat(this.getNodesAndRels(response.data).relationships);
