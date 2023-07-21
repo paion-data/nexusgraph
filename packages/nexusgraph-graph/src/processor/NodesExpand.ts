@@ -5,19 +5,23 @@ import { NodeModel } from "../models/Node";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "../GraphStats";
 
 export class NodesExpandProcessor {
-  extractionNeighbours(selectNode: any): Promise<BasicNodesAndRels> {
-    const nodesAndRels: BasicNodesAndRels = { nodes: [], relationships: [] };
-
-    const getNeighboursData = async (): Promise<BasicNodesAndRels> => {
-      const response = await axios.post(process.env.EXPAND_API_URL as string, this.transformNode(selectNode));
-
-      nodesAndRels.nodes = nodesAndRels.nodes.concat(this.getNodesAndRels(response.data).nodes);
-      nodesAndRels.relationships = nodesAndRels.relationships.concat(this.getNodesAndRels(response.data).relationships);
-
-      return nodesAndRels;
-    };
-    return getNeighboursData();
+  extractionNeighbours(selectNode: NodeModel): Promise<BasicNodesAndRels> {
+    return this.getNeighboursData(selectNode);
   }
+
+  getNeighboursData = async (selectNode: NodeModel): Promise<BasicNodesAndRels> => {
+    const nodesAndRels: BasicNodesAndRels = { nodes: [], relationships: [] };
+    const response = await this.response(selectNode);
+
+    nodesAndRels.nodes = nodesAndRels.nodes.concat(this.getNodesAndRels(response.data).nodes);
+    nodesAndRels.relationships = nodesAndRels.relationships.concat(this.getNodesAndRels(response.data).relationships);
+
+    return nodesAndRels;
+  };
+
+  response = async (selectNode: NodeModel) => {
+    return await axios.post(process.env.EXPAND_API_URL as string, this.transformNode(selectNode));
+  };
 
   transformNode(selectNode: NodeModel) {
     const newNodes = {
