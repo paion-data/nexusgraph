@@ -66,6 +66,11 @@ export class GraphModel {
 
       // eslint-disable-next-line  @typescript-eslint/no-dynamic-delete
       delete this.nodeMap[node.id];
+
+      for (const id in this.nodeMap) {
+        this.removeConnectedRelationships(this.nodeMap[id]);
+        this.removeNode(this.nodeMap[id]);
+      }
     }
   }
 
