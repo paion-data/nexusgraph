@@ -47,14 +47,19 @@ export default function NexusgraphOnChangePlugin(): null {
     return () => clearInterval(t);
   }, []);
 
+  // useEffect(() => {
+  //   return editor.registerUpdateListener(({ editorState }) => {
+  //     editorState.read(() => {
+  //       const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
+  //       editorLines = parser.parse(jsonObject);
+  //     });
+  //   });
+  // }, [editor, dispatch]);
   useEffect(() => {
-    return editor.registerUpdateListener(({ editorState }) => {
-      editorState.read(() => {
-        const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
-        editorLines = parser.parse(jsonObject);
-      });
+    return editor.registerTextContentListener((textContent) => {
+      const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
+      editorLines = parser.parse(jsonObject);
     });
-  }, [editor, dispatch]);
-
+  });
   return null;
 }

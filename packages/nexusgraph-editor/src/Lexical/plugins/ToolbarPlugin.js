@@ -57,8 +57,8 @@ function positionEditorElement(editor, rect) {
     editor.style.left = "-1000px";
   } else {
     editor.style.opacity = "1";
-    editor.style.top = `${rect.top + rect.height + window.pageYOffset + 10}px`;
-    editor.style.left = `${rect.left + window.pageXOffset - editor.offsetWidth / 2 + rect.width / 2}px`;
+    editor.style.top = `${rect.top + rect.height + window.scrollY + 10}px`;
+    editor.style.left = `${rect.left + window.scrollX - editor.offsetWidth / 2 + 115}px`;
   }
 }
 
