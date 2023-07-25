@@ -6,7 +6,7 @@ import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext
 import { LexicalEditorStateParser } from "../parser";
 import { RemoteNaturalLanguageProcessor } from "../processor/RemoteNaturalLanguageProcessor";
 import { useDispatch } from "react-redux";
-import { UPDATE_GRAPH } from "../../../../nexusgraph-graph/src/shared/editor/editorDuck";
+import { UPDATE_GRAPH } from "../../../../nexusgraph-provider/src/types";
 
 /**
  * {@link NexusgraphOnChangePlugin} implements the real-time capturing of editor content.

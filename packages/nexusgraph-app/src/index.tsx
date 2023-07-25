@@ -3,25 +3,17 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { StrictMode } from "react";
-import { Provider } from "react-redux";
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { GlobalState } from "../../nexusgraph-graph/src/shared/globalState";
-import rootReducers from "../../nexusgraph-graph/src/shared/rootReducer";
-
 import * as Sentry from "@sentry/react";
-
-const reducer = combineReducers<GlobalState>({ ...(rootReducers as any) });
-
-export const store = configureStore({ reducer });
+import { StoreWrapper } from "../../nexusgraph-provider";
 
 setupSentry();
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <StrictMode>
-    <Provider store={store}>
+    <StoreWrapper>
       <App />
-    </Provider>
+    </StoreWrapper>
   </StrictMode>
 );
 

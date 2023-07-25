@@ -1,0 +1,8 @@
+{
+  "name": "@paiondata/nexusgraph-redux",
+  "version": "0.1.0",
+  "description": "Store all Redux-related logic",
+  "dependencies": {
+   
+  }
+}

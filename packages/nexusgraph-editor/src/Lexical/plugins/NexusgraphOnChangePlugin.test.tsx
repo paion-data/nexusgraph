@@ -2,9 +2,9 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import editorReducer, {
-  GraphEditorState,
   getEditorAction,
-} from "../../../../nexusgraph-graph/src/shared/editor/editorDuck";
+} from "../../../../nexusgraph-provider/src/shared/editor/editorDuck";
+import { GraphEditorState } from "../../../../nexusgraph-provider/src/types";
 
 test("should return the initial state", () => {
   const initialState = undefined;
