@@ -1,8 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import axios from "axios";
-import { BasicNode, BasicNodesAndRels, BasicRelationship } from "../Graph";
 import { NodeModel } from "../models/Node";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "../GraphStats";
+import { BasicNode, BasicNodesAndRels, BasicRelationship } from "../../../nexusgraph-provider/src/types";
 
 export class NodesExpandProcessor {
   extractionNeighbours(selectNode: NodeModel): Promise<BasicNodesAndRels> {

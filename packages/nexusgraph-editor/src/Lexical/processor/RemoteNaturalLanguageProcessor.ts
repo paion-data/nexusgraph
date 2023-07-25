@@ -3,7 +3,7 @@
 import { GraphEditorState, ALL_REL_TYPE_SETS } from "../../../../nexusgraph-graph";
 import axios from "axios";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
-import { BasicNode, BasicRelationship } from "../../../../nexusgraph-provider/src/shared/editor/editorDuck";
+import { BasicNode, BasicRelationship } from "../../../../nexusgraph-provider/src/types";
 
 /**
  * An implementation of {@link NaturalLanguageProcessor} that delegates NLP to a remote service.
