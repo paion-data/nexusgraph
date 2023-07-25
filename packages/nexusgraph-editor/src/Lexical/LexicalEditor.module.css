@@ -14,7 +14,10 @@
   border-radius: 2px;
   /* max-width: 650px; */
   color: #fff;
-  position: relative;
+  position: absolute;
+  top: 170px;
+  left: 5%;
+  overflow: scroll;
   line-height: 20px;
   font-weight: 400;
   text-align: left;

@@ -62,11 +62,13 @@ export const IconWapper = styled.span`
 `;
 
 export const EditorGlassCover = styled.div`
-  position: absolute;
+  position: relative;
+  top: 0;
   width: 100%;
   height: 100%;
   background-color: transparent;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-radius: 1rem;
+  overflow: hidden;
 `;
