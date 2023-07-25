@@ -14,6 +14,10 @@ import {
   $isRangeSelection,
   $createParagraphNode,
   $getNodeByKey,
+  LexicalEditor,
+  GridSelection,
+  NodeSelection,
+  RangeSelection,
 } from "lexical";
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@lexical/link";
 import { $isParentElementRTL, $wrapNodes, $isAtNodeEnd } from "@lexical/selection";
@@ -31,9 +35,9 @@ import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages 
 
 const LowPriority = 1;
 
-const supportedBlockTypes = new Set(["paragraph", "quote", "code", "h1", "h2", "ul", "ol"]);
+const supportedBlockTypes: Set<string> = new Set(["paragraph", "quote", "code", "h1", "h2", "ul", "ol"]);
 
-const blockTypeToBlockName = {
+const blockTypeToBlockName: { [key: string]: string } = {
   code: "Code Block",
   h1: "Large Heading",
   h2: "Small Heading",
@@ -46,11 +50,11 @@ const blockTypeToBlockName = {
   ul: "Bulleted List",
 };
 
-function Divider() {
+function Divider(): JSX.Element {
   return <div className="divider" />;
 }
 
-function positionEditorElement(editor, rect) {
+function positionEditorElement(editor: HTMLElement, rect: DOMRect | null): void {
   if (rect === null) {
     editor.style.opacity = "0";
     editor.style.top = "-1000px";
@@ -62,16 +66,16 @@ function positionEditorElement(editor, rect) {
   }
 }
 
-function FloatingLinkEditor({ editor }) {
+function FloatingLinkEditor({ editor }: { editor: LexicalEditor }) {
   const editorRef = useRef(null);
-  const inputRef = useRef(null);
-  const mouseDownRef = useRef(false);
-  const [linkUrl, setLinkUrl] = useState("");
-  const [isEditMode, setEditMode] = useState(false);
-  const [lastSelection, setLastSelection] = useState(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const mouseDownRef = useRef<boolean>(false);
+  const [linkUrl, setLinkUrl] = useState<string>("");
+  const [isEditMode, setEditMode] = useState<boolean>(false);
+  const [lastSelection, setLastSelection] = useState<null | RangeSelection | NodeSelection | GridSelection>(null);
 
   const updateLinkEditor = useCallback(() => {
-    const selection = $getSelection();
+    const selection: null | RangeSelection | NodeSelection | GridSelection = $getSelection();
     if ($isRangeSelection(selection)) {
       const node = getSelectedNode(selection);
       const parent = node.getParent();
@@ -91,36 +95,37 @@ function FloatingLinkEditor({ editor }) {
       return;
     }
 
-    const rootElement = editor.getRootElement();
-    if (
-      selection !== null &&
-      !nativeSelection.isCollapsed &&
-      rootElement !== null &&
-      rootElement.contains(nativeSelection.anchorNode)
-    ) {
-      const domRange = nativeSelection.getRangeAt(0);
-      let rect;
-      if (nativeSelection.anchorNode === rootElement) {
-        let inner = rootElement;
-        while (inner.firstElementChild != null) {
-          inner = inner.firstElementChild;
+    const rootElement: HTMLElement | Element | null = editor.getRootElement();
+    if (nativeSelection) {
+      if (
+        selection !== null &&
+        !nativeSelection.isCollapsed &&
+        rootElement !== null &&
+        rootElement.contains(nativeSelection.anchorNode)
+      ) {
+        const domRange = nativeSelection.getRangeAt(0);
+        let rect;
+        if (nativeSelection.anchorNode === rootElement) {
+          let inner = rootElement;
+          while (inner.firstElementChild != null) {
+            inner = inner.firstElementChild;
+          }
+          rect = inner.getBoundingClientRect();
+        } else {
+          rect = domRange.getBoundingClientRect();
         }
-        rect = inner.getBoundingClientRect();
-      } else {
-        rect = domRange.getBoundingClientRect();
-      }
 
-      if (!mouseDownRef.current) {
-        positionEditorElement(editorElem, rect);
+        if (!mouseDownRef.current) {
+          positionEditorElement(editorElem, rect);
+        }
+        setLastSelection(selection);
+      } else if (!activeElement || activeElement.className !== "link-input") {
+        positionEditorElement(editorElem, null);
+        setLastSelection(null);
+        setEditMode(false);
+        setLinkUrl("");
       }
-      setLastSelection(selection);
-    } else if (!activeElement || activeElement.className !== "link-input") {
-      positionEditorElement(editorElem, null);
-      setLastSelection(null);
-      setEditMode(false);
-      setLinkUrl("");
     }
-
     return true;
   }, [editor]);
 
@@ -202,7 +207,17 @@ function FloatingLinkEditor({ editor }) {
   );
 }
 
-function Select({ onChange, className, options, value }) {
+function Select({
+  onChange,
+  className,
+  options,
+  value,
+}: {
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  className: string;
+  options: string[];
+  value: string;
+}) {
   return (
     <select className={className} onChange={onChange} value={value}>
       <option hidden={true} value="" />
@@ -215,7 +230,7 @@ function Select({ onChange, className, options, value }) {
   );
 }
 
-function getSelectedNode(selection) {
+function getSelectedNode(selection: RangeSelection) {
   const anchor = selection.anchor;
   const focus = selection.focus;
   const anchorNode = selection.anchor.getNode();
@@ -231,8 +246,18 @@ function getSelectedNode(selection) {
   }
 }
 
-function BlockOptionsDropdownList({ editor, blockType, toolbarRef, setShowBlockOptionsDropDown }) {
-  const dropDownRef = useRef(null);
+function BlockOptionsDropdownList({
+  editor,
+  blockType,
+  toolbarRef,
+  setShowBlockOptionsDropDown,
+}: {
+  editor: LexicalEditor;
+  blockType: string;
+  toolbarRef: React.RefObject<HTMLDivElement>;
+  setShowBlockOptionsDropDown: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+  const dropDownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const toolbar = toolbarRef.current;
@@ -250,8 +275,8 @@ function BlockOptionsDropdownList({ editor, blockType, toolbarRef, setShowBlockO
     const toolbar = toolbarRef.current;
 
     if (dropDown !== null && toolbar !== null) {
-      const handle = (event) => {
-        const target = event.target;
+      const handle = (event: Event) => {
+        const target = event.target as Node;
 
         if (!dropDown.contains(target) && !toolbar.contains(target)) {
           setShowBlockOptionsDropDown(false);
@@ -306,18 +331,18 @@ function BlockOptionsDropdownList({ editor, blockType, toolbarRef, setShowBlockO
 
   const formatBulletList = () => {
     if (blockType !== "ul") {
-      editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND);
+      editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined);
     } else {
-      editor.dispatchCommand(REMOVE_LIST_COMMAND);
+      editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
     }
     setShowBlockOptionsDropDown(false);
   };
 
   const formatNumberedList = () => {
     if (blockType !== "ol") {
-      editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND);
+      editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND, undefined);
     } else {
-      editor.dispatchCommand(REMOVE_LIST_COMMAND);
+      editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
     }
     setShowBlockOptionsDropDown(false);
   };
@@ -395,7 +420,7 @@ export default function ToolbarPlugin() {
   const [canUndo, setCanUndo] = useState(false);
   const [canRedo, setCanRedo] = useState(false);
   const [blockType, setBlockType] = useState("paragraph");
-  const [selectedElementKey, setSelectedElementKey] = useState(null);
+  const [selectedElementKey, setSelectedElementKey] = useState<string>("");
   const [showBlockOptionsDropDown, setShowBlockOptionsDropDown] = useState(false);
   const [codeLanguage, setCodeLanguage] = useState("");
   const [isRTL, setIsRTL] = useState(false);
@@ -482,7 +507,7 @@ export default function ToolbarPlugin() {
 
   const codeLanguges = useMemo(() => getCodeLanguages(), []);
   const onCodeLanguageSelect = useCallback(
-    (e) => {
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
       editor.update(() => {
         if (selectedElementKey !== null) {
           const node = $getNodeByKey(selectedElementKey);
@@ -508,7 +533,7 @@ export default function ToolbarPlugin() {
       <button
         disabled={!canUndo}
         onClick={() => {
-          editor.dispatchCommand(UNDO_COMMAND);
+          editor.dispatchCommand(UNDO_COMMAND, undefined);
         }}
         className="button spaced"
         aria-label="Undo"
@@ -518,7 +543,7 @@ export default function ToolbarPlugin() {
       <button
         disabled={!canRedo}
         onClick={() => {
-          editor.dispatchCommand(REDO_COMMAND);
+          editor.dispatchCommand(REDO_COMMAND, undefined);
         }}
         className="button"
         aria-label="Redo"
