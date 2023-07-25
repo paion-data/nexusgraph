@@ -7,7 +7,7 @@ export interface BasicNode {
   labels: string[];
   properties: Record<string, string>;
   propertyTypes: Record<string, string>;
-};
+}
 export interface BasicRelationship {
   id: string;
   startNodeId: string;
@@ -15,12 +15,12 @@ export interface BasicRelationship {
   type: string;
   properties: Record<string, string>;
   propertyTypes: Record<string, string>;
-};
+}
 
 export interface BasicNodesAndRels {
   nodes: BasicNode[];
   relationships: BasicRelationship[];
-};
+}
 
 export interface GraphEditorAction {
   type: typeof UPDATE_GRAPH;
@@ -31,4 +31,3 @@ export interface GraphEditorState {
   nodes: BasicNode[];
   relationships: BasicRelationship[];
 }
-

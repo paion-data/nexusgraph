@@ -5,15 +5,14 @@ import { GlobalState } from "./shared/globalState";
 import rootReducers from "./shared/rootReducer";
 
 interface ReduxChildren {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const reducer = combineReducers<GlobalState>({ ...(rootReducers as any) });
 const store = configureStore({ reducer });
 
-const StoreWrapper = ({children}: ReduxChildren) => {
-    return <Provider store={store}>{children}</Provider>;
+const StoreWrapper = ({ children }: ReduxChildren) => {
+  return <Provider store={store}>{children}</Provider>;
 };
 
-export default StoreWrapper
-
+export default StoreWrapper;

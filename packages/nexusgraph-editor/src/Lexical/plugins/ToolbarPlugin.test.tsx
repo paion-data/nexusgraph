@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 import LexicalEditor from "../LexicalEditor";
 import { screen } from "@testing-library/dom";
 import React from "react";
-import { StoreWrapper } from "../../../../nexusgraph-provider/index"
+import { StoreWrapper } from "../../../../nexusgraph-provider/index";
 
 test("Button disabled should be added", async () => {
   render(
