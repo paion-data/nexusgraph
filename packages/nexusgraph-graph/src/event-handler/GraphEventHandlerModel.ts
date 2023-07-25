@@ -5,7 +5,8 @@ import type { Visualization } from "../Visualization";
 import { NodeModel } from "../models/Node";
 import { RelationshipModel } from "../models/Relationship";
 import { GraphStats, getGraphStats } from "../GraphStats";
-import { BasicNodesAndRels, mapNodes, mapRelationships } from "../Graph";
+import { mapNodes, mapRelationships } from "../Graph";
+import { BasicNodesAndRels } from "../basicTypes";
 
 export const NODE_MOUSE_OVER = "nodeMouseOver";
 export const NODE_MOUSE_OUT = "nodeMouseOut";

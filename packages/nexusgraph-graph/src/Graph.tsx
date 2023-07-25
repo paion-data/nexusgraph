@@ -15,6 +15,7 @@ import { StyledSvgWrapper, StyledZoomButton, StyledZoomHolder } from "./styles/W
 import { ResizeObserver } from "@juggle/resize-observer";
 import { RelationshipModel } from "./models/Relationship";
 import { NodeModel } from "./models/Node";
+import { BasicNode, BasicRelationship } from "./basicTypes";
 
 const mapProperties = (_: any) => Object.assign({}, ...stringifyValues(_));
 const stringifyValues = (obj: any) =>
@@ -32,26 +33,6 @@ function optionalToString(value: any) {
 
 const ZOOM_ICONS_DEFAULT_SIZE_IN_PX = 15;
 const ZOOM_ICONS_LARGE_SCALE_FACTOR = 1.2;
-
-export type BasicNode = {
-  id: string;
-  labels: string[];
-  properties: Record<string, string>;
-  propertyTypes: Record<string, string>;
-};
-export type BasicRelationship = {
-  id: string;
-  startNodeId: string;
-  endNodeId: string;
-  type: string;
-  properties: Record<string, string>;
-  propertyTypes: Record<string, string>;
-};
-
-export type BasicNodesAndRels = {
-  nodes: BasicNode[];
-  relationships: BasicRelationship[];
-};
 
 export type GraphProps = {
   isFullscreen: boolean;

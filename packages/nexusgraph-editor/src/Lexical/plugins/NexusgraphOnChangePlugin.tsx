@@ -4,9 +4,7 @@
 import { useEffect } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { LexicalEditorStateParser } from "../parser";
-import { RemoteNaturalLanguageProcessor } from "../processor/RemoteNaturalLanguageProcessor";
 import { useDispatch } from "react-redux";
-import { UPDATE_GRAPH } from "../../../../nexusgraph-graph/src/shared/editor/editorDuck";
 
 /**
  * {@link NexusgraphOnChangePlugin} implements the real-time capturing of editor content.
@@ -26,7 +24,6 @@ import { UPDATE_GRAPH } from "../../../../nexusgraph-graph/src/shared/editor/edi
 export default function NexusgraphOnChangePlugin(): null {
   const [editor] = useLexicalComposerContext();
   const parser = new LexicalEditorStateParser();
-  const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
   const dispatch = useDispatch();
 
   let editorLines: string[] = [];
@@ -36,9 +33,7 @@ export default function NexusgraphOnChangePlugin(): null {
       if (editorLines.length > 0) {
         const entityExtrationTexts: string[] = structuredClone(editorLines);
         editorLines = [];
-        naturalLanguageProcessor.entityExtraction(entityExtrationTexts).then((graphEditorState) => {
-          dispatch({ type: UPDATE_GRAPH, payload: graphEditorState });
-        });
+        dispatch({ type: "editorLine/UPDATE_LINE", payload: entityExtrationTexts });
       }
     };
 

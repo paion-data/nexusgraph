@@ -6,7 +6,7 @@ title: 架构
 主要组件介绍
 ------------
 
-![Error loading nexusgraph-architecture.png](img/nexusgraph-architecture.png)
+![Error loading nexusgraph-separation-of-concerns.png](img/nexusgraph-separation-of-concerns.png)
 
 Nexus Graph 的[UI 界面][UI 主界面]由两部分组成：
 
@@ -74,6 +74,16 @@ Nexus Graph 的设计遵循 [separation of concerns][separation of concerns] 原
 - 编辑器将与做图组件联动，当用户在编辑器中输入文本时，**GraphBrowser** 将实时生成关系图谱，这里我们使用 [Lexical][Lexical] 这一框架去实现
   编辑器
 
+### NLP
+
+- **NLP** 是 [Natural Language Processing][Natural Language Processing] 的简写，该组件的作用是根据编辑器中输入的文本信息向后端的机
+  器学习服务器发送请求，并获取相应的图数据，返回到 [Redux Store][Redux Store] 中，从而更新数据。
+
+### 供应者
+
+- 该 **Provider** 组件使 Reduxstore 可供任何需要访问 Redux 存储的嵌套组件使用。其中包含 [Store 的创建][createStore] 以及各个组件数据
+  更新的逻辑
+
 [UI 主界面]: https://github.com/paion-data/nexusgraph/blob/master/packages/nexusgraph-app/src/App.tsx
 
 [Knowledge Graph Spec]: https://paion-data.github.io/knowledge-graph-spec/draft/#sec-Graph
@@ -89,3 +99,9 @@ Nexus Graph 的设计遵循 [separation of concerns][separation of concerns] 原
 [D3.js]: https://d3js.org/
 
 [Lexical]: https://lexical.dev/
+
+[Redux Store]: https://redux.js.org/api/store
+
+[Natural Language Processing]: https://en.wikipedia.org/wiki/Natural_language_processing
+
+[createStore]: https://redux.js.org/api/createstore
