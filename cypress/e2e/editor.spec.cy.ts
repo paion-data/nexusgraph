@@ -8,7 +8,7 @@ beforeEach(() => {
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
 });
 
-describe("Undo , Redo ,Left Align ,Center Align ,Right Align ,Justify Align E2E test", () => {
+describe("undo redo button E2E test", () => {
   it("input text and click Undo ,'China' not exist", () => {
     cy.get('[aria-label = "Undo"]').click();
     cy.get(".editor-paragraph").should("have.text", "");
@@ -20,7 +20,9 @@ describe("Undo , Redo ,Left Align ,Center Align ,Right Align ,Justify Align E2E 
     cy.get('[aria-label = "Redo"]').click();
     cy.get(".editor-paragraph").should("have.text", "China");
   });
+});
 
+describe("text position E2E test", () => {
   it("Text can be placed left  align  ", () => {
     cy.get('[aria-label = "Left Align"]').click();
     cy.get(".editor-paragraph").and("have.attr", "style", "text-align: left;");
@@ -41,7 +43,7 @@ describe("Undo , Redo ,Left Align ,Center Align ,Right Align ,Justify Align E2E 
   });
 });
 
-describe("Bold ,Italics ,Underline ,Strikethrough ,underlined-line-through ,Code ,Link E2E test", () => {
+describe("font style E2E test", () => {
   it("bold button has an effect", () => {
     cy.get('[aria-label = "Format Bold"]').click().wait(1000);
     cy.get(".editor-paragraph").find("strong").should("have.class", "font-semibold");
@@ -83,6 +85,7 @@ describe("dropdown button E2E test", () => {
   beforeEach(() => {
     cy.get('[aria-label = "Formatting Options"]').click().wait(1000);
   });
+
   it("Large Heading button has an effect in dropdown", () => {
     cy.contains("Large Heading").click().wait(1000);
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Large Heading");
