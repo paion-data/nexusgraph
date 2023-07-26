@@ -9,6 +9,11 @@ beforeEach(() => {
 });
 
 describe("Undo , Redo ,Left Align ,Center Align ,Right Align ,Justify Align E2E test", () => {
+  it("input text and click Undo ,'China' not exist", () => {
+    cy.get('[aria-label = "Undo"]').click();
+    cy.get(".editor-paragraph").should("have.text", "");
+  });
+
   it("input text and click Undo and Redo ,'China' exist", () => {
     cy.get('[aria-label = "Undo"]').click();
     cy.get(".editor-paragraph").should("have.text", "");
@@ -16,13 +21,21 @@ describe("Undo , Redo ,Left Align ,Center Align ,Right Align ,Justify Align E2E 
     cy.get(".editor-paragraph").should("have.text", "China");
   });
 
-  it("Text can be placed left center right and justify align  ", () => {
+  it("Text can be placed left  align  ", () => {
     cy.get('[aria-label = "Left Align"]').click();
     cy.get(".editor-paragraph").and("have.attr", "style", "text-align: left;");
+  });
+  it("Text can be placed center align  ", () => {
     cy.get('[aria-label = "Center Align"]').click();
     cy.get(".editor-paragraph").and("have.attr", "style", "text-align: center;");
+  });
+
+  it("Text can be placed right align  ", () => {
     cy.get('[aria-label = "Right Align"]').click();
     cy.get(".editor-paragraph").and("have.attr", "style", "text-align: right;");
+  });
+
+  it("Text can be placed justify align  ", () => {
     cy.get('[aria-label = "Justify Align"]').click();
     cy.get(".editor-paragraph").and("have.attr", "style", "text-align: justify;");
   });
@@ -83,7 +96,7 @@ describe("dropdown button E2E test", () => {
   });
 
   it("Bullet List button has an effect in dropdown", () => {
-    cy.contains("Bullet List").click().wait(1000);
+    cy.contains("Bulleted List").click().wait(1000);
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Bulleted List");
     cy.get(".editor-list-ul").should("exist");
   });

@@ -58,7 +58,7 @@ function positionEditorElement(editor, rect) {
   } else {
     editor.style.opacity = "1";
     editor.style.top = `${rect.top + rect.height + window.scrollY + 10}px`;
-    editor.style.left = `${rect.left + window.scrollX - editor.offsetWidth / 2 + 115}px`;
+    editor.style.left = `${rect.left + window.scrollX}px`;
   }
 }
 
@@ -367,7 +367,7 @@ function BlockOptionsDropdownList({ editor, blockType, toolbarRef, setShowBlockO
       </button>
       <button className="item" onClick={formatBulletList}>
         <span className="icon bullet-list"></span>
-        <span className="text">Bullet List</span>
+        <span className="text">Bulleted List</span>
         {blockType === "ul" && <span className="active" />}
       </button>
       <button className="item" onClick={formatNumberedList}>
