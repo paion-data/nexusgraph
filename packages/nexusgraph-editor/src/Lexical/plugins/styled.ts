@@ -285,7 +285,7 @@ export const Toolbar = styled.div`
         }
   
         &.quote{
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chat-square-quote' viewBox='0 0 16 16' %3E%3Cpath d='M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z' /%3E%3Cpath d='M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z' /%3E%3C/svg%3E");
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chat-square-quote' viewBox='0 0 16 16' %3E%3Cpath d='M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z' /%3E%3Cpath d='M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z' /%3E%3C/svg%3E")!important;
         }
   
         &.code{
@@ -467,7 +467,7 @@ export const LinkEditor = styled.div`
 `;
 
 export const Paragraph = styled.div`
-  p {
+    p ,blockquote ,h1 ,h2 ,ul ,ol{
     margin-left: 1px;
     margin-top: 8px;
     position: relative;
@@ -524,8 +524,8 @@ export const Paragraph = styled.div`
 
         &.code {
           background-color:rgba(137, 225, 252, 0.3);
-           padding: 1px 0.25rem;
-        border-radius: 5px;
+          padding: 1px 0.25rem;
+          border-radius: 5px;
           font-size: 94%;
         }
       }
@@ -575,8 +575,8 @@ export const Paragraph = styled.div`
 
         &.code {
           background-color:rgba(137, 225, 252, 0.3);
-           padding: 1px 0.25rem;
-        border-radius: 5px;
+          padding: 1px 0.25rem;
+          border-radius: 5px;
           font-size: 94%;
         }
       }
@@ -587,7 +587,6 @@ export const Paragraph = styled.div`
       &.editor-code {
         background-color: transparent;
         box-shadow: inset 10px 5px 20px rgba(137, 225, 252, 0.3);
-        // font-family: Menlo, Consolas, Monaco, monospace;
         display: block;
         padding: 8px 8px 8px 52px;
         line-height: 1.53;
@@ -638,162 +637,9 @@ export const Paragraph = styled.div`
         border-left-width: 4px;
         border-left-style: solid;
         padding-left: 16px;
+        }
       
+    }
 
-      strong{
-        &.font-semibold {
-          font-weight: 600
-        }
-        
-        &.italic {
-          font-style: italic
-        }
-        
-        &.underline {
-          text-decoration: underline;
-        }
-        
-        &.line-through {
-          text-decoration: line-through;
-        }
-        
-        &.underlined-line-through {
-          text-decoration: underline line-through;
-        }
-  
-        &.code {
-          background-color: gray;
-           padding: 1px 0.25rem;
-        border-radius: 5px;
-          font-size: 94%;
-        }
-      }
-        
-        span{
-          &.font-semibold {
-            font-weight: 600
-          }
-          
-          &.italic {
-            font-style: italic
-          }
-          
-          &.underline {
-            text-decoration: underline;
-          }
-          
-          &.line-through {
-            text-decoration: line-through;
-          }
-          
-          &.underlined-line-through {
-            text-decoration: underline line-through;
-          }
-  
-          &.code {
-            background-color:rgba(137, 225, 252, 0.3);
-             padding: 1px 0.25rem;
-        border-radius: 5px;
-            font-size: 94%;
-          }
-        }
-        
-        code{
-          &.font-semibold {
-            font-weight: 600
-          }
-          
-          &.italic {
-            font-style: italic
-          }
-          
-          &.underline {
-            text-decoration: underline;
-          }
-          
-          &.line-through {
-            text-decoration: line-through;
-          }
-          
-          &.underlined-line-through {
-            text-decoration: underline line-through;
-          }
-        }
-  
-        em{
-          &.font-semibold {
-            font-weight: 600
-          }
-          
-          &.italic {
-            font-style: italic
-          }
-          
-          &.underline {
-            text-decoration: underline;
-          }
-          
-          &.line-through {
-            text-decoration: line-through;
-          }
-          
-          &.underlined-line-through {
-            text-decoration: underline line-through;
-          }
-  
-          &.code {
-            background-color: gray;
-             padding: 1px 0.25rem;
-        border-radius: 5px;
-            font-size: 94%;
-          }
-        }
-      
-      }
-  
-      code{
-        &.editor-code {
-          background-color: transparent;
-          box-shadow: inset 10px 5px 20px rgba(137, 225, 252, 0.3);
-          // font-family: Menlo, Consolas, Monaco, monospace;
-          display: block;
-          padding: 8px 8px 8px 52px;
-          line-height: 1.53;
-          font-size: 13px;
-          margin: 0;
-          margin-top: 8px;
-          margin-bottom: 8px;
-          tab-size: 2;
-          /* white-space: pre; */
-          overflow-x: auto;
-          position: relative;
-        
-        
-        &::before {
-          content: attr(data-gutter);
-          position: absolute;
-          background-color: transparent;
-          box-shadow: inset 10px 5px 20px rgba(137, 225, 252, 0.3);
-          left: 0;
-          top: 0;
-          border-right: 1px solid #ccc;
-          padding: 8px;
-          color: #777;
-          white-space: pre-wrap;
-          text-align: right;
-          min-width: 25px;
-        }
-  
-        &::after {
-          content: attr(data-highlight-language);
-          top: 0;
-          right: 3px;
-          padding: 3px;
-          font-size: 10px;
-          text-transform: uppercase;
-          position: absolute;
-          color: rgba(255, 255, 255, 0.5);
-        }
-      }
   }
 `;

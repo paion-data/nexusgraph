@@ -48,13 +48,10 @@ export default function NexusgraphOnChangePlugin(): null {
   }, []);
 
   useEffect(() => {
-    return editor.registerUpdateListener(({ editorState }) => {
-      editorState.read(() => {
-        const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
-        editorLines = parser.parse(jsonObject);
-      });
+    return editor.registerTextContentListener(() => {
+      const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
+      editorLines = parser.parse(jsonObject);
     });
-  }, [editor, dispatch]);
-
+  }, []);
   return null;
 }
