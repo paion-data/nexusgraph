@@ -7,7 +7,7 @@ export const initialState: GraphEditorState = {
   relationships: [],
 };
 
-export default function editorReducer(state = initialState, action: GraphEditorAction): GraphEditorState {
+export default function nlpReducer(state = initialState, action: GraphEditorAction): GraphEditorState {
   switch (action.type) {
     case UPDATE_GRAPH:
       return {
