@@ -1,33 +1,32 @@
 //Copyright 2023 Paion Data. All rights reserved.
-export const NAME = "graphEditor";
-export const UPDATE_GRAPH = "graphEditor/UPDATE_GRAPH";
+export const NLP_DATA = "nlpData";
+export const UPDATE_NLPDATA = "nlpData/UPDATE_NLPDATA";
 
-export interface BasicNode {
+export interface NlpNodesProps {
+  fields: Record<string, string>;
   id: string;
-  labels: string[];
-  properties: Record<string, string>;
-  propertyTypes: Record<string, string>;
-}
-export interface BasicRelationship {
-  id: string;
-  startNodeId: string;
-  endNodeId: string;
-  type: string;
-  properties: Record<string, string>;
-  propertyTypes: Record<string, string>;
 }
 
-export interface BasicNodesAndRels {
-  nodes: BasicNode[];
-  relationships: BasicRelationship[];
+export interface NlpLinksProps {
+  fields: Record<string, string>;
+  source: string;
+  target: string;
 }
 
-export interface GraphEditorAction {
-  type: typeof UPDATE_GRAPH;
-  payload: GraphEditorState;
+export interface NlpState {
+  nodes: NlpNodesProps[];
+  links: NlpLinksProps[];
 }
 
-export interface GraphEditorState {
-  nodes: BasicNode[];
-  relationships: BasicRelationship[];
+export interface NlpAction {
+  type: typeof UPDATE_NLPDATA;
+  payload: NlpState;
+}
+
+export const EDITOR_LINE = "editorLine";
+export const UPDATE_LINE = "editorLine/UPDATE_LINE";
+
+export interface EditorAction {
+  type: typeof UPDATE_LINE;
+  payload: string[];
 }

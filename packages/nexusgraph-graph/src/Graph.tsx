@@ -15,7 +15,7 @@ import { StyledSvgWrapper, StyledZoomButton, StyledZoomHolder } from "./styles/W
 import { ResizeObserver } from "@juggle/resize-observer";
 import { RelationshipModel } from "./models/Relationship";
 import { NodeModel } from "./models/Node";
-import { BasicNode, BasicRelationship } from "../../nexusgraph-provider/src/types";
+import { BasicNode, BasicRelationship } from "./basicTypes";
 
 const mapProperties = (_: any) => Object.assign({}, ...stringifyValues(_));
 const stringifyValues = (obj: any) =>

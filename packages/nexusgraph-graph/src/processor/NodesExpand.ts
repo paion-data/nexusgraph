@@ -2,7 +2,7 @@
 import axios from "axios";
 import { NodeModel } from "../models/Node";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "../GraphStats";
-import { BasicNode, BasicNodesAndRels, BasicRelationship } from "../../../nexusgraph-provider/src/types";
+import { BasicNode, BasicNodesAndRels, BasicRelationship } from "../basicTypes";
 
 export class NodesExpandProcessor {
   extractionNeighbours(selectNode: NodeModel): Promise<BasicNodesAndRels> {

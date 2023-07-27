@@ -13,7 +13,7 @@ import { DetailsPane } from "./inspection-panel/properties-panel-content/propert
 import OverviewPane from "./inspection-panel/properties-panel-content/properties-panel-content/OverviewPane";
 import { NodesExpandProcessor } from "./processor/NodesExpand";
 import { Graph } from "./Graph";
-import { BasicNode, BasicRelationship } from "../../nexusgraph-provider/src/types";
+import { BasicNode, BasicRelationship } from "./basicTypes";
 
 /**
  * Both {@link GraphVisualizerProps.relationships} and {@link GraphVisualizerProps.nodes} are immutable.

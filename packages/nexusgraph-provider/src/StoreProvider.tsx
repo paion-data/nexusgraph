@@ -1,8 +1,8 @@
 //Copyright 2023 Paion Data. All rights reserved.
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import { GlobalState } from "./shared/globalState";
-import rootReducers from "./shared/rootReducer";
+import { GlobalState } from "./globalState";
+import rootReducers from "./rootReducer";
 
 interface ReduxChildren {
   children: React.ReactNode;

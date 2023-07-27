@@ -6,7 +6,7 @@ import { NodeModel } from "../models/Node";
 import { RelationshipModel } from "../models/Relationship";
 import { GraphStats, getGraphStats } from "../GraphStats";
 import { mapNodes, mapRelationships } from "../Graph";
-import { BasicNodesAndRels } from "../../../nexusgraph-provider/src/types";
+import { BasicNodesAndRels } from "../basicTypes";
 
 export const NODE_MOUSE_OVER = "nodeMouseOver";
 export const NODE_MOUSE_OUT = "nodeMouseOut";
