@@ -1,9 +1,13 @@
 // Copyright 2023 Paion Data. All rights reserved.
 
-import { GraphEditorState, ALL_REL_TYPE_SETS } from "../../../../nexusgraph-graph";
+import { GraphEditorState, ALL_REL_TYPE_SETS } from "../../../nexusgraph-graph";
 import axios from "axios";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
-import { BasicNode, BasicRelationship } from "../../../../nexusgraph-provider/src/types";
+import { BasicNode, BasicRelationship, UPDATE_GRAPH } from "../../../nexusgraph-provider/src/types";
+import { useDispatch, useSelector } from "react-redux";
+import { GlobalState } from "../../../nexusgraph-provider/src/shared/globalState";
+import { getEditorLine } from "../../../nexusgraph-provider/src/shared/editorLine/editorLineDuck";
+import { useEffect } from "react";
 
 /**
  * An implementation of {@link NaturalLanguageProcessor} that delegates NLP to a remote service.

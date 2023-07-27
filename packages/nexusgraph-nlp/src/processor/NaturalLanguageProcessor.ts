@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { GraphEditorState } from "../../../../nexusgraph-graph";
+import { GraphEditorState } from "../../../nexusgraph-provider/index";
 
 export interface NaturalLanguageProcessor {
   /**

@@ -1,7 +1,7 @@
 /*
  * Copyright 2023 Paion Data. All rights reserved.
  */
-import editorReducer, { getEditorAction } from "../../../../nexusgraph-provider/src/shared/editor/editorDuck";
+import nlpReducer, { getEditorAction } from "../../../../nexusgraph-provider/src/shared/nlp/nlpDuck";
 import { GraphEditorState } from "../../../../nexusgraph-provider/src/types";
 
 test("should return the initial state", () => {
@@ -10,7 +10,7 @@ test("should return the initial state", () => {
     nodes: [],
     relationships: [],
   };
-  expect(editorReducer(initialState, getEditorAction(state))).toEqual({ nodes: [], relationships: [] });
+  expect(nlpReducer(initialState, getEditorAction(state))).toEqual({ nodes: [], relationships: [] });
 });
 
 test("should handle a getEditorAction being added to an empty list", () => {
@@ -22,7 +22,7 @@ test("should handle a getEditorAction being added to an empty list", () => {
     nodes: [{ id: "中国", labels: ["Location"], properties: { name: "中国" }, propertyTypes: { name: "string" } }],
     relationships: [],
   };
-  expect(editorReducer(initialState, getEditorAction(state))).toEqual({
+  expect(nlpReducer(initialState, getEditorAction(state))).toEqual({
     nodes: [{ id: "中国", labels: ["Location"], properties: { name: "中国" }, propertyTypes: { name: "string" } }],
     relationships: [],
   });
@@ -40,7 +40,7 @@ test("should handle a getEditorAction being added to an existing list", () => {
     ],
     relationships: [],
   };
-  expect(editorReducer(previousState, getEditorAction(state))).toEqual({
+  expect(nlpReducer(previousState, getEditorAction(state))).toEqual({
     nodes: [
       { id: "中国", labels: ["Location"], properties: { name: "中国" }, propertyTypes: { name: "string" } },
       { id: "法国", labels: ["Location"], properties: { name: "法国" }, propertyTypes: { name: "string" } },

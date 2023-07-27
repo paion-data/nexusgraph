@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useSelector } from "react-redux";
 import { GlobalState } from "../../nexusgraph-provider/src/shared/globalState";
-import { getEditorNodes, getEditorRelationships } from "../../nexusgraph-provider/src/shared/editor/editorDuck";
+import { getEditorNodes, getEditorRelationships } from "../../nexusgraph-provider/src/shared/nlp/nlpDuck";
 
 import { GraphVisualizer } from "./GraphVisualizer";
 import { StyledVisContainer } from "./VisualizationView.styled";
