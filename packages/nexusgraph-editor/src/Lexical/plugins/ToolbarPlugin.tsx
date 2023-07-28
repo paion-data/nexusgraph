@@ -37,7 +37,7 @@ const LowPriority = 1;
 
 const supportedBlockTypes: Set<string> = new Set(["paragraph", "quote", "code", "h1", "h2", "ul", "ol"]);
 
-const blockTypeToBlockName: { [key: string]: string } = {
+const blockTypeToBlockName: Record<string, string> = {
   code: "Code Block",
   h1: "Large Heading",
   h2: "Small Heading",
@@ -75,7 +75,7 @@ function FloatingLinkEditor({ editor }: { editor: LexicalEditor }) {
   const [lastSelection, setLastSelection] = useState<null | RangeSelection | NodeSelection | GridSelection>(null);
 
   const updateLinkEditor = useCallback(() => {
-    const selection: null | RangeSelection | NodeSelection | GridSelection = $getSelection();
+    const selection: typeof lastSelection = $getSelection();
     if ($isRangeSelection(selection)) {
       const node = getSelectedNode(selection);
       const parent = node.getParent();
