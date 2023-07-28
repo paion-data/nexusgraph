@@ -13,9 +13,9 @@ import * as Sentry from "@sentry/react";
 const reducer = combineReducers<GlobalState>({ ...(rootReducers as any) });
 
 export const store = configureStore({ reducer });
-
-setupSentry();
-
+if (process.env.SENTRY_IO_DSN) {
+  setupSentry();
+}
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <StrictMode>
@@ -30,7 +30,8 @@ root.render(
  */
 function setupSentry(): void {
   Sentry.init({
-    dsn: "https://4e597714b8494ecbab3446f0347907fa@o4505480921022464.ingest.sentry.io/4505480923643904",
+    // dsn: "https://4e597714b8494ecbab3446f0347907fa@o4505480921022464.ingest.sentry.io/4505480923643904",
+    dsn: process.env.SENTRY_IO_DSN as string,
     integrations: [
       new Sentry.BrowserTracing({
         tracePropagationTargets: ["localhost", /^https:\/\/app\.nexusgraph\.com/],
