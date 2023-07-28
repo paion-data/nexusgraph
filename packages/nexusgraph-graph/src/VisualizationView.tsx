@@ -29,7 +29,14 @@ export function Visualization(props: VisualizationProps): JSX.Element {
   );
 }
 
-const transformBasicNodes = (nodes: any[]): BasicNode[] => {
+/**
+ * Converts the obtained nodes type to Basic type
+ *
+ * @param nodes A list of nodes in common format
+ *
+ * @returns BasicNode array
+ */
+export const transformBasicNodes = (nodes: any[]): BasicNode[] => {
   if (nodes.length > 0) {
     nodes.map((node: any) => {
       if (node["fields"]) {
@@ -46,7 +53,14 @@ const transformBasicNodes = (nodes: any[]): BasicNode[] => {
   return nodes;
 };
 
-const transformBasicRelationships = (links: any[]): BasicRelationship[] => {
+/**
+ * Converts the obtained links type to Basic type
+ *
+ * @param links A list of links in common format
+ *
+ * @returns BasicRelationship array
+ */
+export const transformBasicRelationships = (links: any[]): BasicRelationship[] => {
   if (links.length > 0) {
     links.map((link: any) => {
       if (link["fields"]) {
@@ -55,7 +69,7 @@ const transformBasicRelationships = (links: any[]): BasicRelationship[] => {
           startNodeId: link["source"],
           endNodeId: link["target"],
           type: link["fields"]["label"] ? link["fields"]["label"] : ALL_REL_TYPE_SETS,
-          properties: { name: link["fields"]["name"] ? link["fields"]["name"] : link["id"] },
+          properties: { name: link["fields"]["label"] ? link["fields"]["label"] : ALL_REL_TYPE_SETS },
           propertyTypes: { name: "string" },
         };
         links.splice(links.indexOf(link), 1, newLink);
