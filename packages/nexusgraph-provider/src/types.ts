@@ -1,6 +1,6 @@
 //Copyright 2023 Paion Data. All rights reserved.
 export const NLP_DATA = "nlpData";
-export const UPDATE_NLPDATA = "nlpData/UPDATE_NLPDATA";
+export const UPDATE_NLPDATA = NLP_DATA + "/UPDATE_NLPDATA";
 
 export interface NlpNodesProps {
   fields: Record<string, string>;
@@ -24,7 +24,7 @@ export interface NlpAction {
 }
 
 export const EDITOR_LINE = "editorLine";
-export const UPDATE_LINE = "editorLine/UPDATE_LINE";
+export const UPDATE_LINE = EDITOR_LINE + "/UPDATE_LINE";
 
 export interface EditorAction {
   type: typeof UPDATE_LINE;
