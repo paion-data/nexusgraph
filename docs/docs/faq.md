@@ -3,7 +3,7 @@ sidebar_position: 3
 title: Troubleshooting
 ---
 
-title: Troubleshooting
+Troubleshooting
 ======================
 
 This guide lists in detail the troubles that some users may encounter and attaches solutions
@@ -13,13 +13,13 @@ ps:The demonstration is on the macOS system, and other systems such as windows a
 Local Config Issues
 -------------------
 
-### Page scrollbars always exist
+### Editor scrollbar stuck issue
 
 #### Problem Details
 
-After entering the app page, the scroll bar does not disappear and the white border
+After entering the app page, the editor scrollbar stuck
 
-![page-scrollbars-always-exist](development/img/page-scrollbars-always-exist.png)
+![editor-scrollbar-stuck-issue](development/img/editor-scrollbar-stuck-issue.png)
 
 #### Solution details
 
