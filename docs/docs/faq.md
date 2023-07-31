@@ -6,7 +6,8 @@ title: Troubleshooting
 title: Troubleshooting
 ======================
 
-This guide will guide you to solve the problem of partial function failure  
+This guide will guide you to solve the problem of partial function failure
+
 ps:The demonstration is on the macOS system, and other systems such as windows are similarly processed
 
 Local Config Issues
@@ -30,6 +31,6 @@ Change the '**always**' option to '**Automatically based on mouse or trackpad**'
 
 ![Change-the-display-scrollbar-setting1](development/img/Change-the-display-scrollbar-setting1.png)
 
-**or**
+or
 
 ![Change-the-display-scrollbar-setting2](development/img/Change-the-display-scrollbar-setting2.png)
