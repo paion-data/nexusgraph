@@ -29,8 +29,8 @@ Open the **general settings** and find the **scroll bar settings**
 
 Change the '**always**' option to '**Automatically based on mouse or trackpad**' or '**When scrolling**'
 
-![Change-option-to-Automatically-based-on-mouse-or-trackpad](development/img/Change-option-to-Automatically-based-on-mouse-or-trackpad.png)
+![scrollbar-automatically](development/img/scrollbar-automatically.png)
 
 or
 
-![Change-option-to-When-scrolling](development/img/Change-option-to-When-scrolling.png)
+![scrollbar-when-scrolling](development/img/scrollbar-when-scrolling.png)
