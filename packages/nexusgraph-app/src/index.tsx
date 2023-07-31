@@ -30,11 +30,10 @@ root.render(
  */
 function setupSentry(): void {
   Sentry.init({
-    // dsn: "https://4e597714b8494ecbab3446f0347907fa@o4505480921022464.ingest.sentry.io/4505480923643904",
     dsn: process.env.SENTRY_IO_DSN as string,
     integrations: [
       new Sentry.BrowserTracing({
-        tracePropagationTargets: ["localhost", /^https:\/\/app\.nexusgraph\.com/],
+        tracePropagationTargets: [/^https:\/\/app\.nexusgraph\.com/],
       }),
       new Sentry.Replay(),
     ],
