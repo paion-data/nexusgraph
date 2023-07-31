@@ -11,7 +11,7 @@ module.exports = function (webpackEnv) {
 
   const env = dotenv.config().parsed;
   const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+    prev[`${next}`] = JSON.stringify(env[next]);
     return prev;
   }, {});
 
@@ -56,7 +56,7 @@ module.exports = function (webpackEnv) {
       ],
     },
     plugins: [
-      new webpack.DefinePlugin(envKeys),
+      new webpack.DefinePlugin({ "process.env": envKeys }),
       new webpack.HotModuleReplacementPlugin(),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
