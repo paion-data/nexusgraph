@@ -6,7 +6,7 @@ title: Troubleshooting
 title: Troubleshooting
 ======================
 
-This guide will guide you to solve the problem of partial function failure
+This guide lists in detail the troubles that some users may encounter and attaches solutions
 
 ps:The demonstration is on the macOS system, and other systems such as windows are similarly processed
 
@@ -29,8 +29,8 @@ Open the **general settings** and find the **scroll bar settings**
 
 Change the '**always**' option to '**Automatically based on mouse or trackpad**' or '**When scrolling**'
 
-![Change-the-display-scrollbar-setting1](development/img/Change-the-display-scrollbar-setting1.png)
+![Change-option-to-Automatically-based-on-mouse-or-trackpad](development/img/Change-option-to-Automatically-based-on-mouse-or-trackpad.png)
 
 or
 
-![Change-the-display-scrollbar-setting2](development/img/Change-the-display-scrollbar-setting2.png)
+![Change-option-to-When-scrolling](development/img/Change-option-to-When-scrolling.png)
