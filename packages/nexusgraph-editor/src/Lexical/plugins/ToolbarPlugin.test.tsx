@@ -1,21 +1,16 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { render, fireEvent, getByLabelText, getByText, getByRole } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Provider } from "react-redux";
 import LexicalEditor from "../LexicalEditor";
 import { screen } from "@testing-library/dom";
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import rootReducers from "../../../../nexusgraph-graph/src/shared/rootReducer";
 import React from "react";
-
-const reducer = combineReducers({ ...rootReducers });
-const store = configureStore({ reducer });
+import { StoreWrapper } from "../../../../nexusgraph-provider/index";
 
 test("Button disabled should be added", async () => {
   render(
-    <Provider store={store}>
+    <StoreWrapper>
       <LexicalEditor />
-    </Provider>
+    </StoreWrapper>
   );
   const buttonList = ["Undo", "Redo"];
   for (let i = 0; i < buttonList.length; i++) {
@@ -25,9 +20,9 @@ test("Button disabled should be added", async () => {
 
 test("Button active should be added", async () => {
   render(
-    <Provider store={store}>
+    <StoreWrapper>
       <LexicalEditor />
-    </Provider>
+    </StoreWrapper>
   );
   const buttonList = [
     "Undo",
@@ -54,9 +49,9 @@ test("Button active should be added", async () => {
 
 test("OptionsButton text should be added", async () => {
   render(
-    <Provider store={store}>
+    <StoreWrapper>
       <LexicalEditor />
-    </Provider>
+    </StoreWrapper>
   );
   const spanList = [
     "Normal",

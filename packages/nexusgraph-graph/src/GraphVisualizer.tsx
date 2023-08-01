@@ -4,15 +4,16 @@ import { useEffect, useState } from "react";
 import { NodeInspectorPanel, defaultPanelWidth } from "./inspection-panel/NodeInspectorPanel";
 import { StyledFullSizeContainer, panelMinWidth } from "./styles/InspectorContainer.styled";
 import { GraphStyleModel } from "./GraphStyle";
-import { GetNodeNeighboursFn, NodesAndRels } from "./event-handler/GraphEventHandlerModel";
+import { GetNodeNeighboursFn } from "./event-handler/GraphEventHandlerModel";
 import { VizItem } from "./VizItem";
 import { GraphStats } from "./GraphStats";
-import { BasicNode, BasicRelationship, Graph } from "./Graph";
 import { RelationshipModel } from "./models/Relationship";
 import { GraphModel } from "./models/Graph";
 import { DetailsPane } from "./inspection-panel/properties-panel-content/properties-panel-content/DetailsPane";
 import OverviewPane from "./inspection-panel/properties-panel-content/properties-panel-content/OverviewPane";
 import { NodesExpandProcessor } from "./processor/NodesExpand";
+import { Graph } from "./Graph";
+import { BasicNode, BasicRelationship } from "./basicTypes";
 
 /**
  * Both {@link GraphVisualizerProps.relationships} and {@link GraphVisualizerProps.nodes} are immutable.
