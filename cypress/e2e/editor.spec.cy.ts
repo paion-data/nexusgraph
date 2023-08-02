@@ -9,7 +9,7 @@ beforeEach(() => {
 });
 
 describe("undo redo button E2E test", () => {
-  it("input text and click Undo  , 'China' not exist", () => {
+  it("", () => {
     cy.get('[aria-label = "Undo"]').click();
     cy.get(".editor-paragraph").should("have.text", "");
   });
