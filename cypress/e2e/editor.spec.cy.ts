@@ -15,6 +15,13 @@ beforeEach(() => {
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
 });
 
+beforeEach(() => {
+  cy.visit("http://localhost:8080/").wait(1000);
+  cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" });
+  cy.get(".editor-paragraph").type("China").wait(1000);
+  cy.get('span[data-lexical-text = "true"]').type("{selectall}");
+});
+
 describe("undo redo button E2E test", () => {
   it("input text and click Undo ,'China' not exist", () => {
     cy.get('[aria-label = "Undo"]').click();
