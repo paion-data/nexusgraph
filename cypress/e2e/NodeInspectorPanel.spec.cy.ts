@@ -1,8 +1,13 @@
 // Copyright 2023 Paion Data. All rights reserved.
+afterEach(() => {
+  cy.clearAllCookies();
+  cy.clearAllLocalStorage();
+  cy.clearAllSessionStorage();
+});
 
 describe("Graph browser stats panel E2E tests", () => {
   it("Panel can reflect the INITIAL graph rendering stats", () => {
-    cy.visit("http://localhost:8080/").wait(1000);
+    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
 
     cy.intercept("POST", "/v1/data/entityExtraction", {
       fixture: "single-rdf-pair-graph.json",
