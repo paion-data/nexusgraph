@@ -2,9 +2,11 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 describe("nexusgraph basic test", () => {
-  it("Enter text in the editor and the corresponding node is generated in the graph", () => {
-    cy.visit("http://localhost:8080/", { failOnStatusCode: false }).wait(1000);
+  beforeEach(() => {
+    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
+  });
 
+  it("Enter text in the editor and the corresponding node is generated in the graph", () => {
     cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" }).as("getEditorData");
 
     cy.get(".editor-paragraph").type("China").wait(1000);
@@ -12,8 +14,6 @@ describe("nexusgraph basic test", () => {
   });
 
   it('Click the menu "Expand" button to expand the neighbor node', () => {
-    cy.visit("http://localhost:8080/", { failOnStatusCode: false });
-
     cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" }).as("getEditorData");
 
     cy.get(".editor-paragraph").type("China").wait(1000);

@@ -5,6 +5,8 @@ import App from "./App";
 import { StrictMode } from "react";
 import * as Sentry from "@sentry/react";
 import { StoreWrapper } from "../../nexusgraph-provider";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LogtoProviderWapper, { Callback } from "./LogtoProvider";
 
 if (process.env.SENTRY_IO_DSN) {
   setupSentry();
@@ -14,7 +16,14 @@ const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
   <StrictMode>
     <StoreWrapper>
-      <App />
+      <LogtoProviderWapper>
+        <Router>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/login" element={<Callback />} />
+          </Routes>
+        </Router>
+      </LogtoProviderWapper>
     </StoreWrapper>
   </StrictMode>
 );

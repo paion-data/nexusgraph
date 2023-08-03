@@ -93,6 +93,10 @@ jobs:
           echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
           echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
           echo "SENTRY_IO_DSN=${{ secrets.SENTRY_IO_DSN }}" >> .env
+          echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
+          echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
+          echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
+          echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
       - name: Bundle up a production build without error
         run: yarn build
       - name: Start the production server
@@ -102,6 +106,14 @@ jobs:
           yarn wait-on-dev
       - name: Run end-to-end test
         run: yarn e2e
+      - name: Upload test screenshots
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-screenshots-${{ matrix.node_version }}
+          path: |
+            ./cypress/screenshots
+            ./cypress/videos
 
   release:
     name: Publish NPM Packages

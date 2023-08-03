@@ -2,7 +2,7 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 beforeEach(() => {
-  cy.visit("http://localhost:8080/").wait(1000);
+  cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
   cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" });
   cy.get(".editor-paragraph").type("China").wait(1000);
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
