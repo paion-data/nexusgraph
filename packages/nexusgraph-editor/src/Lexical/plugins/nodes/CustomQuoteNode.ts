@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 
 import { QuoteNode } from "@lexical/rich-text";
-import { NodeKey } from "lexical/LexicalNode";
+import { LexicalNode, NodeKey } from "lexical/LexicalNode";
 import { $createLineBreakNode, $createParagraphNode, RangeSelection, SerializedElementNode } from "lexical";
 
 export type SerializedCustomQuoteNode = SerializedElementNode;
@@ -64,3 +64,6 @@ export class CustomQuoteNode extends QuoteNode {
 export function $createCustomQuoteNode(): CustomQuoteNode {
   return new CustomQuoteNode();
 }
+export function $isCustomQuoteNode(node: LexicalNode | null | undefined): node is CustomQuoteNode {
+    return node instanceof CustomQuoteNode;
+  }

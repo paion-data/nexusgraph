@@ -131,3 +131,14 @@ describe("dropdown button E2E test", () => {
     cy.get(".editor-paragraph").should("exist");
   });
 });
+
+describe("quote e2e test after fix quote line break",()=>{
+  it("screen blank lines to exit quote",()=>{
+    cy.get('[aria-label = "Formatting Options"]').click().wait(1000);
+    cy.contains("Quote").click().wait(1000);
+    cy.get(".editor-quote").type('{enter}');
+    cy.get(".editor-quote").type('{enter}');
+    cy.get(".editor-quote").type('{enter}');
+    cy.get(".editor-paragraph").should("exist");
+  })
+})
