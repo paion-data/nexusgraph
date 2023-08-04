@@ -89,9 +89,9 @@ export class CustomQuoteNode extends QuoteNode {
     ) {
       children[childrenLength - 1].remove();
       children[childrenLength - 2].remove();
-      const newElement = $createParagraphNode();
-      this.insertAfter(newElement, restoreSelection);
-      return newElement;
+      const newBlock = $createParagraphNode();
+      this.insertAfter(newBlock, restoreSelection);
+      return newBlock;
     }
     const insertNodes: string | any[] = [];
     if (insertNodes.length > 0) {
