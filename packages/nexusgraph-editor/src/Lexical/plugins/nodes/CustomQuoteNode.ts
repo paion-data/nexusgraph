@@ -8,16 +8,14 @@ export type SerializedCustomQuoteNode = SerializedElementNode;
 
 export class CustomQuoteNode extends QuoteNode {
   /**
-   * Constructs a function forwarded to the superclass
-   *
-   * This is how your rebuild node has the key so the framework knows what to do with it
-   * (the super function passes the key to the super class new node）
+   * Call the constructor of a parent class.
    *
    * @param key
    */
   constructor(key?: NodeKey) {
     super(key);
   }
+
   /**
    * Rebuilds a string type of node with its associated class prototype
    *
