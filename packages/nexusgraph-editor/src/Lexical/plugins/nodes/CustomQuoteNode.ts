@@ -10,7 +10,7 @@ export class CustomQuoteNode extends QuoteNode {
   /**
    * Call the constructor of a parent class.
    *
-   * @param key
+   * @param key node type
    */
   constructor(key?: NodeKey) {
     super(key);
@@ -28,11 +28,11 @@ export class CustomQuoteNode extends QuoteNode {
   }
 
   /**
-   * Rebuilds a node with its associated class prototype
+   * uses cloning to ensure consistency between creation of new EditorState snapshots
    *
-   * @param QuoteNode
+   * @param QuoteNode node QuoteNode
    *
-   * @returns the new CustomQuoteNode
+   * @returns instanceof subclass CustomQuoteNode
    */
   static clone(node: QuoteNode): QuoteNode {
     return new CustomQuoteNode(node.__key);
@@ -41,7 +41,7 @@ export class CustomQuoteNode extends QuoteNode {
   /**
    * the JSON of CustomQuoteNode state serialized back to CustomQuoteNode
    *
-   * @param serializedNode
+   * @param serializedNode the JSON of CustomQuoteNode state
    *
    * @returns CustomQuoteNode
    */
@@ -67,9 +67,9 @@ export class CustomQuoteNode extends QuoteNode {
   }
 
   /**
-   * Realize the line break function of quote, and exit quote when there are more than two blank lines
+   * Realize the line break function of quote, and exit quote with two consecutive blank lines
    *
-   * @param _
+   * @param _ selection
    *
    * @param restoreSelection
    *
@@ -103,16 +103,16 @@ export class CustomQuoteNode extends QuoteNode {
 }
 
 /**
- * create CustomQuoteNode
+ * create CustomQuoteNode node
  *
- * @returns the function of createCustomQuoteNode
+ * @returns an instance of the subclass CustomQuoteNode
  */
 export function $createCustomQuoteNode(): CustomQuoteNode {
   return new CustomQuoteNode();
 }
 
 /**
- * Determine whether it is CustomQuoteNode
+ * Determine whether it is an instance of the subclass CustomQuoteNode
  *
  * @param node
  *
