@@ -146,8 +146,7 @@ describe("quote e2e test after fix quote line break", () => {
   });
 
   it("quote can be entered in multiple lines", () => {
-    cy.get('span[data-lexical-text = "true"]').type("{selectall}");
     cy.get(".editor-quote").type("{enter}");
-    cy.get(".editor-quote").children().should("have.lengthOf", 2);
+    cy.get(".editor-quote").children("br").should("have.lengthOf", 2);
   });
 });
