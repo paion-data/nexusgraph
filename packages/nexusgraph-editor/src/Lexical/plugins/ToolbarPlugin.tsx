@@ -32,7 +32,7 @@ import {
 import { createPortal } from "react-dom";
 import { $createHeadingNode, $createQuoteNode, $isHeadingNode } from "@lexical/rich-text";
 import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
-import { $isCustomQuoteNode} from "./nodes/CustomQuoteNode";
+import { $isCustomQuoteNode } from "./nodes/CustomQuoteNode";
 
 const LowPriority = 1;
 
@@ -448,9 +448,9 @@ export default function ToolbarPlugin() {
           if ($isCodeNode(element)) {
             setCodeLanguage(element.getLanguage() || getDefaultCodeLanguage());
           }
-          if($isCustomQuoteNode(element)){
-          const type = 'quote';
-          setBlockType(type);
+          if ($isCustomQuoteNode(element)) {
+            const type = "quote";
+            setBlockType(type);
           }
         }
       }

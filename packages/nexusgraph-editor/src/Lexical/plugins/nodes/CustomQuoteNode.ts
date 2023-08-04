@@ -65,5 +65,5 @@ export function $createCustomQuoteNode(): CustomQuoteNode {
   return new CustomQuoteNode();
 }
 export function $isCustomQuoteNode(node: LexicalNode | null | undefined): node is CustomQuoteNode {
-    return node instanceof CustomQuoteNode;
-  }
+  return node instanceof CustomQuoteNode;
+}
