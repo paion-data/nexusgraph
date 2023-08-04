@@ -1,5 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import React from "react";
 
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
@@ -18,6 +17,7 @@ import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 
 import styles from "./LexicalEditor.module.css";
 import { Paragraph } from "./plugins/styled";
+import { CustomQuoteNode } from "./plugins/nodes/CustomQuoteNode";
 import ExampleTheme from "./themes/ExampleTheme";
 import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
@@ -44,6 +44,13 @@ export const editorConfig = {
     LinkNode,
     CodeNode,
     CodeHighlightNode,
+    CustomQuoteNode,
+    {
+      replace: QuoteNode,
+      with: () => {
+        return new CustomQuoteNode();
+      },
+    },
   ],
 };
 
