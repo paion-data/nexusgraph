@@ -3,9 +3,7 @@
 import { QuoteNode } from "@lexical/rich-text";
 import { LexicalNode, NodeKey } from "lexical/LexicalNode";
 import {
-  $createLineBreakNode,
   $createParagraphNode,
-  ParagraphNode,
   RangeSelection,
   SerializedElementNode,
 } from "lexical";
