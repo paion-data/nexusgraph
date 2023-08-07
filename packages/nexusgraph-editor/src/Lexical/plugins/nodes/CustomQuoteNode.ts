@@ -2,11 +2,7 @@
 
 import { QuoteNode } from "@lexical/rich-text";
 import { LexicalNode, NodeKey } from "lexical/LexicalNode";
-import {
-  $createParagraphNode,
-  RangeSelection,
-  SerializedElementNode,
-} from "lexical";
+import { $createParagraphNode, RangeSelection, SerializedElementNode } from "lexical";
 
 export type SerializedCustomQuoteNode = SerializedElementNode;
 
