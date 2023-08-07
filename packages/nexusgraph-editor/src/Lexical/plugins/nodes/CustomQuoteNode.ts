@@ -2,7 +2,7 @@
 
 import { QuoteNode } from "@lexical/rich-text";
 import { LexicalNode, NodeKey } from "lexical/LexicalNode";
-import { $createLineBreakNode, $createParagraphNode, RangeSelection, SerializedElementNode } from "lexical";
+import { $createLineBreakNode, $createParagraphNode, ParagraphNode, RangeSelection, SerializedElementNode } from "lexical";
 
 export type SerializedCustomQuoteNode = SerializedElementNode;
 
@@ -34,7 +34,7 @@ export class CustomQuoteNode extends QuoteNode {
    *
    * @returns instanceof subclass CustomQuoteNode
    */
-  static clone(node: QuoteNode): QuoteNode {
+  static clone(node: QuoteNode): CustomQuoteNode {
     return new CustomQuoteNode(node.__key);
   }
 
@@ -62,7 +62,7 @@ export class CustomQuoteNode extends QuoteNode {
     return {
       ...super.exportJSON(),
       type: "custom_quote",
-      version: 1,
+      // version: 1,
     };
   }
 
@@ -73,9 +73,9 @@ export class CustomQuoteNode extends QuoteNode {
    *
    * @param restoreSelection
    *
-   * @returns null
+   * @returns null | ParagraphNode
    */
-  insertNewAfter(_: RangeSelection, restoreSelection?: boolean) {
+  insertNewAfter(_: RangeSelection, restoreSelection?: boolean): any{
     const children = this.getChildren();
     const childrenLength = children.length;
 
@@ -93,11 +93,7 @@ export class CustomQuoteNode extends QuoteNode {
       this.insertAfter(newBlock, restoreSelection);
       return newBlock;
     }
-    const insertNodes: string | any[] = [];
-    if (insertNodes.length > 0) {
-      _.insertNodes([$createLineBreakNode(), ...insertNodes]);
-      return insertNodes[insertNodes.length - 1];
-    }
+
     return null;
   }
 }

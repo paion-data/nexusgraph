@@ -145,8 +145,16 @@ describe("quote e2e test after fix quote line break", () => {
     cy.get(".editor-paragraph").should("exist");
   });
 
-  it("quote can be entered in multiple lines", () => {
+  it("Click enter to change the line", () => {
     cy.get(".editor-quote").type("{enter}");
     cy.get(".editor-quote").children("br").should("have.lengthOf", 2);
+  });
+
+  it("quote can be entered in multiple lines", () => {
+    cy.get(".editor-quote").type("{enter}");
+    cy.get(".editor-quote").type("China").wait(1000);
+    cy.get(".editor-quote").type("{enter}");
+    cy.get(".editor-quote").type("nexusgraph").wait(1000);
+    cy.get(".editor-quote").children("span").should("have.lengthOf", 3);
   });
 });
