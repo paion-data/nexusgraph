@@ -151,6 +151,7 @@ describe("quote e2e test after fix quote line break", () => {
   });
 
   it("quote can be entered in multiple lines", () => {
+    cy.get(".editor-quote").type("China");
     cy.get(".editor-quote").type("{enter}");
     cy.get(".editor-quote").type("China").wait(1000);
     cy.get(".editor-quote").type("{enter}");
