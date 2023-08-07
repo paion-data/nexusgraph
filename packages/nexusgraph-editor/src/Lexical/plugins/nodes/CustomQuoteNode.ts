@@ -2,7 +2,13 @@
 
 import { QuoteNode } from "@lexical/rich-text";
 import { LexicalNode, NodeKey } from "lexical/LexicalNode";
-import { $createLineBreakNode, $createParagraphNode, ParagraphNode, RangeSelection, SerializedElementNode } from "lexical";
+import {
+  $createLineBreakNode,
+  $createParagraphNode,
+  ParagraphNode,
+  RangeSelection,
+  SerializedElementNode,
+} from "lexical";
 
 export type SerializedCustomQuoteNode = SerializedElementNode;
 
@@ -75,7 +81,7 @@ export class CustomQuoteNode extends QuoteNode {
    *
    * @returns null | ParagraphNode
    */
-  insertNewAfter(_: RangeSelection, restoreSelection?: boolean): any{
+  insertNewAfter(_: RangeSelection, restoreSelection?: boolean): any {
     const children = this.getChildren();
     const childrenLength = children.length;
 
