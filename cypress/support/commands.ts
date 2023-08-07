@@ -1,6 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
 Cypress.Commands.add("login", ({ username, password }) => {
-
   cy.origin(
     Cypress.env("logtoEndpointUrl").concat("/sign-in"),
     { args: { username, password } },
@@ -10,7 +9,7 @@ Cypress.Commands.add("login", ({ username, password }) => {
       cy.get('input[name="identifier"]').type(username);
       cy.get('button[type="submit"]').click();
       cy.get('input[name="password"]').type(password);
-      cy.get('button[type="submit"]').click().wait(1000);
+      cy.get('button[type="submit"]').click().wait(10000);
     }
   );
 });
