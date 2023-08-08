@@ -488,12 +488,12 @@ export const LinkEditor = styled.div`
 `;
 
 export const Paragraph = styled.div`
-    p ,blockquote ,h1 ,h2 ,ul ,ol{
+    p ,blockquote ,h1 ,h2 ,ul ,ol ,h3 ,h4 ,h5 ,h6{
     margin-left: 1px;
     margin-top: 8px;
     position: relative;
 
-    strong{
+    strong, span ,em{
       &.font-semibold {
         font-weight: 600
       }
@@ -521,87 +521,6 @@ export const Paragraph = styled.div`
         font-size: 94%;
       }
     }
-      
-      span{
-        &.font-semibold {
-          font-weight: 600
-        }
-        
-        &.italic {
-          font-style: italic
-        }
-        
-        &.underline {
-          text-decoration: underline;
-        }
-        
-        &.line-through {
-          text-decoration: line-through;
-        }
-        
-        &.underlined-line-through {
-          text-decoration: underline line-through;
-        }
-
-        &.code {
-          background-color:rgba(137, 225, 252, 0.3);
-          padding: 1px 0.25rem;
-          border-radius: 5px;
-          font-size: 94%;
-        }
-      }
-      
-      code{
-        &.font-semibold {
-          font-weight: 600
-        }
-        
-        &.italic {
-          font-style: italic
-        }
-        
-        &.underline {
-          text-decoration: underline;
-        }
-        
-        &.line-through {
-          text-decoration: line-through;
-        }
-        
-        &.underlined-line-through {
-          text-decoration: underline line-through;
-        }
-      }
-
-      em{
-        &.font-semibold {
-          font-weight: 600
-        }
-        
-        &.italic {
-          font-style: italic
-        }
-        
-        &.underline {
-          text-decoration: underline;
-        }
-        
-        &.line-through {
-          text-decoration: line-through;
-        }
-        
-        &.underlined-line-through {
-          text-decoration: underline line-through;
-        }
-
-        &.code {
-          background-color:rgba(137, 225, 252, 0.3);
-          padding: 1px 0.25rem;
-          border-radius: 5px;
-          font-size: 94%;
-        }
-      }
-    
     }
 
     code{
