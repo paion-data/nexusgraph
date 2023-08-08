@@ -97,13 +97,8 @@ jobs:
           echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
           echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
           echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
-      - name: Bundle up a production build without error
-        run: yarn build
-      - name: Start the production server
-        run: |
-          cd dist
-          python3 -m http.server 8080 --bind 127.0.0.1 &
-          yarn wait-on-dev
+      - name: Start in dev mode
+        run: yarn start &
       - name: Run end-to-end test
         run: yarn e2e
       - name: Upload test screenshots
