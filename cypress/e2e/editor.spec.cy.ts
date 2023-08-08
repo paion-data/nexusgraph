@@ -8,6 +8,12 @@ beforeEach(() => {
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
 });
 
+afterEach(() => {
+  cy.clearAllCookies();
+  cy.clearAllLocalStorage();
+  cy.clearAllSessionStorage();
+});
+
 describe("undo redo button E2E test", () => {
   it("input text and click Undo ,'China' not exist", () => {
     cy.get('[aria-label = "Undo"]').click();
