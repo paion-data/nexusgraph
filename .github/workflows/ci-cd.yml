@@ -99,7 +99,7 @@ jobs:
           echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
       - name: Start in dev mode
         run: yarn start &
-      - name: Run end-to-end test
+      - name: Run end-to-end tests
         run: yarn e2e
       - name: Upload test screenshots
         if: failure()
@@ -109,6 +109,13 @@ jobs:
           path: |
             ./cypress/screenshots
             ./cypress/videos
+      - name: Bundle up a production build
+        run: yarn build
+      - name: Run end-to-end tests against production server
+        run: |
+          cd dist
+          python3 -m http.server 8080 --bind 127.0.0.1 &
+          yarn wait-on-dev
 
   release:
     name: Publish NPM Packages
