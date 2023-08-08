@@ -88,7 +88,7 @@ After that, inside _nexusgraph_ directory, we can run several commands:
 - `yarn e2e`: Run end-to-end test
 
    - `yarn wait-on-dev`: Auxiliary command for e2e test which waits for production server
-   `http://localhost:9000` to become available on CI/CD server
+   `http://localhost:8080` to become available on CI/CD server
 
 Happy building awesome knowledge graph app!
 
