@@ -35,15 +35,28 @@ import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages 
 
 const LowPriority = 1;
 
-const supportedBlockTypes: Set<string> = new Set(["paragraph", "quote", "code", "h1", "h2", "ul", "ol"]);
+const supportedBlockTypes: Set<string> = new Set([
+  "paragraph",
+  "quote",
+  "code",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "ul",
+  "ol",
+]);
 
 const blockTypeToBlockName: Record<string, string> = {
   code: "Code Block",
-  h1: "Large Heading",
-  h2: "Small Heading",
-  h3: "Heading",
-  h4: "Heading",
-  h5: "Heading",
+  h1: "Heading 1",
+  h2: "Heading 2",
+  h3: "Heading 3",
+  h4: "Heading 4",
+  h5: "Heading 5",
+  h6: "Heading 6",
   ol: "Numbered List",
   paragraph: "Normal",
   quote: "Quote",
@@ -300,10 +313,10 @@ function BlockOptionsDropdownList({
         }
       });
     }
-    setShowBlockOptionsDropDown(false);
+    setShowBlockOptionsDropDown(false); //close dropdown
   };
 
-  const formatLargeHeading = () => {
+  const formatFirstHeading = () => {
     if (blockType !== "h1") {
       editor.update(() => {
         const selection = $getSelection();
@@ -316,13 +329,65 @@ function BlockOptionsDropdownList({
     setShowBlockOptionsDropDown(false);
   };
 
-  const formatSmallHeading = () => {
+  const formatSecondHeading = () => {
     if (blockType !== "h2") {
       editor.update(() => {
         const selection = $getSelection();
 
         if ($isRangeSelection(selection)) {
           $wrapNodes(selection, () => $createHeadingNode("h2"));
+        }
+      });
+    }
+    setShowBlockOptionsDropDown(false);
+  }; //切换文本节点，执行这个函数之前，blockType是normal;
+
+  const formatThirdHeading = () => {
+    if (blockType !== "h3") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createHeadingNode("h3"));
+        }
+      });
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  const formatFourthHeading = () => {
+    if (blockType !== "h4") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createHeadingNode("h4"));
+        }
+      });
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  const formatFifthHeading = () => {
+    if (blockType !== "h5") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createHeadingNode("h5"));
+        }
+      });
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  const formatSixthHeading = () => {
+    if (blockType !== "h6") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createHeadingNode("h6"));
         }
       });
     }
@@ -378,37 +443,46 @@ function BlockOptionsDropdownList({
       <button className="item" onClick={formatParagraph}>
         <span className="icon paragraph"></span>
         <span className="text">Normal</span>
-        {blockType === "paragraph" && <span className="active" />}
       </button>
-      <button className="item" onClick={formatLargeHeading}>
-        <span className="icon large-heading"></span>
-        <span className="text">Large Heading</span>
-        {blockType === "h1" && <span className="active" />}
+      <button className="item" onClick={formatFirstHeading}>
+        <span className="icon first-heading"></span>
+        <span className="text">Heading 1</span>
       </button>
-      <button className="item" onClick={formatSmallHeading}>
-        <span className="icon small-heading"></span>
-        <span className="text">Small Heading</span>
-        {blockType === "h2" && <span className="active" />}
+      <button className="item" onClick={formatSecondHeading}>
+        <span className="icon second-heading"></span>
+        <span className="text">Heading 2</span>
+      </button>
+      <button className="item" onClick={formatThirdHeading}>
+        <span className="icon third-heading"></span>
+        <span className="text">Heading 3</span>
+      </button>
+      <button className="item" onClick={formatFourthHeading}>
+        <span className="icon fourth-heading"></span>
+        <span className="text">Heading 4</span>
+      </button>
+      <button className="item" onClick={formatFifthHeading}>
+        <span className="icon fifth-heading"></span>
+        <span className="text">Heading 5</span>
+      </button>
+      <button className="item" onClick={formatSixthHeading}>
+        <span className="icon sixth-heading"></span>
+        <span className="text">Heading 6</span>
       </button>
       <button className="item" onClick={formatBulletList}>
         <span className="icon bullet-list"></span>
         <span className="text">Bulleted List</span>
-        {blockType === "ul" && <span className="active" />}
       </button>
       <button className="item" onClick={formatNumberedList}>
         <span className="icon numbered-list"></span>
         <span className="text">Numbered List</span>
-        {blockType === "ol" && <span className="active" />}
       </button>
       <button className="item" onClick={formatQuote}>
         <span className="icon quote"></span>
         <span className="text">Quote</span>
-        {blockType === "quote" && <span className="active" />}
       </button>
       <button className="item" onClick={formatCode}>
         <span className="icon code"></span>
         <span className="text">Code Block</span>
-        {blockType === "code" && <span className="active" />}
       </button>
     </Dropdown>
   );
