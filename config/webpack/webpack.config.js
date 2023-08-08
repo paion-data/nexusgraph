@@ -26,7 +26,7 @@ module.exports = function (webpackEnv) {
     module: {
       rules: [
         {
-          test: /\.(js|mjs|jsx|ts|tsx|svg)$/,
+          test: /\.(js|mjs|jsx|ts|tsx)$/,
           exclude: /(node_modules|bower_components)/,
           loader: "babel-loader",
           options: { presets: ["@babel/env"] },
@@ -41,6 +41,14 @@ module.exports = function (webpackEnv) {
                 importLoaders: 1,
                 modules: true,
               },
+            },
+          ],
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: "svg-url-loader",
             },
           ],
         },
