@@ -9,8 +9,8 @@ describe("nexusgraph basic test", () => {
   afterEach(() => {
     cy.clearAllCookies();
     cy.clearAllLocalStorage();
-    cy.clearAllSessionStorage()
-  })
+    cy.clearAllSessionStorage();
+  });
 
   it("Enter text in the editor and the corresponding node is generated in the graph", () => {
     cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" }).as("getEditorData");
