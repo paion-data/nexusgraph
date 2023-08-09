@@ -30,7 +30,7 @@ import {
   ListNode,
 } from "@lexical/list";
 import { createPortal } from "react-dom";
-import { $createHeadingNode, $createQuoteNode, $isHeadingNode } from "@lexical/rich-text";
+import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType } from "@lexical/rich-text";
 import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
 
 const LowPriority = 1;
@@ -313,81 +313,16 @@ function BlockOptionsDropdownList({
         }
       });
     }
-    setShowBlockOptionsDropDown(false); //close dropdown
-  };
-
-  const formatFirstHeading = () => {
-    if (blockType !== "h1") {
-      editor.update(() => {
-        const selection = $getSelection();
-
-        if ($isRangeSelection(selection)) {
-          $wrapNodes(selection, () => $createHeadingNode("h1"));
-        }
-      });
-    }
     setShowBlockOptionsDropDown(false);
   };
 
-  const formatSecondHeading = () => {
-    if (blockType !== "h2") {
+  const formatHeading = (headingSize: HeadingTagType) => {
+    if (blockType !== headingSize) {
       editor.update(() => {
         const selection = $getSelection();
 
         if ($isRangeSelection(selection)) {
-          $wrapNodes(selection, () => $createHeadingNode("h2"));
-        }
-      });
-    }
-    setShowBlockOptionsDropDown(false);
-  }; //切换文本节点，执行这个函数之前，blockType是normal;
-
-  const formatThirdHeading = () => {
-    if (blockType !== "h3") {
-      editor.update(() => {
-        const selection = $getSelection();
-
-        if ($isRangeSelection(selection)) {
-          $wrapNodes(selection, () => $createHeadingNode("h3"));
-        }
-      });
-    }
-    setShowBlockOptionsDropDown(false);
-  };
-
-  const formatFourthHeading = () => {
-    if (blockType !== "h4") {
-      editor.update(() => {
-        const selection = $getSelection();
-
-        if ($isRangeSelection(selection)) {
-          $wrapNodes(selection, () => $createHeadingNode("h4"));
-        }
-      });
-    }
-    setShowBlockOptionsDropDown(false);
-  };
-
-  const formatFifthHeading = () => {
-    if (blockType !== "h5") {
-      editor.update(() => {
-        const selection = $getSelection();
-
-        if ($isRangeSelection(selection)) {
-          $wrapNodes(selection, () => $createHeadingNode("h5"));
-        }
-      });
-    }
-    setShowBlockOptionsDropDown(false);
-  };
-
-  const formatSixthHeading = () => {
-    if (blockType !== "h6") {
-      editor.update(() => {
-        const selection = $getSelection();
-
-        if ($isRangeSelection(selection)) {
-          $wrapNodes(selection, () => $createHeadingNode("h6"));
+          $wrapNodes(selection, () => $createHeadingNode(headingSize));
         }
       });
     }
@@ -444,27 +379,27 @@ function BlockOptionsDropdownList({
         <span className="icon paragraph"></span>
         <span className="text">Normal</span>
       </button>
-      <button className="item" onClick={formatFirstHeading}>
+      <button className="item" onClick={() => formatHeading("h1")}>
         <span className="icon first-heading"></span>
         <span className="text">Heading 1</span>
       </button>
-      <button className="item" onClick={formatSecondHeading}>
+      <button className="item" onClick={() => formatHeading("h2")}>
         <span className="icon second-heading"></span>
         <span className="text">Heading 2</span>
       </button>
-      <button className="item" onClick={formatThirdHeading}>
+      <button className="item" onClick={() => formatHeading("h3")}>
         <span className="icon third-heading"></span>
         <span className="text">Heading 3</span>
       </button>
-      <button className="item" onClick={formatFourthHeading}>
+      <button className="item" onClick={() => formatHeading("h4")}>
         <span className="icon fourth-heading"></span>
         <span className="text">Heading 4</span>
       </button>
-      <button className="item" onClick={formatFifthHeading}>
+      <button className="item" onClick={() => formatHeading("h5")}>
         <span className="icon fifth-heading"></span>
         <span className="text">Heading 5</span>
       </button>
-      <button className="item" onClick={formatSixthHeading}>
+      <button className="item" onClick={() => formatHeading("h6")}>
         <span className="icon sixth-heading"></span>
         <span className="text">Heading 6</span>
       </button>
