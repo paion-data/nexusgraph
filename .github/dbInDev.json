@@ -1,0 +1,25 @@
+{
+  "nodes": [
+    {
+      "id": "person-1",
+      "fields": {
+        "name": "Amy"
+      }
+    },
+    {
+      "id": "person-2",
+      "fields": {
+        "name": "Jane"
+      }
+    }
+  ],
+  "links": [
+    {
+      "source": "person-1",
+      "target": "person-2",
+      "fields": {
+        "label": "is a friend of"
+      }
+    }
+  ]
+}

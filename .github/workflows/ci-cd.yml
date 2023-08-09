@@ -75,7 +75,10 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
       - name: Install dependencies
-        run: yarn install
+        run: |
+          yarn install
+          cd packages/nexusgraph-server
+          yarn install
       - name: Run unit tests
         run: yarn test
 
@@ -107,18 +110,12 @@ jobs:
           echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
           echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
           echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
-      - name: Create backend service data
-        id: create-json
-        uses: jsdaniell/create-json@v1.2.2
-        with:
-          name: "credentials.json"
-          json: ${{ secrets.DB_JSON }}
-          dir: "packages/nexusgraph-server/src/"
-      - name: Start development server
+      - name: Start server in Dev Mode
         run: |
           cd packages/nexusgraph-server
           yarn install
-          yarn start &
+          yarn start ../../.github/dbInDev.json &
+          yarn wait-on-server
       - name: Run E2E tests in dev mode
         run: |
           yarn start &
@@ -154,16 +151,23 @@ jobs:
         run: |
           touch .env
           echo "NODE_ENV=development" >> .env
-          echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
+          echo "EXPAND_API_URL=${{ secrets.DEVELOPMENT_EXPAND_API_URL }}" >> .env
           echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
-          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
+          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.DEVELOPMENT_ENTITY_EXTRACTION_API_URL }}" >> .env
           echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
           echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
           echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
           echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
+      - name: Creating an optimized production build
+        run: yarn build
+      - name: Start server in Prod Mode
+        run: |
+          cd packages/nexusgraph-server
+          yarn install
+          yarn start ../../.github/dbInProd.json &
+          yarn wait-on-server
       - name: Run E2E tests in production mode
         run: |
-          yarn build
           npm install -g serve
           serve -s dist -l 8080 &
           yarn wait-on-prod
