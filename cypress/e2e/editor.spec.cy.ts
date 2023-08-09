@@ -140,7 +140,7 @@ describe("dropdown button E2E test", () => {
     cy.get('[aria-label = "Formatting Options"]').click().wait(1000);
     cy.contains("Bulleted List").click().wait(1000);
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Bulleted List");
-    cy.get(".editor-list-ul").should("exist");
+    cy.get(".PlaygroundEditorTheme__ul").should("exist");
   });
 
   it("Numbered List button has an effect in dropdown", () => {
@@ -148,6 +148,12 @@ describe("dropdown button E2E test", () => {
     cy.contains("Numbered List").click().wait(1000);
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Numbered List");
     cy.get(".editor-list-ol").should("exist");
+  });
+
+  it("Check List button has an effect in dropdown", () => {
+    cy.contains("Check List").click().wait(1000);
+    cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Check List");
+    cy.get(".PlaygroundEditorTheme__listItemUnchecked ").should("exist");
   });
 
   it("Quote button has an effect in dropdown", () => {

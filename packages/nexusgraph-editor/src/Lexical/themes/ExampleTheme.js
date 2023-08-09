@@ -14,12 +14,14 @@ const theme = {
     h6: "editor-heading-h6",
   },
   list: {
+    listitem: "PlaygroundEditorTheme__listItem",
+    listitemChecked: "PlaygroundEditorTheme__listItemChecked",
+    listitemUnchecked: "PlaygroundEditorTheme__listItemUnchecked",
     nested: {
-      listitem: "editor-nested-listitem",
+      listitem: "PlaygroundEditorTheme__nestedListItem",
     },
     ol: "editor-list-ol",
-    ul: "editor-list-ul",
-    listitem: "editor-listitem",
+    ul: "PlaygroundEditorTheme__ul",
   },
   image: "editor-image",
   link: "editor-link",
