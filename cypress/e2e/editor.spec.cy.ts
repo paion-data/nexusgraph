@@ -3,7 +3,13 @@
  */
 beforeEach(() => {
   cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
-  cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" });
+
+  if (Cypress.env("nodeEnv") == "development") {
+    cy.intercept("POST", "http://localhost:3000/entityExtraction", { fixture: "getEditorData.json" });
+  } else {
+    cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" }).as("getEditorData");
+  }
+
   cy.get(".editor-paragraph").type("China").wait(1000);
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
 

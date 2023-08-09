@@ -100,13 +100,25 @@ jobs:
         run: |
           touch .env
           echo "NODE_ENV=development" >> .env
-          echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
+          echo "EXPAND_API_URL=${{ secrets.DEVELOPMENT_EXPAND_API_URL }}" >> .env
           echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
-          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
+          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.DEVELOPMENT_ENTITY_EXTRACTION_API_URL }}" >> .env
           echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
           echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
           echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
           echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
+      - name: Create backend service data
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: "credentials.json"
+          json: ${{ secrets.DB_JSON }}
+          dir: "packages/nexusgraph-server/src/"
+      - name: Start development server
+        run: |
+          cd packages/nexusgraph-server
+          yarn install
+          yarn start &
       - name: Run E2E tests in dev mode
         run: |
           yarn start &

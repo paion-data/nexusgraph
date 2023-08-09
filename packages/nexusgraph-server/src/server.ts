@@ -1,5 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import express from "express";
+import cors from "cors";
 
 import { LowSync } from "lowdb";
 import { JSONFileSync } from "lowdb/node";
@@ -7,6 +8,7 @@ import asyncHandler from "express-async-handler";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 type Node = {
   id: string;
