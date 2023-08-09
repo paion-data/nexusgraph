@@ -12,8 +12,9 @@ export const GraphBrowserWrapper = styled.div`
   position: absolute;
   right: 0px;
   top: 0px;
-  width: 64vw;
-  height: 99.3vh;
+  width: 62vw;
+  height: 94vh;
+  margin: 1.5%;
   background-color: transparent;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
@@ -28,8 +29,9 @@ export const EditorWrapper = styled.div`
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 35%;
-  height: 99%;
+  width: 33%;
+  height: 94%;
+  margin: 1.5% 1% 1.5% 1.5%;
   border-radius: 1rem;
   border-style: solid;
   border-width: 5px;
