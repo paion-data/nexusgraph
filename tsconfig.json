@@ -24,6 +24,6 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["packages"],
+  "include": ["packages", "custom.d.ts"],
   "exclude": ["**/*.test.ts", "**/*.test.tsx"]
 }

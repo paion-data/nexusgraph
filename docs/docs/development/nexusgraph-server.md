@@ -27,8 +27,8 @@ Setup
 In order to do so, add the following contents to the **.env** file at the root of nexusgraph project:
 
 ```env
-EXPAND_API_URL=http://localhost:3000/entityExtraction
-ENTITY_EXTRACTION_API_URL=http://localhost:3000/expand
+EXPAND_API_URL=http://localhost:3000/expand
+ENTITY_EXTRACTION_API_URL=http://localhost:3000/entityExtraction
 ```
 
 ### Step 2: Creating a Data File

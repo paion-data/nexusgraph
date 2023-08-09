@@ -75,7 +75,10 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
       - name: Install dependencies
-        run: yarn install
+        run: |
+          yarn install
+          cd packages/nexusgraph-server
+          yarn install
       - name: Run unit tests
         run: yarn test
 

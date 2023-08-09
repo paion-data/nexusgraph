@@ -75,7 +75,6 @@ export function NodeInspectorPanel(props: NodeInspectorPanelProps): JSX.Element 
       >
         {props.expanded ? <ChevronRightIcon /> : <ChevronLeftIcon />}
       </StyledNodeInspectorTopMenuChevron>
-
       <NodeInspectorDrawer width={props.width} isOpen={props.expanded}>
         <Resizable
           size={{

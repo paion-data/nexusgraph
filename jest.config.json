@@ -9,6 +9,7 @@
   },
   "transformIgnorePatterns": ["node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"],
   "moduleNameMapper": {
-    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+    "^lowdb/node$": "lowdb/lib/node"
   }
 }
