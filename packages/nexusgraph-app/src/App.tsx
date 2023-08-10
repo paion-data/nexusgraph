@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { RemoteNaturalLanguageProcessor } from "../../nexusgraph-nlp/src/processor/RemoteNaturalLanguageProcessor";
 import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_NLPDATA, GlobalState } from "../../nexusgraph-provider";
+import { useLogto } from "@logto/react";
 
 /**
  * The component that defines the entire nexus graph app.
@@ -16,6 +17,7 @@ export default function App(): JSX.Element {
   const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
   const dispatch = useDispatch();
   const entityExtrationTexts: string[] = useSelector((state: GlobalState) => state.editorLine);
+  const { signIn, isAuthenticated } = useLogto();
 
   useEffect(() => {
     if (entityExtrationTexts.length > 0) {
@@ -25,20 +27,26 @@ export default function App(): JSX.Element {
     }
   }, [entityExtrationTexts, dispatch]);
 
-  return (
-    <AppWrapper>
-      <EditorWrapper>
-        <EditorGlassCover>
-          <IconWapper>
-            <img className="img" src={require("../public/app-logo.png")} alt="error" width={150} height={150} />
-          </IconWapper>
-          <EditorCaption className="h1">Nexus Graph</EditorCaption>
-          <Editor />
-        </EditorGlassCover>
-      </EditorWrapper>
-      <GraphBrowserWrapper>
-        <GraphBrowser />
-      </GraphBrowserWrapper>
-    </AppWrapper>
-  );
+  if (isAuthenticated) {
+    return (
+      <AppWrapper>
+        <EditorWrapper>
+          <EditorGlassCover>
+            <IconWapper>
+              <img className="img" src={require("../public/app-logo.png")} alt="error" width={150} height={150} />
+            </IconWapper>
+            <EditorCaption className="h1">Nexus Graph</EditorCaption>
+            <Editor />
+          </EditorGlassCover>
+        </EditorWrapper>
+        <GraphBrowserWrapper>
+          <GraphBrowser />
+        </GraphBrowserWrapper>
+      </AppWrapper>
+    );
+  }
+
+  signIn("http://localhost:8080/login");
+
+  return <></>;
 }
