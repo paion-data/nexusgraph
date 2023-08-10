@@ -20,10 +20,17 @@ import {
   RangeSelection,
 } from "lexical";
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@lexical/link";
-import { $isParentElementRTL, $wrapNodes, $isAtNodeEnd } from "@lexical/selection";
+import {
+  $isParentElementRTL,
+  $wrapNodes,
+  $isAtNodeEnd,
+  $getSelectionStyleValueForProperty,
+  $patchStyleText,
+} from "@lexical/selection";
 import { $getNearestNodeOfType, mergeRegister } from "@lexical/utils";
 import {
   INSERT_ORDERED_LIST_COMMAND,
+  INSERT_CHECK_LIST_COMMAND,
   INSERT_UNORDERED_LIST_COMMAND,
   REMOVE_LIST_COMMAND,
   $isListNode,
@@ -32,6 +39,7 @@ import {
 import { createPortal } from "react-dom";
 import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType } from "@lexical/rich-text";
 import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
+import DropDown, { DropDownItem } from "./DropDown";
 
 const LowPriority = 1;
 
@@ -47,7 +55,33 @@ const supportedBlockTypes: Set<string> = new Set([
   "h6",
   "ul",
   "ol",
+  "bullet",
+  "number",
+  "check",
 ]);
+
+const FONT_FAMILY_OPTIONS: [string, string][] = [
+  ["Arial", "Arial"],
+  ["Courier New", "Courier New"],
+  ["Georgia", "Georgia"],
+  ["Times New Roman", "Times New Roman"],
+  ["Trebuchet MS", "Trebuchet MS"],
+  ["Verdana", "Verdana"],
+];
+
+const FONT_SIZE_OPTIONS: [string, string][] = [
+  ["10px", "10px"],
+  ["11px", "11px"],
+  ["12px", "12px"],
+  ["13px", "13px"],
+  ["14px", "14px"],
+  ["15px", "15px"],
+  ["16px", "16px"],
+  ["17px", "17px"],
+  ["18px", "18px"],
+  ["19px", "19px"],
+  ["20px", "20px"],
+];
 
 const blockTypeToBlockName: Record<string, string> = {
   code: "Code Block",
@@ -57,10 +91,11 @@ const blockTypeToBlockName: Record<string, string> = {
   h4: "Heading 4",
   h5: "Heading 5",
   h6: "Heading 6",
-  ol: "Numbered List",
+  number: "Numbered List",
   paragraph: "Normal",
+  check: "Check List",
   quote: "Quote",
-  ul: "Bulleted List",
+  bullet: "Bulleted List",
 };
 
 function Divider(): JSX.Element {
@@ -259,6 +294,188 @@ function getSelectedNode(selection: RangeSelection) {
   }
 }
 
+function dropDownActiveClass(active: boolean) {
+  if (active) return "active dropdown-item-active";
+  else return "";
+}
+
+function FontOptionsDropdownList({
+  editor,
+  blockType,
+  toolbarRef,
+  setShowBlockOptionsDropDown,
+}: {
+  editor: LexicalEditor;
+  blockType: string;
+  toolbarRef: React.RefObject<HTMLDivElement>;
+  setShowBlockOptionsDropDown: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+  const dropDownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const toolbar = toolbarRef.current;
+    const dropDown = dropDownRef.current;
+
+    if (toolbar !== null && dropDown !== null) {
+      const { top, left } = toolbar.getBoundingClientRect();
+      dropDown.style.top = `${top + 40}px`;
+      dropDown.style.left = `${left}px`;
+    }
+  }, [dropDownRef, toolbarRef]);
+
+  useEffect(() => {
+    const dropDown = dropDownRef.current;
+    const toolbar = toolbarRef.current;
+
+    if (dropDown !== null && toolbar !== null) {
+      const handle = (event: Event) => {
+        const target = event.target as Node;
+
+        if (!dropDown.contains(target) && !toolbar.contains(target)) {
+          setShowBlockOptionsDropDown(false);
+        }
+      };
+      document.addEventListener("click", handle);
+
+      return () => {
+        document.removeEventListener("click", handle);
+      };
+    }
+  }, [dropDownRef, setShowBlockOptionsDropDown, toolbarRef]);
+
+  const formatParagraph = () => {
+    if (blockType !== "paragraph") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createParagraphNode());
+        }
+      });
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  const formatHeading = (headingSize: HeadingTagType) => {
+    if (blockType !== headingSize) {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createHeadingNode(headingSize));
+        }
+      });
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  const formatBulletList = () => {
+    if (blockType !== "bullet") {
+      editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined);
+    } else {
+      editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  const formatNumberedList = () => {
+    if (blockType !== "number") {
+      editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND, undefined);
+    } else {
+      editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  const formatCheckList = () => {
+    if (blockType !== "check") {
+      editor.dispatchCommand(INSERT_CHECK_LIST_COMMAND, undefined);
+    } else {
+      editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  const formatQuote = () => {
+    if (blockType !== "quote") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createQuoteNode());
+        }
+      });
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  const formatCode = () => {
+    if (blockType !== "code") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createCodeNode());
+        }
+      });
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  return (
+    <Dropdown ref={dropDownRef}>
+      <button className="item" onClick={formatParagraph}>
+        <span className="icon paragraph"></span>
+        <span className="text">Normal</span>
+      </button>
+      <button className="item" onClick={() => formatHeading("h1")}>
+        <span className="icon first-heading"></span>
+        <span className="text">Heading 1</span>
+      </button>
+      <button className="item" onClick={() => formatHeading("h2")}>
+        <span className="icon second-heading"></span>
+        <span className="text">Heading 2</span>
+      </button>
+      <button className="item" onClick={() => formatHeading("h3")}>
+        <span className="icon third-heading"></span>
+        <span className="text">Heading 3</span>
+      </button>
+      <button className="item" onClick={() => formatHeading("h4")}>
+        <span className="icon fourth-heading"></span>
+        <span className="text">Heading 4</span>
+      </button>
+      <button className="item" onClick={() => formatHeading("h5")}>
+        <span className="icon fifth-heading"></span>
+        <span className="text">Heading 5</span>
+      </button>
+      <button className="item" onClick={() => formatHeading("h6")}>
+        <span className="icon sixth-heading"></span>
+        <span className="text">Heading 6</span>
+      </button>
+      <button className="item" onClick={formatBulletList}>
+        <span className="icon bullet-list"></span>
+        <span className="text">Bulleted List</span>
+      </button>
+      <button className="item" onClick={formatNumberedList}>
+        <span className="icon numbered-list"></span>
+        <span className="text">Numbered List</span>
+      </button>
+      <button className="item" onClick={formatCheckList}>
+        <span className="icon check-list"></span>
+        <span className="text">Check List</span>
+      </button>
+      <button className="item" onClick={formatQuote}>
+        <span className="icon quote"></span>
+        <span className="text">Quote</span>
+      </button>
+      <button className="item" onClick={formatCode}>
+        <span className="icon code"></span>
+        <span className="text">Code Block</span>
+      </button>
+    </Dropdown>
+  );
+}
+
 function BlockOptionsDropdownList({
   editor,
   blockType,
@@ -330,7 +547,7 @@ function BlockOptionsDropdownList({
   };
 
   const formatBulletList = () => {
-    if (blockType !== "ul") {
+    if (blockType !== "bullet") {
       editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined);
     } else {
       editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
@@ -339,8 +556,17 @@ function BlockOptionsDropdownList({
   };
 
   const formatNumberedList = () => {
-    if (blockType !== "ol") {
+    if (blockType !== "number") {
       editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND, undefined);
+    } else {
+      editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  const formatCheckList = () => {
+    if (blockType !== "check") {
+      editor.dispatchCommand(INSERT_CHECK_LIST_COMMAND, undefined);
     } else {
       editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
     }
@@ -411,6 +637,10 @@ function BlockOptionsDropdownList({
         <span className="icon numbered-list"></span>
         <span className="text">Numbered List</span>
       </button>
+      <button className="item" onClick={formatCheckList}>
+        <span className="icon check-list"></span>
+        <span className="text">Check List</span>
+      </button>
       <button className="item" onClick={formatQuote}>
         <span className="icon quote"></span>
         <span className="text">Quote</span>
@@ -439,6 +669,9 @@ export default function ToolbarPlugin() {
   const [isUnderline, setIsUnderline] = useState(false);
   const [isStrikethrough, setIsStrikethrough] = useState(false);
   const [isCode, setIsCode] = useState(false);
+  const [fontSize, setFontSize] = useState<string>("15px");
+  const [isEditable, setIsEditable] = useState(() => editor.isEditable());
+  const [fontFamily, setFontFamily] = useState<string>("Arial");
 
   const updateToolbar = useCallback(() => {
     const selection = $getSelection();
@@ -450,17 +683,20 @@ export default function ToolbarPlugin() {
       if (elementDOM !== null) {
         setSelectedElementKey(elementKey);
         if ($isListNode(element)) {
-          const parentList = $getNearestNodeOfType(anchorNode, ListNode);
-          const type = parentList ? parentList.getTag() : element.getTag();
+          const parentList = $getNearestNodeOfType<ListNode>(anchorNode, ListNode);
+          const type = parentList ? parentList.getListType() : element.getListType();
           setBlockType(type);
         } else {
           const type = $isHeadingNode(element) ? element.getTag() : element.getType();
-          setBlockType(type);
+          if (type in blockTypeToBlockName) {
+            setBlockType(type as keyof typeof blockTypeToBlockName);
+          }
           if ($isCodeNode(element)) {
             setCodeLanguage(element.getLanguage() || getDefaultCodeLanguage());
           }
         }
       }
+
       // Update text format
       setIsBold(selection.hasFormat("bold"));
       setIsItalic(selection.hasFormat("italic"));
@@ -477,6 +713,11 @@ export default function ToolbarPlugin() {
       } else {
         setIsLink(false);
       }
+
+      // Handle buttons
+      setFontSize($getSelectionStyleValueForProperty(selection, "font-size", "15px"));
+
+      setFontFamily($getSelectionStyleValueForProperty(selection, "font-family", "Arial"));
     }
   }, [editor]);
 
@@ -596,6 +837,26 @@ export default function ToolbarPlugin() {
         </>
       ) : (
         <>
+          <button
+            className="button block-controls"
+            onClick={() => setShowBlockOptionsDropDown(!showBlockOptionsDropDown)}
+            aria-label="Formatting Options"
+          >
+            <span className={"icon block-type " + blockType}></span>
+            <span className="text">{blockTypeToBlockName[blockType]}</span>
+            <i className="chevron-down "></i>
+          </button>
+          {showBlockOptionsDropDown &&
+            createPortal(
+              <BlockOptionsDropdownList
+                editor={editor}
+                blockType={blockType}
+                toolbarRef={toolbarRef}
+                setShowBlockOptionsDropDown={setShowBlockOptionsDropDown}
+              />,
+              document.body
+            )}
+          <Divider />
           <button
             onClick={() => {
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold");
