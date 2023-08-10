@@ -61,6 +61,9 @@ export const IconWapper = styled.span`
   position: relative;
   left: 3%;
   top: 20px;
+  & img {
+    width: 15%;
+  }
 `;
 
 export const EditorGlassCover = styled.div`

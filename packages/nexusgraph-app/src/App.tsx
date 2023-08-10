@@ -7,6 +7,7 @@ import { RemoteNaturalLanguageProcessor } from "../../nexusgraph-nlp/src/process
 import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_NLPDATA, GlobalState } from "../../nexusgraph-provider";
 import { useLogto } from "@logto/react";
+import logo from "../public/app-logo.svg";
 
 /**
  * The component that defines the entire nexus graph app.
@@ -33,7 +34,7 @@ export default function App(): JSX.Element {
         <EditorWrapper>
           <EditorGlassCover>
             <IconWapper>
-              <img className="img" src={require("../public/app-logo.png")} alt="error" width={150} height={150} />
+              <img src={logo} alt="Logo" />
             </IconWapper>
             <EditorCaption className="h1">Nexus Graph</EditorCaption>
             <Editor />
