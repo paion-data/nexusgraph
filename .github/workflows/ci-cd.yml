@@ -53,14 +53,14 @@ jobs:
           yarn install
           cd docs && yarn install && cd ../
         env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
       - name: Code style check
         run: yarn prettier . --check
       - name: ESLint
         run: yarn eslint .
 
   test:
-    name: Run All Tests
+    name: Unit & E2E Tests
     needs: [yaml-lint, markdown-lint, markdown-link-check, code-style]
     runs-on: ubuntu-latest
     strategy:
@@ -83,7 +83,7 @@ jobs:
           yarn install
           cd docs && yarn install && cd ../
         env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
       - name: Run unit tests
         run: yarn test
       - name: Load app environment variables
@@ -168,11 +168,11 @@ jobs:
       - name: Install nexusgraph dependencies so that TypeDoc process source files properly
         run: cd ../ && yarn install
         env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
       - name: Install doc dependencies
         run: yarn install
         env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
       - name: Build documentation
         run: yarn build
       - name: Deploy to GitHub Pages
