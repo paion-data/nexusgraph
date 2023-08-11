@@ -163,7 +163,11 @@ jobs:
         with:
           node-version: 16
       - name: Install nexusgraph dependencies so that TypeDoc process source files properly
-        run: cd ../ && yarn install
+        run: |
+          cd ../
+          yarn install
+          cd packages/nexusgraph-server
+          yarn install
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
       - name: Install doc dependencies
