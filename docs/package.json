@@ -53,5 +53,9 @@
   },
   "engines": {
     "node": ">=16.14"
+  },
+  "typedocOptions": {
+    "noEmit": false,
+    "noEmitOnError": false
   }
 }
