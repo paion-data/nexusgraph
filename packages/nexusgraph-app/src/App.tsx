@@ -48,6 +48,4 @@ export default function App(): JSX.Element {
   }
 
   signIn("http://localhost:8080/login");
-
-  return <></>;
 }

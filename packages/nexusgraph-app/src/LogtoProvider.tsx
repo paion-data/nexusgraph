@@ -32,7 +32,5 @@ export const Callback = () => {
   if (isLoading) {
     return <div>Redirecting...</div>;
   }
-
-  return <></>;
 };
 export default LogtoProviderWapper;
