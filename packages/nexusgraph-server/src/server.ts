@@ -1,45 +1,45 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import express from 'express'
+import express from "express";
 
-import { LowSync } from 'lowdb'
-import { JSONFileSync } from 'lowdb/node'
-import asyncHandler from 'express-async-handler'
+import { LowSync } from "lowdb";
+import { JSONFileSync } from "lowdb/node";
+import asyncHandler from "express-async-handler";
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 
 type Node = {
-  id: string,
-  fields: { name: string }
-}
+  id: string;
+  fields: { name: string };
+};
 
 type Link = {
-  source: string,
-  target: string,
-  fields: { label: string }
-}
+  source: string;
+  target: string;
+  fields: { label: string };
+};
 
 type Data = {
-  nodes: Node[],
-  links: Link[],
-}
+  nodes: Node[];
+  links: Link[];
+};
 
 type Documents = {
-  documents: string[]
-}
+  documents: string[];
+};
 
-const adapter = new JSONFileSync<Data>('src/db.json')
-const db = new LowSync<Data>(adapter, { nodes: [], links: [] })
-db.read()
+const adapter = new JSONFileSync<Data>("src/db.json");
+const db = new LowSync<Data>(adapter, { nodes: [], links: [] });
+db.read();
 
 app.post(
-  '/entityExtraction',
+  "/entityExtraction",
   asyncHandler(async (req, res) => {
-    const documents = req.body as Documents
-    res.send(db.data)
-  }),
-)
+    const documents = req.body as Documents;
+    res.send(db.data);
+  })
+);
 
 app.listen(3000, () => {
-  console.log('listening on port 3000')
-})
+  console.log("listening on port 3000");
+});
