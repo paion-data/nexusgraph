@@ -111,6 +111,13 @@ jobs:
           path: |
             ./cypress/screenshots
             ./cypress/videos
+      - name: Bundle up a production build
+        run: yarn build
+      - name: Run end-to-end tests against production server
+        run: |
+          serve -s dist -l 8080 &
+          yarn wait-on-dev
+          yarn e2e
 
   release:
     name: Publish NPM Packages
