@@ -6,13 +6,18 @@ beforeEach(() => {
   cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" });
   cy.get(".editor-paragraph").type("China").wait(1000);
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
+
+  cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Normal");
+  cy.get(".editor-paragraph").should("exist");
 });
 
 afterEach(() => {
-  cy.clearAllCookies();
-  cy.clearAllLocalStorage();
-  cy.clearAllSessionStorage();
-});
+  cy.get('[aria-label = "Formatting Options"]').click().wait(1000);
+  cy.contains("Normal").click().wait(1000);
+
+  cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Normal");
+  cy.get(".editor-paragraph").should("exist");
+})
 
 describe("undo redo button E2E test", () => {
   it("input text and click Undo ,'China' not exist", () => {
@@ -157,14 +162,5 @@ describe("dropdown button E2E test", () => {
     cy.contains("Code Block").click().wait(1000);
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Code Block");
     cy.get(".editor-code").should("exist");
-  });
-
-  it("Normal button has an effect in dropdown", () => {
-    cy.get('[aria-label = "Formatting Options"]').click().wait(1000);
-    cy.contains("Code Block").click().wait(1000);
-    cy.get('[aria-label = "Formatting Options"]').click().wait(1000);
-    cy.contains("Normal").click().wait(1000);
-    cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Normal");
-    cy.get(".editor-paragraph").should("exist");
   });
 });
