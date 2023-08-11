@@ -86,7 +86,7 @@ yarn start
 - `yarn cypress:open`: 打开 [Cypress End-to-End testing](https://docs.cypress.io/guides/overview/why-cypress) 仪表板
 - `yarn e2e`: 运行 end-to-end 测试
 
-   - `yarn wait-on-dev`: e2e 测试的辅助命令，用于等待 **Production Server** `http://localhost:9000` 在 CI/CD 服务器上变得可用
+   - `yarn wait-on-dev`: e2e 测试的辅助命令，用于等待 **Production Server** `http://localhost:8080` 在 CI/CD 服务器上变得可用
 
 快乐构建精彩的知识图谱 App 吧！
 

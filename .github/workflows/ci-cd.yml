@@ -53,14 +53,14 @@ jobs:
           yarn install
           cd docs && yarn install && cd ../
         env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
       - name: Code style check
         run: yarn prettier . --check
       - name: ESLint
         run: yarn eslint .
 
   test:
-    name: Run All Tests
+    name: Unit & E2E Tests
     needs: [yaml-lint, markdown-lint, markdown-link-check, code-style]
     runs-on: ubuntu-latest
     strategy:
@@ -74,16 +74,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node_version }}
-      - name: Install Python for running production bundle in e2e test
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
       - name: Install dependencies
-        run: |
-          yarn install
-          cd docs && yarn install && cd ../
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+        run: yarn install
       - name: Run unit tests
         run: yarn test
       - name: Load app environment variables
@@ -92,25 +84,37 @@ jobs:
           echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
           echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
           echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
-          echo "SENTRY_IO_DSN=${{ secrets.SENTRY_IO_DSN }}" >> .env
           echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
           echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
           echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
           echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
-      - name: Start in dev mode
+      - name: Run E2E tests in dev mode
         run: |
           yarn start &
           yarn wait-on-dev
-      - name: Run end-to-end test
-        run: yarn e2e
-      - name: Upload test screenshots and videos
+          yarn e2e
+      - name: Upload dev mode test videos and screenshots on test failure
         if: failure()
         uses: actions/upload-artifact@v3
         with:
-          name: test-screenshots-${{ matrix.node_version }}
+          name: dev-e2e-test-screenshots-and-videos-node-${{ matrix.node_version }}
           path: |
-            ./cypress/screenshots
             ./cypress/videos
+            ./cypress/screenshots
+      - name: Run E2E tests in production mode
+        run: |
+          yarn build
+          serve -s dist -l 8080 &
+          yarn wait-on-prod
+          yarn e2e
+      - name: Upload prod mode test videos and screenshots on test failure
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: prod-e2e-test-screenshots-and-videos-node-${{ matrix.node_version }}
+          path: |
+            ./cypress/videos
+            ./cypress/screenshots
 
   release:
     name: Publish NPM Packages
@@ -161,11 +165,11 @@ jobs:
       - name: Install nexusgraph dependencies so that TypeDoc process source files properly
         run: cd ../ && yarn install
         env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
       - name: Install doc dependencies
         run: yarn install
         env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
       - name: Build documentation
         run: yarn build
       - name: Deploy to GitHub Pages
@@ -195,6 +199,7 @@ jobs:
           echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
           echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
           echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
+          echo "SENTRY_IO_DSN=${{ secrets.SENTRY_IO_DSN }}" >> .env
       - name: Load deployment environment variables into HC variable file
         run: |
           sed -i -e 's/ZONE_ID_INJECTED_BY_CI_CD/${{ secrets.ZONE_ID }}/g' instances/variables.auto.tfvars
