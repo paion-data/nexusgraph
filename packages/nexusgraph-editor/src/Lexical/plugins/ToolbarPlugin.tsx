@@ -20,7 +20,13 @@ import {
   RangeSelection,
 } from "lexical";
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@lexical/link";
-import { $isParentElementRTL, $wrapNodes, $isAtNodeEnd } from "@lexical/selection";
+import {
+  $isParentElementRTL,
+  $wrapNodes,
+  $isAtNodeEnd,
+  $getSelectionStyleValueForProperty,
+  $patchStyleText,
+} from "@lexical/selection";
 import { $getNearestNodeOfType, mergeRegister } from "@lexical/utils";
 import {
   INSERT_ORDERED_LIST_COMMAND,
@@ -33,8 +39,32 @@ import {
 import { createPortal } from "react-dom";
 import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType } from "@lexical/rich-text";
 import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
+import DropDown, { DropDownItem } from "./FontDropDown";
 
 const LowPriority = 1;
+
+const FONT_FAMILY_OPTIONS: [string, string][] = [
+  ["Arial", "Arial"],
+  ["Courier New", "Courier New"],
+  ["Georgia", "Georgia"],
+  ["Times New Roman", "Times New Roman"],
+  ["Trebuchet MS", "Trebuchet MS"],
+  ["Verdana", "Verdana"],
+];
+
+const FONT_SIZE_OPTIONS: [string, string][] = [
+  ["10px", "10px"],
+  ["11px", "11px"],
+  ["12px", "12px"],
+  ["13px", "13px"],
+  ["14px", "14px"],
+  ["15px", "15px"],
+  ["16px", "16px"],
+  ["17px", "17px"],
+  ["18px", "18px"],
+  ["19px", "19px"],
+  ["20px", "20px"],
+];
 
 const supportedBlockTypes: Set<string> = new Set([
   "paragraph",
@@ -68,8 +98,8 @@ const blockTypeToBlockName: Record<string, string> = {
   bullet: "Bulleted List",
 };
 
-function Divider(): JSX.Element {
-  return <div className="divider" />;
+function Divider() {
+  return <div className="divider"></div>;
 }
 
 function positionEditorElement(editor: HTMLElement, rect: DOMRect | null): void {
@@ -262,6 +292,63 @@ function getSelectedNode(selection: RangeSelection) {
   } else {
     return $isAtNodeEnd(anchor) ? focusNode : anchorNode;
   }
+}
+
+function dropDownActiveClass(active: boolean) {
+  if (active) return "active dropdown-item-active";
+  else return "";
+}
+
+function FontDropDownList({
+  editor,
+  value,
+  style,
+  disabled = false,
+}: {
+  editor: LexicalEditor;
+  value: string;
+  style: string;
+  disabled?: boolean;
+}): JSX.Element {
+  const handleClick = useCallback(
+    (option: string) => {
+      editor.update(() => {
+        const selection = $getSelection();
+        if ($isRangeSelection(selection)) {
+          $patchStyleText(selection, {
+            [style]: option,
+          });
+        }
+      });
+    },
+    [editor, style]
+  );
+
+  const buttonAriaLabel =
+    style === "font-family" ? "Formatting options for font family" : "Formatting options for font size";
+
+  /**
+   * Render drop-down menus for font-family or font-size
+   */
+  return (
+    <DropDown
+      disabled={disabled}
+      buttonClassName={"toolbar-item " + style}
+      buttonLabel={value}
+      buttonIconClassName={style === "font-family" ? "icon block-type font-family" : ""}
+      buttonAriaLabel={buttonAriaLabel}
+    >
+      {(style === "font-family" ? FONT_FAMILY_OPTIONS : FONT_SIZE_OPTIONS).map(([option, text]) => (
+        <DropDownItem
+          className={`item ${dropDownActiveClass(value === option)} ${style === "font-size" ? "fontsize-item" : ""}`}
+          onClick={() => handleClick(option)}
+          key={option}
+        >
+          <span className="text">{text}</span>
+        </DropDownItem>
+      ))}
+    </DropDown>
+  );
 }
 
 function BlockOptionsDropdownList({
@@ -458,6 +545,9 @@ export default function ToolbarPlugin() {
   const [isUnderline, setIsUnderline] = useState(false);
   const [isStrikethrough, setIsStrikethrough] = useState(false);
   const [isCode, setIsCode] = useState(false);
+  const [fontSize, setFontSize] = useState<string>("15px");
+  const [isEditable, setIsEditable] = useState(() => editor.isEditable());
+  const [fontFamily, setFontFamily] = useState<string>("Arial");
 
   const updateToolbar = useCallback(() => {
     const selection = $getSelection();
@@ -499,6 +589,11 @@ export default function ToolbarPlugin() {
       } else {
         setIsLink(false);
       }
+
+      // Handle buttons
+      setFontSize($getSelectionStyleValueForProperty(selection, "font-size", "16px"));
+
+      setFontFamily($getSelectionStyleValueForProperty(selection, "font-family", "Arial"));
     }
   }, [editor]);
 
@@ -618,6 +713,12 @@ export default function ToolbarPlugin() {
         </>
       ) : (
         <>
+          <>
+            <FontDropDownList disabled={!isEditable} style={"font-family"} value={fontFamily} editor={editor} />
+            <Divider />
+            <FontDropDownList disabled={!isEditable} style={"font-size"} value={fontSize} editor={editor} />
+            <Divider />
+          </>
           <button
             onClick={() => {
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold");
@@ -667,7 +768,6 @@ export default function ToolbarPlugin() {
             <i className="format link"></i>
           </button>
           {isLink && createPortal(<FloatingLinkEditor editor={editor} />, document.body)}
-          <Divider />
           <button
             onClick={() => {
               editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left");
@@ -704,6 +804,7 @@ export default function ToolbarPlugin() {
           >
             <i className="format justify-align"></i>
           </button>{" "}
+          <Divider />
         </>
       )}
     </Toolbar>
