@@ -17,7 +17,7 @@ afterEach(() => {
 
   cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Normal");
   cy.get(".editor-paragraph").should("exist");
-})
+});
 
 describe("undo redo button E2E test", () => {
   it("input text and click Undo ,'China' not exist", () => {
