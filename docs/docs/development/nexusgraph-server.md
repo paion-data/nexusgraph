@@ -19,7 +19,7 @@ When we see `listening on port 3000`, it means server is up and running.
 Setup
 -----
 
-### Step 1: Having Dev or Tests Point to nexusgraph-server?
+### Step 1: Having Dev or Tests Point to nexusgraph-server
 
 > By "Pointing" we mean a real outgoing backend request, instead of hitting remote over network, simply hit this local
 > nexusgraph-server server
