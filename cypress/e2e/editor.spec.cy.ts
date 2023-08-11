@@ -151,9 +151,14 @@ describe("dropdown button E2E test", () => {
   });
 
   it("Check List button has an effect in dropdown", () => {
+    cy.get('[aria-label = "Formatting Options"]').click().wait(1000);
     cy.contains("Check List").click().wait(1000);
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Check List");
-    cy.get(".PlaygroundEditorTheme__listItemUnchecked ").should("exist");
+    cy.get("[aria-checked='false']").should("exist");
+    cy.get("li").click("left").wait(1000);
+    cy.get("[aria-checked='true']").should("exist");
+    cy.get("li").click("left").wait(1000);
+    cy.get("[aria-checked='false']").should("exist");
   });
 
   it("Quote button has an effect in dropdown", () => {
