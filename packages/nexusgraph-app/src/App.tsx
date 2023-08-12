@@ -53,7 +53,7 @@ export default function App(): JSX.Element {
 
   if (process.env.NODE_ENV == "development") {
     signIn("http://localhost:8080/login");
-  } 
+  }
 
   return <></>;
 }
