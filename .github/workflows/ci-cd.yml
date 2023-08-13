@@ -129,7 +129,7 @@ jobs:
       matrix:
         node_version: [16]
     steps:
-      - uses: ./.github/actions/e2e-setup
+      - uses: ../.github/actions/e2e-setup
         with:
           node_version: ${{ matrix.node_version }}
       - name: Run E2E tests in production mode
