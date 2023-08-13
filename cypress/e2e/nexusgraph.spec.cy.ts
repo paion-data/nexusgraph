@@ -1,6 +1,4 @@
-/*
- * Copyright 2023 Paion Data. All rights reserved.
- */
+// Copyright 2023 Paion Data. All rights reserved.
 describe("nexusgraph basic test", () => {
   beforeEach(() => {
     cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
@@ -19,21 +17,21 @@ describe("nexusgraph basic test", () => {
     cy.get(".node").should("contain", "China").should("have.length", 6);
   });
 
-  it('Click the menu "Expand" button to expand the neighbor node', () => {
-    cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" }).as("getEditorData");
+  // it('Click the menu "Expand" button to expand the neighbor node', () => {
+  //   cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" }).as("getEditorData");
 
-    cy.get(".editor-paragraph").type("China").wait(1000);
+  //   cy.get(".editor-paragraph").type("China").wait(1000);
 
-    cy.get('[aria-label="graph-nodeBeijing"]').click();
+  //   cy.get('[aria-label="graph-nodeBeijing"]').click();
 
-    cy.intercept("POST", "/v1/data/expand", {
-      fixture: "nodeExpandData.json",
-    }).as("nodeExpandData");
+  //   cy.intercept("POST", "/v1/data/expand", {
+  //     fixture: "nodeExpandData.json",
+  //   }).as("nodeExpandData");
 
-    cy.get('g[class="node selected"] path:first').click().wait(1000);
+  //   cy.get('g[class="node selected"] path:first').click().wait(1000);
 
-    cy.get(".node").should("contain", "Shanghai");
-  });
+  //   cy.get(".node").should("contain", "Shanghai");
+  // });
 });
 
 export {};

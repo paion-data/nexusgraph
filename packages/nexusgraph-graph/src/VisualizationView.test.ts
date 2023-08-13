@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { transformBasicNodes, transformBasicRelationships } from "./VisualizationView";
+import { transformToBasicNodes, transformToBasicRelationships } from "./VisualizationView";
 
 it("Converts the common JSON node type to basic nodes", () => {
   const initialNodes = [
@@ -11,7 +11,7 @@ it("Converts the common JSON node type to basic nodes", () => {
       id: "China",
     },
   ];
-  expect(transformBasicNodes(initialNodes)).toEqual([
+  expect(transformToBasicNodes(initialNodes)).toEqual([
     {
       id: "China",
       labels: ["entity"],
@@ -35,7 +35,7 @@ it("Converts the common JSON links type to basic relationships", () => {
       target: "Asia",
     },
   ];
-  expect(transformBasicRelationships(initialLinks)).toEqual([
+  expect(transformToBasicRelationships(initialLinks)).toEqual([
     {
       id: "country",
       startNodeId: "China",
