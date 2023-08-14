@@ -5,12 +5,6 @@ beforeEach(() => {
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
 });
 
-// afterEach(()=>{
-//   cy.get('[aria-label = "Formatting options for font size"]').click();
-//   cy.contains("10px").click();
-//   cy.get(".editor-paragraph").find('span').and('have.css', "font-size").should('include', '10px');
-// })
-
 describe("FontSizeDropDown button E2E test", () => {
   it("12px button has an effect in dropdown", () => {
     cy.get('[aria-label = "Formatting options for font size"]').click();
