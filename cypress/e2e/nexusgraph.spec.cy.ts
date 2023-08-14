@@ -6,12 +6,6 @@ describe("nexusgraph basic test", () => {
     cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
   });
 
-  afterEach(() => {
-    cy.clearAllCookies();
-    cy.clearAllLocalStorage();
-    cy.clearAllSessionStorage();
-  });
-
   it("Enter text in the editor and the corresponding node is generated in the graph", () => {
     cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" }).as("getEditorData");
 

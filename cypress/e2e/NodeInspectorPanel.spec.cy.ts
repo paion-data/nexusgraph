@@ -1,10 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-afterEach(() => {
-  cy.clearAllCookies();
-  cy.clearAllLocalStorage();
-  cy.clearAllSessionStorage();
-});
-
 describe("Graph browser stats panel E2E tests", () => {
   it("Panel can reflect the INITIAL graph rendering stats", () => {
     cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
