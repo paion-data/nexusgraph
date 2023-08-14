@@ -24,6 +24,7 @@ import { $isParentElementRTL, $wrapNodes, $isAtNodeEnd } from "@lexical/selectio
 import { $getNearestNodeOfType, mergeRegister } from "@lexical/utils";
 import {
   INSERT_ORDERED_LIST_COMMAND,
+  INSERT_CHECK_LIST_COMMAND,
   INSERT_UNORDERED_LIST_COMMAND,
   REMOVE_LIST_COMMAND,
   $isListNode,
@@ -47,6 +48,9 @@ const supportedBlockTypes: Set<string> = new Set([
   "h6",
   "ul",
   "ol",
+  "bullet",
+  "number",
+  "check",
 ]);
 
 const blockTypeToBlockName: Record<string, string> = {
@@ -57,10 +61,11 @@ const blockTypeToBlockName: Record<string, string> = {
   h4: "Heading 4",
   h5: "Heading 5",
   h6: "Heading 6",
-  ol: "Numbered List",
+  number: "Numbered List",
   paragraph: "Normal",
+  check: "Check List",
   quote: "Quote",
-  ul: "Bulleted List",
+  bullet: "Bulleted List",
 };
 
 function Divider(): JSX.Element {
@@ -330,7 +335,7 @@ function BlockOptionsDropdownList({
   };
 
   const formatBulletList = () => {
-    if (blockType !== "ul") {
+    if (blockType !== "bullet") {
       editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined);
     } else {
       editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
@@ -339,8 +344,17 @@ function BlockOptionsDropdownList({
   };
 
   const formatNumberedList = () => {
-    if (blockType !== "ol") {
+    if (blockType !== "number") {
       editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND, undefined);
+    } else {
+      editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
+    }
+    setShowBlockOptionsDropDown(false);
+  };
+
+  const formatCheckList = () => {
+    if (blockType !== "check") {
+      editor.dispatchCommand(INSERT_CHECK_LIST_COMMAND, undefined);
     } else {
       editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
     }
@@ -411,6 +425,11 @@ function BlockOptionsDropdownList({
         <span className="icon numbered-list"></span>
         <span className="text">Numbered List</span>
       </button>
+      <button className="item" onClick={formatCheckList}>
+        <span className="icon check-list"></span>
+        <span className="text">Check List</span>
+        {blockType === "ol" && <span className="active" />}
+      </button>
       <button className="item" onClick={formatQuote}>
         <span className="icon quote"></span>
         <span className="text">Quote</span>
@@ -450,17 +469,20 @@ export default function ToolbarPlugin() {
       if (elementDOM !== null) {
         setSelectedElementKey(elementKey);
         if ($isListNode(element)) {
-          const parentList = $getNearestNodeOfType(anchorNode, ListNode);
-          const type = parentList ? parentList.getTag() : element.getTag();
+          const parentList = $getNearestNodeOfType<ListNode>(anchorNode, ListNode);
+          const type = parentList ? parentList.getListType() : element.getListType();
           setBlockType(type);
         } else {
           const type = $isHeadingNode(element) ? element.getTag() : element.getType();
-          setBlockType(type);
+          if (type in blockTypeToBlockName) {
+            setBlockType(type as keyof typeof blockTypeToBlockName);
+          }
           if ($isCodeNode(element)) {
             setCodeLanguage(element.getLanguage() || getDefaultCodeLanguage());
           }
         }
       }
+
       // Update text format
       setIsBold(selection.hasFormat("bold"));
       setIsItalic(selection.hasFormat("italic"));
