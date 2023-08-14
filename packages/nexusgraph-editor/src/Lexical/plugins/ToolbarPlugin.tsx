@@ -294,11 +294,13 @@ function getSelectedNode(selection: RangeSelection) {
   }
 }
 
-function dropDownActiveClass(active: boolean) {
-  if (active) return "active dropdown-item-active";
-  else return "";
-}
-
+/**
+ * Realize clicking the font-size and font-family button, and the font-size and font-family drop-down menu appears
+ *
+ * @param param0
+ *
+ * @returns font-size and font-family button ,and font-size or font-family drop-down menus
+ */
 function FontDropDownList({
   editor,
   value,
@@ -327,9 +329,6 @@ function FontDropDownList({
   const buttonAriaLabel =
     style === "font-family" ? "Formatting options for font family" : "Formatting options for font size";
 
-  /**
-   * Render drop-down menus for font-family or font-size
-   */
   return (
     <DropDown
       disabled={disabled}
@@ -340,7 +339,7 @@ function FontDropDownList({
     >
       {(style === "font-family" ? FONT_FAMILY_OPTIONS : FONT_SIZE_OPTIONS).map(([option, text]) => (
         <DropDownItem
-          className={`item ${dropDownActiveClass(value === option)} ${style === "font-size" ? "fontsize-item" : ""}`}
+          className={`item ${style === "font-size" ? "fontsize-item" : ""}`}
           onClick={() => handleClick(option)}
           key={option}
         >
@@ -573,7 +572,6 @@ export default function ToolbarPlugin() {
         }
       }
 
-      // Update text format
       setIsBold(selection.hasFormat("bold"));
       setIsItalic(selection.hasFormat("italic"));
       setIsUnderline(selection.hasFormat("underline"));
@@ -581,7 +579,6 @@ export default function ToolbarPlugin() {
       setIsCode(selection.hasFormat("code"));
       setIsRTL($isParentElementRTL(selection));
 
-      // Update links
       const node = getSelectedNode(selection);
       const parent = node.getParent();
       if ($isLinkNode(parent) || $isLinkNode(node)) {
@@ -590,7 +587,6 @@ export default function ToolbarPlugin() {
         setIsLink(false);
       }
 
-      // Handle buttons
       setFontSize($getSelectionStyleValueForProperty(selection, "font-size", "16px"));
 
       setFontFamily($getSelectionStyleValueForProperty(selection, "font-family", "Arial"));

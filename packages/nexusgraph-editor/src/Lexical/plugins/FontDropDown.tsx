@@ -18,6 +18,13 @@ const DropDownContext = React.createContext<DropDownContextType | null>(null);
 
 const dropDownPadding = 4;
 
+/**
+ * Update font-size and font-family button
+ *
+ * @param param0
+ *
+ * @returns font-size and font-family button
+ */
 export function DropDownItem({
   children,
   className,
@@ -52,6 +59,13 @@ export function DropDownItem({
   );
 }
 
+/**
+ * render font-size and font-family dropdown menu
+ *
+ * @param param0
+ *
+ * @returns font-size or font-family dropdown menu
+ */
 function DropDownItems({
   children,
   dropDownRef,
@@ -123,7 +137,13 @@ function DropDownItems({
     </FontDropDown>
   );
 }
-
+/**
+ * Realize font-size or font-family interactive function
+ *
+ * @param param0
+ *
+ * @returns font-size or font-family dropdown components
+ */
 export default function DropDown({
   disabled = false,
   buttonLabel,
