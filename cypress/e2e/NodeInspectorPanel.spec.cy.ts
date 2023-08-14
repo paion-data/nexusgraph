@@ -13,7 +13,7 @@ describe("Graph browser stats panel E2E tests", () => {
       fixture: "single-rdf-pair-graph.json",
     });
 
-    cy.get(".editor-paragraph").type("testText").wait(1000);
+    cy.get(".editor-paragraph").type("testText");
     cy.get('[data-testid="property-details-overview-node-label-*"]').should("have.text", "* (2)");
   });
 });
