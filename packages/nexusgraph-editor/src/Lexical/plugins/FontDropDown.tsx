@@ -1,10 +1,5 @@
-/**
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
+// Copyright 2023 Paion Data. All rights reserved.
+
 import { FontDropDown } from "./styled";
 import * as React from "react";
 import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -137,6 +132,7 @@ function DropDownItems({
     </FontDropDown>
   );
 }
+
 /**
  * Realize font-size or font-family interactive function
  *
