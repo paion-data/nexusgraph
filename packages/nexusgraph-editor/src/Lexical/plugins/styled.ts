@@ -11,6 +11,113 @@ export const FontDropDown = styled.div`
     min-height: 40px;
     background-color: rgba(60, 60, 60, 0.9);
 
+    .color-picker-wrapper {
+      margin: 20px;
+
+      .Input__wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .Input__label {
+        display: flex;
+        flex: 1;
+        color: white;
+      }
+      .Input__input {
+        display: flex;
+        flex: 2;
+        border: 1px solid #999;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        min-width: 0;
+        background-color: rgba(60, 60, 60, 0.9);
+      }
+    }
+    
+    .color-picker-basic-color {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding-top: 20px;
+    }
+    
+    .color-picker-basic-color button {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      height: 16px;
+      width: 16px;
+      cursor: pointer;
+      list-style-type: none;
+    }
+    
+    .color-picker-basic-color button.active {
+      box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    .color-picker-saturation {
+      width: 100%;
+      position: relative;
+      margin-top: 15px;
+      height: 150px;
+      background-image: linear-gradient(transparent, black),
+        linear-gradient(to right, white, transparent);
+      user-select: none;
+    }
+    .color-picker-saturation_cursor {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #00000026;
+      box-sizing: border-box;
+      transform: translate(-10px, -10px);
+    }
+    .color-picker-hue {
+      width: 100%;
+      position: relative;
+      margin-top: 15px;
+      height: 12px;
+      background-image: linear-gradient(
+        to right,
+        rgb(255, 0, 0),
+        rgb(255, 255, 0),
+        rgb(0, 255, 0),
+        rgb(0, 255, 255),
+        rgb(0, 0, 255),
+        rgb(255, 0, 255),
+        rgb(255, 0, 0)
+      );
+      user-select: none;
+      border-radius: 12px;
+    }
+    
+    .color-picker-hue_cursor {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: #0003 0 0 0 0.5px;
+      box-sizing: border-box;
+      transform: translate(-10px, -4px);
+    }
+    
+    .color-picker-color {
+      border: 1px solid #ccc;
+      margin-top: 15px;
+      width: 100%;
+      height: 20px;
+    }
+
+
     .fontsize-item{
       width:50px !important;
     }
@@ -99,7 +206,6 @@ export const FontDropDown = styled.div`
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-text-indent-right'%3E%3Cpath d='M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm10.646 2.146a.5.5 0 0 1 .708.708L11.707 8l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zM2 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
       }
     }
-  }
 `;
 export const Dropdown = styled.div`
   z-index: 5;
@@ -425,6 +531,10 @@ export const Toolbar = styled.div`
 
         &.left-align {
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-text-left' viewBox='0 0 16 16' %3E%3Cpath fill-rule='evenodd' d='M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z' /%3E%3C/svg%3E");
+        }
+        
+        &.font-color {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 512 512'%3E%3Cpath fill='white' d='M221.631 109 109.92 392h58.055l24.079-61h127.892l24.079 61h58.055L290.369 109Zm-8.261 168L256 169l42.63 108Z'/%3E%3C/svg%3E");
         }
       }
     }
