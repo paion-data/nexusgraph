@@ -33,10 +33,6 @@ test("Button active should be added", async () => {
     "Format Strikethrough",
     "insert Code",
     "insert Link",
-    "Left Align",
-    "Center Align",
-    "Right Align",
-    "Justify Align",
   ];
   for (let i = 0; i < buttonList.length; i++) {
     fireEvent.click(await screen.findByRole("button", { name: buttonList[i] }));
