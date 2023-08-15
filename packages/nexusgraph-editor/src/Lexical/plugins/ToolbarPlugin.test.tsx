@@ -55,14 +55,48 @@ test("OptionsButton text should be added", async () => {
   );
   const spanList = [
     "Normal",
-    "Large Heading",
-    "Small Heading",
+    "Heading 1",
+    "Heading 2",
+    "Heading 3",
+    "Heading 4",
+    "Heading 5",
+    "Heading 6",
     "Bulleted List",
     "Numbered List",
     "Quote",
     "Code Block",
   ];
-  fireEvent.click(await screen.findByRole("button", { name: /Formatting Options/i }));
+  fireEvent.click(await screen.findByRole("button", { name: "Formatting Options" }));
+  setTimeout(async () => {
+    for (let i = 0; i < spanList.length; i++) {
+      expect(await screen.findByText(spanList[i])).toBeInTheDocument();
+    }
+  }, 3000);
+});
+
+test("FontFamilyOptionsButton text should be added", async () => {
+  render(
+    <StoreWrapper>
+      <LexicalEditor />
+    </StoreWrapper>
+  );
+  const spanList = ["Arial", "Courier New", "Georgia", "Times New Roman", "Trebuchet MS", "Verdana"];
+  fireEvent.click(await screen.findByRole("button", { name: /Formatting Options for font family/i }));
+  setTimeout(async () => {
+    for (let i = 0; i < spanList.length; i++) {
+      expect(await screen.findByText(spanList[i])).toBeInTheDocument();
+    }
+  }, 3000);
+});
+
+test("FontSizeOptionsButton text should be added", async () => {
+  render(
+    <StoreWrapper>
+      <LexicalEditor />
+    </StoreWrapper>
+  );
+  const spanList = ["10px", "11px", "12px", "13px", "14px", "15px", "16px", "17px", "18px", "19px", "20px"];
+  fireEvent.click(await screen.findByRole("button", { name: /Formatting Options for font size/i }));
   setTimeout(async () => {
     for (let i = 0; i < spanList.length; i++) {
       expect(await screen.findByText(spanList[i])).toBeInTheDocument();
