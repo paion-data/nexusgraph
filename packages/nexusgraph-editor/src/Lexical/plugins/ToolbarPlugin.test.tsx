@@ -103,3 +103,18 @@ test("FontSizeOptionsButton text should be added", async () => {
     }
   }, 3000);
 });
+
+test("FontSizeOptionsButton text should be added", async () => {
+  render(
+    <StoreWrapper>
+      <LexicalEditor />
+    </StoreWrapper>
+  );
+  const spanList = ["Left Align", "Center Align", "Right Align", "Justify Align", "Outdent", "Indent"];
+  fireEvent.click(await screen.findByRole("button", { name: /Formatting Options for text alignment/i }));
+  setTimeout(async () => {
+    for (let i = 0; i < spanList.length; i++) {
+      expect(await screen.findByText(spanList[i])).toBeInTheDocument();
+    }
+  }, 3000);
+});
