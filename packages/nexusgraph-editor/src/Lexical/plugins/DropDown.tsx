@@ -1,5 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-
 import { FontDropDown } from "./styled";
 import * as React from "react";
 import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -14,11 +13,11 @@ const DropDownContext = React.createContext<DropDownContextType | null>(null);
 const dropDownPadding = 4;
 
 /**
- * Update font-size and font-family button
+ * Single button in dropdown menu
  *
  * @param param0
  *
- * @returns font-size and font-family button
+ * @returns single button
  */
 export function DropDownItem({
   children,
@@ -55,11 +54,11 @@ export function DropDownItem({
 }
 
 /**
- * render font-size and font-family dropdown menu
+ * render dropdown menu
  *
  * @param param0
  *
- * @returns font-size or font-family dropdown menu
+ * @returns dropdown menu
  */
 function DropDownItems({
   children,
@@ -134,11 +133,11 @@ function DropDownItems({
 }
 
 /**
- * Realize font-size or font-family interactive function
+ * Put the DOM nodes of the passed dropdowns into the provided document.body
  *
  * @param param0
  *
- * @returns font-size or font-family dropdown components
+ * @returns dropdown button and dropdown menu components
  */
 export default function DropDown({
   disabled = false,

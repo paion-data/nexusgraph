@@ -39,7 +39,7 @@ import {
 import { createPortal } from "react-dom";
 import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType } from "@lexical/rich-text";
 import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
-import DropDown, { DropDownItem } from "./FontDropDown";
+import DropDown, { DropDownItem } from "./DropDown";
 
 const LowPriority = 1;
 
@@ -295,7 +295,7 @@ function getSelectedNode(selection: RangeSelection) {
 }
 
 /**
- * Realize clicking the font-size and font-family button, and the font-size and font-family drop-down menu appears
+ * Combine dropdown menu and font-size, font-family button
  *
  * @param param0
  *
