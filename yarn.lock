@@ -2444,6 +2444,10 @@ __metadata:
 "@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp":
   version: 0.0.0-use.local
   resolution: "@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp"
+  dependencies:
+    inversify: ^6.0.1
+    inversify-inject-decorators: ^3.1.0
+    reflect-metadata: ^0.1.13
   languageName: unknown
   linkType: soft
 
@@ -7759,6 +7763,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"inversify-inject-decorators@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "inversify-inject-decorators@npm:3.1.0"
+  checksum: 61fd6948c0914ec1c6f10a87903c949d3987903fdb2d23952a1257223f192d0386862974568044dd73d2fcf4f0f37d59eb4dc83124b1d143ed4852266e1585b6
+  languageName: node
+  linkType: hard
+
+"inversify@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "inversify@npm:6.0.1"
+  checksum: b6c9b56ef7817a71534b06101c2b0a0130b67c47a769f58794d9c0643591a83ac02be30a48c00cb729c0c83ece96dde369c419d48c32d0201c6cc7407629fbc5
+  languageName: node
+  linkType: hard
+
 "ip@npm:^2.0.0":
   version: 2.0.0
   resolution: "ip@npm:2.0.0"
@@ -10688,6 +10706,13 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.9.2
   checksum: f63b9060c3a1d930ae775252bb6e579b42415aee7a23c4114e21a0b4ba7ec12f0ec76936c00f546893f06e139819f0e2855e0d55ebfce34ca9c026241a6950dd
+  languageName: node
+  linkType: hard
+
+"reflect-metadata@npm:^0.1.13":
+  version: 0.1.13
+  resolution: "reflect-metadata@npm:0.1.13"
+  checksum: 798d379a7b6f6455501145419505c97dd11cbc23857a386add2b9ef15963ccf15a48d9d15507afe01d4cd74116df8a213247200bac00320bd7c11ddeaa5e8fb4
   languageName: node
   linkType: hard
 
