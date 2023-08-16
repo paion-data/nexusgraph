@@ -8,9 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_NLPDATA, GlobalState } from "../../nexusgraph-provider";
 import { useLogto } from "@logto/react";
 import logo from "../public/app-logo.svg";
-import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
-import TYPES from "../../nexusgraph-nlp/src/processor/Types";
-import NaturalLanguageProcessorProvider from "../../nexusgraph-nlp/inversify.config";
+import { NaturalLanguageProcessorProvider } from "../../nexusgraph-nlp";
 
 /**
  * The component that defines the entire nexus graph app.
@@ -18,19 +16,15 @@ import NaturalLanguageProcessorProvider from "../../nexusgraph-nlp/inversify.con
  * @returns a React DOM object
  */
 export default function App(): JSX.Element {
-  const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
-  const remoteNaturalLanguageProcessor = NaturalLanguageProcessorProvider.get<RemoteNaturalLanguageProcessor>(RemoteNaturalLanguageProcessor);
+  const remoteNaturalLanguageProcessor =
+    NaturalLanguageProcessorProvider.get<RemoteNaturalLanguageProcessor>(RemoteNaturalLanguageProcessor);
   const dispatch = useDispatch();
   const entityExtrationTexts: string[] = useSelector((state: GlobalState) => state.editorLine);
   const { signIn, isAuthenticated } = useLogto();
 
-  // console.log("TYPES.NaturalLanguageProcessor", TYPES.NaturalLanguageProcessor);
-  // console.log(typeof TYPES.NaturalLanguageProcessor);
-  
-  // remoteNaturalLanguageProcessor.entityExtraction(entityExtrationTexts)
   useEffect(() => {
     if (entityExtrationTexts.length > 0) {
-      naturalLanguageProcessor.entityExtraction(entityExtrationTexts).then((NlpState) => {
+      remoteNaturalLanguageProcessor.entityExtraction(entityExtrationTexts).then((NlpState) => {
         dispatch({ type: UPDATE_NLPDATA, payload: NlpState });
       });
     }
