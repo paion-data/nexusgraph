@@ -10,6 +10,8 @@ import {
   SELECTION_CHANGE_COMMAND,
   FORMAT_TEXT_COMMAND,
   FORMAT_ELEMENT_COMMAND,
+  INDENT_CONTENT_COMMAND,
+  OUTDENT_CONTENT_COMMAND,
   $getSelection,
   $isRangeSelection,
   $createParagraphNode,
@@ -39,7 +41,7 @@ import {
 import { createPortal } from "react-dom";
 import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType } from "@lexical/rich-text";
 import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
-import DropDown, { DropDownItem } from "./DropDown";
+import DropDown, { DropDownItem } from "./RichTextDropDown";
 
 const LowPriority = 1;
 
@@ -764,43 +766,70 @@ export default function ToolbarPlugin() {
             <i className="format link"></i>
           </button>
           {isLink && createPortal(<FloatingLinkEditor editor={editor} />, document.body)}
-          <button
-            onClick={() => {
-              editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left");
-            }}
-            className="button spaced"
-            aria-label="Left Align"
-          >
-            <i className="format left-align"></i>
-          </button>
-          <button
-            onClick={() => {
-              editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "center");
-            }}
-            className="button spaced"
-            aria-label="Center Align"
-          >
-            <i className="format center-align"></i>
-          </button>
-          <button
-            onClick={() => {
-              editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right");
-            }}
-            className="button spaced"
-            aria-label="Right Align"
-          >
-            <i className="format right-align"></i>
-          </button>
-          <button
-            onClick={() => {
-              editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "justify");
-            }}
-            className="button"
-            aria-label="Justify Align"
-          >
-            <i className="format justify-align"></i>
-          </button>{" "}
           <Divider />
+          <DropDown
+            disabled={!isEditable}
+            buttonLabel="Align"
+            buttonIconClassName="icon left-align"
+            buttonClassName="toolbar-item spaced alignment"
+            buttonAriaLabel="Formatting options for text alignment"
+          >
+            <DropDownItem
+              onClick={() => {
+                editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left");
+              }}
+              className="item"
+            >
+              <i className="icon left-align" />
+              <span className="text">Left Align</span>
+            </DropDownItem>
+            <DropDownItem
+              onClick={() => {
+                editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "center");
+              }}
+              className="item"
+            >
+              <i className="icon center-align" />
+              <span className="text">Center Align</span>
+            </DropDownItem>
+            <DropDownItem
+              onClick={() => {
+                editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right");
+              }}
+              className="item"
+            >
+              <i className="icon right-align" />
+              <span className="text">Right Align</span>
+            </DropDownItem>
+            <DropDownItem
+              onClick={() => {
+                editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "justify");
+              }}
+              className="item"
+            >
+              <i className="icon justify-align" />
+              <span className="text">Justify Align</span>
+            </DropDownItem>
+            <Divider />
+            <DropDownItem
+              onClick={() => {
+                editor.dispatchCommand(OUTDENT_CONTENT_COMMAND, undefined);
+              }}
+              className="item"
+            >
+              <i className={"icon " + (isRTL ? "indent" : "outdent")} />
+              <span className="text">Outdent</span>
+            </DropDownItem>
+            <DropDownItem
+              onClick={() => {
+                editor.dispatchCommand(INDENT_CONTENT_COMMAND, undefined);
+              }}
+              className="item"
+            >
+              <i className={"icon " + (isRTL ? "outdent" : "indent")} />
+              <span className="text">Indent</span>
+            </DropDownItem>
+          </DropDown>
         </>
       )}
     </Toolbar>
