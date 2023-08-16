@@ -19,13 +19,13 @@ afterEach(() => {
   cy.get(".editor-paragraph").should("exist");
 });
 
-describe("undo redo button E2E test", () => {
-  it("input text and click Undo ,'China' not exist", () => {
+describe("Undo redo button E2E test", () => {
+  it("Input text and click Undo ,'China' not exist", () => {
     cy.get('[aria-label = "Undo"]').click();
     cy.get(".editor-paragraph").should("have.text", "");
   });
 
-  it("input text and click Undo and Redo ,'China' exist", () => {
+  it("Input text and click Undo and Redo ,'China' exist", () => {
     cy.get('[aria-label = "Undo"]').click();
     cy.get(".editor-paragraph").should("have.text", "");
     cy.get('[aria-label = "Redo"]').click();
@@ -33,7 +33,7 @@ describe("undo redo button E2E test", () => {
   });
 });
 
-describe("text position E2E test", () => {
+describe("Text position E2E test", () => {
   it("Text can be placed left  align  ", () => {
     cy.get('[aria-label = "Left Align"]').click();
     cy.get(".editor-paragraph").and("have.attr", "style", "text-align: left;");
@@ -55,80 +55,80 @@ describe("text position E2E test", () => {
   });
 });
 
-describe("font style E2E test", () => {
-  it("bold button has an effect", () => {
+describe("Font style E2E test", () => {
+  it("Bold button has an effect", () => {
     cy.get('[aria-label = "Format Bold"]').click();
     cy.get(".editor-paragraph").find("strong").should("have.class", "font-semibold");
   });
 
-  it("italic button has an effect", () => {
+  it("Italic button has an effect", () => {
     cy.get('[aria-label = "Format Italics"]').click();
     cy.get(".editor-paragraph").find("em").should("have.class", "italic");
   });
 
-  it("underline button has an effect", () => {
+  it("Underline button has an effect", () => {
     cy.get('[aria-label = "Format Underline"]').click();
     cy.get(".editor-paragraph").find("span").should("have.class", "underline");
   });
 
-  it("line-through button has an effect", () => {
+  it("Line-through button has an effect", () => {
     cy.get('[aria-label = "Format Strikethrough"]').click();
     cy.get(".editor-paragraph").find("span").should("have.class", "line-through");
   });
 
-  it("underline and line-through button has an effect in the same time", () => {
+  it("Underline and line-through button has an effect in the same time", () => {
     cy.get('[aria-label = "Format Strikethrough"]').click();
     cy.get('[aria-label = "Format Underline"]').click();
     cy.get(".editor-paragraph").find("span").should("have.class", "underlined-line-through");
   });
 
-  it("code button has an effect", () => {
+  it("Code button has an effect", () => {
     cy.get('[aria-label = "insert Code"]').click();
     cy.get(".editor-paragraph").find("span").should("have.class", "code");
   });
 
-  it("link button has an effect", () => {
+  it("Link button has an effect", () => {
     cy.get('[aria-label = "insert Link"]').click();
     cy.get(".editor-paragraph").find("a").should("have.class", "editor-link").and("have.attr", "href", "https://");
   });
 });
 
-describe("dropdown button E2E test", () => {
+describe("Dropdown button E2E test", () => {
   beforeEach(() => {
     cy.get('[aria-label = "Formatting Options"]').click();
   });
 
-  it("firstHeading button has an effect in dropdown", () => {
+  it("FirstHeading button has an effect in dropdown", () => {
     cy.contains("Heading 1").click();
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 1");
     cy.get(".editor-heading-h1").should("exist");
   });
 
-  it("secondHeading button has an effect in dropdown", () => {
+  it("SecondHeading button has an effect in dropdown", () => {
     cy.contains("Heading 2").click();
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 2");
     cy.get(".editor-heading-h2").should("exist");
   });
 
-  it("thirdHeading button has an effect in dropdown", () => {
+  it("ThirdHeading button has an effect in dropdown", () => {
     cy.contains("Heading 3").click();
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 3");
     cy.get(".editor-heading-h3").should("exist");
   });
 
-  it("fourthHeading button has an effect in dropdown", () => {
+  it("FourthHeading button has an effect in dropdown", () => {
     cy.contains("Heading 4").click();
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 4");
     cy.get(".editor-heading-h4").should("exist");
   });
 
-  it("fifthHeading button has an effect in dropdown", () => {
+  it("FifthHeading button has an effect in dropdown", () => {
     cy.contains("Heading 5").click();
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 5");
     cy.get(".editor-heading-h5").should("exist");
   });
 
-  it("sixthHeading button has an effect in dropdown", () => {
+  it("SixthHeading button has an effect in dropdown", () => {
     cy.contains("Heading 6").click();
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 6");
     cy.get(".editor-heading-h6").should("exist");
