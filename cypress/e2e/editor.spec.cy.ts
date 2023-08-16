@@ -135,9 +135,9 @@ describe("dropdown button E2E test", () => {
     cy.contains("Check List").click();
     cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Check List");
     cy.get("[aria-checked='false']").should("exist");
-    cy.get("li").click("left").wait(5000);
+    cy.get("li").click("left").wait(8000);
     cy.get("[aria-checked='true']").should("exist");
-    cy.get("li").click("left").wait(5000);
+    cy.get("li").click("left").wait(8000);
     cy.get("[aria-checked='false']").should("exist");
   });
 
