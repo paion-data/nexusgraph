@@ -40,7 +40,7 @@ export const FontDropDown = styled.div`
         background-color: rgba(60, 60, 60, 0.9);
       }
     }
-    
+
     .color-picker-basic-color {
       display: flex;
       flex-wrap: wrap;
@@ -48,7 +48,7 @@ export const FontDropDown = styled.div`
       margin: 0;
       padding-top: 20px;
     }
-    
+
     .color-picker-basic-color button {
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -57,18 +57,17 @@ export const FontDropDown = styled.div`
       cursor: pointer;
       list-style-type: none;
     }
-    
+
     .color-picker-basic-color button.active {
       box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.3);
     }
-    
+
     .color-picker-saturation {
       width: 100%;
       position: relative;
       margin-top: 15px;
       height: 150px;
-      background-image: linear-gradient(transparent, black),
-        linear-gradient(to right, white, transparent);
+      background-image: linear-gradient(transparent, black), linear-gradient(to right, white, transparent);
       user-select: none;
     }
     .color-picker-saturation_cursor {
@@ -99,7 +98,7 @@ export const FontDropDown = styled.div`
       user-select: none;
       border-radius: 12px;
     }
-    
+
     .color-picker-hue_cursor {
       position: absolute;
       width: 20px;
@@ -110,7 +109,7 @@ export const FontDropDown = styled.div`
       box-sizing: border-box;
       transform: translate(-10px, -4px);
     }
-    
+
     .color-picker-color {
       border: 1px solid #ccc;
       margin-top: 15px;
@@ -118,30 +117,8 @@ export const FontDropDown = styled.div`
       height: 20px;
     }
 
-
-    .fontsize-item{
-      width:50px !important;
-    }
-    
-  .item {
-    margin: 0 8px 0 8px;
-    padding: 8px;
-    color: #050505;
-    cursor: pointer;
-    line-height: 16px;
-    font-size: 15px;
-    display: flex;
-    align-content: center;
-    flex-direction: row;
-    flex-shrink: 0;
-    justify-content: space-between;
-    background-color: transparent;
-    border-radius: 8px;
-    width:150px;
-    border: 0;
-
-    &:first-child {
-      margin-top: 8px;
+    .fontsize-item {
+      width: 50px !important;
     }
 
     .item {
@@ -223,6 +200,7 @@ export const FontDropDown = styled.div`
         }
       }
     }
+  }
 `;
 export const Dropdown = styled.div`
   z-index: 5;

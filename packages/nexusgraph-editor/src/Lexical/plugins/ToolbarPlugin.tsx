@@ -831,6 +831,15 @@ export default function ToolbarPlugin() {
             <i className="format link"></i>
           </button>
           {isLink && createPortal(<FloatingLinkEditor editor={editor} />, document.body)}
+          <DropdownColorPicker
+            disabled={!isEditable}
+            buttonClassName="toolbar-item color-picker"
+            buttonAriaLabel="Formatting text color"
+            buttonIconClassName="icon font-color"
+            color={fontColor}
+            onChange={onFontColorSelect}
+            title="text color"
+          />
           <DropDown
             disabled={!isEditable}
             buttonClassName="toolbar-item spaced"
@@ -848,16 +857,6 @@ export default function ToolbarPlugin() {
               <span className="text">Clear Formatting</span>
             </DropDownItem>
           </DropDown>
-          <Divider />
-          <DropdownColorPicker
-            disabled={!isEditable}
-            buttonClassName="toolbar-item color-picker"
-            buttonAriaLabel="Formatting text color"
-            buttonIconClassName="icon font-color"
-            color={fontColor}
-            onChange={onFontColorSelect}
-            title="text color"
-          />
           <Divider />
           <DropDown
             disabled={!isEditable}
