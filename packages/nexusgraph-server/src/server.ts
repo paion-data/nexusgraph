@@ -40,6 +40,14 @@ app.post(
   })
 );
 
+app.post(
+  "/nexusgraph",
+  asyncHandler(async (req, res) => {
+    const documents = req.body as Documents;
+    res.send(db.data);
+  })
+);
+
 app.listen(3000, () => {
   console.log("listening on port 3000"); // eslint-disable-line no-console
 });

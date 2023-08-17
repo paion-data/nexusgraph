@@ -20,7 +20,9 @@
 
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["packages"],
   "exclude": ["**/*.test.ts", "**/*.test.tsx"]

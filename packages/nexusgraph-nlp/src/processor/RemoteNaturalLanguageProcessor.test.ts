@@ -3,8 +3,10 @@
  */
 import axios from "axios";
 import { RemoteNaturalLanguageProcessor } from "./RemoteNaturalLanguageProcessor";
+import { NaturalLanguageProcessorProvider } from "../../inversify.config";
 
-const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
+const naturalLanguageProcessor =
+  NaturalLanguageProcessorProvider.get<RemoteNaturalLanguageProcessor>(RemoteNaturalLanguageProcessor);
 
 jest.mock("axios");
 
