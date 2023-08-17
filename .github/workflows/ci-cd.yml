@@ -97,6 +97,7 @@ jobs:
     name: E2E Tests
     needs: [yaml-lint, markdown-lint, markdown-link-check, code-style, list-e2e-test-specs]
     strategy:
+      fail-fast: false
       matrix:
         test_env: ["dev", "prod"]
         test_spec: ${{ fromJson(needs.list-e2e-test-specs.outputs.paths) }}
