@@ -8,13 +8,14 @@ import {
   PaneHeader,
   PaneWrapper,
   StyledLegendInlineList,
-} from "../../../styles/DefaultPane.styled";
+} from "../../styles/DefaultPane.styled";
 import { StyleableNodeLabel } from "./StyleableNodeLabel";
-import { ShowMoreOrAll } from "../../ShowMoreOrAll";
+import { ShowMoreOrAll } from "../ShowMoreOrAll";
 import { StyleableRelType } from "./StyleableRelType";
-import { WarningMessage } from "../../WarningMessage";
-import { GraphStyleModel } from "../../../GraphStyle";
-import { GraphStats } from "../../../GraphStats";
+import { WarningMessage } from "../WarningMessage";
+import { GraphStyleModel } from "../../GraphStyle";
+import { GraphStats } from "../../GraphStats";
+import { useTranslation } from "react-i18next";
 
 type PaneBodySectionHeaderProps = {
   title: string;
@@ -54,6 +55,8 @@ export default function OverviewPane({
   stats,
   infoMessage,
 }: OverviewPaneProps): JSX.Element {
+  const { t } = useTranslation("graph");
+
   const [maxLabelsCount, setMaxLabelsCount] = useState(OVERVIEW_STEP_SIZE);
   const [maxRelationshipsCount, setMaxRelationshipsCount] = useState(OVERVIEW_STEP_SIZE);
 
@@ -86,12 +89,12 @@ export default function OverviewPane({
 
   return (
     <PaneWrapper>
-      <PaneHeader>{"概述"}</PaneHeader>
+      <PaneHeader>{t("overview")}</PaneHeader>
       <PaneBody>
         {labels && visibleLabelKeys.length !== 0 && (
           <div>
             <PaneBodySectionHeader
-              title={"节点类型"}
+              title={t("nodeLabel")}
               numOfElementsVisible={visibleLabelKeys.length}
               totalNumOfElements={totalNumOfLabelTypes}
             ></PaneBodySectionHeader>
@@ -120,7 +123,7 @@ export default function OverviewPane({
         {relTypes && visibleRelationshipKeys.length !== 0 && (
           <div>
             <PaneBodySectionHeader
-              title={"关系类型"}
+              title={t("relationshipType")}
               numOfElementsVisible={visibleRelationshipKeys.length}
               totalNumOfElements={totalNumOfRelTypes}
             />
@@ -148,7 +151,7 @@ export default function OverviewPane({
         <div style={{ paddingBottom: "10px" }}>
           {hasTruncatedFields && (
             <>
-              <WarningMessage text={"记录字段已被截断。"} />
+              <WarningMessage text={t("warningMessage")} />
               <br />
             </>
           )}
@@ -160,7 +163,9 @@ export default function OverviewPane({
           )}
           {nodeCount !== null &&
             relationshipCount !== null &&
-            `显示 ${numberToUSLocale(nodeCount)} 个节点  ${numberToUSLocale(relationshipCount)} 条关系.`}
+            `${t("textForDisplaying")} ${numberToUSLocale(nodeCount)} ${t("textForNodes")}  ${numberToUSLocale(
+              relationshipCount
+            )} ${t("textForRelationships")}`}
         </div>
       </PaneBody>
     </PaneWrapper>

@@ -24,6 +24,10 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
+<<<<<<< HEAD
   "include": ["packages", "custom.d.ts"],
+=======
+  "include": ["packages", "i18n.js"],
+>>>>>>> e3a84186 (Temporarily commit)
   "exclude": ["**/*.test.ts", "**/*.test.tsx"]
 }

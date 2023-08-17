@@ -12,8 +12,8 @@ import { GraphStats } from "../GraphStats";
 import { PaneContainer, StyledNodeInspectorTopMenuChevron, panelMinWidth } from "../styles/InspectorContainer.styled";
 import { NodeInspectorDrawer } from "./NodeInspectorDrawer";
 import { Resizable } from "re-resizable";
-import { DetailsPaneProps } from "./properties-panel-content/properties-panel-content/DetailsPane";
-import { OverviewPaneProps } from "./properties-panel-content/properties-panel-content/OverviewPane";
+import { DetailsPaneProps } from "./properties-panel-content/DetailsPane";
+import { OverviewPaneProps } from "./properties-panel-content/OverviewPane";
 
 const ChevronRightIcon = (): JSX.Element => <ChevronRightIconSolid />;
 
