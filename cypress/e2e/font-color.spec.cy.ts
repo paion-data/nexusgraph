@@ -7,6 +7,13 @@ beforeEach(() => {
 });
 
 describe("Font color button e2e test", () => {
+  it("Manually enter the Hex value to change the color", () => {
+    cy.get("input").type("{selectall}");
+    cy.get("input").type("#000000");
+    cy.get(".editor-paragraph").find("span").and("have.css", "color").should("include", "rgb(0, 0, 0)");
+    cy.get(".color-picker-color").and("have.css", "background-color").should("include", "rgb(0, 0, 0)");
+  });
+
   const basicColor = [
     "rgb(208, 2, 27)",
     "rgb(245, 166, 35)",
@@ -25,12 +32,6 @@ describe("Font color button e2e test", () => {
     "rgb(255, 255, 255)",
     "rgb(143, 196, 221)",
   ];
-  it("Manually enter the Hex value to change the color", () => {
-    cy.get("input").type("{selectall}");
-    cy.get("input").type("#000000");
-    cy.get(".editor-paragraph").find("span").and("have.css", "color").should("include", "rgb(0, 0, 0)");
-    cy.get(".color-picker-color").and("have.css", "background-color").should("include", "rgb(0, 0, 0)");
-  });
 
   for (let i = 0; i < basicColor.length; i++) {
     it(`Click basic color button ${basicColor[i]} to change the color`, () => {
