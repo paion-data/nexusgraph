@@ -104,7 +104,7 @@ jobs:
     secrets: inherit
     with:
       testing_env: ${{ matrix.test_env }}
-      spec_file_name: ${{ matrix.test_spec }}
+      spec_file_path: ${{ matrix.test_spec }}
 
   release:
     name: Publish NPM Packages

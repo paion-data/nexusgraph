@@ -4,4 +4,4 @@
 
 yarn start &
 yarn wait-on-dev
-yarn e2e -- --spec "cypress/e2e/$SPEC_FILE_NAME"
+yarn e2e -- --spec "$SPEC_FILE_PATH"

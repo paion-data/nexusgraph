@@ -8,7 +8,7 @@ name: Nexus Graph CI/CD E2E Tests
       testing_env:
         required: true
         type: string
-      spec_file_name:
+      spec_file_path:
         required: true
         type: string
       entity_extraction_call_delay_in_ms:
@@ -18,7 +18,7 @@ name: Nexus Graph CI/CD E2E Tests
 
 jobs:
   e2e-tests:
-    name: E2E Tests (${{ inputs.spec_file_name }}) in ${{ inputs.testing_env }} Mode
+    name: E2E Tests (${{ inputs.spec_file_path }}) in ${{ inputs.testing_env }} Mode
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -53,12 +53,12 @@ jobs:
               .github/scripts/prod-e2e-test-script.sh
           fi
         env:
-          SPEC_FILE_NAME: ${{ inputs.spec_file_name }}
+          SPEC_FILE_PATH: ${{ inputs.spec_file_path }}
       - name: Upload test videos and screenshots on test failure
         if: failure()
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ inputs.testing_env }}-${{ inputs.spec_file_name }}-${{ matrix.node_version }}
+          name: ${{ inputs.testing_env }}-${{ inputs.spec_file_path }}-${{ matrix.node_version }}
           path: |
             ./cypress/videos
             ./cypress/screenshots
