@@ -21,57 +21,57 @@ afterEach(() => {
   cy.get(".editor-paragraph").should("exist");
 });
 
-// describe("Undo redo button E2E test", () => {
-//   it("Input text and click Undo ,'China' not exist", () => {
-//     cy.get('[aria-label = "Undo"]').click();
-//     cy.get(".editor-paragraph").should("have.text", "");
-//   });
+describe("Undo redo button E2E test", () => {
+  it("Input text and click Undo ,'China' not exist", () => {
+    cy.get('[aria-label = "Undo"]').click();
+    cy.get(".editor-paragraph").should("have.text", "");
+  });
 
-//   it("Input text and click Undo and Redo ,'China' exist", () => {
-//     cy.get('[aria-label = "Undo"]').click();
-//     cy.get(".editor-paragraph").should("have.text", "");
-//     cy.get('[aria-label = "Redo"]').click();
-//     cy.get(".editor-paragraph").should("have.text", "China");
-//   });
-// });
+  it("Input text and click Undo and Redo ,'China' exist", () => {
+    cy.get('[aria-label = "Undo"]').click();
+    cy.get(".editor-paragraph").should("have.text", "");
+    cy.get('[aria-label = "Redo"]').click();
+    cy.get(".editor-paragraph").should("have.text", "China");
+  });
+});
 
-// describe("Font style E2E test", () => {
-//   it("Bold button has an effect", () => {
-//     cy.get('[aria-label = "Format Bold"]').click();
-//     cy.get(".editor-paragraph").find("strong").should("have.class", "font-semibold");
-//   });
+describe("Font style E2E test", () => {
+  it("Bold button has an effect", () => {
+    cy.get('[aria-label = "Format Bold"]').click();
+    cy.get(".editor-paragraph").find("strong").should("have.class", "font-semibold");
+  });
 
-//   it("Italic button has an effect", () => {
-//     cy.get('[aria-label = "Format Italics"]').click();
-//     cy.get(".editor-paragraph").find("em").should("have.class", "italic");
-//   });
+  it("Italic button has an effect", () => {
+    cy.get('[aria-label = "Format Italics"]').click();
+    cy.get(".editor-paragraph").find("em").should("have.class", "italic");
+  });
 
-//   it("Underline button has an effect", () => {
-//     cy.get('[aria-label = "Format Underline"]').click();
-//     cy.get(".editor-paragraph").find("span").should("have.class", "underline");
-//   });
+  it("Underline button has an effect", () => {
+    cy.get('[aria-label = "Format Underline"]').click();
+    cy.get(".editor-paragraph").find("span").should("have.class", "underline");
+  });
 
-//   it("Line-through button has an effect", () => {
-//     cy.get('[aria-label = "Format Strikethrough"]').click();
-//     cy.get(".editor-paragraph").find("span").should("have.class", "line-through");
-//   });
+  it("Line-through button has an effect", () => {
+    cy.get('[aria-label = "Format Strikethrough"]').click();
+    cy.get(".editor-paragraph").find("span").should("have.class", "line-through");
+  });
 
-//   it("Underline and line-through button has an effect in the same time", () => {
-//     cy.get('[aria-label = "Format Strikethrough"]').click();
-//     cy.get('[aria-label = "Format Underline"]').click();
-//     cy.get(".editor-paragraph").find("span").should("have.class", "underlined-line-through");
-//   });
+  it("Underline and line-through button has an effect in the same time", () => {
+    cy.get('[aria-label = "Format Strikethrough"]').click();
+    cy.get('[aria-label = "Format Underline"]').click();
+    cy.get(".editor-paragraph").find("span").should("have.class", "underlined-line-through");
+  });
 
-//   it("Code button has an effect", () => {
-//     cy.get('[aria-label = "insert Code"]').click();
-//     cy.get(".editor-paragraph").find("span").should("have.class", "code");
-//   });
+  it("Code button has an effect", () => {
+    cy.get('[aria-label = "insert Code"]').click();
+    cy.get(".editor-paragraph").find("span").should("have.class", "code");
+  });
 
-//   it("Link button has an effect", () => {
-//     cy.get('[aria-label = "insert Link"]').click();
-//     cy.get(".editor-paragraph").find("a").should("have.class", "editor-link").and("have.attr", "href", "https://");
-//   });
-// });
+  it("Link button has an effect", () => {
+    cy.get('[aria-label = "insert Link"]').click();
+    cy.get(".editor-paragraph").find("a").should("have.class", "editor-link").and("have.attr", "href", "https://");
+  });
+});
 
 describe("Dropdown button E2E test", () => {
   it("FirstHeading button has an effect in dropdown", () => {
