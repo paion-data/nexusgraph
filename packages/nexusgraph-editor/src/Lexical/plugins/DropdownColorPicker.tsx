@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import ColorPicker from "./ColorPicker";
-import DropDown from "./DropDown";
+import DropDown from "./DropDown/DropDown";
 
 type Props = {
   disabled?: boolean;

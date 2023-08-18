@@ -1,5 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import React from "react";
 
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
@@ -72,6 +71,6 @@ export default function LexicalEditor(): JSX.Element {
   );
 }
 
-function Placeholder(): JSX.Element {
+export function Placeholder(): JSX.Element {
   return <div className={styles["editor-placeholder"]}>请输入文本......</div>;
 }

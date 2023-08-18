@@ -43,8 +43,10 @@ import {
 import { createPortal } from "react-dom";
 import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType, $isQuoteNode } from "@lexical/rich-text";
 import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
-import DropDown, { DropDownItem } from "./DropDown";
+import DropDown, { DropDownItem } from "./DropDown/DropDown";
 import DropdownColorPicker from "./DropdownColorPicker";
+import useModal from "./Hooks/useModal";
+import { InsertImageDialog } from "./DropDown/ImagePlugin";
 
 const LowPriority = 1;
 
@@ -554,6 +556,7 @@ export default function ToolbarPlugin() {
   const [fontFamily, setFontFamily] = useState<string>("Arial");
   const [fontColor, setFontColor] = useState<string>("#fff");
   const [bgColor, setBgColor] = useState<string>("#000");
+  const [modal, showModal] = useModal();
 
   const updateToolbar = useCallback(() => {
     const selection = $getSelection();
@@ -879,6 +882,24 @@ export default function ToolbarPlugin() {
           <Divider />
           <DropDown
             disabled={!isEditable}
+            buttonClassName="toolbar-item spaced"
+            buttonLabel="Insert"
+            buttonAriaLabel="Insert specialized editor node"
+            buttonIconClassName="icon plus"
+          >
+            <DropDownItem
+              onClick={() => {
+                showModal("Insert Image", (onClose) => <InsertImageDialog editor={editor} onClose={onClose} />);
+              }}
+              className="item"
+            >
+              <i className="icon image" />
+              <span className="text">Image</span>
+            </DropDownItem>
+          </DropDown>
+          <Divider />
+          <DropDown
+            disabled={!isEditable}
             buttonLabel="Align"
             buttonIconClassName="icon left-align"
             buttonClassName="toolbar-item spaced alignment"
@@ -942,6 +963,7 @@ export default function ToolbarPlugin() {
           </DropDown>
         </>
       )}
+      {modal}
     </Toolbar>
   );
 }

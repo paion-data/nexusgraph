@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { FontDropDown } from "./styled";
+import { FontDropDown } from "../styled";
 import * as React from "react";
 import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";

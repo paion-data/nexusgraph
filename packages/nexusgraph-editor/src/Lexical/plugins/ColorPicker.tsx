@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import TextInput from "./TextInput";
+import TextInput from "./DropDown/TextInput";
 
 interface ColorPickerProps {
   color: string;
