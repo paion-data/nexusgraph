@@ -95,7 +95,7 @@ jobs:
 
   e2e-tests:
     name: E2E Tests
-    uses: QubitPi/cypress-github@master
+    uses: QubitPi/cypress-github/action/action.yml
     # needs: [yaml-lint, markdown-lint, markdown-link-check, code-style, list-e2e-test-specs]
 #    strategy:
 #      fail-fast: false
