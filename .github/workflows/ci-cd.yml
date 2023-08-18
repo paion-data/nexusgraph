@@ -102,7 +102,7 @@ jobs:
               'TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}'
             )}}
           repository: paion-data/nexusgraph
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   e2e-tests:
     needs: [test-env-file]
