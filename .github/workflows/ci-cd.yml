@@ -94,8 +94,11 @@ jobs:
           ext: ".ts"
 
   e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+
     #name: E2E Tests
-    uses: QubitPi/cypress-github@master
+      - uses: QubitPi/cypress-github@master
     # needs: [yaml-lint, markdown-lint, markdown-link-check, code-style, list-e2e-test-specs]
 #    strategy:
 #      fail-fast: false
