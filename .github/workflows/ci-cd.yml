@@ -94,7 +94,7 @@ jobs:
           ext: ".ts"
 
   e2e-tests:
-    uses: QubitPi/cypress-github/.github/.github/workflows/main.yml@master
+    uses: QubitPi/cypress-github/.github/workflows/main.yml@master
 
   release:
     name: Publish NPM Packages
