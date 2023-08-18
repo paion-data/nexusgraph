@@ -86,9 +86,9 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: hmanzur/actions-set-secret@v2.0.0
+      - uses: gliech/create-github-secret-action@v1
         with:
-          name: 'TEST_ENV_FILE'
+          name: TEST_ENV_FILE
           value: |
             ${{ format(
               '{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}\n{7}\n',
@@ -101,8 +101,7 @@ jobs:
               'TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}',
               'TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}'
             )}}
-          repository: paion-data/nexusgraph
-          token: ${{ secrets.GITHUB_TOKEN }}
+          pa_token: ${{ secrets.GITHUB_TOKEN }}
 
   e2e-tests:
     needs: [test-env-file]
