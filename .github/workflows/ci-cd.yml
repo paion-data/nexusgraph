@@ -79,11 +79,35 @@ jobs:
       - name: Run unit tests
         run: yarn test
 
+  test-env-file:
+    name: Create test_env_file for "e2e-tests" job below
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: hmanzur/actions-set-secret@v2.0.0
+        with:
+          name: 'TEST_ENV_FILE'
+          value: |
+            ${{ format(
+              '{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}\n{7}\n',
+              NODE_ENV=development
+              EXPAND_API_URL=${{ secrets.EXPAND_API_URL }},
+              ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS,
+              ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}
+              LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}
+              LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}
+              TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}
+              TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}
+            )}}
+          repository: paion-data/nexusgraph
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
   e2e-tests:
+    needs: [test-env-file]
     uses: QubitPi/cypress-github/.github/workflows/main.yml@master
     secrets:
       test_env_file: ${{ secrets.TEST_ENV_FILE }}
-
 
   release:
     name: Publish NPM Packages
