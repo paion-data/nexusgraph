@@ -81,6 +81,7 @@ jobs:
 
   e2e-tests:
     uses: QubitPi/cypress-github/.github/workflows/main.yml@master
+    secrets: inherit
 
   release:
     name: Publish NPM Packages
