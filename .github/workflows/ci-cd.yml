@@ -81,6 +81,7 @@ jobs:
 
   test-env-file:
     name: Create test_env_file for "e2e-tests" job below
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
