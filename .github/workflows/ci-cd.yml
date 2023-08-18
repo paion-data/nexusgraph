@@ -94,7 +94,7 @@ jobs:
           ext: ".ts"
 
   e2e-tests:
-    name: E2E Tests
+    #name: E2E Tests
     uses: QubitPi/cypress-github@master
     # needs: [yaml-lint, markdown-lint, markdown-link-check, code-style, list-e2e-test-specs]
 #    strategy:
