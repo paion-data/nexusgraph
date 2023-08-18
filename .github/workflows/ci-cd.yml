@@ -91,14 +91,14 @@ jobs:
           value: |
             ${{ format(
               '{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}\n{7}\n',
-              "NODE_ENV=development",
-              "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}",
-              "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS",
-              "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}",
-              "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}",
-              "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}",
-              "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}",
-              "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}"
+              'NODE_ENV=development',
+              'EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}',
+              'ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS',
+              'ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}',
+              'LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}',
+              'LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}',
+              'TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}',
+              'TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}'
             )}}
           repository: paion-data/nexusgraph
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
