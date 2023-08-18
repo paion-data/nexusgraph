@@ -80,6 +80,7 @@ jobs:
         run: yarn test
 
   test-env-file:
+    permissions: write-all
     name: Create test_env_file for "e2e-tests" job below
     runs-on: ubuntu-latest
     steps:
