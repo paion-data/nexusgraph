@@ -82,7 +82,7 @@ jobs:
   e2e-tests:
     uses: QubitPi/cypress-github/.github/workflows/main.yml@master
     secrets:
-      TEST_ENV_FILE: ${{ secrets.TEST_ENV_FILE }}
+      test_env_file: ${{ secrets.TEST_ENV_FILE }}
 
   release:
     name: Publish NPM Packages
