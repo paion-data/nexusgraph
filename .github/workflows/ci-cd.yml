@@ -107,7 +107,6 @@ jobs:
 #            -d '{"encrypted_value":"c2VjcmV0","key_id":"012345678912345678"}'
 
   e2e-tests:
-    needs: [test-env-file]
     uses: QubitPi/cypress-github/.github/workflows/main.yml@master
     secrets:
       test_env_file: |
