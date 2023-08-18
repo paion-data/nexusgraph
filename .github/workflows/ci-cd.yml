@@ -81,7 +81,8 @@ jobs:
 
   e2e-tests:
     uses: QubitPi/cypress-github/.github/workflows/main.yml@master
-    secrets: inherit
+    secrets:
+      TEST_ENV_FILE: ${{ secrets.TEST_ENV_FILE }}
 
   release:
     name: Publish NPM Packages
