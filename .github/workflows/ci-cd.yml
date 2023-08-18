@@ -80,20 +80,7 @@ jobs:
         run: yarn test
 
   e2e-tests:
-    needs: [yaml-lint, markdown-lint, markdown-link-check, code-style]
-    steps:
-      - name: Load app environment variables
-        run: |
-          touch .env
-          echo "NODE_ENV=development" >> .env
-          echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
-          echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=${{ inputs.entity_extraction_call_delay_in_ms }}" >> .env
-          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
-          echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
-          echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
-          echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
-          echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
-      - uses: QubitPi/cypress-github/.github/workflows/main.yml@master
+    uses: QubitPi/cypress-github/.github/workflows/main.yml@master
 
   release:
     name: Publish NPM Packages
