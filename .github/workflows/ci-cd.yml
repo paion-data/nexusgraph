@@ -79,40 +79,46 @@ jobs:
       - name: Run unit tests
         run: yarn test
 
-  test-env-file:
-    permissions: write-all
-    name: Create test_env_file for "e2e-tests" job below
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Load app environment variables
-        run: |
-          touch .env
-          echo "NODE_ENV=development" >> .env
-          echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
-          echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=${{ inputs.entity_extraction_call_delay_in_ms }}" >> .env
-          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
-          echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
-          echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
-          echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
-          echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
-          curl -L \
-            -X PUT \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/paion-data/nexusgraph/actions/secrets/TEST_ENV_FILE \
-            -d '{"encrypted_value":"c2VjcmV0","key_id":"012345678912345678"}'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#  test-env-file:
+#    permissions: write-all
+#    name: Create test_env_file for "e2e-tests" job below
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0
+#      - name: Load app environment variables
+#        run: |
+#          touch .env
+#          echo "NODE_ENV=development" >> .env
+#          echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
+#          echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=${{ inputs.entity_extraction_call_delay_in_ms }}" >> .env
+#          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
+#          echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
+#          echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
+#          echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
+#          echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
+#          curl -L \
+#            -X PUT \
+#            -H "Accept: application/vnd.github+json" \
+#            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+#            -H "X-GitHub-Api-Version: 2022-11-28" \
+#            https://api.github.com/repos/paion-data/nexusgraph/actions/secrets/TEST_ENV_FILE \
+#            -d '{"encrypted_value":"c2VjcmV0","key_id":"012345678912345678"}'
 
   e2e-tests:
     needs: [test-env-file]
     uses: QubitPi/cypress-github/.github/workflows/main.yml@master
     secrets:
-      test_env_file: ${{ secrets.TEST_ENV_FILE }}
+      test_env_file: |
+        NODE_ENV=development
+        EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}
+        ENTITY_EXTRACTION_CALL_DELAY_IN_MS=${{ inputs.entity_extraction_call_delay_in_ms }}
+        ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}
+        LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}
+        LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}
+        TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}
+        TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}
 
   release:
     name: Publish NPM Packages
