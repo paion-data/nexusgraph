@@ -552,7 +552,8 @@ export default function ToolbarPlugin() {
   const [fontSize, setFontSize] = useState<string>("15px");
   const [isEditable, setIsEditable] = useState(() => editor.isEditable());
   const [fontFamily, setFontFamily] = useState<string>("Arial");
-  const [fontColor, setFontColor] = useState<string>("#000");
+  const [fontColor, setFontColor] = useState<string>("#fff");
+  const [bgColor, setBgColor] = useState<string>("#000");
 
   const updateToolbar = useCallback(() => {
     const selection = $getSelection();
@@ -598,6 +599,8 @@ export default function ToolbarPlugin() {
       setFontFamily($getSelectionStyleValueForProperty(selection, "font-family", "Arial"));
 
       setFontColor($getSelectionStyleValueForProperty(selection, "color", "#fff"));
+
+      setBgColor($getSelectionStyleValueForProperty(selection, "background-color", "#373b3d"));
     }
   }, [editor]);
 
@@ -713,6 +716,13 @@ export default function ToolbarPlugin() {
   const onFontColorSelect = useCallback(
     (value: string) => {
       applyStyleText({ color: value });
+    },
+    [applyStyleText]
+  );
+
+  const onBgColorSelect = useCallback(
+    (value: string) => {
+      applyStyleText({ "background-color": value });
     },
     [applyStyleText]
   );
@@ -839,6 +849,15 @@ export default function ToolbarPlugin() {
             color={fontColor}
             onChange={onFontColorSelect}
             title="text color"
+          />
+          <DropdownColorPicker
+            disabled={!isEditable}
+            buttonClassName="toolbar-item color-picker"
+            buttonAriaLabel="Formatting background color"
+            buttonIconClassName="icon bg-color"
+            color={bgColor}
+            onChange={onBgColorSelect}
+            title="bg color"
           />
           <DropDown
             disabled={!isEditable}
