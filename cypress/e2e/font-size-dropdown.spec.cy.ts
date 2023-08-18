@@ -1,3 +1,4 @@
+// Copyright 2023 Paion Data. All rights reserved.
 beforeEach(() => {
   cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
   cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" });
