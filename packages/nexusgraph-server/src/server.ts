@@ -30,7 +30,7 @@ type Documents = {
   documents: string[];
 };
 
-const adapter = new JSONFileSync<Data>(process.argv[2] ? process.argv[2] : "../../.github/dbInDev.json");
+const adapter = new JSONFileSync<Data>(process.argv[2] ? process.argv[2] : "../../.github/db.json");
 const db = new LowSync<Data>(adapter, { nodes: [], links: [] });
 db.read();
 
