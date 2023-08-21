@@ -80,7 +80,7 @@ jobs:
           cd packages/nexusgraph-server
           yarn install
       - name: Run unit tests
-        run: yarn test]
+        run: yarn test
 
   e2e-tests:
     needs: [yaml-lint, markdown-lint, markdown-link-check, code-style]
