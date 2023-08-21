@@ -26,7 +26,7 @@ function PortalImpl({
   useEffect(() => {
     let modalOverlayElement: HTMLElement | null = null;
     const handler = (event: KeyboardEvent) => {
-      if (event.keyCode === 27) {
+      if (event.key === "Escape") {
         onClose();
       }
     };
