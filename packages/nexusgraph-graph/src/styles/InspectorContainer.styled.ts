@@ -52,7 +52,7 @@ export const StyledNodeInspectorTopMenuChevron = styled.button<{
   cursor: pointer;
   position: absolute;
   right: 10px;
-  top: 8.7%;
+  top: 8.9%;
   z-index: 2;
   width: 32px;
   height: 32px;

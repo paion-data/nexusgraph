@@ -1,0 +1,130 @@
+{
+  "links": [
+    {
+      "fields": {
+        "label": "country"
+      },
+      "source": "China",
+      "target": "Asia"
+    },
+    {
+      "fields": {
+        "label": "member"
+      },
+      "source": "China",
+      "target": "United Nations"
+    },
+    {
+      "fields": {
+        "label": "currency"
+      },
+      "source": "China",
+      "target": "Renminbi"
+    },
+    {
+      "fields": {
+        "label": "capital"
+      },
+      "source": "China",
+      "target": "Beijing"
+    },
+    {
+      "fields": {
+        "label": "language"
+      },
+      "source": "China",
+      "target": "Mandarin"
+    },
+    {
+      "source": "person-1",
+      "target": "person-2",
+      "fields": {
+        "label": "is a friend of"
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "person-1",
+      "fields": {
+        "name": "Amy"
+      }
+    },
+    {
+      "id": "person-2",
+      "fields": {
+        "name": "Jane"
+      }
+    },
+    {
+      "fields": {
+        "label": "China",
+        "type": "entity"
+      },
+      "id": "China"
+    },
+    {
+      "fields": {
+        "label": "Asia",
+        "type": "entity"
+      },
+      "id": "Asia"
+    },
+    {
+      "fields": {
+        "label": "China",
+        "type": "entity"
+      },
+      "id": "China"
+    },
+    {
+      "fields": {
+        "label": "United Nations",
+        "type": "entity"
+      },
+      "id": "United Nations"
+    },
+    {
+      "fields": {
+        "label": "China",
+        "type": "entity"
+      },
+      "id": "China"
+    },
+    {
+      "fields": {
+        "label": "Renminbi",
+        "type": "entity"
+      },
+      "id": "Renminbi"
+    },
+    {
+      "fields": {
+        "label": "China",
+        "type": "entity"
+      },
+      "id": "China"
+    },
+    {
+      "fields": {
+        "label": "Beijing",
+        "type": "entity"
+      },
+      "id": "Beijing"
+    },
+    {
+      "fields": {
+        "label": "China",
+        "type": "entity"
+      },
+      "id": "China"
+    },
+    {
+      "fields": {
+        "label": "Mandarin",
+        "type": "entity"
+      },
+      "id": "Mandarin"
+    }
+  ]
+}

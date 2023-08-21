@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "es6",
+    "types": ["cypress", "node"],
+    "allowJs": true,
+    "noEmit": true
+  },
+  "include": ["**/*.ts"]
+}
