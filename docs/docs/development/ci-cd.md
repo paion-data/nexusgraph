@@ -14,7 +14,7 @@ deployed to AWS EC2. The deployment logics are defined by the following componen
 
 - [GitHub Action](https://github.com/paion-data/nexusgraph/blob/master/.github/workflows/ci-cd.yml)
 - [HashiCorp Configuration](https://github.com/paion-data/nexusgraph/tree/master/hashicorp)
-- [HashiCorp AWS](https://github.com/marketplace/actions/hashicorp-aws)
+- [HashiCorp AWS](https://github.com/marketplace/actions/deploying-to-aws-ec2-through-hashicorp)
 
 ![Error loading nexusgraph-ci-cd.png](./img/nexusgraph-ci-cd.png)
 
