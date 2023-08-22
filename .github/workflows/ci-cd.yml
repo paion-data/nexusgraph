@@ -186,7 +186,7 @@ jobs:
           echo '${{ secrets.SSL_CERTIFICATE_APP }}' > server-app.crt
           echo '${{ secrets.SSL_CERTIFICATE_KEY_APP }}' > server-app.key
       - name: Publish all nexusgraph AMI images and deploy them to EC2 through HashiCorp
-        uses: QubitPi/hashicorp-aws@master
+        uses: QubitPi/aergia@master
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

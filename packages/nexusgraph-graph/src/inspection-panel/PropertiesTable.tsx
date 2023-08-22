@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
-import { ClickableUrls } from "./ClickableUrls";
+import { ClickableUrls } from "./properties-panel-content/ClickableUrls";
 import {
   AlternatingTable,
   CopyCell,

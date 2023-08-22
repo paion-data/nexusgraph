@@ -7,6 +7,7 @@ import * as Sentry from "@sentry/react";
 import { StoreWrapper } from "../../nexusgraph-provider";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LogtoProviderWapper, { Callback } from "./LogtoProvider";
+import "../../../i18n";
 
 if (process.env.SENTRY_IO_DSN) {
   setupSentry();

@@ -1,0 +1,26 @@
+{
+  "en": {
+    "overview": "Overview",
+    "nodeLabel": "Node labels",
+    "relationshipType": "Relationship types",
+    "warningMessage": "Record fields have been truncated.",
+    "textForDisplaying": "Displaying",
+    "textForNodes": "nodes",
+    "textForRelationships": "relationships.",
+    "nodeProperties": "Node properties",
+    "relationshipProperties": "Relationship properties",
+    "clipboardTitle": "Copy all properties to clipboard"
+  },
+  "zh": {
+    "overview": "概述",
+    "nodeLabel": "节点类型",
+    "relationshipType": "关系类型",
+    "warningMessage": "记录字段已被截断。",
+    "textForDisplaying": "显示",
+    "textForNodes": "个节点",
+    "textForRelationships": "条关系。",
+    "nodeProperties": "节点属性",
+    "relationshipProperties": "关系属性",
+    "clipboardTitle": "将所有属性复制到剪贴板"
+  }
+}
