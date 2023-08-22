@@ -889,12 +889,12 @@ export default function ToolbarPlugin() {
           >
             <DropDownItem
               onClick={() => {
-                showModal("Insert Image", (onClose) => <InsertImageDialog editor={editor} onClose={onClose} />);
+                showModal("Insert Inline Image", (onClose) => <InsertImageDialog editor={editor} onClose={onClose} />);
               }}
               className="item"
             >
               <i className="icon image" />
-              <span className="text">Image</span>
+              <span className="text">Inline Image</span>
             </DropDownItem>
           </DropDown>
           <Divider />

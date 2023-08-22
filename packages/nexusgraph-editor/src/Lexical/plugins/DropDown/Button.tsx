@@ -1,6 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-// import './Button.css';
-
 import { ReactNode } from "react";
 
 import joinClasses from "../utils/joinClasses";

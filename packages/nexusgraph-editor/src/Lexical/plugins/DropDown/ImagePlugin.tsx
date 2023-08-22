@@ -21,11 +21,8 @@ import {
 } from "lexical";
 import { useEffect, useRef, useState } from "react";
 
-import landscapeImage from "..//DropDown/Image/landscape.jpg";
-import yellowFlowerImage from "..//DropDown/Image/yellow-flower.jpg";
-
 import { CAN_USE_DOM } from "..//shared/canUseDom";
-import { $createImageNode, $isImageNode, ImageNode, ImagePayload } from "..//nodes/ImageNode";
+import { $createImageNode, $isImageNode, ImageNode, ImagePayload } from "../nodes/InlineImageNode";
 import Button from "..//DropDown/Button";
 import { DialogActions, DialogButtonsList } from "..//DropDown/Dialog";
 import FileInput from "..//DropDown/FileInput";
@@ -75,8 +72,18 @@ export function InsertImageUploadedDialogBody({ onClick }: { onClick: (payload: 
 
   const isDisabled = src === "";
 
+  /**
+   * [Read and process image files](https://developer.mozilla.org/zh-CN/docs/Web/API/File_API/Using_files_from_web_applications#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7%E9%80%89%E6%8B%A9%E7%9A%84%E5%9B%BE%E7%89%87%E7%9A%84%E7%BC%A9%E7%95%A5%E5%9B%BE)
+   *
+   * [data:url](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs)
+   *
+   * @param files
+   *
+   * @returns ""
+   */
   const loadImage = (files: FileList | null) => {
     const reader = new FileReader();
+
     reader.onload = function () {
       if (typeof reader.result === "string") {
         setSrc(reader.result);
@@ -135,24 +142,6 @@ export function InsertImageDialog({ editor, onClose }: { editor: LexicalEditor; 
     <>
       {!mode && (
         <DialogButtonsList>
-          <Button
-            data-test-id="image-modal-option-sample"
-            onClick={() =>
-              onClick(
-                hasModifier.current
-                  ? {
-                      altText: "Daylight fir trees forest glacier green high ice landscape",
-                      src: landscapeImage,
-                    }
-                  : {
-                      altText: "Yellow flower in tilt shift lens",
-                      src: yellowFlowerImage,
-                    }
-              )
-            }
-          >
-            Sample
-          </Button>
           <Button data-test-id="image-modal-option-url" onClick={() => setMode("url")}>
             URL
           </Button>
@@ -167,7 +156,7 @@ export function InsertImageDialog({ editor, onClose }: { editor: LexicalEditor; 
   );
 }
 
-export default function ImagesPlugin({ captionsEnabled }: { captionsEnabled?: boolean }): JSX.Element | null {
+export default function InlineImagesPlugin({ captionsEnabled }: { captionsEnabled?: boolean }): JSX.Element | null {
   const [editor] = useLexicalComposerContext();
 
   useEffect(() => {
@@ -188,162 +177,162 @@ export default function ImagesPlugin({ captionsEnabled }: { captionsEnabled?: bo
           return true;
         },
         COMMAND_PRIORITY_EDITOR
-      ),
-      editor.registerCommand<DragEvent>(
-        DRAGSTART_COMMAND,
-        (event) => {
-          return onDragStart(event);
-        },
-        COMMAND_PRIORITY_HIGH
-      ),
-      editor.registerCommand<DragEvent>(
-        DRAGOVER_COMMAND,
-        (event) => {
-          return onDragover(event);
-        },
-        COMMAND_PRIORITY_LOW
-      ),
-      editor.registerCommand<DragEvent>(
-        DROP_COMMAND,
-        (event) => {
-          return onDrop(event, editor);
-        },
-        COMMAND_PRIORITY_HIGH
       )
+      // editor.registerCommand<DragEvent>(
+      //   DRAGSTART_COMMAND,
+      //   (event) => {
+      //     return onDragStart(event);
+      //   },
+      //   COMMAND_PRIORITY_HIGH
+      // ),
+      // editor.registerCommand<DragEvent>(
+      //   DRAGOVER_COMMAND,
+      //   (event) => {
+      //     return onDragover(event);
+      //   },
+      //   COMMAND_PRIORITY_LOW
+      // ),
+      // editor.registerCommand<DragEvent>(
+      //   DROP_COMMAND,
+      //   (event) => {
+      //     return onDrop(event, editor);
+      //   },
+      //   COMMAND_PRIORITY_HIGH
+      // )
     );
   }, [captionsEnabled, editor]);
 
   return null;
 }
 
-const TRANSPARENT_IMAGE = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-const img = document.createElement("img");
-img.src = TRANSPARENT_IMAGE;
+// const TRANSPARENT_IMAGE = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+// const img = document.createElement("img");
+// img.src = TRANSPARENT_IMAGE;
 
-function onDragStart(event: DragEvent): boolean {
-  const node = getImageNodeInSelection();
-  if (!node) {
-    return false;
-  }
-  const dataTransfer = event.dataTransfer;
-  if (!dataTransfer) {
-    return false;
-  }
-  dataTransfer.setData("text/plain", "_");
-  dataTransfer.setDragImage(img, 0, 0);
-  dataTransfer.setData(
-    "application/x-lexical-drag",
-    JSON.stringify({
-      data: {
-        altText: node.__altText,
-        caption: node.__caption,
-        height: node.__height,
-        key: node.getKey(),
-        maxWidth: node.__maxWidth,
-        showCaption: node.__showCaption,
-        src: node.__src,
-        width: node.__width,
-      },
-      type: "image",
-    })
-  );
+// function onDragStart(event: DragEvent): boolean {
+//   const node = getImageNodeInSelection();
+//   if (!node) {
+//     return false;
+//   }
+//   const dataTransfer = event.dataTransfer;
+//   if (!dataTransfer) {
+//     return false;
+//   }
+//   dataTransfer.setData("text/plain", "_");
+//   dataTransfer.setDragImage(img, 0, 0);
+//   dataTransfer.setData(
+//     "application/x-lexical-drag",
+//     JSON.stringify({
+//       data: {
+//         altText: node.__altText,
+//         caption: node.__caption,
+//         height: node.__height,
+//         key: node.getKey(),
+//         maxWidth: node.__maxWidth,
+//         showCaption: node.__showCaption,
+//         src: node.__src,
+//         width: node.__width,
+//       },
+//       type: "image",
+//     })
+//   );
 
-  return true;
-}
+//   return true;
+// }
 
-function onDragover(event: DragEvent): boolean {
-  const node = getImageNodeInSelection();
-  if (!node) {
-    return false;
-  }
-  if (!canDropImage(event)) {
-    event.preventDefault();
-  }
-  return true;
-}
+// function onDragover(event: DragEvent): boolean {
+//   const node = getImageNodeInSelection();
+//   if (!node) {
+//     return false;
+//   }
+//   if (!canDropImage(event)) {
+//     event.preventDefault();
+//   }
+//   return true;
+// }
 
-function onDrop(event: DragEvent, editor: LexicalEditor): boolean {
-  const node = getImageNodeInSelection();
-  if (!node) {
-    return false;
-  }
-  const data = getDragImageData(event);
-  if (!data) {
-    return false;
-  }
-  event.preventDefault();
-  if (canDropImage(event)) {
-    const range = getDragSelection(event);
-    node.remove();
-    const rangeSelection = $createRangeSelection();
-    if (range !== null && range !== undefined) {
-      rangeSelection.applyDOMRange(range);
-    }
-    $setSelection(rangeSelection);
-    editor.dispatchCommand(INSERT_IMAGE_COMMAND, data);
-  }
-  return true;
-}
+// function onDrop(event: DragEvent, editor: LexicalEditor): boolean {
+//   const node = getImageNodeInSelection();
+//   if (!node) {
+//     return false;
+//   }
+//   const data = getDragImageData(event);
+//   if (!data) {
+//     return false;
+//   }
+//   event.preventDefault();
+//   if (canDropImage(event)) {
+//     const range = getDragSelection(event);
+//     node.remove();
+//     const rangeSelection = $createRangeSelection();
+//     if (range !== null && range !== undefined) {
+//       rangeSelection.applyDOMRange(range);
+//     }
+//     $setSelection(rangeSelection);
+//     editor.dispatchCommand(INSERT_IMAGE_COMMAND, data);
+//   }
+//   return true;
+// }
 
-function getImageNodeInSelection(): ImageNode | null {
-  const selection = $getSelection();
-  if (!$isNodeSelection(selection)) {
-    return null;
-  }
-  const nodes = selection.getNodes();
-  const node = nodes[0];
-  return $isImageNode(node) ? node : null;
-}
+// function getImageNodeInSelection(): ImageNode | null {
+//   const selection = $getSelection();
+//   if (!$isNodeSelection(selection)) {
+//     return null;
+//   }
+//   const nodes = selection.getNodes();
+//   const node = nodes[0];
+//   return $isImageNode(node) ? node : null;
+// }
 
-function getDragImageData(event: DragEvent): null | InsertImagePayload {
-  const dragData = event.dataTransfer?.getData("application/x-lexical-drag");
-  if (!dragData) {
-    return null;
-  }
-  const { type, data } = JSON.parse(dragData);
-  if (type !== "image") {
-    return null;
-  }
+// function getDragImageData(event: DragEvent): null | InsertImagePayload {
+//   const dragData = event.dataTransfer?.getData("application/x-lexical-drag");
+//   if (!dragData) {
+//     return null;
+//   }
+//   const { type, data } = JSON.parse(dragData);
+//   if (type !== "image") {
+//     return null;
+//   }
 
-  return data;
-}
+//   return data;
+// }
 
-declare global {
-  interface DragEvent {
-    rangeOffset?: number;
-    rangeParent?: Node;
-  }
-}
+// declare global {
+//   interface DragEvent {
+//     rangeOffset?: number;
+//     rangeParent?: Node;
+//   }
+// }
 
-function canDropImage(event: DragEvent): boolean {
-  const target = event.target;
-  return !!(
-    target &&
-    target instanceof HTMLElement &&
-    !target.closest("code, span.editor-image") &&
-    target.parentElement &&
-    target.parentElement.closest("div.ContentEditable__root")
-  );
-}
+// function canDropImage(event: DragEvent): boolean {
+//   const target = event.target;
+//   return !!(
+//     target &&
+//     target instanceof HTMLElement &&
+//     !target.closest("code, span.editor-image") &&
+//     target.parentElement &&
+//     target.parentElement.closest("div.ContentEditable__root")
+//   );
+// }
 
-function getDragSelection(event: DragEvent): Range | null | undefined {
-  let range;
-  const target = event.target as null | Element | Document;
-  const targetWindow =
-    target == null
-      ? null
-      : target.nodeType === 9
-      ? (target as Document).defaultView
-      : (target as Element).ownerDocument.defaultView;
-  const domSelection = getDOMSelection(targetWindow);
-  if (document.caretRangeFromPoint) {
-    range = document.caretRangeFromPoint(event.clientX, event.clientY);
-  } else if (event.rangeParent && domSelection !== null) {
-    domSelection.collapse(event.rangeParent, event.rangeOffset || 0);
-    range = domSelection.getRangeAt(0);
-  } else {
-    throw Error(`Cannot get the selection when dragging`);
-  }
+// function getDragSelection(event: DragEvent): Range | null | undefined {
+//   let range;
+//   const target = event.target as null | Element | Document;
+//   const targetWindow =
+//     target == null
+//       ? null
+//       : target.nodeType === 9
+//       ? (target as Document).defaultView
+//       : (target as Element).ownerDocument.defaultView;
+//   const domSelection = getDOMSelection(targetWindow);
+//   if (document.caretRangeFromPoint) {
+//     range = document.caretRangeFromPoint(event.clientX, event.clientY);
+//   } else if (event.rangeParent && domSelection !== null) {
+//     domSelection.collapse(event.rangeParent, event.rangeOffset || 0);
+//     range = domSelection.getRangeAt(0);
+//   } else {
+//     throw Error(`Cannot get the selection when dragging`);
+//   }
 
-  return range;
-}
+//   return range;
+// }

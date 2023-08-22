@@ -114,3 +114,18 @@ test("FontSizeOptionsButton text should be added", async () => {
     }
   }, 3000);
 });
+
+test("MultimediaButton text should be added", async () => {
+  render(
+    <StoreWrapper>
+      <LexicalEditor />
+    </StoreWrapper>
+  );
+  const spanList = ["Image"];
+  fireEvent.click(await screen.findByRole("button", { name: /Insert specialized editor node/i }));
+  setTimeout(async () => {
+    for (let i = 0; i < spanList.length; i++) {
+      expect(await screen.findByText(spanList[i])).toBeInTheDocument();
+    }
+  }, 3000);
+});

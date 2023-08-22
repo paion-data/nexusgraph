@@ -22,6 +22,9 @@ import ExampleTheme from "./themes/ExampleTheme";
 import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
+import Placeholder from "./plugins/DropDown/ui/Placeholder";
+import InlineImagesPlugin from "./plugins/DropDown/ImagePlugin";
+import { ImageNode } from "./plugins/nodes/InlineImageNode";
 
 export const editorConfig = {
   // The editor theme
@@ -44,6 +47,7 @@ export const editorConfig = {
     LinkNode,
     CodeNode,
     CodeHighlightNode,
+    ImageNode,
   ],
 };
 
@@ -55,12 +59,13 @@ export default function LexicalEditor(): JSX.Element {
         <Paragraph>
           <RichTextPlugin
             contentEditable={<ContentEditable className={styles["editor-input"]} />}
-            placeholder={<Placeholder />}
+            placeholder={<Placeholder className={styles["editor-placeholder"]} children={"请输入文本......"} />}
             ErrorBoundary={LexicalErrorBoundary}
           />
           <HistoryPlugin />
           <AutoFocusPlugin />
           <CheckListPlugin />
+          <InlineImagesPlugin />
           <CodeHighlightPlugin />
           <OnChangePlugin />
           <ListPlugin />
@@ -69,8 +74,4 @@ export default function LexicalEditor(): JSX.Element {
       </div>
     </LexicalComposer>
   );
-}
-
-export function Placeholder(): JSX.Element {
-  return <div className={styles["editor-placeholder"]}>请输入文本......</div>;
 }

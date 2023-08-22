@@ -1,6 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-// import './Dialog.css';
-
 import { ReactNode } from "react";
 
 type Props = Readonly<{

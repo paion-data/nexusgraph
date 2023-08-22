@@ -11,14 +11,18 @@ import type {
   SerializedLexicalNode,
   Spread,
 } from "lexical";
-
 import { $applyNodeReplacement, createEditor, DecoratorNode } from "lexical";
+import React from "react";
 import { Suspense } from "react";
 
-// const ImageComponent = React.lazy(
-//   // @ts-ignore
-//   () => import('./ImageComponent'),
-// );
+/**
+ * Lazy loading of components
+ * there is a TypeScript error ,the // @ts-ignore comment enables the TypeScript compiler to ignore the line below it.
+ */
+const InlineImageComponent = React.lazy(
+  // @ts-ignore
+  () => import("./InlineImageComponent")
+);
 
 export interface ImagePayload {
   altText: string;
@@ -190,24 +194,24 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
     return this.__altText;
   }
 
-  // decorate(): JSX.Element {
-  //   return (
-  //     <Suspense fallback={null}>
-  //       <ImageComponent
-  //         src={this.__src}
-  //         altText={this.__altText}
-  //         width={this.__width}
-  //         height={this.__height}
-  //         maxWidth={this.__maxWidth}
-  //         nodeKey={this.getKey()}
-  //         showCaption={this.__showCaption}
-  //         caption={this.__caption}
-  //         captionsEnabled={this.__captionsEnabled}
-  //         resizable={true}
-  //       />
-  //     </Suspense>
-  //   );
-  // }
+  decorate(): JSX.Element {
+    return (
+      <Suspense fallback={null}>
+        <InlineImageComponent
+          src={this.__src}
+          altText={this.__altText}
+          width={this.__width}
+          height={this.__height}
+          maxWidth={this.__maxWidth}
+          nodeKey={this.getKey()}
+          showCaption={this.__showCaption}
+          caption={this.__caption}
+          captionsEnabled={this.__captionsEnabled}
+          resizable={true}
+        />
+      </Suspense>
+    );
+  }
 }
 
 export function $createImageNode({
