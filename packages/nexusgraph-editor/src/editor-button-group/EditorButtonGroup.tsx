@@ -16,10 +16,10 @@ import { EditorMenuDrawer } from "./EditorMenuDrawer";
 
 /**
  * Editor button group
- * 
+ *
  * Includes groups of buttons related to storage functions and screen adjustments, also includes the document
  * directories panel
- * 
+ *
  * @returns Editor button group JSX.Element
  */
 export function EditorButtonGroup(): JSX.Element {

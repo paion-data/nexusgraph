@@ -21,7 +21,7 @@ interface EditorMenuDrawerProps {
  * Create editor button menu drawer
  *
  * @param param0 EditorMenuDrawerProps
- * 
+ *
  * @returns JSX.Element
  */
 export function EditorMenuDrawer({ width, isOpen, children }: EditorMenuDrawerProps): JSX.Element {
