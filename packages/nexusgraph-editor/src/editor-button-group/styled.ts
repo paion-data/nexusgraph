@@ -138,14 +138,14 @@ export const EditorMenuContainer = styled.div<{
 `;
 
 export const DirectoryDropdownList = styled.ul`
-display: flex;
-position: absolute;
-background-color: ${(props) => props.theme.secondaryBackground};
-top: 0%;
-left: 100%;
-margin: 0;
-height: 99%;
-width: 0px;
+  display: flex;
+  position: absolute;
+  background-color: ${(props) => props.theme.secondaryBackground};
+  top: 0%;
+  left: 100%;
+  margin: 0;
+  height: 99%;
+  width: 0px;
 `;
 
 export const DirectoryDropdownContent = styled.li`
