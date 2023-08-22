@@ -6,25 +6,28 @@ import {
   ChevronRightIcon as ChevronRightIconSolid,
   ChevronLeftIcon as ChevronLeftIconSolid,
   PlusIcon as PlusIconSolid,
-  FolderMinusIcon as FolderMinusIconSolid,
   TrashIcon as TrashIconSolid,
   Squares2X2Icon as Squares2X2IconSolid,
   WindowIcon as WindowIconSolid,
   ViewColumnsIcon as ViewColumnsIconSolid,
-  QueueListIcon as QueueListIconSolid,
 } from "@heroicons/react/24/solid";
 import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
 
+/**
+ * Editor button group
+ * 
+ * Includes groups of buttons related to storage functions and screen adjustments, also includes the document
+ * directories panel
+ * 
+ * @returns Editor button group JSX.Element
+ */
 export function EditorButtonGroup(): JSX.Element {
   const [menuExpanded, setMenuExpanded] = useState<boolean>(false);
 
   const ChevronRightIcon = (): JSX.Element => <ChevronRightIconSolid />;
-
   const ChevronLeftIcon = (): JSX.Element => <ChevronLeftIconSolid />;
-
   const PlusIcon = (): JSX.Element => <PlusIconSolid />;
-  const FolderMinusIcon = (): JSX.Element => <FolderMinusIconSolid />;
   const TrashIcon = (): JSX.Element => <TrashIconSolid />;
   const Squares2X2Icon = (): JSX.Element => <Squares2X2IconSolid />;
   const WindowIcon = (): JSX.Element => <WindowIconSolid />;
@@ -67,15 +70,12 @@ export function EditorButtonGroup(): JSX.Element {
               <DirectoryDropdownList data-testid={"directoryList"}>
                 <DirectoryDropdownContent>
                   {directories.map(({ name }) => (
-                    <DropdownItem data-testid={`${name}`} onClick={() => {}} key={name}>
+                    <DropdownItem data-testid={`${name}`} key={name}>
                       {name}
                     </DropdownItem>
                   ))}
                 </DirectoryDropdownContent>
               </DirectoryDropdownList>
-            </button>
-            <button className="folderMinus">
-              <FolderMinusIcon />
             </button>
             <button className="trash">
               <TrashIcon />

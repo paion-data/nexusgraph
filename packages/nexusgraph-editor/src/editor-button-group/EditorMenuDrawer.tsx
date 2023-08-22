@@ -20,8 +20,9 @@ interface EditorMenuDrawerProps {
 /**
  * Create editor button menu drawer
  *
- * @param param0
- * @returns
+ * @param param0 EditorMenuDrawerProps
+ * 
+ * @returns JSX.Element
  */
 export function EditorMenuDrawer({ width, isOpen, children }: EditorMenuDrawerProps): JSX.Element {
   const [transitionState, setTransitionState] = useState<DrawerTransitionState>(isOpen ? Open : Closed);

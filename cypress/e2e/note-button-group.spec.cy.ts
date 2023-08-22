@@ -5,7 +5,7 @@ beforeEach(() => {
 });
 
 it("Expand the Note button group and the button list is visible", () => {
-  const bunttonList = ["plus", "squares", "folderMinus", "trash", "window", "viewColumns"];
+  const bunttonList = ["plus", "squares", "trash", "window", "viewColumns"];
 
   for (let i = 0; i <= bunttonList.length - 1; i++) {
     cy.get(`.${bunttonList[i]}`).should("be.visible");
