@@ -25,6 +25,8 @@ import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
 import Placeholder from "./plugins/DropDown/ui/Placeholder";
 import InlineImagesPlugin from "./plugins/DropDown/ImagePlugin";
 import { ImageNode } from "./plugins/nodes/InlineImageNode";
+import { HashtagNode } from "@lexical/hashtag";
+import { EmojiNode } from "..//Lexical/plugins/DropDown/EmojiNode";
 
 export const editorConfig = {
   // The editor theme
@@ -48,6 +50,8 @@ export const editorConfig = {
     CodeNode,
     CodeHighlightNode,
     ImageNode,
+    HashtagNode,
+    EmojiNode,
   ],
 };
 

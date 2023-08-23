@@ -325,6 +325,7 @@ export const Toolbar = styled.div`
   border-top-right-radius: 10px;
   vertical-align: middle;
   overflow: auto;
+  border-bottom: 1px solid rgba(137, 225, 252, 0.1);
 
   .divider {
     border: 0.1px solid;
@@ -711,10 +712,10 @@ export const LinkEditor = styled.div`
 `;
 
 export const Paragraph = styled.div`
-    border-top:1px solid rgba(137, 225, 252, 0.1);
-    p ,blockquote ,h1 ,h2 ,ul ,ol ,h3 ,h4 ,h5 ,h6{
-    margin-left: 1px;
     margin-top: 8px;
+    
+    p ,blockquote ,h1 ,h2 ,ul ,ol ,h3 ,h4 ,h5 ,h6{
+    margin: 0;
     position: relative;
 
     strong, span ,em{
@@ -983,5 +984,155 @@ export const ModalDiv = styled.div`
       border-radius: 5px;
       min-width: 0;
     }
+  }
+`;
+
+export const EditorImage = styled.div`
+  cursor: default;
+  display: inline-block;
+  position: relative;
+  user-select: none;
+
+  img {
+    max-width: 100%;
+    cursor: default;
+  }
+
+  img.focused {
+    outline: 2px solid rgb(60, 132, 244);
+    user-select: none;
+  }
+
+  img.focused.draggable {
+    cursor: grab;
+  }
+
+  img.focused.draggable:active {
+    cursor: grabbing;
+  }
+
+  .image-caption-container {
+    display: block;
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #fff;
+    background-color: rgba(255, 255, 255, 0.9);
+    min-width: 100px;
+    color: #000;
+    overflow: hidden;
+  }
+
+  .ImageNode__contentEditable {
+    min-height: 20px;
+    border: 0px;
+    resize: none;
+    cursor: text;
+    caret-color: rgb(5, 5, 5);
+    display: block;
+    position: relative;
+    outline: 0px;
+    padding: 10px;
+    user-select: text;
+    font-size: 12px;
+    width: calc(100% - 20px);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .ImageNode__placeholder {
+    font-size: 12px;
+    color: #888;
+    overflow: hidden;
+    position: absolute;
+    text-overflow: ellipsis;
+    top: 10px;
+    left: 10px;
+    user-select: none;
+    white-space: nowrap;
+    display: inline-block;
+    pointer-events: none;
+  }
+
+  .image-caption-button {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    width: 30%;
+    padding: 10px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-width: 100px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .image-caption-button:hover {
+    background-color: rgba(137, 225, 252, 0.3);
+  }
+
+  .image-resizer {
+    display: block;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    background-color: rgb(60, 132, 244);
+    border: 1px solid #fff;
+  }
+
+  .image-resizer.image-resizer-n {
+    top: -6px;
+    left: 48%;
+    cursor: n-resize;
+  }
+
+  .image-resizer.image-resizer-ne {
+    top: -6px;
+    right: -6px;
+    cursor: ne-resize;
+  }
+
+  .image-resizer.image-resizer-e {
+    bottom: 48%;
+    right: -6px;
+    cursor: e-resize;
+  }
+
+  .image-resizer.image-resizer-se {
+    bottom: -2px;
+    right: -6px;
+    cursor: nwse-resize;
+  }
+
+  .image-resizer.image-resizer-s {
+    bottom: -2px;
+    left: 48%;
+    cursor: s-resize;
+  }
+
+  .image-resizer.image-resizer-sw {
+    bottom: -2px;
+    left: -6px;
+    cursor: sw-resize;
+  }
+
+  .image-resizer.image-resizer-w {
+    bottom: 48%;
+    left: -6px;
+    cursor: w-resize;
+  }
+
+  .image-resizer.image-resizer-nw {
+    top: -6px;
+    left: -6px;
+    cursor: nw-resize;
   }
 `;

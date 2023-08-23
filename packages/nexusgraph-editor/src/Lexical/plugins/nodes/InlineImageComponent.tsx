@@ -1,12 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import type { GridSelection, LexicalEditor, NodeKey, NodeSelection, RangeSelection } from "lexical";
 
-//   import './ImageNode.css';
-
-import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
-// import {useCollaborationContext} from '@lexical/react/LexicalCollaborationContext';
-// import {CollaborationPlugin} from '@lexical/react/LexicalCollaborationPlugin';
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { HashtagPlugin } from "@lexical/react/LexicalHashtagPlugin";
 import { LexicalNestedComposer } from "@lexical/react/LexicalNestedComposer";
@@ -29,16 +23,12 @@ import {
 } from "lexical";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 
-// import {createWebsocketProvider} from '../collaboration';
-// import {useSharedHistoryContext} from '../context/SharedHistoryContext';
 import { $isImageNode } from "./InlineImageNode";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
-import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
 import Placeholder from "../DropDown/ui/Placeholder";
-// import ImageResizer from '../DropDown/ui/ImageResizer';
-// import MentionsPlugin from '../DropDown/MentionsPlugin';
-// import EmojisPlugin from '../DropDown/EmojisPlugin';
-// import KeywordsPlugin from '../DropDown/KeywordsOlugin';
+import EmojisPlugin from "../DropDown/EmojisPlugin";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import ImageResizer from "../DropDown/ImageResizer";
 
 const imageCache = new Set();
 
@@ -116,7 +106,6 @@ export default function InlineImageComponent({
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const [isSelected, setSelected, clearSelection] = useLexicalNodeSelection(nodeKey);
   const [isResizing, setIsResizing] = useState<boolean>(false);
-  // const {isCollabActive} = useCollaborationContext();
   const [editor] = useLexicalComposerContext();
   const [selection, setSelection] = useState<RangeSelection | NodeSelection | GridSelection | null>(null);
   const editorRef = useRef<LexicalEditor | null>(null);
@@ -284,21 +273,12 @@ export default function InlineImageComponent({
         {showCaption && (
           <div className="image-caption-container">
             <LexicalNestedComposer initialEditor={caption}>
-              <AutoFocusPlugin />
+              {/* <AutoFocusPlugin /> */}
               {/* <MentionsPlugin /> */}
-              <LinkPlugin />
-              {/* <EmojisPlugin /> */}
+              {/* <LinkPlugin /> */}
+              <EmojisPlugin />
               <HashtagPlugin />
               {/* <KeywordsPlugin /> */}
-              {/* {isCollabActive ? (
-                  <CollaborationPlugin
-                    id={caption.getKey()}
-                    providerFactory={createWebsocketProvider}
-                    shouldBootstrap={true}
-                  />
-                ) : (
-                  <HistoryPlugin externalHistoryState={historyState} />
-                )} */}
               <RichTextPlugin
                 contentEditable={<ContentEditable className="ImageNode__contentEditable" />}
                 placeholder={<Placeholder className="ImageNode__placeholder">Enter a caption...</Placeholder>}
@@ -307,19 +287,19 @@ export default function InlineImageComponent({
             </LexicalNestedComposer>
           </div>
         )}
-        {/* {resizable && $isNodeSelection(selection) && isFocused && (
-            <ImageResizer
-              showCaption={showCaption}
-              setShowCaption={setShowCaption}
-              editor={editor}
-              buttonRef={buttonRef}
-              imageRef={imageRef}
-              maxWidth={maxWidth}
-              onResizeStart={onResizeStart}
-              onResizeEnd={onResizeEnd}
-              captionsEnabled={captionsEnabled}
-            />
-          )} */}
+        {resizable && $isNodeSelection(selection) && isFocused && (
+          <ImageResizer
+            showCaption={showCaption}
+            setShowCaption={setShowCaption}
+            editor={editor}
+            buttonRef={buttonRef}
+            imageRef={imageRef}
+            maxWidth={maxWidth}
+            onResizeStart={onResizeStart}
+            onResizeEnd={onResizeEnd}
+            captionsEnabled={captionsEnabled}
+          />
+        )}
       </>
     </Suspense>
   );
