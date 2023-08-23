@@ -45,7 +45,7 @@ import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType, $
 import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
 import DropDown, { DropDownItem } from "./DropDown/DropDown";
 import DropdownColorPicker from "./DropdownColorPicker";
-import useModal from "./Hooks/useModal";
+import useModal from "./DropDown/useModal";
 import { InsertImageDialog } from "./DropDown/ImagePlugin";
 
 const LowPriority = 1;

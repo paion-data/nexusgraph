@@ -20,9 +20,9 @@ import { EditorImage } from "../styled";
  * Lazy loading of components
  * there is a TypeScript error ,the // @ts-ignore comment enables the TypeScript compiler to ignore the line below it.
  */
-const InlineImageComponent = React.lazy(
+const ImageComponent = React.lazy(
   // @ts-ignore
-  () => import("./InlineImageComponent")
+  () => import("./ImageComponent")
 );
 
 export interface ImagePayload {
@@ -199,7 +199,7 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
     return (
       <Suspense fallback={null}>
         <EditorImage>
-          <InlineImageComponent
+          <ImageComponent
             src={this.__src}
             altText={this.__altText}
             width={this.__width}

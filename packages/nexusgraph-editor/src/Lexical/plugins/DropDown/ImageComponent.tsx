@@ -11,24 +11,19 @@ import {
   $getNodeByKey,
   $getSelection,
   $isNodeSelection,
-  $setSelection,
   CLICK_COMMAND,
   COMMAND_PRIORITY_LOW,
-  DRAGSTART_COMMAND,
-  KEY_BACKSPACE_COMMAND,
-  KEY_DELETE_COMMAND,
-  KEY_ENTER_COMMAND,
-  KEY_ESCAPE_COMMAND,
   SELECTION_CHANGE_COMMAND,
 } from "lexical";
-import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 
-import { $isImageNode } from "./InlineImageNode";
+import { $isImageNode } from "./ImageNode";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
-import Placeholder from "../DropDown/ui/Placeholder";
-import EmojisPlugin from "../DropDown/EmojisPlugin";
+import Placeholder from "./Placeholder";
+import EmojisPlugin from "./EmojisPlugin";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import ImageResizer from "../DropDown/ImageResizer";
+import ImageResizer from "./ImageResizer";
+import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
 
 const imageCache = new Set();
 
@@ -79,7 +74,7 @@ function LazyImage({
   );
 }
 
-export default function InlineImageComponent({
+export default function ImageComponent({
   src,
   altText,
   nodeKey,
@@ -109,61 +104,6 @@ export default function InlineImageComponent({
   const [editor] = useLexicalComposerContext();
   const [selection, setSelection] = useState<RangeSelection | NodeSelection | GridSelection | null>(null);
   const editorRef = useRef<LexicalEditor | null>(null);
-
-  const onDelete = useCallback(
-    (payload: KeyboardEvent) => {
-      if (isSelected && $isNodeSelection($getSelection())) {
-        const event: KeyboardEvent = payload;
-        event.preventDefault();
-        const node = $getNodeByKey(nodeKey);
-        if ($isImageNode(node)) {
-          node.remove();
-        }
-      }
-      return false;
-    },
-    [isSelected, nodeKey]
-  );
-
-  const onEnter = useCallback(
-    (event: KeyboardEvent) => {
-      const latestSelection = $getSelection();
-      const buttonElem = buttonRef.current;
-      if (isSelected && $isNodeSelection(latestSelection) && latestSelection.getNodes().length === 1) {
-        if (showCaption) {
-          // Move focus into nested editor
-          $setSelection(null);
-          event.preventDefault();
-          caption.focus();
-          return true;
-        } else if (buttonElem !== null && buttonElem !== document.activeElement) {
-          event.preventDefault();
-          buttonElem.focus();
-          return true;
-        }
-      }
-      return false;
-    },
-    [caption, isSelected, showCaption]
-  );
-
-  const onEscape = useCallback(
-    (event: KeyboardEvent) => {
-      if (editorRef.current === caption || buttonRef.current === event.target) {
-        $setSelection(null);
-        editor.update(() => {
-          setSelected(true);
-          const parentRootElement = editor.getRootElement();
-          if (parentRootElement !== null) {
-            parentRootElement.focus();
-          }
-        });
-        return true;
-      }
-      return false;
-    },
-    [caption, editor, setSelected]
-  );
 
   useEffect(() => {
     let isMounted = true;
@@ -202,30 +142,13 @@ export default function InlineImageComponent({
           return false;
         },
         COMMAND_PRIORITY_LOW
-      ),
-      editor.registerCommand(
-        DRAGSTART_COMMAND,
-        (event) => {
-          if (event.target === imageRef.current) {
-            // TODO This is just a temporary workaround for FF to behave like other browsers.
-            // Ideally, this handles drag & drop too (and all browsers).
-            event.preventDefault();
-            return true;
-          }
-          return false;
-        },
-        COMMAND_PRIORITY_LOW
-      ),
-      editor.registerCommand(KEY_DELETE_COMMAND, onDelete, COMMAND_PRIORITY_LOW),
-      editor.registerCommand(KEY_BACKSPACE_COMMAND, onDelete, COMMAND_PRIORITY_LOW),
-      editor.registerCommand(KEY_ENTER_COMMAND, onEnter, COMMAND_PRIORITY_LOW),
-      editor.registerCommand(KEY_ESCAPE_COMMAND, onEscape, COMMAND_PRIORITY_LOW)
+      )
     );
     return () => {
       isMounted = false;
       unregister();
     };
-  }, [clearSelection, editor, isResizing, isSelected, nodeKey, onDelete, onEnter, onEscape, setSelected]);
+  }, [clearSelection, editor, isResizing, isSelected, nodeKey, setSelected]);
 
   const setShowCaption = () => {
     editor.update(() => {
@@ -275,7 +198,7 @@ export default function InlineImageComponent({
             <LexicalNestedComposer initialEditor={caption}>
               {/* <AutoFocusPlugin /> */}
               {/* <MentionsPlugin /> */}
-              {/* <LinkPlugin /> */}
+              <LinkPlugin />
               <EmojisPlugin />
               <HashtagPlugin />
               {/* <KeywordsPlugin /> */}

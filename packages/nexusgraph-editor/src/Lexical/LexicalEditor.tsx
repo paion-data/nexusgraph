@@ -22,9 +22,9 @@ import ExampleTheme from "./themes/ExampleTheme";
 import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
-import Placeholder from "./plugins/DropDown/ui/Placeholder";
+import Placeholder from "./plugins/DropDown/Placeholder";
 import InlineImagesPlugin from "./plugins/DropDown/ImagePlugin";
-import { ImageNode } from "./plugins/nodes/InlineImageNode";
+import { ImageNode } from "./plugins/DropDown/ImageNode";
 import { HashtagNode } from "@lexical/hashtag";
 import { EmojiNode } from "..//Lexical/plugins/DropDown/EmojiNode";
 

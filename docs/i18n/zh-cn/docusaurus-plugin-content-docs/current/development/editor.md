@@ -44,62 +44,66 @@ const [modal, showModal] = useModal();
 
  - ### useModal
 
-packages/nexusgraph-editor/src/Lexical/plugins/Hooks/useModal.tsx
+packages/nexusgraph-editor/src/Lexical/plugins/DropDown/useModal.tsx
 
 **自定义hook useModal 更新图片对话框**
 
  - ### Modal
 
-**实现对话框的显示与关闭**
-
 packages/nexusgraph-editor/src/Lexical/plugins/DropDown/Modal.tsx
 
- - ### ImageNode
+**实现对话框的显示与关闭**
+
+ - ### InlineImageNode
+
+packages/nexusgraph-editor/src/Lexical/plugins/DropDown/InlineImageNode.tsx
 
 **自定义节点ImageNode节点延伸DecoratorNode,使得可以在编辑器内插入图片组件**
 
-packages/nexusgraph-editor/src/Lexical/plugins/nodes/ImageNode.tsx
+ - ### InlineImagePlugin
 
- - ### ImagePlugin
+packages/nexusgraph-editor/src/Lexical/plugins/DropDown/InlineImagePlugin.tsx
 
 **图片对话框中子选项组件**
 
-packages/nexusgraph-editor/src/Lexical/plugins/DropDown/ImagePlugin.tsx
-
  - ### FileInput
-
-**文件输入框组件**
 
 packages/nexusgraph-editor/src/Lexical/plugins/DropDown/FileInput.tsx
 
- - ### TextInput
+**文件输入框组件**
 
-**文本输入框组件**
+ - ### TextInput
 
 packages/nexusgraph-editor/src/Lexical/plugins/DropDown/TextInput.tsx
 
- - ### Dialog
+**文本输入框组件**
 
-**对话框子选项列表组件以及提交组件**
+ - ### Dialog
 
 packages/nexusgraph-editor/src/Lexical/plugins/DropDown/Dialog.tsx
 
- - ### Button
+**对话框子选项列表组件以及提交组件**
 
-**button控件组件**
+ - ### Button
 
 packages/nexusgraph-editor/src/Lexical/plugins/DropDown/Button.tsx
 
- - ### canUseDom
-
-**检查是否可以使用DOM，window, wiondow.document, window.doucument.creatElement同时存在时可以操作DOM**
-
-**用来判断图片对话框是否渲染成功，以便于完成以后的Dom操作**
-
-packages/nexusgraph-editor/src/Lexical/plugins/shared/canUseDom.ts
+**button控件组件**
 
  - ### joinClasses
 
-packages/nexusgraph-editor/src/Lexical/plugins/utils/joinClasses.ts
+packages/nexusgraph-editor/src/Lexical/plugins/DropDown/joinClasses.ts
 
-**根据boolean判断给Button加入不同类名**
+**根据boolean给Button加入不同类名**
+
+ - ### Placeholder
+
+packages/nexusgraph-editor/src/Lexical/plugins/DropDown/Placeholder.tsx
+
+**实现给图片标题框中的添加文字占位符**
+
+ - ### InlineImageComponent
+
+ packages/nexusgraph-editor/src/Lexical/plugins/DropDown/InlineImageComponent.tsx
+
+ ****

@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { ReactNode } from "react";
 
-import joinClasses from "../utils/joinClasses";
+import joinClasses from "./joinClasses";
 
 export default function Button({
   "data-test-id": dataTestId,

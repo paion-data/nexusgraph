@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useCallback, useMemo, useState } from "react";
 
-import Modal from "..//DropDown/Modal";
+import Modal from "./Modal";
 
 export default function useModal(): [
   JSX.Element | null,
