@@ -13,7 +13,7 @@ type DrawerTransitionState = typeof Closing | typeof Closed | typeof Open | type
 
 interface EditorMenuDrawerProps {
   isOpen: boolean;
-  width: number;
+  width: string;
   children: JSX.Element;
 }
 
@@ -62,7 +62,7 @@ export function EditorMenuDrawer({ width, isOpen, children }: EditorMenuDrawerPr
 
   return (
     <EditorMenuContainer
-      paneWidth={isOpen ? width : 0}
+      paneWidth={isOpen ? width : "0%"}
       onTransitionEnd={onTransitionEnd}
       //Gets/sets whether tiles will animate to their new position and size.See
       //[shouldAnimate] (https://www.infragistics.com/help/wpf/infragisticswpf.controls.layouts.xamtilemanager~infragistics.controls.layouts.modesettingsbase~shouldanimate)

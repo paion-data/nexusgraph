@@ -33,20 +33,20 @@ export const EditorMenuExpandButton = styled.button<{
     `background-color: transparent;
       border: none;
       box-shadow: inset 2px 2px 5px #fff;
-      width: 42px;
+      width: 5%;
       height: 30px;
       & svg {
         position: absolute;
         top: 2px;
         left: 0px;
-        margin: 2px 10px 0px 10px;
+        margin: 1px 20% 1px 20%;
       }
       `}
   color: #fff;
 `;
 
 export const EditorMenuContainer = styled.div<{
-  paneWidth: number;
+  paneWidth: string;
   shouldAnimate: boolean;
 }>`
   position: absolute;
@@ -55,7 +55,7 @@ export const EditorMenuContainer = styled.div<{
   box-shadow: inset 2px 2px 5px #fff;
   bottom: 8px;
   z-index: 1;
-  width: ${(props) => props.paneWidth}px;
+  width: ${(props) => props.paneWidth};
   height: 82%;
   ${(props) => props.shouldAnimate && "transition: 0.2s ease-out;"}
   background: rgba(180, 180, 180, 0.1);
@@ -68,15 +68,14 @@ export const EditorMenuContainer = styled.div<{
   overflow: hidden;
   & button {
     display: flex;
-    width: 20px;
-    height: 20px;
+    width: 50%;
+    height: 50%;
     overflow: hidden;
     background: transparent;
     border: none;
     color: #FFF;
     padding: 0px;
-    margin-top: 20px;
-    margin-left: 23%;
+    margin: 20px 23%;
     &:hover {
       box-shadow: inset 10px 5px 20px rgba(137, 225, 252, 0.3);
     }
@@ -97,10 +96,9 @@ export const EditorMenuContainer = styled.div<{
     background: rgba(108, 216, 248, 0.5);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-    margin-top: 50px;
-    margin-left: 12%;
-    width: 30px;
-    height: 30px;
+    margin: 50px 12% 20px 12%;
+    width: 72%;
+    height: 72%;
     stroke: #FFF;
     stroke-width: 2px;   
     & svg {
@@ -111,7 +109,7 @@ export const EditorMenuContainer = styled.div<{
   }
 
   ${(props) =>
-    props.paneWidth !== 0 &&
+    props.paneWidth !== "0%" &&
     `overflow: visible;
 
     & .squares {

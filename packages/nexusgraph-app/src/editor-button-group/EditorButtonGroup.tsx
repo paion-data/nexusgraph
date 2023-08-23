@@ -23,7 +23,7 @@ import { EditorMenuDrawer } from "./EditorMenuDrawer";
  * @returns Editor button group JSX.Element
  */
 export function EditorButtonGroup(): JSX.Element {
-  const [menuExpanded, setMenuExpanded] = useState<boolean>(false);
+  const [menuExpanded, setMenuExpanded] = useState<boolean>(true);
 
   const ChevronRightIcon = (): JSX.Element => <ChevronRightIconSolid />;
   const ChevronLeftIcon = (): JSX.Element => <ChevronLeftIconSolid />;
@@ -59,7 +59,7 @@ export function EditorButtonGroup(): JSX.Element {
         {menuExpanded ? <ChevronLeftIcon /> : <ChevronRightIcon />}
       </EditorMenuExpandButton>
 
-      <EditorMenuDrawer data-testid={`editorMenuDrawer`} isOpen={menuExpanded} width={44}>
+      <EditorMenuDrawer data-testid={`editorMenuDrawer`} isOpen={menuExpanded} width={"5%"}>
         <>
           <div className="topButton">
             <button className="plus">
