@@ -23,7 +23,7 @@ import { EditorMenuDrawer } from "./EditorMenuDrawer";
  * @returns Editor button group JSX.Element
  */
 export function EditorButtonGroup(): JSX.Element {
-  const [menuExpanded, setMenuExpanded] = useState<boolean>(true);
+  const [menuExpanded, setMenuExpanded] = useState<boolean>(false);
 
   const ChevronRightIcon = (): JSX.Element => <ChevronRightIconSolid />;
   const ChevronLeftIcon = (): JSX.Element => <ChevronLeftIconSolid />;
