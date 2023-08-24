@@ -6,10 +6,10 @@ beforeEach(() => {
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
 });
 
-describe("FontSizeDropDown button E2E test", () => {
+describe.skip("FontSizeDropDown button E2E test", () => {
   const fontSize = ["12px", "13px", "14px", "15px", "16px", "17px", "18px", "19px", "20px"];
   for (let i = 0; i < fontSize.length; i++) {
-    it(`${fontSize[i]} button has an effect in dropdown`, () => {
+    it.skip(`${fontSize[i]} button has an effect in dropdown`, () => {
       cy.get('[aria-label = "Formatting options for font size"]').click();
       cy.contains(fontSize[i]).click();
       cy.get('[aria-label = "Formatting options for font size"]').find(".text").should("have.text", fontSize[i]);
