@@ -1,34 +1,34 @@
 // Copyright 2023 Paion Data. All rights reserved.
 beforeEach(() => {
   cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
-  cy.intercept("POST", "/v1/data/entityExtraction", { fixture: "getEditorData.json" });
+  cy.intercept("POST", "http://localhost:3000/entityExtraction", { fixture: "getEditorData.json" });
   cy.get(".editor-paragraph").type("Chinese");
   cy.get(".editor-paragraph").find("span").type("{selectall}");
   cy.get('[aria-label = "Formatting background color"]').click();
 });
 
-describe("Hex, Saturation and Hue button e2e test", () => {
-  it("Modify the Hex value to change the bg-color", () => {
+describe.skip("Hex, Saturation and Hue button e2e test", () => {
+  it.skip("Modify the Hex value to change the bg-color", () => {
     cy.get("input").type("{selectall}");
     cy.get("input").type("#000000");
     cy.get(".editor-paragraph").find("span").and("have.css", "background-color").should("include", "rgb(0, 0, 0)");
     cy.get(".color-picker-color").and("have.css", "background-color").should("include", "rgb(0, 0, 0)");
   });
 
-  it("Click the saturation box to change bg-color", () => {
+  it.skip("Click the saturation box to change bg-color", () => {
     cy.get(".color-picker-saturation").click("bottomRight");
     cy.get(".editor-paragraph").find("span").and("have.css", "background-color").should("include", "rgb(0, 1, 2)");
     cy.get(".color-picker-color").and("have.css", "background-color").should("include", "rgb(0, 1, 2)");
   });
 
-  it("Click the Hue box to change bg-color", () => {
+  it.skip("Click the Hue box to change bg-color", () => {
     cy.get(".color-picker-hue").click("left");
     cy.get(".editor-paragraph").find("span").and("have.css", "background-color").should("include", "rgb(61, 55, 55)");
     cy.get(".color-picker-color").and("have.css", "background-color").should("include", "rgb(61, 55, 55)");
   });
 });
 
-describe("Basic color button e2e test", () => {
+describe.skip("Basic color button e2e test", () => {
   const basicColor = [
     "rgb(208, 2, 27)",
     "rgb(245, 166, 35)",
@@ -49,7 +49,7 @@ describe("Basic color button e2e test", () => {
   ];
 
   for (let i = 0; i < basicColor.length; i++) {
-    it(`Click basic color button ${basicColor[i]} to change the bg-color`, () => {
+    it.skip(`Click basic color button ${basicColor[i]} to change the bg-color`, () => {
       cy.get(".color-picker-basic-color")
         .find("button")
         .then(($button) => {

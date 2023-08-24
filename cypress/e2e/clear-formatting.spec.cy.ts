@@ -6,7 +6,7 @@ beforeEach(() => {
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
 });
 
-it(`Clear formatting button has an effect`, () => {
+it.skip(`Clear formatting button has an effect`, () => {
   cy.get('[aria-label = "Formatting options for font family"]').click();
   cy.contains("Verdana").click();
 

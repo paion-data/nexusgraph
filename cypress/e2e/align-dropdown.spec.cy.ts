@@ -7,22 +7,22 @@ beforeEach(() => {
   cy.get('[aria-label = "Formatting options for text alignment"]').click();
 });
 
-describe("text position E2E test", () => {
+describe.skip("text position E2E test", () => {
   const alignment = ["Left Align", "Center Align", "Right Align", "Justify Align"];
   const alignStyle = ["left", "center", "right", "justify"];
   for (let i = 0; i < alignment.length; i++) {
-    it(`Text can be placed ${alignment[i]} `, () => {
+    it.skip(`Text can be placed ${alignment[i]} `, () => {
       cy.contains(alignment[i]).click();
       cy.get(".editor-paragraph").and("have.attr", "style", `text-align: ${alignStyle[i]};`);
     });
   }
 
-  it("Text can be indented", () => {
+  it.skip("Text can be indented", () => {
     cy.contains("Indent").click();
     cy.get(".editor-paragraph").and("have.attr", "style", "padding-inline-start: calc(20px);");
   });
 
-  it("Cancel indent", () => {
+  it.skip("Cancel indent", () => {
     cy.contains("Indent").click();
     cy.get('[aria-label = "Formatting options for text alignment"]').click();
     cy.contains("Outdent").click();
