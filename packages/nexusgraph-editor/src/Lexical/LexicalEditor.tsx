@@ -22,7 +22,7 @@ import { Paragraph } from "./plugins/styled";
 import ExampleTheme from "./themes/ExampleTheme";
 import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
-import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
+import CodeHighlightPlugin from "./plugins/ToolbarPlugin/CodeHighlightPlugin";
 
 export const editorConfig = {
   // The editor theme
