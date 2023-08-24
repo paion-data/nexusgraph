@@ -57,9 +57,9 @@ export function DropDownItem({
 }
 
 /**
- * Implement the font drop-down menu
+ * Implement the font drop-down
  *
- * @param children The content displayed on the button
+ * @param children React.ReactNode
  * @param dropDownRef The DOM of dropdown menu
  * @param onClose The funtion of closeing the drop-down
  *
@@ -138,9 +138,15 @@ function DropDownItems({
 }
 
 /**
- * Put the DOM nodes of the passed dropdowns into the provided document.body
+ * Implement Dropdown button and dropdown box
  *
- * @param param0
+ * @param disabled false ，Do not disable button
+ * @param buttonLabel The text on the button in the drop-down box
+ * @param buttonAriaLabel Provides an accessible name for the button element
+ * @param buttonClassName Provides an classname for the button element
+ * @param buttonIconClassName Provides an classname for the icon element
+ * @param children React.ReactNode
+ * @param stopCloseOnClickSelf ture ，The implementation can continue color selection until you click outside the color selection box
  *
  * @returns dropdown button and dropdown menu components
  */

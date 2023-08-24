@@ -306,7 +306,7 @@ function getSelectedNode(selection: RangeSelection) {
  *
  * @returns font-size and font-family button ,and font-size or font-family drop-down menus
  */
-function FontDropDownList({
+function FontDropDown({
   editor,
   value,
   style,
@@ -787,9 +787,9 @@ export default function ToolbarPlugin() {
       ) : (
         <>
           <>
-            <FontDropDownList disabled={!isEditable} style={"font-family"} value={fontFamily} editor={editor} />
+            <FontDropDown disabled={!isEditable} style={"font-family"} value={fontFamily} editor={editor} />
             <Divider />
-            <FontDropDownList disabled={!isEditable} style={"font-size"} value={fontSize} editor={editor} />
+            <FontDropDown disabled={!isEditable} style={"font-size"} value={fontSize} editor={editor} />
             <Divider />
           </>
           <button
