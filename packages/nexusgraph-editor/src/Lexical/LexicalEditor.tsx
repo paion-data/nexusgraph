@@ -18,11 +18,11 @@ import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
 import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 
 import styles from "./LexicalEditor.module.css";
-import { Paragraph } from "./plugins/styled";
 import ExampleTheme from "./themes/ExampleTheme";
 import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
-import CodeHighlightPlugin from "./plugins/ToolbarPlugin/CodeHighlightPlugin";
+import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
+import { Paragraph } from "./plugins/ToolbarPlugin/styled";
 
 export const editorConfig = {
   // The editor theme
