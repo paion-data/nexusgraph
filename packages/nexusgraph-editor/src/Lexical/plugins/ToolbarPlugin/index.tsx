@@ -43,8 +43,8 @@ import {
 import { createPortal } from "react-dom";
 import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType, $isQuoteNode } from "@lexical/rich-text";
 import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
-import DropDown, { DropDownItem } from "./DropDown";
-import DropdownColorPicker from "./DropdownColorPicker";
+import DropDown, { DropDownItem } from "../../ui/DropDown";
+import DropdownColorPicker from "../../ui/DropdownColorPicker";
 
 const LowPriority = 1;
 
