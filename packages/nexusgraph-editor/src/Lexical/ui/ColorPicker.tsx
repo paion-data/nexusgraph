@@ -31,11 +31,12 @@ const WIDTH = 214;
 const HEIGHT = 150;
 
 /**
- * Render basic color ,hux ,saturation and selected color components
+ * Implement color selection
  *
- * @param param0
+ * @param color The default color value passed in
+ * @param onChange The event function for updating font color or background color
  *
- * @returns Basic color ,hux ,saturation and selected color div components
+ * @returns The JSX for color selection box
  */
 export default function ColorPicker({ color, onChange }: Readonly<ColorPickerProps>): JSX.Element {
   const [selfColor, setSelfColor] = useState(transformColor("hex", color));

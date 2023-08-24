@@ -11,11 +11,16 @@ type Props = Readonly<{
 }>;
 
 /**
- * Render first line of fontcolor dropdown menu
+ * Implement text input
  *
- * @param param0
+ * @param label The prompt text of the input box
+ * @param value Content of input box
+ * @param onChange A event function that changes the contents of the input box in real time
+ * @param placeholder The default value of the input box is empty
+ * @param dataTestId An attribute used to identify DOM nodes for testing
+ * @param type The type of input
  *
- * @returns fontcolor dropdown menu first line div
+ * @returns The JSX for text input
  */
 export default function TextInput({
   label,
@@ -37,7 +42,6 @@ export default function TextInput({
           onChange(e.target.value);
         }}
         data-test-id={dataTestId}
-        style={{ color: `${value}` }}
       />
     </div>
   );

@@ -15,9 +15,15 @@ type Props = {
 };
 
 /**
- * Combine fontcolor button and fontcolor dropdown menu
+ * Implement color selection drop-down box
  *
- * @param param0
+ * @param disabled false ，Do not disable button
+ * @param stopCloseOnClickSelf ture ，The implementation can continue color selection until you click outside the color selection box
+ * @param color The default color value passed in
+ * @param onChange The event function for updating font color or background color
+ * @param buttonAriaLabel Provides an accessible name for the button element
+ * @param buttonClassName Provides an classname for the button element
+ * @param buttonIconClassName Provides an classname for the icon element
  *
  * @returns fontcolor button and fontcolor dropdown menu
  */

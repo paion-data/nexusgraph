@@ -13,9 +13,12 @@ const DropDownContext = React.createContext<DropDownContextType | null>(null);
 const dropDownPadding = 4;
 
 /**
- * Single button in dropdown menu
+ * Implement single button in dropdown
  *
- * @param param0
+ * @param children The content displayed on the button
+ * @param className Provides an classname for the button element
+ * @param onClick MouseEvent
+ * @param title Adds a tooltip with title text to the button
  *
  * @returns single button
  */
@@ -54,9 +57,11 @@ export function DropDownItem({
 }
 
 /**
- * Render dropdown menu
+ * Implement the font drop-down menu
  *
- * @param param0
+ * @param children The content displayed on the button
+ * @param dropDownRef The DOM of dropdown menu
+ * @param onClose The funtion of closeing the drop-down
  *
  * @returns dropdown menu
  */
