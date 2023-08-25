@@ -1,8 +1,8 @@
 import nlpReducer from "./nlp/nlpDuck";
-import { NLP_DATA as nlpData, EDITOR_LINE as editorLines } from "./types";
-import editorReducer from "./editorLine/editorLineDuck";
+import editorReducer from "./editor/editorDuck";
+import { NLP_DATA as nlpData, EDITOR_STATE as editor } from "./types";
 
 export default {
   [nlpData]: nlpReducer,
-  [editorLines]: editorReducer,
+  [editor]: editorReducer,
 };

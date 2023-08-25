@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 
-export default class LexicalEditorStateParser {
+export default class EditorContentParser {
   /**
    * Given a JSON object representing the current [editor state](https://lexical.dev/docs/concepts/editor-state), this
    * function converts it into a list of strings with each element representing a line of content in the editor.

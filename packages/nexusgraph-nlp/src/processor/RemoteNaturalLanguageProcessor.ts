@@ -4,13 +4,18 @@ import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 import { NlpState } from "../../../nexusgraph-provider";
 import { injectable } from "inversify";
 import "reflect-metadata";
+import EditorContentParser from "../parser/EditorContentParser";
 
 /**
  * An implementation of {@link NaturalLanguageProcessor} that delegates NLP to a remote service.
  */
 @injectable()
 export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
-  public entityExtraction(editorLines: string[]): Promise<NlpState> {
+  public entityExtraction(editorState: object): Promise<NlpState> {
+    const parser = new EditorContentParser();
+    const jsonObject = JSON.parse(JSON.stringify(editorState));
+    const editorLines = parser.parse(jsonObject);
+
     return this.remoteEntityExtration(editorLines);
   }
 
@@ -25,7 +30,6 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
   private remoteEntityExtration = async (editorLines: string[]): Promise<NlpState> => {
     const response = this.fetchRemote(editorLines);
     const data: NlpState = (await response).data;
-
     return data;
   };
 

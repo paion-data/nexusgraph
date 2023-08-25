@@ -3,8 +3,8 @@
  */
 import { useEffect } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { LexicalEditorStateParser } from "../parser";
 import { useDispatch } from "react-redux";
+import { UPDATE_EDITOR_STATE } from "../../../../nexusgraph-provider";
 
 /**
  * {@link NexusgraphOnChangePlugin} implements the real-time capturing of editor content.
@@ -23,30 +23,21 @@ import { useDispatch } from "react-redux";
  */
 export default function NexusgraphOnChangePlugin(): null {
   const [editor] = useLexicalComposerContext();
-  const parser = new LexicalEditorStateParser();
   const dispatch = useDispatch();
-
-  let editorLines: string[] = [];
-
-  useEffect(() => {
-    const updateGraph = () => {
-      if (editorLines.length > 0) {
-        const entityExtrationTexts: string[] = structuredClone(editorLines);
-        editorLines = [];
-        dispatch({ type: "editorLine/UPDATE_LINE", payload: entityExtrationTexts });
-      }
-    };
-
-    const t = setInterval(updateGraph, Number(String(process.env.ENTITY_EXTRACTION_CALL_DELAY_IN_MS)));
-
-    return () => clearInterval(t);
-  }, []);
 
   useEffect(() => {
     return editor.registerTextContentListener(() => {
-      const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
-      editorLines = parser.parse(jsonObject);
+      const updateEditorState = () => {
+        const editorState = JSON.parse(JSON.stringify(editor.getEditorState()));
+
+        dispatch({ type: UPDATE_EDITOR_STATE, payload: editorState });
+      };
+
+      const t = setInterval(updateEditorState, Number(String(process.env.ENTITY_EXTRACTION_CALL_DELAY_IN_MS)));
+
+      return () => clearInterval(t);
     });
   }, []);
+
   return null;
 }

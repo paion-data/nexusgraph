@@ -10,6 +10,8 @@ import { useLogto } from "@logto/react";
 import logo from "../public/app-logo.svg";
 import { NaturalLanguageProcessorProvider } from "../../nexusgraph-nlp";
 import { EditorButtonGroup } from "./editor-button-group/EditorButtonGroup";
+import { AstraiosStorageProcessorProvider } from "../../nexusgraph-astraios";
+import { StorageProcessor } from "../../nexusgraph-astraios/src/StorageProcessor";
 
 /**
  * The component that defines the entire nexus graph app.
@@ -20,16 +22,19 @@ export default function App(): JSX.Element {
   const remoteNaturalLanguageProcessor =
     NaturalLanguageProcessorProvider.get<RemoteNaturalLanguageProcessor>(RemoteNaturalLanguageProcessor);
   const dispatch = useDispatch();
-  const entityExtrationTexts: string[] = useSelector((state: GlobalState) => state.editorLine);
+  const entityExtrationState: object = useSelector((state: GlobalState) => state.editor);
   const { signIn, isAuthenticated } = useLogto();
 
+  const astraiosStorageProcessorProvider = AstraiosStorageProcessorProvider.get<StorageProcessor>(StorageProcessor);
+  astraiosStorageProcessorProvider.storageProcessor();
+
   useEffect(() => {
-    if (entityExtrationTexts.length > 0) {
-      remoteNaturalLanguageProcessor.entityExtraction(entityExtrationTexts).then((NlpState) => {
+    if (JSON.stringify(entityExtrationState).length > 2) {
+      remoteNaturalLanguageProcessor.entityExtraction(entityExtrationState).then((NlpState) => {
         dispatch({ type: UPDATE_NLPDATA, payload: NlpState });
       });
     }
-  }, [entityExtrationTexts, dispatch]);
+  }, [entityExtrationState]);
 
   if (isAuthenticated) {
     return (

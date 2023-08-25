@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import LexicalEditorStateParser from "./LexicalEditorStateParser";
+import EditorContentParser from "./EditorContentParser";
 
 import happyPathJson from "./json/LexicalEditorStateParser-basic.json";
 import withEmptyLineJson from "./json/LexicalEditorStateParser-with-empty-line.json";
@@ -8,7 +8,7 @@ import happyPathJsonParseLine from "./json/LexicalEditorStateParser-parseLine-ba
 let parser;
 
 beforeEach(() => {
-  parser = new LexicalEditorStateParser();
+  parser = new EditorContentParser();
 });
 
 describe("Parser consumes the entire editing area contents", () => {

@@ -8,5 +8,5 @@ export interface NaturalLanguageProcessor {
    *
    * @param editorLines  The specified editor contents to perform entity extration
    */
-  entityExtraction(editorLines: string[]): Promise<NlpState>;
+  entityExtraction(editorLines: object): Promise<NlpState>;
 }
