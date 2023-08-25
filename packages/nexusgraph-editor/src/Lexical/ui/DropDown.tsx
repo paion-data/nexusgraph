@@ -57,13 +57,13 @@ export function DropDownItem({
 }
 
 /**
- * Implement the font drop-down
+ * The main function is to expand and close the drop-down box
  *
  * @param children React.ReactNode
  * @param dropDownRef The DOM of dropdown menu
  * @param onClose The funtion of closeing the drop-down
  *
- * @returns dropdown menu
+ * @returns font dropdown menu
  */
 function DropDownItems({
   children,
