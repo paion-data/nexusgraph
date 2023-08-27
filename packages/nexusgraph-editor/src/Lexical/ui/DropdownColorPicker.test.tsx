@@ -1,9 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { describe, expect } from "@jest/globals";
-import { fireEvent, logRoles, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import DropdownColorPicker from "./DropdownColorPicker";
-import onBgColorSelect from "../plugins/ToolbarPlugin/index";
 describe("Dropdown color picker DOM test", () => {
   test("DropdownColorPicker displays specified disabled", () => {
     render(
@@ -92,7 +91,7 @@ describe("Dropdown color picker DOM test", () => {
         buttonClassName={""}
         buttonIconClassName={""}
         onChange={() => {
-          onBgColorSelect;
+          //do nothing.
         }}
       />
     );
@@ -100,7 +99,7 @@ describe("Dropdown color picker DOM test", () => {
   });
 
   test("Mock onChange function and be called once", () => {
-    const onBgColorSelect = jest.fn();
+    const onBgColorChange = jest.fn();
     render(
       <DropdownColorPicker
         disabled={false}
@@ -109,12 +108,12 @@ describe("Dropdown color picker DOM test", () => {
         buttonIconClassName={""}
         color={"#ffffff"}
         onChange={() => {
-          onBgColorSelect;
+          onBgColorChange
         }}
       />
     );
     fireEvent.click(screen.getByRole("button"));
-    onBgColorSelect("#000000");
-    expect(onBgColorSelect).toHaveBeenCalledTimes(1);
+    onBgColorChange();
+    expect(onBgColorChange).toHaveBeenCalledTimes(1);
   });
 });
