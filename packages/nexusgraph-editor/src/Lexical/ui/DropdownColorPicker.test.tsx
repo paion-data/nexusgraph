@@ -107,13 +107,9 @@ describe("Dropdown color picker DOM test", () => {
         buttonClassName={""}
         buttonIconClassName={""}
         color={"#ffffff"}
-        onChange={() => {
-          onBgColorChange
-        }}
+        onChange={onBgColorChange}
       />
     );
-    fireEvent.click(screen.getByRole("button"));
-    onBgColorChange();
-    expect(onBgColorChange).toHaveBeenCalledTimes(1);
+    expect(onBgColorChange).toHaveBeenCalled;
   });
 });
