@@ -31,11 +31,12 @@ const WIDTH = 214;
 const HEIGHT = 150;
 
 /**
- * Render basic color ,hux ,saturation and selected color components
+ * 'DropdownColorPicker' is a wrapper for' TextInput 'and' MoveWrapper ', used in the editor for color selection box
  *
- * @param param0
+ * @param color A color [state](https://react.dev/reference/react/useState) variable declared in the ToolbarPlugin component. Used to update color values
+ * @param onChange onChange The regular [onChange](https://www.w3schools.com/jsref/event_onchange.asp) callback function that acts on the color of selection
  *
- * @returns Basic color ,hux ,saturation and selected color div components
+ * @returns  The JSX of color selection box
  */
 export default function ColorPicker({ color, onChange }: Readonly<ColorPickerProps>): JSX.Element {
   const [selfColor, setSelfColor] = useState(transformColor("hex", color));
@@ -149,18 +150,33 @@ export interface Position {
 }
 
 interface MoveWrapperProps {
+  /**
+   * Set the [class attribute](https://www.w3schools.com/jsref/prop_html_classname.asp) for an div element:
+   */
   className?: string;
+
+  /**
+   * The <style>[https://www.w3schools.com/tags/tag_style.asp] tag is used to define style information (CSS) for a document.
+   */
   style?: React.CSSProperties;
+
+  /**
+   * onChange The regular [onChange](https://www.w3schools.com/jsref/event_onchange.asp) callback function that acts on the position of a small round ball for color selection
+   */
   onChange: (position: Position) => void;
+
+  /**
+   * children lets you manipulate and transform the JSX you received as the [children prop](https://react.dev/reference/react/Children).
+   */
   children: JSX.Element;
 }
 
 /**
- * Render saturation
+ * 'DropdownColorPicker' is a wrapper for move a small round ball for color selection
  *
- * @param param0
+ * @param MoveWrapperProps
  *
- * @returns saturation div
+ * @returns A JSX of a small round ball for color selection
  */
 function MoveWrapper({ className, style, onChange, children }: MoveWrapperProps) {
   const divRef = useRef<HTMLDivElement>(null);
@@ -225,11 +241,11 @@ interface Color {
 }
 
 /**
- * Convert the value to hexadecimal
+ * A convert function for convert the value to [hex](https://www.w3schools.com/colors/colors_hexadecimal.asp) used to represent color
  *
  * @param value
  *
- * @returns hex
+ * @returns The value of color hex
  */
 export function toHex(value: string): string {
   if (!value.startsWith("#")) {
@@ -257,9 +273,9 @@ export function toHex(value: string): string {
 }
 
 /**
- * Convert hex to rgb
+ * A convert function for convert hex to [rgb](https://www.w3schools.com/colors/colors_rgb.asp)
  *
- * @param hex
+ * @param hex string ，the value of color hex
  *
  * @returns r , g , b
  */
@@ -279,9 +295,11 @@ function hex2rgb(hex: string): RGB {
 }
 
 /**
- * Convert rgb to hsv
+ * A convert function for convert rgb to [hsv](https://en.wikipedia.org/wiki/HSL_and_HSV)
  *
- * @param {r , g , b}
+ * @param r red
+ * @param g green
+ * @param b bule
  *
  * @returns h , s ,v
  */
@@ -301,9 +319,11 @@ function rgb2hsv({ r, g, b }: RGB): HSV {
 }
 
 /**
- * Convert hsv to rgb form
+ * A convert function for convert hsv to [rgb](https://www.w3schools.com/colors/colors_rgb.asp)
  *
- * @param {h , s , v}
+ * @param h Hue
+ * @param s saturation
+ * @param v lightness
  *
  * @returns b , g , r
  */
@@ -326,9 +346,11 @@ function hsv2rgb({ h, s, v }: HSV): RGB {
 }
 
 /**
- * Convert rgb to hex form
+ * A convert function for convert rgb to hex
  *
- * @param {r , g , b}
+ * @param r red
+ * @param g green
+ * @param b bule
  *
  * @returns hex
  */
@@ -337,10 +359,10 @@ function rgb2hex({ b, g, r }: RGB): string {
 }
 
 /**
- * Realize arbitrary conversion between rgb, hsv, hex
+ * A convert function for implement arbitrary conversion between rgb, hsv, hex
  *
- * @param format
- * @param color
+ * @param format string
+ * @param color string
  *
  * @returns hex , hsv , rgb
  */
