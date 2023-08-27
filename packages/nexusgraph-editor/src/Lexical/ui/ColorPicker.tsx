@@ -266,7 +266,7 @@ interface Color {
    * The value of hsv color
    */
   hsv: HSV;
-  
+
   /**
    * The value of rgb color
    */

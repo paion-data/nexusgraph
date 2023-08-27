@@ -6,7 +6,21 @@ import "@testing-library/jest-dom";
 import ColorPicker from "./ColorPicker";
 
 describe("ColorPicker DOM test", () => {
-  test("Placeholder defaults to an empty string", () => {
-    render(<ColorPicker color={""} />);
+  test("ColorPicker displays specified color", () => {
+    render(
+      <ColorPicker
+        color={"#ffffff"}
+        onChange={() => {
+          //do nothing.
+        }}
+      />
+    );
+    expect(screen.getByRole("textbox")).toHaveProperty("value", "#ffffff");
+  });
+
+  test("Mock onChange function and be called once", () => {
+    const onBgColorChange = jest.fn();
+    render(<ColorPicker color={"#ffffff"} onChange={onBgColorChange} />);
+    expect(onBgColorChange).toHaveBeenCalled;
   });
 });
