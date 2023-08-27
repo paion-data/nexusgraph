@@ -225,25 +225,58 @@ function clamp(value: number, max: number, min: number) {
 }
 
 interface RGB {
+  /**
+   * The [blue](https://www.w3schools.com/colors/colors_rgb.asp) parameter in rgb code color system
+   */
   b: number;
+
+  /**
+   * The [green](https://www.w3schools.com/colors/colors_rgb.asp) parameter in rgb code color system
+   */
   g: number;
+
+  /**
+   * The [red](https://www.w3schools.com/colors/colors_rgb.asp) parameter in rgb code color system
+   */
   r: number;
 }
 interface HSV {
+  /**
+   * The [hue](https://en.wikipedia.org/wiki/HSL_and_HSV) parameter in hsv code color system
+   */
   h: number;
+
+  /**
+   * The [saturation](https://en.wikipedia.org/wiki/HSL_and_HSV) parameter in hsv code color system
+   */
   s: number;
+
+  /**
+   * The [value](https://en.wikipedia.org/wiki/HSL_and_HSV) parameter in hsv code color system
+   */
   v: number;
 }
 interface Color {
+  /**
+   * The value of hex color
+   */
   hex: string;
+
+  /**
+   * The value of hsv color
+   */
   hsv: HSV;
+  
+  /**
+   * The value of rgb color
+   */
   rgb: RGB;
 }
 
 /**
  * A convert function for convert the value to [hex](https://www.w3schools.com/colors/colors_hexadecimal.asp) used to represent color
  *
- * @param value
+ * @param value string
  *
  * @returns The value of color hex
  */
@@ -297,9 +330,7 @@ function hex2rgb(hex: string): RGB {
 /**
  * A convert function for convert rgb to [hsv](https://en.wikipedia.org/wiki/HSL_and_HSV)
  *
- * @param r red
- * @param g green
- * @param b bule
+ * @param RGB
  *
  * @returns h , s ,v
  */
@@ -321,9 +352,7 @@ function rgb2hsv({ r, g, b }: RGB): HSV {
 /**
  * A convert function for convert hsv to [rgb](https://www.w3schools.com/colors/colors_rgb.asp)
  *
- * @param h Hue
- * @param s saturation
- * @param v lightness
+ * @param HSV
  *
  * @returns b , g , r
  */
@@ -348,9 +377,7 @@ function hsv2rgb({ h, s, v }: HSV): RGB {
 /**
  * A convert function for convert rgb to hex
  *
- * @param r red
- * @param g green
- * @param b bule
+ * @param RGB
  *
  * @returns hex
  */
@@ -361,8 +388,7 @@ function rgb2hex({ b, g, r }: RGB): string {
 /**
  * A convert function for implement arbitrary conversion between rgb, hsv, hex
  *
- * @param format string
- * @param color string
+ * @param Color
  *
  * @returns hex , hsv , rgb
  */
