@@ -13,9 +13,12 @@ const DropDownContext = React.createContext<DropDownContextType | null>(null);
 const dropDownPadding = 4;
 
 /**
- * Single button in dropdown menu
+ * DropDownItem is a reuse wrapper for `button`
  *
- * @param param0
+ * @param children Children lets you manipulate and transform the JSX you received as the [children prop](https://react.dev/reference/react/Children).
+ * @param className Set the [class attribute](https://www.w3schools.com/jsref/prop_html_classname.asp) for an button element:
+ * @param onClick The [onclick](https://www.w3schools.com/jsref/event_onclick.asp) event occurs when the user clicks on an HTML element.
+ * @param title The [title attribute](https://www.w3schools.com/tags/att_global_title.asp) specifies extra information about an bubtton element.
  *
  * @returns single button
  */
@@ -54,9 +57,11 @@ export function DropDownItem({
 }
 
 /**
- * Render dropdown menu
+ * DropDownItems is a reuse wrapper for `DropDownItem`
  *
- * @param param0
+ * @param children Children lets you manipulate and transform the JSX you received as the [children prop](https://react.dev/reference/react/Children).
+ * @param dropDownRef A hook to pass your [ref](https://react.dev/learn/manipulating-the-dom-with-refs) as the ref attribute to the JSX tag for which you want to get the DOM node:
+ * @param onClose The regular [onClose](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/close_event) callback function that acts on the drop-down menu
  *
  * @returns dropdown menu
  */
@@ -133,9 +138,15 @@ function DropDownItems({
 }
 
 /**
- * Put the DOM nodes of the passed dropdowns into the provided document.body
+ * DropDown is a reuse wrapper for drop-down button and drop-down menu,
  *
- * @param param0
+ * @param disabled The disabled property of [button](https://www.w3schools.com/tags/tag_button.asp)
+ * @param buttonLabel the value of span
+ * @param buttonAriaLabel [Provides an accessible name for the button element](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
+ * @param buttonClassName Provides an [classname](https://www.w3schools.com/jsref/prop_html_classname.asp) for the button element
+ * @param buttonIconClassName Provides an [classname](https://www.w3schools.com/jsref/prop_html_classname.asp) for the icon element
+ * @param children Children lets you manipulate and transform the JSX you received as the [children prop](https://react.dev/reference/react/Children).
+ * @param stopCloseOnClickSelf A state variable acts the [hook](https://www.w3schools.com/react/react_useeffect.asp) of dropdown component that enables continuous color selection
  *
  * @returns dropdown button and dropdown menu components
  */
