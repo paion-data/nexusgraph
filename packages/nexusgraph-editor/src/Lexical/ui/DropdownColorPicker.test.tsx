@@ -63,7 +63,7 @@ describe("Dropdown color picker DOM test", () => {
         }}
       />
     );
-    expect(screen.getByTestId("icon")).toHaveProperty("className", "icon");
+    expect(screen.getByTestId("icon-label")).toHaveProperty("className", "icon");
   });
 
   test("DropdownColorPicker displays specified color", () => {
@@ -118,7 +118,7 @@ describe("Dropdown color picker DOM test", () => {
     expect(screen.queryByRole("textbox")).toEqual(null);
   });
 
-  test("Mock onChange function and be called once", () => {
+  test("Mock onChange function and be called", () => {
     const onBgColorChange = jest.fn();
     render(
       <DropdownColorPicker
