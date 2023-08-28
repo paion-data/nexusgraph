@@ -22,6 +22,6 @@ it("Dropdown and ColorPicker part renders correctly", () => {
     </DropDown>
   );
 
-  let tree = component.toJSON();
+  const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
