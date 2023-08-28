@@ -82,7 +82,7 @@ describe("Dropdown color picker DOM test", () => {
     expect(screen.getByRole("textbox")).toHaveProperty("value", "#ffffff");
   });
 
-  test("stopCloseOnClickSelf", () => {
+  test("StopCloseOnClickSelf is true, click the basic-color button, and the drop-down box will not disappear", () => {
     render(
       <DropdownColorPicker
         disabled={false}
@@ -96,6 +96,26 @@ describe("Dropdown color picker DOM test", () => {
       />
     );
     fireEvent.click(screen.getByRole("button"));
+    fireEvent.click(screen.getAllByRole("button")[2]);
+    expect(screen.getByRole("textbox")).not.toBeNull;
+  });
+
+  test("StopCloseOnClickSelf is false, click the basic-color button, and the drop-down box will disappear", () => {
+    render(
+      <DropdownColorPicker
+        disabled={false}
+        stopCloseOnClickSelf={false}
+        color={"#ffffff"}
+        buttonClassName={""}
+        buttonIconClassName={""}
+        onChange={() => {
+          //do nothing.
+        }}
+      />
+    );
+    fireEvent.click(screen.getByRole("button"));
+    fireEvent.click(screen.getAllByRole("button")[2]);
+    expect(screen.queryByRole("textbox")).toEqual(null);
   });
 
   test("Mock onChange function and be called once", () => {
