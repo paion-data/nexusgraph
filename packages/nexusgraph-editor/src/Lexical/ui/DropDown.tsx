@@ -209,7 +209,7 @@ export default function DropDown({
         onClick={() => setShowDropDown(!showDropDown)}
         ref={buttonRef}
       >
-        {buttonIconClassName && <span className={buttonIconClassName} data-testid={"icon"} />}
+        {buttonIconClassName && <span className={buttonIconClassName} data-testid={"icon-label"} />}
         {buttonLabel && <span className="text dropdown-button-text">{buttonLabel}</span>}
         <i className="chevron-down" />
       </button>
