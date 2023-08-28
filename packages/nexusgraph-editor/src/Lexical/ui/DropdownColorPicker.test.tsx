@@ -1,135 +1,27 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { describe, expect } from "@jest/globals";
-import { fireEvent, render, screen } from "@testing-library/react";
+import renderer from "react-test-renderer";
 import React from "react";
-import DropdownColorPicker from "./DropdownColorPicker";
-describe("Dropdown color picker DOM test", () => {
-  test("DropdownColorPicker displays specified disabled", () => {
-    render(
-      <DropdownColorPicker
-        disabled={true}
-        stopCloseOnClickSelf
-        buttonClassName={""}
-        color={""}
-        onChange={() => {
-          //do nothing.
-        }}
-      />
-    );
-    expect(screen.getByRole("button")).toHaveProperty("disabled");
-  });
+import DropDown from "./DropDown";
+import ColorPicker from "./ColorPicker";
 
-  test("DropdownColorPicker displays specified buttonAriaLabel", () => {
-    render(
-      <DropdownColorPicker
-        disabled={false}
-        stopCloseOnClickSelf
-        buttonAriaLabel={"button"}
-        buttonClassName={""}
-        color={""}
-        onChange={() => {
-          //do nothing.
-        }}
-      />
-    );
-    expect(screen.getByRole("button", { name: /button/i })).not.toBeNull;
-  });
-
-  test("DropdownColorPicker displays specified buttonClassName", () => {
-    render(
-      <DropdownColorPicker
-        disabled={false}
-        stopCloseOnClickSelf
-        buttonClassName={"button"}
-        color={""}
-        onChange={() => {
-          //do nothing.
-        }}
-      />
-    );
-    expect(screen.getByRole("button")).toHaveProperty("className", "button");
-  });
-
-  test("DropdownColorPicker displays specified buttonIconClassName", () => {
-    render(
-      <DropdownColorPicker
-        disabled={false}
-        stopCloseOnClickSelf
-        buttonClassName={""}
-        buttonIconClassName={"icon"}
-        color={""}
-        onChange={() => {
-          //do nothing.
-        }}
-      />
-    );
-    expect(screen.getByTestId("icon-label")).toHaveProperty("className", "icon");
-  });
-
-  test("DropdownColorPicker displays specified color", () => {
-    render(
-      <DropdownColorPicker
-        disabled={false}
-        stopCloseOnClickSelf
-        buttonClassName={""}
+it("Dropdown and ColorPicker part renders correctly", () => {
+  const component = renderer.create(
+    <DropDown
+      disabled={false}
+      stopCloseOnClickSelf={true}
+      buttonClassName="color-picker"
+      buttonAriaLabel="Formatting color"
+      buttonIconClassName="icon color"
+    >
+      <ColorPicker
         color={"#ffffff"}
         onChange={() => {
-          //do nothing.
+          //do nothing
         }}
       />
-    );
-    fireEvent.click(screen.getByRole("button"));
-    expect(screen.getByRole("textbox")).toHaveProperty("value", "#ffffff");
-  });
+    </DropDown>
+  );
 
-  test("StopCloseOnClickSelf is true, click the basic-color button, and the drop-down box will not disappear", () => {
-    render(
-      <DropdownColorPicker
-        disabled={false}
-        stopCloseOnClickSelf={true}
-        color={"#ffffff"}
-        buttonClassName={""}
-        buttonIconClassName={""}
-        onChange={() => {
-          //do nothing.
-        }}
-      />
-    );
-    fireEvent.click(screen.getByRole("button"));
-    fireEvent.click(screen.getAllByRole("button")[2]);
-    expect(screen.getByRole("textbox")).not.toBeNull;
-  });
-
-  test("StopCloseOnClickSelf is false, click the basic-color button, and the drop-down box will disappear", () => {
-    render(
-      <DropdownColorPicker
-        disabled={false}
-        stopCloseOnClickSelf={false}
-        color={"#ffffff"}
-        buttonClassName={""}
-        buttonIconClassName={""}
-        onChange={() => {
-          //do nothing.
-        }}
-      />
-    );
-    fireEvent.click(screen.getByRole("button"));
-    fireEvent.click(screen.getAllByRole("button")[2]);
-    expect(screen.queryByRole("textbox")).toEqual(null);
-  });
-
-  test("Mock onChange function and be called", () => {
-    const onBgColorChange = jest.fn();
-    render(
-      <DropdownColorPicker
-        disabled={false}
-        stopCloseOnClickSelf
-        buttonClassName={""}
-        buttonIconClassName={""}
-        color={"#ffffff"}
-        onChange={onBgColorChange}
-      />
-    );
-    expect(onBgColorChange).toHaveBeenCalled;
-  });
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 });

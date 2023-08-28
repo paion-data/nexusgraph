@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown and ColorPicker part renders correctly 1`] = `
+<button
+  aria-label="Formatting color"
+  className="color-picker"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  <span
+    className="icon color"
+    data-testid="icon-label"
+  />
+  <i
+    className="chevron-down"
+  />
+</button>
+`;
