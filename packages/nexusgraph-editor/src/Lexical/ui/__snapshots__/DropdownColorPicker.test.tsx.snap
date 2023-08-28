@@ -10,7 +10,6 @@ exports[`Dropdown and ColorPicker part renders correctly 1`] = `
 >
   <span
     className="icon color"
-    data-testid="icon-label"
   />
   <i
     className="chevron-down"
