@@ -38,7 +38,7 @@ describe("DropDown DOM test", () => {
         children={undefined}
       />
     );
-    expect(screen.getByTestId("iconid")).toHaveProperty("className", "icon");
+    expect(document.getElementsByClassName("icon")[0].getAttribute("class")).toBe("icon");
   });
 
   test("DropDown displays specified buttonLabel", () => {
