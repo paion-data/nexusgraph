@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { EditorAction, UPDATE_EDITOR_STATE } from "../types";
+import { EditorAction, UPDATE_EDITOR_STATE } from "./editorTypes";
 import editorReducer from "./editorDuck";
 
 describe("The editor reducer updates the state of the editor lines", () => {

@@ -5,8 +5,7 @@ import { BasicNode, BasicRelationship } from "./basicTypes";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "./GraphStats";
 
 import { useDispatch, useSelector } from "react-redux";
-import { GlobalState } from "../../nexusgraph-provider";
-import { UPDATE_NOTE_GRAPH } from "../../nexusgraph-provider/src/astraios/astraiosTypes";
+import { GlobalState, UPDATE_NOTE_GRAPH } from "../../nexusgraph-provider";
 import { useEffect } from "react";
 
 export interface VisualizationProps {

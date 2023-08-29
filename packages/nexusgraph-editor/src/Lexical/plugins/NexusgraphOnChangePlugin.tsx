@@ -4,8 +4,7 @@
 import { useEffect } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { useDispatch } from "react-redux";
-import { UPDATE_EDITOR_STATE } from "../../../../nexusgraph-provider";
-import { UPDATE_NOTE_EDITOR_CONTENT } from "../../../../nexusgraph-provider/src/astraios/astraiosTypes";
+import { UPDATE_EDITOR_STATE, UPDATE_NOTE_EDITOR_CONTENT } from "../../../../nexusgraph-provider";
 
 /**
  * {@link NexusgraphOnChangePlugin} implements the real-time capturing of editor content.

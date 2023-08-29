@@ -1,8 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { GlobalState } from "../../nexusgraph-provider";
-import { AstraiosState, UPDATE_NOTE_ID } from "../../nexusgraph-provider/src/astraios/astraiosTypes";
+import { AstraiosState, GlobalState, UPDATE_NOTE_ID } from "../../nexusgraph-provider";
 import { AstraiosStorageProcessor } from "./AstraiosStorageProcessor";
 import { injectable } from "inversify";
 import "reflect-metadata";
