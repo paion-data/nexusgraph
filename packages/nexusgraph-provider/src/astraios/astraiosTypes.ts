@@ -7,10 +7,10 @@ export const UPDATE_NOTE_EDITOR_CONTENT = NOTE_STATE + "/UPDATE_NOTE_EDITOR_CONT
 export interface AstraiosState {
   data: {
     type: "note";
-    id: String;
+    id: string;
     attributes: {
-      graph: String;
-      editorContent: String;
+      graph: string;
+      editorContent: string;
     };
   };
 }
