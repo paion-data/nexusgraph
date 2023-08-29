@@ -4,8 +4,10 @@ import { StyledVisContainer } from "./VisualizationView.styled";
 import { BasicNode, BasicRelationship } from "./basicTypes";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "./GraphStats";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GlobalState } from "../../nexusgraph-provider";
+import { UPDATE_NOTE_GRAPH } from "../../nexusgraph-provider/src/astraios/astraiosTypes";
+import { useEffect } from "react";
 
 export interface VisualizationProps {
   assignVisElement: (svgElement: any, graphElement: any) => void;
@@ -18,6 +20,17 @@ export interface VisualizationProps {
  * @returns a DOM object
  */
 export function Visualization(props: VisualizationProps): JSX.Element {
+  const dispatch = useDispatch();
+
+  const graph = {
+    nodes: useSelector((state: GlobalState) => state.nlpData.nodes),
+    links: useSelector((state: GlobalState) => state.nlpData.links),
+  };
+
+  useEffect(() => {
+    dispatch({ type: UPDATE_NOTE_GRAPH, payload: JSON.stringify(graph) });
+  }, [JSON.stringify(graph)]);
+
   return (
     <StyledVisContainer isFullscreen={true}>
       <GraphVisualizer

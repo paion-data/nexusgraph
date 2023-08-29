@@ -3,15 +3,14 @@ import { Editor } from "../../nexusgraph-editor";
 import { GraphBrowser } from "../../nexusgraph-graph";
 import { AppWrapper, EditorCaption, EditorWrapper, EditorGlassCover, GraphBrowserWrapper, IconWapper } from "./styled";
 import { useEffect } from "react";
-import { RemoteNaturalLanguageProcessor } from "../../nexusgraph-nlp/src/processor/RemoteNaturalLanguageProcessor";
 import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_NLPDATA, GlobalState } from "../../nexusgraph-provider";
 import { useLogto } from "@logto/react";
 import logo from "../public/app-logo.svg";
-import { NaturalLanguageProcessorProvider } from "../../nexusgraph-nlp";
 import { EditorButtonGroup } from "./editor-button-group/EditorButtonGroup";
-import { AstraiosStorageProcessorProvider } from "../../nexusgraph-astraios";
-import { JsonApiStorageProcessor } from "../../nexusgraph-astraios/src/StorageProcessor";
+import { container, TYPES } from "../inversify.config";
+import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
+import { AstraiosStorageProcessor } from "../../nexusgraph-astraios";
 
 /**
  * The component that defines the entire nexus graph app.
@@ -19,17 +18,22 @@ import { JsonApiStorageProcessor } from "../../nexusgraph-astraios/src/StoragePr
  * @returns a React DOM object
  */
 export default function App(): JSX.Element {
-  const remoteNaturalLanguageProcessor =
-    NaturalLanguageProcessorProvider.get<RemoteNaturalLanguageProcessor>(RemoteNaturalLanguageProcessor);
   const dispatch = useDispatch();
+
+  const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
+    TYPES.NaturalLanguageProcessor
+  );
+
   const entityExtrationState: object = useSelector((state: GlobalState) => state.editor);
   const { signIn, isAuthenticated } = useLogto();
 
+  const storageProcessor: AstraiosStorageProcessor = container.get<AstraiosStorageProcessor>(
+    TYPES.AstraiosStorageProcessor
+  );
+  storageProcessor.storageProcessor();
+
   useEffect(() => {
     if (JSON.stringify(entityExtrationState) !== "{}") {
-      const astraiosStorageProcessorProvider =
-        AstraiosStorageProcessorProvider.get<JsonApiStorageProcessor>(JsonApiStorageProcessor);
-      astraiosStorageProcessorProvider.storageProcessor();
       remoteNaturalLanguageProcessor.entityExtraction(entityExtrationState).then((NlpState) => {
         dispatch({ type: UPDATE_NLPDATA, payload: NlpState });
       });

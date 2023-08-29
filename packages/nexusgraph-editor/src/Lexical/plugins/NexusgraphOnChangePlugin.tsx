@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { useDispatch } from "react-redux";
 import { UPDATE_EDITOR_STATE } from "../../../../nexusgraph-provider";
+import { UPDATE_NOTE_EDITOR_CONTENT } from "../../../../nexusgraph-provider/src/astraios/astraiosTypes";
 
 /**
  * {@link NexusgraphOnChangePlugin} implements the real-time capturing of editor content.
@@ -31,6 +32,7 @@ export default function NexusgraphOnChangePlugin(): null {
         const editorState = JSON.parse(JSON.stringify(editor.getEditorState()));
 
         dispatch({ type: UPDATE_EDITOR_STATE, payload: editorState });
+        dispatch({ type: UPDATE_NOTE_EDITOR_CONTENT, payload: JSON.stringify(editorState) });
       };
 
       const t = setInterval(updateEditorState, Number(String(process.env.ENTITY_EXTRACTION_CALL_DELAY_IN_MS)));
