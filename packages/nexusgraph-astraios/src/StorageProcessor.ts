@@ -6,27 +6,24 @@ import { AstraiosData, AstraiosStorageProcessor } from "./AstraiosStorageProcess
 import { injectable } from "inversify";
 import "reflect-metadata";
 
+const NOTE_STORAGE_API_URL_PARAMETER = "note"
+
 /**
  * An implementation of {@link AstraiosStorageProcessor}, It will send Http requests to the backend Astraios storage
  * service
  */
 @injectable()
-export class StorageProcessor implements AstraiosStorageProcessor {
+export class JsonApiStorageProcessor implements AstraiosStorageProcessor {
   storageProcessor(): Promise<AstraiosData> {
-    const note: AstraiosData = {
+    return sendRequest({
       data: {
         type: "note",
         attributes: {
-          graph: "",
-          editorContent: "",
+          graph: useSelector((state: GlobalState) => JSON.stringify(state.nlpData)),
+          editorContent: useSelector((state: GlobalState) => JSON.stringify(state.editor)),
         },
       },
-    };
-
-    note["data"]["attributes"]["graph"] = useSelector((state: GlobalState) => JSON.stringify(state.nlpData));
-    note["data"]["attributes"]["editorContent"] = useSelector((state: GlobalState) => JSON.stringify(state.editor));
-
-    return sendRequest(note);
+    });
   }
 }
 
@@ -45,5 +42,5 @@ const sendRequest = async (note: AstraiosData) => {
     },
   };
 
-  return await axios.post(process.env.ASTRAIOS_API_URL as string, note, config);
+  return await axios.post(process.env.ASTRAIOS_API_URL as string + NOTE_STORAGE_API_URL_PARAMETER, note, config);
 };
