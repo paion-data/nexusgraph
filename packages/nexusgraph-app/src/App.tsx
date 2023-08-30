@@ -19,27 +19,25 @@ import { AstraiosClient } from "../../nexusgraph-astraios";
  */
 export default function App(): JSX.Element {
   const { signIn, isAuthenticated } = useLogto();
+  const dispatch = useDispatch();
+  const entityExtrationState: object = useSelector((state: GlobalState) => state.editor);
+  const astraiosState = useSelector((state: GlobalState) => state.astraios);
+
+  const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
+    TYPES.NaturalLanguageProcessor
+  );
+
+  useEffect(() => {
+    if (JSON.stringify(entityExtrationState) !== "{}" && isAuthenticated) {
+      remoteNaturalLanguageProcessor.entityExtraction(entityExtrationState).then((NlpState) => {
+        dispatch({ type: UPDATE_NLPDATA, payload: NlpState });
+      });
+    }
+  }, [entityExtrationState]);
 
   if (isAuthenticated) {
-    const dispatch = useDispatch();
-
-    const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
-      TYPES.NaturalLanguageProcessor
-    );
-    const entityExtrationState: object = useSelector((state: GlobalState) => state.editor);
-
-    const storageProcessor: AstraiosClient = container.get<AstraiosClient>(
-      TYPES.AstraiosStorageProcessor
-    );
-    storageProcessor.saveOrUpdate(useSelector((state: GlobalState) => state.astraios));
-
-    useEffect(() => {
-      if (JSON.stringify(entityExtrationState) !== "{}") {
-        remoteNaturalLanguageProcessor.entityExtraction(entityExtrationState).then((NlpState) => {
-          dispatch({ type: UPDATE_NLPDATA, payload: NlpState });
-        });
-      }
-    }, [entityExtrationState]);
+    const storageProcessor: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosStorageProcessor);
+    storageProcessor.saveOrUpdate(astraiosState);
 
     return (
       <AppWrapper>

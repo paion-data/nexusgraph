@@ -54,7 +54,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
       return await noteRequest;
     }
 
-    if (!this.updateNote) {     
+    if (!this.updateNote) {
       this.updateNote = true;
     } else {
       const noteId = note.data.id;
