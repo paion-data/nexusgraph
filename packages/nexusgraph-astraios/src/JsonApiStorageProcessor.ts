@@ -1,27 +1,27 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { AstraiosState, GlobalState, UPDATE_NOTE_ID } from "../../nexusgraph-provider";
-import { AstraiosStorageProcessor } from "./AstraiosStorageProcessor";
+import { useDispatch } from "react-redux";
+import { AstraiosState, UPDATE_NOTE_ID } from "../../nexusgraph-provider";
+import { AstraiosClient } from "./AstraiosStorageProcessor";
 import { injectable } from "inversify";
 import "reflect-metadata";
 
 const NOTE_STORAGE_API_URL_PARAMETER = "note/";
 
 /**
- * An implementation of {@link AstraiosStorageProcessor}, It will send Http requests to the backend Astraios storage
+ * An implementation of {@link AstraiosClient}, It will send Http requests to the backend Astraios storage
  * service
  */
 @injectable()
-export class JsonApiStorageProcessor implements AstraiosStorageProcessor {
+export class JsonApiAstraiosClient implements AstraiosClient {
   updateNote: boolean;
 
   constructor() {
     this.updateNote = false;
   }
 
-  storageProcessor(): Promise<AstraiosState | undefined> {
-    return this.sendNoteRequest(useSelector((state: GlobalState) => state.astraios));
+  saveOrUpdate(astraiosState: AstraiosState): Promise<AstraiosState | undefined> {
+    return this.sendNoteRequest(astraiosState);
   }
 
   /**
@@ -54,7 +54,7 @@ export class JsonApiStorageProcessor implements AstraiosStorageProcessor {
       return await noteRequest;
     }
 
-    if (!this.updateNote) {
+    if (!this.updateNote) {     
       this.updateNote = true;
     } else {
       const noteId = note.data.id;

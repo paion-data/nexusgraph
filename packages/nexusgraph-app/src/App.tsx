@@ -10,7 +10,7 @@ import logo from "../public/app-logo.svg";
 import { EditorButtonGroup } from "./editor-button-group/EditorButtonGroup";
 import { container, TYPES } from "../inversify.config";
 import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
-import { AstraiosStorageProcessor } from "../../nexusgraph-astraios";
+import { AstraiosClient } from "../../nexusgraph-astraios";
 
 /**
  * The component that defines the entire nexus graph app.
@@ -18,29 +18,29 @@ import { AstraiosStorageProcessor } from "../../nexusgraph-astraios";
  * @returns a React DOM object
  */
 export default function App(): JSX.Element {
-  const dispatch = useDispatch();
-
-  const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
-    TYPES.NaturalLanguageProcessor
-  );
-
-  const entityExtrationState: object = useSelector((state: GlobalState) => state.editor);
   const { signIn, isAuthenticated } = useLogto();
 
-  const storageProcessor: AstraiosStorageProcessor = container.get<AstraiosStorageProcessor>(
-    TYPES.AstraiosStorageProcessor
-  );
-  storageProcessor.storageProcessor();
-
-  useEffect(() => {
-    if (JSON.stringify(entityExtrationState) !== "{}") {
-      remoteNaturalLanguageProcessor.entityExtraction(entityExtrationState).then((NlpState) => {
-        dispatch({ type: UPDATE_NLPDATA, payload: NlpState });
-      });
-    }
-  }, [entityExtrationState]);
-
   if (isAuthenticated) {
+    const dispatch = useDispatch();
+
+    const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
+      TYPES.NaturalLanguageProcessor
+    );
+    const entityExtrationState: object = useSelector((state: GlobalState) => state.editor);
+
+    const storageProcessor: AstraiosClient = container.get<AstraiosClient>(
+      TYPES.AstraiosStorageProcessor
+    );
+    storageProcessor.saveOrUpdate(useSelector((state: GlobalState) => state.astraios));
+
+    useEffect(() => {
+      if (JSON.stringify(entityExtrationState) !== "{}") {
+        remoteNaturalLanguageProcessor.entityExtraction(entityExtrationState).then((NlpState) => {
+          dispatch({ type: UPDATE_NLPDATA, payload: NlpState });
+        });
+      }
+    }, [entityExtrationState]);
+
     return (
       <AppWrapper>
         <EditorWrapper>

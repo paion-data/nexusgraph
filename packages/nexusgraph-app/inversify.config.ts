@@ -2,10 +2,8 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import { Container } from "inversify";
-import { JsonApiStorageProcessor } from "../nexusgraph-astraios/src/JsonApiStorageProcessor";
-import { AstraiosStorageProcessor } from "../nexusgraph-astraios/src/AstraiosStorageProcessor";
-import { RemoteNaturalLanguageProcessor } from "../nexusgraph-nlp/src/processor/RemoteNaturalLanguageProcessor";
-import { NaturalLanguageProcessor } from "../nexusgraph-nlp/src/processor/NaturalLanguageProcessor";
+import { AstraiosClient, JsonApiAstraiosClient } from "../nexusgraph-astraios";
+import { RemoteNaturalLanguageProcessor, NaturalLanguageProcessor } from "../nexusgraph-nlp";
 
 /**
  * Define the types identifier to get dependency
@@ -23,7 +21,7 @@ const container = new Container();
 /**
  * Bind the class we use to implement the interface
  */
-container.bind<AstraiosStorageProcessor>(TYPES.AstraiosStorageProcessor).to(JsonApiStorageProcessor).inSingletonScope();
+container.bind<AstraiosClient>(TYPES.AstraiosStorageProcessor).to(JsonApiAstraiosClient).inSingletonScope();
 container
   .bind<NaturalLanguageProcessor>(TYPES.NaturalLanguageProcessor)
   .to(RemoteNaturalLanguageProcessor)

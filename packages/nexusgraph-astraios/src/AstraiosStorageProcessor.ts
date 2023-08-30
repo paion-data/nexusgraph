@@ -4,9 +4,9 @@ import { AstraiosState } from "../../nexusgraph-provider/src/astraios/astraiosTy
 /**
  * This interface is used to define the data format for sending requests to the backend storage server Astraios
  */
-export interface AstraiosStorageProcessor {
+export interface AstraiosClient {
   /**
    * Get and update note data and send a request to WS to store note
    */
-  storageProcessor(): Promise<AstraiosState | undefined>;
+  saveOrUpdate(astraiosState: AstraiosState): Promise<AstraiosState | undefined>;
 }
