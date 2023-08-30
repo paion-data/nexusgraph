@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { NonClickableRelTypeChip } from "../styles/DefaultPane.styled";
 import { GraphStyleModel } from "../GraphStyle";
+import { NonClickableRelTypeChip } from "../styles/DefaultPane.styled";
 
 export interface RelTypeProps {
   graphStyle: GraphStyleModel;

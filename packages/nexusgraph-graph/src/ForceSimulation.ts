@@ -1,6 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import type { Simulation } from "d3-force";
 import { forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY } from "d3-force";
+
 import type { GraphModel } from "./models/Graph";
 import type { NodeModel } from "./models/Node";
 import type { RelationshipModel } from "./models/Relationship";

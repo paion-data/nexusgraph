@@ -2,7 +2,8 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import axios from "axios";
-import { TYPES, container } from "../../../nexusgraph-app/inversify.config";
+
+import { container, TYPES } from "../../../nexusgraph-app/inversify.config";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 
 const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(

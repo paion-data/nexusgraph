@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { NlpState } from "../../../nexusgraph-provider";
+import { NlpState } from "../../../nexusgraph-redux";
 
 export interface NaturalLanguageProcessor {
   /**

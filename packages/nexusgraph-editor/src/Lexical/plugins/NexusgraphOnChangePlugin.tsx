@@ -2,9 +2,11 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import { useEffect } from "react";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { useDispatch } from "react-redux";
-import { UPDATE_EDITOR_STATE, UPDATE_NOTE_EDITOR_CONTENT } from "../../../../nexusgraph-provider";
+
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+
+import { UPDATE_NOTE_EDITOR_CONTENT } from "../../../../nexusgraph-redux";
 
 /**
  * {@link NexusgraphOnChangePlugin} implements the real-time capturing of editor content.
@@ -27,16 +29,7 @@ export default function NexusgraphOnChangePlugin(): null {
 
   useEffect(() => {
     return editor.registerTextContentListener(() => {
-      const updateEditorState = () => {
-        const editorState = JSON.parse(JSON.stringify(editor.getEditorState()));
-
-        dispatch({ type: UPDATE_EDITOR_STATE, payload: editorState });
-        dispatch({ type: UPDATE_NOTE_EDITOR_CONTENT, payload: JSON.stringify(editorState) });
-      };
-
-      const t = setInterval(updateEditorState, Number(String(process.env.ENTITY_EXTRACTION_CALL_DELAY_IN_MS)));
-
-      return () => clearInterval(t);
+      dispatch({ type: UPDATE_NOTE_EDITOR_CONTENT, payload: JSON.stringify(editor.getEditorState()) });
     });
   }, []);
 

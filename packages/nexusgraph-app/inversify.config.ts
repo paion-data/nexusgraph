@@ -2,8 +2,9 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import { Container } from "inversify";
+
 import { AstraiosClient, JsonApiAstraiosClient } from "../nexusgraph-astraios";
-import { RemoteNaturalLanguageProcessor, NaturalLanguageProcessor } from "../nexusgraph-nlp";
+import { NaturalLanguageProcessor, RemoteNaturalLanguageProcessor } from "../nexusgraph-nlp";
 
 /**
  * Define the types identifier to get dependency

@@ -1,5 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { Popup } from "semantic-ui-react";
+
 import { GraphStyleModel } from "../../GraphStyle";
 import { StyledLabelChip } from "../../styles/LabelAndReltypesChip.styled";
 

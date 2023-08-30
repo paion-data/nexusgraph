@@ -7,7 +7,7 @@
         <mxCell id="M4pQJB4g5Ep_KfYWP0gu-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;strokeWidth=5;strokeColor=#EA6B66;fontStyle=1;fontFamily=Ubuntu;startArrow=classic;startFill=1;curved=1;" edge="1" parent="1" source="M4pQJB4g5Ep_KfYWP0gu-39" target="M4pQJB4g5Ep_KfYWP0gu-49">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="M4pQJB4g5Ep_KfYWP0gu-39" value="nexusgraph-provider" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#774BBC;strokeColor=none;fontColor=#FFFFFF;fontFamily=Ubuntu;fontSize=20;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="M4pQJB4g5Ep_KfYWP0gu-39" value="nexusgraph-redux" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#774BBC;strokeColor=none;fontColor=#FFFFFF;fontFamily=Ubuntu;fontSize=20;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="340" y="460" width="200" height="80" as="geometry" />
         </mxCell>
         <mxCell id="M4pQJB4g5Ep_KfYWP0gu-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=5;strokeColor=#67AB9F;fontStyle=1;fontFamily=Ubuntu;entryX=0;entryY=0.75;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="M4pQJB4g5Ep_KfYWP0gu-49" target="M4pQJB4g5Ep_KfYWP0gu-39">

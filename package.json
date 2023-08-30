@@ -72,6 +72,7 @@
     "jest": "^27.4.3",
     "onchange": "^7.1.0",
     "prettier": "2.8.4",
+    "prettier-plugin-organize-imports": "^3.2.3",
     "react-router-dom": "^6.8.1",
     "react-test-renderer": "^18.2.0",
     "style-loader": "^3.3.1",

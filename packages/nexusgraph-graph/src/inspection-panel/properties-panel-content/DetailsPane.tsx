@@ -1,13 +1,14 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
-import { StyleableRelType } from "./StyleableRelType";
-import { StyleableNodeLabel } from "./StyleableNodeLabel";
+import { useTranslation } from "react-i18next";
+
+import { GraphStyleModel } from "../../GraphStyle";
 import { PaneBody, PaneHeader, PaneTitle, PaneWrapper } from "../../styles/DefaultPane.styled";
+import { NodeItem, RelationshipItem } from "../../VizItem";
 import { ClipboardCopier } from "../ClipboardCopier";
 import { PropertiesTable } from "../PropertiesTable";
-import { NodeItem, RelationshipItem } from "../../VizItem";
-import { GraphStyleModel } from "../../GraphStyle";
-import { useTranslation } from "react-i18next";
+import { StyleableNodeLabel } from "./StyleableNodeLabel";
+import { StyleableRelType } from "./StyleableRelType";
 
 export const DETAILS_PANE_STEP_SIZE = 1000;
 

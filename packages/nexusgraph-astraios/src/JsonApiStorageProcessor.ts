@@ -1,10 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { AstraiosState, UPDATE_NOTE_ID } from "../../nexusgraph-provider";
-import { AstraiosClient } from "./AstraiosStorageProcessor";
 import { injectable } from "inversify";
+import { useDispatch } from "react-redux";
 import "reflect-metadata";
+import { NoteState, UPDATE_NOTE_ID } from "../../nexusgraph-redux";
+import { AstraiosClient } from "./AstraiosStorageProcessor";
 
 const NOTE_STORAGE_API_URL_PARAMETER = "note/";
 
@@ -20,7 +20,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
     this.updateNote = false;
   }
 
-  saveOrUpdate(astraiosState: AstraiosState): Promise<AstraiosState | undefined> {
+  saveOrUpdate(astraiosState: NoteState): Promise<NoteState | undefined> {
     return this.sendNoteRequest(astraiosState);
   }
 
@@ -31,7 +31,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
    *
    * @returns A Promise of the WS response data
    */
-  private async sendNoteRequest(note: AstraiosState) {
+  private async sendNoteRequest(note: NoteState) {
     const dispatch = useDispatch();
 
     const config = {

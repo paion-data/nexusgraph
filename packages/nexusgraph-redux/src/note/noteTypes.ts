@@ -4,15 +4,10 @@ export const UPDATE_NOTE_ID = NOTE_STATE + "/UPDATE_NOTE_ID";
 export const UPDATE_NOTE_GRAPH = NOTE_STATE + "/UPDATE_NOTE_GRAPH";
 export const UPDATE_NOTE_EDITOR_CONTENT = NOTE_STATE + "/UPDATE_NOTE_EDITOR_CONTENT";
 
-export interface AstraiosState {
-  data: {
-    type: "note";
-    id: string;
-    attributes: {
-      graph: string;
-      editorContent: string;
-    };
-  };
+export interface NoteState {
+  id: string;
+  editorContent: string;
+  graph: string;
 }
 
 export interface AstraiosAction {

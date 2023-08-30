@@ -1,11 +1,11 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import express from "express";
 import cors from "cors";
-
+import express from "express";
+import asyncHandler from "express-async-handler";
 import { LowSync } from "lowdb";
 import { JSONFileSync } from "lowdb/node";
-import asyncHandler from "express-async-handler";
 import process from "process";
+
 const app = express();
 app.use(express.json());
 app.use(cors());

@@ -1,9 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import EditorContentParser from "./EditorContentParser";
-
 import happyPathJson from "./json/LexicalEditorStateParser-basic.json";
-import withEmptyLineJson from "./json/LexicalEditorStateParser-with-empty-line.json";
 import happyPathJsonParseLine from "./json/LexicalEditorStateParser-parseLine-basic.json";
+import withEmptyLineJson from "./json/LexicalEditorStateParser-with-empty-line.json";
 
 let parser;
 

@@ -1,6 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { app, server } from "./server";
 import request, { Response } from "supertest";
+
+import { app, server } from "./server";
 
 it("'POST /entityExtraction' successfully gets a set of JSON data and returns status code '200'", () => {
   request(app)

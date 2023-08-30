@@ -1,12 +1,12 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { GraphVisualizer } from "./GraphVisualizer";
-import { StyledVisContainer } from "./VisualizationView.styled";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { GlobalState, UPDATE_NOTE_GRAPH } from "../../nexusgraph-redux";
 import { BasicNode, BasicRelationship } from "./basicTypes";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "./GraphStats";
-
-import { useDispatch, useSelector } from "react-redux";
-import { GlobalState, UPDATE_NOTE_GRAPH } from "../../nexusgraph-provider";
-import { useEffect } from "react";
+import { GraphVisualizer } from "./GraphVisualizer";
+import { StyledVisContainer } from "./VisualizationView.styled";
 
 export interface VisualizationProps {
   assignVisElement: (svgElement: any, graphElement: any) => void;

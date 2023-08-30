@@ -1,7 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+
+import i18n from "i18next";
 import detector from "i18next-browser-languagedetector";
+
 import graphTranslation from "./packages/nexusgraph-graph/src/data/graph.json";
 
 /**

@@ -1,11 +1,11 @@
 /*
  * Copyright 2023 Paion Data. All rights reserved.
  */
-import type { NodeModel } from "./Node";
-import type { VizItemProperty } from "./VizItemProperty";
 import { ArcArrow } from "../ArcArrow";
 import { LoopArrow } from "../LoopArrow";
 import { StraightArrow } from "../StraightArrow";
+import type { NodeModel } from "./Node";
+import type { VizItemProperty } from "./VizItemProperty";
 
 export type RelationshipCaptionLayout = "internal" | "external";
 

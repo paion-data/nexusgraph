@@ -2,7 +2,7 @@
 import type { BaseType, Selection } from "d3-selection";
 
 import type { RelationshipModel } from "../models/Relationship";
-import { REL_MOUSE_OVER, REL_MOUSE_OUT, RELATIONSHIO_CLICKED } from "./GraphEventHandlerModel";
+import { RELATIONSHIO_CLICKED, REL_MOUSE_OUT, REL_MOUSE_OVER } from "./GraphEventHandlerModel";
 
 export function relationshipEventHandlers(
   selection: Selection<SVGGElement, RelationshipModel, BaseType, unknown>,

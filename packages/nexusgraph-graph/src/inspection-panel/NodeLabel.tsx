@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { NonClickableLabelChip } from "../styles/DefaultPane.styled";
 import { GraphStyleModel } from "../GraphStyle";
+import { NonClickableLabelChip } from "../styles/DefaultPane.styled";
 
 export interface NodeLabelProps {
   selectedLabel: {

@@ -1,8 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import FileSaver from "file-saver";
-import { prepareForExport } from "./svgUtils";
-import { Canvg } from "canvg";
 import * as Sentry from "@sentry/browser";
+import { Canvg } from "canvg";
+import FileSaver from "file-saver";
+
+import { prepareForExport } from "./svgUtils";
 
 /**
  * Download file

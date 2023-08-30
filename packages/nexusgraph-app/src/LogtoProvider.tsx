@@ -1,6 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { LogtoProvider, LogtoConfig, useHandleSignInCallback } from "@logto/react";
 import { useNavigate } from "react-router-dom";
+
+import { LogtoConfig, LogtoProvider, useHandleSignInCallback } from "@logto/react";
 
 /**
  * Creat LogtoProvider to provide a Logto context

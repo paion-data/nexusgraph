@@ -1,8 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { FontDropDown } from "../plugins/ToolbarPlugin/styled";
 import * as React from "react";
 import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+
+import { FontDropDown } from "../plugins/ToolbarPlugin/styled";
 
 type DropDownContextType = {
   registerItem: (ref: React.RefObject<HTMLButtonElement>) => void;

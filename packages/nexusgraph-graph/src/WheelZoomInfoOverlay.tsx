@@ -1,14 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
 
-import {
-  StyledZoomInfo,
-  StyledZoomInfoIconContainer,
-  StyledZoomInfoOverlay,
-  StyledZoomInfoOverlayDoNotDisplayButton,
-  StyledZoomInfoText,
-  StyledZoomInfoTextContainer,
-} from "./styles/WheelZoomInfoOverlay.styled";
+import { StyledZoomInfoOverlay } from "./styles/WheelZoomInfoOverlay.styled";
 
 const SMALL_SIZE = 15;
 const LARGE_SIZE = 20;
