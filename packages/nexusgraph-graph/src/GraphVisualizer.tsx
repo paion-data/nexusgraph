@@ -28,7 +28,9 @@ function computeSelectedItem(nodeLimitHit: boolean, numAllNodes: number, numAllR
   return nodeLimitHit
     ? {
         type: "status-item",
-        item: `Not all return nodes are being displayed due to Initial Node Display setting. Only first ${numAllNodes} nodes are displayed.`,
+        item: `Not all return nodes are being displayed due to Initial Node Display setting.
+        Only first ${numAllNodes} nodes are displayed.
+        `,
       }
     : {
         type: "canvas",
@@ -84,14 +86,6 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
   const getNodeNeighbours: GetNodeNeighboursFn = (node, currentNeighbourIds, callback) => {
     const nodesExpandProcessor = new NodesExpandProcessor();
     nodesExpandProcessor.extractionNeighbours(node).then((nodesAndRels) => {
-      // const allNeighboursCount = nodesAndRels.nodes.length;
-      // const maxNeighbours = 10;
-      // if (allNeighboursCount > maxNeighbours) {
-      //   setSelectedItem({
-      //     type: "status-item",
-      //     item: `Rendering was limited to ${maxNeighbours} of the node's total ${allNeighboursCount} neighbours due to browser config maxNeighbours.`,
-      //   });
-      // }
       callback(nodesAndRels);
     });
   };

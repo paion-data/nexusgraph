@@ -246,7 +246,8 @@ export class GraphStyleModel {
   public getDefaultNodeCaption(item: NodeModel): { caption: string } | { defaultCaption: string } {
     if (
       !item ||
-      // @ts-expect-error ts-migrate(2365) FIXME: Operator '>' cannot be applied to types 'boolean' ... Remove this comment to see the full error message
+      // @ts-expect-error ts-migrate(2365) FIXME: Operator '>' cannot be applied to types 'boolean' ...
+      // Remove this comment to see the full error message
       !(item.propertyList != null ? item.propertyList.length : 0) > 0
     ) {
       return {
