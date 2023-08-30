@@ -31,7 +31,7 @@ export default function App(): JSX.Element {
     }
   }, [entityExtrationTexts, dispatch]);
 
-  // if (isAuthenticated) {
+  if (isAuthenticated) {
   return (
     <AppWrapper>
       <EditorWrapper>
@@ -49,15 +49,15 @@ export default function App(): JSX.Element {
       </GraphBrowserWrapper>
     </AppWrapper>
   );
-  // }
+  }
 
-  // if (process.env.NODE_ENV == "production") {
-  //   signIn("https://app.nexusgraph.com/login");
-  // }
+  if (process.env.NODE_ENV == "production") {
+    signIn("https://app.nexusgraph.com/login");
+  }
 
-  // if (process.env.NODE_ENV == "development") {
-  //   signIn("http://localhost:8080/login");
-  // }
+  if (process.env.NODE_ENV == "development") {
+    signIn("http://localhost:8080/login");
+  }
 
   return <></>;
 }
