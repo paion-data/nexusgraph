@@ -32,23 +32,23 @@ export default function App(): JSX.Element {
   }, [entityExtrationTexts, dispatch]);
 
   if (isAuthenticated) {
-  return (
-    <AppWrapper>
-      <EditorWrapper>
-        <EditorGlassCover>
-          <IconWapper>
-            <img src={logo} alt="Logo" />
-          </IconWapper>
-          <EditorCaption className="h1">Nexus Graph</EditorCaption>
-          <EditorButtonGroup />
-          <Editor />
-        </EditorGlassCover>
-      </EditorWrapper>
-      <GraphBrowserWrapper>
-        <GraphBrowser />
-      </GraphBrowserWrapper>
-    </AppWrapper>
-  );
+    return (
+      <AppWrapper>
+        <EditorWrapper>
+          <EditorGlassCover>
+            <IconWapper>
+              <img src={logo} alt="Logo" />
+            </IconWapper>
+            <EditorCaption className="h1">Nexus Graph</EditorCaption>
+            <EditorButtonGroup />
+            <Editor />
+          </EditorGlassCover>
+        </EditorWrapper>
+        <GraphBrowserWrapper>
+          <GraphBrowser />
+        </GraphBrowserWrapper>
+      </AppWrapper>
+    );
   }
 
   if (process.env.NODE_ENV == "production") {
