@@ -24,6 +24,5 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["packages", "i18n.js", "custom.d.ts"],
-  "exclude": ["**/*.test.ts", "**/*.test.tsx"]
+  "include": ["packages", "i18n.js", "custom.d.ts"]
 }

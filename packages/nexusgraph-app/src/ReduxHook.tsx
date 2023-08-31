@@ -25,7 +25,7 @@ export default function useReduxHook() {
           dispatch({ type: UPDATE_NLPDATA, payload: NlpState });
         });
       }
-    }
+    };
 
     const t = setInterval(update, Number(String(process.env.ENTITY_EXTRACTION_CALL_DELAY_IN_MS)));
 
