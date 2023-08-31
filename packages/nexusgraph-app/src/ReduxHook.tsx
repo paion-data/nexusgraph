@@ -20,7 +20,7 @@ export default function useReduxHook() {
     const update = () => {
       astraiosClient.saveOrUpdate(noteState);
 
-      if (JSON.stringify(noteState.editorContent) !== "{}") {
+      if (noteState.editorContent && JSON.stringify(noteState.editorContent) !== "{}") {
         remoteNaturalLanguageProcessor.entityExtraction(noteState.editorContent).then((NlpState) => {
           dispatch({ type: UPDATE_NLPDATA, payload: NlpState });
         });
