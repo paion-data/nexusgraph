@@ -38,22 +38,40 @@ export class JsonApiAstraiosClient implements AstraiosClient {
       },
     };
 
+    const data = this.transformData(note);
+
     if (this.isInitialSave(note)) {
-      return axios.post(
-        (process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER,
-        note,
-        config
-      );
+      return axios
+        .post((process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER, { data }, config)
+        .then((response) => {
+          const noteState = {
+            ...note,
+            ...{ id: response.data.data.id },
+          };
+          return noteState;
+        });
     }
 
     return axios.patch(
       (process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER + note.id,
-      note,
+      { data },
       config
     );
   }
 
   private isInitialSave(note: NoteState) {
-    return note.id === ""
+    return note.id === "";
+  }
+
+  private transformData(note: NoteState) {
+    let data;
+    return (data = {
+      type: "note",
+      id: note.id,
+      attributes: {
+        graph: note.graph,
+        editorContent: note.editorContent,
+      },
+    });
   }
 }

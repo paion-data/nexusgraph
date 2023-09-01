@@ -20,7 +20,9 @@ export default function useReduxHook() {
     const update = () => {
       if (noteState) {
         astraiosClient.saveOrUpdate(noteState).then((response) => {
-          dispatch({ type: UPDATE_NOTE_ID, payload: response.id });
+          if (response.id) {
+            dispatch({ type: UPDATE_NOTE_ID, payload: response.id });
+          }
         });
 
         if (noteState && noteState.editorContent && JSON.stringify(noteState.editorContent) !== "{}") {

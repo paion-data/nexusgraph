@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-export const NOTE_STATE = "astraios";
+export const NOTE_STATE = "note";
 export const UPDATE_NOTE_ID = NOTE_STATE + "/UPDATE_NOTE_ID";
 export const UPDATE_NOTE_GRAPH = NOTE_STATE + "/UPDATE_NOTE_GRAPH";
 export const UPDATE_NOTE_EDITOR_CONTENT = NOTE_STATE + "/UPDATE_NOTE_EDITOR_CONTENT";

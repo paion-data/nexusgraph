@@ -3,7 +3,11 @@
  */
 describe("nexusgraph basic test", () => {
   beforeEach(() => {
-    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
+    if (process.env.NODE_ENV === "production") {
+      cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
+    } else {
+      cy.visit("http://localhost:8080/", { failOnStatusCode: false });
+    }
 
     cy.intercept("POST", "http://localhost:3000/entityExtraction", { fixture: "getEditorData.json" });
   });
