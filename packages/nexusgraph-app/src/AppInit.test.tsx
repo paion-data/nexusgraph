@@ -58,10 +58,10 @@ test("Rendering throws an error when not set to production or development enviro
     NODE_ENV: undefined,
   };
 
-  const originalError = console.error;
-  console.error = jest.fn();
+  const originalError = console.error; // eslint-disable-line no-console
+  console.error = jest.fn(); // eslint-disable-line no-console
 
   expect(() => render(<AppInit />)).toThrow(Error);
 
-  console.error = originalError;
+  console.error = originalError; // eslint-disable-line no-console
 });
