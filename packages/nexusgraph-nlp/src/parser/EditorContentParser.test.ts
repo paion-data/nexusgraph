@@ -4,7 +4,7 @@ import happyPathJson from "./json/LexicalEditorStateParser-basic.json";
 import happyPathJsonParseLine from "./json/LexicalEditorStateParser-parseLine-basic.json";
 import withEmptyLineJson from "./json/LexicalEditorStateParser-with-empty-line.json";
 
-let parser;
+let parser: EditorContentParser;
 
 beforeEach(() => {
   parser = new EditorContentParser();
