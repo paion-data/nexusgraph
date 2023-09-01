@@ -1,9 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import axios from "axios";
 import { injectable } from "inversify";
-import { useDispatch } from "react-redux";
 import "reflect-metadata";
-import { NoteState, UPDATE_NOTE_ID } from "../../nexusgraph-redux";
+import { NoteState } from "../../nexusgraph-redux";
 import { AstraiosClient } from "./AstraiosStorageProcessor";
 
 const NOTE_STORAGE_API_URL_PARAMETER = "note/";
@@ -20,7 +19,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
     this.updateNote = false;
   }
 
-  saveOrUpdate(astraiosState: NoteState): Promise<NoteState | undefined> {
+  public saveOrUpdate(astraiosState: NoteState): Promise<NoteState> {
     return this.sendNoteRequest(astraiosState);
   }
 
@@ -31,9 +30,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
    *
    * @returns A Promise of the WS response data
    */
-  private async sendNoteRequest(note: NoteState) {
-    const dispatch = useDispatch();
-
+  private async sendNoteRequest(note: NoteState): Promise<NoteState> {
     const config = {
       headers: {
         Accept: "application/vnd.api+json",
@@ -41,30 +38,22 @@ export class JsonApiAstraiosClient implements AstraiosClient {
       },
     };
 
-    if (note.data.id === "") {
-      const noteRequest = axios.post(
+    if (this.isInitialSave(note)) {
+      return axios.post(
         (process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER,
         note,
         config
       );
-      noteRequest.then((response) => {
-        dispatch({ type: UPDATE_NOTE_ID, payload: response.data.data.id });
-      });
-
-      return await noteRequest;
     }
 
-    if (!this.updateNote) {
-      this.updateNote = true;
-    } else {
-      const noteId = note.data.id;
-      const noteUpdate = axios.patch(
-        (process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER + noteId,
-        note,
-        config
-      );
+    return axios.patch(
+      (process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER + note.id,
+      note,
+      config
+    );
+  }
 
-      return await noteUpdate;
-    }
+  private isInitialSave(note: NoteState) {
+    return note.id === ""
   }
 }

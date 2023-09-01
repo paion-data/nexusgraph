@@ -13,7 +13,7 @@ export function selectNote() {
   return useSelector((state: GlobalState) => state.note);
 }
 
-export default function astraiosReducer(state = initialState, action: AstraiosAction): NoteState {
+export default function noteReducer(state = initialState, action: AstraiosAction): NoteState {
   switch (action.type) {
     case UPDATE_NOTE_GRAPH:
       return {
