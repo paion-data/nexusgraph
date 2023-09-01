@@ -27,9 +27,5 @@ export default function AppInit(): JSX.Element {
     );
   }
 
-  // TODO: (Minghui) 添加测试
-  // test 1: 当 NODE_ENV = ‘development’, 断言 <DevApp /> 被加载，断言 <ProdApp /> 没有加载
-  // test 2: 当 NODE_ENV = production, 断言 <ProdApp /> 被加载，断言 <DevApp /> 没有加载
-  // test 3: 当 NODE_ENV 为 undefined 时候，以下 Error 被抛出
   throw new Error("'NODE_ENV' is not defined in .env file. Its value has to be either 'development' or 'production'");
 }
