@@ -2,7 +2,7 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 it("Translate browser through i18n", () => {
-  if (process.env.NODE_ENV == "production") {
+  if (Cypress.env("nodeEnv") == "production") {
     cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
   } else {
     cy.visit("http://localhost:8080/", { failOnStatusCode: false });
