@@ -1,28 +1,26 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import React from "react";
 
-import { LexicalComposer } from "@lexical/react/LexicalComposer";
-import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
-import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
-import { ContentEditable } from "@lexical/react/LexicalContentEditable";
-import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
-import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
-import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
-
-import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
-import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
-import { ListItemNode, ListNode } from "@lexical/list";
 import { AutoLinkNode, LinkNode } from "@lexical/link";
+import { ListItemNode, ListNode } from "@lexical/list";
+import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
+import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
+import { LexicalComposer } from "@lexical/react/LexicalComposer";
+import { ContentEditable } from "@lexical/react/LexicalContentEditable";
+import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
+import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
 import { ListPlugin } from "@lexical/react/LexicalListPlugin";
+import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
+import { HeadingNode, QuoteNode } from "@lexical/rich-text";
+import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
 
 import styles from "./LexicalEditor.module.css";
-import ExampleTheme from "./themes/ExampleTheme";
+import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
 import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
-import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
 import { Paragraph } from "./plugins/ToolbarPlugin/styled";
+import ExampleTheme from "./themes/ExampleTheme";
 
 export const editorConfig = {
   // The editor theme

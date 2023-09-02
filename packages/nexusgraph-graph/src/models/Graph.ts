@@ -1,10 +1,10 @@
 /*
  * Copyright 2023 Paion Data. All rights reserved.
  */
+import * as _ from "lodash";
+
 import type { NodeModel } from "./Node";
 import type { RelationshipModel } from "./Relationship";
-
-import * as _ from "lodash";
 
 export class GraphModel {
   private _nodes: NodeModel[];

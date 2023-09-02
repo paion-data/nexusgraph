@@ -1,16 +1,21 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import axios from "axios";
-import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
-import { NlpState } from "../../../nexusgraph-provider";
 import { injectable } from "inversify";
 import "reflect-metadata";
+import { NlpState } from "../../../nexusgraph-redux";
+import EditorContentParser from "../parser/EditorContentParser";
+import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 
 /**
  * An implementation of {@link NaturalLanguageProcessor} that delegates NLP to a remote service.
  */
 @injectable()
 export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
-  public entityExtraction(editorLines: string[]): Promise<NlpState> {
+  public entityExtraction(editorContent: string): Promise<NlpState> {
+    const parser = new EditorContentParser();
+    const jsonObject = JSON.parse(editorContent);
+    const editorLines = parser.parse(jsonObject);
+
     return this.remoteEntityExtration(editorLines);
   }
 
@@ -25,7 +30,6 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
   private remoteEntityExtration = async (editorLines: string[]): Promise<NlpState> => {
     const response = this.fetchRemote(editorLines);
     const data: NlpState = (await response).data;
-
     return data;
   };
 

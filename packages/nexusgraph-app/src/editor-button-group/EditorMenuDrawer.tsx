@@ -2,6 +2,7 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import { TransitionEvent, useEffect, useState } from "react";
+
 import { EditorMenuContainer } from "./styled";
 
 const Closing = "CLOSING";

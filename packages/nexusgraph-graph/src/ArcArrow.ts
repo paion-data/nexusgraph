@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { Point } from "./Point";
 import type { RelationshipCaptionLayout } from "./models/Relationship";
+import { Point } from "./Point";
 
 const square = (l: number): number => l * l;
 

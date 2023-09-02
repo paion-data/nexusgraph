@@ -1,7 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
-import styled from "styled-components";
+
 import { DocumentDuplicateIcon } from "@heroicons/react/24/solid";
+import styled from "styled-components";
 
 const SMALL_SIZE = 15;
 

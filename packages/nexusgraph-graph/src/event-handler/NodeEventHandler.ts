@@ -5,7 +5,7 @@ import type { BaseType, Selection } from "d3-selection";
 
 import type { NodeModel } from "../models/Node";
 import type { RelationshipModel } from "../models/Relationship";
-import { NODE_MOUSE_OVER, NODE_MOUSE_OUT, NODE_CLICKED, NODE_DBLCLICKED } from "./GraphEventHandlerModel";
+import { NODE_CLICKED, NODE_DBLCLICKED, NODE_MOUSE_OUT, NODE_MOUSE_OVER } from "./GraphEventHandlerModel";
 
 const DRAGGING_ALPHA = 0.8;
 const DRAGGING_ALPHA_TARGET = 0.09;

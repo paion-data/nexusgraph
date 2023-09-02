@@ -2,7 +2,12 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 beforeEach(() => {
-  cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
+  if (Cypress.env("nodeEnv") == "production") {
+    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
+  } else {
+    cy.visit("http://localhost:8080/", { failOnStatusCode: false });
+  }
+
   cy.get(".editor-paragraph").type("Jane").wait(10000);
   cy.get(".node").should("contain", "Jane");
 });

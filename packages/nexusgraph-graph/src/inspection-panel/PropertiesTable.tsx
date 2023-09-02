@@ -1,6 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
-import { ClickableUrls } from "./properties-panel-content/ClickableUrls";
+
+import { VizItemProperty } from "../models/VizItemProperty";
 import {
   AlternatingTable,
   CopyCell,
@@ -10,8 +11,8 @@ import {
   ValueCell,
 } from "../styles/PropertiesTable.styled";
 import { ClipboardCopier } from "./ClipboardCopier";
+import { ClickableUrls } from "./properties-panel-content/ClickableUrls";
 import { ShowMoreOrAll } from "./ShowMoreOrAll";
-import { VizItemProperty } from "../models/VizItemProperty";
 
 export const ELLIPSIS = "\u2026";
 export const WIDE_VIEW_THRESHOLD = 900;

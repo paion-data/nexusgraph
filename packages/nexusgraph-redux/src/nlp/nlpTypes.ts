@@ -22,11 +22,3 @@ export interface NlpAction {
   type: typeof UPDATE_NLPDATA;
   payload: NlpState;
 }
-
-export const EDITOR_LINE = "editorLine";
-export const UPDATE_LINE = EDITOR_LINE + "/UPDATE_LINE";
-
-export interface EditorAction {
-  type: typeof UPDATE_LINE;
-  payload: string[];
-}

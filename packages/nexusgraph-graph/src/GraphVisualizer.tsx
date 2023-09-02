@@ -1,19 +1,19 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect, useState } from "react";
 
-import { NodeInspectorPanel, defaultPanelWidth } from "./inspection-panel/NodeInspectorPanel";
-import { StyledFullSizeContainer, panelMinWidth } from "./styles/InspectorContainer.styled";
-import { GraphStyleModel } from "./GraphStyle";
+import { BasicNode, BasicRelationship } from "./basicTypes";
 import { GetNodeNeighboursFn } from "./event-handler/GraphEventHandlerModel";
-import { VizItem } from "./VizItem";
+import { Graph } from "./Graph";
 import { GraphStats } from "./GraphStats";
-import { RelationshipModel } from "./models/Relationship";
-import { GraphModel } from "./models/Graph";
+import { GraphStyleModel } from "./GraphStyle";
+import { defaultPanelWidth, NodeInspectorPanel } from "./inspection-panel/NodeInspectorPanel";
 import { DetailsPane } from "./inspection-panel/properties-panel-content/DetailsPane";
 import OverviewPane from "./inspection-panel/properties-panel-content/OverviewPane";
+import { GraphModel } from "./models/Graph";
+import { RelationshipModel } from "./models/Relationship";
 import { NodesExpandProcessor } from "./processor/NodesExpand";
-import { Graph } from "./Graph";
-import { BasicNode, BasicRelationship } from "./basicTypes";
+import { panelMinWidth, StyledFullSizeContainer } from "./styles/InspectorContainer.styled";
+import { VizItem } from "./VizItem";
 
 /**
  * Both {@link GraphVisualizerProps.relationships} and {@link GraphVisualizerProps.nodes} are immutable.

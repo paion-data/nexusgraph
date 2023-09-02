@@ -1,7 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
-import { Visualization } from "./VisualizationView";
+
 import { ExportButton } from "./export-button/ExportButton";
+import { Visualization } from "./VisualizationView";
 
 /**
  * {@link GraphBrowser} abstracts away the graphing capabilities of Nexus Graph.

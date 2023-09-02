@@ -1,17 +1,17 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { Component } from "react";
-
 import * as React from "react";
+
 import {
-  ChevronRightIcon as ChevronRightIconSolid,
   ChevronLeftIcon as ChevronLeftIconSolid,
+  ChevronRightIcon as ChevronRightIconSolid,
 } from "@heroicons/react/24/solid";
-import { GraphStyleModel } from "../GraphStyle";
-import { VizItem } from "../VizItem";
-import { GraphStats } from "../GraphStats";
-import { PaneContainer, StyledNodeInspectorTopMenuChevron, panelMinWidth } from "../styles/InspectorContainer.styled";
-import { NodeInspectorDrawer } from "./NodeInspectorDrawer";
 import { Resizable } from "re-resizable";
+
+import { GraphStats } from "../GraphStats";
+import { GraphStyleModel } from "../GraphStyle";
+import { PaneContainer, panelMinWidth, StyledNodeInspectorTopMenuChevron } from "../styles/InspectorContainer.styled";
+import { VizItem } from "../VizItem";
+import { NodeInspectorDrawer } from "./NodeInspectorDrawer";
 import { DetailsPaneProps } from "./properties-panel-content/DetailsPane";
 import { OverviewPaneProps } from "./properties-panel-content/OverviewPane";
 

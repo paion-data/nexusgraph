@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { NlpAction, NlpState, UPDATE_NLPDATA } from "../types";
+import { NlpAction, NlpState, UPDATE_NLPDATA } from "./nlpTypes";
 
 export const initialState: NlpState = {
   nodes: [],

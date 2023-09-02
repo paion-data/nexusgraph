@@ -1,9 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { PairwiseArcsRelationshipRouting } from "./PairwiseArcsRelationshipRouting";
-import { GraphModel } from "./models/Graph";
 import { GraphStyleModel } from "./GraphStyle";
+import { GraphModel } from "./models/Graph";
 import { NodeCaptionLine, NodeModel } from "./models/Node";
 import { RelationshipModel } from "./models/Relationship";
+import { PairwiseArcsRelationshipRouting } from "./PairwiseArcsRelationshipRouting";
 import { measureText } from "./textMeasurement";
 
 export class GraphGeometryModel {
