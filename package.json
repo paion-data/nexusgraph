@@ -4,7 +4,8 @@
     "./packages/nexusgraph-app",
     "./packages/nexusgraph-editor",
     "./packages/nexusgraph-graph",
-    "./packages/nexusgraph-nlp"
+    "./packages/nexusgraph-nlp",
+    "./packages/nexusgraph-oauth2"
   ],
   "version": "0.1.0",
   "engines": {

@@ -10,7 +10,7 @@ import { LogtoConfig, LogtoProvider, useHandleSignInCallback } from "@logto/reac
  *
  * @returns Logto provider component
  */
-const LogtoProviderWapper = ({ children }: any): JSX.Element => {
+const OAuth2Provider = ({ children }: any): JSX.Element => {
   const config: LogtoConfig = {
     endpoint: process.env.LOGTO_ENDPOINT_URL as string,
     appId: process.env.LOGTO_APP_ID as string,
@@ -36,4 +36,4 @@ export const Callback = () => {
 
   return <></>;
 };
-export default LogtoProviderWapper;
+export default OAuth2Provider;

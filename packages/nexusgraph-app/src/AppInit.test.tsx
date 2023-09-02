@@ -2,8 +2,8 @@
 import { render } from "@testing-library/react";
 import AppInit from "./AppInit";
 
+import { OAuth2Provider } from "../../nexusgraph-oauth2";
 import DevApp from "./DevApp";
-import LogtoProviderWapper from "./LogtoProvider";
 import ProdApp from "./ProdApp";
 
 const originalEnv = process.env;
@@ -21,47 +21,51 @@ jest.mock("./ProdApp");
 const MockedProdApp = ProdApp as jest.Mock;
 MockedProdApp.mockImplementation(() => "Render ProdApp");
 
-jest.mock("./LogtoProvider");
-const MockedLogtoProviderWapper = LogtoProviderWapper as jest.Mock;
-MockedLogtoProviderWapper.mockImplementation(() => <MockedProdApp />);
+jest.mock("../../nexusgraph-oauth2/src/OAuth2Provider");
+const MockedOAuth2Provider = OAuth2Provider as jest.Mock;
+MockedOAuth2Provider.mockImplementation(() => <MockedProdApp />);
 
-beforeEach(() => {
-  jest.clearAllMocks();
-});
+describe("App renders in different mode based on the running environment", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
-test("AppInit renders in a development environment", () => {
-  process.env = {
-    ...originalEnv,
-    NODE_ENV: "development",
-  };
+  test("When NODE_ENV is set to 'development', app renders in a dev mode", () => {
+    process.env = {
+      ...originalEnv,
+      NODE_ENV: "development",
+    };
 
-  render(<AppInit />);
+    render(<AppInit />);
 
-  expect(MockedDevApp).toBeCalled();
-});
+    expect(MockedDevApp).toBeCalled();
+    expect(MockedProdApp).not.toBeCalled();
+  });
 
-test("AppInit renders in a production environment", () => {
-  process.env = {
-    ...originalEnv,
-    NODE_ENV: "production",
-  };
+  test("When NODE_ENV is set to 'production', app renders in a production mode", () => {
+    process.env = {
+      ...originalEnv,
+      NODE_ENV: "production",
+    };
 
-  render(<AppInit />);
+    render(<AppInit />);
 
-  expect(MockedLogtoProviderWapper).toBeCalled();
-  expect(MockedProdApp).toBeCalled();
-});
+    expect(MockedOAuth2Provider).toBeCalled();
+    expect(MockedProdApp).toBeCalled();
+    expect(MockedDevApp).not.toBeCalled();
+  });
 
-test("Rendering throws an error when not set to production or development environment", () => {
-  process.env = {
-    ...originalEnv,
-    NODE_ENV: undefined,
-  };
+  test("When required NODE_ENV is not set, error throws", () => {
+    process.env = {
+      ...originalEnv,
+      NODE_ENV: undefined,
+    };
 
-  const originalError = console.error; // eslint-disable-line no-console
-  console.error = jest.fn(); // eslint-disable-line no-console
+    const originalError = console.error; // eslint-disable-line no-console
+    console.error = jest.fn(); // eslint-disable-line no-console
 
-  expect(() => render(<AppInit />)).toThrow(Error);
+    expect(() => render(<AppInit />)).toThrow(Error);
 
-  console.error = originalError; // eslint-disable-line no-console
+    console.error = originalError; // eslint-disable-line no-console
+  });
 });

@@ -1,7 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import * as Sentry from "@sentry/react";
+import OAuth2Provider from "../../nexusgraph-oauth2/src/OAuth2Provider";
 import { ReduxStore } from "../../nexusgraph-redux";
 import DevApp from "./DevApp";
-import LogtoProviderWapper from "./LogtoProvider";
 import ProdApp from "./ProdApp";
 
 /**
@@ -20,12 +21,30 @@ export default function AppInit(): JSX.Element {
   if (process.env.NODE_ENV == "production") {
     return (
       <ReduxStore>
-        <LogtoProviderWapper>
+        <OAuth2Provider>
           <ProdApp />
-        </LogtoProviderWapper>
+        </OAuth2Provider>
       </ReduxStore>
     );
   }
 
   throw new Error("'NODE_ENV' is not defined in .env file. Its value has to be either 'development' or 'production'");
+}
+
+/**
+ * Connects to Nexus Graph's monitoring system
+ */
+export function setupSentry(): void {
+  Sentry.init({
+    dsn: process.env.SENTRY_IO_DSN as string,
+    integrations: [
+      new Sentry.BrowserTracing({
+        tracePropagationTargets: [/^https:\/\/app\.nexusgraph\.com/],
+      }),
+      new Sentry.Replay(),
+    ],
+    tracesSampleRate: 1.0,
+    replaysSessionSampleRate: 0.1,
+    replaysOnErrorSampleRate: 1.0,
+  });
 }
