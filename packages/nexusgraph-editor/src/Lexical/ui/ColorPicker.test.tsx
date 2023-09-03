@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { describe, expect } from "@jest/globals";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import "@testing-library/jest-dom";
 import ColorPicker from "./ColorPicker";
@@ -271,20 +271,29 @@ describe("Change the positon of Color-picker-saturation boll to render the corre
 describe("Change the positon of Color-picker-hue boll to render the correct color", () => {
   beforeEach(() => {
     render(
-      <ColorPicker
-        color={"#ffffff"}
-        onChange={() => {
-          //do nothing.
-        }}
-      />
-    );
-  });
-  const saturation = document.getElementsByClassName("color-picker-saturation")[0];
-  fireEvent.change(saturation, { target: { x: 98, y: 99 } });
+        <ColorPicker
+          color={"#ffffff"}
+          onChange={() => {
+            //do nothing.
+          }}
+        />
+  );
+    const evt = new MouseEvent("mousedown", {
+      view: window,
+      bubbles: true,
+      cancelable: true,
+      clientX:50,
+      clientY:50,
+      button:0
+    });
 
-  test("textinput render the correct color text", () => {
-    expect(screen.getByRole("textbox").getAttribute("value")).toBe("#555555");
+    act(() => {
+      document.getElementsByClassName('color-picker-saturation')[0].dispatchEvent(evt); 
+    });
   });
+  test("textinput render the correct color text", () => {
+    expect(screen.getByRole("textbox").getAttribute("value")).toBe(1);
+  })
 
   test("Color-picker-saturation box render the correct color and position", () => {
     expect(document.getElementsByClassName("color-picker-saturation_cursor").length).toBe(1);
