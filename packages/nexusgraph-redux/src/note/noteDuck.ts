@@ -1,7 +1,14 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useSelector } from "react-redux";
 import { GlobalState } from "../globalState";
-import { AstraiosAction, NoteState, UPDATE_NOTE_EDITOR_CONTENT, UPDATE_NOTE_GRAPH, UPDATE_NOTE_ID } from "./noteTypes";
+import {
+  AstraiosAction,
+  CREATE_NEW_NOTE,
+  NoteState,
+  UPDATE_NOTE_EDITOR_CONTENT,
+  UPDATE_NOTE_GRAPH,
+  UPDATE_NOTE_ID,
+} from "./noteTypes";
 
 const initialState: NoteState = {
   id: "",
@@ -33,6 +40,8 @@ export default function noteReducer(state = initialState, action: AstraiosAction
         graph: state.graph,
         editorContent: state.editorContent,
       };
+    case CREATE_NEW_NOTE:
+      return initialState;
     default:
       return state;
   }
