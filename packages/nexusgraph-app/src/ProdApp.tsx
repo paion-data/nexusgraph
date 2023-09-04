@@ -10,14 +10,6 @@ import App from "./App";
  * @returns
  */
 export default function ProdApp(): JSX.Element {
-  const { signIn, isAuthenticated, isLoading } = useOAuth2();
-
-  if (!isAuthenticated && !isLoading) {
-    // isAuthenticated handles regular authentication
-    // isLoading will be true is it's a redirect hit from Logto so that it will fall through to local redirect below
-    signIn(process.env.SIGN_IN_REDIRECT_URL as string);
-  }
-
   return (
     <Router>
       <Routes>
