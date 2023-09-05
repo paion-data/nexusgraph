@@ -1,15 +1,19 @@
 // Copyright 2023 Paion Data. All rights reserved.
 beforeEach(() => {
-  cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
-  cy.intercept("POST", "http://localhost:3000/entityExtraction", { fixture: "getEditorData.json" });
+  if (Cypress.env("nodeEnv") == "production") {
+    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
+  } else {
+    cy.visit("http://localhost:8080/", { failOnStatusCode: false });
+  }
+
   cy.get(".editor-paragraph").type("China");
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
 });
 
-describe.skip("FontSizeDropDown button E2E test", () => {
+describe("FontSizeDropDown button E2E test", () => {
   const fontSize = ["12px", "13px", "14px", "15px", "16px", "17px", "18px", "19px", "20px"];
   for (let i = 0; i < fontSize.length; i++) {
-    it.skip(`${fontSize[i]} button has an effect in dropdown`, () => {
+    it(`${fontSize[i]} button has an effect in dropdown`, () => {
       cy.get('[aria-label = "Formatting options for font size"]').click();
       cy.contains(fontSize[i]).click();
       cy.get('[aria-label = "Formatting options for font size"]').find(".text").should("have.text", fontSize[i]);

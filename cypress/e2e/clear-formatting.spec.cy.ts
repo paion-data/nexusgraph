@@ -1,12 +1,16 @@
 // Copyright 2023 Paion Data. All rights reserved.
 beforeEach(() => {
-  cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
-  cy.intercept("POST", "http://localhost:3000/entityExtraction", { fixture: "getEditorData.json" });
+  if (Cypress.env("nodeEnv") == "production") {
+    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
+  } else {
+    cy.visit("http://localhost:8080/", { failOnStatusCode: false });
+  }
+
   cy.get(".editor-paragraph").type("China");
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
 });
 
-it.skip(`Clear formatting button has an effect`, () => {
+it(`Clear formatting button has an effect`, () => {
   cy.get('[aria-label = "Formatting options for font family"]').click();
   cy.contains("Verdana").click();
 

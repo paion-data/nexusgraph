@@ -1,7 +1,11 @@
 // Copyright 2023 Paion Data. All rights reserved.
 beforeEach(() => {
-  cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
-  cy.intercept("POST", "http://localhost:3000/entityExtraction", { fixture: "getEditorData.json" });
+  if (Cypress.env("nodeEnv") == "production") {
+    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
+  } else {
+    cy.visit("http://localhost:8080/", { failOnStatusCode: false });
+  }
+
   cy.get(".editor-paragraph").type("China");
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
 
@@ -15,10 +19,10 @@ afterEach(() => {
   cy.get(".editor-paragraph").find("span").and("have.css", "font-family").should("include", "Arial");
 });
 
-describe.skip("FontFamilyDropDown button E2E test", () => {
+describe("FontFamilyDropDown button E2E test", () => {
   const fontFamily = ["Courier New", "Georgia", "Times New Roman", "Trebuchet MS", "Verdana"];
   for (let i = 0; i < fontFamily.length; i++) {
-    it.skip(`${fontFamily[i]} button has an effect in dropdown`, () => {
+    it(`${fontFamily[i]} button has an effect in dropdown`, () => {
       cy.get('[aria-label = "Formatting options for font family"]').click();
       cy.contains(fontFamily[i]).click();
       cy.get('[aria-label = "Formatting options for font family"]').find(".text").should("have.text", fontFamily[i]);
