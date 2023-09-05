@@ -1,4 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import axios from "axios";
 import { useState } from "react";
 
 import {
@@ -13,8 +14,11 @@ import {
 
 import { useDispatch } from "react-redux";
 import { CREATE_NEW_NOTE } from "../../../nexusgraph-redux";
+import { selectNote } from "../../../nexusgraph-redux/src/note/noteDuck";
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
 import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
+
+const NOTE_STORAGE_API_URL_PARAMETER = "note/";
 
 /**
  * Editor button group
@@ -35,6 +39,7 @@ export function EditorButtonGroup(): JSX.Element {
   const WindowIcon = (): JSX.Element => <WindowIconSolid />;
   const ViewColumnsIcon = (): JSX.Element => <ViewColumnsIconSolid />;
 
+  const note = selectNote();
   const dispatch = useDispatch();
 
   const directories = [
@@ -81,7 +86,16 @@ export function EditorButtonGroup(): JSX.Element {
                 </DirectoryDropdownContent>
               </DirectoryDropdownList>
             </button>
-            <button className="trash">
+            <button
+              className="trash"
+              onClick={() => {
+                const controller = new AbortController();
+
+                deleteNote(note);
+                dispatch({ type: CREATE_NEW_NOTE });
+                controller.abort();
+              }}
+            >
               <TrashIcon />
             </button>
           </div>
@@ -99,3 +113,11 @@ export function EditorButtonGroup(): JSX.Element {
     </>
   );
 }
+
+const deleteNote = (note: any) => {
+  const controller = new AbortController();
+
+  axios.delete((process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER + note.id).then(() => {
+    // controller.abort()
+  });
+};
