@@ -1,11 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 beforeEach(() => {
-  if (Cypress.env("nodeEnv") == "production") {
-    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
-  } else {
-    cy.visit("http://localhost:8080/", { failOnStatusCode: false });
-  }
-
+  cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
+  cy.intercept("POST", "http://localhost:3000/entityExtraction", { fixture: "getEditorData.json" });
   cy.get(".editor-paragraph").type("China");
   cy.get('span[data-lexical-text = "true"]').type("{selectall}");
   cy.get('[aria-label = "Formatting options for text alignment"]').click();
