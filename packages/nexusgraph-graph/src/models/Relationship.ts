@@ -1,6 +1,4 @@
-/*
- * Copyright 2023 Paion Data. All rights reserved.
- */
+// Copyright 2023 Paion Data. All rights reserved.
 import { ArcArrow } from "../ArcArrow";
 import { LoopArrow } from "../LoopArrow";
 import { StraightArrow } from "../StraightArrow";

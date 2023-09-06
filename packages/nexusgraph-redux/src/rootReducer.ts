@@ -1,3 +1,4 @@
+// Copyright 2023 Paion Data. All rights reserved.
 import nlpReducer from "./nlp/nlpDuck";
 import { NLP_DATA as nlpData } from "./nlp/nlpTypes";
 import noteReducer from "./note/noteDuck";

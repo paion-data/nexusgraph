@@ -2478,6 +2478,7 @@ __metadata:
     eslint: ^8.44.0
     eslint-config-prettier: ^8.6.0
     eslint-config-standard-with-typescript: ^36.0.0
+    eslint-plugin-header: latest
     eslint-plugin-react: ^7.32.2
     html-webpack-plugin: ^5.5.0
     i18next: ^23.4.4
@@ -6444,6 +6445,15 @@ __metadata:
     eslint-plugin-n: "^15.0.0 || ^16.0.0 "
     eslint-plugin-promise: ^6.0.0
   checksum: 8ed14ffe424b8a7e67b85e44f75c46dc4c6954f7c474c871c56fb0daf40b6b2a7af2db55102b12a440158b2be898e1fb8333b05e3dbeaeaef066fdbc863eaa88
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-header@npm:latest":
+  version: 3.1.1
+  resolution: "eslint-plugin-header@npm:3.1.1"
+  peerDependencies:
+    eslint: ">=7.7.0"
+  checksum: 2353e4ba011be81d5c27fbd79929e18dce118d7673a2f717b1ac5a0bceb33e06ec9a7c80a01dddc5804df75e2cc8eb475d268cd1abef5eab5088ede62e5ad246
   languageName: node
   linkType: hard
 

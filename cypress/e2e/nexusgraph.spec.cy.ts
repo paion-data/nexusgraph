@@ -1,6 +1,4 @@
-/*
- * Copyright 2023 Paion Data. All rights reserved.
- */
+// Copyright 2023 Paion Data. All rights reserved.
 describe("nexusgraph basic test", () => {
   beforeEach(() => {
     if (Cypress.env("nodeEnv") == "production") {
