@@ -10,7 +10,7 @@ describe("Graph browser stats panel E2E tests", () => {
     cy.intercept("POST", "http://localhost:3000/entityExtraction", { fixture: "single-rdf-pair-graph.json" });
 
     cy.get(".editor-paragraph").type("testText").wait(6000);
-    cy.get('[data-testid="property-details-overview-node-label-*"]').should("have.text", "* (2)");
+    cy.get('[data-testid="property-details-overview-node-label-*"]').should("have.text", "* ( o_O )");
   });
 });
 
