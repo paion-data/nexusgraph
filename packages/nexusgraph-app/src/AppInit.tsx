@@ -13,7 +13,7 @@ export default function AppInit(): JSX.Element {
   if (process.env.NODE_ENV == "development") {
     return (
       <ReduxStore>
-          <DevApp />
+        <DevApp />
       </ReduxStore>
     );
   }
