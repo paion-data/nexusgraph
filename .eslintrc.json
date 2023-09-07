@@ -6,7 +6,7 @@
   "root": true,
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "header"],
   "rules": {
     "no-console": "error",
     "max-len": [
@@ -16,6 +16,7 @@
         "comments": 120,
         "ignoreUrls": true
       }
-    ]
+    ],
+    "header/header": [2, "line", " Copyright 2023 Paion Data. All rights reserved."]
   }
 }

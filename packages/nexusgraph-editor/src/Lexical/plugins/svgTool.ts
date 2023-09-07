@@ -1,3 +1,4 @@
+// Copyright 2023 Paion Data. All rights reserved.
 import quote from "../img/icon/chat-square-quote.svg";
 import down from "../img/icon/chevron-down.svg";
 import code from "../img/icon/code.svg";

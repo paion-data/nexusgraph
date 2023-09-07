@@ -1,6 +1,4 @@
-/*
- * Copyright 2023 Paion Data. All rights reserved.
- */
+// Copyright 2023 Paion Data. All rights reserved.
 import { Container } from "inversify";
 
 import { AstraiosClient, JsonApiAstraiosClient } from "../nexusgraph-astraios";

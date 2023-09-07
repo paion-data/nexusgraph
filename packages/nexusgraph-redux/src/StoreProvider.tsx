@@ -1,4 +1,4 @@
-//Copyright 2023 Paion Data. All rights reserved.
+// Copyright 2023 Paion Data. All rights reserved.
 import { Provider } from "react-redux";
 
 import { combineReducers, configureStore } from "@reduxjs/toolkit";

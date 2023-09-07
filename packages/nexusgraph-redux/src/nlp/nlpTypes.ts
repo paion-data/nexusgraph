@@ -1,4 +1,4 @@
-//Copyright 2023 Paion Data. All rights reserved.
+// Copyright 2023 Paion Data. All rights reserved.
 export const NLP_DATA = "nlpData";
 export const UPDATE_NLPDATA = NLP_DATA + "/UPDATE_NLPDATA";
 
