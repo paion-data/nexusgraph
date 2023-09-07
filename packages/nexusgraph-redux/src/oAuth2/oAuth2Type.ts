@@ -6,7 +6,7 @@ export interface OAuth2State {
   isLoading: boolean;
   isAuthenticated: boolean;
   accessToken: string;
-  userInfo: Object;
+  userInfo: object;
 }
 
 export interface OAuth2Action {
