@@ -19,8 +19,8 @@ export class JsonApiAstraiosClient implements AstraiosClient {
     this.updateNote = false;
   }
 
-  public saveOrUpdate(astraiosState: NoteState, token: string): Promise<NoteState> {
-    return this.sendNoteRequest(astraiosState, token);
+  public saveOrUpdate(astraiosState: NoteState, token: string, userId: string): Promise<NoteState> {
+    return this.sendNoteRequest(astraiosState, token, userId);
   }
 
   /**
@@ -30,17 +30,20 @@ export class JsonApiAstraiosClient implements AstraiosClient {
    *
    * @returns A Promise of the WS response data
    */
-  private async sendNoteRequest(note: NoteState, token: string): Promise<NoteState> {
-    // const token = useSelector((state: GlobalState) => state.oAuth2.accessToken)
+  private async sendNoteRequest(note: NoteState, token: string, userId: string): Promise<NoteState> {
     const config = {
       headers: {
         Accept: "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
         Authorization: "Bearer " + token,
+        "Access-Control-Request-Headers": "*"
       },
     };
 
-    const data = this.transformData(note);
+    const data = this.transformData(note, userId);
+
+    console.log(data);
+    
 
     if (this.isInitialSave(note)) {
       return axios
@@ -65,12 +68,13 @@ export class JsonApiAstraiosClient implements AstraiosClient {
     return note.id === "";
   }
 
-  private transformData(note: NoteState) {
+  private transformData(note: NoteState, userId: string) {
     let data;
     return (data = {
       type: "note",
       id: note.id,
       attributes: {
+        userId: userId,
         graph: note.graph,
         editorContent: note.editorContent,
       },

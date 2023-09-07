@@ -7,8 +7,8 @@ export default function DevApp(): JSX.Element {
   const dispatch = useDispatch();
 
   const devOAuthState: OAuthState = {
-    accessToken: "dev token",
-    userInfo: {},
+    accessToken: "devToken",
+    userInfo: { sub: "sub" },
   };
 
   dispatch({ type: UPDATE_OAUTH_STATE, payload: devOAuthState });

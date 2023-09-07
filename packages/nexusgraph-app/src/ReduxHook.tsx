@@ -16,16 +16,16 @@ export default function useReduxHook() {
     TYPES.NaturalLanguageProcessor
   );
 
-  const accessToken = useSelector((state: GlobalState) => state.oAuth.accessToken);
+  const oAuthState = useSelector((state: GlobalState) => state.oAuth);
 
   useEffect(() => {
     const update = () => {
       if (noteState) {
-        // astraiosClient.saveOrUpdate(noteState, accessToken).then((response) => {
-        //   if (response.id) {
-        //     dispatch({ type: UPDATE_NOTE_ID, payload: response.id });
-        //   }
-        // });
+        astraiosClient.saveOrUpdate(noteState, oAuthState["accessToken"], oAuthState["userInfo"]["sub"]).then((response) => {
+          if (response.id) {
+            dispatch({ type: UPDATE_NOTE_ID, payload: response.id });
+          }
+        });
 
         if (noteState && noteState.editorContent && JSON.stringify(noteState.editorContent) !== "{}") {
           remoteNaturalLanguageProcessor.entityExtraction(noteState.editorContent).then((NlpState) => {
@@ -38,5 +38,5 @@ export default function useReduxHook() {
     const t = setInterval(update, Number(String(process.env.ENTITY_EXTRACTION_CALL_DELAY_IN_MS)));
 
     return () => clearInterval(t);
-  }, [noteState, accessToken]);
+  }, [noteState, oAuthState]);
 }
