@@ -1,22 +1,17 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { Editor } from "../../nexusgraph-editor";
 import { GraphBrowser } from "../../nexusgraph-graph";
-import { OAuth2 } from "../../nexusgraph-oauth2/src/useOAuth2";
 import logo from "../public/app-logo.svg";
 import { EditorButtonGroup } from "./editor-button-group/EditorButtonGroup";
 import useReduxHook from "./ReduxHook";
 import { AppWrapper, EditorCaption, EditorGlassCover, EditorWrapper, GraphBrowserWrapper, IconWapper } from "./styled";
-
-export interface AppProps {
-  oauthContext: OAuth2;
-}
 
 /**
  * The component that defines the entire nexus graph app.
  *
  * @returns a React DOM object
  */
-export default function App(props: AppProps): JSX.Element {
+export default function App(): JSX.Element {
   useReduxHook();
 
   return (

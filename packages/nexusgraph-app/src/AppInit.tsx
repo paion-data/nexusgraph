@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
-import OAuth2Provider from "../../nexusgraph-oauth2/src/OAuth2Provider";
+import OAuth2Provider from "../../nexusgraph-oauth/src/OAuth2Provider";
 import { ReduxStore } from "../../nexusgraph-redux";
 import DevApp from "./DevApp";
 import ProdApp from "./ProdApp";
@@ -13,7 +13,9 @@ export default function AppInit(): JSX.Element {
   if (process.env.NODE_ENV == "development") {
     return (
       <ReduxStore>
-        <DevApp />
+        <OAuth2Provider>
+          <ProdApp />
+        </OAuth2Provider>
       </ReduxStore>
     );
   }

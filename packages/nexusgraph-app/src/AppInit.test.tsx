@@ -2,7 +2,7 @@
 import { render } from "@testing-library/react";
 import AppInit from "./AppInit";
 
-import { OAuth2Provider } from "../../nexusgraph-oauth2";
+import { OAuth2Provider } from "../../nexusgraph-oauth";
 import DevApp from "./DevApp";
 import ProdApp from "./ProdApp";
 
