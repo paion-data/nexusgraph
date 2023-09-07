@@ -1,8 +1,5 @@
 {
   "name": "@paiondata/nexusgraph-oauth",
   "version": "0.1.0",
-  "description": "OAuth 2 wrapper package",
-  "dependencies": {
-    "@logto/react": "^2.1.1"
-  }
+  "description": "OAuth 2 wrapper package"
 }
