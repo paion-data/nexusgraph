@@ -16,16 +16,16 @@ export default function useReduxHook() {
     TYPES.NaturalLanguageProcessor
   );
 
-  const accessToken = useSelector((state: GlobalState) => state.oAuth2.accessToken);
+  const accessToken = useSelector((state: GlobalState) => state.oAuth.accessToken);
 
   useEffect(() => {
     const update = () => {
       if (noteState) {
-        astraiosClient.saveOrUpdate(noteState, accessToken).then((response) => {
-          if (response.id) {
-            dispatch({ type: UPDATE_NOTE_ID, payload: response.id });
-          }
-        });
+        // astraiosClient.saveOrUpdate(noteState, accessToken).then((response) => {
+        //   if (response.id) {
+        //     dispatch({ type: UPDATE_NOTE_ID, payload: response.id });
+        //   }
+        // });
 
         if (noteState && noteState.editorContent && JSON.stringify(noteState.editorContent) !== "{}") {
           remoteNaturalLanguageProcessor.entityExtraction(noteState.editorContent).then((NlpState) => {

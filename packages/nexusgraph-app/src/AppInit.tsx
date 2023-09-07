@@ -13,9 +13,7 @@ export default function AppInit(): JSX.Element {
   if (process.env.NODE_ENV == "development") {
     return (
       <ReduxStore>
-        <OAuth2Provider>
-          <ProdApp />
-        </OAuth2Provider>
+          <DevApp />
       </ReduxStore>
     );
   }
