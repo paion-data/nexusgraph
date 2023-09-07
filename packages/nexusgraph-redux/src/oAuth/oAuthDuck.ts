@@ -3,7 +3,7 @@ import { OAuthAction, OAuthState, UPDATE_OAUTH_STATE } from "./oAuthType";
 
 const initialState: OAuthState = {
   accessToken: "initialToken",
-  userInfo: { sub : "sub" },
+  userInfo: { sub: "sub" },
 };
 
 export default function oAuthReducer(state = initialState, action: OAuthAction): OAuthState {

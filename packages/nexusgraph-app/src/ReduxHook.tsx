@@ -21,11 +21,13 @@ export default function useReduxHook() {
   useEffect(() => {
     const update = () => {
       if (noteState) {
-        astraiosClient.saveOrUpdate(noteState, oAuthState["accessToken"], oAuthState["userInfo"]["sub"]).then((response) => {
-          if (response.id) {
-            dispatch({ type: UPDATE_NOTE_ID, payload: response.id });
-          }
-        });
+        astraiosClient
+          .saveOrUpdate(noteState, oAuthState["accessToken"], oAuthState["userInfo"]["sub"])
+          .then((response) => {
+            if (response.id) {
+              dispatch({ type: UPDATE_NOTE_ID, payload: response.id });
+            }
+          });
 
         if (noteState && noteState.editorContent && JSON.stringify(noteState.editorContent) !== "{}") {
           remoteNaturalLanguageProcessor.entityExtraction(noteState.editorContent).then((NlpState) => {

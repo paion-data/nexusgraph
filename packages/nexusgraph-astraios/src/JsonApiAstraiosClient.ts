@@ -36,14 +36,13 @@ export class JsonApiAstraiosClient implements AstraiosClient {
         Accept: "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
         Authorization: "Bearer " + token,
-        "Access-Control-Request-Headers": "*"
+        "Access-Control-Request-Headers": "*",
       },
     };
 
     const data = this.transformData(note, userId);
 
     console.log(data);
-    
 
     if (this.isInitialSave(note)) {
       return axios
