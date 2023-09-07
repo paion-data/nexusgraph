@@ -2295,52 +2295,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@logto/browser@npm:^2.1.0":
-  version: 2.1.1
-  resolution: "@logto/browser@npm:2.1.1"
-  dependencies:
-    "@logto/client": ^2.2.2
-    "@silverhand/essentials": ^2.6.2
-    js-base64: ^3.7.4
-  checksum: 286c8890f3420910875b8c2c73a16551af8523b9d60551b3b1c5cf70c77bb76ab7fcf722bcfcd2683ca268d022c0a022eaabbfaead1c8e36bca9636af4bed09b
-  languageName: node
-  linkType: hard
-
-"@logto/client@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "@logto/client@npm:2.2.2"
-  dependencies:
-    "@logto/js": ^2.1.2
-    "@silverhand/essentials": ^2.6.2
-    camelcase-keys: ^7.0.1
-    jose: ^4.13.2
-  checksum: 0cad60388c4ee2e2c52e69d9697e8a3b92cd8e51a52245231e03c2676411295370a3b83c5f449eb51ad31558113cf0a591ff6106d3d54aa577550af1bb5e4c9c
-  languageName: node
-  linkType: hard
-
-"@logto/js@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "@logto/js@npm:2.1.2"
-  dependencies:
-    "@silverhand/essentials": ^2.6.2
-    camelcase-keys: ^7.0.1
-    jose: ^4.13.2
-  checksum: 4d9d7da05b07a889d6a2c2eb707380960974e2a3e6152a0445e3e62576c8d34188137ae02d361ca9c03baebc10124ec1e46819dcb42e0060141ac0f9164b3c57
-  languageName: node
-  linkType: hard
-
-"@logto/react@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "@logto/react@npm:2.1.1"
-  dependencies:
-    "@logto/browser": ^2.1.0
-    "@silverhand/essentials": ^2.6.2
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 7a525726d36bdc421ce7dcb22f0bac66dea488f592b1664699bce10f55dffc8ae020b8d1642089d835c8e3f35714864a7bc636d3db57e6c1d17d7391deea4270
-  languageName: node
-  linkType: hard
-
 "@neo4j-devtools/word-color@npm:^0.0.8":
   version: 0.0.8
   resolution: "@neo4j-devtools/word-color@npm:0.0.8"
@@ -2441,14 +2395,6 @@ __metadata:
     inversify: ^6.0.1
     inversify-inject-decorators: ^3.1.0
     reflect-metadata: ^0.1.13
-  languageName: unknown
-  linkType: soft
-
-"@paiondata/nexusgraph-oauth@workspace:packages/nexusgraph-oauth2":
-  version: 0.0.0-use.local
-  resolution: "@paiondata/nexusgraph-oauth@workspace:packages/nexusgraph-oauth2"
-  dependencies:
-    "@logto/react": ^2.1.1
   languageName: unknown
   linkType: soft
 
@@ -2662,13 +2608,6 @@ __metadata:
   version: 2.0.0
   resolution: "@sideway/pinpoint@npm:2.0.0"
   checksum: 0f4491e5897fcf5bf02c46f5c359c56a314e90ba243f42f0c100437935daa2488f20482f0f77186bd6bf43345095a95d8143ecf8b1f4d876a7bc0806aba9c3d2
-  languageName: node
-  linkType: hard
-
-"@silverhand/essentials@npm:^2.6.2":
-  version: 2.8.4
-  resolution: "@silverhand/essentials@npm:2.8.4"
-  checksum: 67f9bc720f3ce514bb8dcfa4bf95c1d7dc0ff235f504699b0f688b398c04899dffd0b8a611fa83cd3d7b015bab43cc39c05cdabc128bd737d9a0204c1a3d660c
   languageName: node
   linkType: hard
 
@@ -4784,18 +4723,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camelcase-keys@npm:^7.0.1":
-  version: 7.0.2
-  resolution: "camelcase-keys@npm:7.0.2"
-  dependencies:
-    camelcase: ^6.3.0
-    map-obj: ^4.1.0
-    quick-lru: ^5.1.1
-    type-fest: ^1.2.1
-  checksum: b5821cc48dd00e8398a30c5d6547f06837ab44de123f1b3a603d0a03399722b2fc67a485a7e47106eb02ef543c3b50c5ebaabc1242cde4b63a267c3258d2365b
-  languageName: node
-  linkType: hard
-
 "camelcase@npm:^5.3.1":
   version: 5.3.1
   resolution: "camelcase@npm:5.3.1"
@@ -4803,7 +4730,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camelcase@npm:^6.2.0, camelcase@npm:^6.3.0":
+"camelcase@npm:^6.2.0":
   version: 6.3.0
   resolution: "camelcase@npm:6.3.0"
   checksum: 8c96818a9076434998511251dcb2761a94817ea17dbdc37f47ac080bd088fc62c7369429a19e2178b993497132c8cbcf5cc1f44ba963e76782ba469c0474938d
@@ -8963,20 +8890,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jose@npm:^4.13.2":
-  version: 4.14.5
-  resolution: "jose@npm:4.14.5"
-  checksum: 6fd42cd8c56efe28326549b05fc385f484b93424738a430c0ff776e80846b35a6e1af9648a5c1958eaefa8636b989e71cb6687155f1751721c0a9d17fc281a6f
-  languageName: node
-  linkType: hard
-
-"js-base64@npm:^3.7.4":
-  version: 3.7.5
-  resolution: "js-base64@npm:3.7.5"
-  checksum: 67a78c8b1c47b73f1c6fba1957e9fe6fd9dc78ac93ac46cc2e43472dcb9cf150d126fb0e593192e88e0497354fa634d17d255add7cc6ee3c7b4d29870faa8e18
-  languageName: node
-  linkType: hard
-
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -9505,13 +9418,6 @@ __metadata:
   dependencies:
     tmpl: 1.0.5
   checksum: b38a025a12c8146d6eeea5a7f2bf27d51d8ad6064da8ca9405fcf7bf9b54acd43e3b30ddd7abb9b1bfa4ddb266019133313482570ddb207de568f71ecfcf6060
-  languageName: node
-  linkType: hard
-
-"map-obj@npm:^4.1.0":
-  version: 4.3.0
-  resolution: "map-obj@npm:4.3.0"
-  checksum: fbc554934d1a27a1910e842bc87b177b1a556609dd803747c85ece420692380827c6ae94a95cce4407c054fa0964be3bf8226f7f2cb2e9eeee432c7c1985684e
   languageName: node
   linkType: hard
 
@@ -10672,13 +10578,6 @@ __metadata:
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
   checksum: b676f8c040cdc5b12723ad2f91414d267605b26419d5c821ff03befa817ddd10e238d22b25d604920340fd73efd8ba795465a0377c4adf45a4a41e4234e42dc4
-  languageName: node
-  linkType: hard
-
-"quick-lru@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "quick-lru@npm:5.1.1"
-  checksum: a516faa25574be7947969883e6068dbe4aa19e8ef8e8e0fd96cddd6d36485e9106d85c0041a27153286b0770b381328f4072aa40d3b18a19f5f7d2b78b94b5ed
   languageName: node
   linkType: hard
 
@@ -12357,13 +12256,6 @@ __metadata:
   version: 0.21.3
   resolution: "type-fest@npm:0.21.3"
   checksum: e6b32a3b3877f04339bae01c193b273c62ba7bfc9e325b8703c4ee1b32dc8fe4ef5dfa54bf78265e069f7667d058e360ae0f37be5af9f153b22382cd55a9afe0
-  languageName: node
-  linkType: hard
-
-"type-fest@npm:^1.2.1":
-  version: 1.4.0
-  resolution: "type-fest@npm:1.4.0"
-  checksum: b011c3388665b097ae6a109a437a04d6f61d81b7357f74cbcb02246f2f5bd72b888ae33631b99871388122ba0a87f4ff1c94078e7119ff22c70e52c0ff828201
   languageName: node
   linkType: hard
 
