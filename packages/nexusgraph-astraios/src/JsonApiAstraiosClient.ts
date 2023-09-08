@@ -42,8 +42,6 @@ export class JsonApiAstraiosClient implements AstraiosClient {
 
     const data = this.transformData(note, userId);
 
-    console.log(data);
-
     if (this.isInitialSave(note)) {
       return axios
         .post((process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER, { data }, config)

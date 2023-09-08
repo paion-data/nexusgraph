@@ -126,6 +126,10 @@ export const EditorMenuContainer = styled.div<{
           -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
           overflow: scroll;
+          &:focus {
+            text-decoration: none;
+            background-color: red;
+          }
         }
       }
     }
@@ -168,6 +172,11 @@ export const DropdownItem = styled.a`
   &:hover {
     color: ${(props) => props.theme.secondaryButtonTextHover};
     text-decoration: none;
-    background-color: ${(props) => props.theme.secondaryButtonBackgroundHover};
+    background-color: red;
+    &:focus {
+      color: ${(props) => props.theme.secondaryButtonTextHover};
+      text-decoration: none;
+      background-color: red;
+    }
   }
 `;

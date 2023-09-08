@@ -13,7 +13,7 @@ import {
 } from "@heroicons/react/24/solid";
 
 import { useDispatch, useSelector } from "react-redux";
-import { CREATE_NEW_NOTE, GlobalState } from "../../../nexusgraph-redux";
+import { CREATE_NEW_NOTE, GlobalState, UPDATE_NOTE_EDITOR_CONTENT, UPDATE_NOTE_ID } from "../../../nexusgraph-redux";
 import { selectNote } from "../../../nexusgraph-redux/src/note/noteDuck";
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
 import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
@@ -75,7 +75,14 @@ export function EditorButtonGroup(): JSX.Element {
               <DirectoryDropdownList data-testid={"directoryList"}>
                 <DirectoryDropdownContent>
                   {directories.map(({ id }) => (
-                    <DropdownItem data-testid={`${id}`} key={id}>
+                    <DropdownItem
+                      data-testid={`${id}`}
+                      key={id}
+                      onClick={() => {
+                        console.log(id);
+                        dispatch({ type: UPDATE_NOTE_ID, payload: id });
+                      }}
+                    >
                       {id}
                     </DropdownItem>
                   ))}
@@ -85,7 +92,14 @@ export function EditorButtonGroup(): JSX.Element {
             <button
               className="trash"
               onClick={() => {
-                deleteNote(note, directories);
+                deleteNote(note, directories).then((response) => {
+                  if (response) {
+                    dispatch({ type: UPDATE_NOTE_ID, payload: response.id });
+                    dispatch({ type: UPDATE_NOTE_EDITOR_CONTENT, payload: response.editorContent });
+                  } else {
+                    dispatch({ type: CREATE_NEW_NOTE });
+                  }
+                });
               }}
             >
               <TrashIcon />
@@ -107,27 +121,35 @@ export function EditorButtonGroup(): JSX.Element {
 }
 
 const deleteNote = (note: any, directories: Record<any, any>[]) => {
-  axios.delete((process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER + "/" + note.id).then(() => {
-    const index = directories.indexOf(directories.filter((selectedNote) => selectedNote.id == note.id)[0]);
-    if (index != -1) {
-      const note = directories[index + 1];
-      // axios.patch(
-      //   (process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER + note.id,
-      //   { directories[index+1] },
-      //   config
-      // );
-    }
-  });
+  const axiosConfig = {
+    headers: {
+      Accept: "application/vnd.api+json",
+      "Content-Type": "application/vnd.api+json",
+      Authorization: "Bearer " + "",
+      "Access-Control-Request-Headers": "*",
+    },
+  };
+  return axios
+    .delete((process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER + "/" + note.id, axiosConfig)
+    .then(() => {
+      const index = directories.indexOf(directories.filter((selectedNote) => selectedNote.id == note.id)[0]);
+      if (index != -1 && directories[index + 1]) {
+        const note = directories[index + 1];
+
+        return note;
+      }
+    });
 };
 
 const getNotes = async (userId: string, token: string) => {
   let directories: Record<any, any>[] = [];
 
-  const config = {
+  const axiosConfig = {
     headers: {
       Accept: "application/vnd.api+json",
       "Content-Type": "application/vnd.api+json",
       Authorization: "Bearer " + token,
+      "Access-Control-Request-Headers": "*",
     },
   };
   return await axios
@@ -135,10 +157,9 @@ const getNotes = async (userId: string, token: string) => {
       (process.env.ASTRAIOS_API_URL as string) +
         NOTE_STORAGE_API_URL_PARAMETER +
         `?filter[${NOTE_STORAGE_API_URL_PARAMETER}]=userId==${userId}`,
-      config
+      axiosConfig
     )
     .then((response) => {
-      console.log("response", response.data["data"]);
       directories = [...response.data["data"], ...directories];
       return directories;
     });
