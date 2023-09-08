@@ -24,7 +24,7 @@ export default function ProdApp(): JSX.Element {
   };
 
   useEffect(() => {
-    getAccessToken(process.env.LOGTO_RESOURCES as string).then((token) => {
+    getAccessToken(process.env.ASTRAIOS_API_RESOURCE as string).then((token) => {
       if (token) {
         prodOAuthState["accessToken"] = token;
         fetchUserInfo().then((userInfo) => {
