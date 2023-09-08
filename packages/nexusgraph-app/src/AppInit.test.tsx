@@ -2,7 +2,7 @@
 import { render } from "@testing-library/react";
 import AppInit from "./AppInit";
 
-import { OAuth2Provider } from "../../nexusgraph-oauth";
+import OAuth2Provider from "../../nexusgraph-oauth/src/OAuth2Provider";
 import DevApp from "./DevApp";
 import ProdApp from "./ProdApp";
 
@@ -21,7 +21,7 @@ jest.mock("./ProdApp");
 const MockedProdApp = ProdApp as jest.Mock;
 MockedProdApp.mockImplementation(() => "Render ProdApp");
 
-jest.mock("../../nexusgraph-oauth2/src/OAuth2Provider");
+jest.mock("../../nexusgraph-oauth/src/OAuth2Provider");
 const MockedOAuth2Provider = OAuth2Provider as jest.Mock;
 MockedOAuth2Provider.mockImplementation(() => <MockedProdApp />);
 
