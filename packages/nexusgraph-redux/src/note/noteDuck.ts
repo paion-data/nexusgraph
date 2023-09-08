@@ -2,8 +2,8 @@
 import { useSelector } from "react-redux";
 import { GlobalState } from "../globalState";
 import {
-  AstraiosAction,
   CREATE_NEW_NOTE,
+  NoteAction,
   NoteState,
   UPDATE_NOTE_EDITOR_CONTENT,
   UPDATE_NOTE_GRAPH,
@@ -20,7 +20,7 @@ export function selectNote() {
   return useSelector((state: GlobalState) => state.note);
 }
 
-export default function noteReducer(state = initialState, action: AstraiosAction): NoteState {
+export default function noteReducer(state = initialState, action: NoteAction): NoteState {
   switch (action.type) {
     case UPDATE_NOTE_GRAPH:
       return {

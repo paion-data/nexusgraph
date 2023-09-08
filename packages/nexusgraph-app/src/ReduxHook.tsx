@@ -1,9 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
-import { NoteState, UPDATE_NLPDATA } from "../../nexusgraph-redux";
+import { GlobalState, NoteState, UPDATE_NLPDATA } from "../../nexusgraph-redux";
 import { selectNote } from "../../nexusgraph-redux/src/note/noteDuck";
 import { container, TYPES } from "../inversify.config";
 
@@ -16,10 +16,12 @@ export default function useReduxHook() {
     TYPES.NaturalLanguageProcessor
   );
 
+  const accessToken = useSelector((state: GlobalState) => state.oAuth.accessToken);
+
   useEffect(() => {
     const update = () => {
       if (noteState) {
-        // astraiosClient.saveOrUpdate(noteState).then((response) => {
+        // astraiosClient.saveOrUpdate(noteState, accessToken).then((response) => {
         //   if (response.id) {
         //     dispatch({ type: UPDATE_NOTE_ID, payload: response.id });
         //   }
@@ -36,5 +38,5 @@ export default function useReduxHook() {
     const t = setInterval(update, Number(String(process.env.ENTITY_EXTRACTION_CALL_DELAY_IN_MS)));
 
     return () => clearInterval(t);
-  }, [noteState]);
+  }, [noteState, accessToken]);
 }
