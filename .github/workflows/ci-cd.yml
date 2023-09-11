@@ -176,6 +176,7 @@ jobs:
           echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
           echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
           echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
+          echo "LOGTO_SIGN_IN_CALLBACK_URL=${{ secrets.LOGTO_SIGN_IN_CALLBACK_URL }}" >> .env
           echo "SENTRY_IO_DSN=${{ secrets.SENTRY_IO_DSN }}" >> .env
       - name: Load deployment environment variables into HC variable file
         run: |
