@@ -1452,7 +1452,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.10.5, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.22.5, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.10.5, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.22.11
   resolution: "@babel/runtime@npm:7.22.11"
   dependencies:
@@ -1461,7 +1461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.19.4":
+"@babel/runtime@npm:^7.19.4, @babel/runtime@npm:^7.22.5":
   version: 7.22.15
   resolution: "@babel/runtime@npm:7.22.15"
   dependencies:
@@ -2443,6 +2443,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@paiondata/nexusgraph-i18n@workspace:packages/nexusgraph-i18n":
+  version: 0.0.0-use.local
+  resolution: "@paiondata/nexusgraph-i18n@workspace:packages/nexusgraph-i18n"
+  dependencies:
+    i18next: ^23.4.4
+    i18next-browser-languagedetector: ^7.1.0
+    react-i18next: ^13.1.2
+  languageName: unknown
+  linkType: soft
+
 "@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp":
   version: 0.0.0-use.local
   resolution: "@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp"
@@ -2483,8 +2493,6 @@ __metadata:
     eslint-plugin-header: ^3.1.1
     eslint-plugin-react: ^7.32.2
     html-webpack-plugin: ^5.5.0
-    i18next: ^23.4.4
-    i18next-browser-languagedetector: ^7.1.0
     identity-obj-proxy: ^3.0.0
     jest: ^27.4.3
     lodash-es: ^4.17.21
@@ -2493,7 +2501,6 @@ __metadata:
     prettier-plugin-organize-imports: ^3.2.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-i18next: ^13.1.2
     react-redux: ^8.1.1
     react-router-dom: ^6.8.1
     react-test-renderer: ^18.2.0

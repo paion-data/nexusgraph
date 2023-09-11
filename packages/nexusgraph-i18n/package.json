@@ -1,5 +1,10 @@
 {
   "name": "@paiondata/nexusgraph-i18n",
   "version": "0.1.0",
-  "description": "i18n International translation"
+  "description": "i18n International translation",
+  "dependencies": {
+    "i18next": "^23.4.4",
+    "i18next-browser-languagedetector": "^7.1.0",
+    "react-i18next": "^13.1.2"
+  }
 }

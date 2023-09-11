@@ -1,12 +1,11 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useTranslation } from "react-i18next";
-
 import { render } from "@testing-library/react";
 
+import { useTranslation } from "../..";
 import { GraphStyleModel } from "../../../nexusgraph-graph/src/GraphStyle";
 import OverviewPane from "../../../nexusgraph-graph/src/inspection-panel/properties-panel-content/OverviewPane";
 
-jest.mock("react-i18next", () => ({
+jest.mock("../..", () => ({
   useTranslation: jest.fn(),
 }));
 
