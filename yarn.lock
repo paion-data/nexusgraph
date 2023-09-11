@@ -2479,7 +2479,6 @@ __metadata:
     "@testing-library/react": ^14.0.0
     "@types/jest": ^27.5.2
     "@types/lodash-es": ^4.17.8
-    "@types/react-test-renderer": ^18.0.1
     "@types/styled-components": ^5.1.26
     "@typescript-eslint/eslint-plugin": ^5.61.0
     "@typescript-eslint/parser": ^5.61.0
@@ -3407,15 +3406,6 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: d665bb2ddf830b9f841be21204cee119602b3d983537a94ccbad40deb7cd602e04742e3e013009bbb27c2d0fe72441b29ed48bc75f7e482cfb25eaf45f281dc9
-  languageName: node
-  linkType: hard
-
-"@types/react-test-renderer@npm:^18.0.1":
-  version: 18.0.1
-  resolution: "@types/react-test-renderer@npm:18.0.1"
-  dependencies:
-    "@types/react": "*"
-  checksum: ec149c2ab4d76c7286ef5d8ca9546765632e0c7a0788e5850081af38526f7fcb6413641e083520ee4b2fc57755f475990fbfabcbcdda8d954aa708708c866a96
   languageName: node
   linkType: hard
 
