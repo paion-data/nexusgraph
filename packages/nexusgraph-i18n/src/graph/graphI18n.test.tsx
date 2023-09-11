@@ -54,7 +54,7 @@ it("Translate OverviewPane through i18n", () => {
   const MockedGraphStyleModel = GraphStyleModel as jest.Mock<GraphStyleModel>;
   const style = new MockedGraphStyleModel();
 
-  const pane = render(
+  render(
     <OverviewPane
       graphStyle={style}
       hasTruncatedFields={false}
