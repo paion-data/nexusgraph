@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import ReactDOM from "react-dom/client";
 
-import "../../../i18n";
+import "../../nexusgraph-i18n";
 import AppInit, { setupSentry } from "./AppInit";
 import "./index.css";
 

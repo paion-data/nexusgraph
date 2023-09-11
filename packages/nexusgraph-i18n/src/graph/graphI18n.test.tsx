@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 
 import { render } from "@testing-library/react";
 
-import { GraphStyleModel } from "../GraphStyle";
-import OverviewPane from "../inspection-panel/properties-panel-content/OverviewPane";
+import { GraphStyleModel } from "../../../nexusgraph-graph/src/GraphStyle";
+import OverviewPane from "../../../nexusgraph-graph/src/inspection-panel/properties-panel-content/OverviewPane";
 
 jest.mock("react-i18next", () => ({
   useTranslation: jest.fn(),
