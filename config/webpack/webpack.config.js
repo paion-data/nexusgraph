@@ -3,6 +3,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { SourceMapDevToolPlugin } = require("webpack");
 
 const imageInlineSizeLimit = parseInt(process.env.IMAGE_INLINE_SIZE_LIMIT || "10000");
 
@@ -64,6 +65,9 @@ module.exports = function (webpackEnv) {
       ],
     },
     plugins: [
+      new SourceMapDevToolPlugin({
+        filename: "[file].map",
+      }),
       new webpack.DefinePlugin({ "process.env": envKeys }),
       new webpack.HotModuleReplacementPlugin(),
       // Generates an `index.html` file with the <script> injected.
