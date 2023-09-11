@@ -51,7 +51,7 @@ beforeEach(() => {
 });
 
 it("Translate OverviewPane through i18n", () => {
-  jest.mock("../GraphStyle");
+  jest.mock("../../../nexusgraph-graph/src/GraphStyle");
   const MockedGraphStyleModel = GraphStyleModel as jest.Mock<GraphStyleModel>;
   const style = new MockedGraphStyleModel();
 
