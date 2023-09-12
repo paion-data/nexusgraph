@@ -3,6 +3,14 @@ import { DirectoryAction, DirectoryState, UPDATE_DIRECTORY } from "./directoryTy
 
 const initialState: DirectoryState = [];
 
+/**
+ * Used to update the notes title directory
+ * 
+ * @param state The current {@link DirectoryState}
+ * @param action {@link DirectoryAction} for updating a directory
+ * 
+ * @returns New directory state
+ */
 export default function directoryReducer(state = initialState, action: DirectoryAction): DirectoryState {
   switch (action.type) {
     case UPDATE_DIRECTORY:
