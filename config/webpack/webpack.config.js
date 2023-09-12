@@ -23,7 +23,6 @@ module.exports = function (webpackEnv) {
       path: path.resolve(__dirname, "../../dist"),
       filename: isProdEnvironment ? "static/js/[name].[contenthash:8].js" : "static/js/bundle.js",
     },
-    devtool: "source-map",
     module: {
       rules: [
         {
@@ -62,8 +61,13 @@ module.exports = function (webpackEnv) {
             },
           },
         },
+        {
+          test: /\.(m?js|ts)$/,
+          use: ["source-map-loader"],
+        },
       ],
     },
+    ignoreWarnings: [/Failed to parse source map/],
     plugins: [
       new webpack.DefinePlugin({ "process.env": envKeys }),
       new webpack.HotModuleReplacementPlugin(),
