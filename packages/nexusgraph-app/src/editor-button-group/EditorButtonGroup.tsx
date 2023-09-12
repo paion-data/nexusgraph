@@ -1,5 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 import {
   ChevronLeftIcon as ChevronLeftIconSolid,
@@ -15,6 +16,8 @@ import { useDispatch } from "react-redux";
 import { CREATE_NEW_NOTE } from "../../../nexusgraph-redux";
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
 import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
+import { AstraiosClient } from "../../../nexusgraph-astraios";
+import { TYPES, container } from "../../inversify.config";
 
 /**
  * Editor button group
@@ -26,6 +29,7 @@ import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMe
  */
 export function EditorButtonGroup(): JSX.Element {
   const [menuExpanded, setMenuExpanded] = useState<boolean>(false);
+  const [noteList, setNoteList] = useState<Record<any, any>[]>([]);
 
   const ChevronRightIcon = (): JSX.Element => <ChevronRightIconSolid />;
   const ChevronLeftIcon = (): JSX.Element => <ChevronLeftIconSolid />;
@@ -36,18 +40,19 @@ export function EditorButtonGroup(): JSX.Element {
   const ViewColumnsIcon = (): JSX.Element => <ViewColumnsIconSolid />;
 
   const dispatch = useDispatch();
+  const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.GraphQlClient);
 
-  const directories = [
-    {
-      name: "目录1",
-    },
-    {
-      name: "目录2",
-    },
-    {
-      name: "目录3",
-    },
-  ];
+
+  useEffect(() => {
+    if(astraiosClient.getNoteList){
+      astraiosClient.getNoteList(456).then((response) => {
+        if (response) {
+          dispatch({})
+          return setNoteList(noteList.concat(response))
+        }
+      })
+    }
+  }, [])
 
   return (
     <>
@@ -73,9 +78,9 @@ export function EditorButtonGroup(): JSX.Element {
               <Squares2X2Icon />
               <DirectoryDropdownList data-testid={"directoryList"}>
                 <DirectoryDropdownContent>
-                  {directories.map(({ name }) => (
-                    <DropdownItem data-testid={`${name}`} key={name}>
-                      {name}
+                  {noteList.map(({ title }) => (
+                    <DropdownItem data-testid={`${title}`} key={title}>
+                      {title}
                     </DropdownItem>
                   ))}
                 </DirectoryDropdownContent>
@@ -99,3 +104,18 @@ export function EditorButtonGroup(): JSX.Element {
     </>
   );
 }
+
+// function getNoteList(): Promise<any> {
+//   return axios.post("http://localhost:3000/ . ", {
+//     query: ` 
+//     {
+//       allNotes(filter: { userId: 456 }) {
+//         id,
+//         title
+//       }
+//     }
+// `,
+//   }).then((response) => {
+//     return response["data"]["data"]["allNotes"]
+//   });
+// }

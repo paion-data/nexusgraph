@@ -7,5 +7,5 @@
     "sourceMap": true,
     "moduleResolution": "node"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "db copy.js"]
 }

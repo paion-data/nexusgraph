@@ -1,10 +1,10 @@
 {
   "name": "@paiondata/nexusgraph-graphql-server",
   "version": "0.1.0",
-  "type": "module",
   "description": "Offering knowledge graph data without a backend",
   "scripts": {
     "start": "npx ts-node --esm src/server.ts",
+    "start-graphql": "cd src/graphql && json-graphql-server db.js",
     "wait-on-server": "wait-on -c ../../scripts/wait-on-config.js http-get://localhost:3000/healthcheck"
   },
   "devDependencies": {
@@ -20,6 +20,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express-async-handler": "^1.2.0",
+    "json-graphql-server": "^2.2.3",
     "lowdb": "^6.0.1"
   }
 }
