@@ -2,8 +2,8 @@
 import { Container } from "inversify";
 
 import { AstraiosClient, JsonApiAstraiosClient } from "../nexusgraph-astraios";
-import { NaturalLanguageProcessor, RemoteNaturalLanguageProcessor } from "../nexusgraph-nlp";
 import { GraphQlClient } from "../nexusgraph-astraios/src/GraphQlClient";
+import { NaturalLanguageProcessor, RemoteNaturalLanguageProcessor } from "../nexusgraph-nlp";
 
 /**
  * Define the types identifier to get dependency

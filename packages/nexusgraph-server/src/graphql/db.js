@@ -13,7 +13,7 @@
  *  }
  * }
  * ```
- * 
+ *
  * Restart Graphql server and UI if you change the data
  */
 module.exports = {

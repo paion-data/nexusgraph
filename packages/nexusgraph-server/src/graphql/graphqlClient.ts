@@ -2,17 +2,18 @@
 import axios from "axios";
 
 export function getNoteList(): Promise<any> {
-  return axios.post("http://localhost:3000/", {
-    query: ` 
+  return axios
+    .post("http://localhost:3000/", {
+      query: ` 
     {
-      allNotes(filter: { userId: 456 }) {
+      allNotes(filter: { userId: "456" }) {
         id,
         title
       }
     }
 `,
-  }).then((response) => {
-    return response["data"]["data"]["allNotes"]
-  });
+    })
+    .then((response) => {
+      return response["data"]["data"]["allNotes"];
+    });
 }
-

@@ -4,7 +4,7 @@
   "description": "Offering knowledge graph data without a backend",
   "scripts": {
     "start": "npx ts-node --esm src/server.ts",
-    "start-graphql": "cd src/graphql && json-graphql-server db.js",
+    "start-graphql": "cd src/graphql && json-graphql-server db.js --port 3001",
     "wait-on-server": "wait-on -c ../../scripts/wait-on-config.js http-get://localhost:3000/healthcheck"
   },
   "devDependencies": {

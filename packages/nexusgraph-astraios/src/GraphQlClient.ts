@@ -1,14 +1,15 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import axios from "axios";
-import { AstraiosClient } from "./AstraiosClient";
 import { injectable } from "inversify";
 import "reflect-metadata";
+import { AstraiosClient } from "./AstraiosClient";
 
 @injectable()
 export class GraphQlClient implements AstraiosClient {
-  public getNoteList(userId: string): Promise<any> {
-    return axios.post("http://localhost:3000/", {
-      query: ` 
+  public getNoteList(userId: any): Promise<any> {
+    return axios
+      .post("http://localhost:3000/", {
+        query: ` 
       {
         allNotes(filter: { userId: ${userId} }) {
           id,
@@ -16,8 +17,9 @@ export class GraphQlClient implements AstraiosClient {
         }
       }
   `,
-    }).then((response) => {
-      return response["data"]["data"]["allNotes"]
-    })
+      })
+      .then((response) => {
+        return response["data"]["data"]["allNotes"];
+      });
   }
 }

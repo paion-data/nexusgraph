@@ -3,6 +3,7 @@ export const NOTE_LIST_STATE = "noteList";
 export const UPDATE_NOTE_LIST = NOTE_LIST_STATE + "/UPDATE_NOTE_LIST";
 
 export interface NoteInfo {
+  id: string;
   title: string;
 }
 

@@ -1,4 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import { NoteInfo } from "../../nexusgraph-redux/src/note-list/noteListTypes";
 import { NoteState } from "../../nexusgraph-redux/src/note/noteTypes";
 
 /**
@@ -9,5 +10,5 @@ export interface AstraiosClient {
    * Get and update note data and send a request to WS to store note
    */
   saveOrUpdate?: (astraiosState: NoteState, token: string) => Promise<NoteState>;
-  getNoteList?: (userId: any) => Promise<any>;
+  getNoteList?: (userId: any) => Promise<NoteInfo[]>;
 }

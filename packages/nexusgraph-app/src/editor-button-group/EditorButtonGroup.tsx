@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useState } from "react";
 
 import {
   ChevronLeftIcon as ChevronLeftIconSolid,
@@ -12,12 +12,12 @@ import {
   WindowIcon as WindowIconSolid,
 } from "@heroicons/react/24/solid";
 
-import { useDispatch } from "react-redux";
-import { CREATE_NEW_NOTE } from "../../../nexusgraph-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { CREATE_NEW_NOTE, GlobalState } from "../../../nexusgraph-redux";
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
 import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
-import { AstraiosClient } from "../../../nexusgraph-astraios";
-import { TYPES, container } from "../../inversify.config";
+
+const NOTE_STORAGE_API_URL_PARAMETER = "note/";
 
 /**
  * Editor button group
@@ -29,7 +29,6 @@ import { TYPES, container } from "../../inversify.config";
  */
 export function EditorButtonGroup(): JSX.Element {
   const [menuExpanded, setMenuExpanded] = useState<boolean>(false);
-  const [noteList, setNoteList] = useState<Record<any, any>[]>([]);
 
   const ChevronRightIcon = (): JSX.Element => <ChevronRightIconSolid />;
   const ChevronLeftIcon = (): JSX.Element => <ChevronLeftIconSolid />;
@@ -40,19 +39,14 @@ export function EditorButtonGroup(): JSX.Element {
   const ViewColumnsIcon = (): JSX.Element => <ViewColumnsIconSolid />;
 
   const dispatch = useDispatch();
-  const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.GraphQlClient);
+  const noteList = useSelector((state: GlobalState) => state.noteList);
+  console.log("noteList[0]", noteList[0]);
 
-
-  useEffect(() => {
-    if(astraiosClient.getNoteList){
-      astraiosClient.getNoteList(456).then((response) => {
-        if (response) {
-          dispatch({})
-          return setNoteList(noteList.concat(response))
-        }
-      })
-    }
-  }, [])
+  if (noteList[0]) {
+    getFirstNote(noteList[0].id).then((response) => {
+      //dispatch first note
+    });
+  }
 
   return (
     <>
@@ -105,17 +99,10 @@ export function EditorButtonGroup(): JSX.Element {
   );
 }
 
-// function getNoteList(): Promise<any> {
-//   return axios.post("http://localhost:3000/ . ", {
-//     query: ` 
-//     {
-//       allNotes(filter: { userId: 456 }) {
-//         id,
-//         title
-//       }
-//     }
-// `,
-//   }).then((response) => {
-//     return response["data"]["data"]["allNotes"]
-//   });
-// }
+function getFirstNote(noteId: string) {
+  return axios
+    .get((process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER + noteId)
+    .then((response) => {
+      return response.data;
+    });
+}
