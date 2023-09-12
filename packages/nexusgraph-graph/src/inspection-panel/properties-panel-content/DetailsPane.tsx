@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 
+import { useTranslation } from "../../../../nexusgraph-i18n";
 import { GraphStyleModel } from "../../GraphStyle";
 import { PaneBody, PaneHeader, PaneTitle, PaneWrapper } from "../../styles/DefaultPane.styled";
 import { NodeItem, RelationshipItem } from "../../VizItem";

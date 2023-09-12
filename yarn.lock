@@ -1452,12 +1452,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.10.5, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.19.4, @babel/runtime@npm:^7.22.5, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.10.5, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.22.11
   resolution: "@babel/runtime@npm:7.22.11"
   dependencies:
     regenerator-runtime: ^0.14.0
   checksum: a5cd6683a8fcdb8065cb1677f221e22f6c67ec8f15ad1d273b180b93ab3bd86c66da2c48f500d4e72d8d2cfa85ff4872a3f350e5aa3855630036af5da765c001
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.19.4, @babel/runtime@npm:^7.22.5":
+  version: 7.22.15
+  resolution: "@babel/runtime@npm:7.22.15"
+  dependencies:
+    regenerator-runtime: ^0.14.0
+  checksum: 793296df1e41599a935a3d77ec01eb6088410d3fd4dbe4e92f06c6b7bb2f8355024e6d78621a3a35f44e0e23b0b59107f23d585384df4f3123256a1e1492040e
   languageName: node
   linkType: hard
 
@@ -2434,6 +2443,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@paiondata/nexusgraph-i18n@workspace:packages/nexusgraph-i18n":
+  version: 0.0.0-use.local
+  resolution: "@paiondata/nexusgraph-i18n@workspace:packages/nexusgraph-i18n"
+  dependencies:
+    i18next: ^23.4.4
+    i18next-browser-languagedetector: ^7.1.0
+    react-i18next: ^13.1.2
+  languageName: unknown
+  linkType: soft
+
 "@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp":
   version: 0.0.0-use.local
   resolution: "@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp"
@@ -2474,8 +2493,6 @@ __metadata:
     eslint-plugin-header: ^3.1.1
     eslint-plugin-react: ^7.32.2
     html-webpack-plugin: ^5.5.0
-    i18next: ^23.4.4
-    i18next-browser-languagedetector: ^7.1.0
     identity-obj-proxy: ^3.0.0
     jest: ^27.4.3
     lodash-es: ^4.17.21
@@ -2484,7 +2501,6 @@ __metadata:
     prettier-plugin-organize-imports: ^3.2.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-i18next: ^13.1.2
     react-redux: ^8.1.1
     react-router-dom: ^6.8.1
     react-test-renderer: ^18.2.0
@@ -7744,11 +7760,11 @@ __metadata:
   linkType: hard
 
 "i18next@npm:^23.4.4":
-  version: 23.4.6
-  resolution: "i18next@npm:23.4.6"
+  version: 23.5.1
+  resolution: "i18next@npm:23.5.1"
   dependencies:
     "@babel/runtime": ^7.22.5
-  checksum: ffc63889e28b2bfce2c6e635bd686087290fe2e2f58e0a235525011bb74d541ff681895abe994b12546be6c92b66a7cc3002a13c26e587b4da8c89b15ef648db
+  checksum: 4be043bd72287bfae9777a3252b9458d2e3f5e9a97ea62cf434e6e3767b45df4365d8780d0dd14efd4e9da5eb0f90534510b138f1372d1cb9012000a69bbedaf
   languageName: node
   linkType: hard
 
