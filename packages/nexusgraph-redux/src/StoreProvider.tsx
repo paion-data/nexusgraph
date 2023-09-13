@@ -1,7 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { Provider } from "react-redux";
-
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { combineReducers, createStore } from "redux";
 
 import { GlobalState } from "./globalState";
 import rootReducers from "./rootReducer";
@@ -11,7 +10,7 @@ interface ReduxChildren {
 }
 
 const reducer = combineReducers<GlobalState>({ ...(rootReducers as any) });
-const store = configureStore({ reducer });
+const store = createStore<GlobalState>(reducer);
 
 const ReduxStore = ({ children }: ReduxChildren) => {
   return <Provider store={store}>{children}</Provider>;
