@@ -5,7 +5,7 @@ import { useLogto } from "@logto/react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Callback } from "../../nexusgraph-oauth";
-import { UPDATE_OAUTH_STATE } from "../../nexusgraph-redux";
+import { updateOAuthState } from "../../nexusgraph-redux";
 import App from "./App";
 
 /**
@@ -30,7 +30,7 @@ export default function ProdApp(): JSX.Element {
         fetchUserInfo().then((userInfo) => {
           if (userInfo) {
             prodOAuthState["userInfo"] = userInfo;
-            dispatch({ type: UPDATE_OAUTH_STATE, payload: prodOAuthState });
+            dispatch(updateOAuthState(prodOAuthState));
           }
         });
       }

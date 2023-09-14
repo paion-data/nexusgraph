@@ -2,7 +2,23 @@
 import { useSelector } from "react-redux";
 import { Graph } from "../..";
 import { GlobalState } from "../globalState";
-import { CREATE_NEW_NOTE, NoteState, UPDATE_NOTE_EDITOR_CONTENT, UPDATE_NOTE_GRAPH, UPDATE_NOTE_ID } from "./noteTypes";
+
+export const NOTE_STATE = "note";
+const UPDATE_NOTE_ID = NOTE_STATE + "/UPDATE_NOTE_ID";
+const UPDATE_NOTE_GRAPH = NOTE_STATE + "/UPDATE_NOTE_GRAPH";
+const UPDATE_NOTE_EDITOR_CONTENT = NOTE_STATE + "/UPDATE_NOTE_EDITOR_CONTENT";
+const CREATE_NEW_NOTE = NOTE_STATE + "/CREATE_NEW_NOTE";
+
+export interface NoteState {
+  id?: string;
+  editorContent: object;
+  graph: Graph;
+}
+
+interface NoteAction {
+  type: typeof NOTE_STATE;
+  payload: any;
+}
 
 export const initialEditorContent: object = {
   root: {
@@ -38,7 +54,7 @@ export function selectNote() {
   return useSelector((state: GlobalState) => state.note);
 }
 
-export default function noteReducer(state = initialState, action: any): NoteState {
+export default function noteReducer(state = initialState, action: NoteAction): NoteState {
   switch (action.type) {
     case UPDATE_NOTE_GRAPH:
       return {
@@ -63,4 +79,20 @@ export default function noteReducer(state = initialState, action: any): NoteStat
     default:
       return state;
   }
+}
+
+export function updateNoteGraph(graph: Graph) {
+  return { type: UPDATE_NOTE_GRAPH, payload: graph };
+}
+
+export function updateNoteEditorContent(editorContent: object) {
+  return { type: UPDATE_NOTE_EDITOR_CONTENT, payload: editorContent };
+}
+
+export function updateNoteId(id?: string) {
+  return { type: UPDATE_NOTE_ID, payload: id };
+}
+
+export function createNewNote() {
+  return { type: CREATE_NEW_NOTE };
 }
