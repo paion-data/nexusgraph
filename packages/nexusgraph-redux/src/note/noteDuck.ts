@@ -23,10 +23,15 @@ export const initialEditorContent: object = {
   },
 };
 
+const initialGraph: object = {
+  nodes: [],
+  links: [],
+};
+
 const initialState: NoteState = {
   id: "",
   editorContent: initialEditorContent,
-  graph: "",
+  graph: initialGraph,
 };
 
 export function selectNote() {

@@ -27,7 +27,7 @@ export function Visualization(props: VisualizationProps): JSX.Element {
   };
 
   useEffect(() => {
-    dispatch({ type: UPDATE_NOTE_GRAPH, payload: JSON.stringify(graph) });
+    dispatch({ type: UPDATE_NOTE_GRAPH, payload: graph });
   }, [JSON.stringify(graph)]);
 
   return (

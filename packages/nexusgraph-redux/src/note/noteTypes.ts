@@ -8,7 +8,7 @@ export const CREATE_NEW_NOTE = NOTE_STATE + "/CREATE_NEW_NOTE";
 export interface NoteState {
   id: string;
   editorContent: object;
-  graph: string;
+  graph: object;
 }
 
 export interface NoteAction {
