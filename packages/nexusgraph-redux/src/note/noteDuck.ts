@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useSelector } from "react-redux";
-import { GraphState } from "../..";
+import { Graph } from "../..";
 import { GlobalState } from "../globalState";
 import { CREATE_NEW_NOTE, NoteState, UPDATE_NOTE_EDITOR_CONTENT, UPDATE_NOTE_GRAPH, UPDATE_NOTE_ID } from "./noteTypes";
 
@@ -24,7 +24,7 @@ export const initialEditorContent: object = {
   },
 };
 
-const initialGraph: GraphState = {
+const initialGraph: Graph = {
   nodes: [],
   links: [],
 };

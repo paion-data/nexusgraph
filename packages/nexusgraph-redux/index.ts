@@ -5,18 +5,18 @@ export * from "./src/note/noteTypes";
 export * from "./src/oAuth/oAuthType";
 export { default as ReduxStore } from "./src/StoreProvider";
 
-export interface NodeState {
+export interface Node {
   fields: Record<string, string>;
   id: string;
 }
 
-export interface LinkState {
+export interface Link {
   fields: Record<string, string>;
   source: string;
   target: string;
 }
 
-export interface GraphState {
-  nodes: NodeState[];
-  links: LinkState[];
+export interface Graph {
+  nodes: Node[];
+  links: Link[];
 }

@@ -1,8 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { GraphState } from "../..";
-import { NlpAction, UPDATE_NLPDATA } from "./nlpTypes";
+import { NlpAction, NlpState, UPDATE_NLPDATA } from "./nlpTypes";
 
-export const initialState: GraphState = {
+export const initialState: NlpState = {
   nodes: [],
   links: [],
 };
@@ -18,7 +17,7 @@ export const initialState: GraphState = {
  *
  * @returns New nodes and links state
  */
-export default function nlpReducer(state = initialState, action: NlpAction): GraphState {
+export default function nlpReducer(state = initialState, action: NlpAction): NlpState {
   switch (action.type) {
     case UPDATE_NLPDATA:
       return {
