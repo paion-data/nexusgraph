@@ -15,7 +15,7 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
     const parser = new EditorContentParser();
     const jsonObject = JSON.parse(JSON.stringify(editorContent));
     const editorLines = parser.parse(jsonObject);
-    
+
     return this.remoteEntityExtration(editorLines);
   }
 

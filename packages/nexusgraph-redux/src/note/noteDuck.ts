@@ -30,8 +30,6 @@ const initialState: NoteState = {
 };
 
 export function selectNote() {
-  console.log(useSelector((state: GlobalState) => JSON.stringify(state.note.editorContent)));
-  
   return useSelector((state: GlobalState) => state.note);
 }
 
