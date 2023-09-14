@@ -24,7 +24,6 @@ export const initialEditorContent: object = {
 };
 
 const initialState: NoteState = {
-  id: "",
   editorContent: initialEditorContent,
   graph: "",
 };
