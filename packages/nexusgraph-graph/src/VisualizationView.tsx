@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { GlobalState, UPDATE_NOTE_GRAPH } from "../../nexusgraph-redux";
+import { GlobalState, GraphState, UPDATE_NOTE_GRAPH } from "../../nexusgraph-redux";
 import { BasicNode, BasicRelationship } from "./basicTypes";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "./GraphStats";
 import { GraphVisualizer } from "./GraphVisualizer";
@@ -21,7 +21,7 @@ export interface VisualizationProps {
 export function Visualization(props: VisualizationProps): JSX.Element {
   const dispatch = useDispatch();
 
-  const graph = {
+  const graph: GraphState = {
     nodes: useSelector((state: GlobalState) => state.nlpData.nodes),
     links: useSelector((state: GlobalState) => state.nlpData.links),
   };

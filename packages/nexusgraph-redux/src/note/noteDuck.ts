@@ -2,6 +2,7 @@
 import { useSelector } from "react-redux";
 import { GlobalState } from "../globalState";
 import { CREATE_NEW_NOTE, NoteState, UPDATE_NOTE_EDITOR_CONTENT, UPDATE_NOTE_GRAPH, UPDATE_NOTE_ID } from "./noteTypes";
+import { GraphState } from "../..";
 
 export const initialEditorContent: object = {
   root: {
@@ -23,7 +24,7 @@ export const initialEditorContent: object = {
   },
 };
 
-const initialGraph: object = {
+const initialGraph: GraphState = {
   nodes: [],
   links: [],
 };
