@@ -1,6 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import nlpReducer from "./nlpDuck";
-import { NlpAction, NlpState, UPDATE_NLPDATA } from "./nlpTypes";
+import nlpReducer, { NlpAction, NlpState, UPDATE_NLPDATA } from "./nlpDuck";
 
 it("The nlp reducer updates the state of the nodes and links", () => {
   const initialState: NlpState = {

@@ -1,5 +1,15 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { NoteInfo, NoteListAction, UPDATE_NOTE_LIST } from "./noteListTypes";
+export const NOTE_LIST_STATE = "noteList";
+const UPDATE_NOTE_LIST = NOTE_LIST_STATE + "/UPDATE_NOTE_LIST";
+
+export interface NoteInfo {
+  title: string;
+}
+
+export interface NoteListAction {
+  type: typeof NOTE_LIST_STATE;
+  payload: NoteInfo[];
+}
 
 const initialState: NoteInfo[] = [];
 
@@ -18,4 +28,8 @@ export default function noteListReducer(state = initialState, action: NoteListAc
     default:
       return state;
   }
+}
+
+export function updateNoteList(noteListState: NoteInfo[]) {
+  return { type: UPDATE_NOTE_LIST, payload: noteListState };
 }

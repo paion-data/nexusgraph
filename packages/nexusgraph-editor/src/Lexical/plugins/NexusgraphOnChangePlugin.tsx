@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 
-import { UPDATE_NOTE_EDITOR_CONTENT } from "../../../../nexusgraph-redux";
+import { updateNoteEditorContent } from "../../../../nexusgraph-redux";
 
 /**
  * {@link NexusgraphOnChangePlugin} implements the real-time capturing of editor content.
@@ -27,7 +27,7 @@ export default function NexusgraphOnChangePlugin(): null {
 
   useEffect(() => {
     return editor.registerTextContentListener(() => {
-      dispatch({ type: UPDATE_NOTE_EDITOR_CONTENT, payload: editor.getEditorState() });
+      dispatch(updateNoteEditorContent(editor.getEditorState()));
     });
   }, []);
 

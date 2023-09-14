@@ -1,5 +1,18 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { NlpAction, NlpState, UPDATE_NLPDATA } from "./nlpTypes";
+import { Link, Node } from "../..";
+
+export const NLP_DATA = "nlpData";
+export const UPDATE_NLPDATA = NLP_DATA + "/UPDATE_NLPDATA";
+
+export interface NlpAction {
+  type: typeof UPDATE_NLPDATA;
+  payload: NlpState;
+}
+
+export interface NlpState {
+  nodes: Node[];
+  links: Link[];
+}
 
 export const initialState: NlpState = {
   nodes: [],
@@ -27,4 +40,8 @@ export default function nlpReducer(state = initialState, action: NlpAction): Nlp
     default:
       return state;
   }
+}
+
+export function updateNlpData(nlpState: NlpState) {
+  return { type: UPDATE_NLPDATA, payload: nlpState };
 }

@@ -1,5 +1,16 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { OAuthAction, OAuthState, UPDATE_OAUTH_STATE } from "./oAuthType";
+export const OAUTH_STATE = "oAuth";
+const UPDATE_OAUTH_STATE = OAUTH_STATE + "/UPDATE_OAUTH_STATE";
+
+export interface OAuthState {
+  accessToken: string;
+  userInfo: object;
+}
+
+export interface OAuthAction {
+  type: typeof OAUTH_STATE;
+  payload: OAuthState;
+}
 
 const initialState: OAuthState = {
   accessToken: "initialState token",
@@ -13,4 +24,8 @@ export default function oAuthReducer(state = initialState, action: OAuthAction):
     default:
       return state;
   }
+}
+
+export function updateOAuthState(oAuthState: OAuthState) {
+  return { type: UPDATE_OAUTH_STATE, payload: oAuthState };
 }

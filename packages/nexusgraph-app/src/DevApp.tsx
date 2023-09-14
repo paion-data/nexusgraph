@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useDispatch } from "react-redux";
-import { OAuthState, UPDATE_OAUTH_STATE } from "../../nexusgraph-redux/src/oAuth/oAuthType";
+import { OAuthState, updateOAuthState } from "../../nexusgraph-redux";
 import App from "./App";
 
 export default function DevApp(): JSX.Element {
@@ -11,7 +11,7 @@ export default function DevApp(): JSX.Element {
     userInfo: {},
   };
 
-  dispatch({ type: UPDATE_OAUTH_STATE, payload: devOAuthState });
+  dispatch(updateOAuthState(devOAuthState));
 
   return <App />;
 }

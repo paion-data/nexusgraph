@@ -12,7 +12,7 @@ import {
 } from "@heroicons/react/24/solid";
 
 import { useDispatch } from "react-redux";
-import { CREATE_NEW_NOTE } from "../../../nexusgraph-redux";
+import { createNewNote } from "../../../nexusgraph-redux";
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
 import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
 
@@ -66,7 +66,7 @@ export function EditorButtonGroup(): JSX.Element {
       <EditorMenuDrawer data-testid={`editorMenuDrawer`} isOpen={menuExpanded} width={"5%"}>
         <>
           <div className="topButton">
-            <button className="plus" onClick={() => dispatch({ type: CREATE_NEW_NOTE })}>
+            <button className="plus" onClick={() => dispatch(createNewNote())}>
               <PlusIcon />
             </button>
             <button className="squares">
