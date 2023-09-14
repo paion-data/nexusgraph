@@ -8,7 +8,7 @@ export const UPDATE_NOTE_EDITOR_CONTENT = NOTE_STATE + "/UPDATE_NOTE_EDITOR_CONT
 export const CREATE_NEW_NOTE = NOTE_STATE + "/CREATE_NEW_NOTE";
 
 export interface NoteState {
-  id: string;
+  id?: string;
   editorContent: object;
   graph: Graph;
 }

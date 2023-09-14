@@ -62,7 +62,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
   }
 
   private isInitialSave(note: NoteState) {
-    return note.id === "";
+    return note.id === undefined;
   }
 
   private transformData(note: NoteState) {
