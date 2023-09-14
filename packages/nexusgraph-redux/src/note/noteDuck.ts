@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { GlobalState } from "../globalState";
 import { CREATE_NEW_NOTE, NoteState, UPDATE_NOTE_EDITOR_CONTENT, UPDATE_NOTE_GRAPH, UPDATE_NOTE_ID } from "./noteTypes";
 
-const initialEditorContent: object = {
+export const initialEditorContent: object = {
   root: {
     children: [
       {
@@ -30,6 +30,8 @@ const initialState: NoteState = {
 };
 
 export function selectNote() {
+  console.log(useSelector((state: GlobalState) => JSON.stringify(state.note.editorContent)));
+  
   return useSelector((state: GlobalState) => state.note);
 }
 
