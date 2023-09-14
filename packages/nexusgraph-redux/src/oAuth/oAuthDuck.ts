@@ -7,7 +7,7 @@ export interface OAuthState {
   userInfo: object;
 }
 
-export interface OAuthAction {
+interface OAuthAction {
   type: typeof OAUTH_STATE;
   payload: OAuthState;
 }

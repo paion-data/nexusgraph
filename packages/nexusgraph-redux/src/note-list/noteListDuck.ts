@@ -6,7 +6,7 @@ export interface NoteInfo {
   title: string;
 }
 
-export interface NoteListAction {
+interface NoteListAction {
   type: typeof NOTE_LIST_STATE;
   payload: NoteInfo[];
 }

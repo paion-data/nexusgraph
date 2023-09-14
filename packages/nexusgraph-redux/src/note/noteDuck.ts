@@ -15,9 +15,9 @@ export interface NoteState {
   graph: Graph;
 }
 
-export interface NoteAction {
+interface NoteAction {
   type: typeof NOTE_STATE;
-  payload: string;
+  payload: any;
 }
 
 export const initialEditorContent: object = {
@@ -54,7 +54,7 @@ export function selectNote() {
   return useSelector((state: GlobalState) => state.note);
 }
 
-export default function noteReducer(state = initialState, action: any): NoteState {
+export default function noteReducer(state = initialState, action: NoteAction): NoteState {
   switch (action.type) {
     case UPDATE_NOTE_GRAPH:
       return {
