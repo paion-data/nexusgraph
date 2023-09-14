@@ -71,7 +71,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
       type: "note",
       id: note.id,
       attributes: {
-        graph: note.graph,
+        graph: JSON.stringify(note.graph),
         editorContent: JSON.stringify(note.editorContent),
       },
     });
