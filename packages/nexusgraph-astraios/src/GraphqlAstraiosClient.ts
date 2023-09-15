@@ -30,8 +30,6 @@ export class GraphQlClient implements AstraiosClient {
 `,
       })
       .then((response) => {
-        console.log("response2", response.data.data["query"]["edges"]);
-
         return response.data.data["query"]["edges"];
       });
   }
