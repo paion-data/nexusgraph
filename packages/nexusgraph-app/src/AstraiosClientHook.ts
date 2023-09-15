@@ -15,7 +15,7 @@ import { container, TYPES } from "../inversify.config";
 
 export default function useAstraiosClientHook() {
   const dispatch = useDispatch();
-  const noteState: NoteState = selectNote();
+  const noteState: NoteState | undefined = selectNote();
   const accessToken = useSelector((state: GlobalState) => state.oAuth.accessToken);
   const noteList = useSelector((state: GlobalState) => state.noteList.length);
 
@@ -26,11 +26,14 @@ export default function useAstraiosClientHook() {
       astraiosClient.getNoteList().then((response) => {
         dispatch(updateNoteList(response));
         astraiosClient.getFirstNote(response[0].id).then((response) => {
-          astraiosClient.saveOrUpdate(response, accessToken).then((response) => {
-            dispatch(updateNoteId(response.id));
-            dispatch(updateNoteEditorContent(response.editorContent));
-            dispatch(updateNoteGraph(response.graph));
-          });
+          console.log("getFirstNote response", response);
+
+          dispatch(updateNoteId(response.id));
+          dispatch(updateNoteEditorContent(response.editorContent));
+          dispatch(updateNoteGraph(response.graph));
+          // astraiosClient.saveOrUpdate(response, accessToken).then((response) => {
+
+          // });
         });
       });
     }
