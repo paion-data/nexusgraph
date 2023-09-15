@@ -1,10 +1,11 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 
-import { updateNoteEditorContent } from "../../../../nexusgraph-redux";
+import { EditorState } from "lexical";
+import { GlobalState, updateNoteEditorContent } from "../../../../nexusgraph-redux";
 
 /**
  * {@link NexusgraphOnChangePlugin} implements the real-time capturing of editor content.
@@ -28,6 +29,11 @@ export default function NexusgraphOnChangePlugin(): null {
   useEffect(() => {
     return editor.registerTextContentListener(() => {
       dispatch(updateNoteEditorContent(editor.getEditorState()));
+      editor.setEditorState(
+        useSelector((state: GlobalState) => {
+          return state.note.editorContent as EditorState;
+        })
+      );
     });
   }, []);
 

@@ -10,7 +10,7 @@ export default function useReduxHook() {
   const dispatch = useDispatch();
   const noteState: NoteState = selectNote();
 
-  const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosStorageProcessor);
+  const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
   const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
     TYPES.NaturalLanguageProcessor
   );

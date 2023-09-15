@@ -30,7 +30,34 @@ export class GraphQlClient implements AstraiosClient {
 `,
       })
       .then((response) => {
-        return response.data.data["query"]["edges"];
+        const noteList = response.data.data["query"]["edges"].map(
+          (object: { node: { id: string; title: string } }) => object["node"]
+        );
+        return noteList;
+      });
+  }
+
+  public getFirstNote(noteId: string) {
+    return axios
+      .post(process.env.ASTRAIOS_API_ENDPOINT as string, {
+        query: ` 
+        {
+          query:
+          note(ids: ["${noteId}"]) {
+            edges 
+            {
+              node {
+                id
+                graph
+                editorContent
+              }
+            }
+          }
+        }
+`,
+      })
+      .then((response) => {
+        return response.data.data["query"]["edges"][0]["node"];
       });
   }
 
@@ -67,8 +94,8 @@ export class GraphQlClient implements AstraiosClient {
           mutation {
             note(op: UPSERT, data: {
               id: ${note.id},
-              graph: "${JSON.stringify(note.graph).replace(/"/g, "'")}",
-              editorContent: "${JSON.stringify(note.editorContent).replace(/"/g, "'")}"
+              graph: "${note.graph}",
+              editorContent: "${note.editorContent}"
             }) {
               edges {
                 node {

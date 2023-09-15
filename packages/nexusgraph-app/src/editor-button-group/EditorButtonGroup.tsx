@@ -11,10 +11,12 @@ import {
   WindowIcon as WindowIconSolid,
 } from "@heroicons/react/24/solid";
 
-import { useDispatch } from "react-redux";
-import { createNewNote } from "../../../nexusgraph-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { createNewNote, GlobalState } from "../../../nexusgraph-redux";
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
 import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
+
+const NOTE_STORAGE_API_URL_PARAMETER = "note/";
 
 /**
  * Editor button group
@@ -36,18 +38,13 @@ export function EditorButtonGroup(): JSX.Element {
   const ViewColumnsIcon = (): JSX.Element => <ViewColumnsIconSolid />;
 
   const dispatch = useDispatch();
+  const noteList = useSelector((state: GlobalState) => state.noteList);
 
-  const directories = [
-    {
-      name: "目录1",
-    },
-    {
-      name: "目录2",
-    },
-    {
-      name: "目录3",
-    },
-  ];
+  if (noteList[0]) {
+    // getFirstNote(noteList[0].id).then((response) => {
+    //   //dispatch first note
+    // });
+  }
 
   return (
     <>
@@ -73,9 +70,9 @@ export function EditorButtonGroup(): JSX.Element {
               <Squares2X2Icon />
               <DirectoryDropdownList data-testid={"directoryList"}>
                 <DirectoryDropdownContent>
-                  {directories.map(({ name }) => (
-                    <DropdownItem data-testid={`${name}`} key={name}>
-                      {name}
+                  {noteList.map(({ title }) => (
+                    <DropdownItem data-testid={`${title}`} key={title}>
+                      {title}
                     </DropdownItem>
                   ))}
                 </DirectoryDropdownContent>
