@@ -7,19 +7,13 @@ import { AstraiosClient } from "./AstraiosClient";
 
 @injectable()
 export class GraphQlClient implements AstraiosClient {
-  updateNote: boolean;
-
-  constructor() {
-    this.updateNote = false;
-  }
-
   public saveOrUpdate(astraiosState: NoteState, token: string) {
     return this.sendNoteRequest(astraiosState, token);
   }
 
   public getNoteList() {
     return axios
-      .post(process.env.ASTRAIOS_GRAPHQL_ENDPOINT as string, {
+      .post(process.env.ASTRAIOS_API_ENDPOINT as string, {
         query: ` 
         {
           query:
@@ -45,7 +39,7 @@ export class GraphQlClient implements AstraiosClient {
   private async sendNoteRequest(note: NoteState, token: string): Promise<any> {
     if (this.isInitialSave(note)) {
       return axios
-        .post(process.env.ASTRAIOS_GRAPHQL_ENDPOINT as string, {
+        .post(process.env.ASTRAIOS_API_ENDPOINT as string, {
           query: ` 
           mutation {
             note(op: UPSERT, data: {
@@ -70,7 +64,7 @@ export class GraphQlClient implements AstraiosClient {
     }
 
     return axios
-      .post(process.env.ASTRAIOS_GRAPHQL_ENDPOINT as string, {
+      .post(process.env.ASTRAIOS_API_ENDPOINT as string, {
         query: ` 
           mutation {
             note(op: UPSERT, data: {

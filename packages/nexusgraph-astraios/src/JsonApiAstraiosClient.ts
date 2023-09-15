@@ -44,7 +44,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
 
     if (this.isInitialSave(note)) {
       return axios
-        .post((process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER, { data }, config)
+        .post((process.env.ASTRAIOS_API_ENDPOINT as string) + NOTE_STORAGE_API_URL_PARAMETER, { data }, config)
         .then((response) => {
           const noteState = {
             ...note,
@@ -55,7 +55,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
     }
 
     return axios.patch(
-      (process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER + note.id,
+      (process.env.ASTRAIOS_API_ENDPOINT as string) + NOTE_STORAGE_API_URL_PARAMETER + note.id,
       { data },
       config
     );
