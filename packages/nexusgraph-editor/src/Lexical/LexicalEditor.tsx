@@ -20,6 +20,7 @@ import { useSelector } from "react-redux";
 import { GlobalState } from "../../../nexusgraph-redux";
 import styles from "./LexicalEditor.module.css";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
+import EditorContentUpdatePlugin from "./plugins/EditorContentUpdatePlugin";
 import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import { Paragraph } from "./plugins/ToolbarPlugin/styled";
@@ -53,9 +54,6 @@ export default function LexicalEditor(): JSX.Element {
     ],
   };
 
-  // editorConfig.editorState =  JSON.stringify(editor)
-  console.log("editorConfig.editorState ", editorConfig.editorState);
-
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className={styles["editor-container"]}>
@@ -71,6 +69,7 @@ export default function LexicalEditor(): JSX.Element {
           <CheckListPlugin />
           <CodeHighlightPlugin />
           <OnChangePlugin />
+          <EditorContentUpdatePlugin />
           <ListPlugin />
           <LinkPlugin />
         </Paragraph>
