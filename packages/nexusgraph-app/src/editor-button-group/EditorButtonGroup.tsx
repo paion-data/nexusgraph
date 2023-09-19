@@ -40,12 +40,6 @@ export function EditorButtonGroup(): JSX.Element {
   const dispatch = useDispatch();
   const noteList = useSelector((state: GlobalState) => state.noteList);
 
-  if (noteList[0]) {
-    // getFirstNote(noteList[0].id).then((response) => {
-    //   //dispatch first note
-    // });
-  }
-
   return (
     <>
       <EditorMenuExpandButton
@@ -70,9 +64,9 @@ export function EditorButtonGroup(): JSX.Element {
               <Squares2X2Icon />
               <DirectoryDropdownList data-testid={"directoryList"}>
                 <DirectoryDropdownContent>
-                  {noteList.map(({ title }) => (
-                    <DropdownItem data-testid={`${title}`} key={title}>
-                      {title}
+                  {noteList.map((note) => (
+                    <DropdownItem data-testid={`${note.title}`} key={note.title}>
+                      {note.title}
                     </DropdownItem>
                   ))}
                 </DirectoryDropdownContent>

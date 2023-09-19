@@ -63,8 +63,7 @@ export default class EditorContentParser {
    */
   public parse(jsonObject: any): string[] {
     const lines: string[] = [];
-
-    JSON.parse(jsonObject).root.children.forEach((lineChild: any) => {
+    jsonObject.root.children.forEach((lineChild: any) => {
       const line: string = this.parseLine(lineChild);
       if (line.length > 0) {
         lines.push(this.parseLine(lineChild));

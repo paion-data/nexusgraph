@@ -7,7 +7,7 @@
  */
 
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { CommandPayloadType, createCommand, EditorState, LexicalEditor } from "lexical";
+import { CommandPayloadType, createCommand, LexicalEditor } from "lexical";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { GlobalState } from "../../../../nexusgraph-redux";
@@ -18,15 +18,12 @@ type Props = Readonly<{
 
 export default function EditorContentUpdatePlugin({ onClear }: Props): JSX.Element | null {
   const [editor] = useLexicalComposerContext();
-  const editorReduxState = useSelector((state: GlobalState) => state.note.editorContent as EditorState);
+  const editorReduxState: string = useSelector((state: GlobalState) => JSON.stringify(state.note.editorContent));
 
   const EDITOR_CONTENT_UPDATE = createCommand<any>();
 
   function handleMyCommand(editor: LexicalEditor, payload: CommandPayloadType<typeof EDITOR_CONTENT_UPDATE>) {
-    const newState = editor.parseEditorState(
-      '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"china","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
-      // JSON.stringify(editorReduxState),
-    );
+    const newState = editor.parseEditorState(JSON.parse(editorReduxState));
     editor.setEditorState(newState);
   }
 
@@ -40,7 +37,7 @@ export default function EditorContentUpdatePlugin({ onClear }: Props): JSX.Eleme
       0
     );
     editor.dispatchCommand(EDITOR_CONTENT_UPDATE, undefined);
-  }, []);
+  }, [editorReduxState]);
 
   return null;
 }

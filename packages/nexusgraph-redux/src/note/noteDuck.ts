@@ -51,7 +51,7 @@ const initialState: NoteState = {
 };
 
 export function selectNote() {
-  return useSelector((state: GlobalState) => (state.note == initialState ? undefined : state.note));
+  return useSelector((state: GlobalState) => state.note);
 }
 
 export default function noteReducer(state = initialState, action: NoteAction): NoteState {
