@@ -1,5 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
 import { AutoLinkNode, LinkNode } from "@lexical/link";
 import { ListItemNode, ListNode } from "@lexical/list";
@@ -15,9 +14,6 @@ import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
 
-import { EditorState } from "lexical";
-import { useSelector } from "react-redux";
-import { GlobalState } from "../../../nexusgraph-redux";
 import styles from "./LexicalEditor.module.css";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
 import EditorContentUpdatePlugin from "./plugins/EditorContentUpdatePlugin";
@@ -27,10 +23,7 @@ import { Paragraph } from "./plugins/ToolbarPlugin/styled";
 import ExampleTheme from "./themes/ExampleTheme";
 
 export default function LexicalEditor(): JSX.Element {
-  const editor = useSelector((state: GlobalState) => state.note.editorContent as EditorState);
-
   const editorConfig: InitialConfigType = {
-    editorState: JSON.stringify(editor),
     // The editor theme
     namespace: "editor",
     theme: ExampleTheme,
