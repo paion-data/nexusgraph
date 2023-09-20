@@ -20,7 +20,7 @@ export default function ProdApp(): JSX.Element {
 
   const prodOAuthState = {
     accessToken: "",
-    userInfo: {},
+    userInfo: { sub: "prodUserId" },
   };
 
   useEffect(() => {

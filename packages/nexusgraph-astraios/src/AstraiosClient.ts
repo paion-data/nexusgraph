@@ -10,6 +10,6 @@ export interface AstraiosClient {
    * Get and update note data and send a request to WS to store note
    */
   saveOrUpdate(astraiosState: NoteState, token: string): Promise<NoteState>;
-  getNoteList(): Promise<NoteInfo[]>;
+  getNoteList(userId: string): Promise<NoteInfo[]>;
   getFirstNote(noteId: string): Promise<NoteState>;
 }

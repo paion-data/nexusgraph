@@ -11,13 +11,13 @@ export class GraphQlClient implements AstraiosClient {
     return this.sendNoteRequest(astraiosState, token);
   }
 
-  public getNoteList() {
+  public getNoteList(userId: string) {
     return axios
       .post(process.env.ASTRAIOS_API_ENDPOINT as string, {
         query: ` 
         {
           query:
-          note {
+          note (filter: \"userId==${userId}\"){
             edges 
             {
               node {
@@ -27,7 +27,7 @@ export class GraphQlClient implements AstraiosClient {
             }
           }
         }
-`,
+      `,
       })
       .then((response) => {
         const noteList = response.data.data["query"]["edges"].map((object: { node: { id: string; title: string } }) => {
@@ -68,8 +68,8 @@ export class GraphQlClient implements AstraiosClient {
           query: ` 
           mutation {
             note(op: UPSERT, data: {
-              graph: "${note.graph}",
-              editorContent: "${note.editorContent}"
+              graph: \"${note.graph}\",
+              editorContent: \"${note.editorContent}\"
             }) {
               edges {
                 node {
@@ -94,8 +94,8 @@ export class GraphQlClient implements AstraiosClient {
           mutation {
             note(op: UPSERT, data: {
               id: ${note.id},
-              graph: "${note.graph}",
-              editorContent: "${note.editorContent}"
+              graph: \"${note.graph}\",
+              editorContent: \"${note.editorContent}\"
             }) {
               edges {
                 node {

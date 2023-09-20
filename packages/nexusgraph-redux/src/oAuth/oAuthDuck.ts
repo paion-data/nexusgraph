@@ -4,7 +4,7 @@ const UPDATE_OAUTH_STATE = OAUTH_STATE + "/UPDATE_OAUTH_STATE";
 
 export interface OAuthState {
   accessToken: string;
-  userInfo: object;
+  userInfo: object & { sub: string };
 }
 
 interface OAuthAction {
@@ -13,8 +13,8 @@ interface OAuthAction {
 }
 
 const initialState: OAuthState = {
-  accessToken: "initialState token",
-  userInfo: {},
+  accessToken: "initialToken",
+  userInfo: { sub: "initialUserId" },
 };
 
 export default function oAuthReducer(state = initialState, action: OAuthAction): OAuthState {
