@@ -6,6 +6,7 @@ declare module "*.svg" {
 
 declare module "*.css";
 declare module "*.less";
+declare module 'redux-async-initial-state'
 
 interface Window {
   Cypress?: unknown;

@@ -62,7 +62,7 @@ export default class EditorContentParser {
    * @returns a new list of editor lines
    */
   public parse(jsonObject: any): string[] {
-    const lines: string[] = [];
+    const lines: string[] = [];    
     jsonObject.root.children.forEach((lineChild: any) => {
       const line: string = this.parseLine(lineChild);
       if (line.length > 0) {

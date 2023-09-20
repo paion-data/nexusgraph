@@ -3,7 +3,7 @@ export type { GlobalState } from "./src/globalState";
 export * from "./src/nlp/nlpDuck";
 export * from "./src/note/noteDuck";
 export * from "./src/oAuth/oAuthDuck";
-export { default as ReduxStore } from "./src/StoreProvider";
+export { default as ReduxStoreProvider } from "./src/ReduxStoreProvider";
 
 export interface Node {
   fields: Record<string, string>;

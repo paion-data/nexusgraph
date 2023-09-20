@@ -2504,6 +2504,7 @@ __metadata:
     react-router-dom: ^6.8.1
     react-test-renderer: ^18.2.0
     redux: ^3.7.2
+    redux-async-initial-state: ^0.3.0
     style-loader: ^3.3.1
     styled-components: ^5.3.9
     svg-url-loader: ^8.0.0
@@ -10959,6 +10960,13 @@ __metadata:
     indent-string: ^4.0.0
     strip-indent: ^3.0.0
   checksum: fa1ef20404a2d399235e83cc80bd55a956642e37dd197b4b612ba7327bf87fa32745aeb4a1634b2bab25467164ab4ed9c15be2c307923dd08b0fe7c52431ae6b
+  languageName: node
+  linkType: hard
+
+"redux-async-initial-state@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "redux-async-initial-state@npm:0.3.0"
+  checksum: 8dd50ab67b2d61848e2f35716d01a9fa2f193a5334709cb5f71f6144dfea25d6cf1cc9bb3480012588316ebe8f2db252ef34410654e6e4d8281b2a476ec4a9b9
   languageName: node
   linkType: hard
 

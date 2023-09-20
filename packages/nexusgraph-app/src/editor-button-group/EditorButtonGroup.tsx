@@ -65,7 +65,7 @@ export function EditorButtonGroup(): JSX.Element {
               <DirectoryDropdownList data-testid={"directoryList"}>
                 <DirectoryDropdownContent>
                   {noteList.map((note) => (
-                    <DropdownItem data-testid={`${note.title}`} key={note.title}>
+                    <DropdownItem data-testid={`${note.title}`} key={note.id}>
                       {note.title}
                     </DropdownItem>
                   ))}

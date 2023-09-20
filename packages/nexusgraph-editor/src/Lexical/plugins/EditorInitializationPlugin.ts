@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { GlobalState } from "../../../../nexusgraph-redux";
 
-export default function EditorContentUpdatePlugin(): JSX.Element | null {
+export default function EditorInitializationPlugin(): JSX.Element | null {
   const [editor] = useLexicalComposerContext();
   const editorReduxState: string = useSelector((state: GlobalState) => JSON.stringify(state.note.editorContent));
 
@@ -26,7 +26,7 @@ export default function EditorContentUpdatePlugin(): JSX.Element | null {
       0
     );
     editor.dispatchCommand(EDITOR_CONTENT_UPDATE, undefined);
-  }, [editorReduxState]);
+  }, []);
 
   return null;
 }
