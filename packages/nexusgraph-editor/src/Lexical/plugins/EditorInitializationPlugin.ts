@@ -8,24 +8,28 @@ import { GlobalState } from "../../../../nexusgraph-redux";
 export default function EditorInitializationPlugin(): JSX.Element | null {
   const [editor] = useLexicalComposerContext();
   const editorReduxState: string = useSelector((state: GlobalState) => JSON.stringify(state.note.editorContent));
+  
+  console.log("editorReduxState", editorReduxState);
 
   const EDITOR_CONTENT_UPDATE = createCommand<any>();
 
-  function updateEditorState(editor: LexicalEditor, payload: CommandPayloadType<typeof EDITOR_CONTENT_UPDATE>) {
-    const newState = editor.parseEditorState(JSON.parse(editorReduxState));
-    editor.setEditorState(newState);
-  }
+  // function updateEditorState(editor: LexicalEditor, payload: CommandPayloadType<typeof EDITOR_CONTENT_UPDATE>) {
+  //   const newState = editor.parseEditorState(JSON.parse(editorReduxState));
+  //   editor.setEditorState(newState);
+  // }
 
   useEffect(() => {
-    editor.registerCommand(
-      EDITOR_CONTENT_UPDATE,
-      (payload) => {
-        updateEditorState(editor, payload);
-        return true;
-      },
-      0
-    );
-    editor.dispatchCommand(EDITOR_CONTENT_UPDATE, undefined);
+    const newState = editor.parseEditorState(JSON.parse(editorReduxState));
+    editor.setEditorState(newState);
+    // editor.registerCommand(
+    //   EDITOR_CONTENT_UPDATE,
+    //   (payload) => {
+    //     updateEditorState(editor, payload);
+    //     return true;
+    //   },
+    //   0
+    // );
+    // editor.dispatchCommand(EDITOR_CONTENT_UPDATE, undefined);
   }, []);
 
   return null;

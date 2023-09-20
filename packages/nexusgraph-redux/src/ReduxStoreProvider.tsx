@@ -7,8 +7,7 @@ import { GlobalState } from './globalState';
 import { NoteState } from './note/noteDuck';
 import { NoteInfo } from './note-list/noteListDuck';
 import { OAuthState } from './oAuth/oAuthDuck';
-import { AstraiosClient } from '../../nexusgraph-astraios';
-import { TYPES, container } from '../../nexusgraph-app/inversify.config';
+import { Graph } from '..';
 
 interface ReduxChildren {
   children: React.ReactNode;
@@ -16,6 +15,41 @@ interface ReduxChildren {
   initialNoteList: Promise<NoteInfo[]>,
   initialOAuthState?: OAuthState,
 }
+
+const initialEditorContent: object = {
+  root: {
+    children: [
+      {
+        children: [
+          {
+            detail: 0,
+            format: 0,
+            mode: "normal",
+            style: "",
+            text: "China",
+            type: "text",
+            version: 1,
+          },
+        ],
+        direction: "ltr",
+        format: "",
+        indent: 0,
+        type: "paragraph",
+        version: 1,
+      },
+    ],
+    direction: "ltr",
+    format: "",
+    indent: 0,
+    type: "root",
+    version: 1,
+  },
+}
+
+const initialGraph: Graph = {
+  nodes: [{id: "8", fields: {}}, {id: "2", fields: {}}],
+  links: [],
+};
 
 const ReduxStoreProvider = (props: ReduxChildren) => {
 
@@ -25,12 +59,24 @@ const ReduxStoreProvider = (props: ReduxChildren) => {
   }));
 
   const loadStore = (): Promise<GlobalState> => {
-    new Promise(function(resolve) {
+    return new Promise(function(resolve) {
       resolve({
-        [nlpData]: NlpState;
-        [note]: NoteState;
-        [oAuth]: OAuthState;
-        [noteList]: NoteInfo[];
+        nlpData: {
+          nodes: [{id: "8", fields: {}}, {id: "2", fields: {}}],
+          links: [],
+        },
+        note: {
+          editorContent: initialEditorContent,
+          graph: initialGraph,
+        },
+        oAuth: {
+          accessToken: "dev token",
+          userInfo: {},
+        },
+        noteList: [
+          {id:"1", title: "First note"},
+          {id:"2", title: "Second note"}
+        ],
       });
     })
   }
@@ -40,9 +86,6 @@ const ReduxStoreProvider = (props: ReduxChildren) => {
     reducer,
     compose(applyMiddleware(asyncInitialState.middleware(loadStore)))
   );
-  // const {dispatch , getState} = store
-
-  // asyncInitialState.middleware(load)(store)(dispatch)
   console.log("store.getState()", store.getState());
 
 

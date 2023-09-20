@@ -2,15 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
-import {
-  GlobalState,
-  NoteState,
-  selectNote,
-  updateNoteEditorContent,
-  updateNoteGraph,
-  updateNoteId,
-} from "../../nexusgraph-redux";
-import { updateNoteList } from "../../nexusgraph-redux/src/note-list/noteListDuck";
+import { GlobalState, NoteState, selectNote } from "../../nexusgraph-redux";
 import { container, TYPES } from "../inversify.config";
 
 export default function useAstraiosClientHook() {

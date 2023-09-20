@@ -10,16 +10,14 @@ import ProdApp from "./ProdApp";
  */
 export default function AppInit(): JSX.Element {
   if (process.env.NODE_ENV == "development") {
-    return (
-        <DevApp />
-    );
+    return <DevApp />;
   }
 
   if (process.env.NODE_ENV == "production") {
     return (
-        <OAuth2Provider>
-          <ProdApp />
-        </OAuth2Provider>
+      <OAuth2Provider>
+        <ProdApp />
+      </OAuth2Provider>
     );
   }
 
