@@ -1,47 +1,74 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { NoteState, OAuthState, updateOAuthState } from "../../nexusgraph-redux";
+import { OAuthState } from "../../nexusgraph-redux";
 import ReduxStoreProvider from "../../nexusgraph-redux/src/ReduxStoreProvider"
 import App from "./App";
-import { AstraiosClient } from "../../nexusgraph-astraios";
-import { TYPES, container } from "../inversify.config";
 
 export default function DevApp(): JSX.Element {
-  // const [initialNoteList, setInitialNoteList] = useState<NoteInfo[]>([])
-  // const [initialNote, setinitialNote] = useState<NoteState>()
-
   const devOAuthState: OAuthState = {
     accessToken: "dev token",
     userInfo: {},
   };
 
-  const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
+  const initialNotesMeta = [
+    {
+      id: "69D1duHfSWY11gKc",
+      title: "China"
+    },
+    {
+      id: "2Lx1kN5szeSQl1Nl",
+      title: "US"
+    }
+  ]
 
-
-
-  // useEffect(() => {
-  //   async function getInitialState() {
-  //     await astraiosClient.getNoteList().then(async (response) => {
-  //       setInitialNoteList(response)
-  //       await astraiosClient.getFirstNote(response[0].id).then((response) => {
-  //         setinitialNote(response)
-  //       })
-  //     })
-  //   }
-  //   getInitialState()
-  // }, [])
-
-  function getFirstNode(){
-    return astraiosClient.getNoteList().then((response) => {
-       return astraiosClient.getFirstNote(response[0].id).then((response) => {
-        return response
-      })
-    })
-  } 
+  const initialNote = {
+    id: "69D1duHfSWY11gKc",
+    editorContent: {
+      "root":{
+        "children":[
+           {
+              "children":[
+                 {
+                    "detail":0,
+                    "format":0,
+                    "mode":"normal",
+                    "style":"",
+                    "text":"China",
+                    "type":"text",
+                    "version":1
+                 }
+              ],
+              "direction":"ltr",
+              "format":"",
+              "indent":0,
+              "type":"paragraph",
+              "version":1
+           }
+        ],
+        "direction":"ltr",
+        "format":"",
+        "indent":0,
+        "type":"root",
+        "version":1
+     }
+    },
+    graph: {
+      nodes: [],
+      links: []
+    }
+  }
 
   return (
     <ReduxStoreProvider
-      initialNoteList={astraiosClient.getNoteList()}
-      initialNoteState={getFirstNode()}
+      initialNoteList = { 
+        new Promise(function(resolve) {
+          resolve(initialNotesMeta);
+        })
+       }
+      initialNoteState = {
+        new Promise(function(resolve) {
+          resolve(initialNote);
+        })
+      }
       initialOAuthState={devOAuthState}
     >
       <App />
