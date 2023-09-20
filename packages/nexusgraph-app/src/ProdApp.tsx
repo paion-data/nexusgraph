@@ -29,7 +29,7 @@ export default function ProdApp(): JSX.Element {
         prodOAuthState["accessToken"] = token;
         fetchUserInfo().then((userInfo) => {
           if (userInfo) {
-            prodOAuthState["userInfo"] = userInfo;
+            prodOAuthState["userInfo"]["sub"] = userInfo["sub"];
             dispatch(updateOAuthState(prodOAuthState));
           }
         });

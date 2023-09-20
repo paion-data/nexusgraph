@@ -24,7 +24,7 @@ export default function useReduxHook() {
         //     dispatch(updateNoteId(response.id));
         // });
 
-        if (noteState && noteState.editorContent != initialEditorContent) {
+        if (noteState && noteState.editorContent !== initialEditorContent) {
           remoteNaturalLanguageProcessor.entityExtraction(noteState.editorContent).then((NlpState) => {
             dispatch(updateNlpData(NlpState));
           });

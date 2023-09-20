@@ -15,7 +15,9 @@ export default function EditorInitializationPlugin(): JSX.Element | null {
 
   useEffect(() => {
     getFirstNoteContent().then((editorContent) => {
-      const newState = editor.parseEditorState(JSON.parse(JSON.stringify(editorContent)));
+      console.log("getFirstNoteContent", typeof editorContent);
+
+      const newState = editor.parseEditorState(JSON.stringify(editorContent));
       editor.setEditorState(newState);
     });
   }, []);
@@ -23,7 +25,7 @@ export default function EditorInitializationPlugin(): JSX.Element | null {
   function getFirstNoteContent(): Promise<object> {
     return astraiosClient.getNoteList(userId).then((noteList) => {
       return astraiosClient.getFirstNote(noteList[0].id).then((firstNote) => {
-        return firstNote.editorContent;
+        return JSON.parse(firstNote.editorContent);
       });
     });
   }

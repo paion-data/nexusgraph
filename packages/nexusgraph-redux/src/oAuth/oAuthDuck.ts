@@ -4,7 +4,7 @@ const UPDATE_OAUTH_STATE = OAUTH_STATE + "/UPDATE_OAUTH_STATE";
 
 export interface OAuthState {
   accessToken: string;
-  userInfo: object & { sub: string };
+  userInfo: { sub: string };
 }
 
 interface OAuthAction {
