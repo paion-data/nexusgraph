@@ -19,45 +19,26 @@ interface ReduxChildren {
 
 const ReduxStoreProvider = (props: ReduxChildren) => {
 
-  const reducer = asyncInitialState.outerReducer(combineReducers<GlobalState>({ ...(rootReducers as any), asyncInitialState: asyncInitialState.innerReducer }));
-  // const loadStore = () => {
-  //   let preloadedState: Partial<GlobalState> = {};
-  //   return props.initialNoteList.then((response) => {
-  //     preloadedState.noteList = response
-  //     return props.initialNoteState.then((response) => {
-  //       preloadedState.note = response
-  //       return preloadedState
-  //     })
-  //   }, () => { })
-  // }
+  const reducer = asyncInitialState.outerReducer(combineReducers<GlobalState>({
+    ...(rootReducers as any),
+    asyncInitialState: asyncInitialState.innerReducer
+  }));
 
-  const loadStore2 = (): Promise<Partial<GlobalState>> => {
-    return new Promise(resolve => {
-      let preloadedState: Partial<GlobalState> = {};
-      return props.initialNoteList.then(response => {
-        preloadedState.noteList = response
-        return props.initialNoteState.then((response) => {
-          preloadedState.note = response
-          return preloadedState
-        })
-      })
-        .then(resolve);
-    });
+  const loadStore = (): Promise<GlobalState> => {
+    new Promise(function(resolve) {
+      resolve({
+        [nlpData]: NlpState;
+        [note]: NoteState;
+        [oAuth]: OAuthState;
+        [noteList]: NoteInfo[];
+      });
+    })
   }
 
-  // const load = () => Promise.resolve({
-  //   "noteList": [{ id: "1", title: "title" }]
-  // } as Partial<GlobalState>);
-
-  // const load = (state: Partial<GlobalState>) => new Promise(resolve => {
-  //   resolve(Object.assign(state, {
-  //     noteList: [{ id: "1", title: "title" }],
-  //   }));
-  // });
 
   const store = createStore(
     reducer,
-    compose(applyMiddleware(asyncInitialState.middleware(loadStore2)))
+    compose(applyMiddleware(asyncInitialState.middleware(loadStore)))
   );
   // const {dispatch , getState} = store
 
