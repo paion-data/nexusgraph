@@ -7,6 +7,8 @@ import { fireEvent, render } from "@testing-library/react";
 import { ReduxStoreProvider } from "../../../../../nexusgraph-redux";
 import LexicalEditor from "../../LexicalEditor";
 
+jest.mock("../EditorInitializationPlugin");
+
 test("Button disabled should be added", async () => {
   render(
     <ReduxStoreProvider>
