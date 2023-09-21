@@ -1,11 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
-
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
 import { AutoLinkNode, LinkNode } from "@lexical/link";
 import { ListItemNode, ListNode } from "@lexical/list";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
-import { LexicalComposer } from "@lexical/react/LexicalComposer";
+import { InitialConfigType, LexicalComposer } from "@lexical/react/LexicalComposer";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
@@ -17,36 +16,37 @@ import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
 
 import styles from "./LexicalEditor.module.css";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
+import EditorInitializationPlugin from "./plugins/EditorInitializationPlugin";
 import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import { Paragraph } from "./plugins/ToolbarPlugin/styled";
 import ExampleTheme from "./themes/ExampleTheme";
 
-export const editorConfig = {
-  // The editor theme
-  namespace: "editor",
-  theme: ExampleTheme,
-  // Handling of errors during update
-  onError(error: any) {
-    throw error;
-  },
-  // Any custom nodes go here
-  nodes: [
-    HeadingNode,
-    ListNode,
-    ListItemNode,
-    QuoteNode,
-    TableNode,
-    TableCellNode,
-    TableRowNode,
-    AutoLinkNode,
-    LinkNode,
-    CodeNode,
-    CodeHighlightNode,
-  ],
-};
-
 export default function LexicalEditor(): JSX.Element {
+  const editorConfig: InitialConfigType = {
+    // The editor theme
+    namespace: "editor",
+    theme: ExampleTheme,
+    // Handling of errors during update
+    onError(error: any) {
+      throw error;
+    },
+    // Any custom nodes go here
+    nodes: [
+      HeadingNode,
+      ListNode,
+      ListItemNode,
+      QuoteNode,
+      TableNode,
+      TableCellNode,
+      TableRowNode,
+      AutoLinkNode,
+      LinkNode,
+      CodeNode,
+      CodeHighlightNode,
+    ],
+  };
+
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className={styles["editor-container"]}>
@@ -62,6 +62,7 @@ export default function LexicalEditor(): JSX.Element {
           <CheckListPlugin />
           <CodeHighlightPlugin />
           <OnChangePlugin />
+          <EditorInitializationPlugin />
           <ListPlugin />
           <LinkPlugin />
         </Paragraph>

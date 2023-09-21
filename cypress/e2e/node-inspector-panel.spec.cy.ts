@@ -4,6 +4,7 @@ describe("Graph browser stats panel E2E tests", () => {
     if (Cypress.env("nodeEnv") == "production") {
       cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
     } else {
+      cy.intercept("POST", "http://localhost:8080/v1/data/", { fixture: "astraiosGraphqlResponse.json" }).wait(5000);
       cy.visit("http://localhost:8080/", { failOnStatusCode: false });
     }
 

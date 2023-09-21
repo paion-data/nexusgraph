@@ -13,8 +13,7 @@ import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
   public entityExtraction(editorContent: object): Promise<Graph> {
     const parser = new EditorContentParser();
-    const jsonObject = JSON.parse(JSON.stringify(editorContent));
-    const editorLines = parser.parse(jsonObject);
+    const editorLines = parser.parse(editorContent);
 
     return this.remoteEntityExtration(editorLines);
   }
