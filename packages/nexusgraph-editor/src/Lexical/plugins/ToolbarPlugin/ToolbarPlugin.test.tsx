@@ -4,14 +4,16 @@ import { screen } from "@testing-library/dom";
 import "@testing-library/jest-dom";
 import { fireEvent, render } from "@testing-library/react";
 
-import { ReduxStore } from "../../../../../nexusgraph-redux";
+import { ReduxStoreProvider } from "../../../../../nexusgraph-redux";
 import LexicalEditor from "../../LexicalEditor";
+
+jest.mock("../EditorInitializationPlugin");
 
 test("Button disabled should be added", async () => {
   render(
-    <ReduxStore>
+    <ReduxStoreProvider>
       <LexicalEditor />
-    </ReduxStore>
+    </ReduxStoreProvider>
   );
   const buttonList = ["Undo", "Redo"];
   for (let i = 0; i < buttonList.length; i++) {
@@ -21,9 +23,9 @@ test("Button disabled should be added", async () => {
 
 test("Button active should be added", async () => {
   render(
-    <ReduxStore>
+    <ReduxStoreProvider>
       <LexicalEditor />
-    </ReduxStore>
+    </ReduxStoreProvider>
   );
   const buttonList = [
     "Undo",
@@ -46,9 +48,9 @@ test("Button active should be added", async () => {
 
 test("OptionsButton text should be added", async () => {
   render(
-    <ReduxStore>
+    <ReduxStoreProvider>
       <LexicalEditor />
-    </ReduxStore>
+    </ReduxStoreProvider>
   );
   const spanList = [
     "Normal",
@@ -73,9 +75,9 @@ test("OptionsButton text should be added", async () => {
 
 test("FontFamilyOptionsButton text should be added", async () => {
   render(
-    <ReduxStore>
+    <ReduxStoreProvider>
       <LexicalEditor />
-    </ReduxStore>
+    </ReduxStoreProvider>
   );
   const spanList = ["Arial", "Courier New", "Georgia", "Times New Roman", "Trebuchet MS", "Verdana"];
   fireEvent.click(await screen.findByRole("button", { name: /Formatting Options for font family/i }));
@@ -88,9 +90,9 @@ test("FontFamilyOptionsButton text should be added", async () => {
 
 test("FontSizeOptionsButton text should be added", async () => {
   render(
-    <ReduxStore>
+    <ReduxStoreProvider>
       <LexicalEditor />
-    </ReduxStore>
+    </ReduxStoreProvider>
   );
   const spanList = ["10px", "11px", "12px", "13px", "14px", "15px", "16px", "17px", "18px", "19px", "20px"];
   fireEvent.click(await screen.findByRole("button", { name: /Formatting Options for font size/i }));
@@ -103,9 +105,9 @@ test("FontSizeOptionsButton text should be added", async () => {
 
 test("FontSizeOptionsButton text should be added", async () => {
   render(
-    <ReduxStore>
+    <ReduxStoreProvider>
       <LexicalEditor />
-    </ReduxStore>
+    </ReduxStoreProvider>
   );
   const spanList = ["Left Align", "Center Align", "Right Align", "Justify Align", "Outdent", "Indent"];
   fireEvent.click(await screen.findByRole("button", { name: /Formatting Options for text alignment/i }));

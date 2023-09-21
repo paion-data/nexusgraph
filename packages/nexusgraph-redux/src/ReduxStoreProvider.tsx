@@ -12,8 +12,8 @@ interface ReduxChildren {
 const reducer = combineReducers<GlobalState>({ ...(rootReducers as any) });
 const store = createStore<GlobalState>(reducer);
 
-const ReduxStore = ({ children }: ReduxChildren) => {
+const ReduxStoreProvider = ({ children }: ReduxChildren) => {
   return <Provider store={store}>{children}</Provider>;
 };
 
-export default ReduxStore;
+export default ReduxStoreProvider;
