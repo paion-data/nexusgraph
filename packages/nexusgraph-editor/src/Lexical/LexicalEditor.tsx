@@ -24,7 +24,6 @@ import ExampleTheme from "./themes/ExampleTheme";
 
 export default function LexicalEditor(): JSX.Element {
   const editorConfig: InitialConfigType = {
-    editorState: null,
     // The editor theme
     namespace: "editor",
     theme: ExampleTheme,

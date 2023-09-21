@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { container, TYPES } from "../../../../nexusgraph-app/inversify.config";
 import { AstraiosClient } from "../../../../nexusgraph-astraios";
-import { GlobalState } from "../../../../nexusgraph-redux";
+import { GlobalState, initialEditorContent } from "../../../../nexusgraph-redux";
 
 export default function EditorInitializationPlugin(): JSX.Element | null {
   const [editor] = useLexicalComposerContext();
@@ -15,8 +15,6 @@ export default function EditorInitializationPlugin(): JSX.Element | null {
 
   useEffect(() => {
     getFirstNoteContent().then((editorContent) => {
-      console.log("getFirstNoteContent", typeof editorContent);
-
       const newState = editor.parseEditorState(JSON.stringify(editorContent));
       editor.setEditorState(newState);
     });
@@ -24,9 +22,12 @@ export default function EditorInitializationPlugin(): JSX.Element | null {
 
   function getFirstNoteContent(): Promise<object> {
     return astraiosClient.getNoteList(userId).then((noteList) => {
-      return astraiosClient.getFirstNote(noteList[0].id).then((firstNote) => {
-        return JSON.parse(firstNote.editorContent);
-      });
+      if (noteList[0]) {
+        return astraiosClient.getFirstNote(noteList[0].id).then((firstNote) => {
+          return JSON.parse(firstNote.editorContent);
+        });
+      }
+      return initialEditorContent;
     });
   }
 
