@@ -5,12 +5,14 @@ import { GlobalState } from "../globalState";
 
 export const NOTE_STATE = "note";
 const UPDATE_NOTE_ID = NOTE_STATE + "/UPDATE_NOTE_ID";
+const UPDATE_NOTE_TITLE = NOTE_STATE + "/UPDATE_NOTE_TITLE";
 const UPDATE_NOTE_GRAPH = NOTE_STATE + "/UPDATE_NOTE_GRAPH";
 const UPDATE_NOTE_EDITOR_CONTENT = NOTE_STATE + "/UPDATE_NOTE_EDITOR_CONTENT";
 const CREATE_NEW_NOTE = NOTE_STATE + "/CREATE_NEW_NOTE";
 
 export interface NoteState {
   id?: string;
+  title: string;
   editorContent: object;
   graph: Graph;
 }
@@ -46,6 +48,7 @@ const initialGraph: Graph = {
 };
 
 const initialState: NoteState = {
+  title: "",
   editorContent: initialEditorContent,
   graph: initialGraph,
 };
@@ -59,18 +62,28 @@ export default function noteReducer(state = initialState, action: NoteAction): N
     case UPDATE_NOTE_GRAPH:
       return {
         id: state.id,
+        title: state.title,
         editorContent: state.editorContent,
         graph: action.payload,
+      };
+    case UPDATE_NOTE_TITLE:
+      return {
+        id: state.id,
+        title: action.payload,
+        editorContent: state.editorContent,
+        graph: state.graph,
       };
     case UPDATE_NOTE_EDITOR_CONTENT:
       return {
         id: state.id,
+        title: state.title,
         editorContent: action.payload,
         graph: state.graph,
       };
     case UPDATE_NOTE_ID:
       return {
         id: action.payload,
+        title: state.title,
         graph: state.graph,
         editorContent: state.editorContent,
       };
@@ -91,6 +104,10 @@ export function updateNoteEditorContent(editorContent: object) {
 
 export function updateNoteId(id?: string) {
   return { type: UPDATE_NOTE_ID, payload: id };
+}
+
+export function updateNoteTitle(title: string) {
+  return { type: UPDATE_NOTE_TITLE, payload: title };
 }
 
 export function createNewNote() {

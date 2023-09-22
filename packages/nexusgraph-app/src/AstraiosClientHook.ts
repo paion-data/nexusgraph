@@ -9,6 +9,7 @@ import {
   updateNoteEditorContent,
   updateNoteGraph,
   updateNoteId,
+  updateNoteTitle,
 } from "../../nexusgraph-redux";
 import { updateNoteList } from "../../nexusgraph-redux/src/note-list/noteListDuck";
 import { container, TYPES } from "../inversify.config";
@@ -24,17 +25,32 @@ export default function useAstraiosClientHook() {
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
 
   useEffect(() => {
-    if (noteState) {
-      astraiosClient.getNoteList(userId).then((noteList) => {
-        dispatch(updateNoteList(noteList));
-        if (noteList[0]) {
-          astraiosClient.getFirstNote(noteList[0].id).then((firstNote) => {
-            dispatch(updateNoteId(firstNote.id));
-            dispatch(updateNoteEditorContent(JSON.parse(firstNote.editorContent)));
-            dispatch(updateNoteGraph(JSON.parse(firstNote.graph)));
-          });
-        }
-      });
-    }
+    // if(noteState){
+    astraiosClient.getNoteList(userId).then((noteList) => {
+      dispatch(updateNoteList(noteList));
+      if (noteList[0]) {
+        astraiosClient.getFirstNote(noteList[0].id).then((firstNote) => {
+          dispatch(updateNoteTitle(firstNote.title));
+          dispatch(updateNoteId(firstNote.id));
+          dispatch(updateNoteEditorContent(JSON.parse(firstNote.editorContent)));
+          dispatch(updateNoteGraph(JSON.parse(firstNote.graph)));
+        });
+      }
+    });
+    // }
   }, []);
+
+  //   useEffect(() => {
+  //     const update = () => {
+  //       if (noteState) {
+  //         astraiosClient.saveOrUpdate(noteState, accessToken).then((response) => {
+  //             dispatch(updateNoteId(response.id));
+  //         });
+  //       }
+  //     };
+
+  //     const t = setInterval(update, Number(String(process.env.ENTITY_EXTRACTION_CALL_DELAY_IN_MS)));
+
+  //     return () => clearInterval(t);
+  // }, [noteState, accessToken]);
 }

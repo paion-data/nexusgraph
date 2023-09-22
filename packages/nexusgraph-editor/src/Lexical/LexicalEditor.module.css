@@ -9,13 +9,13 @@
   backdrop-filter: blur(8px);
   border-color: rgba(130, 221, 248, 0.5);
   width: 90%;
-  height: 82%;
+  height: 80%;
   margin: 20px auto 20px auto;
   border-radius: 2px;
   /* max-width: 650px; */
   color: #fff;
   position: absolute;
-  top: 13.5%;
+  top: 200px;
   left: 5%;
   overflow: scroll;
   line-height: 20px;
