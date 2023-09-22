@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 it("Translate browser through i18n", () => {
-  cy.mockGraphqlResponse();
+  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraiosGraphqlResponse.json" });
 
   if (Cypress.env("nodeEnv") == "production") {
     cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);

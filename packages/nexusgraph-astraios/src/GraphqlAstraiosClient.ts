@@ -15,22 +15,22 @@ export class GraphQlClient implements AstraiosClient {
     return axios
       .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
         query: ` 
-        {
-          query:
+        query getNoteList{
           note (filter: \"userId==${userId}\"){
-            edges 
-            {
-              node {
-                id 
-                title
-              }
+          edges 
+          {
+            node {
+              id 
+              title
             }
           }
         }
+        }
       `,
+        operationName: "getNoteList",
       })
       .then((response) => {
-        const noteList = response.data.data["query"]["edges"].map((object: { node: { id: string; title: string } }) => {
+        const noteList = response.data.data.note["edges"].map((object: { node: { id: string; title: string } }) => {
           return object["node"];
         });
         return noteList;
@@ -41,24 +41,24 @@ export class GraphQlClient implements AstraiosClient {
     return axios
       .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
         query: ` 
-        {
-          query:
+        query getFirstNote{
           note(ids: [\"${noteId}\"]) {
-            edges 
-            {
-              node {
-                id
-                title
-                graph
-                editorContent
-              }
+          edges 
+          {
+            node {
+              id
+              title
+              graph
+              editorContent
             }
           }
+        } 
         }
 `,
+        operationName: "getFirstNote",
       })
       .then((response) => {
-        return response.data.data["query"]["edges"][0]["node"];
+        return response.data.data.note["edges"][0]["node"];
       });
   }
 
@@ -70,7 +70,7 @@ export class GraphQlClient implements AstraiosClient {
       return axios
         .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
           query: ` 
-          mutation {
+          mutation saveNote{
             note(op: UPSERT, data: {
               title: "${note.title}",
               userId: "${userId}",
@@ -88,6 +88,7 @@ export class GraphQlClient implements AstraiosClient {
             }
           }
   `,
+          operationName: "saveNote",
         })
         .then((response) => {
           let noteState;
@@ -98,7 +99,7 @@ export class GraphQlClient implements AstraiosClient {
     return axios
       .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
         query: ` 
-          mutation {
+          mutation updateNote{
             note(op: UPSERT, data: {
               id: "${note.id}",
               userId: "${userId}",
@@ -117,6 +118,7 @@ export class GraphQlClient implements AstraiosClient {
             }
           }
   `,
+        operationName: "updateNote",
       })
       .then((response) => {
         const noteState = {
