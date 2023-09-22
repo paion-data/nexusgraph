@@ -25,7 +25,6 @@ export default function useAstraiosClientHook() {
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
 
   useEffect(() => {
-    // if(noteState){
     astraiosClient.getNoteList(userId).then((noteList) => {
       dispatch(updateNoteList(noteList));
       if (noteList[0]) {
@@ -37,10 +36,7 @@ export default function useAstraiosClientHook() {
         });
       }
     });
-    // }
   }, []);
-
-  //   useEffect(() => {
   //     const update = () => {
   //       if (noteState) {
   //         astraiosClient.saveOrUpdate(noteState, accessToken).then((response) => {
