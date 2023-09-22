@@ -16,8 +16,6 @@ import { createNewNote, GlobalState } from "../../../nexusgraph-redux";
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
 import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
 
-const NOTE_STORAGE_API_URL_PARAMETER = "note/";
-
 /**
  * Editor button group
  *

@@ -7,8 +7,8 @@ import { AstraiosClient } from "./AstraiosClient";
 
 @injectable()
 export class GraphQlClient implements AstraiosClient {
-  public saveOrUpdate(astraiosState: NoteState, token: string) {
-    return this.sendNoteRequest(astraiosState, token);
+  public saveOrUpdate(astraiosState: NoteState, token: string, userId: string) {
+    return this.sendNoteRequest(astraiosState, token, userId);
   }
 
   public getNoteList(userId: string) {
@@ -62,7 +62,7 @@ export class GraphQlClient implements AstraiosClient {
       });
   }
 
-  private async sendNoteRequest(note: NoteState, token: string): Promise<NoteState> {
+  private async sendNoteRequest(note: NoteState, token: string, userId: string): Promise<NoteState> {
     const graph = JSON.stringify(note.graph).replace(/"/g, '\\"');
     const editorContent = JSON.stringify(note.editorContent).replace(/"/g, '\\"');
 
@@ -73,6 +73,7 @@ export class GraphQlClient implements AstraiosClient {
           mutation {
             note(op: UPSERT, data: {
               title: "${note.title}",
+              userId: "${userId}",
               graph: "${graph}",
               editorContent: "${editorContent}",
             }) {
@@ -100,6 +101,7 @@ export class GraphQlClient implements AstraiosClient {
           mutation {
             note(op: UPSERT, data: {
               id: "${note.id}",
+              userId: "${userId}",
               title: "${note.title}",
               graph: "${graph}",
               editorContent: "${editorContent}",

@@ -22,12 +22,13 @@ export default function useReduxHook() {
     TYPES.NaturalLanguageProcessor
   );
 
+  const userId = useSelector((state: GlobalState) => state.oAuth.userInfo["sub"]);
   const accessToken = useSelector((state: GlobalState) => state.oAuth.accessToken);
 
   useEffect(() => {
     const update = () => {
       if (noteState) {
-        astraiosClient.saveOrUpdate(noteState, accessToken).then((response) => {
+        astraiosClient.saveOrUpdate(noteState, accessToken, userId).then((response) => {
           dispatch(updateNoteId(response.id));
         });
 
