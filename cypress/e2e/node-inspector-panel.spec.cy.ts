@@ -1,15 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { aliasMutation, aliasQuery } from "../utils/graphql-test-utils";
-
 describe("Graph browser stats panel E2E tests", () => {
   it("Panel can reflect the INITIAL graph rendering stats ", () => {
-    cy.intercept("POST", "http://localhost:8080/v1/data/", (req) => {
-      aliasQuery(req, "GetNoteList");
-      aliasQuery(req, "GetFirstNote");
-
-      aliasMutation(req, "SaveNote");
-      aliasMutation(req, "UpdateNote");
-    });
+    cy.mockGraphqlResponse();
 
     if (Cypress.env("nodeEnv") == "production") {
       cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
