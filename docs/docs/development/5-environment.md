@@ -54,6 +54,70 @@ Installing [node.js][node.js] and [Yarn][yarn install]:
 npm install --global yarn
 ```
 
+### Configure environment variables
+
+Create a [`.env` file][`.env` file] which contains all runtime variables Nexus Graph needs. The following variables
+needs to be defined:
+
+- **THERESA_API_URL** The URL of [Theresa API](https://theresa-api.com) instance, Used turning Natural Language Texts
+  into Knowledge Graphs
+- **ENTITY_EXTRACTION_CALL_DELAY_IN_MS**  Natural Language Processing entity extraction call's periodic delay
+  (milliseconds)
+- **LOGTO_ENDPOINT_URL**
+  - [Logto](https://docs.logto.io/) offers a comprehensive identity solution covering both the front and backend,
+    complete with pre-built infrastructure and enterprise-grade solutions.
+  - In the Nexus Graph we use Logto to verify that the user has logged in and automatically generate the user login page
+  - **LOGTO_ENDPOINT_URL** is the URL of your server that will receive the [webhook][Webhook] POST requests when the
+    event occurs.
+- **LOGTO_SIGN_IN_CALLBACK_URL**
+  - [Redirect URI][Redirect URI] is an OAuth 2.0 concept which implies the location should redirect after authentication
+  - **LOGTO_SIGN_IN_CALLBACK_URL** is the redirect url after authentication
+- **TEST_USER_NAME**
+  - [Username][Username] is used for sign-in with username and password.
+  - In Nexus Graph the **TEST_USER_NAME** defines a user name dedicated to local login
+- **TEST_USER_PASSWORD**
+  - Password is used for sign-in with username and password.
+  - In Nexus Graph the **TEST_USER_PASSWORD** defines a password dedicated to local login
+- **ASTRAIOS_GRAPHQL_API_ENDPOINT**
+  - [Astraios][Astraios] is a JSR 370 web service template that lets us spin up model driven GraphQL or JSON API web
+    service with minimal effort.
+  - **ASTRAIOS_GRAPHQL_API_ENDPOINT** Define the endpoint that sends GraphQL requests to Astraios
+- **ASTRAIOS_JSON_API_ENDPOINT** Define the endpoint that sends JSON requests to Astraios
+
+#### Used
+
+An example `.env` file is provided in [`.env.test` file][`.env.test` file]
+
+```bash
+THERESA_API_URL=http://localhost:5000/
+ENTITY_EXTRACTION_CALL_DELAY_IN_MS=5000
+LOGTO_ENDPOINT_URL=https://u4v5ne.logto.app/
+LOGTO_SIGN_IN_CALLBACK_URL=http://localhost:8080/login
+LOGTO_APP_ID=ypon89z8rtrjdg5ta669l
+TEST_USER_NAME=test123
+TEST_USER_PASSWORD=test123123
+ASTRAIOS_GRAPHQL_API_ENDPOINT=http://localhost:8080/v1/data/
+ASTRAIOS_JSON_API_ENDPOINT=http://localhost:8080/v1/data/
+NODE_ENV=development
+```
+
+locally and copy the contents of the `.env.test` file to the `.env` file.
+
+### Start Docker Compose to support Astraios requests
+
+You can refer to [Astraios Docs][Astraios Development] to learn how to run Webservice in Docker Compose
+
+### Start the local server to support entity extraction
+
+**nexusgraph-server** is a node.js server implemented using [ExpressJs](https://expressjs.com/) to simulate the
+[Theresa API](https://theresa-api.com) interface to support the natural language processing entity extraction service
+Run the following command to start nexusgraph-server
+
+```bash
+cd packages/nexusgraph-server/
+yarn start
+```
+
 Bootstrap
 ---------
 
@@ -88,7 +152,7 @@ After that, inside _nexusgraph_ directory, we can run several commands:
 - `yarn e2e`: Run end-to-end test
 
    - `yarn wait-on-dev`: Auxiliary command for e2e test which waits for production server
-   `http://localhost:8080` to become available on CI/CD server
+   `http://localhost:3000` to become available on CI/CD server
 
 Happy building awesome knowledge graph app!
 
@@ -283,6 +347,11 @@ results `node` type not properly imported. As a result, TypeScript sees `node.ra
 doesn't know what type `node` is
 
 [API]: https://paion-data.github.io/nexusgraph/api
+[Astraios]:https://paion-data.github.io/astraios/
+[Astraios Development]:https://paion-data.github.io/astraios/docs/development#running-webservice-in-docker-compose
+
+[`.env` file]: https://create-react-app.dev/docs/adding-custom-environment-variables/
+[`.env.test` file]: https://github.com/paion-data/nexusgraph/blob/master/.env.test
 
 [GitHub - gpg signing erro]: https://github.com/keybase/keybase-issues/issues/2798#issue-205008630
 [GitHub - uploading GPG key]: https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account
@@ -291,6 +360,12 @@ doesn't know what type `node` is
 
 [onchange]: https://www.npmjs.com/package/onchange
 
+[Redirect URI]: https://www.oauth.com/oauth2-servers/redirect-uris/
+
 [TypeDoc]: https://typedoc.org/guides/overview/
+
+[Username]: https://docs.logto.io/docs/references/users/#username
+
+[Webhook]: https://docs.logto.io/docs/recipes/webhooks/configure-webhooks-in-console/
 
 [yarn install]: https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable

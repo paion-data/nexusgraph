@@ -122,7 +122,7 @@ export const EditorMenuContainer = styled.div<{
           height: 100%;
           color: #fff;
           box-shadow: inset 2px 2px 5px #fff;
-          background: rgba(180, 180, 180, 0.1);
+          background: rgba(180, 180, 180, 0.8);
           -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
           overflow: scroll;

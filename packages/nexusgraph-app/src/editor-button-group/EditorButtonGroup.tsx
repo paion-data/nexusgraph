@@ -11,12 +11,13 @@ import {
   WindowIcon as WindowIconSolid,
 } from "@heroicons/react/24/solid";
 
-import { useDispatch, useSelector } from "react-redux";
-import { createNewNote, GlobalState } from "../../../nexusgraph-redux";
+import { useDispatch } from "react-redux";
+import { AstraiosClient } from "../../../nexusgraph-astraios";
+import { createNewNote, initialNoteState, selectNote, updateNote } from "../../../nexusgraph-redux";
+import { NoteInfo, selectNoteList } from "../../../nexusgraph-redux/src/note-list/noteListDuck";
+import { container, TYPES } from "../../inversify.config";
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
 import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
-
-const NOTE_STORAGE_API_URL_PARAMETER = "note/";
 
 /**
  * Editor button group
@@ -38,7 +39,8 @@ export function EditorButtonGroup(): JSX.Element {
   const ViewColumnsIcon = (): JSX.Element => <ViewColumnsIconSolid />;
 
   const dispatch = useDispatch();
-  const noteList = useSelector((state: GlobalState) => state.noteList);
+  const noteList = selectNoteList();
+  const noteId = selectNote().id;
 
   return (
     <>
@@ -57,7 +59,12 @@ export function EditorButtonGroup(): JSX.Element {
       <EditorMenuDrawer data-testid={`editorMenuDrawer`} isOpen={menuExpanded} width={"5%"}>
         <>
           <div className="topButton">
-            <button className="plus" onClick={() => dispatch(createNewNote())}>
+            <button
+              className="plus"
+              onClick={() => {
+                dispatch(createNewNote());
+              }}
+            >
               <PlusIcon />
             </button>
             <button className="squares">
@@ -65,14 +72,38 @@ export function EditorButtonGroup(): JSX.Element {
               <DirectoryDropdownList data-testid={"directoryList"}>
                 <DirectoryDropdownContent>
                   {noteList.map((note) => (
-                    <DropdownItem data-testid={`${note.title}`} key={note.id}>
+                    <DropdownItem
+                      className="noteTitleitem"
+                      data-testid={`${note.title}`}
+                      key={note.id}
+                      onClick={() => {
+                        fetchNoteById(note.id).then((selectedNote) => {
+                          if (selectedNote.id != noteId) {
+                            dispatch(updateNote(JSON.parse(JSON.stringify(selectedNote))));
+                          }
+                        });
+                      }}
+                    >
                       {note.title}
                     </DropdownItem>
                   ))}
                 </DirectoryDropdownContent>
               </DirectoryDropdownList>
             </button>
-            <button className="trash">
+            <button
+              className="trash"
+              onClick={() => {
+                if (noteId) {
+                  deleteNote(noteId)
+                    .then(() => {
+                      return updateDisplayedNote(noteId, noteList);
+                    })
+                    .then((note) => {
+                      dispatch(updateNote(note));
+                    });
+                }
+              }}
+            >
               <TrashIcon />
             </button>
           </div>
@@ -89,4 +120,34 @@ export function EditorButtonGroup(): JSX.Element {
       </EditorMenuDrawer>
     </>
   );
+}
+
+function deleteNote(currentNoteId: string) {
+  const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
+  return astraiosClient.deleteNote(currentNoteId);
+}
+
+function updateDisplayedNote(currentNoteId: string, noteList: NoteInfo[]) {
+  const index = noteList.indexOf(noteList.filter((note) => note.id == currentNoteId)[0]);
+  if (index != -1 && noteList[index + 1]) {
+    const note = noteList[index + 1];
+    return fetchNoteById(note.id);
+  } else if (index != -1 && noteList.length > 1) {
+    const note = noteList[0];
+    return fetchNoteById(note.id);
+  }
+  return initialNoteState as Record<any, any>;
+}
+
+function fetchNoteById(noteId: string) {
+  const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
+  return astraiosClient.getNoteById(noteId).then((note) => {
+    note = {
+      id: note.id,
+      title: note.title,
+      editorContent: JSON.parse(note.editorContent),
+      graph: JSON.parse(note.graph),
+    };
+    return note;
+  });
 }

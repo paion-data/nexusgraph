@@ -20,8 +20,8 @@
     "e2e": "cypress run",
     "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
     "cypress:open": "cypress open",
-    "wait-on-dev": "wait-on -c ./scripts/wait-on-config.js http-get://localhost:8080/",
-    "wait-on-prod": "wait-on -c ./scripts/wait-on-config.js http-get://localhost:8080/"
+    "wait-on-dev": "wait-on -c ./scripts/wait-on-config.js http-get://localhost:3000/",
+    "wait-on-prod": "wait-on -c ./scripts/wait-on-config.js http-get://localhost:3000/"
   },
   "repository": {
     "type": "git",

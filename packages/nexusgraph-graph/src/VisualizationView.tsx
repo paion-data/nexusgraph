@@ -1,8 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { GlobalState, Graph, updateNoteGraph } from "../../nexusgraph-redux";
+import { Graph, selectNlpData, updateNoteGraph } from "../../nexusgraph-redux";
 import { BasicNode, BasicRelationship } from "./basicTypes";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "./GraphStats";
 import { GraphVisualizer } from "./GraphVisualizer";
@@ -22,8 +22,8 @@ export function Visualization(props: VisualizationProps): JSX.Element {
   const dispatch = useDispatch();
 
   const graph: Graph = {
-    nodes: useSelector((state: GlobalState) => state.nlpData.nodes),
-    links: useSelector((state: GlobalState) => state.nlpData.links),
+    nodes: selectNlpData().nodes,
+    links: selectNlpData().links,
   };
 
   useEffect(() => {
@@ -33,8 +33,8 @@ export function Visualization(props: VisualizationProps): JSX.Element {
   return (
     <StyledVisContainer isFullscreen={true}>
       <GraphVisualizer
-        nodes={useSelector((state: GlobalState) => transformBasicNodes(state.nlpData.nodes))}
-        relationships={useSelector((state: GlobalState) => transformBasicRelationships(state.nlpData.links))}
+        nodes={transformBasicNodes(selectNlpData().nodes)}
+        relationships={transformBasicRelationships(selectNlpData().links)}
         assignVisElement={props.assignVisElement}
       />
     </StyledVisContainer>

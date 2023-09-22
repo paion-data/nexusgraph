@@ -4,7 +4,7 @@ Cypress.Commands.add("login", ({ username, password }) => {
     Cypress.env("logtoEndpointUrl").concat("/sign-in"),
     { args: { username, password } },
     ({ username, password }) => {
-      cy.visit("http://localhost:8080/", { failOnStatusCode: false });
+      cy.visit("http://localhost:3000/", { failOnStatusCode: false });
 
       cy.get('input[name="identifier"]').type(username);
       cy.get('button[type="submit"]').click();

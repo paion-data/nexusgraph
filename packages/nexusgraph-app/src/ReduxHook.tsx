@@ -1,30 +1,37 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
-import { GlobalState, initialEditorContent, NoteState, selectNote, updateNlpData } from "../../nexusgraph-redux";
+import {
+  initialEditorContent,
+  NoteState,
+  selectNote,
+  selectOAuth,
+  updateNlpData,
+  updateNoteId,
+} from "../../nexusgraph-redux";
+import { updateNoteList } from "../../nexusgraph-redux/src/note-list/noteListDuck";
 import { container, TYPES } from "../inversify.config";
 
 export default function useReduxHook() {
   const dispatch = useDispatch();
   const noteState: NoteState = selectNote();
-
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
   const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
     TYPES.NaturalLanguageProcessor
   );
-
-  const accessToken = useSelector((state: GlobalState) => state.oAuth.accessToken);
+  const accessToken = selectOAuth().accessToken;
+  const userId = selectOAuth().userInfo["sub"];
 
   useEffect(() => {
     const update = () => {
       if (noteState) {
-        // astraiosClient.saveOrUpdate(noteState, accessToken).then((response) => {
-        //     dispatch(updateNoteId(response.id));
-        // });
+        astraiosClient.saveOrUpdate(noteState, accessToken, userId).then((response) => {
+          dispatch(updateNoteId(response.id));
+        });
 
-        if (noteState && noteState.editorContent !== initialEditorContent) {
+        if (noteState && noteState.editorContent != initialEditorContent) {
           remoteNaturalLanguageProcessor.entityExtraction(noteState.editorContent).then((NlpState) => {
             dispatch(updateNlpData(NlpState));
           });
@@ -36,4 +43,10 @@ export default function useReduxHook() {
 
     return () => clearInterval(t);
   }, [noteState, accessToken]);
+
+  useEffect(() => {
+    astraiosClient.getNoteList(userId).then((noteList) => {
+      dispatch(updateNoteList(noteList));
+    });
+  }, [noteState.id, noteState.title]);
 }

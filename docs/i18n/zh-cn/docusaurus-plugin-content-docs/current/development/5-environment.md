@@ -51,6 +51,66 @@ brew install gnupg
 npm install --global yarn
 ```
 
+### 配置环境变量
+
+创建一个包含 Nexus Graph 运行时需要的所有变量的 [`.env` 文件][`.env` file]。以下变量
+需要定义:
+
+- **THERESA_API_URL** 请求 [Theresa API](https://theresa-api.com) 的URL，用于将将自然语言文本转化为知识图谱
+- **ENTITY_EXTRACTION_CALL_DELAY_IN_MS**  自然语言处理实体抽取调用的周期延迟(毫秒)
+- **LOGTO_ENDPOINT_URL**
+  - [Logto](https://docs.logto.io/) 提供了一个全面的身份验证的解决方案，包括前端和后端，以及预构建的基础配置和企业级解决方案。
+  - 在 Nexus Graph 中，我们使用Logto来验证用户是否已登录并自动生成用户登录页面
+  - **LOGTO_ENDPOINT_URL** 是当例如用户注册等事件发生时，接收 [Webhook][Webhook] POST 请求的服务器URL
+- **LOGTO_SIGN_IN_CALLBACK_URL**
+  - [重定向URL][重定向URL] 是一个OAuth 2.0的概念，这意味着该地址应该在身份验证后重定向到此次
+  - **LOGTO_SIGN_IN_CALLBACK_URL** 身份验证后重定向的URL
+- **TEST_USER_NAME**
+  - [Username][Username] 用于使用用户名和密码登录。
+  - 在 Nexus Graph 中，**TEST_USER_NAME** 定义了一个专用于本地登录的用户名
+- **TEST_USER_PASSWORD**
+  - Password 用于使用用户名和密码登录。
+  - 在 Nexus Graph 中 **TEST_USER_PASSWORD** 定义了一个专用于本地登录的密码
+- **ASTRAIOS_GRAPHQL_API_ENDPOINT**
+  - [Astraios][Astraios] 是一个 JSR 370 web service 模板，它允许我们以最小的努力启动模型驱动的 GraphQL 或 JSON API web 以提供服务。
+  - **ASTRAIOS_GRAPHQL_API_ENDPOINT** 定义向 Astraios 发送 GraphQL 请求的端点
+- **ASTRAIOS_JSON_API_ENDPOINT** 定义向 Astraios 发送 JSON 请求的端点
+
+#### 使用环境变量
+
+[`.env.test` 文件][`.env.test` file] 中提供了一个 [`.env` 文件] 的例子：
+
+```bash
+THERESA_API_URL=http://localhost:5000/
+ENTITY_EXTRACTION_CALL_DELAY_IN_MS=5000
+LOGTO_ENDPOINT_URL=https://u4v5ne.logto.app/
+LOGTO_SIGN_IN_CALLBACK_URL=http://localhost:8080/login
+LOGTO_APP_ID=ypon89z8rtrjdg5ta669l
+TEST_USER_NAME=test123
+TEST_USER_PASSWORD=test123123
+ASTRAIOS_GRAPHQL_API_ENDPOINT=http://localhost:8080/v1/data/
+ASTRAIOS_JSON_API_ENDPOINT=http://localhost:8080/v1/data/
+NODE_ENV=development
+```
+
+在本地复制 `.env.test` 文件的内容到 `.env` 文件即可完成配置。
+
+### 启动 Docker Compose 以支持 Astraios 请求
+
+你可以参考 [Astraios 文档][Astraios Development] 来学习如何在 [Docker Compose](https://docs.docker.com/compose/)
+中运行 Webservice
+
+### 启动本地服务器以支持实体提取
+
+**nexusgraph-server** 是一个使用 [ExpressJs](https://expressjs.com/) 实现的 node.js 服务器， 用于模拟
+[Theresa API](https://theresa-api.com)接口，支持自然语言处理的实体抽取服务
+运行以下指令以启动 nexusgraph-server
+
+```bash
+cd packages/nexusgraph-server/
+yarn start
+```
+
 Bootstrap
 ---------
 
@@ -84,7 +144,7 @@ yarn start
 - `yarn cypress:open`: 打开 [Cypress End-to-End testing](https://docs.cypress.io/guides/overview/why-cypress) 仪表板
 - `yarn e2e`: 运行 end-to-end 测试
 
-   - `yarn wait-on-dev`: e2e 测试的辅助命令，用于等待 **Production Server** `http://localhost:8080` 在 CI/CD 服务器上变得可用
+   - `yarn wait-on-dev`: e2e 测试的辅助命令，用于等待 **Production Server** `http://localhost:3000` 在 CI/CD 服务器上变得可用
 
 快乐构建精彩的知识图谱 App 吧！
 
@@ -273,6 +333,10 @@ error  Operands of '+' operation with any is possible only with string, number, 
 `node.radius` 的类型视为 `any`，因为它不知道 `node` 的类型是什么
 
 [API]: https://paion-data.github.io/nexusgraph/api
+[Astraios]:https://paion-data.github.io/astraios/
+
+[`.env` file]: https://create-react-app.dev/docs/adding-custom-environment-variables/
+[`.env.test` file]: https://github.com/paion-data/nexusgraph/blob/master/.env.test
 
 [GitHub - gpg signing erro]: https://github.com/keybase/keybase-issues/issues/2798#issue-205008630
 [GitHub - uploading GPG key]: https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account
@@ -281,6 +345,12 @@ error  Operands of '+' operation with any is possible only with string, number, 
 
 [onchange]: https://www.npmjs.com/package/onchange
 
+[Redirect URI]: https://www.oauth.com/oauth2-servers/redirect-uris/
+
 [TypeDoc]: https://typedoc.org/guides/overview/
+
+[Username]: https://docs.logto.io/docs/references/users/#username
+
+[Webhook]: https://docs.logto.io/docs/recipes/webhooks/configure-webhooks-in-console/
 
 [yarn install]: https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable

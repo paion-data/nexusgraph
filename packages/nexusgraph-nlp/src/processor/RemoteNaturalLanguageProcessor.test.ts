@@ -39,12 +39,15 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
         },
       ],
     };
+
+    axios.create = jest.fn(() => axios);
     Object(axios.post).mockResolvedValueOnce(nlpData);
 
     remoteNaturalLanguageProcessor["fetchRemote"](editorLines).then((nlpState: any) => {
       expect(nlpState).toEqual(nlpData);
 
-      expect(axios.post).toHaveBeenCalledWith(process.env.ENTITY_EXTRACTION_API, {
+      expect(axios.create).toHaveBeenCalled();
+      expect(axios.post).toHaveBeenCalledWith("entityExtraction/", {
         documents: editorLines,
       });
     });

@@ -27,7 +27,7 @@ export default function NexusgraphOnChangePlugin(): null {
 
   useEffect(() => {
     return editor.registerTextContentListener(() => {
-      dispatch(updateNoteEditorContent(editor.getEditorState()));
+      dispatch(updateNoteEditorContent(JSON.parse(JSON.stringify(editor.getEditorState()))));
     });
   }, []);
 

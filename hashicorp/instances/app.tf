@@ -52,7 +52,7 @@ resource "aws_instance" "nexusgraph-app" {
     #!/bin/bash
     
     cd /home/ubuntu/nexusgraph
-    serve -s dist -l 8080
+    serve -s dist -l 3000
   EOF
 }
 
