@@ -1,12 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
 export const hasOperationName = (req: any, operationName: any): boolean => {
   const { body } = req;
-  return body.hasOwnProperty("operationName") && body.operationName === operationName;
+  return body.operationName === operationName;
 };
 
-// Alias query if operationName matches
 export const aliasQuery = (req: any, operationName: any): void => {
-  const { body } = req;
   if (hasOperationName(req, operationName)) {
     req.alias = `gql${operationName}Query`;
     const MOCK_RESPONSES = {
@@ -18,8 +16,15 @@ export const aliasQuery = (req: any, operationName: any): void => {
                 id: "1",
                 title: "Test Note",
                 userId: "devUserId",
-                editorContent:
-                  '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"China","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}',
+                editorContent: `{
+                  "root":
+                    {"children":
+                      [{"children":
+                        [{"detail":0,"format":0,"mode":"normal","style":"","text":"China","type":"text","version":1}],
+                          "direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr",
+                          "format":"","indent":0,"type":"root","version":1
+                        }
+                  }`,
                 graph: '{"nodes": [], "links": []}',
               },
             },
@@ -35,7 +40,6 @@ export const aliasQuery = (req: any, operationName: any): void => {
   }
 };
 
-// Alias mutation if operationName matches
 export const aliasMutation = (req: any, operationName: any): void => {
   const MOCK_RESPONSES = {
     data: {
@@ -46,8 +50,15 @@ export const aliasMutation = (req: any, operationName: any): void => {
               id: "1",
               title: "Test Note",
               userId: "devUserId",
-              editorContent:
-                '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"China","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}',
+              editorContent: `{
+                "root":
+                  {"children":
+                    [{"children":
+                      [{"detail":0,"format":0,"mode":"normal","style":"","text":"China","type":"text","version":1}],
+                        "direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr",
+                        "format":"","indent":0,"type":"root","version":1
+                      }
+                }`,
               graph: '{"nodes": [], "links": []}',
             },
           },
