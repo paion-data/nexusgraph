@@ -1,7 +1,5 @@
----
-sidebar_position: 300
-title: Nexus Graph Server
----
+Nexus Graph Server
+==================
 
 Nexus Graph Server is a **mocking** backend used for _decoupling frontend and backend developments_, as well as _making
 tests more self-contained_.
