@@ -10,7 +10,6 @@ import {
   selectOAuth,
   updateNlpData,
   updateNoteId,
-  updateUserId,
 } from "../../nexusgraph-redux";
 import { selectNoteList, updateNoteList } from "../../nexusgraph-redux/src/note-list/noteListDuck";
 import { container, TYPES } from "../inversify.config";
@@ -31,7 +30,6 @@ export default function useReduxHook() {
       if (noteState) {
         astraiosClient.saveOrUpdate(noteState, accessToken, userId).then((response) => {
           dispatch(updateNoteId(response.id));
-          dispatch(updateUserId(userId));
         });
 
         if (noteState && noteState.editorContent != initialEditorContent) {
