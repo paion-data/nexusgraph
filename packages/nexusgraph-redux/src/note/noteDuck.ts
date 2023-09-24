@@ -5,7 +5,6 @@ import { GlobalState } from "../globalState";
 
 export const NOTE_STATE = "note";
 const UPDATE_NOTE_ID = NOTE_STATE + "/UPDATE_NOTE_ID";
-const UPDATE_USER_ID = NOTE_STATE + "/UPDATE_USER_ID";
 const UPDATE_NOTE_TITLE = NOTE_STATE + "/UPDATE_NOTE_TITLE";
 const UPDATE_NOTE_GRAPH = NOTE_STATE + "/UPDATE_NOTE_GRAPH";
 const UPDATE_NOTE_EDITOR_CONTENT = NOTE_STATE + "/UPDATE_NOTE_EDITOR_CONTENT";
@@ -68,13 +67,6 @@ export default function noteReducer(state = initialNoteState, action: NoteAction
         editorContent: state.editorContent,
         graph: action.payload,
       };
-    case UPDATE_USER_ID:
-      return {
-        id: state.id,
-        title: state.title,
-        editorContent: state.editorContent,
-        graph: state.graph,
-      };
     case UPDATE_NOTE_TITLE:
       return {
         id: state.id,
@@ -115,10 +107,6 @@ export function updateNoteEditorContent(editorContent: object) {
 
 export function updateNoteId(id?: string) {
   return { type: UPDATE_NOTE_ID, payload: id };
-}
-
-export function updateUserId(userId: string) {
-  return { type: UPDATE_USER_ID, payload: userId };
 }
 
 export function updateNoteTitle(title: string) {
