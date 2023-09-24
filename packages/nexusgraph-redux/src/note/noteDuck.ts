@@ -49,7 +49,7 @@ const initialGraph: Graph = {
 };
 
 export const initialNoteState: NoteState = {
-  title: "Note Title",
+  title: "Untitled Note",
   editorContent: initialEditorContent,
   graph: initialGraph,
 };

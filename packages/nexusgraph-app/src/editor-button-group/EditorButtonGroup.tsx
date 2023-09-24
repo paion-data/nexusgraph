@@ -77,8 +77,10 @@ export function EditorButtonGroup(): JSX.Element {
                       data-testid={`${note.title}`}
                       key={note.id}
                       onClick={() => {
-                        selectedNote(note.id).then((selectedNote) => {
-                          dispatch(updateNote(JSON.parse(JSON.stringify(selectedNote))));
+                        fetchNoteById(note.id).then((selectedNote) => {
+                          if (selectedNote.id != noteId) {
+                            dispatch(updateNote(JSON.parse(JSON.stringify(selectedNote))));
+                          }
                         });
                       }}
                     >
@@ -92,9 +94,13 @@ export function EditorButtonGroup(): JSX.Element {
               className="trash"
               onClick={() => {
                 if (noteId) {
-                  deleteNote(noteId, noteList).then((note) => {
-                    dispatch(updateNote(note));
-                  });
+                  deleteNote(noteId)
+                    .then(() => {
+                      return updateDisplayedNote(noteId, noteList);
+                    })
+                    .then((note) => {
+                      dispatch(updateNote(note));
+                    });
                 }
               }}
             >
@@ -116,22 +122,24 @@ export function EditorButtonGroup(): JSX.Element {
   );
 }
 
-function deleteNote(noteId: string, noteList: NoteInfo[]) {
+function deleteNote(currentNoteId: string) {
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
-  return astraiosClient.deleteNote(noteId).then(() => {
-    const index = noteList.indexOf(noteList.filter((selectedNote) => selectedNote.id == noteId)[0]);
-    if (index != -1 && noteList[index + 1]) {
-      const note = noteList[index + 1];
-      return selectedNote(note.id);
-    } else if (index != -1 && noteList.length > 1) {
-      const note = noteList[0];
-      return selectedNote(note.id);
-    }
-    return initialNoteState as Record<any, any>;
-  });
+  return astraiosClient.deleteNote(currentNoteId);
 }
 
-function selectedNote(noteId: string) {
+function updateDisplayedNote(currentNoteId: string, noteList: NoteInfo[]) {
+  const index = noteList.indexOf(noteList.filter((note) => note.id == currentNoteId)[0]);
+  if (index != -1 && noteList[index + 1]) {
+    const note = noteList[index + 1];
+    return fetchNoteById(note.id);
+  } else if (index != -1 && noteList.length > 1) {
+    const note = noteList[0];
+    return fetchNoteById(note.id);
+  }
+  return initialNoteState as Record<any, any>;
+}
+
+function fetchNoteById(noteId: string) {
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
   return astraiosClient.getNoteById(noteId).then((note) => {
     note = {
