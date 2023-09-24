@@ -14,7 +14,6 @@ const UPDATE_NOTE = NOTE_STATE + "/UPDATE_NOTE";
 
 export interface NoteState {
   id?: string;
-  userId: string;
   title: string;
   editorContent: object;
   graph: Graph;
@@ -52,7 +51,6 @@ const initialGraph: Graph = {
 
 export const initialNoteState: NoteState = {
   title: "Note Title",
-  userId: "devUserId",
   editorContent: initialEditorContent,
   graph: initialGraph,
 };
@@ -66,7 +64,6 @@ export default function noteReducer(state = initialNoteState, action: NoteAction
     case UPDATE_NOTE_GRAPH:
       return {
         id: state.id,
-        userId: state.userId,
         title: state.title,
         editorContent: state.editorContent,
         graph: action.payload,
@@ -74,7 +71,6 @@ export default function noteReducer(state = initialNoteState, action: NoteAction
     case UPDATE_USER_ID:
       return {
         id: state.id,
-        userId: action.payload,
         title: state.title,
         editorContent: state.editorContent,
         graph: state.graph,
@@ -82,7 +78,6 @@ export default function noteReducer(state = initialNoteState, action: NoteAction
     case UPDATE_NOTE_TITLE:
       return {
         id: state.id,
-        userId: state.userId,
         title: action.payload,
         editorContent: state.editorContent,
         graph: state.graph,
@@ -90,7 +85,6 @@ export default function noteReducer(state = initialNoteState, action: NoteAction
     case UPDATE_NOTE_EDITOR_CONTENT:
       return {
         id: state.id,
-        userId: state.userId,
         title: state.title,
         editorContent: action.payload,
         graph: state.graph,
@@ -98,7 +92,6 @@ export default function noteReducer(state = initialNoteState, action: NoteAction
     case UPDATE_NOTE_ID:
       return {
         id: action.payload,
-        userId: state.userId,
         title: state.title,
         graph: state.graph,
         editorContent: state.editorContent,
