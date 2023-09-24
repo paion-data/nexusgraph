@@ -10,29 +10,31 @@ import {
   selectOAuth,
   updateNlpData,
   updateNoteId,
+  updateUserId,
 } from "../../nexusgraph-redux";
+import { selectNoteList, updateNoteList } from "../../nexusgraph-redux/src/note-list/noteListDuck";
 import { container, TYPES } from "../inversify.config";
 
 export default function useReduxHook() {
   const dispatch = useDispatch();
   const noteState: NoteState = selectNote();
-
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
   const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
     TYPES.NaturalLanguageProcessor
   );
-
   const accessToken = selectOAuth().accessToken;
   const userId = selectOAuth().userInfo["sub"];
+  const noteList = selectNoteList();
 
   useEffect(() => {
     const update = () => {
       if (noteState) {
         astraiosClient.saveOrUpdate(noteState, accessToken, userId).then((response) => {
           dispatch(updateNoteId(response.id));
+          dispatch(updateUserId(userId));
         });
 
-        if (noteState && noteState.editorContent !== initialEditorContent) {
+        if (noteState && noteState.editorContent != initialEditorContent) {
           remoteNaturalLanguageProcessor.entityExtraction(noteState.editorContent).then((NlpState) => {
             dispatch(updateNlpData(NlpState));
           });
@@ -44,4 +46,10 @@ export default function useReduxHook() {
 
     return () => clearInterval(t);
   }, [noteState, accessToken]);
+
+  useEffect(() => {
+    astraiosClient.getNoteList(userId).then((noteList) => {
+      dispatch(updateNoteList(noteList));
+    });
+  }, [noteState.id, noteState.title]);
 }

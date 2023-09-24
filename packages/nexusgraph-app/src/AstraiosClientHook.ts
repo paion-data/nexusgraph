@@ -27,7 +27,7 @@ export default function useAstraiosClientHook() {
     astraiosClient.getNoteList(userId).then((noteList) => {
       dispatch(updateNoteList(noteList));
       if (noteList[0]) {
-        astraiosClient.getFirstNote(noteList[0].id).then((firstNote) => {
+        astraiosClient.getNoteById(noteList[0].id).then((firstNote) => {
           dispatch(updateNoteTitle(firstNote.title));
           dispatch(updateNoteId(firstNote.id));
           dispatch(updateNoteEditorContent(JSON.parse(firstNote.editorContent)));

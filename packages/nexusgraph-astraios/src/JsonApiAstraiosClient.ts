@@ -28,7 +28,11 @@ export class JsonApiAstraiosClient implements AstraiosClient {
     return [] as NoteInfo[];
   }
 
-  public async getFirstNote(): Promise<Record<any, string>> {
+  public async getNoteById(): Promise<Record<any, string>> {
+    return {} as Record<any, string>;
+  }
+
+  public async deleteNote(): Promise<Record<any, string>> {
     return {} as Record<any, string>;
   }
 

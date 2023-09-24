@@ -37,11 +37,11 @@ export class GraphQlClient implements AstraiosClient {
       });
   }
 
-  public getFirstNote(noteId: string): Promise<Record<any, string>> {
+  public getNoteById(noteId: string): Promise<Record<any, string>> {
     return axios
       .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
         query: ` 
-        query getFirstNote{
+        query getNoteById{
           note(ids: [\"${noteId}\"]) {
           edges 
           {
@@ -55,11 +55,31 @@ export class GraphQlClient implements AstraiosClient {
         } 
         }
 `,
-        operationName: "getFirstNote",
+        operationName: "getNoteById",
       })
       .then((response) => {
         return response.data.data.note["edges"][0]["node"];
       });
+  }
+
+  public deleteNote(noteId: string): Promise<any> {
+    return axios.post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
+      query: ` 
+          mutation deleteNote{
+            note(op: DELETE, ids: [\"${noteId}\"]) {
+              edges {
+                node {
+                  id
+                  title
+                  graph
+                  editorContent
+                }
+              }
+            }
+          }
+  `,
+      operationName: "deleteNote",
+    });
   }
 
   private async sendNoteRequest(note: NoteState, token: string, userId: string): Promise<NoteState> {

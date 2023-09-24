@@ -11,5 +11,6 @@ export interface AstraiosClient {
    */
   saveOrUpdate(astraiosState: NoteState, token: string, userId: string): Promise<NoteState>;
   getNoteList(userId: string): Promise<NoteInfo[]>;
-  getFirstNote(noteId: string): Promise<Record<any, string>>;
+  getNoteById(noteId: string): Promise<Record<any, string>>;
+  deleteNote(noteId: string): Promise<Record<any, string>>;
 }
