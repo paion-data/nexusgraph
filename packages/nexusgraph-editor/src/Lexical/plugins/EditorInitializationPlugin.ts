@@ -1,15 +1,14 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { container, TYPES } from "../../../../nexusgraph-app/inversify.config";
 import { AstraiosClient } from "../../../../nexusgraph-astraios";
-import { GlobalState, initialEditorContent } from "../../../../nexusgraph-redux";
+import { initialEditorContent, selectOAuth } from "../../../../nexusgraph-redux";
 
 export default function EditorInitializationPlugin(): JSX.Element | null {
   const [editor] = useLexicalComposerContext();
 
-  const userId = useSelector((state: GlobalState) => state.oAuth.userInfo["sub"]);
+  const userId = selectOAuth().userInfo["sub"];
 
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
 

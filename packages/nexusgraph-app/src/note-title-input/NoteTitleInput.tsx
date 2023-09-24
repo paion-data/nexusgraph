@@ -1,16 +1,16 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { PencilSquareIcon as PencilSquareIconSolid } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { GlobalState, updateNoteTitle } from "../../../nexusgraph-redux";
-import { updateNoteList } from "../../../nexusgraph-redux/src/note-list/noteListDuck";
+import { useDispatch } from "react-redux";
+import { selectNote, updateNoteTitle } from "../../../nexusgraph-redux";
+import { selectNoteList, updateNoteList } from "../../../nexusgraph-redux/src/note-list/noteListDuck";
 import { Input, TitleWapper } from "./styled";
 
 export default function NoteTitleInput(): JSX.Element {
   const [inputValue, setInputValue] = useState("");
 
-  const currentNote = useSelector((state: GlobalState) => state.note);
-  const noteList = useSelector((state: GlobalState) => state.noteList);
+  const currentNote = selectNote();
+  const noteList = selectNoteList();
 
   const newList = noteList.map((note) => {
     if (note.id == currentNote.id) {

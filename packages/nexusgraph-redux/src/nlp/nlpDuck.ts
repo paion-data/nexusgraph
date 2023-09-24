@@ -1,5 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { Link, Node } from "../..";
+import { useSelector } from "react-redux";
+import { GlobalState, Link, Node } from "../..";
 
 export const NLP_DATA = "nlpData";
 const UPDATE_NLPDATA = NLP_DATA + "/UPDATE_NLPDATA";
@@ -18,6 +19,10 @@ export const initialState: NlpState = {
   nodes: [],
   links: [],
 };
+
+export function selectNlpData() {
+  return useSelector((state: GlobalState) => state.nlpData);
+}
 
 /**
  * Update nlp state

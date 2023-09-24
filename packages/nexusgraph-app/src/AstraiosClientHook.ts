@@ -1,11 +1,11 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import {
-  GlobalState,
   NoteState,
   selectNote,
+  selectOAuth,
   updateNoteEditorContent,
   updateNoteGraph,
   updateNoteId,
@@ -18,9 +18,8 @@ export default function useAstraiosClientHook() {
   const dispatch = useDispatch();
   const noteState: NoteState = selectNote();
 
-  const accessToken = useSelector((state: GlobalState) => state.oAuth.accessToken);
-  const noteList = useSelector((state: GlobalState) => state.noteList.length);
-  const userId = useSelector((state: GlobalState) => state.oAuth.userInfo["sub"]);
+  const accessToken = selectOAuth().accessToken;
+  const userId = selectOAuth().userInfo["sub"];
 
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
 
@@ -37,16 +36,4 @@ export default function useAstraiosClientHook() {
       }
     });
   }, []);
-  //     const update = () => {
-  //       if (noteState) {
-  //         astraiosClient.saveOrUpdate(noteState, accessToken).then((response) => {
-  //             dispatch(updateNoteId(response.id));
-  //         });
-  //       }
-  //     };
-
-  //     const t = setInterval(update, Number(String(process.env.ENTITY_EXTRACTION_CALL_DELAY_IN_MS)));
-
-  //     return () => clearInterval(t);
-  // }, [noteState, accessToken]);
 }

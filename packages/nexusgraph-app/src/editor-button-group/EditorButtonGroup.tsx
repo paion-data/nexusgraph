@@ -11,8 +11,9 @@ import {
   WindowIcon as WindowIconSolid,
 } from "@heroicons/react/24/solid";
 
-import { useDispatch, useSelector } from "react-redux";
-import { createNewNote, GlobalState } from "../../../nexusgraph-redux";
+import { useDispatch } from "react-redux";
+import { createNewNote } from "../../../nexusgraph-redux";
+import { selectNoteList } from "../../../nexusgraph-redux/src/note-list/noteListDuck";
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
 import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
 
@@ -36,7 +37,7 @@ export function EditorButtonGroup(): JSX.Element {
   const ViewColumnsIcon = (): JSX.Element => <ViewColumnsIconSolid />;
 
   const dispatch = useDispatch();
-  const noteList = useSelector((state: GlobalState) => state.noteList);
+  const noteList = selectNoteList();
 
   return (
     <>

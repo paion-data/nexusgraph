@@ -1,13 +1,13 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
 import {
-  GlobalState,
   initialEditorContent,
   NoteState,
   selectNote,
+  selectOAuth,
   updateNlpData,
   updateNoteId,
 } from "../../nexusgraph-redux";
@@ -22,8 +22,8 @@ export default function useReduxHook() {
     TYPES.NaturalLanguageProcessor
   );
 
-  const userId = useSelector((state: GlobalState) => state.oAuth.userInfo["sub"]);
-  const accessToken = useSelector((state: GlobalState) => state.oAuth.accessToken);
+  const accessToken = selectOAuth().accessToken;
+  const userId = selectOAuth().userInfo["sub"];
 
   useEffect(() => {
     const update = () => {
