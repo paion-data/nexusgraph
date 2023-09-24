@@ -1,7 +1,7 @@
+// Copyright 2023 Paion Data. All rights reserved.
 import { useSelector } from "react-redux";
 import { GlobalState } from "../globalState";
 
-// Copyright 2023 Paion Data. All rights reserved.
 export const OAUTH_STATE = "oAuth";
 const UPDATE_OAUTH_STATE = OAUTH_STATE + "/UPDATE_OAUTH_STATE";
 

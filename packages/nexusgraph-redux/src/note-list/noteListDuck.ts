@@ -1,7 +1,7 @@
+// Copyright 2023 Paion Data. All rights reserved.
 import { useSelector } from "react-redux";
 import { GlobalState } from "../globalState";
 
-// Copyright 2023 Paion Data. All rights reserved.
 export const NOTE_LIST_STATE = "noteList";
 const UPDATE_NOTE_LIST = NOTE_LIST_STATE + "/UPDATE_NOTE_LIST";
 
