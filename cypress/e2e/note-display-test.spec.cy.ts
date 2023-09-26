@@ -2,6 +2,9 @@
 import { aliasQuery } from "../utils/note-display-utils";
 
 beforeEach(() => {
+  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraiosGraphqlResponse.json" }).as(
+    "astraiosGraphqlRequest"
+  );
   if (Cypress.env("nodeEnv") == "production") {
     cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
   } else {
@@ -11,9 +14,6 @@ beforeEach(() => {
 });
 
 it("Display the user's first note during initialization", () => {
-  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraiosGraphqlResponse.json" }).as(
-    "astraiosGraphqlRequest"
-  );
   cy.wait("@astraiosGraphqlRequest");
   cy.get(".editor-paragraph").should("contain", "China").wait(6000);
   cy.get(".node").should("contain", "China");
