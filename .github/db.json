@@ -9,7 +9,8 @@
     {
       "id": "person-2",
       "fields": {
-        "name": "Jane"
+        "name": "Jane",
+        "url": "https://baidu.com"
       }
     }
   ],
