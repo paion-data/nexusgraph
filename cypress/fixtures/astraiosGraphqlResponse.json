@@ -5,9 +5,18 @@
         {
           "node": {
             "id": "1",
-            "title": "Test Note",
+            "title": "First Note",
             "userId": "devUserId",
             "editorContent": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"China\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+            "graph": "{\"nodes\": [], \"links\": []}"
+          }
+        },
+        {
+          "node": {
+            "id": "2",
+            "title": "Second Note",
+            "userId": "devUserId",
+            "editorContent": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Second note content\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
             "graph": "{\"nodes\": [], \"links\": []}"
           }
         }
