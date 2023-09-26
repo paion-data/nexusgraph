@@ -1,17 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 beforeEach(() => {
-  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraiosGraphqlResponse.json" }).as(
-    "astraiosGraphqlRequest"
-  );
-
-  if (Cypress.env("nodeEnv") == "production") {
-    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
-  } else {
-    cy.visit("http://localhost:3000/", { failOnStatusCode: false });
-  }
-  cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "getEditorData.json" });
-  cy.wait("@astraiosGraphqlRequest");
-  cy.get(".editor-paragraph").clear().wait(5000);
+  cy.initialConfig();
 
   cy.get(".editor-paragraph").type("China").wait(10000);
   cy.get(".node").should("contain", "China");

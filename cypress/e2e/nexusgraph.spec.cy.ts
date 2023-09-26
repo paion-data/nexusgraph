@@ -1,18 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 describe("nexusgraph basic test", () => {
   beforeEach(() => {
-    cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraiosGraphqlResponse.json" }).as(
-      "astraiosGraphqlRequest"
-    );
-
-    if (Cypress.env("nodeEnv") == "production") {
-      cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
-    } else {
-      cy.visit("http://localhost:3000/", { failOnStatusCode: false });
-    }
-    cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "getEditorData.json" });
-    cy.wait("@astraiosGraphqlRequest");
-    cy.get(".editor-paragraph").clear();
+    cy.initialConfig();
   });
 
   it("Enter text in the editor and the corresponding node is generated in the graph", () => {

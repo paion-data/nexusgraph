@@ -1,15 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 describe("Graph browser stats panel E2E tests", () => {
   it("Panel can reflect the INITIAL graph rendering stats ", () => {
-    cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraiosGraphqlResponse.json" }).as(
-      "astraiosGraphqlRequest"
-    );
-
-    if (Cypress.env("nodeEnv") == "production") {
-      cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
-    } else {
-      cy.visit("http://localhost:3000/", { failOnStatusCode: false });
-    }
+    cy.initialConfig();
 
     cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "single-rdf-pair-graph.json" });
     cy.wait("@astraiosGraphqlRequest");
