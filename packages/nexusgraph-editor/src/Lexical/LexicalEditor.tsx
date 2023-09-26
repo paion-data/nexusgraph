@@ -1,18 +1,18 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { CodeHighlightNode, CodeNode } from "@lexical/code";
-import { AutoLinkNode, LinkNode } from "@lexical/link";
-import { ListItemNode, ListNode } from "@lexical/list";
-import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
-import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
-import { InitialConfigType, LexicalComposer } from "@lexical/react/LexicalComposer";
-import { ContentEditable } from "@lexical/react/LexicalContentEditable";
-import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
-import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
-import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
-import { ListPlugin } from "@lexical/react/LexicalListPlugin";
-import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
-import { HeadingNode, QuoteNode } from "@lexical/rich-text";
-import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
+import { CodeHighlightNode, CodeNode } from "@paiondata/lexical-code";
+import { AutoLinkNode, LinkNode } from "@paiondata/lexical-link";
+import { ListItemNode, ListNode } from "@paiondata/lexical-list";
+import { AutoFocusPlugin } from "@paiondata/lexical-react/LexicalAutoFocusPlugin";
+import { CheckListPlugin } from "@paiondata/lexical-react/LexicalCheckListPlugin";
+import { InitialConfigType, LexicalComposer } from "@paiondata/lexical-react/LexicalComposer";
+import { ContentEditable } from "@paiondata/lexical-react/LexicalContentEditable";
+import LexicalErrorBoundary from "@paiondata/lexical-react/LexicalErrorBoundary";
+import { HistoryPlugin } from "@paiondata/lexical-react/LexicalHistoryPlugin";
+import { LinkPlugin } from "@paiondata/lexical-react/LexicalLinkPlugin";
+import { ListPlugin } from "@paiondata/lexical-react/LexicalListPlugin";
+import { RichTextPlugin } from "@paiondata/lexical-react/LexicalRichTextPlugin";
+import { HeadingNode, QuoteNode } from "@paiondata/lexical-rich-text";
+import { TableCellNode, TableNode, TableRowNode } from "@paiondata/lexical-table";
 
 import styles from "./LexicalEditor.module.css";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";

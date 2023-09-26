@@ -2,8 +2,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-import { $createCodeNode, $isCodeNode, getCodeLanguages, getDefaultCodeLanguage } from "@lexical/code";
-import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@lexical/link";
+import { $createCodeNode, $isCodeNode, getCodeLanguages, getDefaultCodeLanguage } from "@paiondata/lexical-code";
+import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@paiondata/lexical-link";
 import {
   $isListNode,
   INSERT_CHECK_LIST_COMMAND,
@@ -11,18 +11,18 @@ import {
   INSERT_UNORDERED_LIST_COMMAND,
   ListNode,
   REMOVE_LIST_COMMAND,
-} from "@lexical/list";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { $isDecoratorBlockNode } from "@lexical/react/LexicalDecoratorBlockNode";
-import { $createHeadingNode, $createQuoteNode, $isHeadingNode, $isQuoteNode, HeadingTagType } from "@lexical/rich-text";
+} from "@paiondata/lexical-list";
+import { useLexicalComposerContext } from "@paiondata/lexical-react/LexicalComposerContext";
+import { $isDecoratorBlockNode } from "@paiondata/lexical-react/LexicalDecoratorBlockNode";
+import { $createHeadingNode, $createQuoteNode, $isHeadingNode, $isQuoteNode, HeadingTagType } from "@paiondata/lexical-rich-text";
 import {
   $getSelectionStyleValueForProperty,
   $isAtNodeEnd,
   $isParentElementRTL,
   $patchStyleText,
   $wrapNodes,
-} from "@lexical/selection";
-import { $getNearestBlockElementAncestorOrThrow, $getNearestNodeOfType, mergeRegister } from "@lexical/utils";
+} from "@paiondata/lexical-selection";
+import { $getNearestBlockElementAncestorOrThrow, $getNearestNodeOfType, mergeRegister } from "@paiondata/lexical-utils";
 import {
   $createParagraphNode,
   $getNodeByKey,

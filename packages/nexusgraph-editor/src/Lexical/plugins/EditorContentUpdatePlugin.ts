@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { useLexicalComposerContext } from "@paiondata/lexical-react/LexicalComposerContext";
 import { useEffect } from "react";
 import { container, TYPES } from "../../../../nexusgraph-app/inversify.config";
 import { AstraiosClient } from "../../../../nexusgraph-astraios";

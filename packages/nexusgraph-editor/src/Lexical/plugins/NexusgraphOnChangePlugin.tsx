@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { useLexicalComposerContext } from "@paiondata/lexical-react/LexicalComposerContext";
 
 import { updateNoteEditorContent } from "../../../../nexusgraph-redux";
 
