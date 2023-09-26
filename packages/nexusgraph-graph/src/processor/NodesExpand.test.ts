@@ -61,11 +61,14 @@ test("Convert the nodes and relationships resulting from the response to 'BasicN
 });
 
 jest.mock("axios");
+axios.create = jest.fn(() => axios);
+
 Object(axios.post).mockResolvedValueOnce(responseData);
 
 test("Axios responds successfully and returns the correct data", () => {
   nodesExpandProcessor.response(selectNode).then((getData) => {
     expect(getData).toStrictEqual(responseData);
-    expect(axios.post).toHaveBeenCalledWith(process.env.EXPAND_API_URL as string, requestNode);
+    expect(axios.create).toHaveBeenCalled();
+    expect(axios.post).toHaveBeenCalledWith("expand/", requestNode);
   });
 });

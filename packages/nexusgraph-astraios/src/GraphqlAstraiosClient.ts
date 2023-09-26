@@ -7,73 +7,70 @@ import { AstraiosClient } from "./AstraiosClient";
 
 @injectable()
 export class GraphQlClient implements AstraiosClient {
-  public saveOrUpdate(astraiosState: NoteState, token: string) {
-    return this.sendNoteRequest(astraiosState, token);
+  public saveOrUpdate(astraiosState: NoteState, token: string, userId: string) {
+    return this.sendNoteRequest(astraiosState, token, userId);
   }
 
   public getNoteList(userId: string) {
     return axios
       .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
         query: ` 
-        {
-          query:
+        query getNoteList{
           note (filter: \"userId==${userId}\"){
-            edges 
-            {
-              node {
-                id 
-                title
-              }
+          edges 
+          {
+            node {
+              id 
+              title
             }
           }
         }
+        }
       `,
+        operationName: "getNoteList",
       })
       .then((response) => {
-        const noteList = response.data.data["query"]["edges"].map((object: { node: { id: string; title: string } }) => {
+        const noteList = response.data.data.note["edges"].map((object: { node: { id: string; title: string } }) => {
           return object["node"];
         });
         return noteList;
       });
   }
 
-  public getFirstNote(noteId: string): Promise<Record<any, string>> {
+  public getNoteById(noteId: string): Promise<Record<any, string>> {
     return axios
       .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
         query: ` 
-        {
-          query:
+        query getNoteById{
           note(ids: [\"${noteId}\"]) {
-            edges 
-            {
-              node {
-                id
-                graph
-                editorContent
-              }
+          edges 
+          {
+            node {
+              id
+              title
+              graph
+              editorContent
             }
           }
+        } 
         }
 `,
+        operationName: "getNoteById",
       })
       .then((response) => {
-        return response.data.data["query"]["edges"][0]["node"] as Record<any, string>;
+        return response.data.data.note["edges"][0]["node"];
       });
   }
 
-  private async sendNoteRequest(note: NoteState, token: string): Promise<any> {
-    if (this.isInitialSave(note)) {
-      return axios
-        .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
-          query: ` 
-          mutation {
-            note(op: UPSERT, data: {
-              graph: \"${note.graph}\",
-              editorContent: \"${note.editorContent}\"
-            }) {
+  public deleteNote(noteId: string): Promise<any> {
+    return axios.post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
+      query: ` 
+          mutation deleteNote{
+            note(op: DELETE, ids: [\"${noteId}\"]) {
               edges {
                 node {
                   id
+                  title
                   graph
                   editorContent
                 }
@@ -81,6 +78,37 @@ export class GraphQlClient implements AstraiosClient {
             }
           }
   `,
+      operationName: "deleteNote",
+    });
+  }
+
+  private async sendNoteRequest(note: NoteState, token: string, userId: string): Promise<NoteState> {
+    const graph = JSON.stringify(note.graph).replace(/"/g, '\\"');
+    const editorContent = JSON.stringify(note.editorContent).replace(/"/g, '\\"');
+
+    if (this.isInitialSave(note)) {
+      return axios
+        .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
+          query: ` 
+          mutation saveNote{
+            note(op: UPSERT, data: {
+              title: "${note.title}",
+              userId: "${userId}",
+              graph: "${graph}",
+              editorContent: "${editorContent}",
+            }) {
+              edges {
+                node {
+                  id
+                  title
+                  graph
+                  editorContent
+                }
+              }
+            }
+          }
+  `,
+          operationName: "saveNote",
         })
         .then((response) => {
           let noteState;
@@ -91,15 +119,18 @@ export class GraphQlClient implements AstraiosClient {
     return axios
       .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
         query: ` 
-          mutation {
+          mutation updateNote{
             note(op: UPSERT, data: {
-              id: ${note.id},
-              graph: \"${note.graph}\",
-              editorContent: \"${note.editorContent}\"
+              id: "${note.id}",
+              userId: "${userId}",
+              title: "${note.title}",
+              graph: "${graph}",
+              editorContent: "${editorContent}",
             }) {
               edges {
                 node {
                   id
+                  title
                   graph
                   editorContent
                 }
@@ -107,13 +138,13 @@ export class GraphQlClient implements AstraiosClient {
             }
           }
   `,
+        operationName: "updateNote",
       })
       .then((response) => {
         const noteState = {
           ...note,
           ...{ id: response.data.data.note.edges[0]["node"]["id"] },
         };
-
         return noteState;
       });
   }

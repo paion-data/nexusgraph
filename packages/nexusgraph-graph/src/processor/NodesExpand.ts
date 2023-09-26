@@ -5,6 +5,8 @@ import { BasicNode, BasicNodesAndRels, BasicRelationship } from "../basicTypes";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "../GraphStats";
 import { NodeModel } from "../models/Node";
 
+const NODE_EXPAND_PATH_PARAM = "expand/";
+
 export class NodesExpandProcessor {
   extractionNeighbours(selectNode: NodeModel): Promise<BasicNodesAndRels> {
     return this.getNeighboursData(selectNode);
@@ -21,7 +23,10 @@ export class NodesExpandProcessor {
   };
 
   response = async (selectNode: NodeModel) => {
-    return await axios.post(process.env.EXPAND_API_URL as string, this.transformNode(selectNode));
+    const instanceAxios = axios.create({
+      baseURL: process.env.THERESA_API_URL as string,
+    });
+    return await instanceAxios.post(NODE_EXPAND_PATH_PARAM, this.transformNode(selectNode));
   };
 
   transformNode(selectNode: NodeModel) {

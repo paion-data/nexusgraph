@@ -4,5 +4,6 @@
 module.exports = function () {
   return {
     historyApiFallback: true,
+    port: 3000,
   };
 };

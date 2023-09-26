@@ -171,9 +171,8 @@ jobs:
         run: |
           touch .env
           echo "NODE_ENV=production" >> .env
-          echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
+          echo "THERESA_API_URL=${{ secrets.THERESA_API_URL }}" >> .env
           echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
-          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
           echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
           echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
           echo "LOGTO_SIGN_IN_CALLBACK_URL=${{ secrets.LOGTO_SIGN_IN_CALLBACK_URL }}" >> .env

@@ -12,7 +12,7 @@ yarn
 yarn start
 ```
 
-When we see `listening on port 3000`, it means server is up and running.
+When we see `listening on port 5000`, it means server is up and running.
 
 Setup
 -----

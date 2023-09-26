@@ -1,4 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import { useSelector } from "react-redux";
+import { GlobalState } from "../globalState";
+
 export const NOTE_LIST_STATE = "noteList";
 const UPDATE_NOTE_LIST = NOTE_LIST_STATE + "/UPDATE_NOTE_LIST";
 
@@ -13,6 +16,10 @@ interface NoteListAction {
 }
 
 const initialState: NoteInfo[] = [];
+
+export function selectNoteList() {
+  return useSelector((state: GlobalState) => state.noteList);
+}
 
 /**
  * Used to update the notes title directory

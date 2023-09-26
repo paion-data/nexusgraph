@@ -12,6 +12,9 @@ export default defineConfig({
       password: process.env.TEST_USER_PASSWORD as string,
       logtoEndpointUrl: process.env.LOGTO_ENDPOINT_URL as string,
       nodeEnv: process.env.NODE_ENV as string,
+      entityExtractionServer: (process.env.THERESA_API_URL as string) + "entityExtraction/",
+      nodeExpand: (process.env.THERESA_API_URL as string) + "expand/",
+      astraiosGraphqlEndpoint: process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string,
     },
   },
 });
