@@ -27,8 +27,15 @@ export const aliasQuery = (req: any, operationName: any): void => {
                 id: "1",
                 title: "Untitled Note",
                 userId: "devUserId",
-                editorContent:
-                  '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"China","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}',
+                editorContent: `{
+                  "root":
+                    {"children":
+                      [{"children":
+                        [{"detail":0,"format":0,"mode":"normal","style":"","text":"China","type":"text","version":1}],
+                          "direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr",
+                          "format":"","indent":0,"type":"root","version":1
+                        }
+                  }`,
                 graph: '{"nodes": [], "links": []}',
               },
             },
@@ -49,8 +56,16 @@ export const aliasQuery = (req: any, operationName: any): void => {
                 id: "2",
                 title: "Second Note",
                 userId: "devUserId",
-                editorContent:
-                  '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Second Note","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}',
+                editorContent: `{
+                  "root":
+                    {"children":
+                      [{"children":
+                        [{"detail":0,"format":0,"mode":"normal","style":"","text":"Select Note","type":"text",
+                        "version":1}],
+                          "direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr",
+                          "format":"","indent":0,"type":"root","version":1
+                        }
+                  }`,
                 graph: '{"nodes": [], "links": []}',
               },
             },
