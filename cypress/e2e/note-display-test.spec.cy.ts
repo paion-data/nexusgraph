@@ -24,9 +24,9 @@ it("Create a new note and display it when the user does not have any notes", () 
     aliasQuery(req, "getNoteList");
   });
   cy.wait("@gqlgetNoteListQuery");
-  cy.get("input[id=noteTitleInput]").should("have.value", "Untitled Note").wait(6000);
+  cy.get("input[id=noteTitleInput]").should("have.value", "Untitled Note");
   cy.get(".editor-paragraph").should("not.have.text");
-  cy.get(".editor-paragraph").type("China").wait(10000);
+  cy.get(".editor-paragraph").type("China");
   cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), (req) => {
     aliasQuery(req, "saveNote");
   });
