@@ -70,7 +70,7 @@ export function EditorButtonGroup(): JSX.Element {
             <button className="squares">
               <Squares2X2Icon />
               <DirectoryDropdownList data-testid={"directoryList"}>
-                <DirectoryDropdownContent>
+                <DirectoryDropdownContent data-testid={"noteTitleList"}>
                   {noteList.map((note) => (
                     <DropdownItem
                       className="noteTitleitem"
