@@ -4,8 +4,8 @@
   "author": "Paion Data Development Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "@lexical/react": "^0.8.1",
-    "axios": "^1.4.0",
-    "lexical": "^0.8.1"
+    "@paiondata/lexical": "^1.12.3",
+    "@paiondata/lexical-react": "^1.12.3",
+    "axios": "^1.4.0"
   }
 }
