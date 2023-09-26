@@ -3,14 +3,16 @@
     {
       "fields": {
         "label": "one",
-        "type": "entity"
+        "type": "entity",
+        "url": "https://baidu.com/"
       },
       "id": "1"
     },
     {
       "fields": {
         "label": "two",
-        "type": "entity"
+        "type": "entity",
+        "url": "https://baidu.com/"
       },
       "id": "2"
     }

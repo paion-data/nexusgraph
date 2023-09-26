@@ -2,7 +2,7 @@
 import { aliasQuery } from "../utils/note-display-utils";
 
 beforeEach(() => {
-  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraiosGraphqlResponse.json" }).as(
+  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraios-graphql-response.json" }).as(
     "astraiosGraphqlRequest"
   );
   if (Cypress.env("nodeEnv") == "production") {
@@ -35,7 +35,7 @@ it("Create a new note and display it when the user does not have any notes", () 
 });
 
 it("Toggle notes by clicking on an item in the note list", () => {
-  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraiosGraphqlResponse.json" }).as(
+  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraios-graphql-response.json" }).as(
     "astraiosGraphqlRequest"
   );
   cy.wait("@astraiosGraphqlRequest");
