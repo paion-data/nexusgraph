@@ -193,8 +193,8 @@ export function Graph(props: GraphProps): JSX.Element {
     // props,
     // wrapperRef.current,
     // svgRef.current,
-    props.nodes,
-    props.relationships,
+    JSON.stringify(props.nodes),
+    JSON.stringify(props.relationships),
   ]);
 
   function zoomInClicked(): void {
