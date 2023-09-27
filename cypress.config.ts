@@ -14,7 +14,7 @@ export default defineConfig({
       nodeEnv: process.env.NODE_ENV as string,
       entityExtractionServer: (process.env.THERESA_API_URL as string) + "entityExtraction/",
       nodeExpand: (process.env.THERESA_API_URL as string) + "expand/",
-      astraiosGraphqlEndpoint: process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string,
+      astraiosGraphqlEndpoint: process.env.ASTRAIOS_API_RESOURCE as string,
     },
   },
 });
