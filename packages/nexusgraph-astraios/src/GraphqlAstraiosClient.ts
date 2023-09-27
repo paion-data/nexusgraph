@@ -13,10 +13,12 @@ export class GraphQlClient implements AstraiosClient {
     return this.sendNoteRequest(astraiosState, token, userId);
   }
 
-  public getNoteList(userId: string) {
+  public getNoteList(userId: string, token: string) {
     return axios
-      .post(ASTRAIOS_GRAPHQL_API_ENDPOINT, {
-        query: ` 
+      .post(
+        ASTRAIOS_GRAPHQL_API_ENDPOINT,
+        {
+          query: ` 
         query getNoteList{
           note (filter: \"userId==${userId}\"){
           edges 
@@ -29,8 +31,10 @@ export class GraphQlClient implements AstraiosClient {
         }
         }
       `,
-        operationName: "getNoteList",
-      })
+          operationName: "getNoteList",
+        },
+        this.axiosConfig(token)
+      )
       .then((response) => {
         const noteList = response.data.data.note["edges"].map((object: { node: { id: string; title: string } }) => {
           return object["node"];
@@ -39,10 +43,12 @@ export class GraphQlClient implements AstraiosClient {
       });
   }
 
-  public getNoteById(noteId: string): Promise<Record<any, string>> {
+  public getNoteById(noteId: string, token: string): Promise<Record<any, string>> {
     return axios
-      .post(ASTRAIOS_GRAPHQL_API_ENDPOINT, {
-        query: ` 
+      .post(
+        ASTRAIOS_GRAPHQL_API_ENDPOINT,
+        {
+          query: ` 
         query getNoteById{
           note(ids: [\"${noteId}\"]) {
           edges 
@@ -57,16 +63,20 @@ export class GraphQlClient implements AstraiosClient {
         } 
         }
 `,
-        operationName: "getNoteById",
-      })
+          operationName: "getNoteById",
+        },
+        this.axiosConfig(token)
+      )
       .then((response) => {
         return response.data.data.note["edges"][0]["node"];
       });
   }
 
-  public deleteNote(noteId: string): Promise<any> {
-    return axios.post(ASTRAIOS_GRAPHQL_API_ENDPOINT, {
-      query: ` 
+  public deleteNote(noteId: string, token: string): Promise<any> {
+    return axios.post(
+      ASTRAIOS_GRAPHQL_API_ENDPOINT,
+      {
+        query: ` 
           mutation deleteNote{
             note(op: DELETE, ids: [\"${noteId}\"]) {
               edges {
@@ -80,8 +90,10 @@ export class GraphQlClient implements AstraiosClient {
             }
           }
   `,
-      operationName: "deleteNote",
-    });
+        operationName: "deleteNote",
+      },
+      this.axiosConfig(token)
+    );
   }
 
   private async sendNoteRequest(note: NoteState, token: string, userId: string): Promise<NoteState> {
@@ -90,8 +102,10 @@ export class GraphQlClient implements AstraiosClient {
 
     if (this.isInitialSave(note)) {
       return axios
-        .post(ASTRAIOS_GRAPHQL_API_ENDPOINT, {
-          query: ` 
+        .post(
+          ASTRAIOS_GRAPHQL_API_ENDPOINT,
+          {
+            query: ` 
           mutation saveNote{
             note(op: UPSERT, data: {
               title: "${note.title}",
@@ -110,8 +124,10 @@ export class GraphQlClient implements AstraiosClient {
             }
           }
   `,
-          operationName: "saveNote",
-        })
+            operationName: "saveNote",
+          },
+          this.axiosConfig(token)
+        )
         .then((response) => {
           let noteState;
           return (noteState = response.data.data.note.edges[0]["node"]);
@@ -119,8 +135,10 @@ export class GraphQlClient implements AstraiosClient {
     }
 
     return axios
-      .post(ASTRAIOS_GRAPHQL_API_ENDPOINT, {
-        query: ` 
+      .post(
+        ASTRAIOS_GRAPHQL_API_ENDPOINT,
+        {
+          query: ` 
           mutation updateNote{
             note(op: UPSERT, data: {
               id: "${note.id}",
@@ -140,8 +158,10 @@ export class GraphQlClient implements AstraiosClient {
             }
           }
   `,
-        operationName: "updateNote",
-      })
+          operationName: "updateNote",
+        },
+        this.axiosConfig(token)
+      )
       .then((response) => {
         const noteState = {
           ...note,
@@ -153,5 +173,16 @@ export class GraphQlClient implements AstraiosClient {
 
   private isInitialSave(note: NoteState) {
     return note.id === undefined;
+  }
+
+  private axiosConfig(token: string) {
+    let axiosConfig;
+    return (axiosConfig = {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    });
   }
 }
