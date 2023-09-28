@@ -13,7 +13,7 @@ import {
 
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../../nexusgraph-astraios";
-import { createNewNote, initialNoteState, selectNote, updateNote } from "../../../nexusgraph-redux";
+import { createNewNote, initialNoteState, selectNote, selectOAuth, updateNote } from "../../../nexusgraph-redux";
 import { NoteInfo, selectNoteList } from "../../../nexusgraph-redux/src/note-list/noteListDuck";
 import { container, TYPES } from "../../inversify.config";
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
@@ -41,6 +41,7 @@ export function EditorButtonGroup(): JSX.Element {
   const dispatch = useDispatch();
   const noteList = selectNoteList();
   const noteId = selectNote().id;
+  const accessToken = selectOAuth().accessToken;
 
   return (
     <>
@@ -77,7 +78,7 @@ export function EditorButtonGroup(): JSX.Element {
                       data-testid={`${note.title}`}
                       key={note.id}
                       onClick={() => {
-                        fetchNoteById(note.id).then((selectedNote) => {
+                        fetchNoteById(note.id, accessToken).then((selectedNote) => {
                           if (selectedNote.id != noteId) {
                             dispatch(updateNote(JSON.parse(JSON.stringify(selectedNote))));
                           }
@@ -94,9 +95,9 @@ export function EditorButtonGroup(): JSX.Element {
               className="trash"
               onClick={() => {
                 if (noteId) {
-                  deleteNote(noteId)
+                  deleteNote(noteId, accessToken)
                     .then(() => {
-                      return updateDisplayedNote(noteId, noteList);
+                      return updateDisplayedNote(noteId, noteList, accessToken);
                     })
                     .then((note) => {
                       dispatch(updateNote(note));
@@ -122,26 +123,26 @@ export function EditorButtonGroup(): JSX.Element {
   );
 }
 
-function deleteNote(currentNoteId: string) {
+function deleteNote(currentNoteId: string, token: string) {
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
-  return astraiosClient.deleteNote(currentNoteId);
+  return astraiosClient.deleteNote(currentNoteId, token);
 }
 
-function updateDisplayedNote(currentNoteId: string, noteList: NoteInfo[]) {
+function updateDisplayedNote(currentNoteId: string, noteList: NoteInfo[], token: string) {
   const index = noteList.indexOf(noteList.filter((note) => note.id == currentNoteId)[0]);
   if (index != -1 && noteList[index + 1]) {
     const note = noteList[index + 1];
-    return fetchNoteById(note.id);
+    return fetchNoteById(note.id, token);
   } else if (index != -1 && noteList.length > 1) {
     const note = noteList[0];
-    return fetchNoteById(note.id);
+    return fetchNoteById(note.id, token);
   }
   return initialNoteState as Record<any, any>;
 }
 
-function fetchNoteById(noteId: string) {
+function fetchNoteById(noteId: string, token: string) {
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
-  return astraiosClient.getNoteById(noteId).then((note) => {
+  return astraiosClient.getNoteById(noteId, token).then((note) => {
     note = {
       id: note.id,
       title: note.title,

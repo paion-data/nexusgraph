@@ -42,10 +42,10 @@ export default function useReduxHook() {
     const t = setInterval(update, Number(String(process.env.ENTITY_EXTRACTION_CALL_DELAY_IN_MS)));
 
     return () => clearInterval(t);
-  }, [noteState, accessToken]);
+  }, [noteState]);
 
   useEffect(() => {
-    astraiosClient.getNoteList(userId).then((noteList) => {
+    astraiosClient.getNoteList(userId, accessToken).then((noteList) => {
       dispatch(updateNoteList(noteList));
     });
   }, [noteState.id, noteState.title]);

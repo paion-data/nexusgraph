@@ -15,14 +15,15 @@ import { container, TYPES } from "../inversify.config";
 export default function useAstraiosClientHook() {
   const dispatch = useDispatch();
   const userId = selectOAuth().userInfo["sub"];
+  const accessToken = selectOAuth().accessToken;
 
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
 
   useEffect(() => {
-    astraiosClient.getNoteList(userId).then((noteList) => {
+    astraiosClient.getNoteList(userId, accessToken).then((noteList) => {
       dispatch(updateNoteList(noteList));
       if (noteList[0]) {
-        astraiosClient.getNoteById(noteList[0].id).then((firstNote) => {
+        astraiosClient.getNoteById(noteList[0].id, accessToken).then((firstNote) => {
           dispatch(updateNoteTitle(firstNote.title));
           dispatch(updateNoteId(firstNote.id));
           dispatch(updateNoteEditorContent(JSON.parse(firstNote.editorContent)));
