@@ -177,12 +177,12 @@ export class GraphQlClient implements AstraiosClient {
 
   private axiosConfig(token: string) {
     let axiosConfig;
-    return (axiosConfig = {
+    return axiosConfig = {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: "Bearer " + token,
       },
-    });
+    };
   }
 }
