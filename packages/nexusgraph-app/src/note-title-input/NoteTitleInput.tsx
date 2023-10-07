@@ -7,8 +7,11 @@ import { NoteInfo, selectNoteList, updateNoteList } from "../../../nexusgraph-re
 import { Input, TitleWapper } from "./styled";
 
 export default function NoteTitleInput(): JSX.Element {
+  const input = document.getElementById("noteTitleInput");
   const currentNote = selectNote();
+  const graphWidth = document.getElementById("graphBrowser")?.offsetWidth;
 
+  const [inputWidth, setInputWidth] = useState(260);
   const [inputValue, setInputValue] = useState(currentNote.title);
 
   const noteList = selectNoteList();
@@ -29,20 +32,21 @@ export default function NoteTitleInput(): JSX.Element {
   }, [inputValue]);
 
   return (
-    <TitleWapper>
+    <TitleWapper inputWidth={inputWidth}>
       <Input
         id="noteTitleInput"
         value={inputValue}
         onChange={(event) => {
           setInputValue(event.target.value);
+          if (input && graphWidth && input.offsetWidth <= graphWidth / 2) {
+            setInputWidth(input.offsetWidth);
+          }
         }}
       />
 
       <button
         className="pencilSquare"
         onClick={() => {
-          const input = document.getElementById("noteTitleInput");
-
           if (input !== null) {
             input.focus();
           }

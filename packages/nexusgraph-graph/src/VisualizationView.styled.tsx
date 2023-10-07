@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 export const StyledVisContainer = styled.div<{ isFullscreen: boolean }>`
   background-color: transparent;
+  position: absolute;
+  top: 0%;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-radius: 1rem;

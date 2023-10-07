@@ -1,29 +1,26 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import styled from "styled-components";
 
-export const TitleWapper = styled.div`
+export const TitleWapper = styled.div<{
+  inputWidth: number;
+}>`
   position: relative;
   left: 5%;
-  top: 2%;
-  width: 89%;
+  top: 5%;
+  z-index: 10;
   height: 60px;
   background-color: #fff;
   display: inline-block;
   padding-left: 1%;
 
   background-color: transparent;
-  border-radius: 1rem;
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgba(108, 216, 248, 0.3);
-  box-shadow: inset 8px 5px 20px rgba(137, 225, 252, 0.6);
 
   & .pencilSquare {
     position: absolute;
-    right: 10px;
-    top: 5px;
+    left: 415px;
+    top: 0px;
     background: transparent;
-    width: 40px;
+    width: 35px;
     height: 50px;
     border: none;
     color: #fff;
@@ -34,6 +31,19 @@ export const TitleWapper = styled.div`
     background: rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
   }
+
+  ${(props) =>
+    `
+    & input {
+      width: ${props.inputWidth}px;
+    }
+
+    & .pencilSquare {
+      position: absolute;
+      left: ${props.inputWidth + 30}px;
+      top: 0px;
+    }
+    `}
 
   & input:focus {
     border: none !important;
@@ -47,7 +57,6 @@ export const Input = styled.input`
   font-size: 35px;
   font-weight: bold;
   color: #fff;
-  text-shadow: 1px 1px 2px #237295, 0 0 1em #34c7f4, 0 0 0.2em #34c7f4;
   display: inline-block;
   background-color: transparent;
   border: none;

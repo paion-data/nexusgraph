@@ -6,13 +6,10 @@ import { GetNodeNeighboursFn } from "./event-handler/GraphEventHandlerModel";
 import { Graph } from "./Graph";
 import { GraphStats } from "./GraphStats";
 import { GraphStyleModel } from "./GraphStyle";
-import { defaultPanelWidth, NodeInspectorPanel } from "./inspection-panel/NodeInspectorPanel";
-import { DetailsPane } from "./inspection-panel/properties-panel-content/DetailsPane";
-import OverviewPane from "./inspection-panel/properties-panel-content/OverviewPane";
 import { GraphModel } from "./models/Graph";
 import { RelationshipModel } from "./models/Relationship";
 import { NodesExpandProcessor } from "./processor/NodesExpand";
-import { panelMinWidth, StyledFullSizeContainer } from "./styles/InspectorContainer.styled";
+import { StyledFullSizeContainer } from "./styles/InspectorContainer.styled";
 import { VizItem } from "./VizItem";
 
 /**
@@ -59,9 +56,6 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
   );
   const [hoveredItem, setHoveredItem] = useState<VizItem>(selectedItem);
   const [graphStyle, setGraphStyle] = useState<GraphStyleModel>(new GraphStyleModel());
-  const [nodePropertiesExpanded, setNodePropertiesExpanded] = useState<boolean>(true);
-
-  const [width, setWidth] = useState<number>(defaultPanelWidth());
 
   const [stats, setStats] = useState<GraphStats>({
     labels: {},
@@ -117,28 +111,13 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
         setGraph={(graph: GraphModel) => {
           // intentionally left blank
         }}
-        offset={(nodePropertiesExpanded ? width + 8 : 0) + 8}
+        offset={8}
         wheelZoomRequiresModKey={true}
         wheelZoomInfoMessageEnabled={true}
         disableWheelZoomInfoMessage={() => {
           // intentionally left blank
         }}
         initialZoomToFit={true}
-      />
-      <NodeInspectorPanel
-        graphStyle={graphStyle}
-        hasTruncatedFields={false}
-        hoveredItem={hoveredItem}
-        selectedItem={selectedItem}
-        stats={stats}
-        width={width}
-        setWidth={(width: number) => setWidth(Math.max(panelMinWidth, width))}
-        expanded={nodePropertiesExpanded}
-        toggleExpanded={() => {
-          setNodePropertiesExpanded(!nodePropertiesExpanded);
-        }}
-        DetailsPaneOverride={DetailsPane}
-        OverviewPaneOverride={OverviewPane}
       />
     </StyledFullSizeContainer>
   );

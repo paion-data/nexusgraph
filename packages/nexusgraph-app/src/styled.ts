@@ -5,75 +5,70 @@ export const AppWrapper = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(55, 59, 61);
+  background: linear-gradient(#f7b5ce, #94ddca);
+  display: flex;
+  flex-direction: column;
 `;
 
-export const GraphBrowserWrapper = styled.div`
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 62vw;
-  height: 94vh;
-  margin: 1.5%;
-  background-color: transparent;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border-radius: 1rem;
-  border-style: solid;
-  border-width: 5px;
-  border-color: rgba(108, 216, 248, 0.3);
-  box-shadow: inset 8px 5px 20px rgba(137, 225, 252, 0.6);
+export const AppHeader = styled.div`
+  order: 1;
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  padding: 1.5% 1.5% 0% 1.5%;
 `;
 
-export const EditorWrapper = styled.div`
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 33%;
-  height: 94%;
-  margin: 1.5% 1% 1.5% 1.5%;
-  border-radius: 1rem;
-  border-style: solid;
-  border-width: 5px;
-  border-color: rgba(108, 216, 248, 0.3);
-  background-color: transparent;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border-radius: 1rem;
-  box-shadow: inset 10px 5px 20px rgba(137, 225, 252, 0.6);
+export const AppBody = styled.div`
+  order: 2;
+  display: flex;
+  flex-direction: row;
+  height: 85vh;
+  padding: 1.5%;
 `;
 
-export const EditorCaption = styled.div`
-  position: relative;
-  left: 7%;
-  top: 0px;
+export const AppCaption = styled.div`
+  margin: 20px 0% 0% 30px;
+  flex-shrink: 1;
   width: 100px;
   height: 60px;
   white-space: pre;
   font-size: 41px;
   font-weight: bold;
   color: #fff;
-  text-shadow: 1px 1px 2px #237295, 0 0 1em #34c7f4, 0 0 0.2em #34c7f4;
-  display: inline-block;
+  display: inline-flex;
 `;
 
-export const IconWapper = styled.span`
-  position: relative;
-  left: 3%;
-  top: 20px;
-  & img {
-    width: 12%;
-  }
-`;
-
-export const EditorGlassCover = styled.div`
-  position: relative;
-  top: 0;
-  width: 100%;
+export const GraphBrowserWrapper = styled.div`
+  flex-shrink: 1;
+  width: 80%;
   height: 100%;
+  margin-left: 1%;
   background-color: transparent;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-radius: 1rem;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #fff;
   overflow: hidden;
+`;
+
+export const IconWapper = styled.div`
+  width: 100px;
+  height: 100%;
+`;
+
+export const Sidebar = styled.div`
+  flex-shrink: 1;
+  width: 20%;
+  height: 100%;
+  margin-right: 1%;
+  border-radius: 1rem;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #fff;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
 `;

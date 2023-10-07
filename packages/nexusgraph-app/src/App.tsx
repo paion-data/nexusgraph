@@ -1,12 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { Editor } from "../../nexusgraph-editor";
 import { GraphBrowser } from "../../nexusgraph-graph";
-import logo from "../public/app-logo.svg";
+import logo from "../public/logo.svg";
 import useAstraiosClientHook from "./AstraiosClientHook";
-import { EditorButtonGroup } from "./editor-button-group/EditorButtonGroup";
 import NoteTitleInput from "./note-title-input/NoteTitleInput";
 import useReduxHook from "./ReduxHook";
-import { AppWrapper, EditorCaption, EditorGlassCover, EditorWrapper, GraphBrowserWrapper, IconWapper } from "./styled";
+import { AppBody, AppCaption, AppHeader, AppWrapper, GraphBrowserWrapper, IconWapper, Sidebar } from "./styled";
 
 /**
  * The component that defines the entire nexus graph app.
@@ -19,20 +17,19 @@ export default function App(): JSX.Element {
 
   return (
     <AppWrapper>
-      <EditorWrapper>
-        <EditorGlassCover>
-          <IconWapper>
-            <img src={logo} alt="Logo" />
-          </IconWapper>
-          <EditorCaption className="h1">Nexus Graph</EditorCaption>
-          <EditorButtonGroup />
+      <AppHeader>
+        <IconWapper>
+          <img src={logo} alt="Logo" />
+        </IconWapper>
+        <AppCaption>Nexus Graph</AppCaption>
+      </AppHeader>
+      <AppBody>
+        <Sidebar />
+        <GraphBrowserWrapper id="graphBrowser">
           <NoteTitleInput />
-          <Editor />
-        </EditorGlassCover>
-      </EditorWrapper>
-      <GraphBrowserWrapper>
-        <GraphBrowser />
-      </GraphBrowserWrapper>
+          <GraphBrowser />
+        </GraphBrowserWrapper>
+      </AppBody>
     </AppWrapper>
   );
 }

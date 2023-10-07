@@ -4,8 +4,8 @@ import styled from "styled-components";
 export const StyledGraphExport = styled.button`
   position: absolute;
   right: 60px;
-  top: 9%;
-  z-index: 2;
+  top: 6%;
+  z-index: 20;
   cursor: pointer;
   background-color: transparent;
   border: none;
