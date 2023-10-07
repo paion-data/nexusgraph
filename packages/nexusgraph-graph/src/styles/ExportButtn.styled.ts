@@ -3,21 +3,23 @@ import styled from "styled-components";
 
 export const StyledGraphExport = styled.button`
   position: absolute;
-  right: 60px;
+  right: 6%;
   top: 6%;
   z-index: 20;
+  color: #fff;
   cursor: pointer;
   background-color: transparent;
   border: none;
-  border-radius: 3rem;
-  box-shadow: inset 2px 2px 5px #fff;
   width: 50px;
-  height: 30px;
+  height: 50px;
   text-align: center;
   overflow: unset;
 
-  & img {
-    margin: 5px;
+  & svg {
+    width: 100%;
+    stroke-width: 0.5px;
+    stroke: #fff;
+    stroke-linecap: round;
   }
 
   &:focus {

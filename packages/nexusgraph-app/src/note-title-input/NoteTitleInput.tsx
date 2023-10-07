@@ -11,7 +11,7 @@ export default function NoteTitleInput(): JSX.Element {
   const currentNote = selectNote();
   const graphWidth = document.getElementById("graphBrowser")?.offsetWidth;
 
-  const [inputWidth, setInputWidth] = useState(260);
+  const [inputWidth, setInputWidth] = useState(350);
   const [inputValue, setInputValue] = useState(currentNote.title);
 
   const noteList = selectNoteList();

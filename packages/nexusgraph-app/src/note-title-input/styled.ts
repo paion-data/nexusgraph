@@ -20,8 +20,8 @@ export const TitleWapper = styled.div<{
     left: 415px;
     top: 0px;
     background: transparent;
-    width: 35px;
-    height: 50px;
+    width: 50px;
+    height: 30px;
     border: none;
     color: #fff;
   }
@@ -54,7 +54,7 @@ export const TitleWapper = styled.div<{
 export const Input = styled.input`
   height: 60px;
   white-space: pre;
-  font-size: 35px;
+  font-size: 50px;
   font-weight: bold;
   color: #fff;
   display: inline-block;
