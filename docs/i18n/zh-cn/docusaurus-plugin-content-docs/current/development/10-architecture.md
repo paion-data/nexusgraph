@@ -89,8 +89,6 @@ Nexus Graph 的设计遵循 [separation of concerns][separation of concerns] 原
 
 [UI 主界面]: https://github.com/paion-data/nexusgraph/blob/master/packages/nexusgraph-app/src/App.tsx
 
-[Knowledge Graph Spec]: https://paion-data.github.io/knowledge-graph-spec/draft/#sec-Graph
-
 [Graph.tsx]: https://github.com/paion-data/nexusgraph/blob/master/packages/nexusgraph-graph/src/Graph.tsx
 
 [nexus-graph]: https://github.com/paion-data/nexusgraph/tree/master/packages/nexusgraph-graph
