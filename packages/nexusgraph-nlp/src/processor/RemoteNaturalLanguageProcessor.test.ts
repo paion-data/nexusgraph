@@ -11,7 +11,7 @@ jest.mock("axios");
 describe("Remote Natural Language Processor delegates processing to remote WS", () => {
   it("Should return nlp Data", async () => {
     // given
-    const editorLines = ["China"];
+    const editorLines = "China";
     const nlpData = {
       nodes: [
         {
@@ -47,9 +47,13 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
       expect(nlpState).toEqual(nlpData);
 
       expect(axios.create).toHaveBeenCalled();
-      expect(axios.post).toHaveBeenCalledWith("entityExtraction/", {
-        documents: editorLines,
-      });
+      expect(axios.post).toHaveBeenCalledWith(
+        "entityExtraction",
+        {
+          text: [editorLines],
+        },
+        { headers: { "Content-Type": "application/json", accept: "*/*" } }
+      );
     });
   });
 });

@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const AppWrapper = styled.div`
-  position: relative;
+  position: flex;
   width: 100vw;
   height: 100vh;
   background: linear-gradient(#f7b5ce, #94ddca);

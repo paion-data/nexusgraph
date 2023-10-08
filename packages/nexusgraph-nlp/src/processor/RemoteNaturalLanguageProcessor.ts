@@ -3,20 +3,16 @@ import axios from "axios";
 import { injectable } from "inversify";
 import "reflect-metadata";
 import { Graph } from "../../../nexusgraph-redux";
-import EditorContentParser from "../parser/EditorContentParser";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 
-const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction/";
+const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction";
 
 /**
  * An implementation of {@link NaturalLanguageProcessor} that delegates NLP to a remote service.
  */
 @injectable()
 export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
-  public entityExtraction(editorContent: object): Promise<Graph> {
-    const parser = new EditorContentParser();
-    const editorLines = parser.parse(editorContent);
-
+  public entityExtraction(editorLines: string): Promise<Graph> {
     return this.remoteEntityExtration(editorLines);
   }
 
@@ -28,7 +24,7 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
    *
    * @returns a Promise the Redux state
    */
-  private remoteEntityExtration = async (editorLines: string[]): Promise<Graph> => {
+  private remoteEntityExtration = async (editorLines: string): Promise<Graph> => {
     const response = this.fetchRemote(editorLines);
     const data: Graph = (await response).data;
     return data;
@@ -43,11 +39,17 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
    *
    * @returns a Promise of the WS response data
    */
-  private fetchRemote = async (editorLines: string[]) => {
+  private fetchRemote = async (editorLines: string) => {
     const instanceAxios = axios.create({
       baseURL: process.env.THERESA_API_URL as string,
     });
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        accept: "*/*",
+      },
+    };
 
-    return await instanceAxios.post(ENTITY_EXTRACTION_PATH_PARAM, { documents: editorLines });
+    return await instanceAxios.post(ENTITY_EXTRACTION_PATH_PARAM, { text: [editorLines] }, config);
   };
 }

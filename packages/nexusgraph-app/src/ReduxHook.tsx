@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
-import { initialEditorContent, NoteState, selectNote, selectOAuth, updateNlpData } from "../../nexusgraph-redux";
-import { updateNoteList } from "../../nexusgraph-redux/src/note-list/noteListDuck";
+import { NoteState, selectIntelligentAI, selectNote, selectOAuth, updateNlpData } from "../../nexusgraph-redux";
 import { container, TYPES } from "../inversify.config";
 
 export default function useReduxHook() {
@@ -17,18 +16,14 @@ export default function useReduxHook() {
   const accessToken = selectOAuth().accessToken;
   const userId = selectOAuth().userInfo["sub"];
 
+  const initialGraphText: string | null = selectIntelligentAI();
+
   useEffect(() => {
     const update = () => {
       if (noteState) {
         // astraiosClient.saveOrUpdate(noteState, accessToken, userId).then((response) => {
         //   dispatch(updateNoteId(response.id));
         // });
-
-        if (noteState && JSON.stringify(noteState.editorContent) != JSON.stringify(initialEditorContent)) {
-          remoteNaturalLanguageProcessor.entityExtraction(noteState.editorContent).then((NlpState) => {
-            dispatch(updateNlpData(NlpState));
-          });
-        }
       }
     };
 
@@ -38,8 +33,23 @@ export default function useReduxHook() {
   }, [noteState]);
 
   useEffect(() => {
-    astraiosClient.getNoteList(userId, accessToken).then((noteList) => {
-      dispatch(updateNoteList(noteList));
-    });
-  }, [noteState.id, noteState.title]);
+    if (initialGraphText) {
+      remoteNaturalLanguageProcessor.entityExtraction(initialGraphText).then((NlpState) => {
+        dispatch(updateNlpData(NlpState));
+      });
+    } else {
+      dispatch(
+        updateNlpData({
+          nodes: [],
+          links: [],
+        })
+      );
+    }
+  }, [initialGraphText]);
+
+  // useEffect(() => {
+  //   astraiosClient.getNoteList(userId, accessToken).then((noteList) => {
+  //     dispatch(updateNoteList(noteList));
+  //   });
+  // }, [noteState.id, noteState.title]);
 }
