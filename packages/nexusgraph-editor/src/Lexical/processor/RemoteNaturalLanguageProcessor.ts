@@ -42,11 +42,7 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
    * @returns a Promise of the WS response data
    */
   private fetchRemote = async (editorLines: string[]) => {
-    return await axios.get(process.env.ENTITY_EXTRACTION_API_URL as string, {
-      params: {
-        text: editorLines.join(" "),
-      },
-    });
+    return await axios.post(process.env.ENTITY_EXTRACTION_API_URL as string, { documents: editorLines });
   };
 
   /**
