@@ -9,7 +9,7 @@ const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
 describe("Remote Natural Language Processor can transform Knowledge Graph Spec data into the format needed by graphing component", () => {
   test("Empty WS response converts to an empty Redux state", async () => {
     const editorLines: any = [];
-    expect(naturalLanguageProcessor.getBasicNode(editorLines)).toEqual([]);
+    expect(naturalLanguageProcessor["getBasicNode"](editorLines)).toEqual([]);
   });
 
   it("processor converts Knowledge Graph spec data into Redux states", () => {
@@ -39,7 +39,7 @@ describe("Remote Natural Language Processor can transform Knowledge Graph Spec d
       ],
     };
 
-    expect(naturalLanguageProcessor.getBasicNode(dataGiven)).toEqual([
+    expect(naturalLanguageProcessor["getBasicNode"](dataGiven)).toEqual([
       { id: "中国", labels: ["Location"], properties: { name: "中国" }, propertyTypes: { name: "string" } },
       { id: "6", labels: ["Quantity"], properties: { name: "6" }, propertyTypes: { name: "string" } },
       { id: "6", labels: ["Quantity"], properties: { name: "6" }, propertyTypes: { name: "string" } },
@@ -61,7 +61,7 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
     };
     Object(axios.get).mockResolvedValueOnce(user);
 
-    naturalLanguageProcessor.fetchRemote(editorLines).then((graphEditorState) => {
+    naturalLanguageProcessor["fetchRemote"](editorLines).then((graphEditorState) => {
       expect(graphEditorState).toEqual(user);
 
       expect(axios.get).toHaveBeenCalledWith(process.env.ENTITY_EXTRACTION_API, {
