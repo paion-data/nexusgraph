@@ -24,6 +24,6 @@ import type { GraphConfig } from "./GraphConfig";
  *
  * @returns A D3 visualization of network graph
  */
-export function Graph(graphConfig: GraphConfig): JSX.Element {
+export default function Graph(graphConfig: GraphConfig): JSX.Element {
   return <ConfigurableD3Graph graphData={graphConfig.graphData} canvasConfig={graphConfig.canvasConfig} />;
 }

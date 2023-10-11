@@ -13,5 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { default as Graph } from "./Graph";
-export type { GraphConfig, GraphData, Node, Link, CanvasConfig, Margin } from "./GraphConfig";
+import React from "react";
+import { render } from "@testing-library/react";
+import Editor from "./Editor";
+
+test("[Sanity Check] Loads editor without error", () => {
+  render(<Editor />);
+});

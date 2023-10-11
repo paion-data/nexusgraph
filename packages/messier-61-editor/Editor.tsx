@@ -13,5 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { default as Graph } from "./Graph";
-export type { GraphConfig, GraphData, Node, Link, CanvasConfig, Margin } from "./GraphConfig";
+import React from "react";
+import { LexicalEditor } from "./Lexical";
+
+/**
+ * Generates a configured Editor instance
+ *
+ * @returns An knowledge graph editor
+ */
+export default function Editor(): JSX.Element {
+  return <LexicalEditor lexicalEditorConfig={getLexicalEditorConfig()} />;
+}
+
+function getLexicalEditorConfig(): object {
+  return {
+    theme: {
+      ltr: "ltr",
+      rtl: "rtl",
+      placeholder: "editor-placeholder",
+      paragraph: "editor-paragraph",
+    },
+    onError(error: any) {
+      throw error;
+    },
+  };
+}

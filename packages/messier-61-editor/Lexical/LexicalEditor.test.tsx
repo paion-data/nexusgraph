@@ -13,5 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { default as Graph } from "./Graph";
-export type { GraphConfig, GraphData, Node, Link, CanvasConfig, Margin } from "./GraphConfig";
+import React from "react";
+import { render } from "@testing-library/react";
+import LexicalEditor from "./LexicalEditor";
+
+test("[Sanity Check] Loads editor without error", () => {
+  render(<LexicalEditor lexicalEditorConfig={getTestEditorConfig()} />);
+});
+
+function getTestEditorConfig(): object {
+  return {
+    theme: {
+      ltr: "ltr",
+      rtl: "rtl",
+      placeholder: "editor-placeholder",
+      paragraph: "editor-paragraph",
+    },
+    onError(error: any) {
+      throw error;
+    },
+  };
+}
