@@ -3,6 +3,7 @@ import axios from "axios";
 import { injectable } from "inversify";
 import "reflect-metadata";
 import { NoteState } from "../../nexusgraph-redux";
+import { NoteInfo } from "../../nexusgraph-redux/src/note-list/noteListDuck";
 import { AstraiosClient } from "./AstraiosClient";
 
 const NOTE_STORAGE_API_URL_PARAMETER = "note/";
@@ -23,6 +24,14 @@ export class JsonApiAstraiosClient implements AstraiosClient {
     return this.sendNoteRequest(astraiosState, token);
   }
 
+  public async getNoteList(): Promise<NoteInfo[]> {
+    return [] as NoteInfo[];
+  }
+
+  public async getFirstNote(): Promise<Record<any, string>> {
+    return {} as Record<any, string>;
+  }
+
   /**
    * Send a request to the Astraios server
    *
@@ -31,7 +40,6 @@ export class JsonApiAstraiosClient implements AstraiosClient {
    * @returns A Promise of the WS response data
    */
   private async sendNoteRequest(note: NoteState, token: string): Promise<NoteState> {
-    // const token = useSelector((state: GlobalState) => state.oAuth2.accessToken)
     const config = {
       headers: {
         Accept: "application/vnd.api+json",
@@ -44,7 +52,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
 
     if (this.isInitialSave(note)) {
       return axios
-        .post((process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER, { data }, config)
+        .post((process.env.ASTRAIOS_JSON_API_ENDPOINT as string) + NOTE_STORAGE_API_URL_PARAMETER, { data }, config)
         .then((response) => {
           const noteState = {
             ...note,
@@ -55,7 +63,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
     }
 
     return axios.patch(
-      (process.env.ASTRAIOS_API_URL as string) + NOTE_STORAGE_API_URL_PARAMETER + note.id,
+      (process.env.ASTRAIOS_JSON_API_ENDPOINT as string) + NOTE_STORAGE_API_URL_PARAMETER + note.id,
       { data },
       config
     );

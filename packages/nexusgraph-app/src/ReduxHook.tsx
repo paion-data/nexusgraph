@@ -10,7 +10,7 @@ export default function useReduxHook() {
   const dispatch = useDispatch();
   const noteState: NoteState = selectNote();
 
-  const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosStorageProcessor);
+  const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
   const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
     TYPES.NaturalLanguageProcessor
   );
@@ -24,7 +24,7 @@ export default function useReduxHook() {
         //     dispatch(updateNoteId(response.id));
         // });
 
-        if (noteState && noteState.editorContent != initialEditorContent) {
+        if (noteState && noteState.editorContent !== initialEditorContent) {
           remoteNaturalLanguageProcessor.entityExtraction(noteState.editorContent).then((NlpState) => {
             dispatch(updateNlpData(NlpState));
           });

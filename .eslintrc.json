@@ -17,6 +17,7 @@
         "ignoreUrls": true
       }
     ],
-    "header/header": [2, "line", " Copyright 2023 Paion Data. All rights reserved."]
+    "header/header": [2, "line", " Copyright 2023 Paion Data. All rights reserved."],
+    "no-useless-escape": "off"
   }
 }

@@ -2,6 +2,7 @@
 import { Editor } from "../../nexusgraph-editor";
 import { GraphBrowser } from "../../nexusgraph-graph";
 import logo from "../public/app-logo.svg";
+import useAstraiosClientHook from "./AstraiosClientHook";
 import { EditorButtonGroup } from "./editor-button-group/EditorButtonGroup";
 import useReduxHook from "./ReduxHook";
 import { AppWrapper, EditorCaption, EditorGlassCover, EditorWrapper, GraphBrowserWrapper, IconWapper } from "./styled";
@@ -13,6 +14,7 @@ import { AppWrapper, EditorCaption, EditorGlassCover, EditorWrapper, GraphBrowse
  */
 export default function App(): JSX.Element {
   useReduxHook();
+  useAstraiosClientHook();
 
   return (
     <AppWrapper>

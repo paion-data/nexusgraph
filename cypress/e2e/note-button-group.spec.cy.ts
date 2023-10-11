@@ -3,8 +3,10 @@ beforeEach(() => {
   if (Cypress.env("nodeEnv") == "production") {
     cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
   } else {
+    cy.intercept("POST", "http://localhost:8080/v1/data/", { fixture: "astraiosGraphqlResponse.json" }).wait(5000);
     cy.visit("http://localhost:8080/", { failOnStatusCode: false });
   }
+  cy.intercept("POST", "http://localhost:3000/entityExtraction", { fixture: "getEditorData.json" });
 
   cy.get("[data-testid='editorMenuExpand']").click();
 });
