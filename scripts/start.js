@@ -1,6 +1,4 @@
-/*
- * Copyright 2023 Paion Data. All rights reserved.
- */
+// Copyright 2023 Paion Data. All rights reserved.
 "use strict";
 
 const configFactory = require("../config/webpack/webpack.config");

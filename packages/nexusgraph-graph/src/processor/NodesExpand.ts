@@ -8,7 +8,7 @@ export class NodesExpandProcessor {
     const nodesAndRels: BasicNodesAndRels = { nodes: [], relationships: [] };
 
     const getNeighboursData = async (): Promise<BasicNodesAndRels> => {
-      const response = await axios.get("https://theresa.nexusgraph.com/expand", {
+      const response = await axios.get(process.env.EXPAND_API_URL as string, {
         params: {
           node: JSON.stringify(this.transformationNode(selectNode)),
         },
