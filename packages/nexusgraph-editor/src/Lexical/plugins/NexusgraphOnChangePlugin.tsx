@@ -26,17 +26,20 @@ import { UPDATE_GRAPH } from "../../../../nexusgraph-graph/src/shared/editor/edi
 export default function NexusgraphOnChangePlugin(): null {
   const [editor] = useLexicalComposerContext();
   const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
+  const dispatch = useDispatch();
   useEffect(() => {
     return editor.registerUpdateListener(({ editorState }) => {
       editorState.read(() => {
         const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
         const editorLines: string[] = parse(jsonObject);
-        naturalLanguageProcessor.entityExtraction(editorLines).then((graphEditorState) => {
-          const dispatch = useDispatch();
-          dispatch({ type: UPDATE_GRAPH, payload: graphEditorState });
-        });
+        if (editorLines.length > 0) {
+          naturalLanguageProcessor.entityExtraction(editorLines).then((graphEditorState) => {
+            dispatch({ type: UPDATE_GRAPH, payload: graphEditorState });
+          });
+        }
       });
     });
-  }, [editor, parse]);
+  }, [editor, parse, dispatch]);
+
   return null;
 }

@@ -3,8 +3,6 @@ import React, { useState } from "react";
 
 import { NodeInspectorPanel, defaultPanelWidth } from "./inspection-panel/NodeInspectorPanel";
 import { StyledFullSizeContainer, panelMinWidth } from "./styles/InspectorContainer.styled";
-import { DetailsPaneProps } from "./inspection-panel/DefaultDetailsPane";
-import { OverviewPaneProps } from "./inspection-panel/DefaultOverviewPane";
 import { GraphStyleModel } from "./GraphStyle";
 import { GetNodeNeighboursFn, NodesAndRels } from "./event-handler/GraphEventHandlerModel";
 import { VizItem } from "./VizItem";
@@ -14,6 +12,7 @@ import { RelationshipModel } from "./models/Relationship";
 import { GraphModel } from "./models/Graph";
 import { DetailsPane } from "./inspection-panel/properties-panel-content/properties-panel-content/DetailsPane";
 import OverviewPane from "./inspection-panel/properties-panel-content/properties-panel-content/OverviewPane";
+import { NodesExpandProcessor } from "./processor/NodesExpand";
 
 /**
  * Both {@link GraphVisualizerProps.relationships} and {@link GraphVisualizerProps.nodes} are immutable.
@@ -21,8 +20,6 @@ import OverviewPane from "./inspection-panel/properties-panel-content/properties
 type GraphVisualizerProps = {
   nodes: readonly BasicNode[];
   relationships: readonly BasicRelationship[];
-  DetailsPaneOverride?: React.FC<DetailsPaneProps>;
-  OverviewPaneOverride?: React.FC<OverviewPaneProps>;
   assignVisElement: (svgElement: any, graphElement: any) => void;
 };
 
@@ -75,7 +72,18 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
    * @param callback
    */
   const getNodeNeighbours: GetNodeNeighboursFn = (node, currentNeighbourIds, callback) => {
-    // Intentionally left blank
+    const nodesExpandProcessor = new NodesExpandProcessor();
+    nodesExpandProcessor.extractionNeighbours(node).then((nodesAndRels) => {
+      const allNeighboursCount = nodesAndRels.nodes.length;
+      const maxNeighbours = 10;
+      if (allNeighboursCount > maxNeighbours) {
+        setSelectedItem({
+          type: "status-item",
+          item: `Rendering was limited to ${maxNeighbours} of the node's total ${allNeighboursCount} neighbours due to browser config maxNeighbours.`,
+        });
+      }
+      callback(nodesAndRels);
+    });
   };
 
   return (
@@ -89,7 +97,9 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
         onItemSelect={(selectedItem: VizItem) => setSelectedItem(selectedItem)}
         graphStyle={graphStyle}
         styleVersion={0}
-        onGraphModelChange={(stats: GraphStats) => setStats(stats)}
+        onGraphModelChange={(stats) => {
+          setStats(stats);
+        }}
         // 这个在后续的图谱 PNG 导出需要用到 - https://trello.com/c/GYbX0IEu
         // 导出逻辑参考 Neo4J Browser CypherFrame.tsx: exportPNG = (): void => { ... }
         assignVisElement={props.assignVisElement}

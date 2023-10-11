@@ -1,5 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { BasicNode, GraphEditorState } from "../../../../nexusgraph-graph";
+
+import { BasicNode, BasicRelationship, GraphEditorState } from "../../../../nexusgraph-graph";
 import axios from "axios";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 
@@ -23,10 +24,11 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
     const response = this.fetchRemote(editorLines);
     const data = (await response).data;
     const basicNodes = this.getBasicNode(data);
+    const basicRelationships = this.getBasicRelationships(data);
 
     return {
       nodes: basicNodes,
-      relationships: [],
+      relationships: basicRelationships,
     };
   };
 
@@ -72,5 +74,21 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
     }
 
     return basicNodesList;
+  };
+
+  getBasicRelationships = (data: any) => {
+    const basicRelationshipsList: BasicRelationship[] = [];
+    data.links.map((link: any) => {
+      const relationship: BasicRelationship = {
+        id: link["fields"]["label"] ? link["fields"]["label"] : `${link["source"]}To${link["target"]} `,
+        startNodeId: link["source"],
+        endNodeId: link["target"],
+        type: link["fields"]["label"] ? link["fields"]["label"] : "",
+        properties: {},
+        propertyTypes: {},
+      };
+      basicRelationshipsList.push(relationship);
+    });
+    return basicRelationshipsList;
   };
 }
