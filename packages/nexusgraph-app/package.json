@@ -1,4 +1,7 @@
 {
   "name": "@paiondata/nexusgraph-app",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@sentry/react": "^7.57.0"
+  }
 }

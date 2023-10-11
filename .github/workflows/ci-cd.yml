@@ -146,7 +146,6 @@ jobs:
       - name: Load custom environment variables into HC variable file
         run: |
           sed -i -e 's/ZONE_ID_INJECTED_BY_CI_CD/${{ secrets.ZONE_ID }}/g' instances/main.auto.tfvars
-
       - name: Load SSL Certificates
         working-directory: hashicorp/images
         run: |
