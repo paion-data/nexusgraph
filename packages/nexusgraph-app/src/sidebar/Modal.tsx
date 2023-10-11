@@ -28,14 +28,12 @@ function Portal(props: ModalProps): JSX.Element {
   }, [document.activeElement]);
 
   return (
-    <ModalOverlay id={"modal"} show={show} onHide={handleClose} role="dialog">
+    <ModalOverlay id={"modal"} animation={true} show={show} onHide={handleClose} role="dialog">
       <ModalWapper>
         <button className="modalClose" onClick={props.onClose}>
           X
         </button>
-        <div className="modalContent">
-          {props.children}
-        </div>
+        <div className="modalContent">{props.children}</div>
       </ModalWapper>
     </ModalOverlay>
   );

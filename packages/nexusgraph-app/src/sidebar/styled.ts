@@ -1,8 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import styled from "styled-components";
-import nlp from './img/nlp.png';
 import { Modal } from "react-bootstrap";
-
+import styled from "styled-components";
+import nlp from "./img/nlp.png";
 
 export const CreateButtonStyled = styled.button`
   position: absolute;
