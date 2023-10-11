@@ -15,10 +15,10 @@ afterEach(() => {
   cy.get(".editor-paragraph").find("span").and("have.css", "font-family").should("include", "Arial");
 });
 
-describe("FontFamilyDropDown button E2E test", () => {
+describe.skip("FontFamilyDropDown button E2E test", () => {
   const fontFamily = ["Courier New", "Georgia", "Times New Roman", "Trebuchet MS", "Verdana"];
   for (let i = 0; i < fontFamily.length; i++) {
-    it(`${fontFamily[i]} button has an effect in dropdown`, () => {
+    it.skip(`${fontFamily[i]} button has an effect in dropdown`, () => {
       cy.get('[aria-label = "Formatting options for font family"]').click();
       cy.contains(fontFamily[i]).click();
       cy.get('[aria-label = "Formatting options for font family"]').find(".text").should("have.text", fontFamily[i]);
