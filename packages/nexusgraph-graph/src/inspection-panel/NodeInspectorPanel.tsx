@@ -51,7 +51,7 @@ export function defaultPanelWidth(): number {
  * 2. Single-click: when mouse pointer is not over a node; in this case, stats of all on-canvas nodes and relationships
  *    are calculated and displayed
  *
- * @param props  The {@link NodeInspectorPanelProps | pre-computed info and stats data about on-canvas nodes and relationships}
+ * @param props  The pre-computed info and stats data about on-canvas nodes and relationships
  *
  * @returns a DOM object
  */

@@ -60,7 +60,8 @@ function fitCaptionIntoCircle(
   //A **font** style. See[sans-serif](https://en.wikipedia.org/wiki/Sans-serif)
   const fontFamily = "sans-serif";
   const fontSize = parseFloat(style.forNode(node).get("font-size"));
-  // Roughly calculate max text length the circle can fit by radius and font size, The area of the circle divided by the area of each letter
+  // Roughly calculate max text length the circle can fit by radius and font size
+  // The area of the circle divided by the area of each letter
   const maxCaptionTextLength = Math.floor((Math.pow(node.radius, 2) * Math.PI) / Math.pow(fontSize, 2));
   const template = style.forNode(node).get("caption");
   const nodeText = style.interpolate(template, node);

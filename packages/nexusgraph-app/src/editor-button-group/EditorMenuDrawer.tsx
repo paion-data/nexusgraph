@@ -64,8 +64,8 @@ export function EditorMenuDrawer({ width, isOpen, children }: EditorMenuDrawerPr
     <EditorMenuContainer
       paneWidth={isOpen ? width : "0%"}
       onTransitionEnd={onTransitionEnd}
-      //Gets/sets whether tiles will animate to their new position and size.See
-      //[shouldAnimate] (https://www.infragistics.com/help/wpf/infragisticswpf.controls.layouts.xamtilemanager~infragistics.controls.layouts.modesettingsbase~shouldanimate)
+      // Gets/sets whether tiles will animate to their new position and size.See
+      // shouldAnimate (https://www.infragistics.com/help/wpf/infragisticswpf.controls.layouts.xamtilemanager~infragistics.controls.layouts.modesettingsbase~shouldanimate)
       shouldAnimate={transitionState !== Open}
     >
       {drawerIsVisible && children}
