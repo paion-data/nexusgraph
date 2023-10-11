@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getIntelligentAIContent } from "../../../nexusgraph-redux";
-import nlpLogo from "./img/nlp.png";
 import { FeatureButton, IntelligentAITextarea } from "./styled";
 
 export function FeatureMenu({ onClose }: { onClose: () => void }): JSX.Element {
@@ -10,11 +9,7 @@ export function FeatureMenu({ onClose }: { onClose: () => void }): JSX.Element {
 
   return (
     <>
-      {!mode && (
-        <FeatureButton onClick={() => setMode("intelligentAI")}>
-          智能AI
-        </FeatureButton>
-      )}
+      {!mode && <FeatureButton onClick={() => setMode("intelligentAI")}>智能AI</FeatureButton>}
       {mode === "intelligentAI" && <IntelligentAIDialogBody onClose={onClose}></IntelligentAIDialogBody>}
     </>
   );

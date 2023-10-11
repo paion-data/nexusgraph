@@ -1,6 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import styled from "styled-components";
 import nlp from './img/nlp.png';
+import { Modal } from "react-bootstrap";
+
 
 export const CreateButtonStyled = styled.button`
   position: absolute;
@@ -13,7 +15,7 @@ export const CreateButtonStyled = styled.button`
   background: rgba(256, 256, 256, 0.6);
   cursor: pointer;
   word-wrap: break-word;
-  font-size: 12px;
+  font-size: 20px;
   & svg {
     height: 30%;
     stroke-width: 1px;
@@ -37,7 +39,7 @@ export const FeatureButton = styled.button`
   border-color: #f7b5ce;
   cursor: pointer;
   word-wrap: break-word;
-  font-size: 12px;
+  font-size: 20px;
 `;
 
 export const IntelligentAITextarea = styled.div`
@@ -76,11 +78,11 @@ export const IntelligentAITextarea = styled.div`
     font-size: 20px;
     cursor: pointer;
     word-wrap: break-word;
-    font-size: 12px;
+    font-size: 20px;
   }
 `;
 
-export const ModalOverlay = styled.div`
+export const ModalOverlay = styled(Modal)`
   display: flex;
   justify-content: center;
   align-items: center;

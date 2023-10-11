@@ -5,7 +5,7 @@ import "reflect-metadata";
 import { Graph } from "../../../nexusgraph-redux";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 
-const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction/";
+const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction";
 
 /**
  * An implementation of {@link NaturalLanguageProcessor} that delegates NLP to a remote service.
@@ -43,7 +43,13 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
     const instanceAxios = axios.create({
       baseURL: process.env.THERESA_API_URL as string,
     });
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        accept: "*/*",
+      },
+    };
 
-    return await instanceAxios.post(ENTITY_EXTRACTION_PATH_PARAM, { text: editorLines });
+    return await instanceAxios.post(ENTITY_EXTRACTION_PATH_PARAM, { text: [editorLines] }, config);
   };
 }
