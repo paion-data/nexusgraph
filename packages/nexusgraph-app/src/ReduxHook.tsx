@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
-import { GlobalState, NoteState, UPDATE_NLPDATA } from "../../nexusgraph-redux";
-import { initialEditorContent, selectNote } from "../../nexusgraph-redux/src/note/noteDuck";
+import { GlobalState, initialEditorContent, NoteState, selectNote, updateNlpData } from "../../nexusgraph-redux";
 import { container, TYPES } from "../inversify.config";
 
 export default function useReduxHook() {
@@ -22,12 +21,12 @@ export default function useReduxHook() {
     const update = () => {
       if (noteState) {
         // astraiosClient.saveOrUpdate(noteState, accessToken).then((response) => {
-        //     dispatch({ type: UPDATE_NOTE_ID, payload: response.id });
+        //     dispatch(updateNoteId(response.id));
         // });
 
         if (noteState && noteState.editorContent != initialEditorContent) {
           remoteNaturalLanguageProcessor.entityExtraction(noteState.editorContent).then((NlpState) => {
-            dispatch({ type: UPDATE_NLPDATA, payload: NlpState });
+            dispatch(updateNlpData(NlpState));
           });
         }
       }

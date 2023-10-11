@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { GlobalState, Graph, UPDATE_NOTE_GRAPH } from "../../nexusgraph-redux";
+import { GlobalState, Graph, updateNoteGraph } from "../../nexusgraph-redux";
 import { BasicNode, BasicRelationship } from "./basicTypes";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "./GraphStats";
 import { GraphVisualizer } from "./GraphVisualizer";
@@ -27,7 +27,7 @@ export function Visualization(props: VisualizationProps): JSX.Element {
   };
 
   useEffect(() => {
-    dispatch({ type: UPDATE_NOTE_GRAPH, payload: graph });
+    dispatch(updateNoteGraph(graph));
   }, [JSON.stringify(graph)]);
 
   return (
