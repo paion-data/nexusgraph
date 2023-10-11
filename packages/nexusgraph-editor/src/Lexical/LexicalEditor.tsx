@@ -5,6 +5,7 @@ import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
+import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 
@@ -60,6 +61,7 @@ export default function LexicalEditor(): JSX.Element {
           />
           <HistoryPlugin />
           <AutoFocusPlugin />
+          <CheckListPlugin />
           <CodeHighlightPlugin />
           <OnChangePlugin />
           <ListPlugin />
