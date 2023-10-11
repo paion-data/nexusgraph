@@ -3,7 +3,7 @@ import axios from "axios";
 import { injectable } from "inversify";
 import "reflect-metadata";
 import { NoteState } from "../../nexusgraph-redux";
-import { AstraiosClient } from "./AstraiosStorageProcessor";
+import { AstraiosClient } from "./AstraiosClient";
 
 const NOTE_STORAGE_API_URL_PARAMETER = "note/";
 
@@ -19,8 +19,8 @@ export class JsonApiAstraiosClient implements AstraiosClient {
     this.updateNote = false;
   }
 
-  public saveOrUpdate(astraiosState: NoteState): Promise<NoteState> {
-    return this.sendNoteRequest(astraiosState);
+  public saveOrUpdate(astraiosState: NoteState, token: string): Promise<NoteState> {
+    return this.sendNoteRequest(astraiosState, token);
   }
 
   /**
@@ -30,11 +30,13 @@ export class JsonApiAstraiosClient implements AstraiosClient {
    *
    * @returns A Promise of the WS response data
    */
-  private async sendNoteRequest(note: NoteState): Promise<NoteState> {
+  private async sendNoteRequest(note: NoteState, token: string): Promise<NoteState> {
+    // const token = useSelector((state: GlobalState) => state.oAuth2.accessToken)
     const config = {
       headers: {
         Accept: "application/vnd.api+json",
         "Content-Type": "application/vnd.api+json",
+        Authorization: "Bearer " + token,
       },
     };
 

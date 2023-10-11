@@ -1,0 +1,5 @@
+{
+  "name": "@paiondata/nexusgraph-oauth",
+  "version": "0.1.0",
+  "description": "OAuth 2 wrapper package"
+}

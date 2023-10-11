@@ -1,7 +1,11 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import { Callback, useOAuth2 } from "../../nexusgraph-oauth2";
+import { useLogto } from "@logto/react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Callback } from "../../nexusgraph-oauth";
+import { UPDATE_OAUTH_STATE } from "../../nexusgraph-redux";
 import App from "./App";
 
 /**
@@ -10,10 +14,37 @@ import App from "./App";
  * @returns
  */
 export default function ProdApp(): JSX.Element {
+  const dispatch = useDispatch();
+
+  const { signIn, isAuthenticated, isLoading, getAccessToken, fetchUserInfo } = useLogto();
+
+  const prodOAuthState = {
+    accessToken: "",
+    userInfo: {},
+  };
+
+  useEffect(() => {
+    getAccessToken(process.env.ASTRAIOS_API_RESOURCE as string).then((token) => {
+      if (token) {
+        prodOAuthState["accessToken"] = token;
+        fetchUserInfo().then((userInfo) => {
+          if (userInfo) {
+            prodOAuthState["userInfo"] = userInfo;
+            dispatch({ type: UPDATE_OAUTH_STATE, payload: prodOAuthState });
+          }
+        });
+      }
+    });
+  }, [JSON.stringify(prodOAuthState)]);
+
+  if (!isAuthenticated && !isLoading) {
+    signIn(process.env.LOGTO_SIGN_IN_CALLBACK_URL as string);
+  }
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<App oauthContext={useOAuth2()} />} />
+        <Route path="/" element={<App />} />
         <Route path="/login" element={<Callback />} />
       </Routes>
     </Router>

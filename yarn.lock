@@ -2444,14 +2444,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@paiondata/nexusgraph-oauth@workspace:packages/nexusgraph-oauth2":
-  version: 0.0.0-use.local
-  resolution: "@paiondata/nexusgraph-oauth@workspace:packages/nexusgraph-oauth2"
-  dependencies:
-    "@logto/react": ^2.1.1
-  languageName: unknown
-  linkType: soft
-
 "@paiondata/nexusgraph@workspace:.":
   version: 0.0.0-use.local
   resolution: "@paiondata/nexusgraph@workspace:."
@@ -2462,6 +2454,7 @@ __metadata:
     "@babel/preset-env": ^7.20.2
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.21.0
+    "@logto/react": ^2.1.1
     "@reduxjs/toolkit": ^1.9.5
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
@@ -8964,9 +8957,9 @@ __metadata:
   linkType: hard
 
 "jose@npm:^4.13.2":
-  version: 4.14.5
-  resolution: "jose@npm:4.14.5"
-  checksum: 6fd42cd8c56efe28326549b05fc385f484b93424738a430c0ff776e80846b35a6e1af9648a5c1958eaefa8636b989e71cb6687155f1751721c0a9d17fc281a6f
+  version: 4.14.6
+  resolution: "jose@npm:4.14.6"
+  checksum: eae81a234e7bf1446b1bd80722b3462b014e3835b155c3a7799c1c5043163a53a0dc28d347004151b031e6b7b863403aabf8814d9cc217ce21f8c2f3ebd4b335
   languageName: node
   linkType: hard
 

@@ -11,7 +11,7 @@ export interface NoteState {
   graph: string;
 }
 
-export interface AstraiosAction {
+export interface NoteAction {
   type: typeof NOTE_STATE;
   payload: string;
 }
