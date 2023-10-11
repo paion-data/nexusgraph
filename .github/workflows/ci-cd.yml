@@ -9,6 +9,10 @@ name: Messier-61 CI/CD
     branches:
       - master
 
+env:
+  USER: QubitPi
+  EMAIL: jack20220723@gmail.com
+
 jobs:
   yaml-lint:
     name: YAML Lint Check
@@ -78,8 +82,8 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Tag for release
         run: |
-          git config --global user.name 'QubitPi'
-          git config --global user.email 'jack20191124@proton.me'
+          git config --global user.name '$USER'
+          git config --global user.email '$EMAIL'
           .github/tag-for-release.bash
       - name: Set release version
         run: |
@@ -124,5 +128,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/build
-          user_name: QubitPi
-          user_email: jack20191124@proton.me
+          user_name: ${{ env.USER }}
+          user_email: ${{ env.EMAIL }}
