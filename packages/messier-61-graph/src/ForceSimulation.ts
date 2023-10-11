@@ -15,9 +15,9 @@
  */
 import type { Simulation } from "d3-force";
 import { forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY } from "d3-force";
-import type { GraphModel } from "../../../models/Graph";
-import type { NodeModel } from "../../../models/Node";
-import type { RelationshipModel } from "../../../models/Relationship";
+import type { GraphModel } from "./models/Graph";
+import type { NodeModel } from "./models/Node";
+import type { RelationshipModel } from "./models/Relationship";
 
 // Temperature of the simulation. It's a value in the range [0,1] and it
 // decreases over time. Can be seen as the probability that a node will move.

@@ -108,6 +108,24 @@ known. Additionally, this process makes it easy to implement a [blue-green deplo
 <!-- markdown-link-check-enable -->
 ```
 
+### ESLint Reports False-Negative
+
+Suppose we have the following TypeScript code
+
+```typescript
+node.radius + 25;
+```
+
+but ESLint complains that
+
+```bash
+error  Operands of '+' operation with any is possible only with string, number, bigint or any  @typescript-eslint/restrict-plus-operands
+```
+
+And we are sure that `node.radius` by definition is a `number`. This could happend due to the incorrect import, which
+results `node` type not properly imported. As a result, TypeScript sees `node.radius` as to type `any` because it
+doesn't know what type `node` is
+
 [API]: https://paion-data.github.io/Messier-61/api/
 
 [onchange]: https://www.npmjs.com/package/onchange

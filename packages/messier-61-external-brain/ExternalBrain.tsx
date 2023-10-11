@@ -15,9 +15,9 @@ import React, { useState } from "react";
 
 import styles from "./ExternalBrain.module.css";
 
-import type { CanvasConfig, GraphData } from "../messier-61-graph";
+import type { CanvasConfig, GraphData } from "../messier-61-graph/temporary";
 import { Editor } from "../messier-61-editor";
-import { Graph } from "../messier-61-graph";
+import { Graph } from "../messier-61-graph/temporary";
 import { transformer } from "./Transformer";
 
 /**

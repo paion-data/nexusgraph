@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import type { GraphData } from "../messier-61-graph";
+import type { GraphData } from "../messier-61-graph/temporary";
 
-import { makeGraphDataFromSvoTripples } from "../messier-61-graph/GraphDataMaker";
+import { makeGraphDataFromSvoTripples } from "../messier-61-graph/temporary/GraphDataMaker";
 import { getSVOof } from "../messier-61-nlp/BasicSVOParser";
 
 export function transformer(editorLines: string[]): GraphData {
