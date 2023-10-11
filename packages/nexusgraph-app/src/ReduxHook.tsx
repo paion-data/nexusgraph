@@ -3,9 +3,16 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
-import { NoteState, selectIntelligentAI, selectNote, selectOAuth, updateNlpData, updateNoteId } from "../../nexusgraph-redux";
-import { container, TYPES } from "../inversify.config";
+import {
+  NoteState,
+  selectIntelligentAI,
+  selectNote,
+  selectOAuth,
+  updateNlpData,
+  updateNoteId,
+} from "../../nexusgraph-redux";
 import { updateNoteList } from "../../nexusgraph-redux/src/note-list/noteListDuck";
+import { container, TYPES } from "../inversify.config";
 
 export default function useReduxHook() {
   const dispatch = useDispatch();
