@@ -17,20 +17,29 @@ export const CreateButtonStyled = styled.button`
   }
 `;
 
-export const ModalOverlay = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  flex-direction: column;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  background-color: rgba(256, 256, 256, 0.3);
-  flex-grow: 0px;
-  flex-shrink: 1px;
-  z-index: 100;
+export const FeatureButton = styled.button`
+  position: absolute;
+  width: 20%;
+  height: 30%;
+  margin: 5%;
+  background: rgba(256, 256, 256, 0.5);
+  border-radius: 1rem;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #f7b5ce;
+  cursor: pointer;
+
+  & p {
+    position: absolute;
+    top: 0%;
+    font-size: 20px;
+    margin: 10% 35% 0% 35%;
+  }
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const IntelligentAITextarea = styled.div`
@@ -71,6 +80,22 @@ export const IntelligentAITextarea = styled.div`
   }
 `;
 
+export const ModalOverlay = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(256, 256, 256, 0.3);
+  flex-grow: 0px;
+  flex-shrink: 1px;
+  z-index: 100;
+`;
+
 export const ModalWapper = styled.div`
   position: absolute;
   right: 25%;
@@ -92,68 +117,6 @@ export const ModalWapper = styled.div`
   }
 
   & .modalContent {
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-export const TextareaModalStyled = styled.div`
-  position: absolute;
-  right: 25%;
-  top: 20%;
-  z-index: 999;
-  border-radius: 1rem;
-  border: none;
-  width: 50%;
-  height: 65%;
-  background: rgba(256, 256, 256, 0.6);
-  & textarea {
-    border-radius: 1rem;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #000;
-    margin: 5%;
-    width: 88%;
-    height: 65%;
-    font-size: 20px;
-    padding: 1%;
-  }
-
-  & textarea:focus {
-    outline: none;
-  }
-
-  & .modalClose {
-    cursor: pointer;
-    border: none;
-    border-radius: 1rem;
-    margin: 10px;
-    position: absolute;
-    right: 0%;
-    top: 0%;
-  }
-`;
-
-export const FeatureButton = styled.button`
-  position: absolute;
-  width: 20%;
-  height: 30%;
-  margin: 5%;
-  background: rgba(256, 256, 256, 0.5);
-  border-radius: 1rem;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #f7b5ce;
-  cursor: pointer;
-
-  & p {
-    position: absolute;
-    top: 0%;
-    font-size: 20px;
-    margin: 10% 35% 0% 35%;
-  }
-
-  & img {
     width: 100%;
     height: 100%;
   }
