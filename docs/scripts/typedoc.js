@@ -15,33 +15,25 @@
  */
 const TypeDoc = require("typedoc");
 
-async function main() {
-  const app = new TypeDoc.Application();
+const app = new TypeDoc.Application();
 
-  // Ask TypeDoc to load tsconfig.json and typedoc.json files
-  app.options.addReader(new TypeDoc.TSConfigReader());
-  app.options.addReader(new TypeDoc.TypeDocReader());
+app.options.addReader(new TypeDoc.TSConfigReader());
+app.options.addReader(new TypeDoc.TypeDocReader());
 
-  app.bootstrap({
-    // typedoc options
-    entryPoints: ["../packages/"],
-    exclude: "../**/*+(test|env.d|setupTests).*",
-    entryPointStrategy: "expand",
-    tsconfig: "../tsconfig.json",
-    media: "static/img/typedoc",
-  });
+app.bootstrap({
+  entryPoints: ["../packages/"],
+  exclude: "../**/*+(test|env.d|setupTests).*",
+  entryPointStrategy: "expand",
+  tsconfig: "../tsconfig.json",
+  media: "static/img/typedoc",
+});
 
-  const project = app.convert();
+const project = app.convert();
 
-  // Project has converted correctly
-  if (project) {
-    const outputDir = "./build/api";
-
-    // Rendered docs
-    await app.generateDocs(project, outputDir);
-    // Alternatively generate JSON output
-    await app.generateJson(project, outputDir + "/documentation.json");
-  }
+if (!project) {
+  throw new Error(`app.convert() was not successful`); // early return
 }
 
-main().catch(console.error);
+const outputDir = "./build/api";
+app.generateDocs(project, outputDir);
+app.generateJson(project, outputDir + "/documentation.json");

@@ -66,6 +66,19 @@ The output of both of the 2 steps above will be picked up and pushed to GitHub P
 
 :::
 
+:::caution
+
+The TypeDoc would require each package to have their dependencies installed locally in order for the TypeDoc execution
+to succeed. This means we must `cd` into each packages under [packages][[Messier-61 packages source] and execute
+`npm install`. This has been reflected in our CI/CD scripts. See
+"Install Messier-61 dependencies so that TypeDoc process source files properly" step of our
+[testing script][Messier-61 test CI script]
+
+In general, package source code dependencies (i.e. any dependencies required by packages under `packages`) are not to be
+added to doc dependences (i.e. `doc/package.json`).
+
+:::
+
 Troubleshooting
 ---------------
 
@@ -108,5 +121,7 @@ npm run prettier-watch
 [GitHub Packages]: https://github.com/features/packages
 
 [Messier-61 npm repo]: https://www.npmjs.com/package/@paiondata/messier-61
+[Messier-61 packages source]: https://github.com/paion-data/Messier-61/tree/master/packages
+[Messier-61 test CI script]: https://github.com/paion-data/Messier-61/blob/master/.github/workflows/test.yml
 
 [Prettier]: https://prettier.io/
