@@ -256,15 +256,21 @@ export class GraphStyleModel {
     return DEFAULT_COLORS[index];
   }
 
-  public getDefaultNodeCaption(item: any): { caption: string } | { defaultCaption: string } {
-    if (item == null) {
+  public getDefaultNodeCaption(item: NodeModel): { caption: string } | { defaultCaption: string } {
+    if (
+      !item ||
+      // @ts-expect-error ts-migrate(2365) FIXME: Operator '>' cannot be applied to types 'boolean' ... Remove this comment to see the full error message
+      !(item.propertyList != null ? item.propertyList.length : 0) > 0
+    ) {
       return {
         defaultCaption: "<id>",
       };
     }
     const captionPrioOrder = [/^name$/i, /^title$/i, /^label$/i, /name$/i, /description$/i, /^.+/];
+
     let defaultCaption = captionPrioOrder.reduceRight((leading, current) => {
       const hits = item.propertyList.filter((prop: any) => current.test(prop.key));
+
       if (hits.length) {
         return `{${hits[0].key}}`;
       } else {
@@ -281,11 +287,12 @@ export class GraphStyleModel {
     return new StyleElement(selector).applyRules(this.rules);
   }
 
-  public setDefaultNodeStyle(selector: Selector, item: any): void {
+  public setDefaultNodeStyle(selector: Selector, item: NodeModel): void {
     let defaultColor = true;
     let defaultCaption = true;
     for (let i = 0; i < this.rules.length; i++) {
       const rule = this.rules[i];
+
       if (rule.selector.classes.length > 0 && rule.matches(selector)) {
         if (rule.props.hasOwnProperty("color")) {
           defaultColor = false;
@@ -297,7 +304,7 @@ export class GraphStyleModel {
     }
     const minimalSelector = new Selector(selector.tag, selector.classes.sort().slice(0, 1));
     if (defaultColor) {
-      function calcColor(label: Selector): DefaultColorType {
+      const calcColor = (label: Selector): DefaultColorType => {
         const { backgroundColor, borderColor, textColor } = calculateDefaultNodeColors(label.classes[0]);
 
         return {
@@ -305,7 +312,7 @@ export class GraphStyleModel {
           "text-color-internal": textColor,
           color: backgroundColor,
         };
-      }
+      };
 
       this.changeForSelector(
         minimalSelector,

@@ -43,8 +43,6 @@ export interface GraphEditorState {
 }
 
 export default function editorReducer(state = initialState, action: GraphEditorAction): GraphEditorState {
-  console.log("editorReducer被调用");
-
   switch (action.type) {
     case UPDATE_GRAPH:
       return {
@@ -57,8 +55,6 @@ export default function editorReducer(state = initialState, action: GraphEditorA
 }
 
 export function getEditorNodes(state: GlobalState): BasicNode[] {
-  console.log(`editorDuck:${state}`);
-
   return state[NAME].nodes;
 }
 
