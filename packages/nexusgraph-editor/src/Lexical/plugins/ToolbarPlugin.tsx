@@ -20,6 +20,7 @@ import {
   GridSelection,
   NodeSelection,
   RangeSelection,
+  $isTextNode,
 } from "lexical";
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@lexical/link";
 import {
@@ -29,7 +30,8 @@ import {
   $getSelectionStyleValueForProperty,
   $patchStyleText,
 } from "@lexical/selection";
-import { $getNearestNodeOfType, mergeRegister } from "@lexical/utils";
+import { $isDecoratorBlockNode } from "@lexical/react/LexicalDecoratorBlockNode";
+import { $getNearestNodeOfType, mergeRegister, $getNearestBlockElementAncestorOrThrow } from "@lexical/utils";
 import {
   INSERT_ORDERED_LIST_COMMAND,
   INSERT_CHECK_LIST_COMMAND,
@@ -39,7 +41,7 @@ import {
   ListNode,
 } from "@lexical/list";
 import { createPortal } from "react-dom";
-import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType } from "@lexical/rich-text";
+import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType, $isQuoteNode } from "@lexical/rich-text";
 import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
 import DropDown, { DropDownItem } from "./DropDown";
 import DropdownColorPicker from "./DropdownColorPicker";
@@ -648,6 +650,46 @@ export default function ToolbarPlugin() {
     [editor, selectedElementKey]
   );
 
+  const clearFormatting = useCallback(() => {
+    editor.update(() => {
+      const selection = $getSelection();
+      if ($isRangeSelection(selection)) {
+        const anchor = selection.anchor;
+        const focus = selection.focus;
+        const nodes = selection.getNodes();
+
+        if (anchor.key === focus.key && anchor.offset === focus.offset) {
+          return;
+        }
+
+        nodes.forEach((node, idx) => {
+          // We split the first and last node by the selection
+          // So that we don't format unselected text inside those nodes
+          if ($isTextNode(node)) {
+            if (idx === 0 && anchor.offset !== 0) {
+              node = node.splitText(anchor.offset)[1] || node;
+            }
+            if (idx === nodes.length - 1) {
+              node = node.splitText(focus.offset)[0] || node;
+            }
+
+            if (node.__style !== "") {
+              node.setStyle("");
+            }
+            if (node.__format !== 0) {
+              node.setFormat(0);
+              $getNearestBlockElementAncestorOrThrow(node).setFormat("");
+            }
+          } else if ($isHeadingNode(node) || $isQuoteNode(node)) {
+            node.replace($createParagraphNode(), true);
+          } else if ($isDecoratorBlockNode(node)) {
+            node.setFormat("");
+          }
+        });
+      }
+    });
+  }, [editor]);
+
   const insertLink = useCallback(() => {
     if (!isLink) {
       editor.dispatchCommand(TOGGLE_LINK_COMMAND, "https://");
@@ -789,7 +831,6 @@ export default function ToolbarPlugin() {
             <i className="format link"></i>
           </button>
           {isLink && createPortal(<FloatingLinkEditor editor={editor} />, document.body)}
-          <Divider />
           <DropdownColorPicker
             disabled={!isEditable}
             buttonClassName="toolbar-item color-picker"
@@ -799,6 +840,23 @@ export default function ToolbarPlugin() {
             onChange={onFontColorSelect}
             title="text color"
           />
+          <DropDown
+            disabled={!isEditable}
+            buttonClassName="toolbar-item spaced"
+            buttonLabel=""
+            buttonAriaLabel="Formatting options for additional text styles"
+            buttonIconClassName="icon dropdown-more"
+          >
+            <DropDownItem
+              onClick={clearFormatting}
+              className="item"
+              title="Clear text formatting"
+              aria-label="Clear all text formatting"
+            >
+              <i className="icon clear" />
+              <span className="text">Clear Formatting</span>
+            </DropDownItem>
+          </DropDown>
           <Divider />
           <DropDown
             disabled={!isEditable}
