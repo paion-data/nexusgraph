@@ -6,5 +6,5 @@ import { render } from "@testing-library/react";
 import Editor from "./Editor";
 
 test("[Sanity Check] Loads editor without error", () => {
-  render(<Editor transformer={() => {}} exporter={() => {}} />);
+  render(<Editor />);
 });
