@@ -71,6 +71,13 @@ function fitCaptionIntoCircle(
   const whiteSpaceMeasureWidth = measure(" ");
   const words = captionText.split(" ");
 
+  /**
+   * Creates a blank line in a location other than text
+   *
+   * @param lineCount The number of lines in a node
+   * @param lineIndex Index of line, the top line of the node has an index of 0
+   * @returns A blank line
+   */
   function emptyLine(lineCount: number, lineIndex: number): NodeCaptionLine {
     //Calculate where each line begins
     const baseline = (1 + lineIndex - lineCount / 2) * fontSize;
@@ -86,8 +93,22 @@ function fitCaptionIntoCircle(
     };
   }
 
+  /**
+   * Add omit characters for words that should be shortened when the text is too long
+   *
+   * Use a while loop to cut off the last two characters of the original word each time and concatenate the ellipses,
+   * until the shortened word width is less than the maximum line width of the line. If the width of the new word is
+   * always greater than the maximum line width, omit to the first character of the word
+   *
+   * @param line The line where the text is located
+   * @param word Word that need shortening
+   *
+   * @returns A shortened word with an omitted character
+   */
   function addShortenedNextWord(line: NodeCaptionLine, word: string): string {
-    while (word.length > 2) {
+    const MIN_WORD_LENGTH_ON_NODE = 4;
+
+    while (word.length > MIN_WORD_LENGTH_ON_NODE) {
       const newWord = `${word.substring(0, word.length - 2)}\u2026`;
       if (measure(newWord) < line.remainingWidth) {
         return `${line.text.split(" ").slice(0, -1).join(" ")} ${newWord}`;
@@ -97,8 +118,19 @@ function fitCaptionIntoCircle(
     return `${word}\u2026`;
   }
 
+  /**
+   * Set a fixed position for each line
+   *
+   * This method sets the content of each line in the node, uses the for loop.  Each loop first creates an empty line,
+   * and then measures the width of each word in the title.  If the word width is less than the line width, the word is
+   * added to the line;  otherwise, the word is omitted. Finally, reset the position of the lines except the empty lines
+   *
+   * @param lineCount The number of lines in a node
+   *
+   * @returns All lines in a node and the index of the last word in the node
+   */
   function fitOnFixedNumberOfLines(lineCount: number): [NodeCaptionLine[], number] {
-    const lines = [];
+    let lines = [];
     const wordMeasureWidthList: number[] = words.map((word: string) => measure(`${word}`));
     let wordIndex = 0;
     for (let lineIndex = 0; lineIndex < lineCount; lineIndex++) {
@@ -116,6 +148,13 @@ function fitCaptionIntoCircle(
     //Use "..." replace the words that don't fit the last line.
     if (wordIndex < words.length) {
       lines[lineCount - 1].text = addShortenedNextWord(lines[lineCount - 1], words[wordIndex]);
+    }
+
+    lines = lines.filter((line) => {
+      return line["text"].length > 0;
+    });
+    for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
+      lines[lineIndex].baseline = (1 + lineIndex - lines.length / 2) * fontSize;
     }
     return [lines, wordIndex];
   }
