@@ -21,6 +21,7 @@ export const PaneWrapper = styled.div`
 `;
 
 export const PaneHeader = styled.div`
+  padding: 5px 0px;
   font-size: 16px;
   margin-top: 10px;
   flex: 0 0 auto;

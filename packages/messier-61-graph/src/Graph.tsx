@@ -230,14 +230,14 @@ export function Graph(props: GraphProps): JSX.Element {
   return (
     <StyledSvgWrapper ref={wrapperRef}>
       <svg className="neod3viz" ref={svgRef} />
-      <StyledZoomHolder offset={props.offset} isFullscreen={props.isFullscreen}>
+      {/* <StyledZoomHolder offset={props.offset} isFullscreen={props.isFullscreen}>
         <StyledZoomButton
           aria-label={"zoom-in"}
           className={"zoom-in"}
           disabled={zoomInLimitReached}
           onClick={zoomInClicked}
         >
-          {/* <ZoomInIcon large={props.isFullscreen} /> */}
+          <ZoomInIcon large={props.isFullscreen} />
         </StyledZoomButton>
         <StyledZoomButton
           aria-label={"zoom-out"}
@@ -245,12 +245,12 @@ export function Graph(props: GraphProps): JSX.Element {
           disabled={zoomOutLimitReached}
           onClick={zoomOutClicked}
         >
-          {/* <ZoomOutIcon large={props.isFullscreen} /> */}
+          <ZoomOutIcon large={props.isFullscreen} />
         </StyledZoomButton>
         <StyledZoomButton aria-label={"zoom-to-fit"} onClick={zoomToFitClicked}>
           <ZoomToFitIcon large={props.isFullscreen} />
         </StyledZoomButton>
-      </StyledZoomHolder>
+      </StyledZoomHolder> */}
       {props.wheelZoomInfoMessageEnabled && displayingWheelZoomInfoMessage && (
         <WheelZoomInfoOverlay onDisableWheelZoomInfoMessage={props.disableWheelZoomInfoMessage} />
       )}

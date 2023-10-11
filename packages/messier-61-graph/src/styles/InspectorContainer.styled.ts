@@ -10,6 +10,11 @@ export const PaneContainer = styled.div<{
   height: 100%;
   display: flex;
   flex-direction: column;
+  background: #fff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(175, 195, 219, 0.5);
+  border-radius: 1rem;
 `;
 
 export const StyledFullSizeContainer = styled.div`
@@ -22,7 +27,7 @@ export const StyledNodeInspectorContainer = styled.div<{
 }>`
   position: absolute;
   right: 8px;
-  top: 8px;
+  top: 8%;
   bottom: 8px;
   z-index: 1;
   width: ${(props) => props.paneWidth}px;
@@ -38,11 +43,13 @@ export const StyledNodeInspectorContainer = styled.div<{
 export const StyledNodeInspectorTopMenuChevron = styled.button<{
   expanded: boolean;
 }>`
-  background-color: ${(props) => props.theme.frameSidebarBackground};
+  background-color: #fff;
+  border: none;
+  border-radius: 5rem;
   cursor: pointer;
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 10px;
+  top: 8.5%;
   z-index: 2;
   width: 32px;
   height: 32px;
