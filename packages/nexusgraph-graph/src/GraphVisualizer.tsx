@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { NodeInspectorPanel, defaultPanelWidth } from "./inspection-panel/NodeInspectorPanel";
 import { StyledFullSizeContainer, panelMinWidth } from "./styles/InspectorContainer.styled";
@@ -23,6 +23,21 @@ type GraphVisualizerProps = {
   assignVisElement: (svgElement: any, graphElement: any) => void;
 };
 
+function computeSelectedItem(nodeLimitHit: boolean, numAllNodes: number, numAllRels: number): VizItem {
+  return nodeLimitHit
+    ? {
+        type: "status-item",
+        item: `Not all return nodes are being displayed due to Initial Node Display setting. Only first ${numAllNodes} nodes are displayed.`,
+      }
+    : {
+        type: "canvas",
+        item: {
+          nodeCount: numAllNodes,
+          relationshipCount: numAllRels,
+        },
+      };
+}
+
 /**
  * Given the provided graph data, {@link GraphVisualizer} turns the data into a graph visualization of the data.
  *
@@ -37,18 +52,7 @@ type GraphVisualizerProps = {
 export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
   const nodeLimitHit = false;
   const [selectedItem, setSelectedItem] = useState<VizItem>(
-    nodeLimitHit
-      ? {
-          type: "status-item",
-          item: `Not all return nodes are being displayed due to Initial Node Display setting. Only first ${props.nodes.length} nodes are displayed.`,
-        }
-      : {
-          type: "canvas",
-          item: {
-            nodeCount: props.nodes.length,
-            relationshipCount: props.relationships.length,
-          },
-        }
+    computeSelectedItem(nodeLimitHit, props.nodes.length, props.relationships.length)
   );
   const [hoveredItem, setHoveredItem] = useState<VizItem>(selectedItem);
   const [graphStyle, setGraphStyle] = useState<GraphStyleModel>(new GraphStyleModel());
@@ -60,6 +64,11 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
     labels: {},
     relTypes: {},
   });
+
+  useEffect(() => {
+    setSelectedItem(computeSelectedItem(nodeLimitHit, props.nodes.length, props.relationships.length));
+    setHoveredItem(selectedItem);
+  }, [props]);
 
   /**
    * {@link getNodeNeighbours} 在 Neo4J Browser 是借用了 Functioal Programming 的手法，将用户点击“节点展开”的时候被调用，

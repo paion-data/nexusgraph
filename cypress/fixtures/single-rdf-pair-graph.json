@@ -1,0 +1,27 @@
+{
+  "nodes": [
+    {
+      "fields": {
+        "label": "one",
+        "type": "entity"
+      },
+      "id": "1"
+    },
+    {
+      "fields": {
+        "label": "two",
+        "type": "entity"
+      },
+      "id": "2"
+    }
+  ],
+  "links": [
+    {
+      "fields": {
+        "label": "next number is"
+      },
+      "source": "1",
+      "target": "2"
+    }
+  ]
+}
