@@ -29,7 +29,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "zh-cn"],
   },
 
   presets: [
@@ -39,9 +39,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          editUrl: "https://github.com/paion-data/nexusgraph/tree/master/docs/",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
@@ -73,6 +71,10 @@ const config = {
           src: "img/logo.svg",
         },
         items: [
+          {
+            type: "localeDropdown",
+            position: "left",
+          },
           {
             type: "doc",
             docId: "intro",

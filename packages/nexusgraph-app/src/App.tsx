@@ -2,10 +2,11 @@
 import { Editor } from "../../nexusgraph-editor";
 import { GraphBrowser } from "../../nexusgraph-graph";
 import { AppWrapper, EditorCaption, EditorWrapper, EditorGlassCover, GraphBrowserWrapper, IconWapper } from "./styled";
+
 /**
  * The component that defines the entire nexus graph app.
  *
- * @returns
+ * @returns a React DOM object
  */
 export default function App(): JSX.Element {
   return (

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Visualization } from "./VisualizationView";
 
 /**
- * {@link GraphBrowser} is abstracts away the graphing capabilities of Nexus Graph.
+ * {@link GraphBrowser} abstracts away the graphing capabilities of Nexus Graph.
  *
  * @returns a React DOM object
  */
