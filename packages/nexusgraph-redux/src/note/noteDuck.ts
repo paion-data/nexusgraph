@@ -30,7 +30,6 @@ const initialGraph: Graph = {
 };
 
 const initialState: NoteState = {
-  id: "",
   editorContent: initialEditorContent,
   graph: initialGraph,
 };
