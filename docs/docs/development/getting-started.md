@@ -116,6 +116,6 @@ And we are sure that `node.radius` by definition is a `number`. This could happe
 results `node` type not properly imported. As a result, TypeScript sees `node.radius` as to type `any` because it
 doesn't know what type `node` is
 
-[API]: https://paion-data.github.io/Messier-61/api
+[API]: https://QubitPi.github.io/Messier-61/api
 
 [onchange]: https://www.npmjs.com/package/onchange

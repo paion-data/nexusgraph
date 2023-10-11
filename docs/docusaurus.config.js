@@ -80,7 +80,7 @@ const config = {
             label: "Documentations",
           },
           {
-            href: "https://paion-data.github.io/Messier-61/api",
+            href: "https://QubitPi.github.io/Messier-61/api",
             label: "API",
             position: "left",
           },
