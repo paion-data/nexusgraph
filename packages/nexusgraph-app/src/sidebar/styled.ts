@@ -27,13 +27,52 @@ export const ModalOverlay = styled.div`
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background-color: rgba(256, 256, 256, 0.2);
+  background-color: rgba(256, 256, 256, 0.3);
   flex-grow: 0px;
   flex-shrink: 1px;
   z-index: 100;
 `
 
-export const ModalStyled = styled.div`
+export const IntelligentAITextarea = styled.div`
+justify-content: center;
+display: flex;
+width: 100%;
+height: 100%;
+flex-direction: column;
+
+& textarea {
+  border-radius: 1rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000;
+  margin: 5%;
+  width: 90%;
+  height: 60%;
+  font-size: 20px;
+  padding: 1%;
+}
+
+& textarea:focus {
+  outline: none;
+}
+
+& button {
+  justify-content: center;
+  align-items: center;
+  margin: 0% 25%;
+  width: 50%;
+  height: 10%;
+  background: #f7b5ce;
+  border: none;
+  border-radius: 2rem;
+  color: #FFF;
+  font-size: 20px;
+  cursor: pointer;
+}
+`
+
+
+export const ModalWapper = styled.div`
 position: absolute;
 right: 25%;
 top: 25%;
@@ -51,6 +90,11 @@ background: rgba(256, 256, 256, 0.6);
   position: absolute;
   right: 0%;
   top: 0%;
+}
+
+& .modalContent {
+  width: 100%;
+  height: 100%;
 }
 `
 

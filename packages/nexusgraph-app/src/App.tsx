@@ -4,7 +4,7 @@ import logo from "../public/logo.svg";
 import useAstraiosClientHook from "./AstraiosClientHook";
 import NoteTitleInput from "./note-title-input/NoteTitleInput";
 import useReduxHook from "./ReduxHook";
-import CreateButton from "./sidebar/Feature";
+import CreateButton from "./sidebar/CreateButton";
 import { AppBody, AppCaption, AppHeader, AppWrapper, GraphBrowserWrapper, IconWapper, Sidebar } from "./styled";
 
 /**
