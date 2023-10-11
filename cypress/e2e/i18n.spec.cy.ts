@@ -1,6 +1,4 @@
-/*
- * Copyright 2023 Paion Data. All rights reserved.
- */
+// Copyright 2023 Paion Data. All rights reserved.
 it("Translate browser through i18n", () => {
   if (Cypress.env("nodeEnv") == "production") {
     cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);

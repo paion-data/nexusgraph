@@ -1,4 +1,4 @@
-//Copyright 2023 Paion Data. All rights reserved.
+// Copyright 2023 Paion Data. All rights reserved.
 import ReactDOM from "react-dom/client";
 
 import "../../../i18n";
