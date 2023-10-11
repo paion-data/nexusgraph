@@ -41,7 +41,8 @@ import {
 import { createPortal } from "react-dom";
 import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType } from "@lexical/rich-text";
 import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
-import DropDown, { DropDownItem } from "./RichTextDropDown";
+import DropDown, { DropDownItem } from "./DropDown";
+import DropdownColorPicker from "./DropdownColorPicker";
 
 const LowPriority = 1;
 
@@ -549,6 +550,7 @@ export default function ToolbarPlugin() {
   const [fontSize, setFontSize] = useState<string>("15px");
   const [isEditable, setIsEditable] = useState(() => editor.isEditable());
   const [fontFamily, setFontFamily] = useState<string>("Arial");
+  const [fontColor, setFontColor] = useState<string>("#000");
 
   const updateToolbar = useCallback(() => {
     const selection = $getSelection();
@@ -592,6 +594,8 @@ export default function ToolbarPlugin() {
       setFontSize($getSelectionStyleValueForProperty(selection, "font-size", "16px"));
 
       setFontFamily($getSelectionStyleValueForProperty(selection, "font-family", "Arial"));
+
+      setFontColor($getSelectionStyleValueForProperty(selection, "color", "#fff"));
     }
   }, [editor]);
 
@@ -651,6 +655,25 @@ export default function ToolbarPlugin() {
       editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
     }
   }, [editor, isLink]);
+
+  const applyStyleText = useCallback(
+    (styles: Record<string, string>) => {
+      editor.update(() => {
+        const selection = $getSelection();
+        if ($isRangeSelection(selection)) {
+          $patchStyleText(selection, styles);
+        }
+      });
+    },
+    [editor]
+  );
+
+  const onFontColorSelect = useCallback(
+    (value: string) => {
+      applyStyleText({ color: value });
+    },
+    [applyStyleText]
+  );
 
   return (
     <Toolbar ref={toolbarRef}>
@@ -766,6 +789,16 @@ export default function ToolbarPlugin() {
             <i className="format link"></i>
           </button>
           {isLink && createPortal(<FloatingLinkEditor editor={editor} />, document.body)}
+          <Divider />
+          <DropdownColorPicker
+            disabled={!isEditable}
+            buttonClassName="toolbar-item color-picker"
+            buttonAriaLabel="Formatting text color"
+            buttonIconClassName="icon font-color"
+            color={fontColor}
+            onChange={onFontColorSelect}
+            title="text color"
+          />
           <Divider />
           <DropDown
             disabled={!isEditable}
