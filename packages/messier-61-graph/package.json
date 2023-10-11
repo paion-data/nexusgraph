@@ -1,0 +1,29 @@
+{
+  "name": "@paion-data/messier-61-graph",
+  "version": "0.1.0",
+  "main": "dist/messier-61-graph.js",
+  "engines": {
+    "node": ">=16.0.0 <18.0.0"
+  },
+  "author": "Paion Data Development Team",
+  "license": "Apache-2.0",
+  "typings": "dist/messier-61-graph.d.ts",
+  "scripts": {
+    "build": "rollup -c --failAfterWarnings",
+    "test": "tsc --noEmit",
+    "prepublishOnly": "npm run test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paion-data/Messier-61.git"
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {},
+  "dependencies": {},
+  "peerDependencies": {}
+}
