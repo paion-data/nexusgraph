@@ -207,7 +207,9 @@ export class GraphStyleModel {
     this.rules = [];
     try {
       this.loadRules();
-    } catch (_error) {}
+    } catch (_error) {
+      // intentionally left blank
+    }
   }
 
   public parseSelector(key: string): Selector {
@@ -294,12 +296,14 @@ export class GraphStyleModel {
       const rule = this.rules[i];
 
       if (rule.selector.classes.length > 0 && rule.matches(selector)) {
+        /* eslint-disable no-alert, no-prototype-builtins */
         if (rule.props.hasOwnProperty("color")) {
           defaultColor = false;
         }
         if (rule.props.hasOwnProperty("caption")) {
           defaultCaption = false;
         }
+        /* eslint-enable no-alert, no-prototype-builtins */
       }
     }
     const minimalSelector = new Selector(selector.tag, selector.classes.sort().slice(0, 1));

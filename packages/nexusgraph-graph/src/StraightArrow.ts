@@ -47,8 +47,7 @@ export class StraightArrow {
     headHeight: number,
     captionLayout: RelationshipCaptionLayout
   ) {
-    let length: number;
-    length = centreDistance - (startRadius + endRadius);
+    const length: number = centreDistance - (startRadius + endRadius);
     this.shaftLength = length - headHeight;
     const startArrow = startRadius;
     const endShaft = startArrow + this.shaftLength;

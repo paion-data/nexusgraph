@@ -6,7 +6,7 @@ import { render } from "@testing-library/react";
 import LexicalEditor from "./LexicalEditor";
 
 test("[Sanity Check] Loads editor without error", () => {
-  render(<LexicalEditor lexicalEditorConfig={getTestEditorConfig()} transformer={() => {}} exporter={() => {}} />);
+  render(<LexicalEditor lexicalEditorConfig={getTestEditorConfig()} />);
 });
 
 function getTestEditorConfig(): object {

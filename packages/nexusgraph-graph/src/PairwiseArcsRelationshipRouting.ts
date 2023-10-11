@@ -41,7 +41,9 @@ export class PairwiseArcsRelationshipRouting {
 
   public shortenCaption(relationship: RelationshipModel, caption: string, targetWidth: number): [string, number] {
     let shortCaption = caption || "caption";
+    /* eslint-disable no-alert, no-constant-condition */
     while (true) {
+      /* eslint-disable no-alert, no-constant-condition */
       if (shortCaption.length <= 2) {
         return ["", 0];
       }

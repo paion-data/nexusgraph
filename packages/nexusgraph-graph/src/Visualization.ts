@@ -260,7 +260,9 @@ export class Visualization {
 
   public trigger = (event: string, ...args: any[]): void => {
     const callbacksForEvent = this.callbacks[event] ?? [];
+    /* eslint-disable no-alert, prefer-spread */
     callbacksForEvent.forEach((callback) => callback.apply(null, args));
+    /* eslint-enable no-alert, prefer-spread */
   };
 
   public init(): void {

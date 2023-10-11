@@ -14,7 +14,9 @@ const RADIUS = 10;
 let forceSimulation: ForceSimulation;
 
 beforeEach(() => {
-  forceSimulation = new ForceSimulation(() => {});
+  forceSimulation = new ForceSimulation(() => {
+    // Intentionally left blank
+  });
 });
 
 test("Gets the radius of a ring with five nodes uniformly distributed", () => {

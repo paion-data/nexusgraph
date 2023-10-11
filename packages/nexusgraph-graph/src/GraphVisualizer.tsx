@@ -38,7 +38,7 @@ type GraphVisualizerProps = {
  * @returns
  */
 export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
-  const nodeLimitHit: boolean = false;
+  const nodeLimitHit = false;
   const [selectedItem, setSelectedItem] = useState<VizItem>(
     nodeLimitHit
       ? {
@@ -74,7 +74,9 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
    * @param currentNeighbourIds
    * @param callback
    */
-  const getNodeNeighbours: GetNodeNeighboursFn = (node, currentNeighbourIds, callback) => {};
+  const getNodeNeighbours: GetNodeNeighboursFn = (node, currentNeighbourIds, callback) => {
+    // Intentionally left blank
+  };
 
   return (
     <StyledFullSizeContainer id="svg-vis">
@@ -95,12 +97,18 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
         // 这个方法将执行“推算”逻辑 - https://trello.com/c/KcsSIoK9
         // Neo4J Browser VisualizationView 的 autoCompleteRelationships 也需要通过某种方式迁移过来，并放在下面的 setGraph
         autocompleteRelationships={false}
-        getAutoCompleteCallback={(callback: (rels: RelationshipModel[], initialRun: boolean) => void) => {}}
-        setGraph={(graph: GraphModel) => {}}
+        getAutoCompleteCallback={(callback: (rels: RelationshipModel[], initialRun: boolean) => void) => {
+          // intentionally left blank
+        }}
+        setGraph={(graph: GraphModel) => {
+          // intentionally left blank
+        }}
         offset={(nodePropertiesExpanded ? width + 8 : 0) + 8}
         wheelZoomRequiresModKey={true}
         wheelZoomInfoMessageEnabled={true}
-        disableWheelZoomInfoMessage={() => {}}
+        disableWheelZoomInfoMessage={() => {
+          // intentionally left blank
+        }}
         initialZoomToFit={true}
       />
       <NodeInspectorPanel
