@@ -1,0 +1,10 @@
+{
+  "name": "@paiondata/messier-61-editor",
+  "version": "0.1.0",
+  "author": "Paion Data Development Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@lexical/react": "^0.8.1",
+    "lexical": "^0.8.1"
+  }
+}

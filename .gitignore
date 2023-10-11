@@ -16,3 +16,17 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+./packages/messier-61-app/.yarn
+./packages/messier-61-editor/.yarn
+./packages/messier-61-graph/.yarn
+./packages/messier-61-graphql-server/.yarn
+./packages/messier-61-landing-page/.yarn
+./packages/messier-61-nlp/.yarn

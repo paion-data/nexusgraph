@@ -1,5 +1,14 @@
 {
   "name": "@paiondata/messier-61",
+  "private": true,
+  "workspaces": [
+    "./packages/messier-61-app",
+    "./packages/messier-61-editor",
+    "./packages/messier-61-graph",
+    "./packages/messier-61-nlp",
+    "./packages/messier-61-landing-page",
+    "./docs"
+  ],
   "version": "0.1.0",
   "engines": {
     "node": ">=16.0.0 <18.0.0"
@@ -22,11 +31,7 @@
   },
   "homepage": "https://github.com/paion-data/Messier-61#readme",
   "dependencies": {
-    "@lexical/react": "^0.8.1",
     "@reduxjs/toolkit": "^1.9.5",
-    "@types/d3": "^7.4.0",
-    "d3": "^7.8.2",
-    "lexical": "^0.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.1",
@@ -64,5 +69,6 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1",
     "@types/styled-components": "^5.1.26"
-  }
+  },
+  "packageManager": "yarn@3.6.1"
 }

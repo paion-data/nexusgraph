@@ -52,11 +52,9 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
       - name: Install dependencies
-        run: |
-          yarn
-          cd packages/messier-61-landing-page
-          yarn
-
+        run: yarn install
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
       - name: Code style check
         run: npx prettier --check .
       # - name: Static code analysis
@@ -113,17 +111,9 @@ jobs:
         with:
           node-version: 16
       - name: Install Messier-61 dependencies so that TypeDoc process source files properly
-        run: |
-          cd ../
-          yarn
-
-          cd packages/messier-61-graph
-          yarn
-
-          cd ../messier-61-graphql-server
-          yarn
-      - name: Install doc dependencies
-        run: yarn
+        run: cd ../ && yarn install
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
       - name: Build documentation
         run: yarn build-without-typedoc
       - name: Deploy to GitHub Pages
