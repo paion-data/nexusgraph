@@ -165,6 +165,43 @@ export class GraphModel {
 
     this.expandedNodeIdMap = {};
   }
+
+  public groupedRelationships(): NodePair[] {
+    const groups: Record<string, NodePair> = {};
+    for (const relationship of this._relationships) {
+      let nodePair = new NodePair(relationship.source, relationship.target);
+
+      nodePair = groups[nodePair.toString()] != null ? groups[nodePair.toString()] : nodePair;
+
+      nodePair.relationships.push(relationship);
+      groups[nodePair.toString()] = nodePair;
+    }
+    return Object.values(groups);
+  }
+}
+
+export class NodePair {
+  nodeA: NodeModel;
+  nodeB: NodeModel;
+  relationships: RelationshipModel[];
+  constructor(node1: NodeModel, node2: NodeModel) {
+    this.relationships = [];
+    if (node1.id < node2.id) {
+      this.nodeA = node1;
+      this.nodeB = node2;
+    } else {
+      this.nodeA = node2;
+      this.nodeB = node1;
+    }
+  }
+
+  isLoop(): boolean {
+    return this.nodeA === this.nodeB;
+  }
+
+  toString(): string {
+    return `${this.nodeA.id}:${this.nodeB.id}`;
+  }
 }
 
 export function unique<T>(list: T[]): T[] {

@@ -24,11 +24,18 @@
     "LICENSE"
   ],
   "dependencies": {
+    "@heroicons/react": "^2.0.17",
+    "@juggle/resize-observer": "^3.4.0",
+    "@neo4j-devtools/word-color": "^0.0.8",
     "d3-force": "^3.0.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "neo4j-arc": "^0.0.27",
+    "re-resizable": "^6.9.9",
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
     "@types/d3-force": "^3.0.4",
-    "@types/lodash": "^4.14.191"
+    "@types/lodash": "^4.14.191",
+    "@types/styled-components": "^5.1.26"
   }
 }

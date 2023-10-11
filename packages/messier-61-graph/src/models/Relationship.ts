@@ -3,6 +3,9 @@
  */
 import type { NodeModel } from "./Node";
 import type { VizItemProperty } from "./VizItemProperty";
+import { ArcArrow } from "./ArcArrow";
+import { LoopArrow } from "./LoopArrow";
+import { StraightArrow } from "./StraightArrow";
 
 export type RelationshipCaptionLayout = "internal" | "external";
 
@@ -23,6 +26,7 @@ export class RelationshipModel {
   shortCaptionLength: number | undefined;
   selected: boolean;
   centreDistance: number;
+  arrow: ArcArrow | LoopArrow | StraightArrow | undefined;
 
   constructor(
     id: string,

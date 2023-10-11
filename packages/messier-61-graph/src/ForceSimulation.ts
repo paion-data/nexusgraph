@@ -143,10 +143,6 @@ export class ForceSimulation {
     const unlocatedNodes = nodes.filter((node) => !node.initialPositionCalculated);
 
     unlocatedNodes.forEach((node, i) => {
-      console.log(
-        ` Math.cos((2 * Math.PI * i) / unlocatedNodes.length) = ${Math.cos((2 * Math.PI * i) / unlocatedNodes.length)}`
-      );
-
       node.x = center.x + radius * Math.cos((2 * Math.PI * i) / unlocatedNodes.length);
       node.y = center.y + radius * Math.sin((2 * Math.PI * i) / unlocatedNodes.length);
       node.initialPositionCalculated = true;
