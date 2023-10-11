@@ -1,7 +1,7 @@
 # Copyright 2023 Paion Data. All rights reserved.
 
-source "amazon-ebs" "nexusgraph-landing-page" {
-  ami_name = "nexusgraph-landing-page"
+source "amazon-ebs" "nexusgraph-app" {
+  ami_name = "nexusgraph-app"
   force_deregister = "true"
   force_delete_snapshot = "true"
 
@@ -22,28 +22,28 @@ source "amazon-ebs" "nexusgraph-landing-page" {
 }
 
 build {
-  name = "install-nexusgraph-landing-page"
+  name = "install-nexusgraph-app"
   sources = [
-    "source.amazon-ebs.nexusgraph-landing-page"
+    "source.amazon-ebs.nexusgraph-app"
   ]
 
   # Load SSL Certificates into AMI image
   provisioner "file" {
-    source = "./server-landing-page.crt"
+    source = "./server-app.crt"
     destination = "/home/ubuntu/server.crt"
   }
   provisioner "file" {
-    source = "./server-landing-page.key"
+    source = "./server-app.key"
     destination = "/home/ubuntu/server.key"
   }
 
   # Load Nginx config file into AMI image
   provisioner "file" {
-    source = "./nginx-ssl-landing-page.conf"
+    source = "./nginx-ssl-app.conf"
     destination = "/home/ubuntu/nginx-ssl.conf"
   }
 
   provisioner "shell" {
-    script = "../scripts/setup-landing-page.sh"
+    script = "../scripts/setup-app.sh"
   }
 }
