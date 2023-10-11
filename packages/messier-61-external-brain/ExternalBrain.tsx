@@ -13,6 +13,8 @@
  */
 import React, { useState } from "react";
 
+import styles from "./ExternalBrain.module.css";
+
 import type { CanvasConfig } from "../messier-61-graph";
 import { Editor } from "../messier-61-editor";
 import { Graph } from "../messier-61-graph";
@@ -24,8 +26,10 @@ export default function ExternalBrain(): JSX.Element {
     links: [],
   });
 
+  const windowWidth = window.outerWidth;
+
   const canvasConfig: CanvasConfig = {
-    width: 960,
+    width: windowWidth / 2.5,
     height: 500,
     margin: {
       top: 10,
@@ -37,13 +41,27 @@ export default function ExternalBrain(): JSX.Element {
 
   return (
     <div>
-      <Editor
-        transformer={transformer}
-        exporter={(newGraphData: any) => {
-          setGraphData(newGraphData);
-        }}
-      />
-      <Graph graphData={graphData} canvasConfig={canvasConfig} />
+      <div>
+        <h1 className={styles.h1}>Entity Resolution</h1>
+        <img className={styles.img} src="https://qubitpi.github.io/Messier-61/img/logo.svg" width="100px" alt="" />
+      </div>
+      <main>
+        <section className={styles.glass1}>
+          <div className={styles.dashboard}>
+            <Editor
+              transformer={transformer}
+              exporter={(newGraphData: any) => {
+                setGraphData(newGraphData);
+              }}
+            />
+          </div>
+        </section>
+        <section className={styles.glass2}>
+          <div className={styles.graph}>
+            <Graph graphData={graphData} canvasConfig={canvasConfig} />
+          </div>
+        </section>
+      </main>
     </div>
   );
 }

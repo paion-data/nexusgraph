@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import type { Node, Link, GraphConfig } from "../GraphConfig";
 import * as d3 from "d3";
 import styles from "./D3Graph.module.css";
+import { formatNodeLabel } from "../GraphDecorator";
 
 const DEFAULT_LINK_DISTANCE = 90;
 const DEFAULT_FORCE_STRENGTH = -30;
@@ -82,13 +83,12 @@ export function D3Graph(graphConfig: GraphConfig): JSX.Element {
         });
 
       nodeg
-        .append("text")
-        .attr("dx", 25)
-        .attr("dy", ".35em")
-        .text(function (d: any) {
-          return d.name;
-        });
-
+        .append("foreignObject")
+        .attr("width", 50)
+        .attr("height", 50)
+        .append("xhtml:body")
+        .style("font", "14px black 'Helvetica Neue'")
+        .html((d) => formatNodeLabel(d.name));
       node.exit().remove();
 
       const link = linesg.selectAll("line.link").data(links);

@@ -30,7 +30,7 @@ const config = {
 
   url: "https://paion-data.github.io/",
   baseUrl: "/Messier-61",
-  organizationName: "QubitPi",
+  organizationName: "paion-data",
   projectName: "Messier-61",
 
   onBrokenLinks: "throw",
