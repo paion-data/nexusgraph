@@ -59,8 +59,8 @@ jobs:
       - name: ESLint
         run: yarn eslint .
 
-  test:
-    name: Unit & E2E Tests
+  unit-tests:
+    name: Unit Tests
     needs: [yaml-lint, markdown-lint, markdown-link-check, code-style]
     runs-on: ubuntu-latest
     strategy:
@@ -78,6 +78,24 @@ jobs:
         run: yarn install
       - name: Run unit tests
         run: yarn test
+
+  dev-mode-e2e-tests:
+    name: E2E Tests against App Running in Dev Mode
+    needs: [yaml-lint, markdown-lint, markdown-link-check, code-style]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [16]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Install dependencies
+        run: yarn install
       - name: Load app environment variables
         run: |
           touch .env
@@ -101,9 +119,38 @@ jobs:
           path: |
             ./cypress/videos
             ./cypress/screenshots
+
+  prod-mode-e2e-tests:
+    name: E2E Tests against App Running in Prod Mode
+    needs: [yaml-lint, markdown-lint, markdown-link-check, code-style]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [16]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Load app environment variables
+        run: |
+          touch .env
+          echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
+          echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
+          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
+          echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
+          echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
+          echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
+          echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
       - name: Run E2E tests in production mode
         run: |
           yarn build
+          npm install -g serve
           serve -s dist -l 8080 &
           yarn wait-on-prod
           yarn e2e
@@ -119,7 +166,7 @@ jobs:
   release:
     name: Publish NPM Packages
     if: github.ref == 'refs/heads/master'
-    needs: test
+    needs: [unit-tests, dev-mode-e2e-tests, prod-mode-e2e-tests]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -152,7 +199,7 @@ jobs:
 
   documentation-ci-cd:
     name: Test and Deploy Documentation to GitHub Pages
-    needs: test
+    needs: [unit-tests, dev-mode-e2e-tests, prod-mode-e2e-tests]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -188,7 +235,7 @@ jobs:
 
   hashicorp:
     name: Publish All nexusgraph AMI Images and Deploy Them to EC2 through HashiCorp
-    needs: test
+    needs: [unit-tests, dev-mode-e2e-tests, prod-mode-e2e-tests]
     runs-on: ubuntu-latest
     defaults:
       run:
