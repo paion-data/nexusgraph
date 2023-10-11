@@ -2,7 +2,7 @@
 import axios from "axios";
 import { injectable } from "inversify";
 import "reflect-metadata";
-import { NlpState } from "../../../nexusgraph-redux";
+import { Graph } from "../../../nexusgraph-redux";
 import EditorContentParser from "../parser/EditorContentParser";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 
@@ -11,7 +11,7 @@ import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
  */
 @injectable()
 export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
-  public entityExtraction(editorContent: object): Promise<NlpState> {
+  public entityExtraction(editorContent: object): Promise<Graph> {
     const parser = new EditorContentParser();
     const jsonObject = JSON.parse(JSON.stringify(editorContent));
     const editorLines = parser.parse(jsonObject);
@@ -21,15 +21,15 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
 
   /**
    * Given an array of editor lines, this method asynchronously performs entity extration on them and converts the
-   * extracted entities to the format of {@link NlpState}.
+   * extracted entities to the format of {@link Graph}.
    *
    * @param editorLines  The specified editor contents to perform entity extration
    *
    * @returns a Promise the Redux state
    */
-  private remoteEntityExtration = async (editorLines: string[]): Promise<NlpState> => {
+  private remoteEntityExtration = async (editorLines: string[]): Promise<Graph> => {
     const response = this.fetchRemote(editorLines);
-    const data: NlpState = (await response).data;
+    const data: Graph = (await response).data;
     return data;
   };
 
