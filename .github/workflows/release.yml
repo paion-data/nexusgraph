@@ -25,12 +25,15 @@ jobs:
     secrets: inherit
 
   release:
+    name: Publish to NPM Packages (neo4j-arc)
     needs: test
-    name: Publish NPM Packages
     runs-on: ubuntu-latest
     permissions:
       contents: write
       packages: write
+    defaults:
+      run:
+        working-directory: packages/messier-61-graph/src/neo4j-arc
     steps:
       - uses: actions/checkout@v3
         with:
@@ -57,36 +60,27 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  deploy-documentation:
-    needs: test
+  release-documentation:
     name: Deploy Documentation to GitHub Pages
+    needs: test
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
     defaults:
       run:
-        working-directory: ./docs/
+        working-directory: docs
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-      - name: Install Messier-61 dependencies so that TypeDoc process source files properly
-        run: |
-          cd ../
-          npm install
-
-          cd packages/messier-61-graph
-          npm install
-
-          cd ../messier-61-graphql-server
-          npm install
-      - name: Install doc dependencies
-        run: yarn install
-      - name: Build documentation
-        run: yarn build
+          node-version: 16
+      - run: npm install
+      - run: npm run build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/build
+          publish_dir: ./docs/build/site
           user_name: QubitPi
           user_email: jack20191124@proton.me
