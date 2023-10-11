@@ -27,6 +27,7 @@ describe("text position E2E test", () => {
     cy.get('[aria-label = "Left Align"]').click();
     cy.get(".editor-paragraph").and("have.attr", "style", "text-align: left;");
   });
+
   it("Text can be placed center align  ", () => {
     cy.get('[aria-label = "Center Align"]').click();
     cy.get(".editor-paragraph").and("have.attr", "style", "text-align: center;");
