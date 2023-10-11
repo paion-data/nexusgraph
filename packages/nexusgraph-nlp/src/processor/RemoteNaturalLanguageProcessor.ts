@@ -3,7 +3,6 @@ import axios from "axios";
 import { injectable } from "inversify";
 import "reflect-metadata";
 import { Graph } from "../../../nexusgraph-redux";
-import EditorContentParser from "../parser/EditorContentParser";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 
 const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction/";
@@ -13,11 +12,8 @@ const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction/";
  */
 @injectable()
 export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
-  public entityExtraction(editorContent: object): Promise<Graph> {
-    const parser = new EditorContentParser();
-    const editorLines = parser.parse(editorContent);
-
-    return this.remoteEntityExtration(editorLines);
+  public entityExtraction(editorContent: string[]): Promise<Graph> {
+    return this.remoteEntityExtration(editorContent);
   }
 
   /**

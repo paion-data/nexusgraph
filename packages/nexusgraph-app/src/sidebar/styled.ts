@@ -7,15 +7,15 @@ export const CreateButtonStyled = styled.button`
   border-radius: 1rem;
   border: none;
   margin: 5%;
-  color: #F9BFD5;
+  color: #f9bfd5;
   background: rgba(256, 256, 256, 0.6);
   cursor: pointer;
   & svg {
     height: 30%;
     stroke-width: 1px;
-    stroke: #F9BFD5;
+    stroke: #f9bfd5;
   }
-`
+`;
 
 export const ModalOverlay = styled.div`
   display: flex;
@@ -31,109 +31,108 @@ export const ModalOverlay = styled.div`
   flex-grow: 0px;
   flex-shrink: 1px;
   z-index: 100;
-`
+`;
 
 export const IntelligentAITextarea = styled.div`
-justify-content: center;
-display: flex;
-width: 100%;
-height: 100%;
-flex-direction: column;
-
-& textarea {
-  border-radius: 1rem;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #000;
-  margin: 5%;
-  width: 90%;
-  height: 60%;
-  font-size: 20px;
-  padding: 1%;
-}
-
-& textarea:focus {
-  outline: none;
-}
-
-& button {
   justify-content: center;
-  align-items: center;
-  margin: 0% 25%;
-  width: 50%;
-  height: 10%;
-  background: #f7b5ce;
-  border: none;
-  border-radius: 2rem;
-  color: #FFF;
-  font-size: 20px;
-  cursor: pointer;
-}
-`
-
-
-export const ModalWapper = styled.div`
-position: absolute;
-right: 25%;
-top: 25%;
-z-index: 999;
-border-radius: 1rem;
-border: none;
-width: 50%;
-height: 50%;
-background: rgba(256, 256, 256, 0.6);
-& .modalClose {
-  cursor: pointer;
-  border: none;
-  border-radius: 1rem;
-  margin: 10px;
-  position: absolute;
-  right: 0%;
-  top: 0%;
-}
-
-& .modalContent {
+  display: flex;
   width: 100%;
   height: 100%;
-}
-`
+  flex-direction: column;
+
+  & textarea {
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    margin: 5%;
+    width: 90%;
+    height: 60%;
+    font-size: 20px;
+    padding: 1%;
+  }
+
+  & textarea:focus {
+    outline: none;
+  }
+
+  & button {
+    justify-content: center;
+    align-items: center;
+    margin: 0% 25%;
+    width: 50%;
+    height: 10%;
+    background: #f7b5ce;
+    border: none;
+    border-radius: 2rem;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+`;
+
+export const ModalWapper = styled.div`
+  position: absolute;
+  right: 25%;
+  top: 25%;
+  z-index: 999;
+  border-radius: 1rem;
+  border: none;
+  width: 50%;
+  height: 50%;
+  background: rgba(256, 256, 256, 0.6);
+  & .modalClose {
+    cursor: pointer;
+    border: none;
+    border-radius: 1rem;
+    margin: 10px;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+  }
+
+  & .modalContent {
+    width: 100%;
+    height: 100%;
+  }
+`;
 
 export const TextareaModalStyled = styled.div`
-position: absolute;
-right: 25%;
-top: 20%;
-z-index: 999;
-border-radius: 1rem;
-border: none;
-width: 50%;
-height: 65%;
-background: rgba(256, 256, 256, 0.6);
-& textarea {
-  border-radius: 1rem;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #000;
-  margin: 5%;
-  width: 88%;
-  height: 65%;
-  font-size: 20px;
-  padding: 1%;
-}
-
-& textarea:focus {
-  outline: none;
-}
-
-& .modalClose {
-  cursor: pointer;
-  border: none;
-  border-radius: 1rem;
-  margin: 10px;
   position: absolute;
-  right: 0%;
-  top: 0%;
-}
-`
+  right: 25%;
+  top: 20%;
+  z-index: 999;
+  border-radius: 1rem;
+  border: none;
+  width: 50%;
+  height: 65%;
+  background: rgba(256, 256, 256, 0.6);
+  & textarea {
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    margin: 5%;
+    width: 88%;
+    height: 65%;
+    font-size: 20px;
+    padding: 1%;
+  }
+
+  & textarea:focus {
+    outline: none;
+  }
+
+  & .modalClose {
+    cursor: pointer;
+    border: none;
+    border-radius: 1rem;
+    margin: 10px;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+  }
+`;
 
 export const FeatureButton = styled.button`
   position: absolute;
@@ -158,4 +157,4 @@ export const FeatureButton = styled.button`
     width: 100%;
     height: 100%;
   }
-`
+`;
