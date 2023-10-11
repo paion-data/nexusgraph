@@ -22,9 +22,19 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 
+import OnChangePlugin from "./plugins/Messier61OnChangePlugin";
+
 import styles from "./LexicalEditor.module.css";
 
-export default function LexicalEditor(lexicalEditorConfig: any): JSX.Element {
+export default function LexicalEditor({
+  lexicalEditorConfig,
+  transformer,
+  exporter,
+}: {
+  lexicalEditorConfig: any;
+  transformer: (editorContentLines: string[]) => any;
+  exporter: (exportLocation: any) => void;
+}): JSX.Element {
   return (
     <LexicalComposer initialConfig={lexicalEditorConfig}>
       <div className={styles["editor-container"]}>
@@ -35,6 +45,7 @@ export default function LexicalEditor(lexicalEditorConfig: any): JSX.Element {
         />
         <HistoryPlugin />
         <AutoFocusPlugin />
+        <OnChangePlugin transformer={transformer} exporter={exporter} />
       </div>
     </LexicalComposer>
   );

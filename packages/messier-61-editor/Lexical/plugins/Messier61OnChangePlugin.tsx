@@ -13,21 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from "react";
-import { LexicalEditor } from "./Lexical";
-import editorConfig from "./Lexical/LexicalEditorConfig";
+import { useEffect } from "react";
 
-/**
- * Generates a configured Editor instance
- *
- * @returns An knowledge graph editor
- */
-export default function Editor({
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+
+import editorContentParser from "../EditorContentParser";
+
+export default function Messier61OnChangePlugin({
   transformer,
   exporter,
 }: {
   transformer: (editorContentLines: string[]) => any;
   exporter: (exportLocation: any) => void;
-}): JSX.Element {
-  return <LexicalEditor lexicalEditorConfig={editorConfig} transformer={transformer} exporter={exporter} />;
+}): null {
+  const [editor] = useLexicalComposerContext();
+
+  useEffect(() => {
+    return editor.registerUpdateListener(({ editorState }) => {
+      exporter(transformer(editorContentParser(editorState, editor)));
+    });
+  }, [editor, editorContentParser, transformer, exporter]);
+
+  return null;
 }

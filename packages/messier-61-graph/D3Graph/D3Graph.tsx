@@ -18,16 +18,19 @@ const DEFAULT_CIRCULE_RADIUS = 20;
  */
 export function D3Graph(graphConfig: GraphConfig): JSX.Element {
   const svgRef = useRef(null);
+
   const width = graphConfig.canvasConfig.width;
   const height = graphConfig.canvasConfig.height;
-  const nodes = initializeNodes(graphConfig.graphData.nodes);
-  const links = initializeLinks(graphConfig.graphData.links);
 
   useEffect(() => {
+    console.log("Rerendering!");
     let selectedSourceNode: any;
     let selectedTargetNode: any;
     let drawingLine = false;
     let newLine: any;
+
+    const nodes = initializeNodes(graphConfig.graphData.nodes);
+    const links = initializeLinks(graphConfig.graphData.links);
 
     const simulation = initializeSimulation(nodes, links, width, height);
 
@@ -265,7 +268,7 @@ export function D3Graph(graphConfig: GraphConfig): JSX.Element {
 
     const linesg = svg.append("g");
     const circlesg = svg.append("g");
-  }, [nodes, links, svgRef.current]);
+  }, [graphConfig, svgRef.current]);
   const stylesName = [styles.g, styles.node, styles.line, styles.link, styles.newLine];
   return <svg ref={svgRef} width={width} height={height} className={stylesName.join(" ")}></svg>;
 }
@@ -294,6 +297,8 @@ export function D3Graph(graphConfig: GraphConfig): JSX.Element {
 function initializeSimulation(nodes: any[], links: any[], width: number, height: number): any {
   return d3
     .forceSimulation(nodes)
+    .stop()
+    .restart()
     .force("charge", d3.forceManyBody().strength(DEFAULT_FORCE_STRENGTH))
     .force(
       "link",

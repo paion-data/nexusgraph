@@ -13,10 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from "react";
-import { render } from "@testing-library/react";
-import Editor from "./Editor";
-
-test("[Sanity Check] Loads editor without error", () => {
-  render(<Editor transformer={() => {}} exporter={() => {}} />);
-});
+export function getSVOof(text: string): string[] {
+  if (text === null || text === undefined || text === "") {
+    return [];
+  }
+  return text.split(" ").filter((part) => part !== "");
+}

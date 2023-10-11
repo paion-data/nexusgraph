@@ -13,10 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from "react";
-import { render } from "@testing-library/react";
-import Editor from "./Editor";
+import type { EditorState, LexicalEditor } from "lexical";
 
-test("[Sanity Check] Loads editor without error", () => {
-  render(<Editor transformer={() => {}} exporter={() => {}} />);
-});
+export default function editorContentParser(editorState: EditorState, editor: LexicalEditor): string[] {
+  const lines: string[] = [];
+
+  editorState.read(() => {
+    const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
+    const rawLines: any[] = jsonObject.root.children[0].children;
+    rawLines.forEach((line) => {
+      if (line.text !== undefined) {
+        lines.push(line.text);
+      }
+    });
+  });
+
+  return lines;
+}

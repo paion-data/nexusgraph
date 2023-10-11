@@ -11,37 +11,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from "react";
+import React, { useState } from "react";
 
-import type { GraphData, CanvasConfig } from "../messier-61-graph";
+import type { CanvasConfig } from "../messier-61-graph";
 import { Editor } from "../messier-61-editor";
 import { Graph } from "../messier-61-graph";
+import { transformer } from "./Transformer";
 
 export default function ExternalBrain(): JSX.Element {
-  const graphData: GraphData = {
-    nodes: [
-      {
-        id: "1",
-        name: "node1",
-      },
-      {
-        id: "2",
-        name: "node2",
-      },
-      {
-        id: "3",
-        name: "node3",
-      },
-    ],
-    links: [
-      {
-        id: "4",
-        name: "link1",
-        source: "1",
-        target: "2",
-      },
-    ],
-  };
+  const [graphData, setGraphData] = useState({
+    nodes: [],
+    links: [],
+  });
 
   const canvasConfig: CanvasConfig = {
     width: 960,
@@ -56,7 +37,12 @@ export default function ExternalBrain(): JSX.Element {
 
   return (
     <div>
-      <Editor />
+      <Editor
+        transformer={transformer}
+        exporter={(newGraphData: any) => {
+          setGraphData(newGraphData);
+        }}
+      />
       <Graph graphData={graphData} canvasConfig={canvasConfig} />
     </div>
   );
