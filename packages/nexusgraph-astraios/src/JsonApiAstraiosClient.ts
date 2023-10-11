@@ -7,6 +7,7 @@ import { NoteInfo } from "../../nexusgraph-redux/src/note-list/noteListDuck";
 import { AstraiosClient } from "./AstraiosClient";
 
 const NOTE_STORAGE_API_URL_PARAMETER = "note/";
+const ASTRAIOS_JSON_API_ENDPOINT = process.env.ASTRAIOS_API_RESOURCE as string;
 
 /**
  * An implementation of {@link AstraiosClient}, It will send Http requests to the backend Astraios storage
@@ -56,7 +57,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
 
     if (this.isInitialSave(note)) {
       return axios
-        .post((process.env.ASTRAIOS_JSON_API_ENDPOINT as string) + NOTE_STORAGE_API_URL_PARAMETER, { data }, config)
+        .post(ASTRAIOS_JSON_API_ENDPOINT + NOTE_STORAGE_API_URL_PARAMETER, { data }, config)
         .then((response) => {
           const noteState = {
             ...note,
@@ -66,11 +67,7 @@ export class JsonApiAstraiosClient implements AstraiosClient {
         });
     }
 
-    return axios.patch(
-      (process.env.ASTRAIOS_JSON_API_ENDPOINT as string) + NOTE_STORAGE_API_URL_PARAMETER + note.id,
-      { data },
-      config
-    );
+    return axios.patch(ASTRAIOS_JSON_API_ENDPOINT + NOTE_STORAGE_API_URL_PARAMETER + note.id, { data }, config);
   }
 
   private isInitialSave(note: NoteState) {

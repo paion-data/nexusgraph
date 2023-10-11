@@ -5,6 +5,8 @@ import "reflect-metadata";
 import { NoteState } from "../../nexusgraph-redux";
 import { AstraiosClient } from "./AstraiosClient";
 
+const ASTRAIOS_GRAPHQL_API_ENDPOINT = process.env.ASTRAIOS_API_RESOURCE as string;
+
 @injectable()
 export class GraphQlClient implements AstraiosClient {
   public saveOrUpdate(astraiosState: NoteState, token: string, userId: string) {
@@ -13,7 +15,7 @@ export class GraphQlClient implements AstraiosClient {
 
   public getNoteList(userId: string) {
     return axios
-      .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
+      .post(ASTRAIOS_GRAPHQL_API_ENDPOINT, {
         query: ` 
         query getNoteList{
           note (filter: \"userId==${userId}\"){
@@ -39,7 +41,7 @@ export class GraphQlClient implements AstraiosClient {
 
   public getNoteById(noteId: string): Promise<Record<any, string>> {
     return axios
-      .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
+      .post(ASTRAIOS_GRAPHQL_API_ENDPOINT, {
         query: ` 
         query getNoteById{
           note(ids: [\"${noteId}\"]) {
@@ -63,7 +65,7 @@ export class GraphQlClient implements AstraiosClient {
   }
 
   public deleteNote(noteId: string): Promise<any> {
-    return axios.post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
+    return axios.post(ASTRAIOS_GRAPHQL_API_ENDPOINT, {
       query: ` 
           mutation deleteNote{
             note(op: DELETE, ids: [\"${noteId}\"]) {
@@ -88,7 +90,7 @@ export class GraphQlClient implements AstraiosClient {
 
     if (this.isInitialSave(note)) {
       return axios
-        .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
+        .post(ASTRAIOS_GRAPHQL_API_ENDPOINT, {
           query: ` 
           mutation saveNote{
             note(op: UPSERT, data: {
@@ -117,7 +119,7 @@ export class GraphQlClient implements AstraiosClient {
     }
 
     return axios
-      .post(process.env.ASTRAIOS_GRAPHQL_API_ENDPOINT as string, {
+      .post(ASTRAIOS_GRAPHQL_API_ENDPOINT, {
         query: ` 
           mutation updateNote{
             note(op: UPSERT, data: {
