@@ -1,5 +1,5 @@
 {
-  "name": "messier-61-graphql-server",
+  "name": "@paiondata/messier-61-graphql-server",
   "version": "0.1.0",
   "engines": {
     "node": ">=16.0.0 <18.0.0"

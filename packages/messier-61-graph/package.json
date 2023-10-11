@@ -1,5 +1,5 @@
 {
-  "name": "@paion-data/messier-61-graph",
+  "name": "@paiondata/messier-61-graph",
   "version": "0.1.0",
   "main": "dist/messier-61-graph.js",
   "engines": {
