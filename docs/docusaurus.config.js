@@ -92,6 +92,11 @@ const config = {
             label: "Documentations",
           },
           {
+            href: "https://paion-data.github.io/Messier-61/api/",
+            label: "API",
+            position: "left",
+          },
+          {
             href: "https://github.com/paion-data/Messier-61",
             label: "GitHub",
             position: "right",

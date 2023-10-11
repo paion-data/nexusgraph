@@ -30,7 +30,7 @@ If you're looking for documentation relating to [contributing to Messier-61][pai
 can be found at [Paion Open Source Guide][paion open source guide].
 
 [documentation source]: https://github.com/paion-data/Messier-61/tree/master/docs
-[documentation]: https://QubitPi.github.io/Messier-61/
+[documentation]: https://paion-data.github.io/Messier-61/
 [Docusaurus]: https://docusaurus.io/
 [Docusaurus Build]: https://docusaurus.io/docs/cli#docusaurus-build-sitedir
 

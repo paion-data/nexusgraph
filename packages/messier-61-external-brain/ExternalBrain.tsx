@@ -43,7 +43,7 @@ export default function ExternalBrain(): JSX.Element {
     <div>
       <div>
         <h1 className={styles.h1}>Entity Resolution</h1>
-        <img className={styles.img} src="https://qubitpi.github.io/Messier-61/img/logo.svg" width="100px" alt="" />
+        <img className={styles.img} src="https://paion-data.github.io/Messier-61/img/logo.svg" width="100px" alt="" />
       </div>
       <main>
         <section className={styles.glass1}>

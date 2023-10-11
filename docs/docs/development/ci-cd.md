@@ -45,13 +45,12 @@ Release Process
 [GitHub Actions][GitHub Actions] allow us to automate, customize, and execute our software development workflows right
 in our repository. This also applies to our documentations.
 
-Messier-61 documentation source resides in the master branch under `docs/` directory, publishing source is configured
-for the `gh-pages` branch.
+Messier-61 documentation source resides in the master branch under [docs/][Documentation source root] directory
 
 The CI/CD for documentation achieves 2 goals:
 
 1. When a new pull request is made to `master`, there's an action that ensures the site builds successfully, without
-   actually deploying. This job is called `test-doc-build`.
+   actually deploying. This GitHub workflow job is called `test-doc-build`.
 2. When a pull request is merged to the `master` branch, it will be built and deployed to the `gh-pages` branch. After
    that, the new build output will be served on the GitHub Pages site. This job is `deploy-documentation` called deploy.
 
@@ -100,6 +99,8 @@ npm run prettier-watch
 ```
 
 :::
+
+[Documentation source root]: https://github.com/paion-data/Messier-61/tree/master/docs
 
 [ESLint]: https://eslint.org/
 

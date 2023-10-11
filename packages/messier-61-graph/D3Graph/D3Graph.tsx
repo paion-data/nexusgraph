@@ -13,7 +13,7 @@ const DEFAULT_CIRCULE_RADIUS = 20;
  * Generates a D3 graph whose content is defined by a provided {@link GraphConfig.GraphData}.
  *
  * @param graphConfig An object specifying the visual config of graph and graph data, which contains a list of
- * {@link GraphConfig.GraphData.Node}'s and list of @link GraphConfig.Link}'s
+ * {@link GraphConfig.GraphData.Node}'s and list of {@link GraphConfig.Link}'s
  *
  * @returns A D3 visualization of network graph
  */
