@@ -11,7 +11,7 @@ module.exports = function (webpackEnv) {
   const isProdEnvironment = webpackEnv === "production";
 
   return {
-    entry: "./packages/messier-61-landing-page/src/index.js",
+    entry: "./packages/messier-61-app/src/index.tsx",
     mode: isProdEnvironment ? "production" : "development",
     output: {
       publicPath: "/",
@@ -58,7 +58,7 @@ module.exports = function (webpackEnv) {
           {},
           {
             inject: true,
-            template: "./public/index.html",
+            template: "./packages/messier-61-app/public/index.html",
           },
           isProdEnvironment
             ? {
