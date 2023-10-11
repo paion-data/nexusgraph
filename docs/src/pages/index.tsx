@@ -31,7 +31,7 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/docs/intro">
-            Knowledge Graph Based Wiki React Framework
+            Start Revolutionzing Problem Solving
           </Link>
         </div>
       </div>

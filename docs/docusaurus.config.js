@@ -16,21 +16,21 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const math = require("remark-math");
+const katex = require("rehype-katex");
+
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Messier-61",
-  tagline: "Messier-61 Documentation",
+  tagline: "A Powerful External Brain",
   favicon: "img/favicon.ico",
 
   url: "https://paion-data.github.io/",
   baseUrl: "/Messier-61",
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "paion-data",
+  organizationName: "QubitPi",
   projectName: "Messier-61",
 
   onBrokenLinks: "throw",
@@ -54,12 +54,23 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
+  ],
+
+  stylesheets: [
+    {
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
+      integrity: "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
+    },
   ],
 
   themeConfig:
