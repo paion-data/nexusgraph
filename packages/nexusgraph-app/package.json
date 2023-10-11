@@ -2,7 +2,6 @@
   "name": "@paiondata/nexusgraph-app",
   "private": true,
   "dependencies": {
-    "@logto/react": "^2.1.1",
     "@sentry/react": "^7.57.0"
   }
 }
