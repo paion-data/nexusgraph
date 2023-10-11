@@ -2,6 +2,7 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import { useTranslation } from "react-i18next";
+import "../i18n";
 
 export const Footer = (props) => {
   const { t } = useTranslation();
