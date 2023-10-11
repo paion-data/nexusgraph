@@ -4,9 +4,6 @@ name: Get Contributor List of Messier-61
 
 "on":
   workflow_dispatch:
-  push:
-    branches:
-      - master
 
 jobs:
   contrib-readme-job:
