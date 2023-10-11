@@ -22,6 +22,23 @@ Contributors
 ------------
 
 <!-- readme: collaborators,contributors,bots -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/QubitPi">
+            <img src="https://avatars.githubusercontent.com/u/16126939?v=4" width="100;" alt="QubitPi"/>
+            <br />
+            <sub><b>QubitPi</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Xxy1016">
+            <img src="https://avatars.githubusercontent.com/u/125425805?v=4" width="100;" alt="Xxy1016"/>
+            <br />
+            <sub><b>Xxy1016</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: collaborators,contributors,bots -end -->
 
 License
