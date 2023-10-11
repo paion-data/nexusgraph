@@ -2,7 +2,6 @@
   "preset": "ts-jest",
   "testEnvironment": "jsdom",
   "roots": ["<rootDir>/packages"],
-  "setupFilesAfterEnv": ["<rootDir>/packages/messier-61-app/setupTests.ts"],
   "transform": {
     "^.+\\.[t|j]sx?$": "babel-jest",
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",

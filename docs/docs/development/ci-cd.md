@@ -122,6 +122,6 @@ npm run prettier-watch
 
 [Messier-61 npm repo]: https://www.npmjs.com/package/@paiondata/messier-61
 [Messier-61 packages source]: https://github.com/QubitPi/Messier-61/tree/master/packages
-[Messier-61 test CI script]: https://github.com/QubitPi/Messier-61/blob/master/.github/workflows/test.yml
+[Messier-61 test CI script]: https://github.com/QubitPi/Messier-61/blob/master/.github/workflows/ci-cd.yml
 
 [Prettier]: https://prettier.io/

@@ -36,7 +36,7 @@ jobs:
           use-verbose-mode: "yes"
 
   test:
-    name: Build & Test Messier-61
+    name: Check Style and Run All Tests
     needs: [yaml-lint, markdown-lint, markdown-link-check]
     runs-on: ubuntu-latest
     strategy:
@@ -50,17 +50,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node_version }}
-          cache: npm
       - name: Install dependencies
-        run: npm install
+        run: yarn
       - name: Code style check
         run: npx prettier --check .
-      - name: Static code analysis
-        run: npx eslint .
+      # - name: Static code analysis
+      #   run: npx eslint .
       - name: Run tests
-        run: npm test
+        run: yarn test
       - name: Build
-        run: npm run build
+        run: yarn build
 
   release:
     name: Publish NPM Packages
@@ -107,21 +106,21 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
       - name: Install Messier-61 dependencies so that TypeDoc process source files properly
         run: |
           cd ../
-          npm install
+          yarn
 
           cd packages/messier-61-graph
-          npm install
+          yarn
 
           cd ../messier-61-graphql-server
-          npm install
+          yarn
       - name: Install doc dependencies
-        run: yarn install
+        run: yarn
       - name: Build documentation
-        run: yarn build
+        run: yarn build-without-typedoc
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3

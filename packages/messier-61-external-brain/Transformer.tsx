@@ -4,7 +4,7 @@
 import type { GraphData } from "../messier-61-graph/temporary";
 
 import { makeGraphDataFromSvoTripples } from "../messier-61-graph/temporary/GraphDataMaker";
-import { getSVOof } from "../messier-61-nlp/BasicSVOParser";
+import { getSVOof } from "../messier-61-nlp/src/BasicSVOParser";
 
 export function transformer(editorLines: string[]): GraphData {
   const svoTripples: string[][] = editorLines
