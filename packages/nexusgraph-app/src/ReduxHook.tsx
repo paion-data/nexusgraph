@@ -16,7 +16,7 @@ export default function useReduxHook() {
   const accessToken = selectOAuth().accessToken;
   const userId = selectOAuth().userInfo["sub"];
 
-  const intelligentAIState: string | null = selectIntelligentAI();
+  const initialGraphText: string | null = selectIntelligentAI();
 
   useEffect(() => {
     const update = () => {
@@ -33,8 +33,8 @@ export default function useReduxHook() {
   }, [noteState]);
 
   useEffect(() => {
-    if (intelligentAIState) {
-      remoteNaturalLanguageProcessor.entityExtraction(intelligentAIState).then((NlpState) => {
+    if (initialGraphText) {
+      remoteNaturalLanguageProcessor.entityExtraction(initialGraphText).then((NlpState) => {
         dispatch(updateNlpData(NlpState));
       });
     } else {
@@ -45,7 +45,7 @@ export default function useReduxHook() {
         })
       );
     }
-  }, [intelligentAIState]);
+  }, [initialGraphText]);
 
   // useEffect(() => {
   //   astraiosClient.getNoteList(userId, accessToken).then((noteList) => {

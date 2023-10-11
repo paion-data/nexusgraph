@@ -47,9 +47,13 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
       expect(nlpState).toEqual(nlpData);
 
       expect(axios.create).toHaveBeenCalled();
-      expect(axios.post).toHaveBeenCalledWith("entityExtraction/", {
-        text: editorLines,
-      });
+      expect(axios.post).toHaveBeenCalledWith(
+        "entityExtraction",
+        {
+          text: [editorLines],
+        },
+        { headers: { "Content-Type": "application/json", accept: "*/*" } }
+      );
     });
   });
 });

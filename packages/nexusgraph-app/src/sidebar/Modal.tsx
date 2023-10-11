@@ -1,15 +1,14 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { ReactNode, useEffect, useState } from "react";
-import { ModalOverlay, ModalWapper } from "./styled";
+import { StyledModal, StyledModalContent } from "./styled";
 
 interface ModalProps {
   children: ReactNode;
-  closeOnClickOutside: boolean;
   onClose: () => void;
   show: boolean;
 }
 
-function Portal(props: ModalProps): JSX.Element {
+export default function Modal(props: ModalProps): JSX.Element {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -28,21 +27,13 @@ function Portal(props: ModalProps): JSX.Element {
   }, [document.activeElement]);
 
   return (
-    <ModalOverlay id={"modal"} animation={true} show={show} onHide={handleClose} role="dialog">
-      <ModalWapper>
+    <StyledModal id={"modal"} animation={true} show={show} onHide={handleClose} role="dialog">
+      <StyledModalContent>
         <button className="modalClose" onClick={props.onClose}>
           X
         </button>
         <div className="modalContent">{props.children}</div>
-      </ModalWapper>
-    </ModalOverlay>
-  );
-}
-
-export default function Modal(props: ModalProps): JSX.Element {
-  return (
-    <Portal show={props.show} onClose={props.onClose} closeOnClickOutside={props.closeOnClickOutside}>
-      {props.children}
-    </Portal>
+      </StyledModalContent>
+    </StyledModal>
   );
 }

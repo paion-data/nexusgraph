@@ -3,13 +3,10 @@ import { useCallback, useMemo, useState } from "react";
 import Modal from "./Modal";
 
 export default function useModal(
-  show: boolean,
-  setShow: (show: boolean) => void
+  show: boolean
 ): [JSX.Element | null, (showModal: (onClose: () => void) => JSX.Element) => void] {
-  const [modalContent, setModalContent] = useState<null | {
-    closeOnClickOutside: boolean;
-    content: JSX.Element;
-  }>(null);
+  const [modalContent, setModalContent] = useState<null | JSX.Element>(null);
+  const [modalShown, setModalShown] = useState(false);
 
   const onClose = useCallback(() => {
     setModalContent(null);
@@ -20,21 +17,17 @@ export default function useModal(
       return null;
     }
 
-    const { content, closeOnClickOutside } = modalContent;
-
     return (
-      <Modal show={show} onClose={onClose} closeOnClickOutside={closeOnClickOutside}>
-        {content}
+      <Modal show={modalShown} onClose={onClose}>
+        {modalContent}
       </Modal>
     );
   }, [modalContent, onClose]);
 
   const showModal = useCallback(
-    (getContent: (onClose: () => void) => JSX.Element, closeOnClickOutside = false) => {
-      setModalContent({
-        closeOnClickOutside,
-        content: getContent(onClose),
-      });
+    (getContent: (onClose: () => void) => JSX.Element) => {
+      setModalShown(true);
+      setModalContent(getContent(onClose));
     },
     [onClose]
   );

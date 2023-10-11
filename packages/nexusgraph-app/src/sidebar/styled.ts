@@ -81,7 +81,7 @@ export const IntelligentAITextarea = styled.div`
   }
 `;
 
-export const ModalOverlay = styled(Modal)`
+export const StyledModal = styled(Modal)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,15 +97,15 @@ export const ModalOverlay = styled(Modal)`
   z-index: 100;
 `;
 
-export const ModalWapper = styled.div`
+export const StyledModalContent = styled.div`
   position: absolute;
   right: 25%;
   top: 25%;
   z-index: 999;
   border-radius: 1rem;
   border: none;
-  width: 50%;
-  height: 50%;
+  width: 1200px;
+  height: 700px;
   background: rgba(256, 256, 256, 0.6);
   & .modalClose {
     cursor: pointer;
