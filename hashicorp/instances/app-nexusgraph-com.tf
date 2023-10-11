@@ -1,5 +1,3 @@
-# Copyright 2023 Paion Data. All rights reserved.
-
 variable "aws_deploy_region" {
   type = string
   description = "The EC2 region"
@@ -50,7 +48,7 @@ resource "aws_instance" "nexusgraph-app" {
 
   user_data = <<-EOF
     #!/bin/bash
-    
+
     cd /home/ubuntu/nexusgraph
     serve -s dist -l 3000
   EOF
