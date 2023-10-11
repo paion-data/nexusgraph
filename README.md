@@ -11,6 +11,23 @@ Messier-61 <sup>![Node Version Badge is Missing][node version badge]</sup>
 [![GitHub Workflow Status][release status]](https://github.com/paion-data/messier-61/actions/workflows/ci-cd.yml)
 ![GitHub last commit (master)](https://img.shields.io/github/last-commit/paion-data/messier-61/master?logo=github&style=for-the-badge)
 
+<a href="https://sonarcloud.io/summary/new_code?id=paion-data_Messier-61">
+    <img align="left" width="17%" alt="Quality gate" src="https://sonarcloud.io/api/project_badges/quality_gate?project=paion-data_Messier-61">
+</a>
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=paion-data_Messier-61&metric=bugs)](https://sonarcloud.io/summary/new_code?id=paion-data_Messier-61)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=paion-data_Messier-61&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=paion-data_Messier-61)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_Messier-61&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_Messier-61)
+
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=paion-data_Messier-61&metric=coverage)](https://sonarcloud.io/summary/new_code?id=paion-data_Messier-61)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=paion-data_Messier-61&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=paion-data_Messier-61)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_Messier-61&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_Messier-61)
+
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=paion-data_Messier-61&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=paion-data_Messier-61)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=paion-data_Messier-61&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=paion-data_Messier-61)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_Messier-61&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_Messier-61)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=paion-data_Messier-61&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=paion-data_Messier-61)
+
 > _Messier-61_ is named after the [supermassive black hole "Messier-61"][Messier-61 Wikipedia]. In the world of Physics,
 > it's the "entry" of interstellar travelling that eventually takes people to a fresh set of world-view of galaxies
 
