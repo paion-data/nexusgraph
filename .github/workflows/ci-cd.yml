@@ -141,6 +141,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Load custom environment variables into HC variable file
+        run: |
+          sed -i -e 's/ZONE_ID_INJECTED_BY_CI_CD/${{ secrets.ZONE_ID }}/g' instances/main-landing-page.auto.tfvars
+
+      - name: Load SSL Certificates
+        working-directory: hashicorp/images
+        run: |
+          echo '${{ secrets.SSL_CERTIFICATE_LANDING_PAGE }}' > server-landing-page.crt
+          echo '${{ secrets.SSL_CERTIFICATE_KEY_LANDING_PAGE }}' > server-landing-page.key
       - name: Publish Messier-61 AMI image and deploy it to EC2 through HashiCorp
         uses: QubitPi/hashicorp-aws@master
         with:
