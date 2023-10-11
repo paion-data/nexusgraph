@@ -16,8 +16,7 @@ export interface DetailsPaneProps {
   nodeInspectorWidth: number;
 }
 
-//Convert the first letter to uppercase
-const upperFirst = (str: string): string => str[0].toUpperCase() + str.slice(1);
+export const upperFirst = (str: string): string => str[0].toUpperCase() + str.slice(1);
 
 export function DefaultDetailsPane({ vizItem, graphStyle, nodeInspectorWidth }: DetailsPaneProps): JSX.Element {
   const [maxPropertiesCount, setMaxPropertiesCount] = useState(DETAILS_PANE_STEP_SIZE);

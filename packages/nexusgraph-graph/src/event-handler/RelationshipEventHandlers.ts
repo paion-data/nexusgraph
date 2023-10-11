@@ -8,21 +8,18 @@ export function relationshipEventHandlers(
   selection: Selection<SVGGElement, RelationshipModel, BaseType, unknown>,
   trigger: (event: string, rel: RelationshipModel) => void
 ): Selection<SVGGElement, RelationshipModel, BaseType, unknown> {
-  function onRelationshipClick(event: Event, rel: RelationshipModel): void {
+  const onRelationshipClick = (event: Event, rel: RelationshipModel) => {
     event.stopPropagation();
     trigger(RELATIONSHIO_CLICKED, rel);
-  }
+  };
 
-  function onRelMouseOver(_event: Event, rel: RelationshipModel): void {
+  const onRelMouseOver = (_event: Event, rel: RelationshipModel) => {
     trigger(REL_MOUSE_OVER, rel);
-  }
+  };
 
-  function onRelMouseOut(_event: Event, rel: RelationshipModel): void {
+  const onRelMouseOut = (_event: Event, rel: RelationshipModel) => {
     trigger(REL_MOUSE_OUT, rel);
-  }
+  };
 
-  return selection
-    .on(RELATIONSHIO_CLICKED, onRelationshipClick)
-    .on(REL_MOUSE_OVER, onRelMouseOver)
-    .on(REL_MOUSE_OUT, onRelMouseOut);
+  return selection.on("click", onRelationshipClick).on("mouseover", onRelMouseOver).on("mouseout", onRelMouseOut);
 }

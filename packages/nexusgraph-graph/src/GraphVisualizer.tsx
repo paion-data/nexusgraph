@@ -13,6 +13,7 @@ import { BasicNode, BasicRelationship, Graph } from "./Graph";
 import { RelationshipModel } from "./models/Relationship";
 import { GraphModel } from "./models/Graph";
 import { DetailsPane } from "./inspection-panel/properties-panel-content/properties-panel-content/DetailsPane";
+import OverviewPane from "./inspection-panel/properties-panel-content/properties-panel-content/OverviewPane";
 
 /**
  * Both {@link GraphVisualizerProps.relationships} and {@link GraphVisualizerProps.nodes} are immutable.
@@ -20,7 +21,8 @@ import { DetailsPane } from "./inspection-panel/properties-panel-content/propert
 type GraphVisualizerProps = {
   nodes: readonly BasicNode[];
   relationships: readonly BasicRelationship[];
-
+  DetailsPaneOverride?: React.FC<DetailsPaneProps>;
+  OverviewPaneOverride?: React.FC<OverviewPaneProps>;
   assignVisElement: (svgElement: any, graphElement: any) => void;
 };
 
@@ -113,8 +115,8 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
         toggleExpanded={() => {
           setNodePropertiesExpanded(!nodePropertiesExpanded);
         }}
-        DetailsPaneOverride={undefined}
-        OverviewPaneOverride={undefined}
+        DetailsPaneOverride={DetailsPane}
+        OverviewPaneOverride={OverviewPane}
       />
     </StyledFullSizeContainer>
   );

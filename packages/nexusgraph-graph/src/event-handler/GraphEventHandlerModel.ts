@@ -166,7 +166,7 @@ export class GraphEventHandlerModel {
   }
 
   public onNodeMouseOver(node: NodeModel): void {
-    if (node.contextMenu === undefined) {
+    if (!node.contextMenu) {
       this.onItemMouseOver({
         type: "node",
         item: node,

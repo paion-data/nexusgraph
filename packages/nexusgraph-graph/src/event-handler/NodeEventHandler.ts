@@ -34,7 +34,6 @@ export function nodeEventHandlers(
       node.fx = node.x;
       node.fy = node.y;
     }
-
     trigger(NODE_MOUSE_OVER, node);
   };
 
@@ -74,8 +73,8 @@ export function nodeEventHandlers(
 
   return selection
     .call(d3Drag<SVGGElement, NodeModel>().on("start", dragstarted).on("drag", dragged).on("end", dragended))
-    .on(NODE_MOUSE_OVER, onNodeMouseOver)
-    .on(NODE_MOUSE_OUT, onNodeMouseOut)
-    .on(NODE_CLICKED, onNodeClick)
-    .on(NODE_DBLCLICKED, onNodeDblClick);
+    .on("mouseover", onNodeMouseOver)
+    .on("mouseout", onNodeMouseOut)
+    .on("click", onNodeClick)
+    .on("dblclick", onNodeDblClick);
 }
