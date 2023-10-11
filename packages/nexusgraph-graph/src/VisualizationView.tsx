@@ -38,7 +38,7 @@ export function Visualization(props: VisualizationProps): JSX.Element {
  */
 export const transformBasicNodes = (nodes: any[]): BasicNode[] => {
   if (nodes.length > 0) {
-    nodes.map((node: any) => {
+    nodes.forEach((node: any) => {
       if (node["fields"]) {
         const newNode = {
           id: node["id"],
@@ -62,7 +62,7 @@ export const transformBasicNodes = (nodes: any[]): BasicNode[] => {
  */
 export const transformBasicRelationships = (links: any[]): BasicRelationship[] => {
   if (links.length > 0) {
-    links.map((link: any) => {
+    links.forEach((link: any) => {
       if (link["fields"]) {
         const newLink = {
           id: link["fields"]["label"] ? link["fields"]["label"] : `${link["source"]}To${link["target"]} `,
