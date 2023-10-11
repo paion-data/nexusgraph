@@ -43,7 +43,7 @@ resource "aws_instance" "paion-data-messier-61-instance" {
 
   user_data = <<-EOF
     #!/bin/bash
-    cd /home/ubuntu/Messier-61/packages/messier-61-app
+    cd /home/ubuntu/Messier-61/packages/messier-61-landing-page
     yarn start
   EOF
 }

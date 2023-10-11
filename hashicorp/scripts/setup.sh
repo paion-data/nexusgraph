@@ -19,5 +19,5 @@ sudo npm install -g yarn
 git clone https://github.com/paion-data/Messier-61.git
 cd /home/ubuntu/Messier-61
 yarn
-cd packages/messier-61-app
+cd packages/messier-61-landing-page
 yarn

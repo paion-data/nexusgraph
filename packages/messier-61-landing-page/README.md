@@ -7,7 +7,7 @@ from [Free-CSS.com](https://www.free-css.com/assets/files/free-css-templates/pre
 To run the landing page locally:
 
 ```bash
-cd Messier-61/packages/messier-61-app
+cd Messier-61/packages/
 yarn
 yarn start
 ```

@@ -54,7 +54,7 @@ jobs:
       - name: Install dependencies
         run: |
           yarn
-          cd packages/messier-61-app
+          cd packages/messier-61-landing-page
           yarn
 
       - name: Code style check
