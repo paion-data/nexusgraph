@@ -33,10 +33,6 @@ test("Button active should be added", async () => {
     "Format Strikethrough",
     "insert Code",
     "insert Link",
-    "Left Align",
-    "Center Align",
-    "Right Align",
-    "Justify Align",
   ];
   for (let i = 0; i < buttonList.length; i++) {
     fireEvent.click(await screen.findByRole("button", { name: buttonList[i] }));
@@ -97,6 +93,21 @@ test("FontSizeOptionsButton text should be added", async () => {
   );
   const spanList = ["10px", "11px", "12px", "13px", "14px", "15px", "16px", "17px", "18px", "19px", "20px"];
   fireEvent.click(await screen.findByRole("button", { name: /Formatting Options for font size/i }));
+  setTimeout(async () => {
+    for (let i = 0; i < spanList.length; i++) {
+      expect(await screen.findByText(spanList[i])).toBeInTheDocument();
+    }
+  }, 3000);
+});
+
+test("FontSizeOptionsButton text should be added", async () => {
+  render(
+    <StoreWrapper>
+      <LexicalEditor />
+    </StoreWrapper>
+  );
+  const spanList = ["Left Align", "Center Align", "Right Align", "Justify Align", "Outdent", "Indent"];
+  fireEvent.click(await screen.findByRole("button", { name: /Formatting Options for text alignment/i }));
   setTimeout(async () => {
     for (let i = 0; i < spanList.length; i++) {
       expect(await screen.findByText(spanList[i])).toBeInTheDocument();

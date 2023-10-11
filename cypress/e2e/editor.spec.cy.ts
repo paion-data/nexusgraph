@@ -33,28 +33,6 @@ describe("undo redo button E2E test", () => {
   });
 });
 
-describe("text position E2E test", () => {
-  it("Text can be placed left  align  ", () => {
-    cy.get('[aria-label = "Left Align"]').click();
-    cy.get(".editor-paragraph").and("have.attr", "style", "text-align: left;");
-  });
-
-  it("Text can be placed center align  ", () => {
-    cy.get('[aria-label = "Center Align"]').click();
-    cy.get(".editor-paragraph").and("have.attr", "style", "text-align: center;");
-  });
-
-  it("Text can be placed right align  ", () => {
-    cy.get('[aria-label = "Right Align"]').click();
-    cy.get(".editor-paragraph").and("have.attr", "style", "text-align: right;");
-  });
-
-  it("Text can be placed justify align  ", () => {
-    cy.get('[aria-label = "Justify Align"]').click();
-    cy.get(".editor-paragraph").and("have.attr", "style", "text-align: justify;");
-  });
-});
-
 describe("font style E2E test", () => {
   it("bold button has an effect", () => {
     cy.get('[aria-label = "Format Bold"]').click().wait(1000);

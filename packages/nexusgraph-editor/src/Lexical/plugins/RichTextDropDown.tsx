@@ -54,7 +54,7 @@ export function DropDownItem({
 }
 
 /**
- * render dropdown menu
+ * Render dropdown menu
  *
  * @param param0
  *
