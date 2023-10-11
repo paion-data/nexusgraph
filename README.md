@@ -50,6 +50,20 @@ Contributors <sup>[![Update Link Missing!](https://img.shields.io/badge/Click%20
             <br />
             <sub><b>Xxy1016</b></sub>
         </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/fannifanni">
+            <img src="https://avatars.githubusercontent.com/u/135085401?v=4" width="100;" alt="fannifanni"/>
+            <br />
+            <sub><b>fannifanni</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/github-actions[bot]">
+            <img src="https://avatars.githubusercontent.com/in/15368?v=4" width="100;" alt="github-actions[bot]"/>
+            <br />
+            <sub><b>github-actions[bot]</b></sub>
+        </a>
     </td></tr>
 </table>
 <!-- readme: collaborators,contributors,bots -end -->
