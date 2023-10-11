@@ -12,8 +12,7 @@ export function FeatureMenu({ onClose }: { onClose: () => void }): JSX.Element {
     <>
       {!mode && (
         <FeatureButton onClick={() => setMode("intelligentAI")}>
-          <p>智能AI</p>
-          <img src={nlpLogo} alt="Logo"></img>
+          智能AI
         </FeatureButton>
       )}
       {mode === "intelligentAI" && <IntelligentAIDialogBody onClose={onClose}></IntelligentAIDialogBody>}

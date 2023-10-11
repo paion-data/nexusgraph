@@ -1,7 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import styled from "styled-components";
+import nlp from './img/nlp.png';
 
 export const CreateButtonStyled = styled.button`
+  position: absolute;
   width: 90%;
   height: 20%;
   border-radius: 1rem;
@@ -10,6 +12,8 @@ export const CreateButtonStyled = styled.button`
   color: #f9bfd5;
   background: rgba(256, 256, 256, 0.6);
   cursor: pointer;
+  word-wrap: break-word;
+  font-size: 12px;
   & svg {
     height: 30%;
     stroke-width: 1px;
@@ -23,23 +27,17 @@ export const FeatureButton = styled.button`
   height: 30%;
   margin: 5%;
   background: rgba(256, 256, 256, 0.5);
+  background-image: url(${nlp});
+  background-size: 100% 100%;
+  line-height: 1px;
+  vertical-align: top;
   border-radius: 1rem;
   border-style: solid;
   border-width: 3px;
   border-color: #f7b5ce;
   cursor: pointer;
-
-  & p {
-    position: absolute;
-    top: 0%;
-    font-size: 20px;
-    margin: 10% 35% 0% 35%;
-  }
-
-  & img {
-    width: 100%;
-    height: 100%;
-  }
+  word-wrap: break-word;
+  font-size: 12px;
 `;
 
 export const IntelligentAITextarea = styled.div`
@@ -77,6 +75,8 @@ export const IntelligentAITextarea = styled.div`
     color: #fff;
     font-size: 20px;
     cursor: pointer;
+    word-wrap: break-word;
+    font-size: 12px;
   }
 `;
 
