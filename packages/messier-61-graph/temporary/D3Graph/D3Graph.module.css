@@ -1,0 +1,43 @@
+/* Copyright 2023 Paion Data. All rights reserved. */
+marker#child {
+  fill: rgb(255, 120, 25);
+}
+
+svg.g.node circle {
+  fill: rgb(107, 174, 214);
+  stroke: rgb(36, 113, 182);
+  stroke-width: 2px;
+}
+
+svg.g.node text {
+  fill: black;
+}
+
+svg.g.node.selectedSource circle {
+  fill: rgb(30, 197, 55);
+  stroke-width: 1.2px;
+}
+
+svg.g.node.selectedTarget circle {
+  fill: rgb(30, 197, 55);
+  stroke-width: 1.2px;
+}
+
+svg.g.node a {
+  pointer-events: none;
+  font: 13px sans-serif;
+}
+
+svg.line.newLine {
+  stroke: rgb(30, 197, 55);
+  stroke-width: 1.2px;
+}
+svg.line.link {
+  stroke: rgb(255, 120, 25);
+  stroke-width: 1.2px;
+}
+
+svg.g.node text {
+  stroke: none;
+  font: 12px sans-serif;
+}

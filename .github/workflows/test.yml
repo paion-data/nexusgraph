@@ -41,77 +41,56 @@ jobs:
         with:
           use-verbose-mode: "yes"
 
-  unit-tests:
-    name: Run Unit Tests of All Packages
+  build-and-test:
+    name: Build & Test Messier-61
+    needs: [yaml-lint, markdown-lint, markdown-link-check]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [16]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: npm
+      - name: Install dependencies
+        run: npm install
+      - name: Code style check
+        run: npx prettier --check .
+      - name: Static code analysis
+        run: npx eslint .
+      - name: Run tests
+        run: npm test
+      - name: Build
+        run: npm run build
+
+  test-doc-build:
+    name: Test Messier-61 Documentation Build
     needs: [yaml-lint, markdown-lint, markdown-link-check]
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: packages/messier-61-graph
+        working-directory: docs
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version-file: '.nvmrc'
-      - run: npm -g install yarn
-      - run: yarn install --frozen-lockfile
-      - name: Run unit tests
-        env:
-          NODE_OPTIONS: '--max-old-space-size=8192'  # Avoids "JavaScript heap out of memory" error in CI/CD
-        run: yarn test
-      - name: Arc tests
+          node-version: 18
+      - name: Install Messier-61 dependencies so that TypeDoc process source files properly
         run: |
-          cd ./src/neo4j-arc
-          rm -rf ../../node_modules/
-          npm -g install yarn
-          yarn install --frozen-lockfile
-          yarn test
-          yarn build
+          cd ../
+          npm install
 
-  e2e-tests:
-    name: Run End-to-End Tests of All Packages
-    needs: [unit-tests]
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    strategy:
-      matrix:
-        neo4j-version:
-          - 3.5
-          - 4.3
-          - 4.4
-          - 5
-        neo4j-edition:
-          - community
-          - enterprise
-    services:
-      neo4j:
-        image: neo4j:${{ matrix.neo4j-version }}-${{ matrix.neo4j-edition }}
-        env:
-          NEO4J_ACCEPT_LICENSE_AGREEMENT: "yes"
-        ports:
-          - 7687:7687
-          - 7474:7474
-    defaults:
-      run:
-        working-directory: packages/messier-61-graph
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-      - run: npm -g install yarn serve
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: sudo apt-get update
-      - run: sudo apt-get -y install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
-      - run: npx serve -l 8080 dist & npm run wait-on-neo4j && yarn wait-on-dev
-      - run: echo "Servers ready!"
-      - run: yarn e2e --env server=${{ matrix.neo4j-version }},browser-password=password,edition=${{ matrix.neo4j-edition }}
-      - name: Upload test screenshots
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-screenshots-${{ matrix.neo4j-version }}-${{ matrix.neo4j-edition }}
-          path: |
-            packages/messier-61-graph/e2e_tests/screenshots
-            packages/messier-61-graph/e2e_tests/videos
+          cd packages/messier-61-graph
+          npm install
+
+          cd ../messier-61-graphql-server
+          npm install
+      - name: Install doc dependencies
+        run: yarn install
+      - name: Build documentation
+        run: yarn build
