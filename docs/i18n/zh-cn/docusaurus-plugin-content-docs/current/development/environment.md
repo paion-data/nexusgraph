@@ -6,7 +6,7 @@ title: 开发环境
 本指南将引导您在 macOS 和 Linux 上为 Nexus Graph 配置本地开发环境。如果您使用其他操作系统（Plan 9、BeOS、Windows，...），指令仍然大致相
 同，但我们目前没有任何维护其他操作系统的官方文件。
 
-请阅读 [故障排除](#troubleshooting) 部分，了解已知问题。
+请阅读 [故障排除](../troubleshooting.md)部分，了解已知问题。
 
 开发
 ----
