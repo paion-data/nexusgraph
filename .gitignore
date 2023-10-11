@@ -21,11 +21,11 @@ yarn-error.log*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-./packages/nexusgraph-app/.yarn
-./packages/nexusgraph-editor/.yarn
-./packages/nexusgraph-graph/.yarn
-./packages/nexusgraph-server/.yarn
-./packages/nexusgraph-nlp/.yarn
+packages/nexusgraph-app/.yarn
+packages/nexusgraph-editor/.yarn
+packages/nexusgraph-graph/.yarn
+packages/nexusgraph-server/.yarn
+packages/nexusgraph-nlp/.yarn
 
 docs/.yarn/
 

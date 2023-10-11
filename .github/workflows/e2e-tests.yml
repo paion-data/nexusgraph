@@ -33,14 +33,17 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
       - name: Install dependencies
-        run: yarn install
+        run: |
+          yarn install
+          cd packages/nexusgraph-server
+          yarn install
       - name: Load app environment variables
         run: |
           touch .env
           echo "NODE_ENV=development" >> .env
-          echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
+          echo "EXPAND_API_URL=${{ secrets.LOCAL_TEST_EXPAND_API_URL }}" >> .env
           echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=${{ inputs.entity_extraction_call_delay_in_ms }}" >> .env
-          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
+          echo "ENTITY_EXTRACTION_API_URL=${{ secrets.LOCAL_TEST_ENTITY_EXTRACTION_API_URL }}" >> .env
           echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
           echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
           echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
