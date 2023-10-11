@@ -26,7 +26,7 @@ resource "aws_instance" "nexusgraph-app" {
   user_data = <<-EOF
     #!/bin/bash
     cd /home/ubuntu/nexusgraph/dist
-    python3 -m http.server 9000
+    python3 -m http.server 9000 --bind 127.0.0.1
   EOF
 }
 
