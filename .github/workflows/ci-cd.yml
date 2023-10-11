@@ -99,6 +99,7 @@ jobs:
       - name: Load app environment variables
         run: |
           touch .env
+          echo "NODE_ENV=development" >> .env
           echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
           echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
           echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
@@ -140,6 +141,7 @@ jobs:
       - name: Load app environment variables
         run: |
           touch .env
+          echo "NODE_ENV=development" >> .env
           echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
           echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
           echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
@@ -247,6 +249,7 @@ jobs:
         working-directory: hashicorp/images
         run: |
           touch .env
+          echo "NODE_ENV=production" >> .env
           echo "EXPAND_API_URL=${{ secrets.EXPAND_API_URL }}" >> .env
           echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
           echo "ENTITY_EXTRACTION_API_URL=${{ secrets.ENTITY_EXTRACTION_API_URL }}" >> .env
