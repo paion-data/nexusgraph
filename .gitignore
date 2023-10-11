@@ -30,3 +30,6 @@ yarn-error.log*
 ./packages/messier-61-graphql-server/.yarn
 ./packages/messier-61-landing-page/.yarn
 ./packages/messier-61-nlp/.yarn
+
+docs/.yarn/
+packages/messier-61-landing-page/.yarn/

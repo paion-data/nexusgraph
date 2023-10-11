@@ -52,7 +52,10 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
       - name: Install dependencies
-        run: yarn install
+        run: |
+          yarn install
+          cd docs && yarn install && cd ../
+          cd packages/messier-61-landing-page && yarn install && cd ../../
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
       - name: Code style check
@@ -114,14 +117,17 @@ jobs:
         run: cd ../ && yarn install
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
+      - name: Install doc dependencies
+        run: yarn install
       - name: Build documentation
-        run: yarn build-without-typedoc
+        run: yarn build
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/build
+          enable_jekyll: false
           user_name: ${{ env.USER }}
           user_email: ${{ env.EMAIL }}
 
