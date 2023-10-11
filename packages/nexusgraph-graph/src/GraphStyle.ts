@@ -1,5 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { calculateDefaultNodeColors } from "@neo4j-devtools/word-color";
+
 import { NodeModel } from "./models/Node";
 import { RelationshipModel } from "./models/Relationship";
 

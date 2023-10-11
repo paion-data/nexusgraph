@@ -2,11 +2,11 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import axios from "axios";
-import { RemoteNaturalLanguageProcessor } from "./RemoteNaturalLanguageProcessor";
-import { NaturalLanguageProcessorProvider } from "../../inversify.config";
 
-const naturalLanguageProcessor =
-  NaturalLanguageProcessorProvider.get<RemoteNaturalLanguageProcessor>(RemoteNaturalLanguageProcessor);
+import { container, TYPES } from "../../../nexusgraph-app/inversify.config";
+import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
+
+const remoteNaturalLanguageProcessor: any = container.get<NaturalLanguageProcessor>(TYPES.NaturalLanguageProcessor);
 
 jest.mock("axios");
 
@@ -43,7 +43,7 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
     };
     Object(axios.post).mockResolvedValueOnce(nlpData);
 
-    naturalLanguageProcessor["fetchRemote"](editorLines).then((nlpState) => {
+    remoteNaturalLanguageProcessor["fetchRemote"](editorLines).then((nlpState: any) => {
       expect(nlpState).toEqual(nlpData);
 
       expect(axios.post).toHaveBeenCalledWith(process.env.ENTITY_EXTRACTION_API, {

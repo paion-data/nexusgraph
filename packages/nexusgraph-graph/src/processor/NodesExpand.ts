@@ -1,8 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import axios from "axios";
-import { NodeModel } from "../models/Node";
-import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "../GraphStats";
+
 import { BasicNode, BasicNodesAndRels, BasicRelationship } from "../basicTypes";
+import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "../GraphStats";
+import { NodeModel } from "../models/Node";
 
 export class NodesExpandProcessor {
   extractionNeighbours(selectNode: NodeModel): Promise<BasicNodesAndRels> {

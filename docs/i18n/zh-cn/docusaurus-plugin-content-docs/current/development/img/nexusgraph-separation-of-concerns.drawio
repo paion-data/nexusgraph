@@ -10,7 +10,7 @@
         <mxCell id="CNwq_zWWRygWndVKlvpz-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;curved=1;strokeColor=#EA6B66;strokeWidth=5;" parent="1" source="CNwq_zWWRygWndVKlvpz-2" target="CNwq_zWWRygWndVKlvpz-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="CNwq_zWWRygWndVKlvpz-2" value="nexusgraph-provider" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#774BBC;strokeColor=none;fontColor=#FFFFFF;fontFamily=Ubuntu;fontSize=20;" parent="1" vertex="1">
+        <mxCell id="CNwq_zWWRygWndVKlvpz-2" value="nexusgraph-redux" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#774BBC;strokeColor=none;fontColor=#FFFFFF;fontFamily=Ubuntu;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="320" y="440" width="200" height="80" as="geometry" />
         </mxCell>
         <mxCell id="CNwq_zWWRygWndVKlvpz-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeWidth=5;strokeColor=#67AB9F;" parent="1" source="CNwq_zWWRygWndVKlvpz-3" target="CNwq_zWWRygWndVKlvpz-2" edge="1">

@@ -2,17 +2,19 @@
  * Copyright 2023 Paion Data. All rights reserved.
  */
 import { useState } from "react";
+
 import {
-  ChevronRightIcon as ChevronRightIconSolid,
   ChevronLeftIcon as ChevronLeftIconSolid,
+  ChevronRightIcon as ChevronRightIconSolid,
   PlusIcon as PlusIconSolid,
-  TrashIcon as TrashIconSolid,
   Squares2X2Icon as Squares2X2IconSolid,
-  WindowIcon as WindowIconSolid,
+  TrashIcon as TrashIconSolid,
   ViewColumnsIcon as ViewColumnsIconSolid,
+  WindowIcon as WindowIconSolid,
 } from "@heroicons/react/24/solid";
-import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
+
 import { EditorMenuDrawer } from "./EditorMenuDrawer";
+import { DirectoryDropdownContent, DirectoryDropdownList, DropdownItem, EditorMenuExpandButton } from "./styled";
 
 /**
  * Editor button group

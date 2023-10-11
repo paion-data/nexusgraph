@@ -1,7 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import axios from "axios";
+
 import { NodeModel } from "../models/Node";
 import { NodesExpandProcessor } from "./NodesExpand";
-import axios from "axios";
 
 const nodesExpandProcessor = new NodesExpandProcessor();
 const selectNode = new NodeModel("china", ["entity"], { key: "name", value: "china" }, { key: "name", type: "string" });

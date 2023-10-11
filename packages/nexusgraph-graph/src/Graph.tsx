@@ -1,21 +1,23 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect, useRef, useState } from "react";
-import { GraphModel } from "./models/Graph";
+
+import { ResizeObserver } from "@juggle/resize-observer";
+
+import { BasicNode, BasicRelationship } from "./basicTypes";
 import {
   GetNodeNeighboursFn,
   GraphEventHandlerModel,
   GraphInteractionCallBack,
 } from "./event-handler/GraphEventHandlerModel";
+import { getGraphStats, GraphStats } from "./GraphStats";
 import { GraphStyleModel } from "./GraphStyle";
-import { VizItem } from "./VizItem";
-import { GraphStats, getGraphStats } from "./GraphStats";
-import { Visualization, ZoomLimitsReached, ZoomType } from "./Visualization";
-import { WheelZoomInfoOverlay } from "./WheelZoomInfoOverlay";
-import { StyledSvgWrapper, StyledZoomButton, StyledZoomHolder } from "./styles/WheelZoomInfoOverlay.styled";
-import { ResizeObserver } from "@juggle/resize-observer";
-import { RelationshipModel } from "./models/Relationship";
+import { GraphModel } from "./models/Graph";
 import { NodeModel } from "./models/Node";
-import { BasicNode, BasicRelationship } from "./basicTypes";
+import { RelationshipModel } from "./models/Relationship";
+import { StyledSvgWrapper } from "./styles/WheelZoomInfoOverlay.styled";
+import { Visualization, ZoomLimitsReached, ZoomType } from "./Visualization";
+import { VizItem } from "./VizItem";
+import { WheelZoomInfoOverlay } from "./WheelZoomInfoOverlay";
 
 const mapProperties = (_: any) => Object.assign({}, ...stringifyValues(_));
 const stringifyValues = (obj: any) =>

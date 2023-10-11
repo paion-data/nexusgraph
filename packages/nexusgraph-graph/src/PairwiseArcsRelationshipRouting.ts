@@ -1,12 +1,12 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import { ArcArrow } from "./ArcArrow";
+import { ALL_REL_TYPE_SETS } from "./GraphStats";
+import { GraphStyleModel } from "./GraphStyle";
+import { LoopArrow } from "./LoopArrow";
 import { GraphModel, NodePair } from "./models/Graph";
 import { RelationshipModel } from "./models/Relationship";
-import { ArcArrow } from "./ArcArrow";
-import { LoopArrow } from "./LoopArrow";
 import { StraightArrow } from "./StraightArrow";
 import { measureText } from "./textMeasurement";
-import { GraphStyleModel } from "./GraphStyle";
-import { ALL_REL_TYPE_SETS } from "./GraphStats";
 
 export class PairwiseArcsRelationshipRouting {
   style: GraphStyleModel;

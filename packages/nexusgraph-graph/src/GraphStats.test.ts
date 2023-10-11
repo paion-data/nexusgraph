@@ -1,8 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import { getGraphStats } from "./GraphStats";
 import { GraphModel } from "./models/Graph";
 import { NodeModel } from "./models/Node";
 import { RelationshipModel } from "./models/Relationship";
-import { getGraphStats } from "./GraphStats";
 
 test("Get graph stats of nodes's labels and relationships's types", () => {
   const graph = new GraphModel();

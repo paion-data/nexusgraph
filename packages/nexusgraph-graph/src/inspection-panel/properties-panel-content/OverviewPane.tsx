@@ -1,5 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import { GraphStats } from "../../GraphStats";
+import { GraphStyleModel } from "../../GraphStyle";
 import {
   PaneBody,
   PaneBodySectionHeaderWrapper,
@@ -9,13 +13,10 @@ import {
   PaneWrapper,
   StyledLegendInlineList,
 } from "../../styles/DefaultPane.styled";
-import { StyleableNodeLabel } from "./StyleableNodeLabel";
 import { ShowMoreOrAll } from "../ShowMoreOrAll";
-import { StyleableRelType } from "./StyleableRelType";
 import { WarningMessage } from "../WarningMessage";
-import { GraphStyleModel } from "../../GraphStyle";
-import { GraphStats } from "../../GraphStats";
-import { useTranslation } from "react-i18next";
+import { StyleableNodeLabel } from "./StyleableNodeLabel";
+import { StyleableRelType } from "./StyleableRelType";
 
 type PaneBodySectionHeaderProps = {
   title: string;

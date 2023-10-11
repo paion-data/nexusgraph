@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { NlpState } from "../../../nexusgraph-provider";
+import { NlpState } from "../../../nexusgraph-redux";
 
 export interface NaturalLanguageProcessor {
   /**
@@ -8,5 +8,5 @@ export interface NaturalLanguageProcessor {
    *
    * @param editorLines  The specified editor contents to perform entity extration
    */
-  entityExtraction(editorLines: string[]): Promise<NlpState>;
+  entityExtraction(editorLines: any): Promise<NlpState>;
 }

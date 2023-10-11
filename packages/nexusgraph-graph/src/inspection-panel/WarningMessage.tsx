@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import styled from "styled-components";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
+import styled from "styled-components";
 
 const SMALL_SIZE = 15;
 const LARGE_SIZE = 20;

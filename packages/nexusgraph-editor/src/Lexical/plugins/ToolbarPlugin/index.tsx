@@ -1,50 +1,52 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { Dropdown, Toolbar, LinkEditor } from "./styled";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import {
-  CAN_REDO_COMMAND,
-  CAN_UNDO_COMMAND,
-  REDO_COMMAND,
-  UNDO_COMMAND,
-  SELECTION_CHANGE_COMMAND,
-  FORMAT_TEXT_COMMAND,
-  FORMAT_ELEMENT_COMMAND,
-  INDENT_CONTENT_COMMAND,
-  OUTDENT_CONTENT_COMMAND,
-  $getSelection,
-  $isRangeSelection,
-  $createParagraphNode,
-  $getNodeByKey,
-  LexicalEditor,
-  GridSelection,
-  NodeSelection,
-  RangeSelection,
-  $isTextNode,
-} from "lexical";
+import { createPortal } from "react-dom";
+
+import { $createCodeNode, $isCodeNode, getCodeLanguages, getDefaultCodeLanguage } from "@lexical/code";
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@lexical/link";
 import {
-  $isParentElementRTL,
-  $wrapNodes,
-  $isAtNodeEnd,
-  $getSelectionStyleValueForProperty,
-  $patchStyleText,
-} from "@lexical/selection";
-import { $isDecoratorBlockNode } from "@lexical/react/LexicalDecoratorBlockNode";
-import { $getNearestNodeOfType, mergeRegister, $getNearestBlockElementAncestorOrThrow } from "@lexical/utils";
-import {
-  INSERT_ORDERED_LIST_COMMAND,
-  INSERT_CHECK_LIST_COMMAND,
-  INSERT_UNORDERED_LIST_COMMAND,
-  REMOVE_LIST_COMMAND,
   $isListNode,
+  INSERT_CHECK_LIST_COMMAND,
+  INSERT_ORDERED_LIST_COMMAND,
+  INSERT_UNORDERED_LIST_COMMAND,
   ListNode,
+  REMOVE_LIST_COMMAND,
 } from "@lexical/list";
-import { createPortal } from "react-dom";
-import { $createHeadingNode, $createQuoteNode, $isHeadingNode, HeadingTagType, $isQuoteNode } from "@lexical/rich-text";
-import { $createCodeNode, $isCodeNode, getDefaultCodeLanguage, getCodeLanguages } from "@lexical/code";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { $isDecoratorBlockNode } from "@lexical/react/LexicalDecoratorBlockNode";
+import { $createHeadingNode, $createQuoteNode, $isHeadingNode, $isQuoteNode, HeadingTagType } from "@lexical/rich-text";
+import {
+  $getSelectionStyleValueForProperty,
+  $isAtNodeEnd,
+  $isParentElementRTL,
+  $patchStyleText,
+  $wrapNodes,
+} from "@lexical/selection";
+import { $getNearestBlockElementAncestorOrThrow, $getNearestNodeOfType, mergeRegister } from "@lexical/utils";
+import {
+  $createParagraphNode,
+  $getNodeByKey,
+  $getSelection,
+  $isRangeSelection,
+  $isTextNode,
+  CAN_REDO_COMMAND,
+  CAN_UNDO_COMMAND,
+  FORMAT_ELEMENT_COMMAND,
+  FORMAT_TEXT_COMMAND,
+  GridSelection,
+  INDENT_CONTENT_COMMAND,
+  LexicalEditor,
+  NodeSelection,
+  OUTDENT_CONTENT_COMMAND,
+  RangeSelection,
+  REDO_COMMAND,
+  SELECTION_CHANGE_COMMAND,
+  UNDO_COMMAND,
+} from "lexical";
+
 import DropDown, { DropDownItem } from "../../ui/DropDown";
 import DropdownColorPicker from "../../ui/DropdownColorPicker";
+import { Dropdown, LinkEditor, Toolbar } from "./styled";
 
 const LowPriority = 1;
 

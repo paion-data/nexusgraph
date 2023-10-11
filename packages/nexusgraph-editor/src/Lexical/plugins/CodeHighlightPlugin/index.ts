@@ -1,7 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import { useEffect } from "react";
+
 import { registerCodeHighlighting } from "@lexical/code";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { useEffect } from "react";
 
 export default function CodeHighlightPlugin() {
   const [editor] = useLexicalComposerContext();

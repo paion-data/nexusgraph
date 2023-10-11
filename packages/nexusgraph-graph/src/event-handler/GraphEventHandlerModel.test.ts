@@ -1,11 +1,11 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { Visualization } from "../Visualization";
+import { GraphStats } from "../GraphStats";
 import { GraphModel } from "../models/Graph";
 import { NodeModel } from "../models/Node";
-import { GraphEventHandlerModel, GraphInteraction } from "./GraphEventHandlerModel";
-import { VizItem } from "../VizItem";
-import { GraphStats } from "../GraphStats";
 import { RelationshipModel } from "../models/Relationship";
+import { Visualization } from "../Visualization";
+import { VizItem } from "../VizItem";
+import { GraphEventHandlerModel, GraphInteraction } from "./GraphEventHandlerModel";
 
 jest.mock("../models/Node");
 const MockedNodeModel = NodeModel as jest.Mock<NodeModel>;
