@@ -17,9 +17,11 @@ it("Converts the common JSON node type to basic nodes", () => {
       labels: ["entity"],
       properties: {
         name: "China",
+        url: "null",
       },
       propertyTypes: {
         name: "string",
+        url: "string",
       },
     },
   ]);

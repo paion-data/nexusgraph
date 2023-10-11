@@ -15,7 +15,7 @@ Cypress.Commands.add("login", ({ username, password }) => {
 });
 
 Cypress.Commands.add("initialConfig", () => {
-  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraiosGraphqlResponse.json" }).as(
+  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraios-graphql-response.json" }).as(
     "astraiosGraphqlRequest"
   );
 

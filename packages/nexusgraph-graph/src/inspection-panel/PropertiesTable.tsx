@@ -71,7 +71,7 @@ export function PropertiesTable({
         <AlternatingTable>
           <tbody data-testid="viz-details-pane-properties-table">
             {visibleProperties.map(({ key, type, value }) => (
-              <tr key={key} title={type}>
+              <tr key={key} title={type} data-testid={key}>
                 <KeyCell>
                   <ClickableUrls text={key} />
                 </KeyCell>

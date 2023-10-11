@@ -71,7 +71,7 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
   useEffect(() => {
     setSelectedItem(computeSelectedItem(nodeLimitHit, props.nodes.length, props.relationships.length));
     setHoveredItem(selectedItem);
-  }, [props]);
+  }, [JSON.stringify(props)]);
 
   /**
    * {@link getNodeNeighbours} 在 Neo4J Browser 是借用了 Functioal Programming 的手法，将用户点击“节点展开”的时候被调用，

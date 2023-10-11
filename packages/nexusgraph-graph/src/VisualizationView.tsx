@@ -55,8 +55,11 @@ export const transformBasicNodes = (nodes: any[]): BasicNode[] => {
         const newNode = {
           id: node["id"],
           labels: [node["fields"]["type"] ? node["fields"]["type"] : ALL_NODE_LABELS_SETS],
-          properties: { name: node["fields"]["name"] ? node["fields"]["name"] : node["id"] },
-          propertyTypes: { name: "string" },
+          properties: {
+            name: node["fields"]["name"] ? node["fields"]["name"] : node["id"],
+            url: node["fields"]["url"] ? node["fields"]["url"] : "null",
+          },
+          propertyTypes: { name: "string", url: "string" },
         };
         nodes.splice(nodes.indexOf(node), 1, newNode);
       }
