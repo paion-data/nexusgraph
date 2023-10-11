@@ -16,6 +16,8 @@
 import type { NodeModel } from "./Node";
 import type { RelationshipModel } from "./Relationship";
 
+import * as _ from "lodash";
+
 export class GraphModel {
   private _nodes: NodeModel[];
   private _relationships: RelationshipModel[];
@@ -64,7 +66,7 @@ export class GraphModel {
   public addNodes(nodes: NodeModel[]): void {
     for (const node of nodes) {
       if (!this.containsNode(node)) {
-        this.nodes.push(node);
+        this._nodes.push(node);
         this.nodeMap[node.id] = node;
       }
     }
@@ -72,7 +74,7 @@ export class GraphModel {
 
   public removeNode(node: NodeModel): void {
     if (this.containsNode(node)) {
-      this.nodes.splice(this.nodes.indexOf(node), 1);
+      this._nodes.splice(this._nodes.map((n) => n.id).indexOf(node.id), 1);
 
       // eslint-disable-next-line  @typescript-eslint/no-dynamic-delete
       delete this.nodeMap[node.id];
@@ -90,7 +92,7 @@ export class GraphModel {
   public addRelationships(relationships: RelationshipModel[]): void {
     for (const relationship of Array.from(relationships)) {
       if (!this.containsRelationship(relationship.id)) {
-        this.relationships.push(relationship);
+        this._relationships.push(relationship);
         this.relationshipMap[relationship.id] = relationship;
       }
     }
@@ -100,18 +102,18 @@ export class GraphModel {
     return this.findRelationship(relationshipId) != null;
   }
 
-  findRelationship(relationshipId: string): RelationshipModel | undefined {
+  public findRelationship(relationshipId: string): RelationshipModel | undefined {
     return this.relationshipMap[relationshipId];
   }
 
-  findAllNeighborIdsOfNode(nodeId: string): string[] {
+  public findAllNeighborIdsOfNode(nodeId: string): string[] {
     return this.findAllRelationshipsToNode(nodeId).map((relationship) => {
       return relationship.target.id === nodeId ? relationship.source.id : relationship.target.id;
     });
   }
 
   public findAllRelationshipsToNode(nodeId: string): RelationshipModel[] {
-    return this.relationships.filter(
+    return this._relationships.filter(
       (relationship) => relationship.source.id === nodeId || relationship.target.id === nodeId
     );
   }
@@ -121,13 +123,13 @@ export class GraphModel {
       this.updateNode(relationship.source);
       this.updateNode(relationship.target);
 
-      this.relationships.splice(this.relationships.indexOf(relationship), 1);
+      this._relationships.splice(this._relationships.indexOf(relationship), 1);
       // eslint-disable-next-line  @typescript-eslint/no-dynamic-delete
       delete this.relationshipMap[relationship.id];
     }
   }
 
-  public updateNode(node: NodeModel): void {
+  private updateNode(node: NodeModel): void {
     if (this.containsNode(node)) {
       this.removeNode(node);
 
@@ -138,13 +140,13 @@ export class GraphModel {
     }
   }
 
-  addExpandedNodes(expandingNode: NodeModel, expandedNodes: NodeModel[]): void {
+  public addExpandedNodes(expandingNode: NodeModel, expandedNodes: NodeModel[]): void {
     this.addNodes(expandedNodes);
 
     for (const expandedNode of Array.from(expandedNodes)) {
       this.expandedNodeIdMap[expandingNode.id] =
-        this.expandedNodeIdMap[expandingNode.id] == null
-          ? uniq(this.expandedNodeIdMap[expandingNode.id].concat([expandedNode.id]))
+        this.expandedNodeIdMap[expandingNode.id] != null
+          ? unique(this.expandedNodeIdMap[expandingNode.id].concat([expandedNode.id]))
           : [expandedNode.id];
     }
   }
@@ -162,7 +164,8 @@ export class GraphModel {
       this.removeNode(expandedNode);
     });
 
-    this.expandedNodeIdMap[node.id] = [];
+    // eslint-disable-next-line  @typescript-eslint/no-dynamic-delete
+    delete this.expandedNodeIdMap[node.id];
   }
 
   public resetGraph(): void {
@@ -176,6 +179,6 @@ export class GraphModel {
   }
 }
 
-function uniq<T>(list: T[]): T[] {
-  return [...new Set(list)];
+export function unique<T>(list: T[]): T[] {
+  return _.uniq(list);
 }
