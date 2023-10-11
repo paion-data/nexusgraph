@@ -16,6 +16,7 @@ export default function CreateButton(): JSX.Element {
   return (
     <>
       <CreateButtonStyled
+        id="createButton"
         onClick={() => {
           handleShow();
           showModal((onClose) => <FeatureMenu onClose={onClose} />);

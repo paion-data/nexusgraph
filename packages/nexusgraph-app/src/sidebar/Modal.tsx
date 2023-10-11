@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { ModalOverlay, ModalWapper } from "./styled";
 
 interface ModalProps {
@@ -18,25 +18,14 @@ function Portal(props: ModalProps): JSX.Element {
     setShow(props.show);
   }, [props.show]);
 
-  const modalRef = useRef<HTMLDivElement>(null);
-  const modalOpen: boolean = document.activeElement?.getAttribute("class") == "modal-open";
+  const clickFeatureMenu: boolean = document.activeElement?.getAttribute("class") == "modal-open";
+  const clickCreateButton: boolean = document.activeElement?.getAttribute("id") == "createButton";
 
   useEffect(() => {
-    window.addEventListener("click", () => {
-      if (modalRef.current && modalOpen == false) {
-        console.log("close");
-        // setShow(false);
-      } else {
-        setShow(true);
-      }
-    });
-
-    return () => {
-      window.removeEventListener("click", () => {
-        console.log("on click");
-      });
-    };
-  }, []);
+    if (clickFeatureMenu || clickCreateButton) {
+      setShow(true);
+    }
+  }, [document.activeElement]);
 
   return (
     <ModalOverlay id={"modal"} show={show} onHide={handleClose} role="dialog">
@@ -44,7 +33,7 @@ function Portal(props: ModalProps): JSX.Element {
         <button className="modalClose" onClick={props.onClose}>
           X
         </button>
-        <div className="modalContent" ref={modalRef}>
+        <div className="modalContent">
           {props.children}
         </div>
       </ModalWapper>
