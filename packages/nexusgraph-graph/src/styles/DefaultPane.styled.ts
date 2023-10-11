@@ -18,15 +18,22 @@ export const PaneWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(130, 221, 248, 0.5);
+  border-radius: 1rem;
+  background-color: transparent;
 `;
 
 export const PaneHeader = styled.div`
   padding: 5px 0px;
-  font-size: 16px;
+  font-size: 20px;
   margin-top: 10px;
   flex: 0 0 auto;
   overflow: auto;
   max-height: 50%;
+  color: #fff;
+  text-shadow: 1px 0.2px 0.2px #fff, 0 0 1em #34c7f4, 0 0 0.2em #34c7f4;
 `;
 
 export const PaneBody = styled.div`
@@ -37,6 +44,8 @@ export const PaneBody = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
+  color: #fff;
+  text-shadow: 1px 0.2px 0.2px #fff, 0 0 1em #34c7f4, 0 0 0.2em #34c7f4;
 `;
 
 export const PaneBodySectionTitle = styled.span`

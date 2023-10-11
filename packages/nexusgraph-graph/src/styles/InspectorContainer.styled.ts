@@ -10,7 +10,9 @@ export const PaneContainer = styled.div<{
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   border-style: solid;
   border-width: 1px;
   border-color: rgba(175, 195, 219, 0.5);
@@ -43,22 +45,23 @@ export const StyledNodeInspectorContainer = styled.div<{
 export const StyledNodeInspectorTopMenuChevron = styled.button<{
   expanded: boolean;
 }>`
-  background-color: #fff;
+  background-color: transparent;
   border: none;
   border-radius: 5rem;
+  box-shadow: inset 2px 2px 5px #fff;
   cursor: pointer;
   position: absolute;
   right: 10px;
-  top: 8.5%;
+  top: 8.7%;
   z-index: 2;
   width: 32px;
   height: 32px;
   padding: 6px;
-  color: ${(props) => props.theme.frameNodePropertiesPanelIconTextColor};
   text-align: center;
   ${(props) =>
     !props.expanded &&
     `background: ${props.theme.editorBackground};
        box-shadow: ${props.theme.standardShadow};
     `}
+  color: #fff;
 `;

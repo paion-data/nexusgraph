@@ -5,19 +5,23 @@ export const AppWrapper = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
+  background-color: rgb(55, 59, 61);
 `;
 
 export const GraphBrowserWrapper = styled.div`
   position: absolute;
   right: 0px;
   top: 0px;
-  width: 64.5vw;
+  width: 64vw;
   height: 99.3vh;
-  background: rgba(198, 216, 239, 0.2);
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   border-radius: 1rem;
   border-style: solid;
-  border-width: 2px;
-  border-color: rgba(175, 195, 219, 0.8);
+  border-width: 5px;
+  border-color: rgba(108, 216, 248, 0.3);
+  box-shadow: inset 8px 5px 20px rgba(137, 225, 252, 0.6);
 `;
 
 export const EditorWrapper = styled.div`
@@ -25,17 +29,43 @@ export const EditorWrapper = styled.div`
   left: 0px;
   top: 0px;
   width: 35%;
-  height: 100vh;
-  background-color: #31333b;
+  height: 99%;
   border-radius: 1rem;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgba(108, 216, 248, 0.3);
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  box-shadow: inset 10px 5px 20px rgba(137, 225, 252, 0.6);
 `;
 
 export const EditorCaption = styled.div`
   position: relative;
-  left: 5%;
+  left: 7%;
   top: 0px;
   width: 100px;
   height: 60px;
-  font-size: 26px;
+  font-size: 41px;
+  font-weight: bold;
   color: #fff;
+  text-shadow: 1px 1px 2px #237295, 0 0 1em #34c7f4, 0 0 0.2em #34c7f4;
+  display: inline-block;
+`;
+
+export const IconWapper = styled.span`
+  position: relative;
+  left: 3%;
+  top: 20px;
+`;
+
+export const EditorGlassCover = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
 `;

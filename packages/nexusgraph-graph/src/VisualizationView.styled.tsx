@@ -2,6 +2,10 @@
 import styled from "styled-components";
 
 export const StyledVisContainer = styled.div<{ isFullscreen: boolean }>`
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
   width: 100%;
   height: ${(props) => (props.isFullscreen ? "100%" : 468 + "px")};
   > svg {
