@@ -11,9 +11,9 @@ import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
  */
 @injectable()
 export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
-  public entityExtraction(editorContent: string): Promise<NlpState> {
+  public entityExtraction(editorContent: object): Promise<NlpState> {
     const parser = new EditorContentParser();
-    const jsonObject = JSON.parse(editorContent);
+    const jsonObject = JSON.parse(JSON.stringify(editorContent));
     const editorLines = parser.parse(jsonObject);
 
     return this.remoteEntityExtration(editorLines);

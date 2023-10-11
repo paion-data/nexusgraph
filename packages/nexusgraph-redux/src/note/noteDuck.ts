@@ -1,18 +1,31 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useSelector } from "react-redux";
 import { GlobalState } from "../globalState";
-import {
-  CREATE_NEW_NOTE,
-  NoteAction,
-  NoteState,
-  UPDATE_NOTE_EDITOR_CONTENT,
-  UPDATE_NOTE_GRAPH,
-  UPDATE_NOTE_ID,
-} from "./noteTypes";
+import { CREATE_NEW_NOTE, NoteState, UPDATE_NOTE_EDITOR_CONTENT, UPDATE_NOTE_GRAPH, UPDATE_NOTE_ID } from "./noteTypes";
+
+export const initialEditorContent: object = {
+  root: {
+    children: [
+      {
+        children: [],
+        direction: null,
+        format: "",
+        indent: 0,
+        type: "paragraph",
+        version: 1,
+      },
+    ],
+    direction: null,
+    format: "",
+    indent: 0,
+    type: "root",
+    version: 1,
+  },
+};
 
 const initialState: NoteState = {
   id: "",
-  editorContent: "",
+  editorContent: initialEditorContent,
   graph: "",
 };
 
@@ -20,7 +33,7 @@ export function selectNote() {
   return useSelector((state: GlobalState) => state.note);
 }
 
-export default function noteReducer(state = initialState, action: NoteAction): NoteState {
+export default function noteReducer(state = initialState, action: any): NoteState {
   switch (action.type) {
     case UPDATE_NOTE_GRAPH:
       return {
