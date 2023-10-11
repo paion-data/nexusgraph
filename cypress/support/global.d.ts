@@ -7,5 +7,6 @@ declare namespace Cypress {
      * @example cy.login({username: "user", password: "password"})
      */
     login({ username, password }: Record<string, string>): Chainable<void>;
+    initialConfig(): Chainable<void>;
   }
 }
