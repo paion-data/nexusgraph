@@ -1,10 +1,7 @@
 ---
 sidebar_position: 1
-title: Home
+title: Nexus Graph Documentation - Home
 ---
-
-Nexus Graph Documentation - Home
-================================
 
 Welcome to nexusgraph's documentation hub! We're still building out documentation on many aspects of nexusgraph, but
 here you'll find what documentation we do have. To make it easier to find the help you need, we've broken the
