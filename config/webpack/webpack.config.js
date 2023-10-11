@@ -26,7 +26,7 @@ module.exports = function (webpackEnv) {
     module: {
       rules: [
         {
-          test: /\.(js|mjs|jsx|ts|tsx)$/,
+          test: /\.(js|mjs|jsx|ts|tsx|svg)$/,
           exclude: /(node_modules|bower_components)/,
           loader: "babel-loader",
           options: { presets: ["@babel/env"] },

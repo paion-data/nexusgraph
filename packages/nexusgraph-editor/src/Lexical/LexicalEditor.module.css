@@ -38,16 +38,11 @@
   overflow: hidden;
   position: absolute;
   text-overflow: ellipsis;
-  top: 15px;
+  top: 55px;
   left: 10px;
   font-size: 16px;
   text-shadow: 1px 1px 2px #fff, 0 0 1em #34c7f4, 0 0 0.2em #34c7f4;
   user-select: none;
   display: inline-block;
   pointer-events: none;
-}
-
-.editor-paragraph {
-  margin: 0 0 15px 0;
-  position: relative;
 }
