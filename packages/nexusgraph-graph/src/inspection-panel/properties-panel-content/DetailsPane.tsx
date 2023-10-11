@@ -2,11 +2,12 @@
 import { useState } from "react";
 import { StyleableRelType } from "./StyleableRelType";
 import { StyleableNodeLabel } from "./StyleableNodeLabel";
-import { PaneBody, PaneHeader, PaneTitle, PaneWrapper } from "../../../styles/DefaultPane.styled";
-import { ClipboardCopier } from "../../ClipboardCopier";
-import { PropertiesTable } from "../../PropertiesTable";
-import { NodeItem, RelationshipItem } from "../../../VizItem";
-import { GraphStyleModel } from "../../../GraphStyle";
+import { PaneBody, PaneHeader, PaneTitle, PaneWrapper } from "../../styles/DefaultPane.styled";
+import { ClipboardCopier } from "../ClipboardCopier";
+import { PropertiesTable } from "../PropertiesTable";
+import { NodeItem, RelationshipItem } from "../../VizItem";
+import { GraphStyleModel } from "../../GraphStyle";
+import { useTranslation } from "react-i18next";
 
 export const DETAILS_PANE_STEP_SIZE = 1000;
 
@@ -17,6 +18,8 @@ export interface DetailsPaneProps {
 }
 
 export function DetailsPane({ vizItem, graphStyle, nodeInspectorWidth }: DetailsPaneProps): JSX.Element {
+  const { t } = useTranslation("graph");
+
   const [maxPropertiesCount, setMaxPropertiesCount] = useState(DETAILS_PANE_STEP_SIZE);
 
   const idProperty = {
@@ -34,10 +37,10 @@ export function DetailsPane({ vizItem, graphStyle, nodeInspectorWidth }: Details
     <PaneWrapper>
       <PaneHeader>
         <PaneTitle>
-          <span>{vizItem.type == "node" ? "节点属性" : "关系类型"}</span>
+          <span>{vizItem.type == "node" ? t("nodeProperties") : t("relationshipProperties")}</span>
           <ClipboardCopier
             textToCopy={allItemProperties.map((prop) => `${prop.key}: ${prop.value}`).join("\n")}
-            titleText="Copy all properties to clipboard"
+            titleText={t("clipboardTitle")}
             iconSize={15}
           />
         </PaneTitle>
