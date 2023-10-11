@@ -4,6 +4,10 @@ import { NodeModel } from "../models/Node";
 import { RelationshipModel } from "../models/Relationship";
 import { GraphVisualizer } from "../GraphVisualizer";
 import { StyledVisContainer } from "./VisualizationView.styled";
+import { connect } from "react-redux";
+import { GlobalState } from "../shared/globalState";
+import { getEditorNodes, getEditorRelationships } from "../shared/editor/editorDuck";
+import { withBus } from "react-suber";
 
 export interface VisualizationProps {
   editorNodes: NodeModel[];
@@ -25,3 +29,10 @@ export default function Visualization(props: VisualizationProps): JSX.Element | 
     </StyledVisContainer>
   );
 }
+
+const mapStateToProps = (state: GlobalState) => ({
+  editorNodes: getEditorNodes(state),
+  editorRelationships: getEditorRelationships(state),
+});
+
+export const VisualizationConnectedBus = withBus(connect(mapStateToProps, null)(Visualization));

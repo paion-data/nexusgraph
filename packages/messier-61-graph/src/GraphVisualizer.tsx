@@ -202,7 +202,7 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
       />
       <NodeInspectorPanel
         graphStyle={graphStyle}
-        hasTruncatedFields={false}
+        hasTruncatedFields={styleProps.hasTruncatedFields}
         hoveredItem={hoveredItem}
         selectedItem={selectedItem}
         stats={stats}
