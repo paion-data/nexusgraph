@@ -1,4 +1,12 @@
-# Copyright 2023 Paion Data. All rights reserved.
+variable "aws_image_region" {
+  type =  string
+  sensitive = true
+}
+
+variable "skip_create_ami" {
+  type =  bool
+  sensitive = true
+}
 
 packer {
   required_plugins {
@@ -9,8 +17,8 @@ packer {
   }
 }
 
-source "amazon-ebs" "nexusgraph-app" {
-  ami_name = "nexusgraph-app"
+source "amazon-ebs" "app-nexusgraph-com" {
+  ami_name = "app-nexusgraph-com"
   force_deregister = "true"
   force_delete_snapshot = "true"
 
@@ -31,34 +39,34 @@ source "amazon-ebs" "nexusgraph-app" {
 }
 
 build {
-  name = "install-nexusgraph-app"
+  name = "install-app-nexusgraph-com"
   sources = [
-    "source.amazon-ebs.nexusgraph-app"
+    "source.amazon-ebs.app-nexusgraph-com"
   ]
 
   # Load SSL Certificates into AMI image
   provisioner "file" {
-    source = "./server-app.crt"
-    destination = "/home/ubuntu/server.crt"
+    source = "./aws-app-nexusgraph-com.crt"
+    destination = "/home/ubuntu/aws-app-nexusgraph-com.crt"
   }
   provisioner "file" {
-    source = "./server-app.key"
-    destination = "/home/ubuntu/server.key"
+    source = "./aws-app-nexusgraph-com.key"
+    destination = "/home/ubuntu/aws-app-nexusgraph-com.key"
   }
 
   # Load Nginx config file into AMI image
   provisioner "file" {
-    source = "./nginx-ssl-app.conf"
-    destination = "/home/ubuntu/nginx-ssl.conf"
+    source = "./app-nexusgraph-com-nginx.conf"
+    destination = "/home/ubuntu/app-nexusgraph-com-nginx.conf"
   }
 
   # Load React env file into AMI image
   provisioner "file" {
-    source = "./.env"
-    destination = "/home/ubuntu/.env"
+    source = "./app-nexusgraph-com-nginx.env"
+    destination = "/home/ubuntu/app-nexusgraph-com-nginx.env"
   }
 
   provisioner "shell" {
-    script = "../scripts/setup-app.sh"
+    script = "../scripts/aws-app-nexusgraph-com-pkr-setup.sh"
   }
 }

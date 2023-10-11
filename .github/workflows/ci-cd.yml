@@ -160,32 +160,27 @@ jobs:
     name: Publish All nexusgraph AMI Images and Deploy Them to EC2 through HashiCorp
     needs: [unit-tests, e2e-tests]
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: hashicorp
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Load app environment variables
-        working-directory: hashicorp/images
-        run: |
-          touch .env
-          echo "NODE_ENV=production" >> .env
-          echo "THERESA_API_URL=${{ secrets.THERESA_API_URL }}" >> .env
-          echo "ASTRAIOS_API_RESOURCE=${{ secrets.ASTRAIOS_API_RESOURCE }}" >> .env
-          echo "ENTITY_EXTRACTION_CALL_DELAY_IN_MS=$ENTITY_EXTRACTION_CALL_DELAY_IN_MS" >> .env
-          echo "LOGTO_APP_ID=${{ secrets.LOGTO_APP_ID }}" >> .env
-          echo "LOGTO_ENDPOINT_URL=${{ secrets.LOGTO_ENDPOINT_URL }}" >> .env
-          echo "LOGTO_SIGN_IN_CALLBACK_URL=${{ secrets.LOGTO_SIGN_IN_CALLBACK_URL }}" >> .env
-          echo "SENTRY_IO_DSN=${{ secrets.SENTRY_IO_DSN }}" >> .env
-      - name: Load deployment environment variables into HC variable file
-        run: |
-          sed -i -e 's/ZONE_ID_INJECTED_BY_CI_CD/${{ secrets.ZONE_ID }}/g' instances/variables.auto.tfvars
       - name: Load SSL Certificates
-        working-directory: hashicorp/images
         run: |
-          echo '${{ secrets.SSL_CERTIFICATE_APP }}' > server-app.crt
-          echo '${{ secrets.SSL_CERTIFICATE_KEY_APP }}' > server-app.key
+          echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_CRT }}' > ./aws-app-nexusgraph-com.crt
+          echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_CRT_KEY }}' > ./aws-app-nexusgraph-com.key
+        working-directory: hashicorp/images
+      - name: Load Nginx config
+        run: echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_NGINX_CONF }}' > ./app-nexusgraph-com-nginx.conf
+        working-directory: hashicorp/images
+      - name: Load .env file
+        run: echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_ENV }}' > ./app-nexusgraph-com-nginx.env
+        working-directory: hashicorp/images
+      - name: Load Packer var file
+        run: echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_AUTO_PKRVARS_HCL }}' > ./app-nexusgraph-com.auto.pkrvars.hcl
+        working-directory: hashicorp/images
+      - name: Load Terraform var file
+        run: echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_AUTO_TFVARS }}' > ./app-nexusgraph-com.auto.tfvars
+        working-directory: hashicorp/instances
+
       - name: Publish all nexusgraph AMI images and deploy them to EC2 through HashiCorp
         uses: QubitPi/aergia@master
         with:
