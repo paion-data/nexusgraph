@@ -87,16 +87,40 @@ describe("dropdown button E2E test", () => {
     cy.get('[aria-label = "Formatting Options"]').click().wait(1000);
   });
 
-  it("Large Heading button has an effect in dropdown", () => {
-    cy.contains("Large Heading").click().wait(1000);
-    cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Large Heading");
+  it("firstHeading button has an effect in dropdown", () => {
+    cy.contains("Heading 1").click().wait(1000);
+    cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 1");
     cy.get(".editor-heading-h1").should("exist");
   });
 
-  it("Small Heading button has an effect in dropdown", () => {
-    cy.contains("Small Heading").click().wait(1000);
-    cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Small Heading");
+  it("secondHeading button has an effect in dropdown", () => {
+    cy.contains("Heading 2").click().wait(1000);
+    cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 2");
     cy.get(".editor-heading-h2").should("exist");
+  });
+
+  it("thirdHeading button has an effect in dropdown", () => {
+    cy.contains("Heading 3").click().wait(1000);
+    cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 3");
+    cy.get(".editor-heading-h3").should("exist");
+  });
+
+  it("fourthHeading button has an effect in dropdown", () => {
+    cy.contains("Heading 4").click().wait(1000);
+    cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 4");
+    cy.get(".editor-heading-h4").should("exist");
+  });
+
+  it("fifthHeading button has an effect in dropdown", () => {
+    cy.contains("Heading 5").click().wait(1000);
+    cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 5");
+    cy.get(".editor-heading-h5").should("exist");
+  });
+
+  it("sixthHeading button has an effect in dropdown", () => {
+    cy.contains("Heading 6").click().wait(1000);
+    cy.get('[aria-label = "Formatting Options"]').find(".text").should("have.text", "Heading 6");
+    cy.get(".editor-heading-h6").should("exist");
   });
 
   it("Bullet List button has an effect in dropdown", () => {
