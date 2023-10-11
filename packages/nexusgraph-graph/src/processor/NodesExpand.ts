@@ -2,6 +2,7 @@
 import axios from "axios";
 import { BasicNode, BasicNodesAndRels, BasicRelationship } from "../Graph";
 import { NodeModel } from "../models/Node";
+import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "../GraphStats";
 
 export class NodesExpandProcessor {
   extractionNeighbours(selectNode: any): Promise<BasicNodesAndRels> {
@@ -38,7 +39,7 @@ export class NodesExpandProcessor {
       if (responseNode.fields.type) {
         const basicNode: BasicNode = {
           id: responseNode["id"],
-          labels: [].concat(responseNode["fields"]["type"] ? responseNode["fields"]["type"] : "*"),
+          labels: [].concat(responseNode["fields"]["type"] ? responseNode["fields"]["type"] : ALL_NODE_LABELS_SETS),
           properties: {
             name: responseNode["fields"]["name"] ? responseNode["fields"]["name"] : responseNode["fields"]["label"],
           },
@@ -52,7 +53,7 @@ export class NodesExpandProcessor {
         id: `${link["source"]}To${link["target"]} `,
         startNodeId: link["source"],
         endNodeId: link["target"],
-        type: `${link["source"]}To${link["target"]} `,
+        type: link["fields"] && link["fields"]["label"] ? link["fields"]["label"] : ALL_REL_TYPE_SETS,
         properties: {},
         propertyTypes: {},
       };

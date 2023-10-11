@@ -6,6 +6,7 @@ import { LoopArrow } from "./LoopArrow";
 import { StraightArrow } from "./StraightArrow";
 import { measureText } from "./textMeasurement";
 import { GraphStyleModel } from "./GraphStyle";
+import { ALL_REL_TYPE_SETS } from "./GraphStats";
 
 export class PairwiseArcsRelationshipRouting {
   style: GraphStyleModel;
@@ -36,6 +37,11 @@ export class PairwiseArcsRelationshipRouting {
 
       relationship.captionLayout =
         this.captionFitsInsideArrowShaftWidth(relationship) && !relationship.isLoop() ? "internal" : "external";
+
+      if (relationship.caption == ALL_REL_TYPE_SETS) {
+        relationship.caption = "";
+        relationship.captionLength = 0;
+      }
     });
   }
 

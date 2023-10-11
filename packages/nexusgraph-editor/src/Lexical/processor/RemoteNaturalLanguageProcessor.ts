@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 
-import { BasicNode, BasicRelationship, GraphEditorState } from "../../../../nexusgraph-graph";
+import { BasicNode, BasicRelationship, GraphEditorState, ALL_REL_TYPE_SETS } from "../../../../nexusgraph-graph";
 import axios from "axios";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 
@@ -42,7 +42,7 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
    * @returns a Promise of the WS response data
    */
   private fetchRemote = async (editorLines: string[]) => {
-    return await axios.get(process.env.ENTITY_EXTRACTION_API as string, {
+    return await axios.get(process.env.ENTITY_EXTRACTION_API_URL as string, {
       params: {
         sentence: editorLines.join(" "),
       },
@@ -83,7 +83,7 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
         id: link["fields"]["label"] ? link["fields"]["label"] : `${link["source"]}To${link["target"]} `,
         startNodeId: link["source"],
         endNodeId: link["target"],
-        type: link["fields"]["label"] ? link["fields"]["label"] : "",
+        type: link["fields"]["label"] ? link["fields"]["label"] : ALL_REL_TYPE_SETS,
         properties: {},
         propertyTypes: {},
       };
