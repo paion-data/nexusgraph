@@ -6,4 +6,4 @@ title: Architecture
 High Level Overview
 -------------------
 
-![Error loading nexusgraph-architecture.png](img/nexusgraph-architecture.png)
+![Error loading nexusgraph-separation-of-concerns.png](img/nexusgraph-separation-of-concerns.png)
