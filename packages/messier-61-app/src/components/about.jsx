@@ -1,3 +1,6 @@
+/*
+ * Copyright 2023 Paion Data. All rights reserved.
+ */
 import React from "react";
 
 export const About = (props) => {
@@ -13,7 +16,7 @@ export const About = (props) => {
             <div className="about-text">
               <h2>About Us</h2>
               <p>{props.data ? props.data.paragraph : "loading..."}</p>
-              <h3>Why Choose Us?</h3>
+              <h3>The way we challenge the status qu is by making our products</h3>
               <div className="list-style">
                 <div className="col-lg-6 col-sm-6 col-xs-12">
                   <ul>{props.data ? props.data.Why.map((d, i) => <li key={`${d}-${i}`}>{d}</li>) : "loading"}</ul>
