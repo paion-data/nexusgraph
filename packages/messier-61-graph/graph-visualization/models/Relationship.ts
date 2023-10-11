@@ -64,11 +64,11 @@ export class RelationshipModel {
     this.centreDistance = 0;
   }
 
-  toJson(): Record<string, string> {
+  public toJson(): Record<string, string> {
     return this.propertyMap;
   }
 
-  isLoop(): boolean {
+  public isLoop(): boolean {
     return this.source === this.target;
   }
 }

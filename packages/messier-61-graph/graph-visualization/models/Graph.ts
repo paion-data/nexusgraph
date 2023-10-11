@@ -17,8 +17,8 @@ import type { NodeModel } from "./Node";
 import type { RelationshipModel } from "./Relationship";
 
 export class GraphModel {
-  nodes: NodeModel[];
-  relationships: RelationshipModel[];
+  private _nodes: NodeModel[];
+  private _relationships: RelationshipModel[];
 
   // maintaning these two map is for performance consideration
   nodeMap: Record<string, NodeModel>;
@@ -27,8 +27,8 @@ export class GraphModel {
   expandedNodeIdMap: Record<string, string[]>;
 
   constructor() {
-    this.nodes = [];
-    this.relationships = [];
+    this._nodes = [];
+    this._relationships = [];
     this.nodeMap = {};
     this.relationshipMap = {};
     this.expandedNodeIdMap = {};
@@ -53,7 +53,15 @@ export class GraphModel {
     this.resetGraph = this.resetGraph.bind(this);
   }
 
-  addNodes(nodes: NodeModel[]): void {
+  public get nodes(): NodeModel[] {
+    return this._nodes;
+  }
+
+  public get relationships(): RelationshipModel[] {
+    return this._relationships;
+  }
+
+  public addNodes(nodes: NodeModel[]): void {
     for (const node of nodes) {
       if (!this.containsNode(node)) {
         this.nodes.push(node);
@@ -62,7 +70,7 @@ export class GraphModel {
     }
   }
 
-  removeNode(node: NodeModel): void {
+  public removeNode(node: NodeModel): void {
     if (this.containsNode(node)) {
       this.nodes.splice(this.nodes.indexOf(node), 1);
 
@@ -71,15 +79,15 @@ export class GraphModel {
     }
   }
 
-  containsNode(node: NodeModel): boolean {
+  public containsNode(node: NodeModel): boolean {
     return this.findNode(node.id) != null;
   }
 
-  findNode(id: string): NodeModel {
+  public findNode(id: string): NodeModel {
     return this.nodeMap[id];
   }
 
-  addRelationships(relationships: RelationshipModel[]): void {
+  public addRelationships(relationships: RelationshipModel[]): void {
     for (const relationship of Array.from(relationships)) {
       if (!this.containsRelationship(relationship.id)) {
         this.relationships.push(relationship);
@@ -88,7 +96,7 @@ export class GraphModel {
     }
   }
 
-  containsRelationship(relationshipId: string): boolean {
+  public containsRelationship(relationshipId: string): boolean {
     return this.findRelationship(relationshipId) != null;
   }
 
@@ -102,13 +110,13 @@ export class GraphModel {
     });
   }
 
-  findAllRelationshipsToNode(nodeId: string): RelationshipModel[] {
+  public findAllRelationshipsToNode(nodeId: string): RelationshipModel[] {
     return this.relationships.filter(
       (relationship) => relationship.source.id === nodeId || relationship.target.id === nodeId
     );
   }
 
-  removeConnectedRelationships(node: NodeModel): void {
+  public removeConnectedRelationships(node: NodeModel): void {
     for (const relationship of Array.from(this.findAllRelationshipsToNode(node.id))) {
       this.updateNode(relationship.source);
       this.updateNode(relationship.target);
@@ -119,7 +127,7 @@ export class GraphModel {
     }
   }
 
-  updateNode(node: NodeModel): void {
+  public updateNode(node: NodeModel): void {
     if (this.containsNode(node)) {
       this.removeNode(node);
 
@@ -141,7 +149,7 @@ export class GraphModel {
     }
   }
 
-  collapseNode(node: NodeModel): void {
+  public collapseNode(node: NodeModel): void {
     if (!(node.id in this.expandedNodeIdMap)) {
       return;
     }
@@ -157,9 +165,9 @@ export class GraphModel {
     this.expandedNodeIdMap[node.id] = [];
   }
 
-  resetGraph(): void {
-    this.nodes = [];
-    this.relationships = [];
+  public resetGraph(): void {
+    this._nodes = [];
+    this._relationships = [];
 
     this.nodeMap = {};
     this.relationshipMap = {};

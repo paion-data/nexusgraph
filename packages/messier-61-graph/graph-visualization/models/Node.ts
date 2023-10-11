@@ -65,7 +65,7 @@ export class NodeModel {
     this.initialPositionCalculated = false;
   }
 
-  toJson(): Record<string, string> {
+  public toJson(): Record<string, string> {
     return this.propertyMap;
   }
 }
