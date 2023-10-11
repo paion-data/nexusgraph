@@ -18,6 +18,12 @@ We've been intrigued by this question of whether we can evolve or develop an ext
 can give us seamless access and easy access to meta information or information that may exists somewhere that may be
 relevant to help us make the right decision about anything.
 
+Contributors
+------------
+
+<!-- readme: collaborators,contributors,bots -start -->
+<!-- readme: collaborators,contributors,bots -end -->
+
 License
 -------
 
