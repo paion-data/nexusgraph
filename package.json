@@ -1,6 +1,5 @@
 {
   "name": "@paiondata/messier-61",
-  "private": true,
   "workspaces": [
     "./packages/messier-61-app",
     "./packages/messier-61-editor",
