@@ -15,7 +15,7 @@ export default function App(): JSX.Element {
           <IconWapper>
             <img className="img" src={require("../public/app-logo.png")} alt="error" width={150} height={150} />
           </IconWapper>
-          <EditorCaption className="h1">NexusGraph</EditorCaption>
+          <EditorCaption className="h1">Nexus Graph</EditorCaption>
           <Editor />
         </EditorGlassCover>
       </EditorWrapper>

@@ -10,10 +10,10 @@ import { GraphStyleModel } from "../GraphStyle";
 import { VizItem } from "../VizItem";
 import { GraphStats } from "../GraphStats";
 import { PaneContainer, StyledNodeInspectorTopMenuChevron, panelMinWidth } from "../styles/InspectorContainer.styled";
-import { DefaultDetailsPane, DetailsPaneProps } from "./DefaultDetailsPane";
-import DefaultOverviewPane, { OverviewPaneProps } from "./DefaultOverviewPane";
 import { NodeInspectorDrawer } from "./NodeInspectorDrawer";
 import { Resizable } from "re-resizable";
+import { DetailsPaneProps } from "./properties-panel-content/properties-panel-content/DetailsPane";
+import { OverviewPaneProps } from "./properties-panel-content/properties-panel-content/OverviewPane";
 
 const ChevronRightIcon = (): JSX.Element => <ChevronRightIconSolid />;
 
@@ -29,8 +29,8 @@ interface NodeInspectorPanelProps {
   stats: GraphStats;
   toggleExpanded: () => void;
   width: number;
-  DetailsPaneOverride?: React.FC<DetailsPaneProps>;
-  OverviewPaneOverride?: React.FC<OverviewPaneProps>;
+  DetailsPaneOverride: React.FC<DetailsPaneProps>;
+  OverviewPaneOverride: React.FC<OverviewPaneProps>;
 }
 
 export function defaultPanelWidth(): number {
@@ -43,9 +43,9 @@ export function NodeInspectorPanel(props: NodeInspectorPanelProps): JSX.Element 
 
   const shownEl = hoveringNodeOrRelationship ? props.hoveredItem : props.selectedItem;
 
-  const DetailsPane = props.DetailsPaneOverride === undefined ? DefaultDetailsPane : props.DetailsPaneOverride;
+  const DetailsPane = props.DetailsPaneOverride;
 
-  const OverviewPane = props.OverviewPaneOverride === undefined ? DefaultOverviewPane : props.OverviewPaneOverride;
+  const OverviewPane = props.OverviewPaneOverride;
 
   return (
     <>
