@@ -24,12 +24,12 @@ yarn-error.log*
 ./packages/nexusgraph-app/.yarn
 ./packages/nexusgraph-editor/.yarn
 ./packages/nexusgraph-graph/.yarn
-./packages/nexusgraph-graphql-server/.yarn
-./packages/nexusgraph-landing-page/.yarn
+./packages/nexusgraph-server/.yarn
 ./packages/nexusgraph-nlp/.yarn
 
 docs/.yarn/
-packages/nexusgraph-landing-page/.yarn/
 
 /cypress/screenshots/
 /cypress/videos/
+
+packages/nexusgraph-server/src/db.json
