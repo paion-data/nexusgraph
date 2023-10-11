@@ -24,7 +24,6 @@ export function D3Graph(graphConfig: GraphConfig): JSX.Element {
   const height = graphConfig.canvasConfig.height;
 
   useEffect(() => {
-    console.log("Rerendering!");
     let selectedSourceNode: any;
     let selectedTargetNode: any;
     let drawingLine = false;

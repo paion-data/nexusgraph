@@ -13,20 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import type { EditorState, LexicalEditor } from "lexical";
-
-export default function editorContentParser(editorState: EditorState, editor: LexicalEditor): string[] {
-  const lines: string[] = [];
-
-  editorState.read(() => {
-    const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
-    const rawLines: any[] = jsonObject.root.children[0].children;
-    rawLines.forEach((line) => {
-      if (line.text !== undefined) {
-        lines.push(line.text);
-      }
-    });
-  });
-
-  return lines;
-}
+export { default as parse } from "./RawTextParser";

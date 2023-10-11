@@ -15,13 +15,45 @@ import React, { useState } from "react";
 
 import styles from "./ExternalBrain.module.css";
 
-import type { CanvasConfig } from "../messier-61-graph";
+import type { CanvasConfig, GraphData } from "../messier-61-graph";
 import { Editor } from "../messier-61-editor";
 import { Graph } from "../messier-61-graph";
 import { transformer } from "./Transformer";
 
+/**
+ * An {@link ExternalBrain} projects thought process onto a knowledge graph.
+ *
+ * The module is composed of and depends on 2 modules:
+ *
+ * 1. {@link messier-61-editor!Editor}
+ * 2. {@link messier-61-graph!Graph}
+ *
+ * The two modules shares a single [state](https://react.dev/reference/react/useState) of
+ *
+ * ```typescript
+ * const [graphData, setGraphData] = useState<GraphData>({
+ *   nodes: [],
+ *   links: [],
+ * });
+ * ```
+ *
+ * which is an instance of {@link messier-61-graph!GraphData}. The state is used in a way almost identical to the
+ * [standard React approach](https://react.dev/learn/sharing-state-between-components). The
+ * difference, however, is that the change of state inside Editor triggers a Graph state change (i.e. redrawing graph),
+ * but **NOT** vice versa. This is based on the assumption that _the external input to our brain affects our through
+ * process; but our internal thought process never directly mutates the outside world_
+ *
+ * The state variable `graphData`'s state value is passed into {@link messier-61-graph!Graph Graph module} and its
+ * [set function](https://react.dev/reference/react/useState#setstate) is passed into the
+ * {@link messier-61-editor!Editor Editor module}
+ *
+ * @returns a component whose left side is the {@link Editor} and the right side is the corresponding\
+ * {@link Graph knowledge graph}
+ *
+ * @see {@link messier-61-editor!Editor} for how the state variable `graphData` gets
+ */
 export default function ExternalBrain(): JSX.Element {
-  const [graphData, setGraphData] = useState({
+  const [graphData, setGraphData] = useState<GraphData>({
     nodes: [],
     links: [],
   });

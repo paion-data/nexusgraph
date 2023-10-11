@@ -17,8 +17,27 @@ import { useEffect } from "react";
 
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 
-import editorContentParser from "../EditorContentParser";
+import parse from "../parser/RawTextParser";
 
+/**
+ * {@link Messier61OnChangePlugin} implements the real-time capturing of editor content.
+ *
+ * When user enters arbitrary text into the Editor, the
+ * [side effect](https://react.dev/reference/react/useEffect) of this component gets
+ * immediately triggered.
+ *
+ * The side effects performs the following two operations:
+ *
+ * 1. Extracts each line of text and put them into a list
+ * 2. Apply the `transformer` logic (@see {@link messier-61-editor!Editor}) to the list and turn it into a custome
+ *    format
+ * 3. "Export" the transformed result using some follow-up logic (@see {@link messier-61-editor!Editor}), such as
+ *    performing some side effect in another module
+ *
+ * @returns a standar lexical plugin
+ *
+ * @see [Lexical Plugin](https://lexical.dev/docs/react/plugins)
+ */
 export default function Messier61OnChangePlugin({
   transformer,
   exporter,
@@ -30,9 +49,12 @@ export default function Messier61OnChangePlugin({
 
   useEffect(() => {
     return editor.registerUpdateListener(({ editorState }) => {
-      exporter(transformer(editorContentParser(editorState, editor)));
+      editorState.read(() => {
+        const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
+        exporter(transformer(parse(jsonObject)));
+      });
     });
-  }, [editor, editorContentParser, transformer, exporter]);
+  }, [editor, parse, transformer, exporter]);
 
   return null;
 }

@@ -24,31 +24,8 @@ async function main() {
 
   app.bootstrap({
     // typedoc options
-    entryPoints: [
-      "../packages/messier-61-app/index.tsx",
-      "../packages/messier-61-app/App.tsx",
-
-      "../packages/messier-61-editor/index.ts",
-      "../packages/messier-61-editor/Lexical/index.ts",
-      "../packages/messier-61-editor/Lexical/LexicalEditorConfig.ts",
-      "../packages/messier-61-editor/Lexical/EditorContentParser.tsx",
-      "../packages/messier-61-editor/Lexical/plugins/Messier61OnChangePlugin.tsx",
-
-      "../packages/messier-61-external-brain/index.ts",
-      "../packages/messier-61-external-brain/ExternalBrain.tsx",
-      "../packages/messier-61-external-brain/Transformer.tsx",
-
-      "../packages/messier-61-graph/index.ts",
-      "../packages/messier-61-graph/Graph.tsx",
-      "../packages/messier-61-graph/GraphDataMaker.ts",
-      "../packages/messier-61-graph/GraphDecorator.test.ts",
-      "../packages/messier-61-graph/D3Graph/index.ts",
-      "../packages/messier-61-graph/D3Graph/D3Graph.tsx",
-
-      "../packages/messier-61-home/index.ts",
-
-      "../packages/messier-61-nlp/BasicSVOParser.ts",
-    ],
+    entryPoints: ["../packages/"],
+    exclude: "../**/*+(test|env.d|setupTests).*",
     entryPointStrategy: "expand",
     tsconfig: "../tsconfig.json",
     media: "static/img/typedoc",

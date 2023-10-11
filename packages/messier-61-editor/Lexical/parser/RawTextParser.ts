@@ -13,19 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import type { GraphData } from "../messier-61-graph";
 
-import { makeGraphDataFromSvoTripples } from "../messier-61-graph/GraphDataMaker";
-import { getSVOof } from "../messier-61-nlp/BasicSVOParser";
+/**
+ * Given a JSON object representing the current [editor state](https://lexical.dev/docs/concepts/editor-state), this
+ * function converts it into a list of strings with each element representing a line of content in the editor.
+ *
+ * @param jsonObject the specified JSON object
+ *
+ * @returns a new list
+ */
+export default function parse(jsonObject: any): string[] {
+  const lines: string[] = [];
 
-export function transformer(editorLines: string[]): GraphData {
-  const svoTripples: string[][] = editorLines
-    .map((editorLine) => getSVOof(editorLine))
-    .filter((pos) => pos.length === 3);
+  const rawLines: any[] = jsonObject.root.children[0].children;
+  rawLines.forEach((line) => {
+    if (line.text !== undefined) {
+      lines.push(line.text);
+    }
+  });
 
-  return makeGraphDataFromSvoTripples(svoTripples, randomIdGenerator);
-}
-
-function randomIdGenerator(): string {
-  return Math.random().toString(36).substring(2, 8);
+  return lines;
 }
