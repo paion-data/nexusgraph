@@ -2,10 +2,13 @@
 import axios from "axios";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 import { NlpState } from "../../../nexusgraph-provider";
+import { injectable } from "inversify";
+import "reflect-metadata";
 
 /**
  * An implementation of {@link NaturalLanguageProcessor} that delegates NLP to a remote service.
  */
+@injectable()
 export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
   public entityExtraction(editorLines: string[]): Promise<NlpState> {
     return this.remoteEntityExtration(editorLines);

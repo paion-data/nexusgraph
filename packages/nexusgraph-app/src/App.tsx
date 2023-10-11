@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_NLPDATA, GlobalState } from "../../nexusgraph-provider";
 import { useLogto } from "@logto/react";
 import logo from "../public/app-logo.svg";
+import { NaturalLanguageProcessorProvider } from "../../nexusgraph-nlp";
 
 /**
  * The component that defines the entire nexus graph app.
@@ -15,14 +16,15 @@ import logo from "../public/app-logo.svg";
  * @returns a React DOM object
  */
 export default function App(): JSX.Element {
-  const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
+  const remoteNaturalLanguageProcessor =
+    NaturalLanguageProcessorProvider.get<RemoteNaturalLanguageProcessor>(RemoteNaturalLanguageProcessor);
   const dispatch = useDispatch();
   const entityExtrationTexts: string[] = useSelector((state: GlobalState) => state.editorLine);
   const { signIn, isAuthenticated } = useLogto();
 
   useEffect(() => {
     if (entityExtrationTexts.length > 0) {
-      naturalLanguageProcessor.entityExtraction(entityExtrationTexts).then((NlpState) => {
+      remoteNaturalLanguageProcessor.entityExtraction(entityExtrationTexts).then((NlpState) => {
         dispatch({ type: UPDATE_NLPDATA, payload: NlpState });
       });
     }
