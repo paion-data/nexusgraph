@@ -29,7 +29,7 @@ export function nodeEventHandlers(
   };
 
   const onNodeMouseOver = (_event: Event, node: NodeModel) => {
-    if (node.fx == null && node.fy == null) {
+    if (!node.fx && !node.fy) {
       node.hoverFixed = true;
       node.fx = node.x;
       node.fy = node.y;
@@ -74,8 +74,8 @@ export function nodeEventHandlers(
 
   return selection
     .call(d3Drag<SVGGElement, NodeModel>().on("start", dragstarted).on("drag", dragged).on("end", dragended))
-    .on("mouseover", onNodeMouseOver)
-    .on("mouseout", onNodeMouseOut)
-    .on("click", onNodeClick)
-    .on("dblclick", onNodeDblClick);
+    .on(NODE_MOUSE_OVER, onNodeMouseOver)
+    .on(NODE_MOUSE_OUT, onNodeMouseOut)
+    .on(NODE_CLICKED, onNodeClick)
+    .on(NODE_DBLCLICKED, onNodeDblClick);
 }
