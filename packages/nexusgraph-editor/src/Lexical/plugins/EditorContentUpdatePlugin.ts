@@ -17,6 +17,7 @@ export default function EditorContentUpdatePlugin(): JSX.Element | null {
   const [editor] = useLexicalComposerContext();
 
   const userId = selectOAuth().userInfo["sub"];
+  const accessToken = selectOAuth().accessToken;
 
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
 
@@ -36,9 +37,9 @@ export default function EditorContentUpdatePlugin(): JSX.Element | null {
   }, [note.id]);
 
   function getFirstNoteContent(): Promise<Record<any, any>> {
-    return astraiosClient.getNoteList(userId).then((noteList) => {
+    return astraiosClient.getNoteList(userId, accessToken).then((noteList) => {
       if (noteList[0]) {
-        return astraiosClient.getNoteById(noteList[0].id).then((firstNote) => {
+        return astraiosClient.getNoteById(noteList[0].id, accessToken).then((firstNote) => {
           return JSON.parse(firstNote.editorContent);
         });
       }
