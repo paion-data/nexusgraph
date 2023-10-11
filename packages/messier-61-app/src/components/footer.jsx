@@ -1,44 +1,39 @@
 /*
  * Copyright 2023 Paion Data. All rights reserved.
  */
+import { useTranslation } from "react-i18next";
 
-export const Contact = (props) => {
+export const Footer = (props) => {
+  const { t } = useTranslation();
+
   return (
     <div>
       <div id="contact">
         <div className="container">
-          <div className="col-md-8">
-            <div className="row">
-              <div className="section-title">
-                <h2>We are Hiring!</h2>
-                <p>We are hiring!</p>
-              </div>
-            </div>
-          </div>
           <div className="col-md-3 col-md-offset-1 contact-info">
             <div className="contact-item">
-              <h3>Contact Info</h3>
+              <h3>{t("Contact")}</h3>
               <p>
                 <span>
-                  <i className="fa fa-map-marker"></i> Address
+                  <i className="fa fa-map-marker"></i>
                 </span>
-                {props.data ? props.data.address : "loading"}
+                {t("Address")}
               </p>
             </div>
             <div className="contact-item">
               <p>
                 <span>
-                  <i className="fa fa-phone"></i> Phone
+                  <i className="fa fa-phone"></i>
                 </span>{" "}
-                {props.data ? props.data.phone : "loading"}
+                {t("Phone")}
               </p>
             </div>
             <div className="contact-item">
               <p>
                 <span>
-                  <i className="fa fa-envelope-o"></i> Email
+                  <i className="fa fa-envelope-o"></i>
                 </span>{" "}
-                {props.data ? props.data.email : "loading"}
+                {t("Email")}
               </p>
             </div>
           </div>
@@ -47,7 +42,7 @@ export const Contact = (props) => {
               <div className="social">
                 <ul>
                   <li>
-                    <a href={props.data ? props.data.github : "/"}>
+                    <a href={t("github")}>
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
