@@ -4,6 +4,7 @@ import logo from "../public/logo.svg";
 import useAstraiosClientHook from "./AstraiosClientHook";
 import NoteTitleInput from "./note-title-input/NoteTitleInput";
 import useReduxHook from "./ReduxHook";
+import CreateButton from "./sidebar/Feature";
 import { AppBody, AppCaption, AppHeader, AppWrapper, GraphBrowserWrapper, IconWapper, Sidebar } from "./styled";
 
 /**
@@ -12,8 +13,8 @@ import { AppBody, AppCaption, AppHeader, AppWrapper, GraphBrowserWrapper, IconWa
  * @returns a React DOM object
  */
 export default function App(): JSX.Element {
-  useReduxHook();
-  useAstraiosClientHook();
+  // useReduxHook();
+  // useAstraiosClientHook();
 
   return (
     <AppWrapper>
@@ -24,7 +25,9 @@ export default function App(): JSX.Element {
         <AppCaption>Nexus Graph</AppCaption>
       </AppHeader>
       <AppBody>
-        <Sidebar />
+        <Sidebar>
+          <CreateButton />
+        </Sidebar>
         <GraphBrowserWrapper id="graphBrowser">
           <NoteTitleInput />
           <GraphBrowser />
