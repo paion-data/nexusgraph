@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 
 import parse from "../parser/RawTextParser";
+import { RemoteNaturalLanguageProcessor } from "../processor/RemoteNaturalLanguageProcessor";
 
 /**
  * {@link NexusgraphOnChangePlugin} implements the real-time capturing of editor content.
@@ -25,15 +26,17 @@ import parse from "../parser/RawTextParser";
 export default function NexusgraphOnChangePlugin(): null {
   const [editor] = useLexicalComposerContext();
 
+  const naturalLanguageProcessor = new RemoteNaturalLanguageProcessor();
+
   useEffect(() => {
     return editor.registerUpdateListener(({ editorState }) => {
       editorState.read(() => {
         const jsonObject = JSON.parse(JSON.stringify(editor.getEditorState()));
-
         const editorLines: string[] = parse(jsonObject);
+        naturalLanguageProcessor.entityExtraction(editorLines);
 
         // @fannifanni
-        // TODO - 调用后台机器学习服务，将 editorLines 转换成知识图谱图数据，送入 Redux Store
+        // TODO - 将图数据送入 Redux Store
       });
     });
   }, [editor, parse]);

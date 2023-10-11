@@ -119,6 +119,8 @@ jobs:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
       - name: Install doc dependencies
         run: yarn install
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
       - name: Build documentation
         run: yarn build
       - name: Deploy to GitHub Pages
