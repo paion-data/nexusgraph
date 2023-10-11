@@ -10,5 +10,5 @@ export interface GlobalState {
   [note]: NoteState;
   [oAuth]: OAuthState;
   [noteList]: NoteInfo[];
-  [intelligentAI]: string[];
+  [intelligentAI]: string | null;
 }

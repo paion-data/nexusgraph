@@ -12,8 +12,8 @@ const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction/";
  */
 @injectable()
 export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
-  public entityExtraction(editorContent: string[]): Promise<Graph> {
-    return this.remoteEntityExtration(editorContent);
+  public entityExtraction(editorLines: string): Promise<Graph> {
+    return this.remoteEntityExtration(editorLines);
   }
 
   /**
@@ -24,7 +24,7 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
    *
    * @returns a Promise the Redux state
    */
-  private remoteEntityExtration = async (editorLines: string[]): Promise<Graph> => {
+  private remoteEntityExtration = async (editorLines: string): Promise<Graph> => {
     const response = this.fetchRemote(editorLines);
     const data: Graph = (await response).data;
     return data;
@@ -39,11 +39,11 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
    *
    * @returns a Promise of the WS response data
    */
-  private fetchRemote = async (editorLines: string[]) => {
+  private fetchRemote = async (editorLines: string) => {
     const instanceAxios = axios.create({
       baseURL: process.env.THERESA_API_URL as string,
     });
 
-    return await instanceAxios.post(ENTITY_EXTRACTION_PATH_PARAM, { documents: editorLines });
+    return await instanceAxios.post(ENTITY_EXTRACTION_PATH_PARAM, { text: editorLines });
   };
 }

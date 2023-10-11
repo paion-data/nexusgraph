@@ -22,14 +22,12 @@ export function FeatureMenu({ onClose }: { onClose: () => void }): JSX.Element {
 }
 
 function IntelligentAIDialogBody({ onClose }: { onClose: () => void }): JSX.Element {
-  const [inputValue, setInputValue] = useState<string | null>();
+  const [inputValue, setInputValue] = useState<string | null>(null);
 
   const dispatch = useDispatch();
 
   const onClick = () => {
-    if (inputValue) {
-      dispatch(getIntelligentAIContent([inputValue]));
-    }
+    dispatch(getIntelligentAIContent(inputValue));
     onClose();
   };
 
