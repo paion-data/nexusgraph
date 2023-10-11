@@ -6,6 +6,8 @@ import { Graph } from "../../../nexusgraph-redux";
 import EditorContentParser from "../parser/EditorContentParser";
 import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 
+const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction/";
+
 /**
  * An implementation of {@link NaturalLanguageProcessor} that delegates NLP to a remote service.
  */
@@ -42,6 +44,10 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
    * @returns a Promise of the WS response data
    */
   private fetchRemote = async (editorLines: string[]) => {
-    return await axios.post(process.env.ENTITY_EXTRACTION_API_URL as string, { documents: editorLines });
+    const instanceAxios = axios.create({
+      baseURL: process.env.THERESA_API_URL as string,
+    });
+
+    return await instanceAxios.post(ENTITY_EXTRACTION_PATH_PARAM, { documents: editorLines });
   };
 }

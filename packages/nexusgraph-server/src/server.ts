@@ -54,8 +54,8 @@ app.get("/healthcheck", (req, res) => {
   res.send("SUCCESS");
 });
 
-const server = app.listen(3000, () => {
-  console.log("listening on port 3000"); // eslint-disable-line no-console
+const server = app.listen(5000, () => {
+  console.log("listening on port 5000"); // eslint-disable-line no-console
 });
 
 export { app, server };

@@ -1,49 +1,14 @@
 {
   "data": {
-    "query": {
+    "note": {
       "edges": [
         {
           "node": {
             "id": "1",
-            "title": "Note ...",
+            "title": "Test Note",
             "userId": "devUserId",
-            "editorContent": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+            "editorContent": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"China\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
             "graph": "{\"nodes\": [], \"links\": []}"
-          }
-        },
-        {
-          "node": {
-            "id": "2",
-            "title": "Note ...",
-            "userId": "devUserId"
-          }
-        },
-        {
-          "node": {
-            "id": "3",
-            "title": "Note ...",
-            "userId": "devUserId"
-          }
-        },
-        {
-          "node": {
-            "id": "4",
-            "title": "Note ...",
-            "userId": "devUserId"
-          }
-        },
-        {
-          "node": {
-            "id": "5",
-            "title": "Note ...",
-            "userId": "devUserId"
-          }
-        },
-        {
-          "node": {
-            "id": "6",
-            "title": "Note ...",
-            "userId": "devUserId"
           }
         }
       ]

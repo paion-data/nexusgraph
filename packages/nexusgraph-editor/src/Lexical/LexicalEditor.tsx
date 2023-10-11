@@ -16,7 +16,7 @@ import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
 
 import styles from "./LexicalEditor.module.css";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
-import EditorInitializationPlugin from "./plugins/EditorInitializationPlugin";
+import EditorContentUpdatePlugin from "./plugins/EditorContentUpdatePlugin";
 import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import { Paragraph } from "./plugins/ToolbarPlugin/styled";
@@ -62,7 +62,7 @@ export default function LexicalEditor(): JSX.Element {
           <CheckListPlugin />
           <CodeHighlightPlugin />
           <OnChangePlugin />
-          <EditorInitializationPlugin />
+          <EditorContentUpdatePlugin />
           <ListPlugin />
           <LinkPlugin />
         </Paragraph>

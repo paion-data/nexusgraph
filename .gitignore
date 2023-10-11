@@ -31,5 +31,6 @@ docs/.yarn/
 
 /cypress/screenshots/
 /cypress/videos/
+/cypress/downloads/
 
 packages/nexusgraph-server/src/db.json

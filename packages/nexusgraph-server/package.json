@@ -5,7 +5,7 @@
   "description": "Offering knowledge graph data without a backend",
   "scripts": {
     "start": "npx ts-node --esm src/server.ts",
-    "wait-on-server": "wait-on -c ../../scripts/wait-on-config.js http-get://localhost:3000/healthcheck"
+    "wait-on-server": "wait-on -c ../../scripts/wait-on-config.js http-get://localhost:5000/healthcheck"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",

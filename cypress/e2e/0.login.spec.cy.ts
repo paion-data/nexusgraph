@@ -4,7 +4,7 @@ it("Login App", () => {
     cy.login({ username: Cypress.env("username"), password: Cypress.env("password") });
   }
 
-  cy.request("http://localhost:8080").then((resp) => {
+  cy.request("http://localhost:3000").then((resp) => {
     expect(resp.status).to.eq(200);
   });
 });
