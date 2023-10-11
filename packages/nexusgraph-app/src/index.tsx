@@ -2,7 +2,7 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import React from "react";
+import { StrictMode } from "react";
 import { Provider } from "react-redux";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { GlobalState } from "../../nexusgraph-graph/src/shared/globalState";
@@ -18,11 +18,11 @@ setupSentry();
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>
+  </StrictMode>
 );
 
 /**

@@ -1,8 +1,6 @@
 /*
  * Copyright 2023 Paion Data. All rights reserved.
  */
-import React from "react";
-
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
