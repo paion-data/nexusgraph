@@ -9,7 +9,7 @@ import { GlobalState } from "../../messier-61-graph/src/shared/globalState";
 import rootReducers from "../../messier-61-graph/src/shared/rootReducer";
 
 const reducer = combineReducers<GlobalState>({ ...(rootReducers as any) });
-const store = configureStore({ reducer });
+export const store = configureStore({ reducer });
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(

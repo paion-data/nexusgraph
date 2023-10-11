@@ -16,13 +16,47 @@ import { ResizeObserver } from "@juggle/resize-observer";
 import { RelationshipModel } from "./models/Relationship";
 import { NodeModel } from "./models/Node";
 
+const mapProperties = (_: any) => Object.assign({}, ...stringifyValues(_));
+const stringifyValues = (obj: any) =>
+  Object.keys(obj).map((k) => ({
+    [k]: obj[k] === null ? "null" : optionalToString(obj[k]),
+  }));
+
+function isNullish(x: unknown): x is null | undefined {
+  return x === null || x === undefined;
+}
+
+function optionalToString(value: any) {
+  return !isNullish(value) && typeof value?.toString === "function" ? value.toString() : value;
+}
+
 const ZOOM_ICONS_DEFAULT_SIZE_IN_PX = 15;
 const ZOOM_ICONS_LARGE_SCALE_FACTOR = 1.2;
 
+export type BasicNode = {
+  id: string;
+  labels: string[];
+  properties: Record<string, string>;
+  propertyTypes: Record<string, string>;
+};
+export type BasicRelationship = {
+  id: string;
+  startNodeId: string;
+  endNodeId: string;
+  type: string;
+  properties: Record<string, string>;
+  propertyTypes: Record<string, string>;
+};
+
+export type BasicNodesAndRels = {
+  nodes: BasicNode[];
+  relationships: BasicRelationship[];
+};
+
 export type GraphProps = {
   isFullscreen: boolean;
-  relationships: RelationshipModel[];
-  nodes: NodeModel[];
+  relationships: readonly BasicRelationship[];
+  nodes: readonly BasicNode[];
   getNodeNeighbours: GetNodeNeighboursFn;
   onItemMouseOver: (item: VizItem) => void;
   onItemSelect: (item: VizItem) => void;
@@ -43,6 +77,13 @@ export type GraphProps = {
   onGraphInteraction?: GraphInteractionCallBack;
 };
 
+/**
+ * {@link Graph} is NOT responsible for the for pre-calculating the graph data and the visualization properties.
+ * Instead it assumes both of them have already been pre-processed and passed in via {@link GraphVisualizer}.
+ *
+ * @param props
+ * @returns
+ */
 export function Graph(props: GraphProps): JSX.Element {
   const [zoomInLimitReached, setZoomInLimitReached] = useState<boolean>(false);
   const [zoomOutLimitReached, setZoomOutLimitReached] = useState<boolean>(false);
@@ -63,113 +104,116 @@ export function Graph(props: GraphProps): JSX.Element {
     };
   }, []);
 
-  useEffect(() => {
-    if (!svgRef.current) return;
+  useEffect(
+    () => {
+      if (!svgRef.current) return;
 
-    const measureSize = () => ({
-      width: svgRef.current?.parentElement?.clientWidth ?? 200,
-      height: svgRef.current?.parentElement?.clientHeight ?? 200,
-    });
-
-    const graph = createGraph(props.nodes, props.relationships);
-    visualization = new Visualization(
-      svgRef.current,
-      measureSize,
-      handleZoomEvent,
-      handleDisplayZoomWheelInfoMessage,
-      graph,
-      props.graphStyle,
-      props.isFullscreen,
-      props.wheelZoomRequiresModKey,
-      props.initialZoomToFit
-    );
-
-    const graphEventHandler = new GraphEventHandlerModel(
-      graph,
-      visualization,
-      props.getNodeNeighbours,
-      props.onItemMouseOver,
-      props.onItemSelect,
-      props.onGraphModelChange,
-      props.onGraphInteraction
-    );
-    graphEventHandler.bindEventHandlers();
-
-    props.onGraphModelChange(getGraphStats(graph));
-    visualization.resize(props.isFullscreen, !!props.wheelZoomRequiresModKey);
-
-    if (props.setGraph) {
-      props.setGraph(graph);
-    }
-    if (props.autocompleteRelationships) {
-      props.getAutoCompleteCallback((internalRelationships: RelationshipModel[], initialRun: boolean) => {
-        if (initialRun) {
-          visualization?.init();
-          graph.addRelationships(internalRelationships);
-          props.onGraphModelChange(getGraphStats(graph));
-          visualization?.update({
-            updateNodes: false,
-            updateRelationships: true,
-            restartSimulation: false,
-          });
-          visualization?.precomputeAndStart();
-          graphEventHandler.onItemMouseOut();
-        } else {
-          graph.addRelationships(internalRelationships);
-          props.onGraphModelChange(getGraphStats(graph));
-          visualization?.update({
-            updateNodes: false,
-            updateRelationships: true,
-            restartSimulation: false,
-          });
-        }
+      const measureSize = () => ({
+        width: svgRef.current?.parentElement?.clientWidth ?? 200,
+        height: svgRef.current?.parentElement?.clientHeight ?? 200,
       });
-    } else {
-      visualization?.init();
-      visualization?.precomputeAndStart();
-    }
-    if (props.assignVisElement) {
-      props.assignVisElement(svgRef.current, visualization);
-    }
 
-    wrapperResizeObserver.observe(svgRef.current);
+      const graph = createGraph(props.nodes, props.relationships);
+      visualization = new Visualization(
+        svgRef.current,
+        measureSize,
+        handleZoomEvent,
+        handleDisplayZoomWheelInfoMessage,
+        graph,
+        props.graphStyle,
+        props.isFullscreen,
+        props.wheelZoomRequiresModKey,
+        props.initialZoomToFit
+      );
 
-    visualization?.resize(props.isFullscreen, !!props.wheelZoomRequiresModKey);
+      const graphEventHandler = new GraphEventHandlerModel(
+        graph,
+        visualization,
+        props.getNodeNeighbours,
+        props.onItemMouseOver,
+        props.onItemSelect,
+        props.onGraphModelChange,
+        props.onGraphInteraction
+      );
+      graphEventHandler.bindEventHandlers();
 
-    visualization?.update({
-      updateNodes: true,
-      updateRelationships: true,
-      restartSimulation: false,
-    });
+      props.onGraphModelChange(getGraphStats(graph));
+      visualization.resize(props.isFullscreen, !!props.wheelZoomRequiresModKey);
 
-    function handleZoomEvent(limitsReached: ZoomLimitsReached): void {
-      if (
-        limitsReached.zoomInLimitReached !== zoomInLimitReached ||
-        limitsReached.zoomOutLimitReached !== zoomOutLimitReached
-      ) {
-        setZoomInLimitReached(limitsReached.zoomInLimitReached);
-
-        setZoomOutLimitReached(limitsReached.zoomOutLimitReached);
+      if (props.setGraph) {
+        props.setGraph(graph);
       }
-    }
-
-    function handleDisplayZoomWheelInfoMessage(): void {
-      if (!displayingWheelZoomInfoMessage && props.wheelZoomRequiresModKey && props.wheelZoomInfoMessageEnabled) {
-        displayZoomWheelInfoMessage(true);
+      if (props.autocompleteRelationships) {
+        props.getAutoCompleteCallback((internalRelationships: RelationshipModel[], initialRun: boolean) => {
+          if (initialRun) {
+            visualization?.init();
+            graph.addRelationships(internalRelationships);
+            props.onGraphModelChange(getGraphStats(graph));
+            visualization?.update({
+              updateNodes: false,
+              updateRelationships: true,
+              restartSimulation: false,
+            });
+            visualization?.precomputeAndStart();
+            graphEventHandler.onItemMouseOut();
+          } else {
+            graph.addRelationships(internalRelationships);
+            props.onGraphModelChange(getGraphStats(graph));
+            visualization?.update({
+              updateNodes: false,
+              updateRelationships: true,
+              restartSimulation: false,
+            });
+          }
+        });
+      } else {
+        visualization?.init();
+        visualization?.precomputeAndStart();
+      }
+      if (props.assignVisElement) {
+        props.assignVisElement(svgRef.current, visualization);
       }
 
-      function displayZoomWheelInfoMessage(display: boolean): void {
-        setDisplayingWheelZoomInfoMessage(display);
+      wrapperResizeObserver.observe(svgRef.current);
+
+      visualization?.resize(props.isFullscreen, !!props.wheelZoomRequiresModKey);
+
+      visualization?.update({
+        updateNodes: true,
+        updateRelationships: true,
+        restartSimulation: false,
+      });
+
+      function handleZoomEvent(limitsReached: ZoomLimitsReached): void {
+        if (
+          limitsReached.zoomInLimitReached !== zoomInLimitReached ||
+          limitsReached.zoomOutLimitReached !== zoomOutLimitReached
+        ) {
+          setZoomInLimitReached(limitsReached.zoomInLimitReached);
+
+          setZoomOutLimitReached(limitsReached.zoomOutLimitReached);
+        }
       }
-    }
-  }, [
-    zoomInLimitReached,
-    zoomOutLimitReached,
-    displayingWheelZoomInfoMessage,
-    props,
-    wrapperRef.current,
-    svgRef.current,
-  ]);
+
+      function handleDisplayZoomWheelInfoMessage(): void {
+        if (!displayingWheelZoomInfoMessage && props.wheelZoomRequiresModKey && props.wheelZoomInfoMessageEnabled) {
+          displayZoomWheelInfoMessage(true);
+        }
+
+        function displayZoomWheelInfoMessage(display: boolean): void {
+          setDisplayingWheelZoomInfoMessage(display);
+        }
+      }
+    },
+    [
+      // zoomInLimitReached,
+      // zoomOutLimitReached,
+      // displayingWheelZoomInfoMessage,
+      // props,
+      // wrapperRef.current,
+      // svgRef.current,
+    ]
+  );
 
   function zoomInClicked(): void {
     visualization?.zoomByType(ZoomType.IN);
@@ -193,7 +237,7 @@ export function Graph(props: GraphProps): JSX.Element {
           disabled={zoomInLimitReached}
           onClick={zoomInClicked}
         >
-          <ZoomInIcon large={props.isFullscreen} />
+          {/* <ZoomInIcon large={props.isFullscreen} /> */}
         </StyledZoomButton>
         <StyledZoomButton
           aria-label={"zoom-out"}
@@ -201,7 +245,7 @@ export function Graph(props: GraphProps): JSX.Element {
           disabled={zoomOutLimitReached}
           onClick={zoomOutClicked}
         >
-          <ZoomOutIcon large={props.isFullscreen} />
+          {/* <ZoomOutIcon large={props.isFullscreen} /> */}
         </StyledZoomButton>
         <StyledZoomButton aria-label={"zoom-to-fit"} onClick={zoomToFitClicked}>
           <ZoomToFitIcon large={props.isFullscreen} />
@@ -214,32 +258,44 @@ export function Graph(props: GraphProps): JSX.Element {
   );
 }
 
-function createGraph(nodes: NodeModel[], relationships: RelationshipModel[]): GraphModel {
+function createGraph(nodes: readonly BasicNode[], relationships: readonly BasicRelationship[]): GraphModel {
   const graph = new GraphModel();
-  graph.addNodes(nodes);
-  graph.addRelationships(relationships);
+  graph.addNodes(mapNodes(nodes));
+  graph.addRelationships(mapRelationships(relationships, graph));
   return graph;
 }
 
-function ZoomInIcon({ large = false }: { large?: boolean }): JSX.Element {
-  const scale = large ? ZOOM_ICONS_LARGE_SCALE_FACTOR : 1;
-  return (
-    <MagnifyingGlassPlusIcon
-      width={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
-      height={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
-    />
-  );
+export function mapNodes(nodes: readonly BasicNode[]): NodeModel[] {
+  return nodes.map((node) => new NodeModel(node.id, node.labels, mapProperties(node.properties), node.propertyTypes));
 }
 
-function ZoomOutIcon({ large = false }: { large?: boolean }): JSX.Element {
-  const scale = large ? ZOOM_ICONS_LARGE_SCALE_FACTOR : 1;
-  return (
-    <MagnifyingGlassMinusIcon
-      width={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
-      height={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
-    />
-  );
+export function mapRelationships(relationships: readonly BasicRelationship[], graph: GraphModel): RelationshipModel[] {
+  return relationships.map((rel) => {
+    const source = graph.findNode(rel.startNodeId);
+    const target = graph.findNode(rel.endNodeId);
+    return new RelationshipModel(rel.id, source, target, rel.type, mapProperties(rel.properties), rel.propertyTypes);
+  });
 }
+
+// function ZoomInIcon({ large = false }: { large?: boolean }): JSX.Element {
+//   const scale = large ? ZOOM_ICONS_LARGE_SCALE_FACTOR : 1;
+//   return (
+//     <MagnifyingGlassPlusIcon
+//       width={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
+//       height={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
+//     />
+//   );
+// }
+
+// function ZoomOutIcon({ large = false }: { large?: boolean }): JSX.Element {
+//   const scale = large ? ZOOM_ICONS_LARGE_SCALE_FACTOR : 1;
+//   return (
+//     <MagnifyingGlassMinusIcon
+//       width={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
+//       height={scale * ZOOM_ICONS_DEFAULT_SIZE_IN_PX}
+//     />
+//   );
+// }
 
 function ZoomToFitIcon({ large = false }: { large?: boolean }): JSX.Element {
   const scale = large ? ZOOM_ICONS_LARGE_SCALE_FACTOR : 1;
@@ -260,10 +316,10 @@ function ZoomToFitIcon({ large = false }: { large?: boolean }): JSX.Element {
   );
 }
 
-declare const MagnifyingGlassPlusIcon: React.ForwardRefExoticComponent<
-  React.SVGProps<SVGSVGElement> & { title?: string; titleId?: string }
->;
+// declare const MagnifyingGlassPlusIcon: React.ForwardRefExoticComponent<
+//   React.SVGProps<SVGSVGElement> & { title?: string; titleId?: string }
+// >;
 
-declare const MagnifyingGlassMinusIcon: React.ForwardRefExoticComponent<
-  React.SVGProps<SVGSVGElement> & { title?: string; titleId?: string }
->;
+// declare const MagnifyingGlassMinusIcon: React.ForwardRefExoticComponent<
+//   React.SVGProps<SVGSVGElement> & { title?: string; titleId?: string }
+// >;

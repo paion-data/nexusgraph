@@ -4339,11 +4339,6 @@ he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-hoist-non-react-statics@^2.5.0:
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
-  integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
-
 hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
@@ -6201,7 +6196,7 @@ react-redux@^8.1.1:
     react-is "^18.0.0"
     use-sync-external-store "^1.0.0"
 
-react-router-dom@^6.14.0:
+react-router-dom@^6.8.1:
   version "6.14.0"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.14.0.tgz#7ce6c3f73549e4d40216ba150253d3bf30812b33"
   integrity sha512-YEwlApKwzMMMbGbhh+Q7MsloTldcwMgHxUY/1g0uA62+B1hZo2jsybCWIDCL8zvIDB1FA0pBKY9chHbZHt+2dQ==
@@ -6223,13 +6218,6 @@ react-shallow-renderer@^16.15.0:
   dependencies:
     object-assign "^4.1.1"
     react-is "^16.12.0 || ^17.0.0 || ^18.0.0"
-
-react-suber@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/react-suber/-/react-suber-1.0.4.tgz#99e86d0d13304584ba142025d38688124a92ea7c"
-  integrity sha512-Uxw0VCQCmOXfq1tWo+Uy+AdBIqKEhbreFXR46wxZb9NGLSOaUgwvUdrWNVtaN/7bdzkgbZUCm5x/vd0b7onbRg==
-  dependencies:
-    hoist-non-react-statics "^2.5.0"
 
 react-test-renderer@^18.2.0:
   version "18.2.0"
@@ -6845,11 +6833,6 @@ style-loader@^3.3.1:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-3.3.3.tgz#bba8daac19930169c0c9c96706749a597ae3acff"
   integrity sha512-53BiGLXAcll9maCYtZi2RCQZKa8NQQai5C4horqKyRmHj9H7QmcUyucrH+4KW/gBQbXM2AsB0axoEcFZPlfPcw==
-
-suber@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/suber/-/suber-5.0.1.tgz#78fc93bfc7444d11a23e160c5f062dc7967d6a58"
-  integrity sha512-pZIMpVIC2Fonh0s4uweTUA1rcccSkF5g+NmXewvRbf4o55v/QLO1+oh2JIuT3nUPRedLX3l+L0X6ncKexyzq1A==
 
 supports-color@^5.3.0:
   version "5.5.0"

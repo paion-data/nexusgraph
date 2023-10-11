@@ -1,85 +1,43 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import deepmerge from "deepmerge";
-import { debounce } from "lodash-es";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { NodeInspectorPanel, defaultPanelWidth } from "./inspection-panel/NodeInspectorPanel";
 import { StyledFullSizeContainer, panelMinWidth } from "./styles/InspectorContainer.styled";
 import { DetailsPaneProps } from "./inspection-panel/DefaultDetailsPane";
 import { OverviewPaneProps } from "./inspection-panel/DefaultOverviewPane";
 import { GraphStyleModel } from "./GraphStyle";
-import { GetNodeNeighboursFn, GraphInteractionCallBack, NodesAndRels } from "./event-handler/GraphEventHandlerModel";
+import { GetNodeNeighboursFn, NodesAndRels } from "./event-handler/GraphEventHandlerModel";
 import { VizItem } from "./VizItem";
 import { GraphStats } from "./GraphStats";
-import { Graph } from "./Graph";
+import { BasicNode, BasicRelationship, Graph } from "./Graph";
 import { RelationshipModel } from "./models/Relationship";
-import { NodeModel } from "./models/Node";
 import { GraphModel } from "./models/Graph";
 
-const DEFAULT_MAX_NEIGHBOURS = 100;
-
-interface GraphVisualizerDefaultProps {
-  maxNeighbours: number;
-  updateStyle: (style: any) => void;
-  isFullscreen: boolean;
-  assignVisElement: (svgElement: any, graphElement: any) => void;
-  getAutoCompleteCallback: (callback: (rels: RelationshipModel[], initialRun: boolean) => void) => void;
-  setGraph: (graph: GraphModel) => void;
-  hasTruncatedFields: boolean;
-  nodePropertiesExpandedByDefault: boolean;
-  setNodePropertiesExpandedByDefault: (expandedByDefault: boolean) => void;
-  wheelZoomInfoMessageEnabled?: boolean;
-  initialZoomToFit?: boolean;
-  disableWheelZoomInfoMessage: () => void;
-  useGeneratedDefaultColors: boolean;
-}
-
+/**
+ * Both {@link GraphVisualizerProps.relationships} and {@link GraphVisualizerProps.nodes} are immutable.
+ */
 type GraphVisualizerProps = {
-  relationships: RelationshipModel[];
-  nodes: NodeModel[];
+  nodes: readonly BasicNode[];
+  relationships: readonly BasicRelationship[];
+
+  assignVisElement: (svgElement: any, graphElement: any) => void;
 };
 
-type GraphStyleVisualizerProps = GraphVisualizerDefaultProps & {
-  maxNeighbours?: number;
-  graphStyleData?: any;
-  getNeighbours?: (
-    id: string,
-    currentNeighbourIds: string[] | undefined
-  ) => Promise<NodesAndRels & { allNeighboursCount: number }>;
-  updateStyle?: (style: any) => void;
-  isFullscreen?: boolean;
-  assignVisElement?: (svgElement: any, graphElement: any) => void;
-  getAutoCompleteCallback?: (callback: (rels: RelationshipModel[], initialRun: boolean) => void) => void;
-  setGraph?: (graph: GraphModel) => void;
-  hasTruncatedFields?: boolean;
-  nodeLimitHit?: boolean;
-  nodePropertiesExpandedByDefault?: boolean;
-  setNodePropertiesExpandedByDefault?: (expandedByDefault: boolean) => void;
-  wheelZoomRequiresModKey?: boolean;
-  wheelZoomInfoMessageEnabled?: boolean;
-  disableWheelZoomInfoMessage?: () => void;
-  DetailsPaneOverride?: React.FC<DetailsPaneProps>;
-  OverviewPaneOverride?: React.FC<OverviewPaneProps>;
-  onGraphInteraction?: GraphInteractionCallBack;
-  useGeneratedDefaultColors?: boolean;
-  autocompleteRelationships: boolean;
-};
-
-export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphStyleVisualizerProps): JSX.Element {
-  let defaultStyle: any;
-
-  const [stats, setStats] = useState<GraphStats>({
-    labels: {},
-    relTypes: {},
-  });
-  const [graphStyle, setGraphStyle] = useState<GraphStyleModel>(
-    new GraphStyleModel(styleProps.useGeneratedDefaultColors)
-  );
-  const [styleVersion, setStyleVersion] = useState<number>(0);
-  const [nodes, setNode] = useState<NodeModel[]>(props.nodes);
-  const [relationships, setRelationships] = useState<RelationshipModel[]>(props.relationships);
+/**
+ * Given the provided graph data, {@link GraphVisualizer} turns the data into a graph visualization of the data.
+ *
+ * {@link GraphVisualizer} is NOT responsible for pre-calculating the graph data; instead it assumes the data has been
+ * pre-processed and passed in via {@link GraphVisualizerProps}. {@link GraphVisualizer} guarantees that it does NOT
+ * mutate the nodes and relationships passed in it
+ *
+ * @param props
+ * @param styleProps
+ * @returns
+ */
+export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
+  const nodeLimitHit: boolean = false;
   const [selectedItem, setSelectedItem] = useState<VizItem>(
-    styleProps.nodeLimitHit
+    nodeLimitHit
       ? {
           type: "status-item",
           item: `Not all return nodes are being displayed due to Initial Node Display setting. Only first ${props.nodes.length} nodes are displayed.`,
@@ -93,128 +51,67 @@ export function GraphVisualizer(props: GraphVisualizerProps, styleProps: GraphSt
         }
   );
   const [hoveredItem, setHoveredItem] = useState<VizItem>(selectedItem);
-  const [freezeLegend, setFreezeLegend] = useState<boolean>(false);
+  const [graphStyle, setGraphStyle] = useState<GraphStyleModel>(new GraphStyleModel());
+  const [nodePropertiesExpanded, setNodePropertiesExpanded] = useState<boolean>(false);
+
   const [width, setWidth] = useState<number>(defaultPanelWidth());
-  const [nodePropertiesExpanded, setNodePropertiesExpanded] = useState<boolean>(
-    styleProps.nodePropertiesExpandedByDefault
-  );
 
-  defaultStyle = graphStyle.toSheet();
+  const [stats, setStats] = useState<GraphStats>({
+    labels: {},
+    relTypes: {},
+  });
 
-  function rebasedStyle() {
-    const rebasedStyle = deepmerge(defaultStyle, styleProps.graphStyleData);
-    graphStyle.loadRules(rebasedStyle);
-  }
-
-  if (styleProps.graphStyleData) {
-    rebasedStyle();
-  }
-
-  setGraphStyle(freezeLegend ? new GraphStyleModel(styleProps.useGeneratedDefaultColors) : graphStyle);
-
-  useEffect(() => {
-    return () => {
-      mounted = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    if (styleProps.graphStyleData) {
-      rebasedStyle();
-      setGraphStyle(graphStyle);
-      setStyleVersion(styleVersion + 1);
-    } else {
-      graphStyle.resetToDefault();
-      setGraphStyle(graphStyle);
-      setFreezeLegend(true);
-
-      () => {
-        setFreezeLegend(false);
-        styleProps.updateStyle(graphStyle.toSheet());
-      };
-    }
-  }, [props, stats, graphStyle, styleVersion, selectedItem, hoveredItem, freezeLegend, width, nodePropertiesExpanded]);
-  const getNodeNeighbours: GetNodeNeighboursFn = (node, currentNeighbourIds, callback) => {
-    if (currentNeighbourIds.length > styleProps.maxNeighbours) {
-      callback({ nodes: [], relationships: [] });
-    }
-    // execute callback function in "GraphEventHandlerModel.getNodeNeighbours"
-    if (styleProps.getNeighbours) {
-      styleProps.getNeighbours(node.id, currentNeighbourIds).then(
-        ({ nodes, relationships, allNeighboursCount }) => {
-          if (allNeighboursCount > styleProps.maxNeighbours) {
-            setSelectedItem({
-              type: "status-item",
-              item: `Rendering was limited to ${styleProps.maxNeighbours} of the node's total ${allNeighboursCount} neighbours due to browser config maxNeighbours.`,
-            });
-          }
-          callback({ nodes, relationships });
-        },
-        () => {
-          callback({ nodes: [], relationships: [] });
-        }
-      );
-    }
-  };
-
-  function onItemMouseOver(item: VizItem): void {
-    setHoveredItem(item);
-  }
-
-  let mounted = true;
-
-  debounce((hoveredItem: VizItem) => {
-    if (mounted) {
-      setHoveredItem(hoveredItem);
-    }
-  }, 200);
-
-  function onItemSelect(selectedItem: VizItem): void {
-    setSelectedItem(selectedItem);
-  }
-
-  function onGraphModelChange(stats: GraphStats): void {
-    setStats(stats);
-  }
+  /**
+   * {@link getNodeNeighbours} 在 Neo4J Browser 是借用了 Functioal Programming 的手法，将用户点击“节点展开”的时候被调用，
+   * 调用的大致逻辑是向 Neo4J 数据库发送查询语句，将获取到的数据在这个函数里处理并更新图谱。因为目前我们暂时不支持展开操作，
+   * 但在将来我们需要支持我们自己的展开逻辑（但不是查询 Neo4J，而是我们的后端图谱服务），所以这个方法以一个空方法的方式保留，将来实现 -
+   * https://trello.com/c/59Ypljos
+   *
+   * @param node
+   * @param currentNeighbourIds
+   * @param callback
+   */
+  const getNodeNeighbours: GetNodeNeighboursFn = (node, currentNeighbourIds, callback) => {};
 
   return (
     <StyledFullSizeContainer id="svg-vis">
       <Graph
-        isFullscreen={styleProps.isFullscreen}
-        relationships={relationships}
-        nodes={nodes}
+        nodes={props.nodes}
+        relationships={props.relationships}
+        isFullscreen={false}
         getNodeNeighbours={getNodeNeighbours}
-        onItemMouseOver={onItemMouseOver}
-        onItemSelect={onItemSelect}
+        onItemMouseOver={(item: VizItem) => setHoveredItem(item)}
+        onItemSelect={(selectedItem: VizItem) => setSelectedItem(selectedItem)}
         graphStyle={graphStyle}
-        styleVersion={styleVersion}
-        onGraphModelChange={onGraphModelChange}
-        assignVisElement={styleProps.assignVisElement}
-        getAutoCompleteCallback={styleProps.getAutoCompleteCallback}
-        autocompleteRelationships={styleProps.autocompleteRelationships}
-        setGraph={styleProps.setGraph}
+        styleVersion={0}
+        onGraphModelChange={(stats: GraphStats) => setStats(stats)}
+        // 这个在后续的图谱 PNG 导出需要用到 - https://trello.com/c/GYbX0IEu
+        // 导出逻辑参考 Neo4J Browser CypherFrame.tsx: exportPNG = (): void => { ... }
+        assignVisElement={props.assignVisElement}
+        // 这个在后续的图谱展开需要用到 - 展开出来的新节点不光和被展开的节点有联系，和图上的其它节点也可能存在一种“推算”出来的联系，
+        // 这个方法将执行“推算”逻辑 - https://trello.com/c/KcsSIoK9
+        // Neo4J Browser VisualizationView 的 autoCompleteRelationships 也需要通过某种方式迁移过来，并放在下面的 setGraph
+        autocompleteRelationships={false}
+        getAutoCompleteCallback={(callback: (rels: RelationshipModel[], initialRun: boolean) => void) => {}}
+        setGraph={(graph: GraphModel) => {}}
         offset={(nodePropertiesExpanded ? width + 8 : 0) + 8}
-        wheelZoomRequiresModKey={styleProps.wheelZoomRequiresModKey}
-        wheelZoomInfoMessageEnabled={styleProps.wheelZoomInfoMessageEnabled}
-        disableWheelZoomInfoMessage={styleProps.disableWheelZoomInfoMessage}
-        initialZoomToFit={styleProps.initialZoomToFit}
-        onGraphInteraction={styleProps.onGraphInteraction}
+        wheelZoomRequiresModKey={true}
+        wheelZoomInfoMessageEnabled={true}
+        disableWheelZoomInfoMessage={() => {}}
+        initialZoomToFit={true}
       />
       <NodeInspectorPanel
         graphStyle={graphStyle}
-        hasTruncatedFields={styleProps.hasTruncatedFields}
+        hasTruncatedFields={false}
         hoveredItem={hoveredItem}
         selectedItem={selectedItem}
         stats={stats}
         width={width}
         setWidth={(width: number) => setWidth(Math.max(panelMinWidth, width))}
         expanded={nodePropertiesExpanded}
-        toggleExpanded={() => {
-          styleProps.setNodePropertiesExpandedByDefault(!nodePropertiesExpanded);
-          setNodePropertiesExpanded(!nodePropertiesExpanded);
-        }}
-        DetailsPaneOverride={styleProps.DetailsPaneOverride}
-        OverviewPaneOverride={styleProps.OverviewPaneOverride}
+        toggleExpanded={() => {}}
+        DetailsPaneOverride={undefined}
+        OverviewPaneOverride={undefined}
       />
     </StyledFullSizeContainer>
   );
