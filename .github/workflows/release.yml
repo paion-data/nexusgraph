@@ -47,8 +47,8 @@ jobs:
       - name: Tag for release
         run: |
           git config --global user.name 'QubitPi'
-          git config --global user.email 'jack20191124@proton.me'
-          .github/tag-for-release.bash
+          git config --global user.email 'jack20220723@gmail.com'
+          ../../../../.github/tag-for-release.bash
       - name: Set release version
         run: |
           VERSION=$(git describe)
