@@ -19,15 +19,15 @@ const resources = {
       "About (How 2)": "user friendly",
       "About (How 3)": "simple to use",
 
-      "Highlights Tag Line": "Paion Data's External Brain is a hightlyl automated Knowledge Management Tool",
+      "Highlights Tag Line": "Paion Data's nexusgraph is a hightlyl automated Knowledge Management Tool",
       "Hightlights 1 Title": "Free & Open Source",
-      "Hightlights 1 Description": "Most External Brain features are free and will always be free in the future.",
+      "Hightlights 1 Description": "Most nexusgraph features are free and will always be free in the future.",
       "Hightlights 2 Title": "Machine Learning",
       "Hightlights 2 Description":
         "We revolutionize the personal management by baking Machine Learning as our knowledge management assistant.",
       "Hightlights 3 Title": "Cloud Native",
       "Hightlights 3 Description":
-        "You can host your own External Brain instance on your own infrastructure or simply use our service online. Register today to start a new knowledge journey!",
+        "You can host your own nexusgraph instance on your own infrastructure or simply use our service online. Register today to start a new knowledge journey!",
 
       "Team Tag Line": "May you, the beauty of this world, always shine",
       "Team Member 1 Name": "Jack",
@@ -60,7 +60,7 @@ const resources = {
       "About (How 2)": "好用",
       "About (How 3)": "简洁",
 
-      "Highlights Tag Line": "External Brain 是一个通过知识图谱技术，变革个人知识管理的笔记类应用",
+      "Highlights Tag Line": "Nexus Graph 是一个通过知识图谱技术，变革个人知识管理的笔记类应用",
       "Hightlights 1 Title": "免费 & 开源",
       "Hightlights 1 Description":
         "我们的笔记管理功能完全开源免费，让您在拥有了类似有道云笔记的功能之外，用全新的知识图谱方法去管理您的个人知识库",
@@ -68,7 +68,7 @@ const resources = {
       "Hightlights 2 Description":
         "和国外已有的 Roam Research 和 Obsidian 应用不同的是，我们的付费功能（以及后续的应用商店）帮助您节省数小时以上的知识获取，在这个要求高效率获取知识的时代，让您的知识管理变得无比智能和高效",
       "Hightlights 3 Title": "Cloud Native",
-      "Hightlights 3 Description": "您也可以选择部署您自己的 External Brain 服务器，进行任意的定制化开发",
+      "Hightlights 3 Description": "您也可以选择部署您自己的 Nexus Graph 服务器，进行任意的定制化开发",
 
       "Team Tag Line": "为世间所有的美好而努力",
       "Team Member 1 Name": "Jack",

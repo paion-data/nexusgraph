@@ -3562,24 +3562,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paiondata/messier-61-app@workspace:packages/messier-61-app":
+"@paiondata/nexusgraph-app@workspace:packages/nexusgraph-app":
   version: 0.0.0-use.local
-  resolution: "@paiondata/messier-61-app@workspace:packages/messier-61-app"
+  resolution: "@paiondata/nexusgraph-app@workspace:packages/nexusgraph-app"
   languageName: unknown
   linkType: soft
 
-"@paiondata/messier-61-editor@workspace:packages/messier-61-editor":
+"@paiondata/nexusgraph-editor@workspace:packages/nexusgraph-editor":
   version: 0.0.0-use.local
-  resolution: "@paiondata/messier-61-editor@workspace:packages/messier-61-editor"
+  resolution: "@paiondata/nexusgraph-editor@workspace:packages/nexusgraph-editor"
   dependencies:
     "@lexical/react": ^0.8.1
     lexical: ^0.8.1
   languageName: unknown
   linkType: soft
 
-"@paiondata/messier-61-graph@workspace:packages/messier-61-graph":
+"@paiondata/nexusgraph-graph@workspace:packages/nexusgraph-graph":
   version: 0.0.0-use.local
-  resolution: "@paiondata/messier-61-graph@workspace:packages/messier-61-graph"
+  resolution: "@paiondata/nexusgraph-graph@workspace:packages/nexusgraph-graph"
   dependencies:
     "@heroicons/react": ^2.0.17
     "@juggle/resize-observer": ^3.4.0
@@ -3595,9 +3595,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@paiondata/messier-61-landing-page@workspace:packages/messier-61-landing-page":
+"@paiondata/nexusgraph-landing-page@workspace:packages/nexusgraph-landing-page":
   version: 0.0.0-use.local
-  resolution: "@paiondata/messier-61-landing-page@workspace:packages/messier-61-landing-page"
+  resolution: "@paiondata/nexusgraph-landing-page@workspace:packages/nexusgraph-landing-page"
   dependencies:
     "@testing-library/jest-dom": ^4.2.4
     "@testing-library/react": ^9.3.2
@@ -3615,15 +3615,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@paiondata/messier-61-nlp@workspace:packages/messier-61-nlp":
+"@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp":
   version: 0.0.0-use.local
-  resolution: "@paiondata/messier-61-nlp@workspace:packages/messier-61-nlp"
+  resolution: "@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp"
   languageName: unknown
   linkType: soft
 
-"@paiondata/messier-61@workspace:.":
+"@paiondata/nexusgraph@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@paiondata/messier-61@workspace:."
+  resolution: "@paiondata/nexusgraph@workspace:."
   dependencies:
     "@babel/cli": ^7.21.0
     "@babel/core": ^7.21.0

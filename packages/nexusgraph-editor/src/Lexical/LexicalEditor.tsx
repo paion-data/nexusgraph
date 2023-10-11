@@ -10,7 +10,7 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 
-import OnChangePlugin from "./plugins/Messier61OnChangePlugin";
+import OnChangePlugin from "./plugins/NexusgraphOnChangePlugin";
 
 import styles from "./LexicalEditor.module.css";
 

@@ -1,10 +1,10 @@
 {
-  "name": "@paiondata/messier-61",
+  "name": "@paiondata/nexusgraph",
   "workspaces": [
-    "./packages/messier-61-app",
-    "./packages/messier-61-editor",
-    "./packages/messier-61-graph",
-    "./packages/messier-61-nlp"
+    "./packages/nexusgraph-app",
+    "./packages/nexusgraph-editor",
+    "./packages/nexusgraph-graph",
+    "./packages/nexusgraph-nlp"
   ],
   "version": "0.1.0",
   "engines": {
@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paion-data/Messier-61.git"
+    "url": "git+https://github.com/paion-data/nexusgraph.git"
   },
   "author": "Paion Data Development Team",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/paion-data/Messier-61/issues"
+    "url": "https://github.com/paion-data/nexusgraph/issues"
   },
-  "homepage": "https://github.com/paion-data/Messier-61#readme",
+  "homepage": "https://github.com/paion-data/nexusgraph#readme",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "react": "^18.2.0",

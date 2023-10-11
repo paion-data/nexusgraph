@@ -44,9 +44,9 @@ resource "aws_instance" "nexusgraph-landing-page" {
   ami = "${data.aws_ami.latest-nexusgraph-landing-page.id}"
   instance_type = "t2.micro"
   tags = {
-    Name = "Nexus Graph Landing Page"
+    Name = "Paion Data nexusgraph Landing Page"
   }
-  security_groups = ["nexusgraph Landing Page"]
+  security_groups = ["Paion Data nexusgraph Landing Page"]
 
   user_data = <<-EOF
     #!/bin/bash

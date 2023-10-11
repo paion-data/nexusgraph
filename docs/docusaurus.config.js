@@ -12,14 +12,14 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Messier-61",
+  title: "Nexus Graph",
   tagline: "A Machine-Learning-Backed Knowledge Management Tool",
   favicon: "img/favicon.ico",
 
-  url: "https://QubitPi.github.io/",
-  baseUrl: "/Messier-61",
-  organizationName: "QubitPi",
-  projectName: "Messier-61",
+  url: "https://paion-data.github.io/",
+  baseUrl: "/nexusgraph",
+  organizationName: "paion-data",
+  projectName: "nexusgraph",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -67,9 +67,9 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "Messier-61",
+        title: "nexusgraph",
         logo: {
-          alt: "Messier-61 Logo",
+          alt: "nexusgraph Logo",
           src: "img/logo.svg",
         },
         items: [
@@ -80,12 +80,12 @@ const config = {
             label: "Documentations",
           },
           {
-            href: "https://QubitPi.github.io/Messier-61/api",
+            href: "https://paion-data.github.io/nexusgraph/api",
             label: "API",
             position: "left",
           },
           {
-            href: "https://github.com/QubitPi/Messier-61",
+            href: "https://github.com/paion-data/nexusgraph",
             label: "GitHub",
             position: "right",
           },
@@ -108,7 +108,7 @@ const config = {
             items: [
               {
                 label: "GitHub",
-                href: "https://github.com/QubitPi/Messier-61",
+                href: "https://github.com/paion-data/nexusgraph",
               },
             ],
           },

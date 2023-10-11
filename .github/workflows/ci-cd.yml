@@ -1,6 +1,6 @@
 # Copyright 2023 Paion Data. All rights reserved.
 ---
-name: Messier-61 CI/CD
+name: Nexus Graph CI/CD
 
 "on":
   workflow_call:
@@ -55,7 +55,7 @@ jobs:
         run: |
           yarn install
           cd docs && yarn install && cd ../
-          cd packages/messier-61-landing-page && yarn install && cd ../../
+          cd packages/nexusgraph-landing-page && yarn install && cd ../../
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
       - name: Code style check
@@ -113,7 +113,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install Messier-61 dependencies so that TypeDoc process source files properly
+      - name: Install nexusgraph dependencies so that TypeDoc process source files properly
         run: cd ../ && yarn install
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false # https://stackoverflow.com/a/67740771
@@ -132,7 +132,7 @@ jobs:
           user_email: ${{ env.EMAIL }}
 
   hashicorp:
-    name: Publish Messier-61 AMI image and Deploy It to EC2 through HashiCorp
+    name: Publish nexusgraph AMI image and Deploy It to EC2 through HashiCorp
     needs: test
     runs-on: ubuntu-latest
     defaults:
@@ -150,7 +150,7 @@ jobs:
         run: |
           echo '${{ secrets.SSL_CERTIFICATE_LANDING_PAGE }}' > server-landing-page.crt
           echo '${{ secrets.SSL_CERTIFICATE_KEY_LANDING_PAGE }}' > server-landing-page.key
-      - name: Publish Messier-61 AMI image and deploy it to EC2 through HashiCorp
+      - name: Publish nexusgraph AMI image and deploy it to EC2 through HashiCorp
         uses: QubitPi/hashicorp-aws@master
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}

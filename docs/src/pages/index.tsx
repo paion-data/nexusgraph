@@ -19,7 +19,7 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/docs/intro">
-            Start Building Your Own "External Brain"
+            Start Building Your Own "Nexus Graph"
           </Link>
         </div>
       </div>

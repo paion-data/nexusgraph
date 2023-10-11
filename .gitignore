@@ -24,12 +24,12 @@ yarn-error.log*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-./packages/messier-61-app/.yarn
-./packages/messier-61-editor/.yarn
-./packages/messier-61-graph/.yarn
-./packages/messier-61-graphql-server/.yarn
-./packages/messier-61-landing-page/.yarn
-./packages/messier-61-nlp/.yarn
+./packages/nexusgraph-app/.yarn
+./packages/nexusgraph-editor/.yarn
+./packages/nexusgraph-graph/.yarn
+./packages/nexusgraph-graphql-server/.yarn
+./packages/nexusgraph-landing-page/.yarn
+./packages/nexusgraph-nlp/.yarn
 
 docs/.yarn/
-packages/messier-61-landing-page/.yarn/
+packages/nexusgraph-landing-page/.yarn/

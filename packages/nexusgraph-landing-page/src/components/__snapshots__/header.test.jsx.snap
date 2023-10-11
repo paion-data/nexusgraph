@@ -20,7 +20,7 @@ exports[`header part renders correctly 1`] = `
             className="col-md-8 col-md-offset-2 intro-text"
           >
             <h1>
-              External Brain
+              Nexus Graph
               <span />
             </h1>
             <p>

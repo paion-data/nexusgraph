@@ -5,13 +5,13 @@ title: GraphQL Server
 
 Get a knowledge graph data API throught GraphQL quickly.
 
-Although loving to learn GraphQL, every developer and everyone who simply wants to explore Messier-61 quickly don't want
+Although loving to learn GraphQL, every developer and everyone who simply wants to explore nexusgraph quickly don't want
 to first read a book about GraphQL Types and Queries, then install a gazillion npm packages.
 
-messier-61-graphql-server allow us to start playing with some graph data exposed via GraphQL right away. All it takes is
+nexusgraph-graphql-server allow us to start playing with some graph data exposed via GraphQL right away. All it takes is
 a JSON of our data.
 
-messier-61-graphql-server is backed by [json-graphql-server][json-graphql-server]
+nexusgraph-graphql-server is backed by [json-graphql-server][json-graphql-server]
 
 Follow the guide below starting from scratch.
 
@@ -66,10 +66,10 @@ be lists of entities, i.e. arrays of value objects with at least an `id` key. Fo
 
 ### Start the GraphQL Server
 
-Navigate into messier-61-graphql-server package
+Navigate into nexusgraph-graphql-server package
 
 ```bash
-cd Messier-61/packages/messier-61-graphql-server
+cd nexusgraph/packages/nexusgraph-graphql-server
 ```
 
 and start the GraphQL server on localhost, port 3000:
