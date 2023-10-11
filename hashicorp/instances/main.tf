@@ -38,7 +38,7 @@ resource "aws_instance" "paion-data-messier-61-instance" {
   ami = "${data.aws_ami.latest-paion-data-messier-61.id}"
   instance_type = "t2.micro"
   tags = {
-    Name = "Messier-61"
+    Name = "Paion Data Messier-61"
   }
 
   user_data = <<-EOF
