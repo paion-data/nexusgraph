@@ -14,7 +14,7 @@ export default function GraphBrowser(): JSX.Element {
   return (
     <Visualization
       assignVisElement={(svgElement: any, graphElement: any) => {
-        setVisElement({ svgElement, graphElement, type: "plan" });
+        setVisElement({ svgElement, graphElement, type: "graph" });
         setHasVis(true);
       }}
     />
