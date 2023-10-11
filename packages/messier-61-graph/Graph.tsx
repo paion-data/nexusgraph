@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import React from "react";
-import { ConfigurableD3Graph } from "./D3Graph";
+import { D3Graph } from "./D3Graph";
 import type { GraphConfig } from "./GraphConfig";
 
 /**
@@ -25,5 +25,5 @@ import type { GraphConfig } from "./GraphConfig";
  * @returns A D3 visualization of network graph
  */
 export default function Graph(graphConfig: GraphConfig): JSX.Element {
-  return <ConfigurableD3Graph graphData={graphConfig.graphData} canvasConfig={graphConfig.canvasConfig} />;
+  return <D3Graph graphData={graphConfig.graphData} canvasConfig={graphConfig.canvasConfig} />;
 }
