@@ -3,7 +3,7 @@ variable "aws_deploy_region" {
   description = "The EC2 region"
 }
 
-variable "zone_id" {
+variable "app_nexusgraph_com_zone_id" {
   type = string
   description = "Hosted zone ID on Route 53"
   sensitive = true
@@ -23,13 +23,13 @@ provider "aws" {
   region = var.aws_deploy_region
 }
 
-data "aws_ami" "latest-nexusgraph-app" {
+data "aws_ami" "latest-app-nexusgraph-com" {
   most_recent = true
   owners = ["899075777617"]
 
   filter {
     name   = "name"
-    values = ["nexusgraph-app"]
+    values = ["app-nexusgraph-com"]
   }
 
   filter {
@@ -38,9 +38,9 @@ data "aws_ami" "latest-nexusgraph-app" {
   }
 }
 
-resource "aws_instance" "nexusgraph-app" {
-  ami = "${data.aws_ami.latest-nexusgraph-app.id}"
-  instance_type = "t2.micro"
+resource "aws_instance" "app-nexusgraph-com" {
+  ami = "${data.aws_ami.latest-app-nexusgraph-com.id}"
+  instance_type = "t2.large"
   tags = {
     Name = "Paion Data nexusgraph App"
   }
@@ -54,11 +54,11 @@ resource "aws_instance" "nexusgraph-app" {
   EOF
 }
 
-resource "aws_route53_record" "app-nexusgraph" {
-  zone_id         = var.zone_id
+resource "aws_route53_record" "app-nexusgraph-com" {
+  zone_id         = var.app_nexusgraph_com_zone_id
   name            = "app.nexusgraph.com"
   type            = "A"
   ttl             = 300
-  records         = [aws_instance.nexusgraph-app.public_ip]
+  records         = [aws_instance.app-nexusgraph-com.public_ip]
   allow_overwrite = true
 }
