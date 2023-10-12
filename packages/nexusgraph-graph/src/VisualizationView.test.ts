@@ -31,7 +31,7 @@ it("Converts the common JSON links type to basic relationships", () => {
   const initialLinks = [
     {
       fields: {
-        label: "country",
+        type: "country",
       },
       source: "China",
       target: "Asia",

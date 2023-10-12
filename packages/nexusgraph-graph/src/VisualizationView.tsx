@@ -12,6 +12,8 @@ export interface VisualizationProps {
   assignVisElement: (svgElement: any, graphElement: any) => void;
 }
 
+const LINK_TYPE = "type";
+
 /**
  * {@link Visualization} is responsible for computing and passing the graph data to the components that draws the gaph,
  * i.e. {@link GraphVisualizer}
@@ -80,11 +82,11 @@ export const transformBasicRelationships = (links: any[]): BasicRelationship[] =
     links.forEach((link: any) => {
       if (link["fields"]) {
         const newLink = {
-          id: link["fields"]["label"] ? link["fields"]["label"] : `${link["source"]}To${link["target"]} `,
+          id: link["fields"][LINK_TYPE] ? link["fields"][LINK_TYPE] : `${link["source"]}To${link["target"]} `,
           startNodeId: link["source"],
           endNodeId: link["target"],
-          type: link["fields"]["label"] ? link["fields"]["label"] : ALL_REL_TYPE_SETS,
-          properties: { name: link["fields"]["label"] ? link["fields"]["label"] : ALL_REL_TYPE_SETS },
+          type: link["fields"][LINK_TYPE] ? link["fields"][LINK_TYPE] : ALL_REL_TYPE_SETS,
+          properties: { name: link["fields"][LINK_TYPE] ? link["fields"][LINK_TYPE] : ALL_REL_TYPE_SETS },
           propertyTypes: { name: "string" },
         };
         links.splice(links.indexOf(link), 1, newLink);

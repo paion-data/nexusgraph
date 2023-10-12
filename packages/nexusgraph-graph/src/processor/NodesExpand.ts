@@ -6,6 +6,7 @@ import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "../GraphStats";
 import { NodeModel } from "../models/Node";
 
 const NODE_EXPAND_PATH_PARAM = "expand/";
+const LINK_TYPE = "type";
 
 export class NodesExpandProcessor {
   extractionNeighbours(selectNode: NodeModel): Promise<BasicNodesAndRels> {
@@ -59,7 +60,7 @@ export class NodesExpandProcessor {
         id: `${link["source"]}To${link["target"]} `,
         startNodeId: link["source"],
         endNodeId: link["target"],
-        type: link["fields"] && link["fields"]["label"] ? link["fields"]["label"] : ALL_REL_TYPE_SETS,
+        type: link["fields"] && link["fields"][LINK_TYPE] ? link["fields"][LINK_TYPE] : ALL_REL_TYPE_SETS,
         properties: {},
         propertyTypes: {},
       };
