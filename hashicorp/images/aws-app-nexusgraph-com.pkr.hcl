@@ -44,7 +44,7 @@ source "amazon-ebs" "app-nexusgraph-com" {
 
   ami_groups = ["all"]
 
-  instance_type = "t2.micro"
+  instance_type = "t2.large"
   region = "${var.aws_image_region}"
   source_ami_filter {
     filters = {

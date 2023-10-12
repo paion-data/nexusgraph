@@ -40,7 +40,7 @@ data "aws_ami" "latest-app-nexusgraph-com" {
 
 resource "aws_instance" "app-nexusgraph-com" {
   ami = "${data.aws_ami.latest-app-nexusgraph-com.id}"
-  instance_type = "t2.micro"
+  instance_type = "t2.large"
   tags = {
     Name = "Paion Data nexusgraph App"
   }
