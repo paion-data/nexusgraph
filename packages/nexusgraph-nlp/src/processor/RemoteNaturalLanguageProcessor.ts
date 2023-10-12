@@ -3,8 +3,8 @@ import axios from "axios";
 import { injectable } from "inversify";
 import "reflect-metadata";
 import { Graph } from "../../../nexusgraph-redux";
-import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 import TextareaContentParser from "../parser/TextareaContentParser";
+import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
 
 const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction";
 
@@ -52,7 +52,7 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
         accept: "*/*",
       },
     };
-    
+
     return await instanceAxios.post(ENTITY_EXTRACTION_PATH_PARAM, { text: textLines }, config);
   };
 }
