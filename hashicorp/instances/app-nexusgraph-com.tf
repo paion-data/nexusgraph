@@ -55,7 +55,7 @@ resource "aws_instance" "app-nexusgraph-com" {
 }
 
 resource "aws_route53_record" "app-nexusgraph-com" {
-  zone_id         = var.zone_id
+  zone_id         = var.app_nexusgraph_com_zone_id
   name            = "app.nexusgraph.com"
   type            = "A"
   ttl             = 300
