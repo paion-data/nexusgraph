@@ -12,7 +12,7 @@ export interface VisualizationProps {
   assignVisElement: (svgElement: any, graphElement: any) => void;
 }
 
-const LINK_TYPE = "type";
+const DISPLAYED_FIELD = "type";
 
 /**
  * {@link Visualization} is responsible for computing and passing the graph data to the components that draws the gaph,
@@ -82,11 +82,13 @@ export const transformBasicRelationships = (links: any[]): BasicRelationship[] =
     links.forEach((link: any) => {
       if (link["fields"]) {
         const newLink = {
-          id: link["fields"][LINK_TYPE] ? link["fields"][LINK_TYPE] : `${link["source"]}To${link["target"]} `,
+          id: link["fields"][DISPLAYED_FIELD]
+            ? link["fields"][DISPLAYED_FIELD]
+            : `${link["source"]}To${link["target"]} `,
           startNodeId: link["source"],
           endNodeId: link["target"],
-          type: link["fields"][LINK_TYPE] ? link["fields"][LINK_TYPE] : ALL_REL_TYPE_SETS,
-          properties: { name: link["fields"][LINK_TYPE] ? link["fields"][LINK_TYPE] : ALL_REL_TYPE_SETS },
+          type: link["fields"][DISPLAYED_FIELD] ? link["fields"][DISPLAYED_FIELD] : ALL_REL_TYPE_SETS,
+          properties: { name: link["fields"][DISPLAYED_FIELD] ? link["fields"][DISPLAYED_FIELD] : ALL_REL_TYPE_SETS },
           propertyTypes: { name: "string" },
         };
         links.splice(links.indexOf(link), 1, newLink);
