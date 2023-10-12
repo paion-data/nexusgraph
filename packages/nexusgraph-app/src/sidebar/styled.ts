@@ -39,6 +39,12 @@ export const FeatureButton = styled.button`
   cursor: pointer;
   word-wrap: break-word;
   font-size: 20px;
+
+  & p {
+    position: absolute;
+    top: 15px;
+    left: 85px;
+  }
 `;
 
 export const IntelligentAITextarea = styled.div`
@@ -53,9 +59,9 @@ export const IntelligentAITextarea = styled.div`
     border-style: solid;
     border-width: 1px;
     border-color: #000;
-    margin: 5%;
+    margin: 2% 4% 4% 4%;
     width: 90%;
-    height: 60%;
+    height: 65%;
     font-size: 20px;
     padding: 1%;
   }
@@ -99,8 +105,10 @@ export const StyledModal = styled(Modal)`
 
 export const StyledModalContent = styled.div`
   position: absolute;
-  right: 25%;
-  top: 25%;
+  left: 50%;
+  margin-left: -600px;
+  top: 50%;
+  margin-top: -350px;
   z-index: 999;
   border-radius: 1rem;
   border: none;
