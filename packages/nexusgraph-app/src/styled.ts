@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const AppWrapper = styled.div`
-  position: flex;
+  position: relative;
   width: 100vw;
   height: 100vh;
   background: linear-gradient(#f7b5ce, #94ddca);
@@ -14,7 +14,7 @@ export const AppHeader = styled.div`
   order: 1;
   display: flex;
   flex-direction: row;
-  height: 100px;
+  height: 130px;
   padding: 1.5% 1.5% 0% 1.5%;
 `;
 

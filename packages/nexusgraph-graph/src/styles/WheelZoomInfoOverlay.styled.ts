@@ -63,7 +63,7 @@ export const StyledSvgWrapper = styled.div`
     path {
       &.context-menu-item {
         stroke-width: 2px;
-        fill: ${(props: { theme: { primaryBackground: any } }) => props.theme.primaryBackground};
+        fill: rgba(256, 256, 256, 0.5);
       }
     }
     text {
@@ -78,7 +78,7 @@ export const StyledSvgWrapper = styled.div`
     .context-menu-item {
       cursor: pointer;
       &:hover {
-        fill: #b9b9b9;
+        fill: rgba(256, 256, 256, 0.2);
         font-size: 14px;
       }
     }
