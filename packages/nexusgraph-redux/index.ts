@@ -1,6 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 export type { GlobalState } from "./src/globalState";
+export * from "./src/intelligentAI/intelligentAIDuck";
 export * from "./src/nlp/nlpDuck";
+export * from "./src/note-list/noteListDuck";
 export * from "./src/note/noteDuck";
 export * from "./src/oAuth/oAuthDuck";
 export { default as ReduxStoreProvider } from "./src/ReduxStoreProvider";

@@ -21,7 +21,7 @@ export const TitleWapper = styled.div<{
     top: 0px;
     background: transparent;
     width: 50px;
-    height: 30px;
+    height: 50px;
     border: none;
     color: #fff;
   }
