@@ -8,6 +8,6 @@ declare namespace Cypress {
      */
     login({ username, password }: Record<string, string>): Chainable<void>;
     initialConfig(): Chainable<void>;
-    setBrowserLanguage(language: string, languages: string[], accept_languages: string[]): Chainable<void>;
+    setBrowserLanguage(language: string, languages: string[], acceptLanguages: string[]): Chainable<void>;
   }
 }
