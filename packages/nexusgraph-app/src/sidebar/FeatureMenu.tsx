@@ -1,6 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { t } from "../../../nexusgraph-i18n";
 import { getIntelligentAIContent } from "../../../nexusgraph-redux";
 import { FeatureButton, IntelligentAITextarea } from "./styled";
 
@@ -11,7 +12,7 @@ export function FeatureMenu({ onClose }: { onClose: () => void }): JSX.Element {
     <>
       {!mode && (
         <FeatureButton onClick={() => setMode("intelligentAI")}>
-          <p>智能AI</p>
+          <p>{t("nlpButton")}</p>
         </FeatureButton>
       )}
       {mode === "intelligentAI" && <IntelligentAIDialogBody onClose={onClose}></IntelligentAIDialogBody>}
