@@ -73,7 +73,7 @@ export const Sidebar = styled.div`
   border-radius: 1rem;
 `;
 
-export const Spinner = styled.div`
+export const StyledSpinner = styled.div`
   position: absolute;
   left: 50%;
   margin-left: -60px;
