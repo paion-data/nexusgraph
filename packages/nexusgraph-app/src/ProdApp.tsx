@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { Callback } from "../../nexusgraph-oauth";
 import { updateOAuthState } from "../../nexusgraph-redux";
 import App from "./App";
+import Loadingpage from "./loadingpage";
 
 /**
  * The {@link ProdApp} involves OAuth2 authentication and authorization.
@@ -44,7 +45,8 @@ export default function ProdApp(): JSX.Element {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/home" element={<App />} />
+        <Route path="/" element={<Loadingpage />} />
         <Route path="/login" element={<Callback />} />
       </Routes>
     </Router>

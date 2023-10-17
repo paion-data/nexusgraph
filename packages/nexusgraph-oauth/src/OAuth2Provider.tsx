@@ -28,7 +28,7 @@ export const Callback = () => {
   const navigate = useNavigate();
 
   const { isLoading } = useHandleSignInCallback(() => {
-    navigate("/");
+    navigate("/home");
   });
 
   if (isLoading) {
