@@ -72,3 +72,29 @@ export const Sidebar = styled.div`
   backdrop-filter: blur(8px);
   border-radius: 1rem;
 `;
+
+export const StyledSpinner = styled.div`
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  top: 50%;
+  margin-top: -60px;
+  border: 16px solid pink;
+  border-top: 16px deeppink solid;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+
+  border-color: transparent #ffbfcb #ffbfcb;
+  animation: spin 2s linear infinite;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
