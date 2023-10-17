@@ -39,13 +39,7 @@ export default function ProdApp(): JSX.Element {
   }, [JSON.stringify(prodOAuthState)]);
 
   if (isAuthenticated) {
-    return (
-      <Router>
-        <Routes>
-          <Route path="/" element={<App />} />
-        </Routes>
-      </Router>
-    );
+    return <App />;
   }
 
   if (!isAuthenticated && !isLoading) {
