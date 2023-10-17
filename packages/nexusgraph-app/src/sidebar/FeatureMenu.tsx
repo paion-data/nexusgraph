@@ -7,12 +7,13 @@ import { FeatureButton, IntelligentAITextarea } from "./styled";
 
 export function FeatureMenu({ onClose }: { onClose: () => void }): JSX.Element {
   const [mode, setMode] = useState<null | "intelligentAI">(null);
+  const buttonLable = t("nlpButton");
 
   return (
     <>
       {!mode && (
         <FeatureButton onClick={() => setMode("intelligentAI")}>
-          <p>{t("nlpButton")}</p>
+          <p>{buttonLable}</p>
         </FeatureButton>
       )}
       {mode === "intelligentAI" && <IntelligentAIDialogBody onClose={onClose}></IntelligentAIDialogBody>}
