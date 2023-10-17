@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { Callback } from "../../nexusgraph-oauth";
 import { updateOAuthState } from "../../nexusgraph-redux";
 import App from "./App";
-import Loadingpage from "./loadingpage";
+import Loadingpage from "./Loadingpage";
 
 /**
  * The {@link ProdApp} involves OAuth2 authentication and authorization.
