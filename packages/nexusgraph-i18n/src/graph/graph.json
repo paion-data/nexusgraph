@@ -1,6 +1,8 @@
 {
   "en": {
     "overview": "Overview",
+    "graphInitialTitle": "Untitled Note",
+    "nlpButton": "Intelligent AI",
     "nodeLabel": "Node labels",
     "relationshipType": "Relationship types",
     "warningMessage": "Record fields have been truncated.",
@@ -13,6 +15,8 @@
   },
   "zh": {
     "overview": "概述",
+    "graphInitialTitle": "无标题笔记",
+    "nlpButton": "智能AI",
     "nodeLabel": "节点类型",
     "relationshipType": "关系类型",
     "warningMessage": "记录字段已被截断。",

@@ -1,6 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useSelector } from "react-redux";
 import { Graph } from "../..";
+import { t } from "../../../nexusgraph-i18n";
 import { GlobalState } from "../globalState";
 
 export const NOTE_STATE = "note";
@@ -54,8 +55,19 @@ export const initialNoteState: NoteState = {
   graph: initialGraph,
 };
 
+function shouldDisplayInitialTitle(title: string): boolean {
+  return title == initialNoteState.title;
+}
+
 export function selectNote() {
-  return useSelector((state: GlobalState) => state.note);
+  const initialTitle = t("graphInitialTitle");
+  return useSelector((state: GlobalState) => {
+    if (shouldDisplayInitialTitle(state.note.title)) {
+      state.note.title = initialTitle;
+      return state.note;
+    }
+    return state.note;
+  });
 }
 
 export default function noteReducer(state = initialNoteState, action: NoteAction): NoteState {

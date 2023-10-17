@@ -28,3 +28,17 @@ Cypress.Commands.add("initialConfig", () => {
   cy.wait("@astraiosGraphqlRequest");
   cy.get(".editor-paragraph").clear();
 });
+
+Cypress.Commands.add("setBrowserLanguage", (language, languages, acceptLanguages) => {
+  if (Cypress.env("nodeEnv") == "production") {
+    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
+  } else {
+    cy.visit("http://localhost:3000/", {
+      onBeforeLoad(win) {
+        Object.defineProperty(win.navigator, "language", { value: language });
+        Object.defineProperty(win.navigator, "languages", { value: languages });
+        Object.defineProperty(win.navigator, "accept_languages", { value: acceptLanguages });
+      },
+    });
+  }
+});
