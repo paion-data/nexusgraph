@@ -55,10 +55,14 @@ export const initialNoteState: NoteState = {
   graph: initialGraph,
 };
 
+function shouldDisplayInitialTitle(title: string): boolean {
+  return title == initialNoteState.title;
+}
+
 export function selectNote() {
   const initialTitle = t("graphInitialTitle");
   return useSelector((state: GlobalState) => {
-    if (state.note.title == initialNoteState.title) {
+    if (shouldDisplayInitialTitle(state.note.title)) {
       state.note.title = initialTitle;
       return state.note;
     }
