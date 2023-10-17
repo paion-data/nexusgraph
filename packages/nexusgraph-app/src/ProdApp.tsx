@@ -38,6 +38,10 @@ export default function ProdApp(): JSX.Element {
     });
   }, [JSON.stringify(prodOAuthState)]);
 
+  if (isAuthenticated) {
+    return <App />;
+  }
+
   if (!isAuthenticated && !isLoading) {
     signIn(process.env.LOGTO_SIGN_IN_CALLBACK_URL as string);
   }
