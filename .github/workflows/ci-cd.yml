@@ -182,7 +182,7 @@ jobs:
         working-directory: hashicorp/instances
 
       - name: Publish all nexusgraph AMI images and deploy them to EC2 through HashiCorp
-        uses: QubitPi/aergia@master
+        uses: paion-data/github-actions-workflows@master
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
