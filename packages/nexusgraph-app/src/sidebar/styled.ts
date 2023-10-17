@@ -20,6 +20,12 @@ export const CreateButtonStyled = styled.button`
     stroke-width: 1px;
     stroke: #f9bfd5;
   }
+
+  &:hover {
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgba(245, 95, 145, 0.45);
+  }
 `;
 
 export const FeatureButton = styled.button`
@@ -27,7 +33,6 @@ export const FeatureButton = styled.button`
   width: 20%;
   height: 30%;
   margin: 5%;
-  background: rgba(256, 256, 256, 0.5);
   background-image: url(${nlp});
   background-size: 100% 100%;
   line-height: 1px;
@@ -39,6 +44,9 @@ export const FeatureButton = styled.button`
   cursor: pointer;
   word-wrap: break-word;
   font-size: 20px;
+  &:hover {
+    border-color: rgba(245, 95, 145);
+  }
 
   & p {
     position: absolute;
@@ -76,7 +84,7 @@ export const IntelligentAITextarea = styled.div`
     margin: 0% 25%;
     width: 50%;
     height: 10%;
-    background: #f7b5ce;
+    background: #fa87b3;
     border: none;
     border-radius: 2rem;
     color: #fff;
@@ -84,6 +92,9 @@ export const IntelligentAITextarea = styled.div`
     cursor: pointer;
     word-wrap: break-word;
     font-size: 20px;
+    &:hover {
+      background: #f55f91;
+    }
   }
 `;
 
