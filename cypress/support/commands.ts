@@ -1,12 +1,12 @@
 // Copyright 2023 Paion Data. All rights reserved.
-Cypress.Commands.add("login", ({ username, password }) => {
+Cypress.Commands.add("login", ({ userEmail, password }) => {
   cy.origin(
     Cypress.env("logtoEndpointUrl").concat("/sign-in"),
-    { args: { username, password } },
-    ({ username, password }) => {
-      cy.visit("http://localhost:3000/", { failOnStatusCode: false });
+    { args: { userEmail, password } },
+    ({ userEmail, password }) => {
+      cy.visit("http://localhost:3000", { failOnStatusCode: false });
 
-      cy.get('input[name="identifier"]').type(username);
+      cy.get('input[name="identifier"]').type(userEmail);
       cy.get('button[type="submit"]').click();
       cy.get('input[name="password"]').type(password);
       cy.get('button[type="submit"]').click();
@@ -30,15 +30,11 @@ Cypress.Commands.add("initialConfig", () => {
 });
 
 Cypress.Commands.add("setBrowserLanguage", (language, languages, acceptLanguages) => {
-  if (Cypress.env("nodeEnv") == "production") {
-    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
-  } else {
-    cy.visit("http://localhost:3000/", {
-      onBeforeLoad(win) {
-        Object.defineProperty(win.navigator, "language", { value: language });
-        Object.defineProperty(win.navigator, "languages", { value: languages });
-        Object.defineProperty(win.navigator, "accept_languages", { value: acceptLanguages });
-      },
-    });
-  }
+  cy.visit("http://localhost:3000/home", {
+    onBeforeLoad(win) {
+      Object.defineProperty(win.navigator, "language", { value: language });
+      Object.defineProperty(win.navigator, "languages", { value: languages });
+      Object.defineProperty(win.navigator, "accept_languages", { value: acceptLanguages });
+    },
+  });
 });

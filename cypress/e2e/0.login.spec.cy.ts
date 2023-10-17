@@ -1,10 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 it("Login App", () => {
-  if (Cypress.env("nodeEnv") == "production") {
-    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") });
-  }
-
-  cy.request("http://localhost:3000").then((resp) => {
-    expect(resp.status).to.eq(200);
+  cy.login({ userEmail: Cypress.env("userEmail"), password: Cypress.env("password") }).then(() => {
+    cy.request("http://localhost:3000/home").then((resp) => {
+      expect(resp.status).to.eq(200);
+    });
   });
 });

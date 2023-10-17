@@ -33,7 +33,7 @@ describe("App renders in different mode based on the running environment", () =>
   test("When NODE_ENV is set to 'development', app renders in a dev mode", () => {
     process.env = {
       ...originalEnv,
-      NODE_ENV: "development",
+      SKIP_SIGN_IN: "true",
     };
 
     render(<AppInit />);
@@ -45,7 +45,7 @@ describe("App renders in different mode based on the running environment", () =>
   test("When NODE_ENV is set to 'production', app renders in a production mode", () => {
     process.env = {
       ...originalEnv,
-      NODE_ENV: "production",
+      SKIP_SIGN_IN: "false",
     };
 
     render(<AppInit />);
@@ -53,19 +53,5 @@ describe("App renders in different mode based on the running environment", () =>
     expect(MockedOAuth2Provider).toBeCalled();
     expect(MockedProdApp).toBeCalled();
     expect(MockedDevApp).not.toBeCalled();
-  });
-
-  test("When required NODE_ENV is not set, error throws", () => {
-    process.env = {
-      ...originalEnv,
-      NODE_ENV: undefined,
-    };
-
-    const originalError = console.error; // eslint-disable-line no-console
-    console.error = jest.fn(); // eslint-disable-line no-console
-
-    expect(() => render(<AppInit />)).toThrow(Error);
-
-    console.error = originalError; // eslint-disable-line no-console
   });
 });
