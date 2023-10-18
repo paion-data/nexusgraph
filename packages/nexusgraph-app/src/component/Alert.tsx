@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useSpring } from "react-spring";
 import { t } from "../../../nexusgraph-i18n";
-import { AlertCloseButton, AlertContent, AlertFooter, StyledAlert } from "./styled";
+import { AlertCloseButton, AlertContent, AlertFooter, StyledAlert } from "../sidebar/styled";
 
 export default function Alert() {
   const [active, setActive] = useState(true);
@@ -28,7 +28,7 @@ export default function Alert() {
   }
 
   return (
-    <StyledAlert style={props}>
+    <StyledAlert style={props} id={"alert"}>
       <AlertContent>{alertContent}</AlertContent>
       <AlertFooter>
         <AlertCloseButton onClick={handleClode}>{closeButtonContent}</AlertCloseButton>

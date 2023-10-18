@@ -129,6 +129,7 @@ export const IntelligentAITextarea = styled.div`
 `;
 
 export const StyledAlert = styled(animated.div)`
+  z-index: 100;
   background: rgba(256, 256, 256, 0.5);
   padding: 1rem;
   min-width: 15rem;

@@ -1,6 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import { useState } from "react";
 import { GraphBrowser } from "../../nexusgraph-graph";
+import { selectNlpData } from "../../nexusgraph-redux";
 import logo from "../public/logo.svg";
+import Alert from "./component/Alert";
 import NoteTitleInput from "./note-title-input/NoteTitleInput";
 import useReduxHook from "./ReduxHook";
 import CreateButton from "./sidebar/CreateButton";
@@ -15,6 +18,12 @@ export default function App(): JSX.Element {
   useReduxHook();
   // useAstraiosClientHook();
 
+  const [showAlert, setShowAlert] = useState(false);
+
+  const nodes = selectNlpData().nodes;
+
+  const [nlpData, setNlpData] = useState(nodes);
+
   return (
     <AppWrapper>
       <AppHeader>
@@ -25,9 +34,10 @@ export default function App(): JSX.Element {
       </AppHeader>
       <AppBody>
         <Sidebar>
-          <CreateButton />
+          <CreateButton setShowAlert={setShowAlert} />
         </Sidebar>
         <GraphBrowserWrapper id="graphBrowser">
+          {showAlert && nodes.length == 0 && <Alert />}
           <NoteTitleInput />
           <GraphBrowser />
         </GraphBrowserWrapper>

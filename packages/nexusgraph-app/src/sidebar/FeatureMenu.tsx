@@ -2,10 +2,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { t } from "../../../nexusgraph-i18n";
-import { getIntelligentAIContent } from "../../../nexusgraph-redux";
+import { getIntelligentAIContent, selectNlpData } from "../../../nexusgraph-redux";
 import { FeatureButton, IntelligentAITextarea } from "./styled";
 
-export function FeatureMenu({ onClose }: { onClose: () => void }): JSX.Element {
+export function FeatureMenu({ onClose, setShowAlert }: { onClose: () => void; setShowAlert: any }): JSX.Element {
   const [mode, setMode] = useState<null | "intelligentAI">(null);
   const buttonLable = t("nlpButton");
 
@@ -16,19 +16,27 @@ export function FeatureMenu({ onClose }: { onClose: () => void }): JSX.Element {
           <p>{buttonLable}</p>
         </FeatureButton>
       )}
-      {mode === "intelligentAI" && <IntelligentAIDialogBody onClose={onClose}></IntelligentAIDialogBody>}
+      {mode === "intelligentAI" && (
+        <IntelligentAIDialogBody onClose={onClose} setShowAlert={setShowAlert}></IntelligentAIDialogBody>
+      )}
     </>
   );
 }
 
-function IntelligentAIDialogBody({ onClose }: { onClose: () => void }): JSX.Element {
+function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => void; setShowAlert: any }): JSX.Element {
   const [inputValue, setInputValue] = useState<string | null>(null);
 
   const dispatch = useDispatch();
+  const nlpData = selectNlpData().nodes;
 
   const onClick = () => {
     dispatch(getIntelligentAIContent(inputValue));
     onClose();
+    if (inputValue == null || nlpData.length == 0) {
+      setShowAlert(true);
+    } else {
+      setShowAlert(false);
+    }
   };
 
   return (
