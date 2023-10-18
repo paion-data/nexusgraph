@@ -1,3 +1,4 @@
+// Copyright 2023 Paion Data. All rights reserved.
 import { useEffect, useState } from "react";
 import { useSpring } from "react-spring";
 import { t } from "../../../nexusgraph-i18n";
