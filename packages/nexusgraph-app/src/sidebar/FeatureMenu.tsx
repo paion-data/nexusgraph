@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { t } from "../../../nexusgraph-i18n";
-import { getIntelligentAIContent, selectNlpData } from "../../../nexusgraph-redux";
+import { getIntelligentAIContent } from "../../../nexusgraph-redux";
 import { FeatureButton, IntelligentAITextarea } from "./styled";
 
 export function FeatureMenu({ onClose, setShowAlert }: { onClose: () => void; setShowAlert: any }): JSX.Element {
@@ -27,16 +27,15 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
   const [inputValue, setInputValue] = useState<string | null>(null);
 
   const dispatch = useDispatch();
-  const nlpData = selectNlpData().nodes;
 
   const onClick = () => {
-    dispatch(getIntelligentAIContent(inputValue));
-    onClose();
-    if (inputValue == null || nlpData.length == 0) {
-      setShowAlert(true);
+    if (inputValue) {
+      dispatch(getIntelligentAIContent(inputValue));
     } else {
-      setShowAlert(false);
+      dispatch(getIntelligentAIContent(""));
+      setShowAlert(true);
     }
+    onClose();
   };
 
   return (

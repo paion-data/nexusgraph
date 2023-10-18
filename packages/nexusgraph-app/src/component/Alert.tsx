@@ -4,7 +4,7 @@ import { useSpring } from "react-spring";
 import { t } from "../../../nexusgraph-i18n";
 import { AlertCloseButton, AlertContent, AlertFooter, StyledAlert } from "../sidebar/styled";
 
-export default function Alert() {
+export default function Alert({ setShowAlert }: any) {
   const [active, setActive] = useState(true);
 
   const alertContent = t("alertContent");
@@ -13,6 +13,7 @@ export default function Alert() {
   useEffect(() => {
     if (!active) return;
     const timeoutId = setTimeout(() => {
+      setShowAlert(false)
       setActive(false);
     }, 5000);
     return () => clearTimeout(timeoutId);

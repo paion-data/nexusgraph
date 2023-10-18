@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GraphBrowser } from "../../nexusgraph-graph";
-import { selectNlpData } from "../../nexusgraph-redux";
+import { initialState, selectNlpData } from "../../nexusgraph-redux";
 import logo from "../public/logo.svg";
 import Alert from "./component/Alert";
 import NoteTitleInput from "./note-title-input/NoteTitleInput";
@@ -20,9 +20,15 @@ export default function App(): JSX.Element {
 
   const [showAlert, setShowAlert] = useState(false);
 
-  const nodes = selectNlpData().nodes;
+  const nlpData = selectNlpData();
 
-  const [nlpData, setNlpData] = useState(nodes);
+  useEffect(() => {
+    if (nlpData !== initialState && nlpData.nodes.length == 0) {      
+      setShowAlert(true)
+    } else {
+      setShowAlert(false)
+    }
+  }, [nlpData])  
 
   return (
     <AppWrapper>
@@ -37,7 +43,7 @@ export default function App(): JSX.Element {
           <CreateButton setShowAlert={setShowAlert} />
         </Sidebar>
         <GraphBrowserWrapper id="graphBrowser">
-          {showAlert && nodes.length == 0 && <Alert />}
+          {showAlert && <Alert setShowAlert={setShowAlert} />}
           <NoteTitleInput />
           <GraphBrowser />
         </GraphBrowserWrapper>

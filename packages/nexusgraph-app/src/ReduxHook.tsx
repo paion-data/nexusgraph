@@ -33,17 +33,10 @@ export default function useReduxHook() {
   }, [noteState]);
 
   useEffect(() => {
-    if (initialGraphText) {
+    if (initialGraphText !== null) {
       remoteNaturalLanguageProcessor.entityExtraction(initialGraphText).then((NlpState) => {
         dispatch(updateNlpData(NlpState));
       });
-    } else {
-      dispatch(
-        updateNlpData({
-          nodes: [],
-          links: [],
-        })
-      );
     }
   }, [initialGraphText]);
 
