@@ -6,8 +6,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Callback } from "../../nexusgraph-oauth";
 import { updateOAuthState } from "../../nexusgraph-redux";
-import App from "./App";
-import Loadingpage from "./Loadingpage";
+import ProdAppContent from "./ProdAppContent";
 
 /**
  * The {@link ProdApp} involves OAuth2 authentication and authorization.
@@ -38,10 +37,6 @@ export default function ProdApp(): JSX.Element {
     });
   }, [JSON.stringify(prodOAuthState)]);
 
-  if (isAuthenticated) {
-    return <App />;
-  }
-
   if (!isAuthenticated && !isLoading) {
     signIn(process.env.LOGTO_SIGN_IN_CALLBACK_URL as string);
   }
@@ -49,8 +44,7 @@ export default function ProdApp(): JSX.Element {
   return (
     <Router>
       <Routes>
-        <Route path="/home" element={<App />} />
-        <Route path="/" element={<Loadingpage />} />
+        <Route path="/" element={<ProdAppContent isAuthenticated={isAuthenticated} />} />
         <Route path="/login" element={<Callback />} />
       </Routes>
     </Router>

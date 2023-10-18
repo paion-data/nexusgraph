@@ -10,7 +10,7 @@ import ProdApp from "./ProdApp";
  * {@link ProdApp | prod} instances.
  */
 export default function AppInit(): JSX.Element {
-  if (process.env.NODE_ENV == "development") {
+  if (process.env.SKIP_SIGN_IN == "true") {
     return (
       <ReduxStoreProvider>
         <DevApp />
@@ -18,17 +18,13 @@ export default function AppInit(): JSX.Element {
     );
   }
 
-  if (process.env.NODE_ENV == "production") {
-    return (
-      <ReduxStoreProvider>
-        <OAuth2Provider>
-          <ProdApp />
-        </OAuth2Provider>
-      </ReduxStoreProvider>
-    );
-  }
-
-  throw new Error("'NODE_ENV' is not defined in .env file. Its value has to be either 'development' or 'production'");
+  return (
+    <ReduxStoreProvider>
+      <OAuth2Provider>
+        <ProdApp />
+      </OAuth2Provider>
+    </ReduxStoreProvider>
+  );
 }
 
 /**
