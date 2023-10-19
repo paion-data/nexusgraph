@@ -85,7 +85,9 @@ export const FeatureButton = styled.button`
   }
 `;
 
-export const IntelligentAITextarea = styled.div`
+export const IntelligentAITextarea = styled.div<{
+  buttonDisable: boolean;
+}>`
   justify-content: center;
   display: flex;
   width: 100%;
@@ -107,28 +109,47 @@ export const IntelligentAITextarea = styled.div`
   & textarea:focus {
     outline: none;
   }
-
-  & button {
-    justify-content: center;
-    align-items: center;
+  & div {
     margin: 0% 25%;
     width: 50%;
     height: 10%;
+  }
+  & button {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     background: #fa87b3;
     border: none;
     border-radius: 2rem;
     color: #fff;
     font-size: 20px;
-    cursor: pointer;
     word-wrap: break-word;
     font-size: 20px;
     &:hover {
       background: #f55f91;
+      cursor: pointer;
     }
   }
+
+  ${(props) =>
+    props.buttonDisable &&
+    `
+    & button { 
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  & div {
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+    `}
 `;
 
 export const StyledAlert = styled(animated.div)`
+  z-index: 100;
   background: rgba(256, 256, 256, 0.5);
   padding: 1rem;
   min-width: 15rem;

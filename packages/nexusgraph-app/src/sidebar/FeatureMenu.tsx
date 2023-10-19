@@ -1,11 +1,17 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { t } from "../../../nexusgraph-i18n";
-import { getIntelligentAIContent } from "../../../nexusgraph-redux";
+import { NaturalLanguageProcessor } from "../../../nexusgraph-nlp";
+import { updateNlpData } from "../../../nexusgraph-redux";
+import { container, TYPES } from "../../inversify.config";
 import { FeatureButton, IntelligentAITextarea } from "./styled";
 
-export function FeatureMenu({ onClose }: { onClose: () => void }): JSX.Element {
+const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
+  TYPES.NaturalLanguageProcessor
+);
+
+export function FeatureMenu({ onClose, setShowAlert }: { onClose: () => void; setShowAlert: any }): JSX.Element {
   const [mode, setMode] = useState<null | "intelligentAI">(null);
   const buttonLable = t("nlpButton");
 
@@ -16,29 +22,48 @@ export function FeatureMenu({ onClose }: { onClose: () => void }): JSX.Element {
           <p>{buttonLable}</p>
         </FeatureButton>
       )}
-      {mode === "intelligentAI" && <IntelligentAIDialogBody onClose={onClose}></IntelligentAIDialogBody>}
+      {mode === "intelligentAI" && (
+        <IntelligentAIDialogBody onClose={onClose} setShowAlert={setShowAlert}></IntelligentAIDialogBody>
+      )}
     </>
   );
 }
 
-function IntelligentAIDialogBody({ onClose }: { onClose: () => void }): JSX.Element {
+function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => void; setShowAlert: any }): JSX.Element {
   const [inputValue, setInputValue] = useState<string | null>(null);
+  const [buttonDisable, setButtonDisable] = useState<boolean>(true);
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (inputValue) {
+      setButtonDisable(false);
+    } else {
+      setButtonDisable(true);
+    }
+  }, [inputValue]);
+
   const onClick = () => {
-    dispatch(getIntelligentAIContent(inputValue));
+    remoteNaturalLanguageProcessor.entityExtraction(inputValue as string).then((nlpState) => {
+      dispatch(updateNlpData(nlpState));
+      if (nlpState.nodes.length == 0) {
+        setShowAlert(true);
+      }
+    });
+
     onClose();
   };
 
   return (
-    <IntelligentAITextarea>
+    <IntelligentAITextarea buttonDisable={buttonDisable}>
       <textarea
         onChange={(event) => {
           setInputValue(event.target.value);
         }}
       ></textarea>
-      <button onClick={onClick}>生成知识图谱</button>
+      <div>
+        <button onClick={onClick}>生成知识图谱</button>
+      </div>
     </IntelligentAITextarea>
   );
 }

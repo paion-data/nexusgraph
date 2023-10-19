@@ -4,7 +4,7 @@ import { FeatureMenu } from "./FeatureMenu";
 import { CreateButtonStyled } from "./styled";
 import useModal from "./useModal";
 
-export default function CreateButton(): JSX.Element {
+export default function CreateButton({ setShowAlert }: any): JSX.Element {
   const PlusIcon = (): JSX.Element => <PlusIconSolid />;
   const [modal, showModal] = useModal(false);
 
@@ -13,7 +13,7 @@ export default function CreateButton(): JSX.Element {
       <CreateButtonStyled
         id="createButton"
         onClick={() => {
-          showModal((onClose) => <FeatureMenu onClose={onClose} />);
+          showModal((onClose) => <FeatureMenu onClose={onClose} setShowAlert={setShowAlert} />);
         }}
       >
         <PlusIcon />
