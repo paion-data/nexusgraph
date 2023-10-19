@@ -122,6 +122,8 @@ export const IntelligentAITextarea = styled.div`
     cursor: pointer;
     word-wrap: break-word;
     font-size: 20px;
+    // pointer-events:none;
+    // cursor: not-allowed;
     &:hover {
       background: #f55f91;
     }
