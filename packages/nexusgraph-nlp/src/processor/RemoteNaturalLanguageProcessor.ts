@@ -1,4 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import * as Sentry from "@sentry/react";
 import axios from "axios";
 import { injectable } from "inversify";
 import "reflect-metadata";
@@ -53,6 +54,12 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
       },
     };
 
-    return await instanceAxios.post(ENTITY_EXTRACTION_PATH_PARAM, { text: textLines }, config);
+    const response = instanceAxios.post(ENTITY_EXTRACTION_PATH_PARAM, { text: textLines }, config);
+
+    response.catch(async (error) => {
+      Sentry.captureException(error);
+    });
+
+    return await response;
   };
 }
