@@ -1,11 +1,11 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { t } from "../../../nexusgraph-i18n";
-import { getIntelligentAIContent, initialState, updateNlpData } from "../../../nexusgraph-redux";
-import { FeatureButton, IntelligentAITextarea } from "./styled";
 import { NaturalLanguageProcessor } from "../../../nexusgraph-nlp";
-import { TYPES, container } from "../../inversify.config";
+import { initialState, updateNlpData } from "../../../nexusgraph-redux";
+import { container, TYPES } from "../../inversify.config";
+import { FeatureButton, IntelligentAITextarea } from "./styled";
 
 const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
   TYPES.NaturalLanguageProcessor
@@ -31,8 +31,16 @@ export function FeatureMenu({ onClose, setShowAlert }: { onClose: () => void; se
 
 function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => void; setShowAlert: any }): JSX.Element {
   const [inputValue, setInputValue] = useState<string | null>(null);
+  const [buttonDisable, setButtonDisable] = useState<boolean>(true);
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (inputValue) {
+      setButtonDisable(false);
+    } else {
+      setButtonDisable(true);
+    }
+  }, [inputValue]);
 
   const onClick = () => {
     if (inputValue == null) {
@@ -42,9 +50,9 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
     if (inputValue) {
       remoteNaturalLanguageProcessor.entityExtraction(inputValue).then((nlpState) => {
         dispatch(updateNlpData(nlpState));
-        if(JSON.stringify(nlpState) == JSON.stringify(initialState)){
+        if (JSON.stringify(nlpState) == JSON.stringify(initialState)) {
           setShowAlert(true);
-        } 
+        }
       });
     } else {
       dispatch(updateNlpData(initialState));
@@ -53,13 +61,15 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
   };
 
   return (
-    <IntelligentAITextarea>
+    <IntelligentAITextarea buttonDisable={buttonDisable}>
       <textarea
         onChange={(event) => {
           setInputValue(event.target.value);
         }}
       ></textarea>
-      <button onClick={onClick}>生成知识图谱</button>
+      <div>
+        <button onClick={onClick}>生成知识图谱</button>
+      </div>
     </IntelligentAITextarea>
   );
 }

@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GraphBrowser } from "../../nexusgraph-graph";
-import { initialState, selectNlpData } from "../../nexusgraph-redux";
+import { selectNlpData } from "../../nexusgraph-redux";
 import logo from "../public/logo.svg";
 import Alert from "./component/Alert";
 import NoteTitleInput from "./note-title-input/NoteTitleInput";
