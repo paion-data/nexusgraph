@@ -29,10 +29,9 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
   const dispatch = useDispatch();
 
   const onClick = () => {
-    if (inputValue) {
-      dispatch(getIntelligentAIContent(inputValue));
-    } else {
-      dispatch(getIntelligentAIContent(""));
+    dispatch(getIntelligentAIContent(inputValue));
+
+    if (inputValue == null) {
       setShowAlert(true);
     }
     onClose();

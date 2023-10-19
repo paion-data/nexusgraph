@@ -13,7 +13,7 @@ export default function Alert({ setShowAlert }: any) {
   useEffect(() => {
     if (!active) return;
     const timeoutId = setTimeout(() => {
-      setShowAlert(false)
+      setShowAlert(false);
       setActive(false);
     }, 5000);
     return () => clearTimeout(timeoutId);

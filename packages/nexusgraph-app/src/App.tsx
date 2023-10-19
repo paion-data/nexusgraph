@@ -23,12 +23,12 @@ export default function App(): JSX.Element {
   const nlpData = selectNlpData();
 
   useEffect(() => {
-    if (nlpData !== initialState && nlpData.nodes.length == 0) {      
-      setShowAlert(true)
+    if (nlpData !== initialState && nlpData.nodes.length == 0) {
+      setShowAlert(true);
     } else {
-      setShowAlert(false)
+      setShowAlert(false);
     }
-  }, [nlpData])  
+  }, [nlpData]);
 
   return (
     <AppWrapper>

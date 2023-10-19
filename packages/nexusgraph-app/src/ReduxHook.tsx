@@ -3,7 +3,15 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
-import { NoteState, selectIntelligentAI, selectNote, selectOAuth, updateNlpData } from "../../nexusgraph-redux";
+import {
+  initialState,
+  NoteState,
+  selectIntelligentAI,
+  selectNlpData,
+  selectNote,
+  selectOAuth,
+  updateNlpData,
+} from "../../nexusgraph-redux";
 import { container, TYPES } from "../inversify.config";
 
 export default function useReduxHook() {
@@ -17,6 +25,7 @@ export default function useReduxHook() {
   const userId = selectOAuth().userInfo["sub"];
 
   const initialGraphText: string | null = selectIntelligentAI();
+  const nlpData = selectNlpData();
 
   useEffect(() => {
     const update = () => {
@@ -33,10 +42,17 @@ export default function useReduxHook() {
   }, [noteState]);
 
   useEffect(() => {
-    if (initialGraphText !== null) {
+    if (initialGraphText) {
       remoteNaturalLanguageProcessor.entityExtraction(initialGraphText).then((NlpState) => {
         dispatch(updateNlpData(NlpState));
       });
+    } else if (initialGraphText == null && nlpData !== initialState) {
+      dispatch(
+        updateNlpData({
+          nodes: [],
+          links: [],
+        })
+      );
     }
   }, [initialGraphText]);
 
