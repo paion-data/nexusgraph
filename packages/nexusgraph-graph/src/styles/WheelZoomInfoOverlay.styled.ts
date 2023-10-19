@@ -32,6 +32,7 @@ export const StyledSvgWrapper = styled.div`
     .relationship {
       > text {
         fill: ${(props: { theme: { primaryText: any } }) => props.theme.primaryText};
+        text-shadow: 1px 0.2px 0.2px #fff, 0 0 0.8em #e0af19, 0 0 0.2em #fff;
       }
       > .overlay {
         opacity: 0;
