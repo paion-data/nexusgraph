@@ -77,12 +77,12 @@ const DEFAULT_STYLE = {
     "font-size": "10px",
   },
   relationship: {
-    color: "#A5ABB6",
+    color: "#ffe6a4",
     "shaft-width": "1px",
     "font-size": "8px",
     padding: "3px",
-    "text-color-external": "#CBEBF5",
-    "text-color-internal": "#CBEBF5",
+    "text-color-external": "#FFF",
+    "text-color-internal": "#FFF",
     caption: "<type>",
   },
 };
