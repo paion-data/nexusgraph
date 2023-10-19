@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "fields": {
+        "type": "\u662f"
+      },
+      "id": "n6t9801j5xuxhln9wh3na",
+      "source": "nojchzzhfk8wqftekbufl",
+      "target": "nl8uppsqmkg586x5u71q9"
+    }
+  ],
+  "nodes": [
+    {
+      "fields": {
+        "name": "\u4eca\u5929",
+        "type": "entity"
+      },
+      "id": "nojchzzhfk8wqftekbufl"
+    },
+    {
+      "fields": {
+        "name": "\u4e2a\u597d\u65e5\u5b50",
+        "type": "entity"
+      },
+      "id": "nl8uppsqmkg586x5u71q9"
+    }
+  ]
+}
