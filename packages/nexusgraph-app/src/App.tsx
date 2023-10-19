@@ -32,7 +32,7 @@ export default function App(): JSX.Element {
           <CreateButton setShowAlert={setShowAlert} />
         </Sidebar>
         <GraphBrowserWrapper id="graphBrowser">
-          {showAlert && <Alert setShowAlert={setShowAlert} />}
+          <Alert showAlert={showAlert} setShowAlert={setShowAlert} />
           <NoteTitleInput />
           <GraphBrowser />
         </GraphBrowserWrapper>

@@ -1,31 +1,28 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSpring } from "react-spring";
 import { t } from "../../../nexusgraph-i18n";
 import { AlertCloseButton, AlertContent, AlertFooter, StyledAlert } from "../sidebar/styled";
 
-export default function Alert({ setShowAlert }: any) {
-  const [active, setActive] = useState(true);
-
+export default function Alert({ showAlert, setShowAlert }: any) {
   const alertContent = t("alertContent");
   const closeButtonContent = t("alertCloseButton");
 
   useEffect(() => {
-    if (!active) return;
+    if (!showAlert) return;
     const timeoutId = setTimeout(() => {
       setShowAlert(false);
-      setActive(false);
-    }, 5000);
+    }, 3000);
     return () => clearTimeout(timeoutId);
-  }, [active]);
+  }, [showAlert]);
 
   const props = useSpring({
-    transform: active ? "scale(1)" : "scale(0)",
-    opacity: active ? 1 : 0,
+    transform: showAlert ? "scale(1)" : "scale(0)",
+    opacity: showAlert ? 1 : 0,
   });
 
   function handleClode() {
-    setActive(false);
+    setShowAlert(false);
   }
 
   return (
