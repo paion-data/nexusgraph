@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
-import { NoteState, selectIntelligentAI, selectNlpData, selectNote, selectOAuth } from "../../nexusgraph-redux";
+import { NoteState, selectNote, selectOAuth } from "../../nexusgraph-redux";
 import { container, TYPES } from "../inversify.config";
 
 export default function useReduxHook() {
@@ -15,9 +15,6 @@ export default function useReduxHook() {
   );
   const accessToken = selectOAuth().accessToken;
   const userId = selectOAuth().userInfo["sub"];
-
-  const initialGraphText: string | null = selectIntelligentAI();
-  const nlpData = selectNlpData();
 
   useEffect(() => {
     const update = () => {
@@ -32,21 +29,6 @@ export default function useReduxHook() {
 
     return () => clearInterval(t);
   }, [noteState]);
-
-  useEffect(() => {
-    // if (initialGraphText) {
-    //   remoteNaturalLanguageProcessor.entityExtraction(initialGraphText).then((NlpState) => {
-    //     dispatch(updateNlpData(NlpState));
-    //   });
-    // } else if (initialGraphText == null && nlpData !== initialState) {
-    //   dispatch(
-    //     updateNlpData({
-    //       nodes: [],
-    //       links: [],
-    //     })
-    //   );
-    // }
-  }, [initialGraphText]);
 
   // useEffect(() => {
   //   astraiosClient.getNoteList(userId, accessToken).then((noteList) => {

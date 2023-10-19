@@ -1,7 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
 import { GraphBrowser } from "../../nexusgraph-graph";
-import { selectNlpData } from "../../nexusgraph-redux";
 import logo from "../public/logo.svg";
 import Alert from "./component/Alert";
 import NoteTitleInput from "./note-title-input/NoteTitleInput";
@@ -19,16 +18,6 @@ export default function App(): JSX.Element {
   // useAstraiosClientHook();
 
   const [showAlert, setShowAlert] = useState(false);
-
-  const nlpData = selectNlpData();
-
-  // useEffect(() => {
-  //   if (nlpData !== initialState && nlpData.nodes.length == 0) {
-  //     setShowAlert(true);
-  //   } else {
-  //     setShowAlert(false);
-  //   }
-  // }, [nlpData]);
 
   return (
     <AppWrapper>

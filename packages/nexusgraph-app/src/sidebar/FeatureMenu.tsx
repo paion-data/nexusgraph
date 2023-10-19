@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { t } from "../../../nexusgraph-i18n";
 import { NaturalLanguageProcessor } from "../../../nexusgraph-nlp";
-import { initialState, updateNlpData } from "../../../nexusgraph-redux";
+import { updateNlpData } from "../../../nexusgraph-redux";
 import { container, TYPES } from "../../inversify.config";
 import { FeatureButton, IntelligentAITextarea } from "./styled";
 
@@ -34,6 +34,7 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
   const [buttonDisable, setButtonDisable] = useState<boolean>(true);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (inputValue) {
       setButtonDisable(false);
@@ -43,20 +44,13 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
   }, [inputValue]);
 
   const onClick = () => {
-    if (inputValue == null) {
-      setShowAlert(true);
-    }
+    remoteNaturalLanguageProcessor.entityExtraction(inputValue as string).then((nlpState) => {
+      dispatch(updateNlpData(nlpState));
+      if (nlpState.nodes.length == 0) {
+        setShowAlert(true);
+      }
+    });
 
-    if (inputValue) {
-      remoteNaturalLanguageProcessor.entityExtraction(inputValue).then((nlpState) => {
-        dispatch(updateNlpData(nlpState));
-        if (JSON.stringify(nlpState) == JSON.stringify(initialState)) {
-          setShowAlert(true);
-        }
-      });
-    } else {
-      dispatch(updateNlpData(initialState));
-    }
     onClose();
   };
 
