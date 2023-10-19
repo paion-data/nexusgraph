@@ -8,6 +8,7 @@ import { GraphStats } from "./GraphStats";
 import { GraphStyleModel } from "./GraphStyle";
 import { GraphModel } from "./models/Graph";
 import { RelationshipModel } from "./models/Relationship";
+import NodeDetailPanel from "./node-detail-panel/NodeDetailPanel";
 import { NodesExpandProcessor } from "./processor/NodesExpand";
 import { StyledFullSizeContainer } from "./styles/InspectorContainer.styled";
 import { VizItem } from "./VizItem";
@@ -119,6 +120,7 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
         }}
         initialZoomToFit={true}
       />
+      <NodeDetailPanel selectedItem={selectedItem}></NodeDetailPanel>
     </StyledFullSizeContainer>
   );
 }

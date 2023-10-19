@@ -148,20 +148,6 @@ export const IntelligentAITextarea = styled.div<{
     `}
 `;
 
-export const StyledAlert = styled(animated.div)`
-  z-index: 100;
-  background: rgba(256, 256, 256, 0.5);
-  padding: 1rem;
-  min-width: 15rem;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  position: fixed;
-  bottom: 10vh;
-  right: 5vw;
-  max-width: 25rem;
-  border: 1px solid rgba(255, 255, 255, 0.472);
-`;
-
 export const StyledModal = styled(Modal)`
   display: flex;
   justify-content: center;
