@@ -1,6 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { Modal } from "react-bootstrap";
-import { animated } from "react-spring";
 import styled from "styled-components";
 import nlp from "./img/nlp.png";
 
