@@ -172,18 +172,21 @@ export const StyledModal = styled(Modal)`
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background-color: rgba(256, 256, 256, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   flex-grow: 0px;
   flex-shrink: 1px;
   z-index: 100;
 `;
 
-export const StyledModalContent = styled.div`
+export const ModalContentWappre = styled(animated.div)`
   position: absolute;
   left: 50%;
   margin-left: -600px;
   top: 50%;
   margin-top: -350px;
+`;
+
+export const StyledModalContent = styled.div`
   z-index: 999;
   border-radius: 1rem;
   border: none;

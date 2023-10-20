@@ -1,6 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { ReactNode, useEffect, useState } from "react";
-import { StyledModal, StyledModalContent } from "./styled";
+import { useSpring } from "react-spring";
+import { ModalContentWappre, StyledModal, StyledModalContent } from "./styled";
 
 interface ModalProps {
   children: ReactNode;
@@ -17,6 +18,11 @@ export default function Modal(props: ModalProps): JSX.Element {
     setShow(props.show);
   }, [props.show]);
 
+  const transform = useSpring({
+    transform: show ? "scale(1)" : "scale(0)",
+    opacity: show ? 1 : 0,
+  });
+
   const clickFeatureMenu: boolean = document.activeElement?.getAttribute("class") == "modal-open";
   const clickCreateButton: boolean = document.activeElement?.getAttribute("id") == "createButton";
 
@@ -28,12 +34,14 @@ export default function Modal(props: ModalProps): JSX.Element {
 
   return (
     <StyledModal id={"modal"} animation={true} show={show} onHide={handleClose} role="dialog">
-      <StyledModalContent>
-        <button className="modalClose" onClick={props.onClose}>
-          X
-        </button>
-        <div className="modalContent">{props.children}</div>
-      </StyledModalContent>
+      <ModalContentWappre style={transform}>
+        <StyledModalContent>
+          <button className="modalClose" onClick={props.onClose}>
+            X
+          </button>
+          <div className="modalContent">{props.children}</div>
+        </StyledModalContent>
+      </ModalContentWappre>
     </StyledModal>
   );
 }
