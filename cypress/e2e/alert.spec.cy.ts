@@ -3,7 +3,7 @@ beforeEach(() => {
   cy.visit("http://localhost:3000/");
   cy.get("button[id='createButton']").click();
 
-  const intelligentAIButton = cy.get(".modal-content>div>div>button");
+  const intelligentAIButton = cy.get(".modal-content>div>div>div>button");
   intelligentAIButton.click();
 
   cy.get("textarea").type("今天是个好日子");
