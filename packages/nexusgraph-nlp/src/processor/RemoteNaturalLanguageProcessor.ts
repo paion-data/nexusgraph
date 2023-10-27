@@ -53,8 +53,18 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
         accept: "*/*",
       },
     };
+    const payload = {
+      columns: ["text"],
+      data: [textLines],
+    };
 
-    const response = instanceAxios.post(ENTITY_EXTRACTION_PATH_PARAM, { text: textLines }, config);
+    const response = instanceAxios.post(
+      ENTITY_EXTRACTION_PATH_PARAM,
+      {
+        dataframe_split: payload,
+      },
+      config
+    );
 
     response.catch(async (error) => {
       Sentry.captureException(error);

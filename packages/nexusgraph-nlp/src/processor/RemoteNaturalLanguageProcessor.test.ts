@@ -50,7 +50,10 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
       expect(axios.post).toHaveBeenCalledWith(
         "entityExtraction",
         {
-          text: editorLines,
+          dataframe_split: {
+            columns: ["text"],
+            data: [editorLines],
+          },
         },
         { headers: { "Content-Type": "application/json", accept: "*/*" } }
       );
