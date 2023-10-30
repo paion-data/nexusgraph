@@ -6,7 +6,7 @@ import Alert from "./component/Alert";
 import NoteTitleInput from "./note-title-input/NoteTitleInput";
 import useReduxHook from "./ReduxHook";
 import CreateButton from "./sidebar/CreateButton";
-import { AppBody, AppCaption, AppHeader, StyledApp, GraphBrowserWrapper, IconWapper, Sidebar } from "./styled";
+import { AppBody, AppCaption, AppHeader, GraphBrowserWrapper, IconWapper, Sidebar, StyledApp } from "./styled";
 
 /**
  * The component that defines the entire nexus graph app.
