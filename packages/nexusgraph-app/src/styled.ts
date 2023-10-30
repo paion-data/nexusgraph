@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import styled from "styled-components";
 
-export const AppWrapper = styled.div`
+export const StyledApp = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -40,8 +40,7 @@ export const AppCaption = styled.div`
 
 export const GraphBrowserWrapper = styled.div`
   flex-shrink: 1;
-  width: 80%;
-  height: 100%;
+  aspect-ratio: 1.618 / 1;
   margin-left: 1%;
   background-color: transparent;
   -webkit-backdrop-filter: blur(8px);
@@ -60,7 +59,7 @@ export const IconWapper = styled.div`
 
 export const Sidebar = styled.div`
   flex-shrink: 1;
-  width: 20%;
+  width: 10%;
   height: 100%;
   margin-right: 1%;
   border-radius: 1rem;

@@ -6,7 +6,7 @@ import Alert from "./component/Alert";
 import NoteTitleInput from "./note-title-input/NoteTitleInput";
 import useReduxHook from "./ReduxHook";
 import CreateButton from "./sidebar/CreateButton";
-import { AppBody, AppCaption, AppHeader, AppWrapper, GraphBrowserWrapper, IconWapper, Sidebar } from "./styled";
+import { AppBody, AppCaption, AppHeader, GraphBrowserWrapper, IconWapper, Sidebar, StyledApp } from "./styled";
 
 /**
  * The component that defines the entire nexus graph app.
@@ -20,7 +20,7 @@ export default function App(): JSX.Element {
   const [showAlert, setShowAlert] = useState(false);
 
   return (
-    <AppWrapper>
+    <StyledApp>
       <AppHeader>
         <IconWapper>
           <img src={logo} alt="Logo" />
@@ -37,6 +37,6 @@ export default function App(): JSX.Element {
           <GraphBrowser />
         </GraphBrowserWrapper>
       </AppBody>
-    </AppWrapper>
+    </StyledApp>
   );
 }
