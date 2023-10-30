@@ -4,12 +4,18 @@ import { DropdownContent, DropdownItem, DropdownList, StyledGraphExport } from "
 
 export function ExportButton(): JSX.Element {
   const downloadGraphics = [
-    { name: "PNG", download: () => {
-      // do nothing.
-    } },
-    { name: "SVG", download: () => {
-      // do nothing.
-    } },
+    {
+      name: "PNG",
+      download: () => {
+        // do nothing.
+      },
+    },
+    {
+      name: "SVG",
+      download: () => {
+        // do nothing.
+      },
+    },
   ];
 
   const ArrowTopRightOnSquareIcon = (): JSX.Element => <ArrowTopRightOnSquareIconSolid />;
