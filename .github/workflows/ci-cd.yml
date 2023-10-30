@@ -1,42 +1,24 @@
 # Copyright 2023 Paion Data. All rights reserved.
 ---
-name: Nexus Graph CI/CD
+name: CI/CD
 
 "on":
-  workflow_call:
   pull_request:
   push:
     branches:
       - master
+  repository_dispatch:
+    types: [runbook-changes]
 
 env:
   USER: QubitPi
   EMAIL: jack20220723@gmail.com
-  HASHICORP_PRODUCT_VERSION: "latest"
-
-  ENTITY_EXTRACTION_CALL_DELAY_IN_MS: 5000
+  NODE_VERSION: 16
 
 jobs:
-  yaml-lint:
-    name: YAML Lint Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actionshub/yamllint@main
-  markdown-lint:
-    name: Markdown Lint Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actionshub/markdownlint@main
-  markdown-link-check:
-    name: Markdown Link Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: gaurav-nelson/github-action-markdown-link-check@v1
-        with:
-          use-verbose-mode: "yes"
+  yml-md-style:
+    uses: paion-data/github-actions-workflows/.github/workflows/yml-and-md-style-checks.yml@master
+
   code-style:
     name: Code Style Check
     runs-on: ubuntu-latest
@@ -61,19 +43,16 @@ jobs:
 
   unit-tests:
     name: Unit Tests
-    needs: [yaml-lint, markdown-lint, markdown-link-check, code-style]
+    needs: [yml-md-style, code-style]
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: [16]
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Set node version to ${{ matrix.node_version }}
+      - name: Set node version to ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node_version }}
+          node-version: ${{ env.NODE_VERSION }}
       - name: Install dependencies
         run: |
           yarn install
@@ -83,13 +62,13 @@ jobs:
         run: yarn test
 
   e2e-tests:
-    needs: [yaml-lint, markdown-lint, markdown-link-check, code-style]
+    needs: unit-tests
     uses: paion-data/github-actions-workflows/.github/workflows/cypress-e2e-tests.yml@master
 
   release:
     name: Publish NPM Packages
     if: github.ref == 'refs/heads/master'
-    needs: [unit-tests, e2e-tests]
+    needs: e2e-tests
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -122,7 +101,7 @@ jobs:
 
   documentation-ci-cd:
     name: Test and Deploy Documentation to GitHub Pages
-    needs: [unit-tests, e2e-tests]
+    needs: e2e-tests
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -158,32 +137,35 @@ jobs:
 
   hashicorp:
     name: Publish All nexusgraph AMI Images and Deploy Them to EC2 through HashiCorp
-    needs: [unit-tests, e2e-tests]
+    needs: e2e-tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Load SSL Certificates
-        run: |
-          echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_CRT_FILE }}' > ./aws-app-nexusgraph-com.crt
-          echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_CRT_KEY_FILE }}' > ./aws-app-nexusgraph-com.key
-        working-directory: hashicorp/images
-      - name: Load Nginx config
-        run: echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_NGINX_CONF_FILE }}' > ./app-nexusgraph-com-nginx.conf
-        working-directory: hashicorp/images
-      - name: Load .env file
-        run: echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_ENV_FILE }}' > ./app-nexusgraph-com.env
-        working-directory: hashicorp/images
-      - name: Load Packer var file
-        run: echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_AUTO_PKRVARS_FILE }}' > ./app-nexusgraph-com.auto.pkrvars.hcl
-        working-directory: hashicorp/images
-      - name: Load Terraform var file
-        run: echo '${{ secrets.AWS_APP_NEXUSGRAPH_COM_AUTO_TFVARS_FILE }}' > ./app-nexusgraph-com.auto.tfvars
-        working-directory: hashicorp/instances
-
-      - name: Publish all nexusgraph AMI images and deploy them to EC2 through HashiCorp
-        uses: paion-data/github-actions-workflows@master
+      - name: Set node version to ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
         with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Checkout HashiCorp deployment tool
+        shell: bash
+        run: git clone https://github.com/QubitPi/hashicorp-aws.git ../hashicorp-aws
+      - name: Checkout HashiCorp deployment config files
+        shell: bash
+        run: git clone https://${{ secrets.RUNBOOKS_REPO_TOKEN }}@github.com/QubitPi/hashicorp-aws-runbooks.git ../hashicorp-aws-runbooks
+      - name: Load Packer variable file
+        shell: bash
+        run: cp ../hashicorp-aws-runbooks/paion-data/nexusgraph/aws-react.pkrvars.hcl ../hashicorp-aws/hashicorp/react/images/aws-react.auto.pkrvars.hcl
+      - name: Load Terraform variable file
+        shell: bash
+        run: cp ../hashicorp-aws-runbooks/paion-data/nexusgraph/aws-react.tfvars ../hashicorp-aws/hashicorp/react/instances/aws-react.auto.tfvars
+      - name: Generate dist
+        run: cp ../hashicorp-aws-runbooks/paion-data/nexusgraph/.env . && yarn && yarn build
+      - name: Move dist to a location for HashiCorp deployment to pickup
+        run: mv dist ../
+      - name: QubitPi/hashicorp-aws
+        uses: QubitPi/hashicorp-aws@master
+        with:
+          hashicorp-dir: ../hashicorp-aws/hashicorp/react
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
