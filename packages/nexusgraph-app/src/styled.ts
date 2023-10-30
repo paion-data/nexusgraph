@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import styled from "styled-components";
 
-export const AppWrapper = styled.div`
+export const StyledApp = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
