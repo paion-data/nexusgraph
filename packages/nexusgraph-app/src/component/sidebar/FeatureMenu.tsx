@@ -1,10 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { t } from "../../../nexusgraph-i18n";
-import { NaturalLanguageProcessor } from "../../../nexusgraph-nlp";
-import { updateNlpData } from "../../../nexusgraph-redux";
-import { container, TYPES } from "../../inversify.config";
+import { t } from "../../../../nexusgraph-i18n";
+import { NaturalLanguageProcessor } from "../../../../nexusgraph-nlp";
+import { updateNlpData } from "../../../../nexusgraph-redux";
+import { container, TYPES } from "../../../inversify.config";
 import { FeatureButton, IntelligentAITextarea } from "./styled";
 
 const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
