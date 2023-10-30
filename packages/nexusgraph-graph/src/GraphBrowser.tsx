@@ -1,7 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
 
-import { ExportButton } from "./export-button/ExportButton";
 import { Visualization } from "./VisualizationView";
 
 /**
@@ -19,7 +18,6 @@ export default function GraphBrowser(): JSX.Element {
 
   return (
     <>
-      <ExportButton visElement={visElement} />
       <Visualization
         assignVisElement={(svgElement: any, graphElement: any) => {
           setVisElement({ svgElement, graphElement, type: "graph" });

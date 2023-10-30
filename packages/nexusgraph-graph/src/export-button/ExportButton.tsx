@@ -1,12 +1,21 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { ArrowTopRightOnSquareIcon as ArrowTopRightOnSquareIconSolid } from "@heroicons/react/24/solid";
 import { DropdownContent, DropdownItem, DropdownList, StyledGraphExport } from "../styles/ExportButtn.styled";
-import { exportPNG, exportSVG } from "./imageUtils";
 
-export function ExportButton(props: { visElement: any }): JSX.Element {
+export function ExportButton(): JSX.Element {
   const downloadGraphics = [
-    { name: "PNG", download: () => exportPNG(props.visElement) },
-    { name: "SVG", download: () => exportSVG(props.visElement) },
+    {
+      name: "PNG",
+      download: () => {
+        // do nothing.
+      },
+    },
+    {
+      name: "SVG",
+      download: () => {
+        // do nothing.
+      },
+    },
   ];
 
   const ArrowTopRightOnSquareIcon = (): JSX.Element => <ArrowTopRightOnSquareIconSolid />;

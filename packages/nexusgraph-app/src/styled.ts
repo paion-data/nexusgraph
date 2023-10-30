@@ -14,34 +14,55 @@ export const AppHeader = styled.div`
   order: 1;
   display: flex;
   flex-direction: row;
-  height: 130px;
-  padding: 1.5% 1.5% 0% 1.5%;
+  height: 2vh;
+  padding: 1.5vh;
 `;
 
-export const AppBody = styled.div`
+export const UserIcon = styled.div`
+  flex-shrink: 1;
+  order: 1;
+  display: flex;
+  height: 5vh;
+`;
+
+export const StyledGraphTitle = styled.div`
+  flex-shrink: 1;
+  order: 2;
+  display: flex;
+  height: 5vh;
+  padding-left: 50%;
+  padding-right: 50%;
+  padding-bottom: 1.5vh;
+`;
+
+export const StyledBody = styled.div`
   order: 2;
   display: flex;
   flex-direction: row;
-  height: 85vh;
-  padding: 1.5%;
+  height: 96vh;
+  padding: 2vh 1.5vh 2vh 1.5vh;
 `;
 
-export const AppCaption = styled.div`
-  margin: 20px 0% 0% 30px;
+export const Sidebar = styled.div`
   flex-shrink: 1;
-  width: 100px;
-  height: 60px;
-  white-space: pre;
-  font-size: 41px;
-  font-weight: bold;
-  color: #fff;
-  display: inline-flex;
+  aspect-ratio: 1 / 1.618;
+  height: 30vw;
+
+  margin-right: 0.75vw;
+  border-radius: 1rem;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #fff;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
 `;
 
-export const GraphBrowserWrapper = styled.div`
+export const StyledGraphBrowser = styled.div`
   flex-shrink: 1;
-  aspect-ratio: 1.618 / 1;
-  margin-left: 1%;
+  aspect-ratio: 1.618;
+  margin-left: 0.75vw;
   background-color: transparent;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
@@ -52,24 +73,37 @@ export const GraphBrowserWrapper = styled.div`
   overflow: hidden;
 `;
 
-export const IconWapper = styled.div`
-  width: 100px;
-  height: 100%;
+export const StyledFooter = styled.div`
+  order: 3;
+  display: flex;
+  flex-direction: row;
+  height: 2vh;
+  margin: 1.5vh;
+  align-items: center;
+  padding-left: 50%;
+  padding-right: 50%;
+  padding-bottom: 1.5vh;
 `;
 
-export const Sidebar = styled.div`
+export const AppLogo = styled.div`
   flex-shrink: 1;
-  width: 10%;
-  height: 100%;
-  margin-right: 1%;
-  border-radius: 1rem;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #fff;
-  background-color: transparent;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border-radius: 1rem;
+  order: 1;
+  display: flex;
+  height: 5vh;
+`;
+
+export const AppName = styled.div`
+  flex-shrink: 1;
+  order: 2;
+  display: flex;
+  height: 5vh;
+  padding-left: 1vh;
+
+  white-space: pre;
+  font-size: 2.5vw;
+  font-weight: bold;
+  color: #fff;
+  display: inline-flex;
 `;
 
 export const StyledSpinner = styled.div`
