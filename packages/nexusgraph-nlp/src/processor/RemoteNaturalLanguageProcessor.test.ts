@@ -12,7 +12,7 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
   it("Should return nlp Data", async () => {
     // given
     const editorLines = ["China"];
-    const nlpData = {
+    const graphData = {
       nodes: [
         {
           fields: {
@@ -41,10 +41,10 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
     };
 
     axios.create = jest.fn(() => axios);
-    Object(axios.post).mockResolvedValueOnce(nlpData);
+    Object(axios.post).mockResolvedValueOnce(graphData);
 
     remoteNaturalLanguageProcessor["fetchRemote"](editorLines).then((nlpState: any) => {
-      expect(nlpState).toEqual(nlpData);
+      expect(nlpState).toEqual(graphData);
 
       expect(axios.create).toHaveBeenCalled();
       expect(axios.post).toHaveBeenCalledWith(
