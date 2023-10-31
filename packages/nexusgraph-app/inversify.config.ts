@@ -12,7 +12,7 @@ const TYPES = {
   AstraiosClient: Symbol("AstraiosClient"),
   accessToken: Symbol("accessToken"),
   userId: Symbol("userId"),
-  
+
   NaturalLanguageProcessor: Symbol("NaturalLanguageProcessor"),
 };
 
