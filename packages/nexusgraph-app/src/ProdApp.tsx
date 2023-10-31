@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { Callback } from "../../nexusgraph-oauth";
 import { updateOAuthState } from "../../nexusgraph-redux";
 import ProdAppContent from "./ProdAppContent";
+import { TYPES, container } from "../inversify.config";
 
 /**
  * The {@link ProdApp} involves OAuth2 authentication and authorization.
@@ -24,13 +25,17 @@ export default function ProdApp(): JSX.Element {
   };
 
   useEffect(() => {
-    getAccessToken(process.env.ASTRAIOS_API_RESOURCE as string).then((token) => {
+    const astraiosAPI = process.env.ASTRAIOS_API_RESOURCE as string
+    getAccessToken(astraiosAPI).then((token) => {
       if (token) {
         prodOAuthState["accessToken"] = token;
         fetchUserInfo().then((userInfo) => {
           if (userInfo) {
             prodOAuthState["userInfo"]["sub"] = userInfo["sub"];
             dispatch(updateOAuthState(prodOAuthState));
+
+            container.bind<string>(TYPES.accessToken).toConstantValue(token)
+            container.bind<string>(TYPES.userId).toConstantValue(userInfo["sub"])
           }
         });
       }
