@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { t } from "../../../../nexusgraph-i18n";
 import { NaturalLanguageProcessor } from "../../../../nexusgraph-nlp";
 import { updateNlpData } from "../../../../nexusgraph-redux";
@@ -49,6 +49,9 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
       if (nlpState.nodes.length == 0) {
         setShowAlert(true);
       }
+
+      saveGraph()
+      updateGraphList()
     });
 
     onClose();
