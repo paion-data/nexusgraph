@@ -44,14 +44,13 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
   }, [inputValue]);
 
   const onClick = () => {
-    remoteNaturalLanguageProcessor.entityExtraction(inputValue as string).then((nlpState) => {
-      dispatch(updateGraphData(nlpState));
-      if (nlpState.nodes.length == 0) {
+    remoteNaturalLanguageProcessor.entityExtraction(inputValue as string).then((graphState) => {
+      dispatch(updateGraphData(graphState));
+      if (graphState.nodes.length == 0) {
         setShowAlert(true);
       }
 
-      saveGraph()
-      updateGraphList()
+      
     });
 
     onClose();
