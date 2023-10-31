@@ -1,10 +1,15 @@
+import { updateGraphData } from "./src/graph/graphDuck";
+
 // Copyright 2023 Paion Data. All rights reserved.
 export type { GlobalState } from "./src/globalState";
-export * from "./src/graph/graphDuck";
 export * from "./src/note-list/noteListDuck";
-export * from "./src/note/noteDuck";
 export * from "./src/oAuth/oAuthDuck";
 export { default as ReduxStoreProvider } from "./src/ReduxStoreProvider";
+
+export interface Graph {
+  nodes: Node[];
+  links: Link[];
+}
 
 export interface Node {
   fields: Record<string, string>;
@@ -17,7 +22,5 @@ export interface Link {
   target: string;
 }
 
-export interface Graph {
-  nodes: Node[];
-  links: Link[];
-}
+export { GRAPH_DATA, updateGraphData, selectGraphData, initialState, default } from "./src/graph/graphDuck";
+export type { GraphState, GraphName } from "./src/graph/graphDuck";

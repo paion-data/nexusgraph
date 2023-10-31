@@ -6,9 +6,15 @@ export const GRAPH_DATA = "graphData";
 const UPDATE_GRAPH_DATA = GRAPH_DATA + "/UPDATE_GRAPH_DATA";
 
 export interface GraphState {
+  id?: string;
+  
   nodes: Node[];
   links: Link[];
+
+  name: string
 }
+
+export type GraphName = Pick<GraphState, 'id' | 'name'>
 
 interface GraphAction {
   type: typeof UPDATE_GRAPH_DATA;
@@ -16,8 +22,12 @@ interface GraphAction {
 }
 
 export const initialState: GraphState = {
+  id: undefined,
+
   nodes: [],
   links: [],
+
+  name: "Unnamed graph"
 };
 
 export function selectGraphData() {

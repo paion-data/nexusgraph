@@ -17,3 +17,12 @@ Excerpt From _Clean Architecture: A Craftsman's Guide to Software Structure and 
 Robert C. Martin
 
 :::
+
+Redux State
+-----------
+
+### Graph
+
+- Graph JSON
+- Graph ID
+- User ID (logto)

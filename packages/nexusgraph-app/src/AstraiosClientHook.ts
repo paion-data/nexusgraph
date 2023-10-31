@@ -20,10 +20,10 @@ export default function useAstraiosClientHook() {
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
 
   useEffect(() => {
-    astraiosClient.getNoteList(userId, accessToken).then((noteList) => {
+    astraiosClient.getGraphList(userId, accessToken).then((noteList) => {
       dispatch(updateNoteList(noteList));
       if (noteList[0]) {
-        astraiosClient.getNoteById(noteList[0].id, accessToken).then((firstNote) => {
+        astraiosClient.getGraphById(noteList[0].id, accessToken).then((firstNote) => {
           dispatch(updateNoteTitle(firstNote.title));
           dispatch(updateNoteId(firstNote.id));
           dispatch(updateNoteEditorContent(JSON.parse(firstNote.editorContent)));

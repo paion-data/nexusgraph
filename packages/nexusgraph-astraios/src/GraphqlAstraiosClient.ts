@@ -2,62 +2,100 @@
 import axios from "axios";
 import { injectable } from "inversify";
 import "reflect-metadata";
-import { NoteState } from "../../nexusgraph-redux";
+import { GraphName, GraphState } from "../../nexusgraph-redux";
 import { AstraiosClient } from "./AstraiosClient";
 
 const ASTRAIOS_GRAPHQL_API_ENDPOINT = process.env.ASTRAIOS_API_RESOURCE as string;
 
 @injectable()
 export class GraphQlClient implements AstraiosClient {
-  public saveOrUpdate(astraiosState: NoteState, token: string, userId: string) {
-    return this.sendNoteRequest(astraiosState, token, userId);
+
+  private _token: string
+  private _userId: string
+
+  public constructor(userId: string, token: string) {
+    this._userId = userId
+    this._token = token
   }
 
-  public getNoteList(userId: string, token: string) {
+  public saveOrUpdate(graph: GraphState): Promise<number> {
+    return axios
+    .post(
+      ASTRAIOS_GRAPHQL_API_ENDPOINT,
+      {
+        query: ` 
+          mutation saveGraph {
+            graph(op: UPSERT, data: {
+              graph: "${
+                {
+                  nodes: graph.nodes,
+                  links: graph.links
+                }
+              }"
+              name: "${graph.name}"
+              userId: "${this._userId}",
+            }) {
+              edges {
+                node {
+                  id
+                  graph
+                  userId
+                }
+              }
+            }
+          }
+        `,
+        operationName: "upsertGraph",
+      },
+      this.getHeaders(this._token)
+    )
+    .then((response) => {
+      return response.data.data.graph.edges[0]["node"]["id"];
+    });
+  }
+
+  public getGraphList(userId: string): Promise<GraphName[]> {
     return axios
       .post(
         ASTRAIOS_GRAPHQL_API_ENDPOINT,
         {
           query: ` 
-        query getNoteList{
-          note (filter: \"userId==${userId}\"){
+        query getGraphList{
+          graph (filter: \"userId==${userId}\"){
           edges 
           {
             node {
-              id 
-              title
+              id
+              title: name
             }
           }
         }
         }
       `,
-          operationName: "getNoteList",
+          operationName: "getGraphList",
         },
-        this.axiosConfig(token)
+        this.getHeaders(this._token)
       )
       .then((response) => {
-        const noteList = response.data.data.note["edges"].map((object: { node: { id: string; title: string } }) => {
-          return object["node"];
-        });
-        return noteList;
+        return response.data.data.graph["edges"]
       });
   }
 
-  public getNoteById(noteId: string, token: string): Promise<Record<any, string>> {
+  public getGraphById(graphId: string): Promise<GraphState> {
     return axios
       .post(
         ASTRAIOS_GRAPHQL_API_ENDPOINT,
         {
           query: ` 
-        query getNoteById{
-          note(ids: [\"${noteId}\"]) {
+        query getGraphById{
+          graph(ids: [\"${graphId}\"]) {
           edges 
           {
             node {
               id
-              title
               graph
-              editorContent
+              userId
+              title: name
             }
           }
         } 
@@ -65,20 +103,20 @@ export class GraphQlClient implements AstraiosClient {
 `,
           operationName: "getNoteById",
         },
-        this.axiosConfig(token)
+        this.getHeaders(this._token)
       )
       .then((response) => {
         return response.data.data.note["edges"][0]["node"];
       });
   }
 
-  public deleteNote(noteId: string, token: string): Promise<any> {
+  public deleteGraphById(graphId: string): Promise<void> {
     return axios.post(
       ASTRAIOS_GRAPHQL_API_ENDPOINT,
       {
         query: ` 
           mutation deleteNote{
-            note(op: DELETE, ids: [\"${noteId}\"]) {
+            note(op: DELETE, ids: [\"${graphId}\"]) {
               edges {
                 node {
                   id
@@ -92,90 +130,11 @@ export class GraphQlClient implements AstraiosClient {
   `,
         operationName: "deleteNote",
       },
-      this.axiosConfig(token)
+      this.getHeaders(this._token)
     );
   }
 
-  private async sendNoteRequest(note: NoteState, token: string, userId: string): Promise<NoteState> {
-    const graph = JSON.stringify(note.graph).replace(/"/g, '\\"');
-    const editorContent = JSON.stringify(note.editorContent).replace(/"/g, '\\"');
-
-    if (this.isInitialSave(note)) {
-      return axios
-        .post(
-          ASTRAIOS_GRAPHQL_API_ENDPOINT,
-          {
-            query: ` 
-          mutation saveNote{
-            note(op: UPSERT, data: {
-              title: "${note.title}",
-              userId: "${userId}",
-              graph: "${graph}",
-              editorContent: "${editorContent}",
-            }) {
-              edges {
-                node {
-                  id
-                  title
-                  graph
-                  editorContent
-                }
-              }
-            }
-          }
-  `,
-            operationName: "saveNote",
-          },
-          this.axiosConfig(token)
-        )
-        .then((response) => {
-          let noteState;
-          return (noteState = response.data.data.note.edges[0]["node"]);
-        });
-    }
-
-    return axios
-      .post(
-        ASTRAIOS_GRAPHQL_API_ENDPOINT,
-        {
-          query: ` 
-          mutation updateNote{
-            note(op: UPSERT, data: {
-              id: "${note.id}",
-              userId: "${userId}",
-              title: "${note.title}",
-              graph: "${graph}",
-              editorContent: "${editorContent}",
-            }) {
-              edges {
-                node {
-                  id
-                  title
-                  graph
-                  editorContent
-                }
-              }
-            }
-          }
-  `,
-          operationName: "updateNote",
-        },
-        this.axiosConfig(token)
-      )
-      .then((response) => {
-        const noteState = {
-          ...note,
-          ...{ id: response.data.data.note.edges[0]["node"]["id"] },
-        };
-        return noteState;
-      });
-  }
-
-  private isInitialSave(note: NoteState) {
-    return note.id === undefined;
-  }
-
-  private axiosConfig(token: string) {
+  private getHeaders(token: string) {
     return {
       headers: {
         Accept: "application/json",
