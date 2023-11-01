@@ -18,6 +18,7 @@ Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=bugs)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
+[![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/rz9r.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=coverage)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
