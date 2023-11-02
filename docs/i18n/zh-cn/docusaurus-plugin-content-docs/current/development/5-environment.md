@@ -100,17 +100,6 @@ NODE_ENV=development
 你可以参考 [Astraios 文档][Astraios Development] 来学习如何在 [Docker Compose](https://docs.docker.com/compose/)
 中运行 Webservice
 
-### 启动本地服务器以支持实体提取
-
-**nexusgraph-server** 是一个使用 [ExpressJs](https://expressjs.com/) 实现的 node.js 服务器， 用于模拟
-[Theresa API](https://theresa-api.com)接口，支持自然语言处理的实体抽取服务
-运行以下指令以启动 nexusgraph-server
-
-```bash
-cd packages/nexusgraph-server/
-yarn start
-```
-
 Bootstrap
 ---------
 

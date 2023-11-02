@@ -107,17 +107,6 @@ locally and copy the contents of the `.env.test` file to the `.env` file.
 
 You can refer to [Astraios Docs][Astraios Development] to learn how to run Webservice in Docker Compose
 
-### Start the local server to support entity extraction
-
-**nexusgraph-server** is a node.js server implemented using [ExpressJs](https://expressjs.com/) to simulate the
-[Theresa API](https://theresa-api.com) interface to support the natural language processing entity extraction service
-Run the following command to start nexusgraph-server
-
-```bash
-cd packages/nexusgraph-server/
-yarn start
-```
-
 Bootstrap
 ---------
 
