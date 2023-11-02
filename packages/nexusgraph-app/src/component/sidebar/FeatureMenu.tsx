@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { t } from "../../../../nexusgraph-i18n";
 import { NaturalLanguageProcessor } from "../../../../nexusgraph-nlp";
-import { updateGraphData } from "../../../../nexusgraph-redux";
+import { GraphState, INITIAL_GRAPH_NAME, updateGraphData } from "../../../../nexusgraph-redux";
 import { container, TYPES } from "../../../inversify.config";
 import { FeatureButton, IntelligentAITextarea } from "./styled";
 
@@ -44,9 +44,11 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
   }, [inputValue]);
 
   const onClick = () => {
-    remoteNaturalLanguageProcessor.entityExtraction(inputValue as string).then((nlpState) => {
-      dispatch(updateGraphData(nlpState));
-      if (nlpState.nodes.length == 0) {
+    remoteNaturalLanguageProcessor.entityExtraction(inputValue as string).then((graph) => {
+      const graphState: GraphState = {id: undefined, ...graph, name: INITIAL_GRAPH_NAME}
+
+      dispatch(updateGraphData(graphState));
+      if (graphState.nodes.length == 0) {
         setShowAlert(true);
       }
     });

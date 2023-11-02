@@ -2,6 +2,8 @@
 import { useSelector } from "react-redux";
 import { GlobalState, Link, Node } from "../..";
 
+export const INITIAL_GRAPH_NAME = "Unamed Graph"
+
 export const GRAPH_DATA = "graphData";
 const UPDATE_GRAPH_DATA = GRAPH_DATA + "/UPDATE_GRAPH_DATA";
 
@@ -27,7 +29,7 @@ export const initialState: GraphState = {
   nodes: [],
   links: [],
 
-  name: "Unnamed graph",
+  name: INITIAL_GRAPH_NAME,
 };
 
 export function selectGraphData() {
