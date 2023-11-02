@@ -16,13 +16,6 @@ export interface GraphState {
   name: string;
 }
 
-export type GraphName = Pick<GraphState, "id" | "name">;
-
-interface GraphAction {
-  type: typeof UPDATE_GRAPH_DATA;
-  payload: GraphState;
-}
-
 export const initialState: GraphState = {
   id: undefined,
 
@@ -32,8 +25,19 @@ export const initialState: GraphState = {
   name: INITIAL_GRAPH_NAME,
 };
 
+export type GraphName = Pick<GraphState, "id" | "name">;
+
+interface GraphAction {
+  type: typeof UPDATE_GRAPH_DATA;
+  payload: GraphState;
+}
+
 export function selectGraphData() {
   return useSelector((state: GlobalState) => state.graphData);
+}
+
+export function updateGraphData(graphState: GraphState) {
+  return { type: UPDATE_GRAPH_DATA, payload: graphState };
 }
 
 /**
@@ -57,8 +61,4 @@ export default function graphReducer(state = initialState, action: GraphAction):
     default:
       return state;
   }
-}
-
-export function updateGraphData(graphState: GraphState) {
-  return { type: UPDATE_GRAPH_DATA, payload: graphState };
 }
