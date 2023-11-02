@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { Graph, selectNlpData, updateNoteGraph } from "../../nexusgraph-redux";
+import { Graph, selectGraphData, updateNoteGraph } from "../../nexusgraph-redux";
 import { BasicNode, BasicRelationship } from "./basicTypes";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "./GraphStats";
 import { GraphVisualizer } from "./GraphVisualizer";
@@ -24,8 +24,8 @@ export function Visualization(props: VisualizationProps): JSX.Element {
   const dispatch = useDispatch();
 
   const graph: Graph = {
-    nodes: selectNlpData().nodes,
-    links: selectNlpData().links,
+    nodes: selectGraphData().nodes,
+    links: selectGraphData().links,
   };
 
   useEffect(() => {
@@ -35,8 +35,8 @@ export function Visualization(props: VisualizationProps): JSX.Element {
   return (
     <StyledVisContainer isFullscreen={true}>
       <GraphVisualizer
-        nodes={transformBasicNodes(selectNlpData().nodes)}
-        relationships={transformBasicRelationships(selectNlpData().links)}
+        nodes={transformBasicNodes(selectGraphData().nodes)}
+        relationships={transformBasicRelationships(selectGraphData().links)}
         assignVisElement={props.assignVisElement}
       />
     </StyledVisContainer>
