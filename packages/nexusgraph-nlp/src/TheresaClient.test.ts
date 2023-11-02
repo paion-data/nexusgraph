@@ -8,10 +8,8 @@ const theresaClient: NLPClient = new TheresaClient()
 
 jest.mock("axios");
 
-describe("Remote Natural Language Processor delegates processing to remote WS", () => {
-  it("Should return nlp Data", async () => {
-    // given
-    const editorLines = ["China"];
+describe("NLP delegates processing to remote WS", () => {
+  it("returns graph", async () => {
     const nlpData = {
       nodes: [
         {
@@ -43,7 +41,7 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
     axios.create = jest.fn(() => axios);
     Object(axios.post).mockResolvedValueOnce(nlpData);
 
-    theresaClient["fetchRemote"](editorLines).then((nlpState: any) => {
+    theresaClient["fetchRemote"]("China").then((nlpState: any) => {
       expect(nlpState).toEqual(nlpData);
 
       expect(axios.create).toHaveBeenCalled();
@@ -52,7 +50,7 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
         {
           dataframe_split: {
             columns: ["text"],
-            data: [editorLines],
+            data: [["China"]],
           },
         },
         { headers: { "Content-Type": "application/json", accept: "*/*" } }

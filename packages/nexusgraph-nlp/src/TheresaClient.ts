@@ -13,8 +13,8 @@ const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction";
  */
 @injectable()
 export class TheresaClient implements NLPClient {
-  public entityExtraction(textareaContent: string): Promise<Graph> {
-    return this.remoteEntityExtration([textareaContent]);
+  public entityExtraction(text: string): Promise<Graph> {
+    return this.remoteEntityExtration(text);
   }
 
   /**
@@ -25,8 +25,8 @@ export class TheresaClient implements NLPClient {
    *
    * @returns a Promise the Redux state
    */
-  private remoteEntityExtration = async (textLines: string[]): Promise<Graph> => {
-    const response = this.fetchRemote(textLines);
+  private remoteEntityExtration = async (text: string): Promise<Graph> => {
+    const response = this.fetchRemote(text);
     const data: Graph = (await response).data;
     return data;
   };
@@ -36,11 +36,11 @@ export class TheresaClient implements NLPClient {
    *
    * The HTTP query concats texts into a single string so that only 1 round-trip is executed
    *
-   * @param textLines  The provided texts
+   * @param text  The provided text
    *
    * @returns a Promise of the WS response data
    */
-  private fetchRemote = async (textLines: string[]) => {
+  private fetchRemote = async (text: string) => {
     const instanceAxios = axios.create({
       baseURL: process.env.THERESA_API_URL as string,
     });
@@ -52,7 +52,7 @@ export class TheresaClient implements NLPClient {
     };
     const payload = {
       columns: ["text"],
-      data: [textLines],
+      data: [[text]],
     };
 
     const response = instanceAxios.post(
