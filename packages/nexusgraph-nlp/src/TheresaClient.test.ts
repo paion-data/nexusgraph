@@ -4,7 +4,7 @@ import axios from "axios";
 import { container, TYPES } from "../../nexusgraph-app/inversify.config";
 import { NLPClient } from "./NLPClient";
 
-const remoteNaturalLanguageProcessor: any = container.get<NLPClient>(TYPES.NaturalLanguageProcessor);
+const theresaClient: any = container.get<NLPClient>(TYPES.NLPClient);
 
 jest.mock("axios");
 
@@ -43,7 +43,7 @@ describe("Remote Natural Language Processor delegates processing to remote WS", 
     axios.create = jest.fn(() => axios);
     Object(axios.post).mockResolvedValueOnce(nlpData);
 
-    remoteNaturalLanguageProcessor["fetchRemote"](editorLines).then((nlpState: any) => {
+    theresaClient["fetchRemote"](editorLines).then((nlpState: any) => {
       expect(nlpState).toEqual(nlpData);
 
       expect(axios.create).toHaveBeenCalled();

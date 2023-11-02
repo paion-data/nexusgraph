@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
-import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
+import { NLPClient } from "../../nexusgraph-nlp";
 import { NoteState, selectNote, selectOAuth } from "../../nexusgraph-redux";
 import { container, TYPES } from "../inversify.config";
 
@@ -10,9 +10,7 @@ export default function useReduxHook() {
   const dispatch = useDispatch();
   const noteState: NoteState = selectNote();
   const astraiosClient: AstraiosClient = container.get<AstraiosClient>(TYPES.AstraiosClient);
-  const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
-    TYPES.NaturalLanguageProcessor
-  );
+  const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
   const accessToken = selectOAuth().accessToken;
   const userId = selectOAuth().userInfo["sub"];
 
