@@ -2209,9 +2209,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp":
+"@paiondata/nexusgraph-theresa@workspace:packages/nexusgraph-theresa":
   version: 0.0.0-use.local
-  resolution: "@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp"
+  resolution: "@paiondata/nexusgraph-theresa@workspace:packages/nexusgraph-theresa"
   dependencies:
     inversify: ^6.0.1
     inversify-inject-decorators: ^3.1.0

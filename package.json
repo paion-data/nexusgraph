@@ -4,7 +4,7 @@
     "./packages/nexusgraph-app",
     "./packages/nexusgraph-editor",
     "./packages/nexusgraph-graph",
-    "./packages/nexusgraph-nlp",
+    "./packages/nexusgraph-theresa",
     "./packages/nexusgraph-oauth2",
     "./packages/nexusgraph-i18n"
   ],

@@ -3,7 +3,7 @@ import { Container } from "inversify";
 
 import { AstraiosClient } from "../nexusgraph-astraios";
 import { GraphQlClient } from "../nexusgraph-astraios/src/GraphqlAstraiosClient";
-import { NaturalLanguageProcessor, RemoteNaturalLanguageProcessor } from "../nexusgraph-nlp";
+import { NaturalLanguageProcessor, RemoteNaturalLanguageProcessor } from "../nexusgraph-theresa";
 
 /**
  * Define the types identifier to get dependency

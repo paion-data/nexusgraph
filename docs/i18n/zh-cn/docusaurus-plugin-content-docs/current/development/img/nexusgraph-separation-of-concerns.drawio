@@ -29,7 +29,7 @@
             <mxPoint x="470.03703703703695" y="150" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CNwq_zWWRygWndVKlvpz-3" value="nexusgraph-nlp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00AA00;strokeColor=none;fontColor=#FFFFFF;fontFamily=Ubuntu;fontSize=20;" parent="1" vertex="1">
+        <mxCell id="CNwq_zWWRygWndVKlvpz-3" value="nexusgraph-theresa" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00AA00;strokeColor=none;fontColor=#FFFFFF;fontFamily=Ubuntu;fontSize=20;" parent="1" vertex="1">
           <mxGeometry x="320" y="240" width="200" height="80" as="geometry" />
         </mxCell>
         <mxCell id="CNwq_zWWRygWndVKlvpz-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=5;strokeColor=#67AB9F;" parent="1" source="CNwq_zWWRygWndVKlvpz-4" target="CNwq_zWWRygWndVKlvpz-2" edge="1">

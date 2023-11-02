@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
-import { NaturalLanguageProcessor } from "../../nexusgraph-nlp";
+import { NaturalLanguageProcessor } from "../../nexusgraph-theresa";
 import { NoteState, selectNote, selectOAuth } from "../../nexusgraph-redux";
 import { container, TYPES } from "../inversify.config";
 

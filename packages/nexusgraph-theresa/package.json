@@ -1,5 +1,5 @@
 {
-  "name": "@paiondata/nexusgraph-nlp",
+  "name": "@paiondata/nexusgraph-theresa",
   "version": "0.1.0",
   "description": "Natural language processing",
   "dependencies": {
