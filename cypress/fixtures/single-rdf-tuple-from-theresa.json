@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "fields": {
+        "type": "爱"
+      },
+      "id": "n6t9801j5xuxhln9wh3na",
+      "source": "nojchzzhfk8wqftekbufl",
+      "target": "nl8uppsqmkg586x5u71q9"
+    }
+  ],
+  "nodes": [
+    {
+      "fields": {
+        "name": "我",
+        "type": "entity"
+      },
+      "id": "nojchzzhfk8wqftekbufl"
+    },
+    {
+      "fields": {
+        "name": "中国",
+        "type": "entity"
+      },
+      "id": "nl8uppsqmkg586x5u71q9"
+    }
+  ]
+}
