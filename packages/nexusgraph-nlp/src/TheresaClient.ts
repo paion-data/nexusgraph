@@ -3,8 +3,7 @@ import * as Sentry from "@sentry/react";
 import axios from "axios";
 import { injectable } from "inversify";
 import "reflect-metadata";
-import { Graph } from "../../../nexusgraph-redux";
-import TextareaContentParser from "../parser/TextareaContentParser";
+import { Graph } from "../../nexusgraph-redux";
 import { NLPClient } from "./NLPClient";
 
 const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction";
@@ -15,9 +14,7 @@ const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction";
 @injectable()
 export class TheresaClient implements NLPClient {
   public entityExtraction(textareaContent: string): Promise<Graph> {
-    const parser = new TextareaContentParser();
-    const textLines = parser.parse(textareaContent);
-    return this.remoteEntityExtration(textLines);
+    return this.remoteEntityExtration([textareaContent]);
   }
 
   /**

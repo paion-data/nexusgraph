@@ -107,6 +107,10 @@ locally and copy the contents of the `.env.test` file to the `.env` file.
 
 You can refer to [Astraios Docs][Astraios Development] to learn how to run Webservice in Docker Compose
 
+### Start NLP server
+
+We can refer to [Theresa Docs](https://github.com/paion-data/theresa) to learn how to run a NLP server for Nexus Graph
+
 Bootstrap
 ---------
 

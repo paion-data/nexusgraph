@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { Graph } from "../../../nexusgraph-redux";
+import { Graph } from "../../nexusgraph-redux";
 
 export interface NLPClient {
   /**
