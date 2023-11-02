@@ -54,10 +54,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Install dependencies
-        run: |
-          yarn install
-          cd packages/nexusgraph-server
-          yarn install
+        run: yarn install
       - name: Run unit tests
         run: yarn test
 
@@ -112,11 +109,7 @@ jobs:
         with:
           node-version: 16
       - name: Install nexusgraph dependencies so that TypeDoc process source files properly
-        run: |
-          cd ../
-          yarn install
-          cd packages/nexusgraph-server
-          yarn install
+        run: cd ../ && yarn install
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
       - name: Install doc dependencies

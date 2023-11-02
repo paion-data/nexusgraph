@@ -3,8 +3,8 @@ sidebar_position: 10
 title: 架构
 ---
 
-Nexus Graph 使用 [yarn workspace](https://classic.yarnpkg.com/lang/en/docs/workspaces/) 进行打包，除 `docs` 以及
-`nexusgraph-server` 以外，其他的 Packages 都将依赖顶级目录下 `tsconfig.json` 进行配置
+Nexus Graph 使用 [yarn workspace](https://classic.yarnpkg.com/lang/en/docs/workspaces/) 进行打包，除 `docs` 以外，其他的
+Packages 都将依赖顶级目录下 `tsconfig.json` 进行配置
 
 主要组件介绍
 ------------

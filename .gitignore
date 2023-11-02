@@ -24,7 +24,6 @@ yarn-error.log*
 packages/nexusgraph-app/.yarn
 packages/nexusgraph-editor/.yarn
 packages/nexusgraph-graph/.yarn
-packages/nexusgraph-server/.yarn
 packages/nexusgraph-nlp/.yarn
 
 docs/.yarn/
@@ -32,5 +31,3 @@ docs/.yarn/
 /cypress/screenshots/
 /cypress/videos/
 /cypress/downloads/
-
-packages/nexusgraph-server/src/db.json
