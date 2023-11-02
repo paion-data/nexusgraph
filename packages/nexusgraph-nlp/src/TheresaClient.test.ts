@@ -41,6 +41,7 @@ describe("NLP delegates processing to remote WS", () => {
     axios.create = jest.fn(() => axios);
     Object(axios.post).mockResolvedValueOnce(nlpData);
 
+    // @ts-ignore
     theresaClient["fetchRemote"]("China").then((nlpState: any) => {
       expect(nlpState).toEqual(nlpData);
 
