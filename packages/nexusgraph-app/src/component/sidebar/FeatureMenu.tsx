@@ -45,7 +45,7 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
 
   const onClick = () => {
     remoteNaturalLanguageProcessor.entityExtraction(inputValue as string).then((graph) => {
-      const graphState: GraphState = {id: undefined, ...graph, name: INITIAL_GRAPH_NAME}
+      const graphState: GraphState = { id: undefined, ...graph, name: INITIAL_GRAPH_NAME };
 
       dispatch(updateGraphData(graphState));
       if (graphState.nodes.length == 0) {
