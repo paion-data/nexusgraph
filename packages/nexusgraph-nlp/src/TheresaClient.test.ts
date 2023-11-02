@@ -4,7 +4,7 @@ import axios from "axios";
 import { NLPClient } from "./NLPClient";
 import { TheresaClient } from "./TheresaClient";
 
-const theresaClient: NLPClient = new TheresaClient()
+const theresaClient: NLPClient = new TheresaClient();
 
 jest.mock("axios");
 
