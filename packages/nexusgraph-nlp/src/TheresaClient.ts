@@ -3,21 +3,18 @@ import * as Sentry from "@sentry/react";
 import axios from "axios";
 import { injectable } from "inversify";
 import "reflect-metadata";
-import { Graph } from "../../../nexusgraph-redux";
-import TextareaContentParser from "../parser/TextareaContentParser";
-import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
+import { Graph } from "../../nexusgraph-redux";
+import { NLPClient } from "./NLPClient";
 
 const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction";
 
 /**
- * An implementation of {@link NaturalLanguageProcessor} that delegates NLP to a remote service.
+ * An implementation of {@link NLPClient} that delegates NLP to paion-data/theresa.
  */
 @injectable()
-export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
-  public entityExtraction(textareaContent: string): Promise<Graph> {
-    const parser = new TextareaContentParser();
-    const textLines = parser.parse(textareaContent);
-    return this.remoteEntityExtration(textLines);
+export class TheresaClient implements NLPClient {
+  public entityExtraction(text: string): Promise<Graph> {
+    return this.remoteEntityExtration(text);
   }
 
   /**
@@ -28,8 +25,8 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
    *
    * @returns a Promise the Redux state
    */
-  private remoteEntityExtration = async (textLines: string[]): Promise<Graph> => {
-    const response = this.fetchRemote(textLines);
+  private remoteEntityExtration = async (text: string): Promise<Graph> => {
+    const response = this.fetchRemote(text);
     const data: Graph = (await response).data;
     return data;
   };
@@ -39,11 +36,11 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
    *
    * The HTTP query concats texts into a single string so that only 1 round-trip is executed
    *
-   * @param textLines  The provided texts
+   * @param text  The provided text
    *
    * @returns a Promise of the WS response data
    */
-  private fetchRemote = async (textLines: string[]) => {
+  private fetchRemote = async (text: string) => {
     const instanceAxios = axios.create({
       baseURL: process.env.THERESA_API_URL as string,
     });
@@ -55,7 +52,7 @@ export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor 
     };
     const payload = {
       columns: ["text"],
-      data: [textLines],
+      data: [[text]],
     };
 
     const response = instanceAxios.post(

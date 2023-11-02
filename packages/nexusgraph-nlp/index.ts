@@ -1,3 +1,3 @@
 // Copyright 2023 Paion Data. All rights reserved.
-export type { NaturalLanguageProcessor } from "./src/processor/NaturalLanguageProcessor";
-export { RemoteNaturalLanguageProcessor } from "./src/processor/RemoteNaturalLanguageProcessor";
+export type { NLPClient } from "./src/NLPClient";
+export { TheresaClient } from "./src/TheresaClient";

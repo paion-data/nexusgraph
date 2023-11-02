@@ -3,7 +3,7 @@ import { Container } from "inversify";
 
 import { AstraiosClient } from "../nexusgraph-astraios";
 import { GraphQlClient } from "../nexusgraph-astraios/src/GraphqlAstraiosClient";
-import { NaturalLanguageProcessor, RemoteNaturalLanguageProcessor } from "../nexusgraph-nlp";
+import { NLPClient, TheresaClient } from "../nexusgraph-nlp";
 
 /**
  * Define the types identifier to get dependency
@@ -13,7 +13,7 @@ const TYPES = {
   accessToken: Symbol("accessToken"),
   userId: Symbol("userId"),
 
-  NaturalLanguageProcessor: Symbol("NaturalLanguageProcessor"),
+  NLPClient: Symbol("NLPClient"),
 };
 
 /**
@@ -24,10 +24,7 @@ const container = new Container();
 /**
  * Bind the class we use to implement the interface
  */
+container.bind<NLPClient>(TYPES.NLPClient).to(TheresaClient).inSingletonScope();
 container.bind<AstraiosClient>(TYPES.AstraiosClient).to(GraphQlClient).inSingletonScope();
-container
-  .bind<NaturalLanguageProcessor>(TYPES.NaturalLanguageProcessor)
-  .to(RemoteNaturalLanguageProcessor)
-  .inSingletonScope();
 
 export { container, TYPES };

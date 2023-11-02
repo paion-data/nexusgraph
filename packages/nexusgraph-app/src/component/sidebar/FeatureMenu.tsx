@@ -2,14 +2,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { t } from "../../../../nexusgraph-i18n";
-import { NaturalLanguageProcessor } from "../../../../nexusgraph-nlp";
+import { NLPClient } from "../../../../nexusgraph-nlp";
 import { GraphState, INITIAL_GRAPH_NAME, updateGraphData } from "../../../../nexusgraph-redux";
 import { container, TYPES } from "../../../inversify.config";
 import { FeatureButton, IntelligentAITextarea } from "./styled";
 
-const remoteNaturalLanguageProcessor: NaturalLanguageProcessor = container.get<NaturalLanguageProcessor>(
-  TYPES.NaturalLanguageProcessor
-);
+const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
 
 export function FeatureMenu({ onClose, setShowAlert }: { onClose: () => void; setShowAlert: any }): JSX.Element {
   const [mode, setMode] = useState<null | "intelligentAI">(null);
@@ -44,7 +42,7 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
   }, [inputValue]);
 
   const onClick = () => {
-    remoteNaturalLanguageProcessor.entityExtraction(inputValue as string).then((graph) => {
+    nlpClient.entityExtraction(inputValue as string).then((graph) => {
       const graphState: GraphState = { id: undefined, ...graph, name: INITIAL_GRAPH_NAME };
 
       dispatch(updateGraphData(graphState));
