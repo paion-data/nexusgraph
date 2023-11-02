@@ -14,7 +14,6 @@ const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction";
  */
 @injectable()
 export class TheresaClient implements NLPClient {
-
   public entityExtraction(textareaContent: string): Promise<Graph> {
     const parser = new TextareaContentParser();
     const textLines = parser.parse(textareaContent);

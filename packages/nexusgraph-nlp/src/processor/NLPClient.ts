@@ -2,7 +2,6 @@
 import { Graph } from "../../../nexusgraph-redux";
 
 export interface NLPClient {
-
   /**
    * Given an arbitrary text, this method asynchronously performs entity extration on them and converts the extracted
    * entities to the format of {@link Graph}.
