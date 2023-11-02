@@ -1,10 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import axios from "axios";
 
-import { container, TYPES } from "../../nexusgraph-app/inversify.config";
 import { NLPClient } from "./NLPClient";
+import { TheresaClient } from "./TheresaClient";
 
-const theresaClient: any = container.get<NLPClient>(TYPES.NLPClient);
+const theresaClient: NLPClient = new TheresaClient()
 
 jest.mock("axios");
 

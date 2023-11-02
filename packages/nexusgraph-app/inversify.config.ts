@@ -24,7 +24,7 @@ const container = new Container();
 /**
  * Bind the class we use to implement the interface
  */
-container.bind<AstraiosClient>(TYPES.AstraiosClient).to(GraphQlClient).inSingletonScope();
 container.bind<NLPClient>(TYPES.NLPClient).to(TheresaClient).inSingletonScope();
+container.bind<AstraiosClient>(TYPES.AstraiosClient).to(GraphQlClient).inSingletonScope();
 
 export { container, TYPES };
