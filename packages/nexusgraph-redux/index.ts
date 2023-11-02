@@ -1,6 +1,14 @@
 // Copyright 2023 Paion Data. All rights reserved.
 export type { GlobalState } from "./src/globalState";
-export * from "./src/graph/graphDuck";
+export {
+  default,
+  GRAPH_DATA,
+  initialState,
+  INITIAL_GRAPH_NAME,
+  selectGraphData,
+  updateGraphData,
+} from "./src/graph/graphDuck";
+export type { GraphName, GraphState } from "./src/graph/graphDuck";
 export * from "./src/note-list/noteListDuck";
 export * from "./src/note/noteDuck";
 export * from "./src/oAuth/oAuthDuck";
