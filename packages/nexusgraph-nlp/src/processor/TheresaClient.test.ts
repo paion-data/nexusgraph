@@ -2,9 +2,9 @@
 import axios from "axios";
 
 import { container, TYPES } from "../../../nexusgraph-app/inversify.config";
-import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
+import { NLPClient } from "./NLPClient";
 
-const remoteNaturalLanguageProcessor: any = container.get<NaturalLanguageProcessor>(TYPES.NaturalLanguageProcessor);
+const remoteNaturalLanguageProcessor: any = container.get<NLPClient>(TYPES.NaturalLanguageProcessor);
 
 jest.mock("axios");
 

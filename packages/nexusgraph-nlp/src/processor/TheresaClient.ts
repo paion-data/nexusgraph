@@ -5,15 +5,16 @@ import { injectable } from "inversify";
 import "reflect-metadata";
 import { Graph } from "../../../nexusgraph-redux";
 import TextareaContentParser from "../parser/TextareaContentParser";
-import { NaturalLanguageProcessor } from "./NaturalLanguageProcessor";
+import { NLPClient } from "./NLPClient";
 
 const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction";
 
 /**
- * An implementation of {@link NaturalLanguageProcessor} that delegates NLP to a remote service.
+ * An implementation of {@link NLPClient} that delegates NLP to paion-data/theresa.
  */
 @injectable()
-export class RemoteNaturalLanguageProcessor implements NaturalLanguageProcessor {
+export class TheresaClient implements NLPClient {
+
   public entityExtraction(textareaContent: string): Promise<Graph> {
     const parser = new TextareaContentParser();
     const textLines = parser.parse(textareaContent);
