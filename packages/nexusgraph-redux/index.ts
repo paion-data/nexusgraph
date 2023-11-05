@@ -1,5 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 export type { GlobalState } from "./src/globalState";
+export * from "./src/graph-list/graphListDuck";
 export {
   default,
   GRAPH_DATA,
@@ -9,7 +10,6 @@ export {
   updateGraphData,
 } from "./src/graph/graphDuck";
 export type { GraphName, GraphState } from "./src/graph/graphDuck";
-export * from "./src/note-list/noteListDuck";
 export * from "./src/oAuth/oAuthDuck";
 export { default as ReduxStoreProvider } from "./src/ReduxStoreProvider";
 

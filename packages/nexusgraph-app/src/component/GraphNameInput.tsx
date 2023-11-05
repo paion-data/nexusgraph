@@ -66,8 +66,8 @@ export const Input = styled.input`
   caret-color: #fff;
 `;
 
-export default function NoteTitleInput(): JSX.Element {
-  const input = document.getElementById("noteTitleInput");
+export default function GraphNameInput(): JSX.Element {
+  const input = document.getElementById("graphNameInput");
   const graphData = selectGraphData();
   const graphWidth = document.getElementById("graphBrowser")?.offsetWidth;
 
@@ -83,7 +83,7 @@ export default function NoteTitleInput(): JSX.Element {
   return (
     <TitleWapper inputWidth={inputWidth}>
       <Input
-        id="noteTitleInput"
+        id="graphNameInput"
         value={inputValue}
         onChange={(event) => {
           setInputValue(event.target.value);
