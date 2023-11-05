@@ -43,12 +43,13 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
 
   const onClick = () => {
     nlpClient.entityExtraction(inputValue as string).then((graph) => {
-      const graphState: GraphState = { id: undefined, ...graph, name: INITIAL_GRAPH_NAME };
-
-      dispatch(updateGraphData(graphState));
-      if (graphState.nodes.length == 0) {
+      if (graph.nodes.length == 0) {
         setShowAlert(true);
+        return;
       }
+
+      const graphState: GraphState = { id: undefined, ...graph, name: INITIAL_GRAPH_NAME };
+      dispatch(updateGraphData(graphState));
     });
 
     onClose();
