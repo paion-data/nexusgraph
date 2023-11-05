@@ -57,7 +57,6 @@ npm install --global yarn
 需要定义:
 
 - **THERESA_API_URL** 请求 [Theresa API](https://theresa-api.com) 的URL，用于将将自然语言文本转化为知识图谱
-- **ENTITY_EXTRACTION_CALL_DELAY_IN_MS**  自然语言处理实体抽取调用的周期延迟(毫秒)
 - **LOGTO_ENDPOINT_URL**
   - [Logto](https://docs.logto.io/) 提供了一个全面的身份验证的解决方案，包括前端和后端，以及预构建的基础配置和企业级解决方案。
   - 在 Nexus Graph 中，我们使用Logto来验证用户是否已登录并自动生成用户登录页面
@@ -82,7 +81,6 @@ npm install --global yarn
 
 ```bash
 THERESA_API_URL=http://localhost:5000/
-ENTITY_EXTRACTION_CALL_DELAY_IN_MS=5000
 LOGTO_ENDPOINT_URL=https://u4v5ne.logto.app/
 LOGTO_SIGN_IN_CALLBACK_URL=http://localhost:8080/login
 LOGTO_APP_ID=ypon89z8rtrjdg5ta669l

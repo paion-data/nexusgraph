@@ -2,7 +2,7 @@
 import { Container } from "inversify";
 
 import { AstraiosClient } from "../nexusgraph-astraios";
-import { GraphQlClient } from "../nexusgraph-astraios/src/GraphqlAstraiosClient";
+import { GraphQlClient } from "../nexusgraph-astraios/src/GraphQlClient";
 import { NLPClient, TheresaClient } from "../nexusgraph-nlp";
 
 /**

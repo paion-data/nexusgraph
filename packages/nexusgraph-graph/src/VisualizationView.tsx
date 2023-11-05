@@ -1,8 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-
-import { Graph, selectGraphData, updateNoteGraph } from "../../nexusgraph-redux";
+import { Graph, selectGraphData } from "../../nexusgraph-redux";
 import { BasicNode, BasicRelationship } from "./basicTypes";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "./GraphStats";
 import { GraphVisualizer } from "./GraphVisualizer";
@@ -21,22 +18,16 @@ const DISPLAYED_FIELD = "type";
  * @returns a DOM object
  */
 export function Visualization(props: VisualizationProps): JSX.Element {
-  const dispatch = useDispatch();
-
-  const graph: Graph = {
+  const initialGraph: Graph = {
     nodes: selectGraphData().nodes,
     links: selectGraphData().links,
   };
 
-  useEffect(() => {
-    dispatch(updateNoteGraph(graph));
-  }, [JSON.stringify(graph)]);
-
   return (
     <StyledVisContainer isFullscreen={true}>
       <GraphVisualizer
-        nodes={transformBasicNodes(selectGraphData().nodes)}
-        relationships={transformBasicRelationships(selectGraphData().links)}
+        nodes={transformBasicNodes(initialGraph.nodes)}
+        relationships={transformBasicRelationships(initialGraph.links)}
         assignVisElement={props.assignVisElement}
       />
     </StyledVisContainer>
