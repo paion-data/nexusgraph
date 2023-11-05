@@ -1,10 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { PencilSquareIcon as PencilSquareIconSolid } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { NoteState, selectNote, updateNoteTitle } from "../../../nexusgraph-redux";
-import { NoteInfo, selectNoteList, updateNoteList } from "../../../nexusgraph-redux/src/note-list/noteListDuck";
+import { selectGraphData } from "../../../nexusgraph-redux";
 
 export const TitleWapper = styled.div<{
   inputWidth: number;
@@ -70,28 +68,17 @@ export const Input = styled.input`
 
 export default function NoteTitleInput(): JSX.Element {
   const input = document.getElementById("noteTitleInput");
-  const currentNote = selectNote();
+  const graphData = selectGraphData();
   const graphWidth = document.getElementById("graphBrowser")?.offsetWidth;
 
   const [inputWidth, setInputWidth] = useState(350);
-  const [inputValue, setInputValue] = useState(currentNote.title);
-
-  const noteList = selectNoteList();
-
-  const newList = getNewList(currentNote, noteList);
-
-  const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState(graphData.name);
 
   const PencilSquareIcon = (): JSX.Element => <PencilSquareIconSolid />;
 
   useEffect(() => {
-    setInputValue(currentNote.title);
-  }, [currentNote.id]);
-
-  useEffect(() => {
-    dispatch(updateNoteTitle(inputValue));
-    dispatch(updateNoteList(newList));
-  }, [inputValue]);
+    setInputValue(graphData.name);
+  }, [graphData.id]);
 
   return (
     <TitleWapper inputWidth={inputWidth}>
@@ -118,14 +105,4 @@ export default function NoteTitleInput(): JSX.Element {
       </button>
     </TitleWapper>
   );
-}
-
-function getNewList(currentNote: NoteState, noteList: NoteInfo[]) {
-  const newList = noteList.map((note) => {
-    if (note.id == currentNote.id) {
-      note.title = currentNote.title;
-    }
-    return note;
-  });
-  return newList;
 }

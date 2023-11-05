@@ -1,6 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useSelector } from "react-redux";
 import { GlobalState, Link, Node } from "../..";
+import { t } from "../../../nexusgraph-i18n";
 
 export const INITIAL_GRAPH_NAME = "Unamed Graph";
 
@@ -32,8 +33,20 @@ interface GraphAction {
   payload: GraphState;
 }
 
+function shouldDisplayInitialGraphName(name: string): boolean {
+  return name == initialState.name;
+}
+
 export function selectGraphData() {
-  return useSelector((state: GlobalState) => state.graphData);
+  const initialGraphName = t("initialGraphName");
+
+  return useSelector((state: GlobalState) => {
+    if (shouldDisplayInitialGraphName(state.graphData.name)) {
+      state.graphData.name = initialGraphName;
+      return state.graphData;
+    }
+    return state.graphData;
+  });
 }
 
 export function updateGraphData(graphState: GraphState) {

@@ -10,7 +10,6 @@ export {
 } from "./src/graph/graphDuck";
 export type { GraphName, GraphState } from "./src/graph/graphDuck";
 export * from "./src/note-list/noteListDuck";
-export * from "./src/note/noteDuck";
 export * from "./src/oAuth/oAuthDuck";
 export { default as ReduxStoreProvider } from "./src/ReduxStoreProvider";
 

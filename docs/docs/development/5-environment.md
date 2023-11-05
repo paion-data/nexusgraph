@@ -61,8 +61,6 @@ needs to be defined:
 
 - **THERESA_API_URL** The URL of [Theresa API](https://theresa-api.com) instance, Used turning Natural Language Texts
   into Knowledge Graphs
-- **ENTITY_EXTRACTION_CALL_DELAY_IN_MS**  Natural Language Processing entity extraction call's periodic delay
-  (milliseconds)
 - **LOGTO_ENDPOINT_URL**
   - [Logto](https://docs.logto.io/) offers a comprehensive identity solution covering both the front and backend,
     complete with pre-built infrastructure and enterprise-grade solutions.
@@ -90,7 +88,6 @@ An example `.env` file is provided in [`.env.test` file][`.env.test` file]
 
 ```bash
 THERESA_API_URL=http://localhost:5000/
-ENTITY_EXTRACTION_CALL_DELAY_IN_MS=5000
 LOGTO_ENDPOINT_URL=https://u4v5ne.logto.app/
 LOGTO_SIGN_IN_CALLBACK_URL=http://localhost:8080/login
 LOGTO_APP_ID=ypon89z8rtrjdg5ta669l
@@ -129,7 +126,7 @@ Running the Development Server
 Now we can run the development server at `http://localhost:3000`:
 
 ```bash
-yarn start
+mv .env.test .env && yarn start
 ```
 
 ### Available Scripts

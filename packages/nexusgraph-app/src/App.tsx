@@ -6,7 +6,6 @@ import user from "../public/user.svg";
 import Alert from "./component/Alert";
 import NoteTitleInput from "./component/NoteTitleInput";
 import CreateButton from "./component/sidebar/CreateButton";
-import useReduxHook from "./ReduxHook";
 import {
   AppHeader,
   AppLogo,
@@ -26,9 +25,6 @@ import {
  * @returns a React DOM object
  */
 export default function App(): JSX.Element {
-  useReduxHook();
-  // useAstraiosClientHook();
-
   const [showAlert, setShowAlert] = useState(false);
 
   return (
