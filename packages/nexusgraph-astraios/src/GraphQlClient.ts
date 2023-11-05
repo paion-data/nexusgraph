@@ -98,12 +98,12 @@ export class GraphQlClient implements AstraiosClient {
         } 
         }
 `,
-          operationName: "getNoteById",
+          operationName: "getGraphById",
         },
         this.getHeaders(this._token)
       )
       .then((response) => {
-        return response.data.data.note["edges"][0]["node"];
+        return response.data.data.graph["edges"][0]["node"];
       });
   }
 
@@ -112,8 +112,8 @@ export class GraphQlClient implements AstraiosClient {
       ASTRAIOS_GRAPHQL_API_ENDPOINT,
       {
         query: ` 
-          mutation deleteNote{
-            note(op: DELETE, ids: [\"${graphId}\"]) {
+          mutation deleteGraph{
+            graph(op: DELETE, ids: [\"${graphId}\"]) {
               edges {
                 node {
                   id
@@ -125,7 +125,7 @@ export class GraphQlClient implements AstraiosClient {
             }
           }
   `,
-        operationName: "deleteNote",
+        operationName: "deleteGraph",
       },
       this.getHeaders(this._token)
     );

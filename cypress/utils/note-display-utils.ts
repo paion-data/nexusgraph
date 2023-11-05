@@ -6,26 +6,26 @@ export const hasOperationName = (req: any, operationName: any): boolean => {
 
 export const aliasQuery = (req: any, operationName: any): void => {
   let MOCK_RESPONSES;
-  if (operationName == "getNoteList") {
+  if (operationName == "getGraphList") {
     req.alias = `gql${operationName}Query`;
     MOCK_RESPONSES = {
       data: {
-        note: {
+        graph: {
           edges: [],
         },
       },
     };
   }
-  if (operationName == "saveNote") {
+  if (operationName == "saveGraph") {
     req.alias = `gql${operationName}Query`;
     MOCK_RESPONSES = {
       data: {
-        note: {
+        graph: {
           edges: [
             {
               node: {
                 id: "1",
-                title: "Untitled Note",
+                title: "Unamed Graph",
                 userId: "devUserId",
                 editorContent: `{
                   "root":
@@ -45,22 +45,22 @@ export const aliasQuery = (req: any, operationName: any): void => {
     };
   }
 
-  if (operationName == "getNoteById") {
+  if (operationName == "getGraphById") {
     req.alias = `gql${operationName}Query`;
     MOCK_RESPONSES = {
       data: {
-        note: {
+        graph: {
           edges: [
             {
               node: {
                 id: "2",
-                title: "Second Note",
+                title: "Second Graph",
                 userId: "devUserId",
                 editorContent: `{
                   "root":
                     {"children":
                       [{"children":
-                        [{"detail":0,"format":0,"mode":"normal","style":"","text":"Second Note","type":"text",
+                        [{"detail":0,"format":0,"mode":"normal","style":"","text":"Second Graph","type":"text",
                         "version":1}],
                           "direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr",
                           "format":"","indent":0,"type":"root","version":1

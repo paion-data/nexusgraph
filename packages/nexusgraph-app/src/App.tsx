@@ -4,7 +4,7 @@ import { GraphBrowser } from "../../nexusgraph-graph";
 import logo from "../public/logo.svg";
 import user from "../public/user.svg";
 import Alert from "./component/Alert";
-import NoteTitleInput from "./component/NoteTitleInput";
+import GraphNameInput from "./component/GraphNameInput";
 import CreateButton from "./component/sidebar/CreateButton";
 import {
   AppHeader,
@@ -34,7 +34,7 @@ export default function App(): JSX.Element {
           <img src={user} alt="User" />
         </UserIcon>
         <StyledGraphTitle>
-          <NoteTitleInput />
+          <GraphNameInput />
           {/* <ExportButton /> */}
         </StyledGraphTitle>
       </AppHeader>
