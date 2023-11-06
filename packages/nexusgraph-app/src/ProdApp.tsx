@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Callback } from "../../nexusgraph-oauth";
 import { updateOAuthState } from "../../nexusgraph-redux";
-import { container, TYPES } from "../inversify.config";
 import ProdAppContent from "./ProdAppContent";
 
 /**
@@ -33,9 +32,6 @@ export default function ProdApp(): JSX.Element {
           if (userInfo) {
             prodOAuthState["userInfo"]["sub"] = userInfo["sub"];
             dispatch(updateOAuthState(prodOAuthState));
-
-            container.bind<string>(TYPES.accessToken).toConstantValue(token);
-            container.bind<string>(TYPES.userId).toConstantValue(userInfo["sub"]);
           }
         });
       }

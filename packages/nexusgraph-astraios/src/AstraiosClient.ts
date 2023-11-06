@@ -1,20 +1,49 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { GraphName, GraphState } from "../../nexusgraph-redux";
+import axios from "axios";
+import { GraphState } from "../../nexusgraph-redux";
 
-/**
- * This interface is used to define the data format for sending requests to the backend storage server Astraios
- */
-export interface AstraiosClient {
-  /**
-   * UPSERT a graph.
-   *
-   * @param graph  The graph object to be persisted
-   */
-  saveOrUpdate(graph: GraphState): Promise<number>;
+const ASTRAIOS_GRAPHQL_API_ENDPOINT = process.env.ASTRAIOS_API_RESOURCE as string;
 
-  getGraphList(userId: string): Promise<GraphName[]>;
+export class AstraiosClient {
+  public saveOrUpdate(graph: GraphState, userId: string, accessToken: string): Promise<any> {
+    return this.postAstraiosQuery(
+      `
+      mutation saveGraph {
+        graph(op: UPSERT, data: {
+          id: "${graph.id}"
+          name: "${graph.name}"
+          graph: "${{ nodes: graph.nodes, links: graph.links }}"
+          userId: "${userId}",
+        }) {
+          edges {
+            node {
+              id
+              name
+              graph
+            }
+          }
+        }
+      }
+      `,
+      accessToken
+    );
+  }
 
-  getGraphById(graphId: string): Promise<GraphState>;
+  private postAstraiosQuery(query: string, accessToken: string): Promise<any> {
+    return axios
+      .post(ASTRAIOS_GRAPHQL_API_ENDPOINT, { query: query }, this.getHeaders(accessToken))
+      .then((response) => {
+        return response;
+      });
+  }
 
-  deleteGraphById(graphId: string): Promise<void>;
+  private getHeaders(token: string) {
+    return {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    };
+  }
 }
