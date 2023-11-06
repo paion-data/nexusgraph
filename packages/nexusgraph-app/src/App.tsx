@@ -10,12 +10,12 @@ import {
   AppHeader,
   AppLogo,
   AppName,
-  Sidebar,
   StyledApp,
   StyledBody,
   StyledFooter,
   StyledGraphBrowser,
   StyledGraphTitle,
+  StyledSidebar,
   UserIcon,
 } from "./styled";
 
@@ -40,9 +40,9 @@ export default function App(): JSX.Element {
       </AppHeader>
 
       <StyledBody>
-        <Sidebar>
+        <StyledSidebar>
           <CreateButton setShowAlert={setShowAlert} />
-        </Sidebar>
+        </StyledSidebar>
         <StyledGraphBrowser id="graphBrowser">
           <Alert showAlert={showAlert} setShowAlert={setShowAlert} />
           <GraphBrowser />
