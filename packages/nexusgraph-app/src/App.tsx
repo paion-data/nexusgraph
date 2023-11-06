@@ -1,11 +1,12 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
 import { GraphBrowser } from "../../nexusgraph-graph";
+import { selectGraphList } from "../../nexusgraph-redux";
 import logo from "../public/logo.svg";
 import user from "../public/user.svg";
 import Alert from "./component/Alert";
 import GraphNameInput from "./component/GraphNameInput";
-import CreateButton from "./component/sidebar/CreateButton";
+import SideBar from "./component/sidebar/SideBar";
 import {
   AppHeader,
   AppLogo,
@@ -26,6 +27,7 @@ import {
  */
 export default function App(): JSX.Element {
   const [showAlert, setShowAlert] = useState(false);
+  const graphList = selectGraphList();
 
   return (
     <StyledApp>
@@ -41,7 +43,7 @@ export default function App(): JSX.Element {
 
       <StyledBody>
         <StyledSidebar>
-          <CreateButton setShowAlert={setShowAlert} />
+          <SideBar graphList={graphList} setShowAlert={setShowAlert} />
         </StyledSidebar>
         <StyledGraphBrowser id="graphBrowser">
           <Alert showAlert={showAlert} setShowAlert={setShowAlert} />

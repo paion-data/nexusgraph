@@ -29,6 +29,24 @@ export class AstraiosClient {
     );
   }
 
+  public getGraphListMetaDataByUserId(userId: string, accessToken: string) {
+    return this.postAstraiosQuery(
+      `
+      query getGraphListMetaDataByUserId {
+        graph(filter:"userId==${userId}") {
+          edges {
+            node {
+              id
+              name
+            }
+          }
+        }
+      }
+      `,
+      accessToken
+    );
+  }
+
   private postAstraiosQuery(query: string, accessToken: string): Promise<any> {
     return axios
       .post(ASTRAIOS_GRAPHQL_API_ENDPOINT, { query: query }, this.getHeaders(accessToken))
