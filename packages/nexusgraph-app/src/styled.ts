@@ -43,7 +43,7 @@ export const StyledBody = styled.div`
   padding: 2vh 1.5vh 2vh 1.5vh;
 `;
 
-export const Sidebar = styled.div`
+export const StyledSidebar = styled.div`
   flex-shrink: 1;
   aspect-ratio: 1 / 1.618;
   height: 30vw;
