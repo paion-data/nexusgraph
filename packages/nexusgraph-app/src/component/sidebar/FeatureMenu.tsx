@@ -1,13 +1,15 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { AstraiosClient } from "../../../../nexusgraph-astraios";
 import { t } from "../../../../nexusgraph-i18n";
 import { NLPClient } from "../../../../nexusgraph-nlp";
-import { GraphState, INITIAL_GRAPH_NAME, updateGraphData } from "../../../../nexusgraph-redux";
+import { GraphState, INITIAL_GRAPH_NAME, selectOAuth, updateGraphData } from "../../../../nexusgraph-redux";
 import { container, TYPES } from "../../../inversify.config";
 import { FeatureButton, IntelligentAITextarea } from "./styled";
 
 const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
+const astraiosClient = new AstraiosClient();
 
 export function FeatureMenu({ onClose, setShowAlert }: { onClose: () => void; setShowAlert: any }): JSX.Element {
   const [mode, setMode] = useState<null | "intelligentAI">(null);
@@ -31,6 +33,9 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
   const [inputValue, setInputValue] = useState<string | null>(null);
   const [buttonDisable, setButtonDisable] = useState<boolean>(true);
 
+  const userId = selectOAuth().userInfo.sub;
+  const accessToken = selectOAuth().accessToken;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,6 +55,7 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
 
       const graphState: GraphState = { id: undefined, ...graph, name: INITIAL_GRAPH_NAME };
       dispatch(updateGraphData(graphState));
+      // astraiosClient.saveOrUpdate(graphState, userId, accessToken)
     });
 
     onClose();
