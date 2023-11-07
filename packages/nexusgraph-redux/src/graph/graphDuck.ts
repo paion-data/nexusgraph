@@ -67,6 +67,7 @@ export function updateGraphData(graphState: GraphState) {
 export default function graphReducer(state = initialState, action: GraphAction): GraphState {
   switch (action.type) {
     case UPDATE_GRAPH_DATA:
+      console.log(action.payload);
       return {
         ...state,
         ...action.payload,

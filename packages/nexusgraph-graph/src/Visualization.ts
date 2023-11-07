@@ -3,6 +3,7 @@ import { easeCubic } from "d3";
 import { BaseType, select as d3Select, Selection } from "d3-selection";
 import { D3ZoomEvent, zoom as d3Zoom, ZoomBehavior, zoomIdentity } from "d3-zoom";
 
+import { CANVAS_DBL_CLICKED } from "./event-handler/GraphEventHandlerModel";
 import { nodeEventHandlers } from "./event-handler/NodeEventHandler";
 import { relationshipEventHandlers } from "./event-handler/RelationshipEventHandlers";
 import { ForceSimulation } from "./ForceSimulation";
@@ -75,11 +76,17 @@ export class Visualization {
       .attr("width", "100%")
       .attr("height", "100%")
       .attr("transform", "scale(1)")
+      .attr("data-testid", "graphCanvas")
       // Background click event
       // Check if panning is ongoing
       .on("click", () => {
         if (!this.draw) {
           return this.trigger("canvasClicked");
+        }
+      })
+      .on("dblclick", () => {
+        if (!this.draw) {
+          return this.trigger(CANVAS_DBL_CLICKED);
         }
       });
 
@@ -133,7 +140,8 @@ export class Visualization {
 
     const nodeGroups = this.container
       .selectAll<SVGGElement, NodeModel>("g.node")
-      .attr("transform", (d) => `translate(${d.x},${d.y})`);
+      .attr("transform", (d) => `translate(${d.x},${d.y})`)
+      .attr("data-testid", "nodeGroups");
 
     nodeRenderer.forEach((renderer) => nodeGroups.call(renderer.onTick, this));
 

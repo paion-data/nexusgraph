@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 import { BasicNode, BasicRelationship } from "./basicTypes";
-import { GetNodeNeighboursFn } from "./event-handler/GraphEventHandlerModel";
+import { GetNodeNeighboursFn, GraphInteractionCallBack } from "./event-handler";
 import { Graph } from "./Graph";
 import { GraphStats } from "./GraphStats";
 import { GraphStyleModel } from "./GraphStyle";
@@ -19,6 +19,7 @@ type GraphVisualizerProps = {
   nodes: readonly BasicNode[];
   relationships: readonly BasicRelationship[];
   assignVisElement: (svgElement: any, graphElement: any) => void;
+  onGraphInteraction?: GraphInteractionCallBack;
 };
 
 function computeSelectedItem(nodeLimitHit: boolean, numAllNodes: number, numAllRels: number): VizItem {
@@ -118,6 +119,7 @@ export function GraphVisualizer(props: GraphVisualizerProps): JSX.Element {
           // intentionally left blank
         }}
         initialZoomToFit={true}
+        onGraphInteraction={props.onGraphInteraction}
       />
     </StyledFullSizeContainer>
   );
