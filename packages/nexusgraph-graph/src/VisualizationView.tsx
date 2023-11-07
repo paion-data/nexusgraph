@@ -2,9 +2,9 @@
 import * as Sentry from "@sentry/react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
-import { Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
+import { Link, Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
 import { BasicNode, BasicRelationship } from "./basicTypes";
-import { GraphInteractionCallBack, NODE_ON_CANVAS_CREATE } from "./event-handler";
+import { GraphInteractionCallBack, LINK_ON_CANVAS_CREATE, NODE_ON_CANVAS_CREATE } from "./event-handler";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "./GraphStats";
 import { GraphVisualizer } from "./GraphVisualizer";
 import { StyledVisContainer } from "./VisualizationView.styled";
@@ -42,6 +42,22 @@ export function Visualization(props: VisualizationProps): JSX.Element {
       astraiosClient.saveOrUpdate(graphData, userId, accessToken).then((response) => {
         graphData.id = response.data.data.graph.edges[0]["node"]["id"];
         graphData.nodes = [...graphData.nodes, properties["newNode"] as Node];
+        dispatch(updateGraphData(graphData));
+      });
+    }
+
+    if (event == LINK_ON_CANVAS_CREATE) {
+      if (properties == null) {
+        const error = new Error('A property map with "newLink" key is required');
+        Sentry.captureException(error);
+        throw error;
+      }
+
+      console.log("LINK_ON_CANVAS_CREATE is triggered");
+
+      astraiosClient.saveOrUpdate(graphData, userId, accessToken).then((response) => {
+        graphData.id = response.data.data.graph.edges[0]["node"]["id"];
+        graphData.links = [...graphData.links, properties["newLink"] as Link];
         dispatch(updateGraphData(graphData));
       });
     }

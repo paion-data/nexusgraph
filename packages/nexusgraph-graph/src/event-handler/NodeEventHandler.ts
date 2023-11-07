@@ -47,6 +47,12 @@ export function nodeEventHandlers(
     trigger(NODE_MOUSE_OUT, node);
   };
 
+  const onNodeMouseDown = (_event: KeyboardEvent, node: NodeModel) => {
+    if (_event.altKey || _event.ctrlKey || _event.metaKey || _event.shiftKey) {
+      trigger("nodeAltDown", node);
+    }
+  };
+
   const dragstarted = (event: D3DragEvent<SVGGElement, NodeModel, any>) => {
     initialDragPosition = [event.x, event.y];
     restartedSimulation = false;
@@ -76,5 +82,6 @@ export function nodeEventHandlers(
     .on("mouseover", onNodeMouseOver)
     .on("mouseout", onNodeMouseOut)
     .on("click", onNodeClick)
-    .on("dblclick", onNodeDblClick);
+    .on("dblclick", onNodeDblClick)
+    .on("mousedown", onNodeMouseDown);
 }

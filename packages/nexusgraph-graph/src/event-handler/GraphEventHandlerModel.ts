@@ -23,20 +23,14 @@ export const NODE_DBLCLICKED = "nodeDblClicked";
 export const NODE_UNLOCK = "nodeUnlock";
 
 export const NODE_ON_CANVAS_CREATE = "NODE_ON_CANVAS_CREATE";
-export const NODE_PROP_UPDATE = "NODE_PROP_UPDATE";
-export const NODE_LABEL_UPDATE = "NODE_LABEL_UPDATE";
-export const REL_ON_CANVAS_CREATE = "REL_ON_CANVAS_CREATE";
-export const REL_TYPE_UPDATE = "REL_TYPE_UPDATE";
+export const LINK_ON_CANVAS_CREATE = "REL_ON_CANVAS_CREATE";
 
 export type GraphInteraction =
   | "NODE_EXPAND"
   | "NODE_UNPINNED"
   | "NODE_DISMISSED"
   | typeof NODE_ON_CANVAS_CREATE
-  | typeof NODE_PROP_UPDATE
-  | typeof NODE_LABEL_UPDATE
-  | typeof REL_ON_CANVAS_CREATE
-  | typeof REL_TYPE_UPDATE;
+  | typeof LINK_ON_CANVAS_CREATE;
 
 export type GraphInteractionCallBack = (event: GraphInteraction, properties?: Record<string, unknown>) => void;
 
@@ -61,6 +55,9 @@ export class GraphEventHandlerModel {
   onGraphInteraction: GraphInteractionCallBack;
   selectedItem: NodeModel | RelationshipModel | null;
 
+  private altCreatedLinkSourceNode: any;
+  private altCreatedLinkTargetNode: any;
+
   constructor(
     graph: GraphModel,
     visualization: Visualization,
@@ -78,6 +75,9 @@ export class GraphEventHandlerModel {
     this.onItemSelected = onItemSelected;
     this.onGraphModelChange = onGraphModelChange;
     this.onGraphInteraction = onGraphInteraction ?? (() => undefined);
+
+    this.altCreatedLinkSourceNode = null;
+    this.altCreatedLinkTargetNode = null;
   }
 
   public graphModelChanged = (): void => {
@@ -253,6 +253,34 @@ export class GraphEventHandlerModel {
     });
   }
 
+  nodeAltDown(node: NodeModel): void {
+    if (!node) {
+      return;
+    }
+
+    if (this.altCreatedLinkSourceNode == null && this.altCreatedLinkTargetNode == null) {
+      this.altCreatedLinkSourceNode = node;
+    } else if (this.altCreatedLinkSourceNode != null && this.altCreatedLinkTargetNode == null) {
+      this.altCreatedLinkTargetNode = node;
+
+      const newId = Math.random().toString(36).slice(2);
+
+      this.onGraphInteraction(LINK_ON_CANVAS_CREATE, {
+        newLink: {
+          id: newId,
+          source: this.altCreatedLinkSourceNode.id,
+          target: this.altCreatedLinkTargetNode.id,
+          fields: {
+            type: "new link",
+          },
+        },
+      });
+
+      this.altCreatedLinkSourceNode = null;
+      this.altCreatedLinkTargetNode = null;
+    }
+  }
+
   public bindEventHandlers(): void {
     this.visualization
       .on(NODE_MOUSE_OVER, this.onNodeMouseOver.bind(this))
@@ -267,7 +295,8 @@ export class GraphEventHandlerModel {
       .on(NODE_CLOSE, this.nodeClose.bind(this))
       .on(NODE_CLICKED, this.nodeClicked.bind(this))
       .on(NODE_DBLCLICKED, this.nodeDblClicked.bind(this))
-      .on(NODE_UNLOCK, this.nodeUnlock.bind(this));
+      .on(NODE_UNLOCK, this.nodeUnlock.bind(this))
+      .on("nodeAltDown", this.nodeAltDown.bind(this));
     this.onItemMouseOut();
   }
 }
