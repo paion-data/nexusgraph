@@ -21,6 +21,7 @@ export const NODE_CLOSE = "nodeClose";
 export const NODE_CLICKED = "nodeClicked";
 export const NODE_DBLCLICKED = "nodeDblClicked";
 export const NODE_UNLOCK = "nodeUnlock";
+export const NODE_ALT_DOWN = "nodeAltDown";
 
 export const NODE_ON_CANVAS_CREATE = "NODE_ON_CANVAS_CREATE";
 export const LINK_ON_CANVAS_CREATE = "REL_ON_CANVAS_CREATE";
@@ -296,7 +297,7 @@ export class GraphEventHandlerModel {
       .on(NODE_CLICKED, this.nodeClicked.bind(this))
       .on(NODE_DBLCLICKED, this.nodeDblClicked.bind(this))
       .on(NODE_UNLOCK, this.nodeUnlock.bind(this))
-      .on("nodeAltDown", this.nodeAltDown.bind(this));
+      .on(NODE_ALT_DOWN, this.nodeAltDown.bind(this));
     this.onItemMouseOut();
   }
 }

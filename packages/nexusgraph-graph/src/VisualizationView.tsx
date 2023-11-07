@@ -53,8 +53,6 @@ export function Visualization(props: VisualizationProps): JSX.Element {
         throw error;
       }
 
-      console.log("LINK_ON_CANVAS_CREATE is triggered");
-
       astraiosClient.saveOrUpdate(graphData, userId, accessToken).then((response) => {
         graphData.id = response.data.data.graph.edges[0]["node"]["id"];
         graphData.links = [...graphData.links, properties["newLink"] as Link];

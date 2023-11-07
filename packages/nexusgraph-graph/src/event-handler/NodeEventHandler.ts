@@ -5,7 +5,13 @@ import type { BaseType, Selection } from "d3-selection";
 
 import type { NodeModel } from "../models/Node";
 import type { RelationshipModel } from "../models/Relationship";
-import { NODE_CLICKED, NODE_DBLCLICKED, NODE_MOUSE_OUT, NODE_MOUSE_OVER } from "./GraphEventHandlerModel";
+import {
+  NODE_ALT_DOWN,
+  NODE_CLICKED,
+  NODE_DBLCLICKED,
+  NODE_MOUSE_OUT,
+  NODE_MOUSE_OVER,
+} from "./GraphEventHandlerModel";
 
 const DRAGGING_ALPHA = 0.8;
 const DRAGGING_ALPHA_TARGET = 0.09;
@@ -49,7 +55,7 @@ export function nodeEventHandlers(
 
   const onNodeMouseDown = (_event: KeyboardEvent, node: NodeModel) => {
     if (_event.altKey || _event.ctrlKey || _event.metaKey || _event.shiftKey) {
-      trigger("nodeAltDown", node);
+      trigger(NODE_ALT_DOWN, node);
     }
   };
 
