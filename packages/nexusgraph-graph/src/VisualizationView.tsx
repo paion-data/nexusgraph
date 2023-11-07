@@ -1,6 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { Graph, selectGraphData } from "../../nexusgraph-redux";
+import * as Sentry from "@sentry/react";
+import { useDispatch } from "react-redux";
+import { AstraiosClient } from "../../nexusgraph-astraios";
+import { Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
 import { BasicNode, BasicRelationship } from "./basicTypes";
+import { GraphInteractionCallBack, NODE_ON_CANVAS_CREATE } from "./event-handler";
 import { ALL_NODE_LABELS_SETS, ALL_REL_TYPE_SETS } from "./GraphStats";
 import { GraphVisualizer } from "./GraphVisualizer";
 import { StyledVisContainer } from "./VisualizationView.styled";
@@ -11,24 +15,45 @@ export interface VisualizationProps {
 
 const DISPLAYED_FIELD = "type";
 
+const astraiosClient = new AstraiosClient();
+
 /**
  * {@link Visualization} is responsible for computing and passing the graph data to the components that draws the gaph,
  * i.e. {@link GraphVisualizer}
  *
+ * It is also the "deepest" place in component tree to hold AstraiosClient and Redux state R/W
+ *
  * @returns a DOM object
  */
 export function Visualization(props: VisualizationProps): JSX.Element {
-  const initialGraph: Graph = {
-    nodes: selectGraphData().nodes,
-    links: selectGraphData().links,
+  const dispatch = useDispatch();
+  const graphData = selectGraphData();
+  const accessToken = selectOAuth().accessToken;
+  const userId = selectOAuth().userInfo.sub;
+
+  const onGraphInteraction: GraphInteractionCallBack = (event, properties) => {
+    if (event == NODE_ON_CANVAS_CREATE) {
+      if (properties == null) {
+        const error = new Error('A property map with "newNode" key is required');
+        Sentry.captureException(error);
+        throw error;
+      }
+
+      astraiosClient.saveOrUpdate(graphData, userId, accessToken).then((response) => {
+        graphData.id = response.data.data.graph.edges[0]["node"]["id"];
+        graphData.nodes = [...graphData.nodes, properties["newNode"] as Node];
+        dispatch(updateGraphData(graphData));
+      });
+    }
   };
 
   return (
     <StyledVisContainer isFullscreen={true}>
       <GraphVisualizer
-        nodes={transformBasicNodes(initialGraph.nodes)}
-        relationships={transformBasicRelationships(initialGraph.links)}
+        nodes={transformBasicNodes(graphData.nodes)}
+        relationships={transformBasicRelationships(graphData.links)}
         assignVisElement={props.assignVisElement}
+        onGraphInteraction={onGraphInteraction}
       />
     </StyledVisContainer>
   );

@@ -16,12 +16,27 @@ export const REL_MOUSE_OVER = "relMouseOver";
 export const REL_MOUSE_OUT = "relMouseOut";
 export const RELATIONSHIO_CLICKED = "relationshipClicked";
 export const CANVAS_CLICKED = "canvasClicked";
+export const CANVAS_DBL_CLICKED = "canvasDblClicked";
 export const NODE_CLOSE = "nodeClose";
 export const NODE_CLICKED = "nodeClicked";
 export const NODE_DBLCLICKED = "nodeDblClicked";
 export const NODE_UNLOCK = "nodeUnlock";
 
-export type GraphInteraction = "NODE_EXPAND" | "NODE_UNPINNED" | "NODE_DISMISSED";
+export const NODE_ON_CANVAS_CREATE = "NODE_ON_CANVAS_CREATE";
+export const NODE_PROP_UPDATE = "NODE_PROP_UPDATE";
+export const NODE_LABEL_UPDATE = "NODE_LABEL_UPDATE";
+export const REL_ON_CANVAS_CREATE = "REL_ON_CANVAS_CREATE";
+export const REL_TYPE_UPDATE = "REL_TYPE_UPDATE";
+
+export type GraphInteraction =
+  | "NODE_EXPAND"
+  | "NODE_UNPINNED"
+  | "NODE_DISMISSED"
+  | typeof NODE_ON_CANVAS_CREATE
+  | typeof NODE_PROP_UPDATE
+  | typeof NODE_LABEL_UPDATE
+  | typeof REL_ON_CANVAS_CREATE
+  | typeof REL_TYPE_UPDATE;
 
 export type GraphInteractionCallBack = (event: GraphInteraction, properties?: Record<string, unknown>) => void;
 
@@ -214,6 +229,20 @@ export class GraphEventHandlerModel {
     this.deselectItem();
   }
 
+  onCanvasDblClicked(): void {
+    const newId = Math.random().toString(36).slice(2);
+
+    this.onGraphInteraction(NODE_ON_CANVAS_CREATE, {
+      newNode: {
+        id: newId,
+        fields: {
+          name: "New Node",
+          labels: ["Undefined"],
+        },
+      },
+    });
+  }
+
   public onItemMouseOut(): void {
     this.onItemMouseOver({
       type: "canvas",
@@ -234,6 +263,7 @@ export class GraphEventHandlerModel {
       .on(REL_MOUSE_OUT, this.onItemMouseOut.bind(this))
       .on(RELATIONSHIO_CLICKED, this.onRelationshipClicked.bind(this))
       .on(CANVAS_CLICKED, this.onCanvasClicked.bind(this))
+      .on(CANVAS_DBL_CLICKED, this.onCanvasDblClicked.bind(this))
       .on(NODE_CLOSE, this.nodeClose.bind(this))
       .on(NODE_CLICKED, this.nodeClicked.bind(this))
       .on(NODE_DBLCLICKED, this.nodeDblClicked.bind(this))
