@@ -6,7 +6,7 @@ const ASTRAIOS_GRAPHQL_API_ENDPOINT = process.env.ASTRAIOS_API_RESOURCE as strin
 
 export class AstraiosClient {
   public saveOrUpdate(graph: GraphState, userId: string, accessToken: string): Promise<any> {
-    const graphJson = JSON.stringify({ nodes: graph.nodes, links: graph.links }).replace(/"/g, '\\"')
+    const graphJson = JSON.stringify({ nodes: graph.nodes, links: graph.links }).replace(/"/g, '\\"');
 
     return this.postAstraiosQuery(
       `

@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useEffect, useState } from "react";
 import * as Sentry from "@sentry/react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../../../nexusgraph-astraios";
 import { t } from "../../../../nexusgraph-i18n";
@@ -63,7 +63,8 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
       const graphState: GraphState = { id: undefined, ...graph, name: INITIAL_GRAPH_NAME };
       dispatch(updateGraphData(graphState));
 
-      astraiosClient.saveOrUpdate(graphState, userId, accessToken)
+      astraiosClient
+        .saveOrUpdate(graphState, userId, accessToken)
         .then((response) => {
           const graphId = response.data.data.graph.edges[0]["node"]["id"];
           const graphName = response.data.data.graph.edges[0]["node"]["name"];
