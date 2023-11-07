@@ -29,6 +29,23 @@ export class AstraiosClient {
     );
   }
 
+  public getGraphById(id: string, accessToken: string): Promise<GraphState> {
+    return this.postAstraiosQuery(
+      `
+      {
+        graph(filter:"id==${id}") {
+          edges {
+            node {
+              graph
+            }
+          }
+        }
+      }
+      `,
+      accessToken
+    );
+  }
+
   public getGraphListMetaDataByUserId(userId: string, accessToken: string) {
     return this.postAstraiosQuery(
       `
