@@ -6,14 +6,16 @@ const ASTRAIOS_GRAPHQL_API_ENDPOINT = process.env.ASTRAIOS_API_RESOURCE as strin
 
 export class AstraiosClient {
   public saveOrUpdate(graph: GraphState, userId: string, accessToken: string): Promise<any> {
+    const graphJson = JSON.stringify({ nodes: graph.nodes, links: graph.links }).replace(/"/g, '\\"');
+
     return this.postAstraiosQuery(
       `
       mutation saveGraph {
         graph(op: UPSERT, data: {
           id: "${graph.id}"
           name: "${graph.name}"
-          graph: "${{ nodes: graph.nodes, links: graph.links }}"
-          userId: "${userId}",
+          graph: "${graphJson}"
+          userId: "${userId}"
         }) {
           edges {
             node {
