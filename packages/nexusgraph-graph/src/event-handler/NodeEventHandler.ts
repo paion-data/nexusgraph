@@ -5,7 +5,13 @@ import type { BaseType, Selection } from "d3-selection";
 
 import type { NodeModel } from "../models/Node";
 import type { RelationshipModel } from "../models/Relationship";
-import { NODE_CLICKED, NODE_DBLCLICKED, NODE_MOUSE_OUT, NODE_MOUSE_OVER } from "./GraphEventHandlerModel";
+import {
+  NODE_ALT_DOWN,
+  NODE_CLICKED,
+  NODE_DBLCLICKED,
+  NODE_MOUSE_OUT,
+  NODE_MOUSE_OVER,
+} from "./GraphEventHandlerModel";
 
 const DRAGGING_ALPHA = 0.8;
 const DRAGGING_ALPHA_TARGET = 0.09;
@@ -47,6 +53,12 @@ export function nodeEventHandlers(
     trigger(NODE_MOUSE_OUT, node);
   };
 
+  const onNodeMouseDown = (_event: KeyboardEvent, node: NodeModel) => {
+    if (_event.altKey || _event.ctrlKey || _event.metaKey || _event.shiftKey) {
+      trigger(NODE_ALT_DOWN, node);
+    }
+  };
+
   const dragstarted = (event: D3DragEvent<SVGGElement, NodeModel, any>) => {
     initialDragPosition = [event.x, event.y];
     restartedSimulation = false;
@@ -76,5 +88,6 @@ export function nodeEventHandlers(
     .on("mouseover", onNodeMouseOver)
     .on("mouseout", onNodeMouseOut)
     .on("click", onNodeClick)
-    .on("dblclick", onNodeDblClick);
+    .on("dblclick", onNodeDblClick)
+    .on("mousedown", onNodeMouseDown);
 }
