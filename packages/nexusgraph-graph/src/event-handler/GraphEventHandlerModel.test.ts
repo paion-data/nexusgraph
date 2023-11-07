@@ -302,7 +302,7 @@ test("Bind event handlers to callback", () => {
 
   testModel.bindEventHandlers();
 
-  expect(testModel.visualization.on).toHaveBeenCalledTimes(12);
+  expect(testModel.visualization.on).toHaveBeenCalledTimes(13);
 });
 
 function initHandlerModel() {
