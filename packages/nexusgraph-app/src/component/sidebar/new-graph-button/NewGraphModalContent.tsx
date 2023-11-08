@@ -15,10 +15,14 @@ import {
 import { container, TYPES } from "../../../../inversify.config";
 import { FeatureButton, IntelligentAITextarea } from "../styled";
 
-const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
 const astraiosClient = new AstraiosClient();
+const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
 
-export function FeatureMenu({ setShowAlert }: { setShowAlert: any }): JSX.Element {
+interface NewGraphModalContentProps {
+  setShowAlert: (showAlert: boolean) => void;
+}
+
+export function NewGraphModalContent(props: NewGraphModalContentProps): JSX.Element {
   const [mode, setMode] = useState<null | "intelligentAI">(null);
   const buttonLable = t("nlpButton");
 
@@ -29,7 +33,9 @@ export function FeatureMenu({ setShowAlert }: { setShowAlert: any }): JSX.Elemen
           <p>{buttonLable}</p>
         </FeatureButton>
       )}
-      {mode === "intelligentAI" && <IntelligentAIDialogBody setShowAlert={setShowAlert}></IntelligentAIDialogBody>}
+      {mode === "intelligentAI" && (
+        <IntelligentAIDialogBody setShowAlert={props.setShowAlert}></IntelligentAIDialogBody>
+      )}
     </>
   );
 }
@@ -81,7 +87,7 @@ function IntelligentAIDialogBody({ setShowAlert }: { setShowAlert: any }): JSX.E
         }}
       ></textarea>
       <div>
-        <button onClick={onClick}>生成知识图谱</button>
+        <button onClick={onClick}>{t("generateGraphFromText")}</button>
       </div>
     </IntelligentAITextarea>
   );

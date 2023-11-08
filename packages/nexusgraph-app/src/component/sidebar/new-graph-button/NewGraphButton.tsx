@@ -2,7 +2,7 @@
 import { PlusIcon as PlusIconSolid } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { StyledModal, StyledModalContent, StyledNewGraphButton } from "../styled";
-import { FeatureMenu } from "./FeatureMenu";
+import { NewGraphModalContent } from "./NewGraphModalContent";
 
 interface NewGraphButtonProps {
   setShowAlert: (showAlert: boolean) => void;
@@ -27,7 +27,7 @@ export default function NewGraphButton(props: NewGraphButtonProps): JSX.Element 
       >
         <StyledModalContent>
           <div className="modalContent">
-            <FeatureMenu setShowAlert={props.setShowAlert} />
+            <NewGraphModalContent setShowAlert={props.setShowAlert} />
           </div>
         </StyledModalContent>
       </StyledModal>
