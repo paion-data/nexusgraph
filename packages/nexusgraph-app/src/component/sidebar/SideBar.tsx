@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { GraphMetaData } from "../../../../nexusgraph-redux";
-import CreateButton from "./CreateButton";
+import NewGraphButton from "./NewGraphButton";
 import { StyledGraphListItem } from "./styled";
 
 export type SideBarProps = {
@@ -11,7 +11,7 @@ export type SideBarProps = {
 export default function SideBar(props: SideBarProps): JSX.Element {
   return (
     <>
-      <CreateButton setShowAlert={props.setShowAlert} />
+      <NewGraphButton setShowAlert={props.setShowAlert} />
       {props.graphList.map((metaData) => (
         <StyledGraphListItem>{metaData.name}</StyledGraphListItem>
       ))}

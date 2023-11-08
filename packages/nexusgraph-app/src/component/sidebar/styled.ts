@@ -58,7 +58,7 @@ export const StyledGraphListItem = styled.button`
   }
 `;
 
-export const CreateButtonStyled = styled.button`
+export const StyledNewGraphButton = styled.button`
   position: relative;
   width: 40%;
   aspect-ratio: 1.618 / 1;
