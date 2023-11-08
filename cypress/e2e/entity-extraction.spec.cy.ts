@@ -31,7 +31,7 @@ describe("Entity Extraction Feature Tests", () => {
   it("shows up a graph by some generating texts", () => {
     cy.visit("http://localhost:3000/");
 
-    cy.get("button[id='createButton']").click();
+    cy.get("button[id='newGraphButton']").click();
 
     const intelligentAIButton = cy.get(".modal-content>div>div>button");
     intelligentAIButton.click();

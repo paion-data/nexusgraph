@@ -18,7 +18,7 @@ import { FeatureButton, IntelligentAITextarea } from "./styled";
 const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
 const astraiosClient = new AstraiosClient();
 
-export function FeatureMenu({ onClose, setShowAlert }: { onClose: () => void; setShowAlert: any }): JSX.Element {
+export function FeatureMenu({ setShowAlert }: { setShowAlert: any }): JSX.Element {
   const [mode, setMode] = useState<null | "intelligentAI">(null);
   const buttonLable = t("nlpButton");
 
@@ -29,14 +29,12 @@ export function FeatureMenu({ onClose, setShowAlert }: { onClose: () => void; se
           <p>{buttonLable}</p>
         </FeatureButton>
       )}
-      {mode === "intelligentAI" && (
-        <IntelligentAIDialogBody onClose={onClose} setShowAlert={setShowAlert}></IntelligentAIDialogBody>
-      )}
+      {mode === "intelligentAI" && <IntelligentAIDialogBody setShowAlert={setShowAlert}></IntelligentAIDialogBody>}
     </>
   );
 }
 
-function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => void; setShowAlert: any }): JSX.Element {
+function IntelligentAIDialogBody({ setShowAlert }: { setShowAlert: any }): JSX.Element {
   const [inputValue, setInputValue] = useState<string | null>(null);
   const [buttonDisable, setButtonDisable] = useState<boolean>(true);
 
@@ -73,8 +71,6 @@ function IntelligentAIDialogBody({ onClose, setShowAlert }: { onClose: () => voi
         })
         .catch((error) => Sentry.captureException(error));
     });
-
-    onClose();
   };
 
   return (
