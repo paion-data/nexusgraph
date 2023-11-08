@@ -1,12 +1,12 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { GraphMetaData } from "../../../../nexusgraph-redux";
-import NewGraphButton from "./NewGraphButton";
+import { NewGraphButton } from "./new-graph-button";
 import { StyledGraphListItem } from "./styled";
 
-export type SideBarProps = {
+interface SideBarProps {
   graphList: GraphMetaData[];
   setShowAlert: (showAlert: boolean) => void;
-};
+}
 
 export default function SideBar(props: SideBarProps): JSX.Element {
   return (

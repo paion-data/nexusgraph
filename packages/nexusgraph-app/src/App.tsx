@@ -6,7 +6,7 @@ import logo from "../public/logo.svg";
 import user from "../public/user.svg";
 import Alert from "./component/Alert";
 import GraphNameInput from "./component/GraphNameInput";
-import SideBar from "./component/sidebar/SideBar";
+import { SideBar } from "./component/sidebar";
 import {
   AppHeader,
   AppLogo,
