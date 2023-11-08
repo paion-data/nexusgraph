@@ -6,7 +6,6 @@ import logo from "../public/logo.svg";
 import user from "../public/user.svg";
 import Alert from "./component/Alert";
 import GraphNameInput from "./component/GraphNameInput";
-import SideBar from "./component/sidebar/SideBar";
 import {
   AppHeader,
   AppLogo,
@@ -19,6 +18,7 @@ import {
   StyledSidebar,
   UserIcon,
 } from "./styled";
+import { SideBar } from "./component/sidebar";
 
 /**
  * The component that defines the entire nexus graph app.

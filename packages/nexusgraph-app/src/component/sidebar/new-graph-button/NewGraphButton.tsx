@@ -1,16 +1,14 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { PlusIcon as PlusIconSolid } from "@heroicons/react/24/solid";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
+import { StyledModal, StyledModalContent, StyledNewGraphButton } from "../styled";
 import { FeatureMenu } from "./FeatureMenu";
-import { StyledModal, StyledModalContent, StyledNewGraphButton } from "./styled";
 
-interface ModalProps {
-  children: ReactNode;
-  onClose: () => void;
-  show: boolean;
+interface NewGraphButtonProps {
+  setShowAlert: (showAlert: boolean) => void;
 }
 
-export default function NewGraphButton({ setShowAlert }: any): JSX.Element {
+export default function NewGraphButton(props: NewGraphButtonProps): JSX.Element {
   const [showModal, setShowModal] = useState(false);
   const PlusIcon = (): JSX.Element => <PlusIconSolid />;
 
@@ -29,7 +27,7 @@ export default function NewGraphButton({ setShowAlert }: any): JSX.Element {
       >
         <StyledModalContent>
           <div className="modalContent">
-            <FeatureMenu setShowAlert={setShowAlert} />
+            <FeatureMenu setShowAlert={props.setShowAlert} />
           </div>
         </StyledModalContent>
       </StyledModal>

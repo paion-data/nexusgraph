@@ -2,18 +2,18 @@
 import * as Sentry from "@sentry/react";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { AstraiosClient } from "../../../../nexusgraph-astraios";
-import { t } from "../../../../nexusgraph-i18n";
-import { NLPClient } from "../../../../nexusgraph-nlp";
+import { AstraiosClient } from "../../../../../nexusgraph-astraios";
+import { t } from "../../../../../nexusgraph-i18n";
+import { NLPClient } from "../../../../../nexusgraph-nlp";
 import {
   appendToGraphList,
   GraphState,
   INITIAL_GRAPH_NAME,
   selectOAuth,
   updateGraphData,
-} from "../../../../nexusgraph-redux";
-import { container, TYPES } from "../../../inversify.config";
-import { FeatureButton, IntelligentAITextarea } from "./styled";
+} from "../../../../../nexusgraph-redux";
+import { container, TYPES } from "../../../../inversify.config";
+import { FeatureButton, IntelligentAITextarea } from "../styled";
 
 const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
 const astraiosClient = new AstraiosClient();
