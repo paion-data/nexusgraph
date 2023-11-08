@@ -1526,11 +1526,11 @@ __metadata:
   linkType: hard
 
 "@babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.8.7":
-  version: 7.23.1
-  resolution: "@babel/runtime@npm:7.23.1"
+  version: 7.23.2
+  resolution: "@babel/runtime@npm:7.23.2"
   dependencies:
     regenerator-runtime: ^0.14.0
-  checksum: 0cd0d43e6e7dc7f9152fda8c8312b08321cda2f56ef53d6c22ebdd773abdc6f5d0a69008de90aa41908d00e2c1facb24715ff121274e689305c858355ff02c70
+  checksum: 6c4df4839ec75ca10175f636d6362f91df8a3137f86b38f6cd3a4c90668a0fe8e9281d320958f4fbd43b394988958585a17c3aab2a4ea6bf7316b22916a371fb
   languageName: node
   linkType: hard
 
@@ -2239,7 +2239,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@paiondata/nexusgraph-app@workspace:packages/nexusgraph-app"
   dependencies:
-    "@sentry/react": ^7.57.0
+    bootstrap: ^5.3.2
+    react-bootstrap: ^2.9.0
   languageName: unknown
   linkType: soft
 
@@ -2292,6 +2293,7 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.21.0
     "@logto/react": ^2.1.1
+    "@sentry/react": ^7.57.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
     "@types/jest": ^27.5.2
@@ -2320,7 +2322,6 @@ __metadata:
     prettier: 2.8.4
     prettier-plugin-organize-imports: ^3.2.3
     react: ^18.2.0
-    react-bootstrap: ^2.9.0
     react-dom: ^18.2.0
     react-redux: ^8.1.1
     react-router-dom: ^6.8.1
@@ -3386,11 +3387,11 @@ __metadata:
   linkType: hard
 
 "@types/react-transition-group@npm:^4.4.6":
-  version: 4.4.7
-  resolution: "@types/react-transition-group@npm:4.4.7"
+  version: 4.4.9
+  resolution: "@types/react-transition-group@npm:4.4.9"
   dependencies:
     "@types/react": "*"
-  checksum: 3b91486e7aa777a3787e773efce79a0fa9be4ec9e02d51ccda8c7532c5c5d84fbcefe248dacb4007293d85bf0794ac51603bb9cec360db81cf3657d2b7123fb9
+  checksum: be9e256e53919a7cf3b4a075f6d01c0a2dd3a67911dd28276aa6158be4beade4ca5327cbf1f096c28b413e04989f069122319b02e5a09c280d903a0accea9ead
   languageName: node
   linkType: hard
 
@@ -3406,13 +3407,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:>=16.9.11":
-  version: 18.2.27
-  resolution: "@types/react@npm:18.2.27"
+  version: 18.2.37
+  resolution: "@types/react@npm:18.2.37"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: bb29779d4e83e30886a4a939b02812a7ae2d49a26e19eb4be48a6d4e73e8b09ca1a639c97c0ba12a7fe46711355059db7f958cbc1754fe697690656cdb9eca07
+  checksum: 2d2599f1a09e4f678509161fea8baeaf76d21deee460f4f3ccc1ca431ebe85f896d7d0b906127de17e97ed57240cec61955eb97d0b5d9cbf4e97fd6620b1acdb
   languageName: node
   linkType: hard
 
@@ -3525,9 +3526,9 @@ __metadata:
   linkType: hard
 
 "@types/warning@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "@types/warning@npm:3.0.1"
-  checksum: a99569506451e7318a96267af2cc80a58bc2dcc14a4be47972b72e7156bd976d0132f1cba4aa6c0afab139a266633f51905ded744ce21386fe63d6b29de1b421
+  version: 3.0.3
+  resolution: "@types/warning@npm:3.0.3"
+  checksum: 862b71c918283d2ace5cab4e9f0167507a15ee9cf4d46035c858bdd4bf1ee83cbfb42bcfd4da6e7e254a2efa32200b6521f3719c729e39e88e336309d53bb4c4
   languageName: node
   linkType: hard
 
@@ -4630,6 +4631,15 @@ __metadata:
   version: 1.0.0
   resolution: "boolbase@npm:1.0.0"
   checksum: 3e25c80ef626c3a3487c73dbfc70ac322ec830666c9ad915d11b701142fab25ec1e63eff2c450c74347acfd2de854ccde865cd79ef4db1683f7c7b046ea43bb0
+  languageName: node
+  linkType: hard
+
+"bootstrap@npm:^5.3.2":
+  version: 5.3.2
+  resolution: "bootstrap@npm:5.3.2"
+  peerDependencies:
+    "@popperjs/core": ^2.11.8
+  checksum: d5580b253d121ffc137388d41da58dce8d15f1ccd574e12f28d4a08e7649ca15e95db645b2b677cb8025bccd446bff04138fc0fe64f8cba0ccc5dc004a8644cf
   languageName: node
   linkType: hard
 
@@ -10748,8 +10758,8 @@ __metadata:
   linkType: hard
 
 "react-bootstrap@npm:^2.9.0":
-  version: 2.9.0
-  resolution: "react-bootstrap@npm:2.9.0"
+  version: 2.9.1
+  resolution: "react-bootstrap@npm:2.9.1"
   dependencies:
     "@babel/runtime": ^7.22.5
     "@restart/hooks": ^0.4.9
@@ -10770,7 +10780,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 9fa4df0923a8fed104548661460b63734f10a23a60ec24f945dee64788add66dabae6a63d2f0cb78a094a66931b7250432cca523a9c138c06f61c042631134ea
+  checksum: 889de157ab782257a6496d37aebb578b13850caec41bdc068e68a2e1ff2af18740f0a388974850f59115a57fa34a2949a2803aaa79000498fef7d0b63b413706
   languageName: node
   linkType: hard
 
