@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { Modal } from "react-bootstrap";
 import { animated } from "react-spring";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import nlp from "./img/nlp.png";
 
 export const AlertContent = styled.p`
@@ -187,6 +187,25 @@ export const StyledAlert = styled(animated.div)`
   border: 1px solid rgba(255, 255, 255, 0.472);
 `;
 
+const fadeIn = keyframes`
+  from { opacity: 0; }
+
+  to {
+    
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+`;
+
 export const StyledModal = styled(Modal)`
   display: flex;
   justify-content: center;
@@ -197,10 +216,13 @@ export const StyledModal = styled(Modal)`
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background-color: rgba(256, 256, 256, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   flex-grow: 0px;
   flex-shrink: 1px;
   z-index: 100;
+  visibility: ${(props) => (props.out ? "hidden" : "visible")};
+  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 0.1s linear;
+  transition: visibility 0.1s linear;
 `;
 
 export const StyledModalContent = styled.div`

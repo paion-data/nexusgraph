@@ -27,7 +27,7 @@ export default function Modal(props: ModalProps): JSX.Element {
   }, [document.activeElement]);
 
   return (
-    <StyledModal id={"modal"} animation={true} show={show} onHide={handleClose} role="dialog">
+    <StyledModal out={!show} id={"modal"} animation={true} show={show} onHide={handleClose} role="dialog">
       <StyledModalContent>
         <button className="modalClose" onClick={props.onClose}>
           X
