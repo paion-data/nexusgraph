@@ -38,7 +38,7 @@ describe("Entity Extraction Feature Tests", () => {
 
     cy.get("textarea").type("我爱中国");
 
-    const createGraphButton = cy.get(".modalContent>div>div>button");
+    const createGraphButton = cy.get(".newGraphMethodModal>div>div>button");
     createGraphButton.click();
 
     cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "single-rdf-tuple-from-theresa.json" });
