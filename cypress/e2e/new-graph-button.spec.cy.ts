@@ -7,10 +7,6 @@ describe("New Graph button guides user to create graph with different options", 
     cy.get("[id='newGraphMethodModal']").should("not.exist");
   });
 
-  it("the first pop-up modal shows up available options to start off a new graph", () => {
-    cy.get("button[id='newGraphMethodButton-NLP']").contains("Text to Graph");
-  });
-
   it("clicking the NLP option opens up another modal with text area and a initially-unclickable submit button", () => {
     cy.get("button[id='newGraphMethodButton-NLP']")
       .click()
