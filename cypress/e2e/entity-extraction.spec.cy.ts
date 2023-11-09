@@ -33,12 +33,12 @@ describe("Entity Extraction Feature Tests", () => {
 
     cy.get("button[id='newGraphButton']").click();
 
-    const intelligentAIButton = cy.get(".modal-content>div>div>button");
-    intelligentAIButton.click();
+    const NLPMethodButton = cy.get("button[id='newGraphMethodButton-NLP']");
+    NLPMethodButton.click();
 
     cy.get("textarea").type("我爱中国");
 
-    const createGraphButton = cy.get(".modalContent>div>div>button");
+    const createGraphButton = cy.get(".modal-content>div>div>div>button");
     createGraphButton.click();
 
     cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "single-rdf-tuple-from-theresa.json" });

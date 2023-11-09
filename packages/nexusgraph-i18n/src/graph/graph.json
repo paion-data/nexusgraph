@@ -2,7 +2,7 @@
   "en": {
     "overview": "Overview",
     "initialGraphName": "Unamed Graph",
-    "nlpButton": "Intelligent AI",
+    "NLP": "Text to Graph",
     "generateGraphFromText": "Generate Graph",
     "alertContent": "Data extraction is empty, trying to enter more content - ̗̀(๑ᵔ⌔ᵔ๑)",
     "alertCloseButton": "Close",
@@ -19,7 +19,7 @@
   "zh": {
     "overview": "概述",
     "initialGraphName": "无标题笔记",
-    "nlpButton": "智能AI",
+    "NLP": "文字转图谱",
     "generateGraphFromText": "生成知识图谱",
     "alertContent": "数据提取为空，尝试输入更多内容 - ̗̀(๑ᵔ⌔ᵔ๑)",
     "alertCloseButton": "关闭",

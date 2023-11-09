@@ -29,11 +29,11 @@ beforeEach(() => {
   cy.visit("http://localhost:3000/");
   cy.get("button[id='newGraphButton']").click();
 
-  const intelligentAIButton = cy.get(".modal-content>div>div>button");
-  intelligentAIButton.click();
+  const NLPMethodButton = cy.get("button[id='newGraphMethodButton-NLP']");
+  NLPMethodButton.click();
 
   cy.get("textarea").type("今天是个好日子");
-  const createGraphButton = cy.get(".modalContent>div>div>button");
+  const createGraphButton = cy.get(".modal-content>div>div>div>button");
   createGraphButton.click();
 });
 

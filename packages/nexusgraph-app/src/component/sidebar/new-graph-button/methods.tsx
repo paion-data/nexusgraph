@@ -13,34 +13,21 @@ import {
   updateGraphData,
 } from "../../../../../nexusgraph-redux";
 import { container, TYPES } from "../../../../inversify.config";
-import { FeatureButton, IntelligentAITextarea } from "../styled";
+import { StyledNLPTextArea } from "./styled";
 
 const astraiosClient = new AstraiosClient();
 const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
 
-interface NewGraphModalContentProps {
+export const NLP_METHOD = "NLP";
+
+export type METHOD = typeof NLP_METHOD;
+
+interface MethodProps {
   setShowAlert: (showAlert: boolean) => void;
+  postAction: () => void;
 }
 
-export function NewGraphModalContent(props: NewGraphModalContentProps): JSX.Element {
-  const [mode, setMode] = useState<null | "intelligentAI">(null);
-  const buttonLable = t("nlpButton");
-
-  return (
-    <>
-      {!mode && (
-        <FeatureButton onClick={() => setMode("intelligentAI")}>
-          <p>{buttonLable}</p>
-        </FeatureButton>
-      )}
-      {mode === "intelligentAI" && (
-        <IntelligentAIDialogBody setShowAlert={props.setShowAlert}></IntelligentAIDialogBody>
-      )}
-    </>
-  );
-}
-
-function IntelligentAIDialogBody({ setShowAlert }: { setShowAlert: any }): JSX.Element {
+export function NLPMethod(props: MethodProps): JSX.Element {
   const [inputValue, setInputValue] = useState<string | null>(null);
   const [buttonDisable, setButtonDisable] = useState<boolean>(true);
 
@@ -60,7 +47,7 @@ function IntelligentAIDialogBody({ setShowAlert }: { setShowAlert: any }): JSX.E
   const onClick = () => {
     nlpClient.entityExtraction(inputValue as string).then((graph) => {
       if (graph.nodes.length == 0) {
-        setShowAlert(true);
+        props.setShowAlert(true);
         return;
       }
 
@@ -77,10 +64,12 @@ function IntelligentAIDialogBody({ setShowAlert }: { setShowAlert: any }): JSX.E
         })
         .catch((error) => Sentry.captureException(error));
     });
+
+    props.postAction();
   };
 
   return (
-    <IntelligentAITextarea buttonDisable={buttonDisable}>
+    <StyledNLPTextArea buttonDisable={buttonDisable}>
       <textarea
         onChange={(event) => {
           setInputValue(event.target.value);
@@ -89,6 +78,6 @@ function IntelligentAIDialogBody({ setShowAlert }: { setShowAlert: any }): JSX.E
       <div>
         <button onClick={onClick}>{t("generateGraphFromText")}</button>
       </div>
-    </IntelligentAITextarea>
+    </StyledNLPTextArea>
   );
 }

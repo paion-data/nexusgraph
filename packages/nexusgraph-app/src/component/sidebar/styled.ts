@@ -1,8 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { Modal } from "react-bootstrap";
 import { animated } from "react-spring";
-import styled, { keyframes } from "styled-components";
-import nlp from "./img/nlp.png";
+import styled from "styled-components";
 
 export const AlertContent = styled.p`
   margin: 0;
@@ -83,96 +81,6 @@ export const StyledNewGraphButton = styled.button`
   }
 `;
 
-export const FeatureButton = styled.button`
-  position: absolute;
-  width: 20%;
-  height: 30%;
-  margin: 5%;
-  background-image: url(${nlp});
-  background-size: 100% 100%;
-  line-height: 1px;
-  vertical-align: top;
-  border-radius: 1rem;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #f7b5ce;
-  cursor: pointer;
-  word-wrap: break-word;
-  font-size: 20px;
-  &:hover {
-    border-color: rgba(245, 95, 145);
-  }
-
-  & p {
-    position: absolute;
-    top: 15px;
-    left: 85px;
-  }
-`;
-
-export const IntelligentAITextarea = styled.div<{
-  buttonDisable: boolean;
-}>`
-  justify-content: center;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-
-  & textarea {
-    border-radius: 1rem;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #000;
-    margin: 2% 4% 4% 4%;
-    width: 90%;
-    height: 65%;
-    font-size: 20px;
-    padding: 1%;
-  }
-
-  & textarea:focus {
-    outline: none;
-  }
-  & div {
-    margin: 0% 25%;
-    width: 50%;
-    height: 10%;
-  }
-  & button {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background: #fa87b3;
-    border: none;
-    border-radius: 2rem;
-    color: #fff;
-    font-size: 20px;
-    word-wrap: break-word;
-    font-size: 20px;
-    &:hover {
-      background: #f55f91;
-      cursor: pointer;
-    }
-  }
-
-  ${(props) =>
-    props.buttonDisable &&
-    `
-    & button { 
-    cursor: not-allowed;
-    opacity: 0.5;
-    pointer-events: none;
-  }
-  & div {
-    &:hover {
-      cursor: not-allowed;
-    }
-  }
-    `}
-`;
-
 export const StyledAlert = styled(animated.div)`
   z-index: 100;
   background: rgba(256, 256, 256, 0.5);
@@ -185,70 +93,4 @@ export const StyledAlert = styled(animated.div)`
   right: 5vw;
   max-width: 25rem;
   border: 1px solid rgba(255, 255, 255, 0.472);
-`;
-
-const fadeIn = keyframes`
-  from { opacity: 0; }
-
-  to {
-    
-    opacity: 1;
-  }
-`;
-
-const fadeOut = keyframes`
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-`;
-
-export const StyledModal = styled(Modal)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  flex-direction: column;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  background-color: rgba(0, 0, 0, 0.5);
-  flex-grow: 0px;
-  flex-shrink: 1px;
-  z-index: 100;
-  visibility: ${(props) => (props.out ? "hidden" : "visible")};
-  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 0.1s linear;
-  transition: visibility 0.1s linear;
-`;
-
-export const StyledModalContent = styled.div`
-  position: absolute;
-  left: 50%;
-  margin-left: -600px;
-  top: 50%;
-  margin-top: -350px;
-  z-index: 999;
-  border-radius: 1rem;
-  border: none;
-  width: 1200px;
-  height: 700px;
-  background: rgba(256, 256, 256, 0.6);
-  & .modalClose {
-    cursor: pointer;
-    border: none;
-    border-radius: 1rem;
-    margin: 10px;
-    position: absolute;
-    right: 0%;
-    top: 0%;
-  }
-
-  & .modalContent {
-    width: 100%;
-    height: 100%;
-  }
 `;
