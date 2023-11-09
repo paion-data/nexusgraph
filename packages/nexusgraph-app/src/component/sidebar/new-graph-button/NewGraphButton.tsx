@@ -1,10 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { PlusIcon as PlusIconSolid } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
-import { StyledNewGraphButton } from "../styled";
 import { MethodModal } from "./MethodModal";
 import { NLPMethod, NLP_METHOD } from "./methods";
 import { MethodsSelectionModal } from "./MethodsSelectionModal";
+import { StyledNewGraphButton } from "./styled";
 
 const PlusIcon = (): JSX.Element => <PlusIconSolid />;
 
@@ -15,13 +15,15 @@ interface NewGraphButtonProps {
 /**
  * {@link NewGraphButton} controls 2 modals:
  *
- * 1. {@link | NewGraphMethodModal A new graph generation method modal}
- * 2.
+ * 1. {@link | NewGraphMethodModal the model that displays available options to generate a new graph}
+ * 2. {@link | MethodModal the modal corresponding to one of the options}
  *
- * The rerendering of {@link NewGraphButton} will basically be triggered by the toggling of these two modals.
+ * Only one of the two modals pops up at a specific time and {@link NewGraphButton} controls which one to display using
+ * `showMethodsSelectionModal` and `showMethodModal` React states
  *
- * @param props
- * @returns
+ * @param props  The regular React props for {@link NewGraphButton}
+ *
+ * @returns a DOM object
  */
 export default function NewGraphButton(props: NewGraphButtonProps): JSX.Element {
   const [showMethodsSelectionModal, setShowMethodsSelectionModal] = useState<boolean>(false);
