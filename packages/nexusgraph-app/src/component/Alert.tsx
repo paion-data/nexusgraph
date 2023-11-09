@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useSpring } from "react-spring";
 import { t } from "../../../nexusgraph-i18n";
-import { AlertCloseButton, AlertContent, AlertFooter, StyledAlert } from "./sidebar/styled";
+import { AlertCloseButton, AlertContent, AlertFooter, StyledAlert } from "./styled";
 
 export default function Alert({ showAlert, setShowAlert }: any) {
   const alertContent = t("alertContent");
