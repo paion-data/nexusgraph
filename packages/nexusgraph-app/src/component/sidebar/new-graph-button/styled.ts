@@ -1,5 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { Modal } from "react-bootstrap";
+
 import styled, { keyframes } from "styled-components";
 
 export const StyledNewGraphButton = styled.button`
