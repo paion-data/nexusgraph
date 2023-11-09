@@ -1,30 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 beforeEach(() => {
-  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), (req) => {
-    req.reply({
-      statusCode: 200,
-      body: {
-        data: {
-          graph: {
-            edges: [
-              {
-                node: {
-                  id: "1",
-                  name: "Unamed Graph",
-                },
-              },
-              {
-                node: {
-                  id: "2",
-                  name: "Unamed Graph",
-                },
-              },
-            ],
-          },
-        },
-      },
-    });
-  });
+  cy.interceptAstraios();
 
   cy.visit("http://localhost:3000/");
   cy.get("button[id='newGraphButton']").click();

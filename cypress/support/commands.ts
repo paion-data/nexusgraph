@@ -16,19 +16,10 @@ Cypress.Commands.add("login", ({ userEmail, password }, isDryRun = true) => {
   }
 });
 
-Cypress.Commands.add("initialConfig", () => {
+Cypress.Commands.add("interceptAstraios", () => {
   cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraios-graphql-response.json" }).as(
     "astraiosGraphqlRequest"
   );
-
-  if (Cypress.env("nodeEnv") == "production") {
-    cy.login({ username: Cypress.env("username"), password: Cypress.env("password") }).wait(10000);
-  } else {
-    cy.visit("http://localhost:3000/", { failOnStatusCode: false });
-  }
-  cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "getEditorData.json" });
-  cy.wait("@astraiosGraphqlRequest");
-  cy.get(".editor-paragraph").clear();
 });
 
 Cypress.Commands.add("setBrowserLanguage", (language, languages, acceptLanguages) => {
