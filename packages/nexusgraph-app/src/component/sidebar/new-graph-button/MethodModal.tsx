@@ -10,17 +10,15 @@ interface MethodModalProps {
 
 export function MethodModal(props: MethodModalProps): JSX.Element {
   return (
-    <>
-      <StyledModal
-        out={!props.showModal}
-        id={"newGraphMethodModal"}
-        animation={true}
-        show={props.showModal}
-        onHide={() => props.setShowModal(false)}
-        role="dialog"
-      >
-        <SyledModalContent>{props.modalContent}</SyledModalContent>
-      </StyledModal>
-    </>
+    <StyledModal
+      out={!props.showModal}
+      id={"newGraphMethodModal"}
+      animation={true}
+      show={props.showModal}
+      onHide={() => props.setShowModal(false)}
+      role="dialog"
+    >
+      <SyledModalContent className="newGraphMethodModalContent">{props.modalContent}</SyledModalContent>
+    </StyledModal>
   );
 }

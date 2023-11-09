@@ -24,27 +24,23 @@ interface MethodsSelectionModalProps {
  */
 export function MethodsSelectionModal(props: MethodsSelectionModalProps): JSX.Element {
   return (
-    <>
-      <StyledModal
-        out={!props.showModal}
-        id={"newGraphMethodsSelectionModal"}
-        animation={true}
-        show={props.showModal}
-        onHide={() => props.setShowModal(false)}
-        role="dialog"
-      >
-        <SyledModalContent>
-          <div className="newGraphMethodsSelectionModalContent">
-            {[...props.methodsToIcon.keys()].map((key) => {
-              return (
-                <StyledNewGraphMethodButton onClick={() => props.setNewGraphMethod(key)}>
-                  {t(key)}
-                </StyledNewGraphMethodButton>
-              );
-            })}
-          </div>
-        </SyledModalContent>
-      </StyledModal>
-    </>
+    <StyledModal
+      out={!props.showModal}
+      id={"newGraphMethodsSelectionModal"}
+      animation={true}
+      show={props.showModal}
+      onHide={() => props.setShowModal(false)}
+      role="dialog"
+    >
+      <SyledModalContent className="newGraphMethodsSelectionModalContent">
+        {[...props.methodsToIcon.keys()].map((key) => {
+          return (
+            <StyledNewGraphMethodButton id={"newGraphMethodButton-" + key} onClick={() => props.setNewGraphMethod(key)}>
+              {t(key)}
+            </StyledNewGraphMethodButton>
+          );
+        })}
+      </SyledModalContent>
+    </StyledModal>
   );
 }
