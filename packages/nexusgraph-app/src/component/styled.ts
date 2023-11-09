@@ -43,3 +43,32 @@ export const StyledAlert = styled(animated.div)`
   max-width: 25rem;
   border: 1px solid rgba(255, 255, 255, 0.472);
 `;
+
+export const StyledDeleteButton = styled.div`
+  position: relative;
+  left: 1vw;
+  top: 2vh;
+  height: 5vh;
+  background-color: #fff;
+  display: inline-block;
+  padding-left: 1%;
+  z-index: 999;
+  background-color: transparent;
+
+  & .trashIcon {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: transparent;
+    width: 2.5vw;
+    border: none;
+    color: #fff;
+  }
+
+  & .trashIcon:hover {
+    cursor: pointer;
+    color: gray;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+  }
+`;

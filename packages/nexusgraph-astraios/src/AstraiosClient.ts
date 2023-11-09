@@ -38,6 +38,41 @@ export class AstraiosClient {
     );
   }
 
+  public getGraphById(graphId: string) {
+    return this.postAstraiosQuery(
+      `
+      { 
+        graph(ids:["${graphId}"]) {
+          edges {
+            node {
+              id
+              name
+              graph
+            }
+          }
+        }
+      }
+      `
+    );
+  }
+
+  public deleteGraphById(graphId: string) {
+    return this.postAstraiosQuery(
+      `
+      mutation {
+        graph(op:DELETE, ids: ["${graphId}"]) {
+          edges {
+            node {
+              id
+              name
+            }
+          }
+        }
+      }
+      `
+    );
+  }
+
   public getGraphListMetaDataByUserId(userId: string) {
     return this.postAstraiosQuery(
       `
