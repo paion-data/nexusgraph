@@ -17,7 +17,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "jest",
-    "e2e": "cypress run",
+    "e2e": "cypress run --browser chrome",
     "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
     "cypress:open": "cypress open",
     "wait-on-dev": "wait-on -c ./scripts/wait-on-config.js http-get://localhost:3000/",
