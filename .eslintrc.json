@@ -14,7 +14,8 @@
       {
         "code": 120,
         "comments": 120,
-        "ignoreUrls": true
+        "ignoreUrls": true,
+        "ignorePattern": "d=\"([\\s\\S]*?)\""
       }
     ],
     "header/header": [2, "line", " Copyright 2023 Paion Data. All rights reserved."],
