@@ -5,19 +5,13 @@
         {
           "node": {
             "id": "1",
-            "title": "First Graph",
-            "userId": "devUserId",
-            "editorContent": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"China\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
-            "graph": "{\"nodes\": [], \"links\": []}"
+            "name": "Unamed Graph"
           }
         },
         {
           "node": {
             "id": "2",
-            "title": "Second Graph",
-            "userId": "devUserId",
-            "editorContent": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Second graph content\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
-            "graph": "{\"nodes\": [], \"links\": []}"
+            "name": "Unamed Graph"
           }
         }
       ]
