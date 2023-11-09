@@ -1,12 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { AstraiosClient } from "../../../../../nexusgraph-astraios";
-import { t } from "../../../../../nexusgraph-i18n";
-import { NLPClient } from "../../../../../nexusgraph-nlp";
-import { container, TYPES } from "../../../../inversify.config";
 import { StyledModal, StyledNewGraphMethodButton, SyledModalContent } from "./styled";
-
-const astraiosClient = new AstraiosClient();
-const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
 
 interface MethodsSelectionModalProps {
   showModal: boolean;
@@ -36,7 +29,14 @@ export function MethodsSelectionModal(props: MethodsSelectionModalProps): JSX.El
         {[...props.methodsToIcon.keys()].map((key) => {
           return (
             <StyledNewGraphMethodButton id={"newGraphMethodButton-" + key} onClick={() => props.setNewGraphMethod(key)}>
-              {t(key)}
+              <svg width="50%" height="50%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                <path
+                  fill="#000000"
+                  fill-rule="evenodd"
+                  d="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h9v-5a3 3 0 0 1 3-3h5V5a3 3 0 0 0-3-3H5zm12.293 19.121a3 3 0 0 1-1.293.762V17a1 1 0 0 1 1-1h4.883a3 3 0 0 1-.762 1.293l-3.828 3.828zM7 6a1 1 0 0 0 0 2h10a1 1 0 1 0 0-2H7zm0 4a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2H7zm0 4a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2H7z"
+                  clip-rule="evenodd"
+                />
+              </svg>
             </StyledNewGraphMethodButton>
           );
         })}
