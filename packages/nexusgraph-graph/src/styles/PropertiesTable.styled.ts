@@ -56,7 +56,6 @@ export const StyledNodeInspectorContainer = styled.div<{
   position: absolute;
   right: 0;
   top: 3px;
-  z-index: 1;
   width: ${(props) => props.width}px;
   ${(props) => props.shouldAnimate && "transition: 0.2s ease-out;"}
   max-width: 95%;

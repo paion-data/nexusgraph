@@ -31,7 +31,6 @@ export const StyledNodeInspectorContainer = styled.div<{
   right: 8px;
   top: 8%;
   bottom: 8px;
-  z-index: 1;
   width: ${(props) => props.paneWidth}px;
   ${(props) => props.shouldAnimate && "transition: 0.2s ease-out;"}
   max-width: 95%;
@@ -53,7 +52,6 @@ export const StyledNodeInspectorTopMenuChevron = styled.button<{
   position: absolute;
   right: 10px;
   top: 8.9%;
-  z-index: 2;
   width: 32px;
   height: 32px;
   padding: 6px;

@@ -60,7 +60,6 @@ export const StyledModal = styled(Modal)`
   background-color: rgba(0, 0, 0, 0.5);
   flex-grow: 0px;
   flex-shrink: 1px;
-  z-index: 100;
   visibility: ${(props) => (props.out ? "hidden" : "visible")};
   animation: ${(props) => (props.out ? fadeOut : fadeIn)} 0.1s linear;
   transition: visibility 0.1s linear;
@@ -72,7 +71,6 @@ export const SyledModalContent = styled.div`
   margin-left: -600px;
   top: 50%;
   margin-top: -350px;
-  z-index: 999;
   border-radius: 1rem;
   border: none;
   width: 1200px;
