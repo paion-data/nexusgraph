@@ -15,7 +15,6 @@ import {
 import { container, TYPES } from "../../../../inversify.config";
 import { StyledNLPTextArea } from "./styled";
 
-const astraiosClient = new AstraiosClient();
 const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
 
 export const NLP_METHOD = "NLP";
@@ -33,6 +32,7 @@ export function NLPMethod(props: MethodProps): JSX.Element {
 
   const userId = selectOAuth().userInfo.sub;
   const accessToken = selectOAuth().accessToken;
+  const astraiosClient = new AstraiosClient(userId, accessToken);
 
   const dispatch = useDispatch();
 
@@ -55,7 +55,7 @@ export function NLPMethod(props: MethodProps): JSX.Element {
       dispatch(updateGraphData(graphState));
 
       astraiosClient
-        .saveOrUpdate(graphState, userId, accessToken)
+        .saveOrUpdate(graphState)
         .then((response) => {
           const graphId = response.data.data.graph.edges[0]["node"]["id"];
           const graphName = response.data.data.graph.edges[0]["node"]["name"];
