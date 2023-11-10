@@ -6,8 +6,12 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { Callback } from "../../nexusgraph-oauth";
-import { updateGraphList, updateOAuthState } from "../../nexusgraph-redux";
+import { updateOAuthState } from "../../nexusgraph-redux";
 import ProdAppContent from "./ProdAppContent";
+
+interface ProdAppProps {
+  initReduxStore: (userId: string, astraiosClient: AstraiosClient, dispatch: any) => void;
+}
 
 /**
  * The {@link ProdApp} involves OAuth2 authentication and authorization.
@@ -16,7 +20,7 @@ import ProdAppContent from "./ProdAppContent";
  *
  * @returns DOM
  */
-export default function ProdApp(): JSX.Element {
+export default function ProdApp(props: ProdAppProps): JSX.Element {
   const dispatch = useDispatch();
 
   const { signIn, isAuthenticated, isLoading, getAccessToken, fetchUserInfo } = useLogto();
@@ -38,18 +42,7 @@ export default function ProdApp(): JSX.Element {
 
             const userId = userInfo["sub"];
             const accessToken = token;
-            const astraiosClient = new AstraiosClient(userId, accessToken);
-
-            astraiosClient.getGraphListMetaDataByUserId(userId).then((response) => {
-              dispatch(
-                updateGraphList(
-                  response.data.data.graph["edges"].map((nodeJson: { [x: string]: { [x: string]: any } }) => ({
-                    id: nodeJson["node"]["id"],
-                    name: nodeJson["node"]["name"],
-                  }))
-                )
-              );
-            });
+            props.initReduxStore(userId, new AstraiosClient(userId, accessToken), dispatch);
           }
         });
       }

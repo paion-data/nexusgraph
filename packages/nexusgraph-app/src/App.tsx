@@ -1,9 +1,21 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import { TrashIcon as TrashIconOutLine } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { AstraiosClient } from "../../nexusgraph-astraios";
 import { GraphBrowser } from "../../nexusgraph-graph";
-import { selectGraphList } from "../../nexusgraph-redux";
+import {
+  GraphMetaData,
+  initialState,
+  selectGraphData,
+  selectGraphList,
+  selectOAuth,
+  updateGraphData,
+  updateGraphList,
+} from "../../nexusgraph-redux";
 import logo from "../public/logo.svg";
 import user from "../public/user.svg";
+import { DeleteButton } from "./component";
 import Alert from "./component/Alert";
 import GraphNameInput from "./component/GraphNameInput";
 import { SideBar } from "./component/sidebar";
@@ -20,14 +32,43 @@ import {
   UserIcon,
 } from "./styled";
 
+const TrashIcon = (): JSX.Element => <TrashIconOutLine />;
+
 /**
  * The component that defines the entire nexus graph app.
  *
  * @returns a React DOM object
  */
 export default function App(): JSX.Element {
-  const [showAlert, setShowAlert] = useState(false);
+  const dispatch = useDispatch();
+  const userId = selectOAuth().userInfo.sub;
+  const accessToken = selectOAuth().accessToken;
+  const astraiosClient = new AstraiosClient(userId, accessToken);
+  const graphId = selectGraphData().id;
   const graphList = selectGraphList();
+
+  const [showAlert, setShowAlert] = useState(false);
+
+  const deleteGraphById = (graphId: string | undefined) => {
+    if (graphId == null) {
+      return;
+    }
+
+    astraiosClient.deleteGraphById(graphId).then((response) => {
+      const nextDisplayedGraphId = getNextDisplayedGraphId(graphList, graphId);
+
+      if (nextDisplayedGraphId == null) {
+        dispatch(updateGraphList([]));
+        dispatch(updateGraphData(initialState));
+        return;
+      }
+
+      astraiosClient.getGraphById(nextDisplayedGraphId).then((response) => {
+        dispatch(updateGraphData(response.data.data.graph.edges[0]["node"]));
+        dispatch(updateGraphList(graphList.filter((metadata) => metadata.id != graphId)));
+      });
+    });
+  };
 
   return (
     <StyledApp>
@@ -47,6 +88,7 @@ export default function App(): JSX.Element {
         </StyledSidebar>
         <StyledGraphBrowser id="graphBrowser">
           <Alert showAlert={showAlert} setShowAlert={setShowAlert} />
+          <DeleteButton graphId={graphId} buttonLabel={<TrashIcon />} onClick={deleteGraphById} />
           <GraphBrowser />
         </StyledGraphBrowser>
       </StyledBody>
@@ -59,4 +101,11 @@ export default function App(): JSX.Element {
       </StyledFooter>
     </StyledApp>
   );
+}
+
+function getNextDisplayedGraphId(graphList: GraphMetaData[], deletedGraphId: string) {
+  const listLen = graphList.length;
+  const deletedGraphIdIdx = graphList.findIndex((metadata) => metadata.id == deletedGraphId);
+
+  return deletedGraphIdIdx == listLen - 1 ? null : graphList[deletedGraphIdIdx + 1].id;
 }
