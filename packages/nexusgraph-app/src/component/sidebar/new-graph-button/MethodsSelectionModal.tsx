@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { StyledModal, StyledNewGraphMethodButton, SyledModalContent } from "./styled";
+import { StyledModal, StyledModalContent, StyledNewGraphMethodButton } from "./styled";
 
 interface MethodsSelectionModalProps {
   showModal: boolean;
@@ -25,7 +25,7 @@ export function MethodsSelectionModal(props: MethodsSelectionModalProps): JSX.El
       onHide={() => props.setShowModal(false)}
       role="dialog"
     >
-      <SyledModalContent className="newGraphMethodsSelectionModalContent">
+      <StyledModalContent className="newGraphMethodsSelectionModalContent">
         {[...props.methodsToIcon.keys()].map((key) => {
           return (
             <StyledNewGraphMethodButton id={"newGraphMethodButton-" + key} onClick={() => props.setNewGraphMethod(key)}>
@@ -40,7 +40,7 @@ export function MethodsSelectionModal(props: MethodsSelectionModalProps): JSX.El
             </StyledNewGraphMethodButton>
           );
         })}
-      </SyledModalContent>
+      </StyledModalContent>
     </StyledModal>
   );
 }

@@ -65,7 +65,7 @@ export const StyledModal = styled(Modal)`
   transition: visibility 0.1s linear;
 `;
 
-export const SyledModalContent = styled.div`
+export const StyledModalContent = styled.div`
   position: absolute;
   left: 50%;
   margin-left: -600px;

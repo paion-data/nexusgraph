@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { StyledModal, SyledModalContent } from "./styled";
+import { StyledModal, StyledModalContent } from "./styled";
 
 interface MethodModalProps {
   showModal: boolean;
@@ -18,7 +18,7 @@ export function MethodModal(props: MethodModalProps): JSX.Element {
       onHide={() => props.setShowModal(false)}
       role="dialog"
     >
-      <SyledModalContent className="newGraphMethodModalContent">{props.modalContent}</SyledModalContent>
+      <StyledModalContent className="newGraphMethodModalContent">{props.modalContent}</StyledModalContent>
     </StyledModal>
   );
 }
