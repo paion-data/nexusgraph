@@ -46,9 +46,7 @@ export const DropdownItem = styled.a`
   }
 `;
 
-export const DropdownList = styled.ul`
-
-`;
+export const DropdownList = styled.ul``;
 
 export const DropdownContent = styled.li`
   display: none;
