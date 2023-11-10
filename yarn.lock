@@ -1769,7 +1769,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@heroicons/react@npm:^2.0.17":
+"@heroicons/react@npm:^2.0.18":
   version: 2.0.18
   resolution: "@heroicons/react@npm:2.0.18"
   peerDependencies:
@@ -2247,7 +2247,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@paiondata/nexusgraph-graph@workspace:packages/nexusgraph-graph"
   dependencies:
-    "@heroicons/react": ^2.0.17
     "@juggle/resize-observer": ^3.4.0
     "@neo4j-devtools/word-color": ^0.0.8
     "@types/d3": ^7.4.0
@@ -2291,6 +2290,7 @@ __metadata:
     "@babel/preset-env": ^7.20.2
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.21.0
+    "@heroicons/react": ^2.0.18
     "@logto/react": ^2.1.1
     "@sentry/react": ^7.57.0
     "@testing-library/jest-dom": ^5.16.5

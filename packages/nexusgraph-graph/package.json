@@ -24,7 +24,6 @@
     "LICENSE"
   ],
   "dependencies": {
-    "@heroicons/react": "^2.0.17",
     "@juggle/resize-observer": "^3.4.0",
     "@neo4j-devtools/word-color": "^0.0.8",
     "canvg": "^4.0.1",
