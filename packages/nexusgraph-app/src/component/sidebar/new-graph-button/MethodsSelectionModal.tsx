@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { StyledModal, StyledNewGraphMethodButton, StyledModalContent } from "./styled";
+import { StyledModal, StyledModalContent, StyledNewGraphMethodButton } from "./styled";
 
 interface MethodsSelectionModalProps {
   showModal: boolean;
