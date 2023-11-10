@@ -49,6 +49,24 @@ export default function App(): JSX.Element {
 
   const [showAlert, setShowAlert] = useState(false);
 
+  const setDisplayingGraphById = (graphId: string | undefined) => {
+    if (graphId == null) {
+      return;
+    }
+
+    astraiosClient.getGraphById(graphId).then((response) => {
+      const graph = response.data.data.graph.edges[0].node;
+      dispatch(
+        updateGraphData({
+          id: graph.id,
+          name: graph.name,
+          nodes: JSON.parse(graph.graph).nodes,
+          links: JSON.parse(graph.graph).links,
+        })
+      );
+    });
+  };
+
   const deleteGraphById = (graphId: string | undefined) => {
     if (graphId == null) {
       return;
@@ -64,7 +82,15 @@ export default function App(): JSX.Element {
       }
 
       astraiosClient.getGraphById(nextDisplayedGraphId).then((response) => {
-        dispatch(updateGraphData(response.data.data.graph.edges[0]["node"]));
+        const graph = response.data.data.graph.edges[0].node;
+        dispatch(
+          updateGraphData({
+            id: graph.id,
+            name: graph.name,
+            nodes: JSON.parse(graph.graph).nodes,
+            links: JSON.parse(graph.graph).links,
+          })
+        );
         dispatch(updateGraphList(graphList.filter((metadata) => metadata.id != graphId)));
       });
     });
@@ -84,7 +110,7 @@ export default function App(): JSX.Element {
 
       <StyledBody>
         <StyledSidebar>
-          <SideBar graphList={graphList} setShowAlert={setShowAlert} />
+          <SideBar onClick={setDisplayingGraphById} graphList={graphList} setShowAlert={setShowAlert} />
         </StyledSidebar>
         <StyledGraphBrowser id="graphBrowser">
           <Alert showAlert={showAlert} setShowAlert={setShowAlert} />

@@ -4,6 +4,7 @@ import { NewGraphButton } from "./new-graph-button";
 import { StyledGraphListItem } from "./styled";
 
 interface SideBarProps {
+  onClick: (graphId: string | undefined) => void;
   graphList: GraphMetaData[];
   setShowAlert: (showAlert: boolean) => void;
 }
@@ -13,7 +14,7 @@ export default function SideBar(props: SideBarProps): JSX.Element {
     <>
       <NewGraphButton setShowAlert={props.setShowAlert} />
       {props.graphList.map((metaData) => (
-        <StyledGraphListItem>{metaData.name}</StyledGraphListItem>
+        <StyledGraphListItem onClick={() => props.onClick(metaData.id)}>{metaData.name}</StyledGraphListItem>
       ))}
     </>
   );
