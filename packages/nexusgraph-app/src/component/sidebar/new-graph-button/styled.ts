@@ -85,11 +85,6 @@ export const SyledModalContent = styled.div`
     right: 0%;
     top: 0%;
   }
-
-  & .newGraphMethodModal {
-    width: 100%;
-    height: 100%;
-  }
 `;
 
 export const StyledNewGraphMethodButton = styled.button`
