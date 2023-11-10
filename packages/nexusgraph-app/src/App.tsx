@@ -54,18 +54,18 @@ export default function App(): JSX.Element {
       return;
     }
 
-    astraiosClient.getGraphById(graphId).then(response => {
+    astraiosClient.getGraphById(graphId).then((response) => {
       const graph = response.data.data.graph.edges[0].node;
       dispatch(
-          updateGraphData({
-            id: graph.id,
-            name: graph.name,
-            nodes: JSON.parse(graph.graph).nodes,
-            links: JSON.parse(graph.graph).links,
-          })
-        );
-    })
-  } 
+        updateGraphData({
+          id: graph.id,
+          name: graph.name,
+          nodes: JSON.parse(graph.graph).nodes,
+          links: JSON.parse(graph.graph).links,
+        })
+      );
+    });
+  };
 
   const deleteGraphById = (graphId: string | undefined) => {
     if (graphId == null) {
@@ -84,13 +84,13 @@ export default function App(): JSX.Element {
       astraiosClient.getGraphById(nextDisplayedGraphId).then((response) => {
         const graph = response.data.data.graph.edges[0].node;
         dispatch(
-            updateGraphData({
-              id: graph.id,
-              name: graph.name,
-              nodes: JSON.parse(graph.graph).nodes,
-              links: JSON.parse(graph.graph).links,
-            })
-          );
+          updateGraphData({
+            id: graph.id,
+            name: graph.name,
+            nodes: JSON.parse(graph.graph).nodes,
+            links: JSON.parse(graph.graph).links,
+          })
+        );
         dispatch(updateGraphList(graphList.filter((metadata) => metadata.id != graphId)));
       });
     });
