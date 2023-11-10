@@ -4,8 +4,6 @@ import { AstraiosClient } from "../../nexusgraph-astraios";
 import { updateGraphList, updateOAuthState } from "../../nexusgraph-redux";
 import App from "./App";
 
-const astraiosClient = new AstraiosClient();
-
 /**
  * The {@link DevApp} does not involve OAuth2 authentication and authorization.
  *
@@ -27,7 +25,9 @@ export default function DevApp(): JSX.Element {
     })
   );
 
-  astraiosClient.getGraphListMetaDataByUserId(devUserId, devToken).then((response) => {
+  const astraiosClient = new AstraiosClient(devUserId, devToken);
+
+  astraiosClient.getGraphListMetaDataByUserId(devUserId).then((response) => {
     dispatch(
       updateGraphList(
         response.data.data.graph["edges"].map((nodeJson: { [x: string]: { [x: string]: any } }) => ({

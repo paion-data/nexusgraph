@@ -15,8 +15,6 @@ export interface VisualizationProps {
 
 const DISPLAYED_FIELD = "type";
 
-const astraiosClient = new AstraiosClient();
-
 /**
  * {@link Visualization} is responsible for computing and passing the graph data to the components that draws the gaph,
  * i.e. {@link GraphVisualizer}
@@ -30,6 +28,7 @@ export function Visualization(props: VisualizationProps): JSX.Element {
   const graphData = selectGraphData();
   const accessToken = selectOAuth().accessToken;
   const userId = selectOAuth().userInfo.sub;
+  const astraiosClient = new AstraiosClient(userId, accessToken);
 
   const onGraphInteraction: GraphInteractionCallBack = (event, properties) => {
     if (event == NODE_ON_CANVAS_CREATE) {
@@ -39,7 +38,7 @@ export function Visualization(props: VisualizationProps): JSX.Element {
         throw error;
       }
 
-      astraiosClient.saveOrUpdate(graphData, userId, accessToken).then((response) => {
+      astraiosClient.saveOrUpdate(graphData).then((response) => {
         graphData.id = response.data.data.graph.edges[0]["node"]["id"];
         graphData.nodes = [...graphData.nodes, properties["newNode"] as Node];
         dispatch(updateGraphData(graphData));
@@ -53,7 +52,7 @@ export function Visualization(props: VisualizationProps): JSX.Element {
         throw error;
       }
 
-      astraiosClient.saveOrUpdate(graphData, userId, accessToken).then((response) => {
+      astraiosClient.saveOrUpdate(graphData).then((response) => {
         graphData.id = response.data.data.graph.edges[0]["node"]["id"];
         graphData.links = [...graphData.links, properties["newLink"] as Link];
         dispatch(updateGraphData(graphData));
