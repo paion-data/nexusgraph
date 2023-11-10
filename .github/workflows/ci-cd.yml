@@ -24,8 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Set node version to 16
         uses: actions/setup-node@v3
         with:
@@ -47,8 +45,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Set node version to ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
@@ -58,9 +54,54 @@ jobs:
       - name: Run unit tests
         run: yarn test
 
-  e2e-tests:
+  list-e2e-specs:
     needs: unit-tests
-    uses: paion-data/github-actions-workflows/.github/workflows/cypress-e2e-tests.yml@master
+    runs-on: ubuntu-latest
+    outputs:
+      paths: ${{ steps.list-e2e-specs.outputs.paths }}
+    steps:
+      - name: List Files
+        id: list-e2e-specs
+        uses: mirko-felice/list-files-action@v3.0.5
+        with:
+          repo: ${{ github.repository }}
+          ref: ${{ github.ref }}
+          path: "cypress/e2e"
+          ext: ".ts"
+
+  e2e-tests:
+    name: E2E Tests
+    needs: list-e2e-specs
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node_version: [16]
+        start_strategy: ["yarn-start", "serve"]
+        test_spec: ${{ fromJson(needs.list-e2e-specs.outputs.paths) }}
+    steps:
+      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/jdk-setup@master
+      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/jersey-webservice-template/jpa-elide/install-data-models@master
+        with:
+          model-package-jar-group-id: ${{ secrets.MODEL_PACKAGE_JAR_GROUP_ID }}
+          model-package-jar-artifact-id: ${{ secrets.MODEL_PACKAGE_JAR_ARTIFACT_ID }}
+          model-package-jar-version: ${{ secrets.MODEL_PACKAGE_JAR_VERSION }}
+          model-repo-org: ${{ secrets.MODEL_REPO_ORG }}
+          models-repo-name: ${{ secrets.MODEL_REPO_NAME }}
+          models-repo-token: ${{ secrets.ASTRAIOS_DATA_MODELS_REPO_TOKEN }}
+      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/jersey-webservice-template/jpa-elide/docker-compose@master
+        with:
+          webservice-repo-clone-url: https://github.com/paion-data/astraios.git
+          model-package: ${{ secrets.MODEL_PACKAGE_NAME }}
+      - name: Wait until astraios Docker Compose is up
+        uses: iFaxity/wait-on-action@v1
+        with:
+          resource: http://localhost:8080
+      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/cypress-e2e@master
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          start-strategy: ${{ matrix.start_strategy }}
+          spec-relative-path: ${{ matrix.test_spec }}
 
   release:
     name: Publish NPM Packages
@@ -72,8 +113,6 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Set node version to 16
         uses: actions/setup-node@v3
         with:

@@ -1,7 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 describe("New Graph button guides user to create graph with different options", () => {
   beforeEach(() => {
-    cy.interceptAstraios();
     cy.visit("http://localhost:3000/");
     cy.get("button[id='newGraphButton']").click();
     cy.get("[id='newGraphMethodModal']").should("not.exist");
