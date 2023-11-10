@@ -1,12 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { PlusIcon as PlusIconSolid } from "@heroicons/react/24/solid";
+import { PlusIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import { MethodModal } from "./MethodModal";
 import { NLPMethod, NLP_METHOD } from "./methods";
 import { MethodsSelectionModal } from "./MethodsSelectionModal";
 import { StyledNewGraphButton } from "./styled";
-
-const PlusIcon = (): JSX.Element => <PlusIconSolid />;
 
 interface NewGraphButtonProps {
   setShowAlert: (showAlert: boolean) => void;
