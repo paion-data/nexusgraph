@@ -10,7 +10,6 @@ export const TitleWapper = styled.div<{
   position: relative;
   left: 5%;
   top: 5%;
-  z-index: 10;
   height: 60px;
   background-color: #fff;
   display: inline-block;

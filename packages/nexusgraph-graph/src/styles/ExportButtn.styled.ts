@@ -5,7 +5,6 @@ export const StyledGraphExport = styled.button`
   position: absolute;
   right: 6%;
   top: 6%;
-  z-index: 20;
   color: #fff;
   cursor: pointer;
   background-color: transparent;
@@ -48,7 +47,7 @@ export const DropdownItem = styled.a`
 `;
 
 export const DropdownList = styled.ul`
-  z-index: 2;
+
 `;
 
 export const DropdownContent = styled.li`
@@ -61,7 +60,6 @@ export const DropdownContent = styled.li`
   width: 135px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  z-index: 2;
   text-align: left;
   line-height: 30px;
   padding: 5px 0;
