@@ -17,27 +17,15 @@ env:
 
 jobs:
   yml-md-style:
-    uses: paion-data/github-actions-workflows/.github/workflows/yml-and-md-style-checks.yml@master
+    uses: QubitPi/hashicorp-aws/.github/workflows/yml-and-md-style-checks.yml@master
 
   code-style:
     name: Code Style Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set node version to 16
-        uses: actions/setup-node@v3
+      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/ui-code-style@master
         with:
-          node-version: 16
-      - name: Install dependencies
-        run: |
-          yarn install
-          cd docs && yarn install && cd ../
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
-      - name: Code style check
-        run: yarn prettier . --check
-      - name: ESLint
-        run: yarn eslint .
+          node-version: ${{ env.NODE_VERSION }}
 
   unit-tests:
     name: Unit Tests
