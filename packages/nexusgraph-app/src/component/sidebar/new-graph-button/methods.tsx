@@ -5,13 +5,7 @@ import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../../../../nexusgraph-astraios";
 import { t } from "../../../../../nexusgraph-i18n";
 import { NLPClient } from "../../../../../nexusgraph-nlp";
-import {
-  appendToGraphList,
-  GraphState,
-  INITIAL_GRAPH_NAME,
-  selectOAuth,
-  updateGraphData,
-} from "../../../../../nexusgraph-redux";
+import { appendToGraphList, INITIAL_GRAPH_NAME, selectOAuth, updateGraphData } from "../../../../../nexusgraph-redux";
 import { container, TYPES } from "../../../../inversify.config";
 import { StyledNLPTextArea } from "./styled";
 
@@ -51,15 +45,13 @@ export function NLPMethod(props: MethodProps): JSX.Element {
         return;
       }
 
-      const graphState: GraphState = { id: undefined, ...graph, name: INITIAL_GRAPH_NAME };
-      dispatch(updateGraphData(graphState));
-
       astraiosClient
-        .saveOrUpdate(graphState)
+        .saveOrUpdate({ id: undefined, ...graph, name: INITIAL_GRAPH_NAME })
         .then((response) => {
           const graphId = response.data.data.graph.edges[0]["node"]["id"];
           const graphName = response.data.data.graph.edges[0]["node"]["name"];
 
+          dispatch(updateGraphData({ id: graphId, ...graph, name: graphName }));
           dispatch(appendToGraphList({ id: graphId, name: graphName }));
         })
         .catch((error) => Sentry.captureException(error));
