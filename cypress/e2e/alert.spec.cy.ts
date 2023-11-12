@@ -1,7 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
 beforeEach(() => {
-  cy.interceptAstraios();
-
   cy.visit("http://localhost:3000/");
   cy.get("button[id='newGraphButton']").click();
 
