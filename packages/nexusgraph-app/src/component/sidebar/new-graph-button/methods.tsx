@@ -5,13 +5,7 @@ import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../../../../nexusgraph-astraios";
 import { t } from "../../../../../nexusgraph-i18n";
 import { NLPClient } from "../../../../../nexusgraph-nlp";
-import {
-  appendToGraphList,
-  GraphState,
-  INITIAL_GRAPH_NAME,
-  selectOAuth,
-  updateGraphData,
-} from "../../../../../nexusgraph-redux";
+import { appendToGraphList, INITIAL_GRAPH_NAME, selectOAuth, updateGraphData } from "../../../../../nexusgraph-redux";
 import { container, TYPES } from "../../../../inversify.config";
 import { StyledNLPTextArea } from "./styled";
 
