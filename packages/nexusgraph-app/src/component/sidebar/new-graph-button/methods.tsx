@@ -51,15 +51,13 @@ export function NLPMethod(props: MethodProps): JSX.Element {
         return;
       }
 
-      const graphState: GraphState = { id: undefined, ...graph, name: INITIAL_GRAPH_NAME };
-      dispatch(updateGraphData(graphState));
-
       astraiosClient
-        .saveOrUpdate(graphState)
+        .saveOrUpdate({ id: undefined, ...graph, name: INITIAL_GRAPH_NAME })
         .then((response) => {
           const graphId = response.data.data.graph.edges[0]["node"]["id"];
           const graphName = response.data.data.graph.edges[0]["node"]["name"];
 
+          dispatch(updateGraphData({ id: graphId, ...graph, name: graphName }));
           dispatch(appendToGraphList({ id: graphId, name: graphName }));
         })
         .catch((error) => Sentry.captureException(error));
