@@ -16,6 +16,18 @@ Cypress.Commands.add("login", ({ userEmail, password }, isDryRun = true) => {
   }
 });
 
+Cypress.Commands.add("newGraph", () => {
+  cy.get("button[id='newGraphButton']").click();
+
+  const NLPMethodButton = cy.get("button[id='newGraphMethodButton-NLP']");
+  NLPMethodButton.click();
+
+  cy.get("textarea").type("我爱中国");
+  // using default of 4s fails probabilistically
+  const createGraphButton = cy.get(".modal-content>div>div>div>button", { timeout: 10000 });
+  createGraphButton.click();
+});
+
 Cypress.Commands.add("interceptAstraios", () => {
   cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraios-graphql-response.json" }).as(
     "astraiosGraphqlRequest"

@@ -7,6 +7,7 @@ declare namespace Cypress {
      * @example cy.login({username: "user", password: "password"})
      */
     login({ userEmail, password }: Record<string, string>, isDryRun?: boolean): Chainable<void>;
+    newGraph(): Chainable<void>;
     interceptAstraios(): Chainable<void>;
     setBrowserLanguage(language: string, languages: string[], acceptLanguages: string[]): Chainable<void>;
   }
