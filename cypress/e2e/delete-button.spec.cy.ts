@@ -17,7 +17,7 @@ describe("Delete button removes displaying graph both from UI and database", () 
     cy.get(".trashIcon").should("be.enabled");
   });
 
-  it("when user deletes the graph, the graph disappears both from the list and graph browser and the button becomes in-active again", () => {
+  it("when user deletes the graph, the button becomes in-active again", () => {
     cy.get(".trashIcon").click();
 
     cy.get('[id^="graphListItem-"]').should("not.exist");
