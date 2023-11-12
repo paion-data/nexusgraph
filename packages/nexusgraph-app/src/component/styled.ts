@@ -44,7 +44,9 @@ export const StyledAlert = styled(animated.div)`
   border: 1px solid rgba(255, 255, 255, 0.472);
 `;
 
-export const StyledDeleteButton = styled.div`
+export const StyledDeleteButton = styled.div<{
+  buttonDisabled: boolean;
+}>`
   position: relative;
   left: 1vw;
   top: 2vh;
@@ -65,8 +67,8 @@ export const StyledDeleteButton = styled.div`
     color: #fff;
   }
 
-  ${({ disabled }) =>
-    !disabled &&
+  ${(props) =>
+    props.buttonDisabled &&
     `
     & .trashIcon:hover {
       cursor: pointer;
@@ -74,5 +76,5 @@ export const StyledDeleteButton = styled.div`
       background: rgba(0, 0, 0, 0.1);
       border-radius: 1rem;
   }
-  `}
+    `}
 `;

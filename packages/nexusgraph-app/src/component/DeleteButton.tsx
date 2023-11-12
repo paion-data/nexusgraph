@@ -19,7 +19,7 @@ interface DeleteButtonProps {
  */
 export default function DeleteButton(props: DeleteButtonProps): JSX.Element {
   return (
-    <StyledDeleteButton disabled={!props.graphId}>
+    <StyledDeleteButton buttonDisabled={!props.graphId}>
       <button className="trashIcon" disabled={!props.graphId} onClick={() => props.onClick(props.graphId)}>
         {props.buttonLabel}
       </button>
