@@ -23,30 +23,24 @@ jobs:
     name: Code Style Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set node version to 16
-        uses: actions/setup-node@v3
+      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/ui-code-style@master
         with:
-          node-version: 16
-      - name: Install dependencies
-        run: |
-          yarn install
-          cd docs && yarn install && cd ../
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
-      - name: Code style check
-        run: yarn prettier . --check
-      - name: ESLint
-        run: yarn eslint .
+          node-version: ${{ env.NODE_VERSION }}
 
   unit-tests:
     name: Unit Tests
     needs: [yml-md-style, code-style]
     runs-on: ubuntu-latest
     steps:
-      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/ui-code-style@master
+      - uses: actions/checkout@v3
+      - name: Set node version to ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Run unit tests
+        run: yarn test
 
   list-e2e-specs:
     needs: unit-tests
