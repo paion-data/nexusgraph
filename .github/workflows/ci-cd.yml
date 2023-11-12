@@ -17,7 +17,7 @@ env:
 
 jobs:
   yml-md-style:
-    uses: paion-data/github-actions-workflows/.github/workflows/yml-and-md-style-checks.yml@master
+    uses: QubitPi/hashicorp-aws/.github/workflows/yml-and-md-style-checks.yml@master
 
   code-style:
     name: Code Style Check
@@ -44,15 +44,9 @@ jobs:
     needs: [yml-md-style, code-style]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set node version to ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
+      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/ui-code-style@master
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Install dependencies
-        run: yarn install
-      - name: Run unit tests
-        run: yarn test
 
   list-e2e-specs:
     needs: unit-tests
