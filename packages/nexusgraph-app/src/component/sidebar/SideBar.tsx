@@ -14,7 +14,9 @@ export default function SideBar(props: SideBarProps): JSX.Element {
     <>
       <NewGraphButton setShowAlert={props.setShowAlert} />
       {props.graphList.map((metaData) => (
-        <StyledGraphListItem onClick={() => props.onClick(metaData.id)}>{metaData.name}</StyledGraphListItem>
+        <StyledGraphListItem id={"graphListItem-" + metaData.id} onClick={() => props.onClick(metaData.id)}>
+          {metaData.name}
+        </StyledGraphListItem>
       ))}
     </>
   );

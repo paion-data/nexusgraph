@@ -47,6 +47,9 @@ export default function App(): JSX.Element {
   const graphId = selectGraphData().id;
   const graphList = selectGraphList();
 
+  console.log("app is rerendering");
+  console.log(graphId);
+
   const [showAlert, setShowAlert] = useState(false);
 
   const setDisplayingGraphById = (graphId: string | undefined) => {

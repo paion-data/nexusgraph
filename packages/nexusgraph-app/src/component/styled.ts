@@ -65,10 +65,14 @@ export const StyledDeleteButton = styled.div`
     color: #fff;
   }
 
-  & .trashIcon:hover {
-    cursor: pointer;
-    color: gray;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 1rem;
+  ${({ disabled }) =>
+    !disabled &&
+    `
+    & .trashIcon:hover {
+      cursor: pointer;
+      color: gray;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 1rem;
   }
+  `}
 `;
