@@ -150,7 +150,7 @@ jobs:
           user_email: ${{ env.EMAIL }}
 
   hashicorp:
-    name: Publish All nexusgraph AMI Images and Deploy Them to EC2 through HashiCorp
+    name: Publish AMI Image and Deploy It to EC2 through HashiCorp
     needs: e2e-tests
     runs-on: ubuntu-latest
     steps:
