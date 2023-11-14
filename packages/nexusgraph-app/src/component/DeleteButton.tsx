@@ -4,7 +4,7 @@ import { AstraiosClient } from "../../../nexusgraph-astraios";
 import { StyledDeleteButton } from "./styled";
 
 interface DeleteButtonProps {
-  graphId: string | undefined;
+  graphId: string;
   onClick: (graphId: string | undefined) => void;
 }
 
@@ -18,13 +18,9 @@ interface DeleteButtonProps {
  * @returns a DOM object
  */
 export default function DeleteButton(props: DeleteButtonProps): JSX.Element {
-  if (props.graphId) {
-    return (
-      <StyledDeleteButton onClick={() => props.onClick(props.graphId)}>
-        <TrashIcon data-testid="deleteButton" />
-      </StyledDeleteButton>
-    );
-  }
-
-  return <></>;
+  return (
+    <StyledDeleteButton onClick={() => props.onClick(props.graphId)}>
+      <TrashIcon data-testid="deleteButton" />
+    </StyledDeleteButton>
+  );
 }

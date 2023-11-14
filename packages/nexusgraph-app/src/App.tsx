@@ -111,7 +111,7 @@ export default function App(): JSX.Element {
         </StyledSidebar>
         <StyledGraphBrowser id="graphBrowser">
           <Alert showAlert={showAlert} setShowAlert={setShowAlert} />
-          <DeleteButton graphId={graphId} onClick={deleteGraphById} />
+          {graphId && <DeleteButton graphId={graphId} onClick={deleteGraphById} />}
           <GraphBrowser />
         </StyledGraphBrowser>
       </StyledBody>
