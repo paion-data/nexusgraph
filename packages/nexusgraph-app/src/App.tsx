@@ -131,7 +131,12 @@ export default function App(): JSX.Element {
 
 function getNextDisplayedGraphId(graphList: GraphMetaData[], deletedGraphId: string) {
   const listLen = graphList.length;
+
+  if (listLen == 1) {
+    return null;
+  }
+
   const deletedGraphIdIdx = graphList.findIndex((metadata) => metadata.id == deletedGraphId);
 
-  return deletedGraphIdIdx == listLen - 1 ? null : graphList[deletedGraphIdIdx + 1].id;
+  return deletedGraphIdIdx == listLen - 1 ? graphList[deletedGraphIdIdx - 1].id : graphList[deletedGraphIdIdx + 1].id;
 }
