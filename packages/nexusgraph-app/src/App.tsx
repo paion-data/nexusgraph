@@ -1,5 +1,4 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { TrashIcon as TrashIconOutLine } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
@@ -31,8 +30,6 @@ import {
   StyledSidebar,
   UserIcon,
 } from "./styled";
-
-const TrashIcon = (): JSX.Element => <TrashIconOutLine />;
 
 /**
  * The component that defines the entire nexus graph app.
@@ -114,7 +111,7 @@ export default function App(): JSX.Element {
         </StyledSidebar>
         <StyledGraphBrowser id="graphBrowser">
           <Alert showAlert={showAlert} setShowAlert={setShowAlert} />
-          <DeleteButton graphId={graphId} buttonLabel={<TrashIcon />} onClick={deleteGraphById} />
+          <DeleteButton graphId={graphId} onClick={deleteGraphById} />
           <GraphBrowser />
         </StyledGraphBrowser>
       </StyledBody>
