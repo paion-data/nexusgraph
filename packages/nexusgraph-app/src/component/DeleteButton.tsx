@@ -1,10 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import { TrashIcon } from "@heroicons/react/24/outline";
 import { AstraiosClient } from "../../../nexusgraph-astraios";
 import { StyledDeleteButton } from "./styled";
 
 interface DeleteButtonProps {
-  graphId: string | undefined;
-  buttonLabel: JSX.Element;
+  graphId: string;
   onClick: (graphId: string | undefined) => void;
 }
 
@@ -19,10 +19,8 @@ interface DeleteButtonProps {
  */
 export default function DeleteButton(props: DeleteButtonProps): JSX.Element {
   return (
-    <StyledDeleteButton buttonDisabled={!props.graphId}>
-      <button className="trashIcon" disabled={!props.graphId} onClick={() => props.onClick(props.graphId)}>
-        {props.buttonLabel}
-      </button>
+    <StyledDeleteButton onClick={() => props.onClick(props.graphId)}>
+      <TrashIcon data-testid="deleteButton" />
     </StyledDeleteButton>
   );
 }
