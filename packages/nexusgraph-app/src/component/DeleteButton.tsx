@@ -21,7 +21,7 @@ export default function DeleteButton(props: DeleteButtonProps) {
   return (
     props.graphId && (
       <StyledDeleteButton onClick={() => props.onClick(props.graphId)}>
-        <TrashIcon />
+        <TrashIcon data-testid="deleteButton" />
       </StyledDeleteButton>
     )
   );

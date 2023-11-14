@@ -9,7 +9,7 @@ describe("'Integration'-style tests", () => {
     cy.get('[id^="graphListItem-"]').should("exist");
     cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
 
-    cy.get(".trashIcon").click();
+    cy.get('[data-testid="deleteButton"]').click();
     cy.get('[id^="graphListItem-"]').should("not.exist");
     cy.get("svg").find(`[aria-label^="graph-node"]`).should("not.exist");
   });
@@ -18,7 +18,7 @@ describe("'Integration'-style tests", () => {
     cy.newGraph();
     cy.newGraph();
 
-    cy.get(".trashIcon").click();
+    cy.get('[data-testid="deleteButton"]').click();
     cy.get('[id^="graphListItem-"]').should("exist");
     cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
   });
