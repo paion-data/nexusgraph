@@ -18,13 +18,13 @@ interface DeleteButtonProps {
  * @returns a DOM object
  */
 export default function DeleteButton(props: DeleteButtonProps): JSX.Element {
-  return (
-    <>
-      ( props.graphId && (
+  if (props.graphId) {
+    return (
       <StyledDeleteButton onClick={() => props.onClick(props.graphId)}>
         <TrashIcon data-testid="deleteButton" />
       </StyledDeleteButton>
-      ) )
-    </>
-  );
+    );
+  }
+
+  return <></>;
 }
