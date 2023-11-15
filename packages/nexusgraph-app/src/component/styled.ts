@@ -68,3 +68,11 @@ export const StyledDeleteButton = styled.button`
     border-radius: 1rem;
   }
 `;
+
+export const StyledInput = styled.input`
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+`;
