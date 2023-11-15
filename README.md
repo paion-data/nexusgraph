@@ -82,7 +82,7 @@ The use and distribution terms for [nexusgraph][nexusgraph documentation] are co
 
 [nexusgraph documentation]: https://paion-data.github.io/nexusgraph/
 
-[node version badge]: https://img.shields.io/node/v/@paiondata/nexusgraph?logo=Node.js&logoColor=white&style=for-the-badge
+[node version badge]: https://img.shields.io/badge/Node.js-18-43853D?style=for-the-badge&logo=node.js&logoColor=white
 [npm registry]: https://img.shields.io/npm/v/@paiondata/nexusgraph?logo=npm&style=for-the-badge
 
 [release status]: https://img.shields.io/github/actions/workflow/status/paion-data/nexusgraph/ci-cd.yml?branch=master&logo=github&style=for-the-badge

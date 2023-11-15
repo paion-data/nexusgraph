@@ -13,7 +13,7 @@ name: CI/CD
 env:
   USER: QubitPi
   EMAIL: jack20220723@gmail.com
-  NODE_VERSION: 16
+  NODE_VERSION: 18
 
 jobs:
   yml-md-style:
@@ -58,7 +58,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node_version: [16]
+        node_version: [18]
         start_strategy: ["yarn-start", "serve"]
         test_spec: ${{ fromJson(needs.list-e2e-specs.outputs.paths) }}
     steps:
@@ -95,10 +95,10 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
-      - name: Set node version to 16
+      - name: Set node version to ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ env.NODE_VERSION }}
           cache: npm
           registry-url: "https://registry.npmjs.org"
       - name: Tag for release
@@ -128,7 +128,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ env.NODE_VERSION }}
       - name: Install nexusgraph dependencies so that TypeDoc process source files properly
         run: cd ../ && yarn install
         env:

@@ -10,7 +10,7 @@
   ],
   "version": "0.1.0",
   "engines": {
-    "node": ">=16.0.0 <18.0.0"
+    "node": ">=18.0.0"
   },
   "description": "Find solution via Knowledge Graph and Refine the solution with Data",
   "scripts": {
