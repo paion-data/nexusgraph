@@ -58,7 +58,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node_version: [${{ env.NODE_VERSION }}]
+        node_version: ${{ env.NODE_VERSION }}
         start_strategy: ["yarn-start", "serve"]
         test_spec: ${{ fromJson(needs.list-e2e-specs.outputs.paths) }}
     steps:
