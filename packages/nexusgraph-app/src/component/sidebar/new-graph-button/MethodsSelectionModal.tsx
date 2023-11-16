@@ -30,7 +30,7 @@ export function MethodsSelectionModal(props: MethodsSelectionModalProps) {
       </Modal.Header>
       <Modal.Body>
         <Button
-          id="newGraphMethodButton-NLP"
+          data-testid="newGraphMethodButton-NLP"
           variant="primary"
           onClick={() => {
             props.setNewGraphMethod(NLP_METHOD);

@@ -19,14 +19,14 @@ Cypress.Commands.add("login", ({ userEmail, password }, isDryRun = true) => {
 Cypress.Commands.add("newGraph", () => {
   cy.get("button[id='newGraphButton']").click();
 
-  const NLPMethodButton = cy.get("button[id='newGraphMethodButton-NLP']");
+  const NLPMethodButton = cy.get("[data-testid='newGraphMethodButton-NLP']");
   NLPMethodButton.click();
 
   cy.get("textarea").type("我爱中国");
-  const createGraphButton = cy.get("button[id='newGraphButton-NLP']");
+  const createGraphButton = cy.get("[data-testid='newGraphButton-NLP']");
   createGraphButton.click();
 
-  cy.get('[data-testid="graphListItem-*"]', { timeout: 10000 }).should("exist");
+  cy.get('[data-testid^="graphListItem-"]', { timeout: 10000 }).should("exist");
   cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
 });
 

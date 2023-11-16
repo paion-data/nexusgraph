@@ -75,7 +75,7 @@ export function MethodModal(props: MethodsSelectionModalProps): JSX.Element {
             />
           </Form.Group>
 
-          <Button id="newGraphButton-NLP" variant="primary" disabled={buttonDisabled} onClick={onClick}>
+          <Button data-testid="newGraphButton-NLP" variant="primary" disabled={buttonDisabled} onClick={onClick}>
             {t("generateGraphFromText")}
           </Button>
         </Form>
