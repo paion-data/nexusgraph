@@ -19,7 +19,7 @@ Cypress.Commands.add("login", ({ userEmail, password }, isDryRun = true) => {
 Cypress.Commands.add("newGraph", () => {
   cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "single-rdf-tuple-from-theresa.json" });
 
-  cy.get("button[id='newGraphButton']").click();
+  cy.get("button[id='newGraphButton']").click({force: true});
 
   const NLPMethodButton = cy.get("[data-testid='newGraphMethodButton-NLP']");
   NLPMethodButton.click();
