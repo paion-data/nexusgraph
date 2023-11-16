@@ -14,6 +14,7 @@ export default function GraphTitle(): JSX.Element {
 
   return (
     <StyledInput
+      data-testid="graphTitle"
       id="titleInput"
       value={inputValue}
       onChange={(event) => {

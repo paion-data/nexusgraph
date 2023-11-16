@@ -26,6 +26,9 @@ Cypress.Commands.add("newGraph", () => {
   // using default of 4s fails probabilistically
   const createGraphButton = cy.get(".modal-content>div>div>div>button", { timeout: 10000 });
   createGraphButton.click();
+
+  cy.get('[id^="graphListItem-"]').should("exist");
+  cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
 });
 
 Cypress.Commands.add("interceptAstraios", () => {

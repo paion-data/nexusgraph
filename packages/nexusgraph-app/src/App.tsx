@@ -100,9 +100,11 @@ export default function App(): JSX.Element {
         <StyledUserIcon>
           <img src={user} alt="User" />
         </StyledUserIcon>
-        <StyledGraphTitle>
-          <GraphTitle />
-        </StyledGraphTitle>
+        {graphId && (
+          <StyledGraphTitle>
+            <GraphTitle />
+          </StyledGraphTitle>
+        )}
       </StyledAppHeader>
 
       <StyledBody>
