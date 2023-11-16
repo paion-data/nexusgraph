@@ -17,7 +17,7 @@ describe("Delete button removes displaying graph both from UI and database", () 
   it("when user deletes the graph, the button becomes in-active again", () => {
     cy.get('[data-testid="deleteButton"]').click();
 
-    cy.get('[id^="graphListItem-"]').should("not.exist");
+    cy.get('[data-testid="graphListItem-*"]').should("not.exist");
     cy.get("svg").find(`[aria-label^="graph-node"]`).should("not.exist");
 
     cy.get('[data-testid="deleteButton"]').should("not.exist");

@@ -13,7 +13,7 @@ export default function SideBar(props: SideBarProps): JSX.Element {
     <>
       <NewGraphButton />
       {props.graphList.map((metaData) => (
-        <StyledGraphListItem id={"graphListItem-" + metaData.id} onClick={() => props.onClick(metaData.id)}>
+        <StyledGraphListItem data-testid={`graphListItem-${metaData.id}`} onClick={() => props.onClick(metaData.id)}>
           {metaData.name}
         </StyledGraphListItem>
       ))}

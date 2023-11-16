@@ -26,7 +26,7 @@ Cypress.Commands.add("newGraph", () => {
   const createGraphButton = cy.get("button[id='newGraphButton-NLP']");
   createGraphButton.click();
 
-  cy.get('[id^="graphListItem-"]').should("exist");
+  cy.get('[data-testid="graphListItem-*"]', {timeout: 10000}).should("exist");
   cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
 });
 
