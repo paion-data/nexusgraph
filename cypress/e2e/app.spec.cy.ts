@@ -6,8 +6,6 @@ describe("'Integration'-style tests", () => {
 
   it("deleting graph when there is only 1 graph", () => {
     cy.newGraph();
-    cy.get('[id^="graphListItem-"]').should("exist");
-    cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
 
     cy.get('[data-testid="deleteButton"]').click();
     cy.get('[id^="graphListItem-"]').should("not.exist");

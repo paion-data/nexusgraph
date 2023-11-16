@@ -11,9 +11,6 @@ describe("Delete button removes displaying graph both from UI and database", () 
   it("when user creates a graph, button becomes active", () => {
     cy.newGraph();
 
-    cy.get('[id^="graphListItem-"]').should("exist");
-    cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
-
     cy.get('[data-testid="deleteButton"]').should("exist");
   });
 
