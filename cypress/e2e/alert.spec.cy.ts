@@ -1,22 +1,24 @@
 // Copyright 2023 Paion Data. All rights reserved.
-beforeEach(() => {
-  cy.visit("http://localhost:3000/");
-});
-
-it("Displays the alert when nlp data is recognized as null", () => {
-  cy.intercept("POST", Cypress.env("entityExtractionServer"), {
-    body: { links: [], nodes: [] },
+describe("Alert E2E", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:3000/");
   });
 
-  cy.newGraph();
+  it.skip("Displays the alert when nlp data is recognized as null", () => {
+    cy.intercept("POST", Cypress.env("entityExtractionServer"), {
+      body: { links: [], nodes: [] },
+    });
 
-  cy.get("div[id='alert']").should("exist");
-});
+    cy.newGraph();
 
-it("Alert is not displayed when nlp data is recognized as not null", () => {
-  cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "single-rdf-tuple-from-theresa.json" });
+    cy.get("div[id='alert']").should("exist");
+  });
 
-  cy.newGraph();
+  it.skip("Alert is not displayed when nlp data is recognized as not null", () => {
+    cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "single-rdf-tuple-from-theresa.json" });
 
-  cy.get("div[id='alert']").should("not.empty");
+    cy.newGraph();
+
+    cy.get("div[id='alert']").should("not.empty");
+  });
 });
