@@ -2,13 +2,9 @@
 import { PlusIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import { MethodModal } from "./MethodModal";
-import { NLPMethod, NLP_METHOD } from "./methods";
+import { Method } from "./methods";
 import { MethodsSelectionModal } from "./MethodsSelectionModal";
 import { StyledNewGraphButton } from "./styled";
-
-interface NewGraphButtonProps {
-  setShowAlert: (showAlert: boolean) => void;
-}
 
 /**
  * {@link NewGraphButton} controls 2 modals:
@@ -23,26 +19,22 @@ interface NewGraphButtonProps {
  *
  * @returns a DOM object
  */
-export default function NewGraphButton(props: NewGraphButtonProps): JSX.Element {
+export default function NewGraphButton(): JSX.Element {
   const [showMethodsSelectionModal, setShowMethodsSelectionModal] = useState<boolean>(false);
   const [showMethodModal, setShowMethodModal] = useState<boolean>(false);
-  const [method, setMethod] = useState<string | null>(null);
-
-  const methodsToIcon = new Map();
-  methodsToIcon.set(NLP_METHOD, "to be replaced by some svg icon component");
+  const [newGraphMethod, setNewGraphMethod] = useState<Method | null>(null);
 
   useEffect(() => {
-    if (method) {
-      setShowMethodsSelectionModal(false);
+    if (newGraphMethod) {
       setShowMethodModal(true);
     }
+  }, [newGraphMethod]);
 
-    if (!showMethodModal) {
-      // this condition guarantees the previous value of showMethodModal must be "true"
-      // hence it signifies a model close
-      setMethod(null);
+  useEffect(() => {
+    if (!showMethodModal && !showMethodsSelectionModal) {
+      setNewGraphMethod(null);
     }
-  }, [method, showMethodModal]);
+  }, [showMethodModal]);
 
   return (
     <>
@@ -53,25 +45,12 @@ export default function NewGraphButton(props: NewGraphButtonProps): JSX.Element 
       <MethodsSelectionModal
         showModal={showMethodsSelectionModal}
         setShowModal={setShowMethodsSelectionModal}
-        setNewGraphMethod={setMethod}
-        setShowAlert={props.setShowAlert}
-        methodsToIcon={methodsToIcon}
+        setNewGraphMethod={setNewGraphMethod}
       />
 
-      <MethodModal
-        showModal={showMethodModal}
-        setShowModal={setShowMethodModal}
-        setShowAlert={props.setShowAlert}
-        modalContent={
-          <NLPMethod
-            setShowAlert={props.setShowAlert}
-            postAction={() => {
-              setShowMethodsSelectionModal(false);
-              setShowMethodModal(false);
-            }}
-          />
-        }
-      />
+      {newGraphMethod && (
+        <MethodModal showModal={showMethodModal} setShowModal={setShowMethodModal} newGraphMethod={newGraphMethod} />
+      )}
     </>
   );
 }

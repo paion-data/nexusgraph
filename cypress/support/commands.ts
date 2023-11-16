@@ -23,8 +23,7 @@ Cypress.Commands.add("newGraph", () => {
   NLPMethodButton.click();
 
   cy.get("textarea").type("我爱中国");
-  // using default of 4s fails probabilistically
-  const createGraphButton = cy.get(".modal-content>div>div>div>button", { timeout: 10000 });
+  const createGraphButton = cy.get("button[id='newGraphButton-NLP']");
   createGraphButton.click();
 
   cy.get('[id^="graphListItem-"]').should("exist");
