@@ -24,8 +24,8 @@ Cypress.Commands.add("newGraph", () => {
   const NLPMethodButton = cy.get("[data-testid='newGraphMethodButton-NLP']");
   NLPMethodButton.click();
 
-  cy.get("textarea", {timeout: 10000}).click().type("我爱中国");
-  const createGraphButton = cy.get("[data-testid='newGraphButton-NLP']", {timeout: 10000});
+  cy.get("textarea", { timeout: 10000 }).click().type("我爱中国");
+  const createGraphButton = cy.get("[data-testid='newGraphButton-NLP']", { timeout: 10000 });
   createGraphButton.click();
 
   cy.get('[data-testid^="graphListItem-"]').should("exist");
