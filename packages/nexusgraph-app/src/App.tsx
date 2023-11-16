@@ -1,5 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useState } from "react";
+import * as Sentry from "@sentry/react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { GraphBrowser } from "../../nexusgraph-graph";
@@ -65,9 +66,11 @@ export default function App(): JSX.Element {
     });
   };
 
-  const deleteGraphById = (graphId: string | undefined) => {
+  const deleteGraphById = (graphId: string) => {
     if (graphId == null) {
-      return;
+      const error = new Error('graphId is null');
+      Sentry.captureException(error);
+      throw error;
     }
 
     astraiosClient.deleteGraphById(graphId).then((response) => {

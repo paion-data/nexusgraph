@@ -5,7 +5,7 @@ import { StyledDeleteButton } from "./styled";
 
 interface DeleteButtonProps {
   graphId: string;
-  onClick: (graphId: string | undefined) => void;
+  onClick: (graphId: string) => void;
 }
 
 /**
