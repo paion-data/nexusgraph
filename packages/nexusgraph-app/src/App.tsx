@@ -16,23 +16,24 @@ import logo from "../public/logo.svg";
 import user from "../public/user.svg";
 import { DeleteButton } from "./component";
 import Alert from "./component/Alert";
-import GraphNameInput from "./component/GraphNameInput";
+import GraphTitle from "./component/GraphTitle";
 import { SideBar } from "./component/sidebar";
 import {
-  AppHeader,
   AppLogo,
   AppName,
   StyledApp,
+  StyledAppHeader,
   StyledBody,
   StyledFooter,
   StyledGraphBrowser,
   StyledGraphTitle,
   StyledSidebar,
-  UserIcon,
+  StyledUserIcon,
 } from "./styled";
 
 /**
- * The component that defines the entire nexus graph app.
+ * {@link App} defines the overall [layout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background)
+ * as well as the common dynamics of the app, such as deleting a graph or updating a graph state.
  *
  * @returns a React DOM object
  */
@@ -95,15 +96,14 @@ export default function App(): JSX.Element {
 
   return (
     <StyledApp>
-      <AppHeader>
-        <UserIcon>
+      <StyledAppHeader>
+        <StyledUserIcon>
           <img src={user} alt="User" />
-        </UserIcon>
+        </StyledUserIcon>
         <StyledGraphTitle>
-          <GraphNameInput />
-          {/* <ExportButton /> */}
+          <GraphTitle />
         </StyledGraphTitle>
-      </AppHeader>
+      </StyledAppHeader>
 
       <StyledBody>
         <StyledSidebar>
