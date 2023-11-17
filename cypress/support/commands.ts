@@ -17,17 +17,18 @@ Cypress.Commands.add("login", ({ userEmail, password }, isDryRun = true) => {
 });
 
 Cypress.Commands.add("newGraph", () => {
-  cy.get("button[id='newGraphButton']").click();
+  cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "single-rdf-tuple-from-theresa.json" });
 
-  const NLPMethodButton = cy.get("button[id='newGraphMethodButton-NLP']");
+  cy.get("button[id='newGraphButton']").click({ force: true });
+
+  const NLPMethodButton = cy.get("[data-testid='newGraphMethodButton-NLP']");
   NLPMethodButton.click();
 
-  cy.get("textarea").type("我爱中国");
-  // using default of 4s fails probabilistically
-  const createGraphButton = cy.get(".modal-content>div>div>div>button", { timeout: 10000 });
-  createGraphButton.click();
+  cy.get("textarea", { timeout: 10000 }).click({ force: true }).type("我爱中国");
+  const createGraphButton = cy.get("[data-testid='newGraphButton-NLP']", { timeout: 10000 });
+  createGraphButton.click({ force: true });
 
-  cy.get('[id^="graphListItem-"]').should("exist");
+  cy.get('[data-testid^="graphListItem-"]').should("exist");
   cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
 });
 

@@ -7,8 +7,8 @@ describe("'Integration'-style tests", () => {
   it("deleting graph when there is only 1 graph", () => {
     cy.newGraph();
 
-    cy.get('[data-testid="deleteButton"]').click();
-    cy.get('[id^="graphListItem-"]').should("not.exist");
+    cy.get('[data-testid="deleteButton"]').click({ force: true });
+    cy.get('[data-testid^="graphListItem-"]').should("not.exist");
     cy.get("svg").find(`[aria-label^="graph-node"]`).should("not.exist");
   });
 
@@ -16,8 +16,8 @@ describe("'Integration'-style tests", () => {
     cy.newGraph();
     cy.newGraph();
 
-    cy.get('[data-testid="deleteButton"]').click();
-    cy.get('[id^="graphListItem-"]').should("exist");
+    cy.get('[data-testid="deleteButton"]').click({ force: true });
+    cy.get('[data-testid^="graphListItem-"]').should("exist");
     cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
   });
 });

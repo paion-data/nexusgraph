@@ -112,7 +112,7 @@ export default function App(): JSX.Element {
 
       <StyledBody>
         <StyledSidebar>
-          <SideBar onClick={setDisplayingGraphById} graphList={graphList} setShowAlert={setShowAlert} />
+          <SideBar onClick={setDisplayingGraphById} graphList={graphList} />
         </StyledSidebar>
         <StyledGraphBrowser id="graphBrowser">
           <Alert showAlert={showAlert} setShowAlert={setShowAlert} />

@@ -9,13 +9,13 @@ describe("Side bar displays new graph button and graph list", () => {
   });
 
   it("graph list is initially empty", () => {
-    cy.get('[id^="graphListItem-"]').should("not.exist");
+    cy.get('[data-testid^="graphListItem-"]').should("not.exist");
   });
 
   it("when a new graph is created with the new graph button, graph list becomes populated", () => {
     cy.newGraph();
 
-    cy.get('[id^="graphListItem-"]').should("exist");
+    cy.get('[data-testid^="graphListItem-"]').should("exist");
     cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
   });
 });

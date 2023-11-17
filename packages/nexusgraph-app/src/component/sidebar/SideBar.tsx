@@ -6,15 +6,14 @@ import { StyledGraphListItem } from "./styled";
 interface SideBarProps {
   onClick: (graphId: string | undefined) => void;
   graphList: GraphMetaData[];
-  setShowAlert: (showAlert: boolean) => void;
 }
 
 export default function SideBar(props: SideBarProps): JSX.Element {
   return (
     <>
-      <NewGraphButton setShowAlert={props.setShowAlert} />
+      <NewGraphButton />
       {props.graphList.map((metaData) => (
-        <StyledGraphListItem id={"graphListItem-" + metaData.id} onClick={() => props.onClick(metaData.id)}>
+        <StyledGraphListItem data-testid={`graphListItem-${metaData.id}`} onClick={() => props.onClick(metaData.id)}>
           {metaData.name}
         </StyledGraphListItem>
       ))}

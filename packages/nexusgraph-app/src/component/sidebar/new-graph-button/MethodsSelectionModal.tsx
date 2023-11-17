@@ -1,46 +1,48 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { StyledModal, StyledModalContent, StyledNewGraphMethodButton } from "./styled";
+
+import { Button, Modal } from "react-bootstrap";
+import { Method, NLP_METHOD } from "./methods";
 
 interface MethodsSelectionModalProps {
   showModal: boolean;
   setShowModal: (showModal: boolean) => void;
-  setShowAlert: (showAlert: boolean) => void;
-  setNewGraphMethod: (newGraphMethod: string) => void;
-  methodsToIcon: Map<string, string>;
+  setNewGraphMethod: (newGraphMethod: Method) => void;
 }
 
 /**
- * Symmetrical with {@link MethodModal} who accepts modal contents as arg, {@link MethodsSelectionModal} takes available
- * options as arg
- * @param props
- * @returns
+ * {@link MethodsSelectionModal} is an abstraction layer for showing graph generation stratities in a modal.
+ *
+ * The implementation uses [react-bootstrap modal](https://react-bootstrap.netlify.app/docs/components/modal). Parent
+ * components, however, must be agnostic of this implementation detail. For example, they should not need to pass
+ * [react-component Modal API props](https://react-bootstrap.netlify.app/docs/components/modal#modal)
+ *
+ * @param props  A implementation detail independent React props object
+ *
+ * @returns a [standard Modal DOM](https://developer.mozilla.org/en-US/docs/Web/CSS/:modal)
  */
-export function MethodsSelectionModal(props: MethodsSelectionModalProps): JSX.Element {
+export function MethodsSelectionModal(props: MethodsSelectionModalProps) {
+  const onHide = () => props.setShowModal(false);
+
   return (
-    <StyledModal
-      out={!props.showModal}
-      id={"newGraphMethodsSelectionModal"}
-      animation={true}
-      show={props.showModal}
-      onHide={() => props.setShowModal(false)}
-      role="dialog"
-    >
-      <StyledModalContent className="newGraphMethodsSelectionModalContent">
-        {[...props.methodsToIcon.keys()].map((key) => {
-          return (
-            <StyledNewGraphMethodButton id={"newGraphMethodButton-" + key} onClick={() => props.setNewGraphMethod(key)}>
-              <svg width="50%" height="50%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-                <path
-                  fill="#000000"
-                  fill-rule="evenodd"
-                  d="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h9v-5a3 3 0 0 1 3-3h5V5a3 3 0 0 0-3-3H5zm12.293 19.121a3 3 0 0 1-1.293.762V17a1 1 0 0 1 1-1h4.883a3 3 0 0 1-.762 1.293l-3.828 3.828zM7 6a1 1 0 0 0 0 2h10a1 1 0 1 0 0-2H7zm0 4a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2H7zm0 4a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2H7z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </StyledNewGraphMethodButton>
-          );
-        })}
-      </StyledModalContent>
-    </StyledModal>
+    <Modal show={props.showModal} onHide={onHide} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">Please select a method</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Button
+          data-testid="newGraphMethodButton-NLP"
+          variant="primary"
+          onClick={() => {
+            props.setNewGraphMethod(NLP_METHOD);
+            props.setShowModal(false);
+          }}
+        >
+          NLP
+        </Button>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
