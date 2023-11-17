@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { MethodModal } from "./MethodModal";
 import { Method } from "./methods";
 import { MethodsSelectionModal } from "./MethodsSelectionModal";
-import { StyledNewGraphButton } from "./styled";
+import { StyledGraphListItem } from "../styled";
 
 /**
  * {@link NewGraphButton} controls 2 modals:
@@ -38,9 +38,9 @@ export default function NewGraphButton(): JSX.Element {
 
   return (
     <>
-      <StyledNewGraphButton id="newGraphButton" onClick={() => setShowMethodsSelectionModal(true)}>
+      <StyledGraphListItem id="newGraphButton" onClick={() => setShowMethodsSelectionModal(true)}>
         <PlusIcon />
-      </StyledNewGraphButton>
+      </StyledGraphListItem>
 
       <MethodsSelectionModal
         showModal={showMethodsSelectionModal}
