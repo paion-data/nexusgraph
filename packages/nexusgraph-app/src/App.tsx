@@ -12,6 +12,7 @@ import {
   selectOAuth,
   updateGraphData,
   updateGraphList,
+  updateSingleItem,
 } from "../../nexusgraph-redux";
 import logo from "../public/logo.svg";
 import user from "../public/user.svg";
@@ -42,8 +43,11 @@ export default function App(): JSX.Element {
   const dispatch = useDispatch();
   const userId = selectOAuth().userInfo.sub;
   const accessToken = selectOAuth().accessToken;
+
   const astraiosClient = new AstraiosClient(userId, accessToken);
-  const graphId = selectGraphData().id;
+
+  const graphSate = selectGraphData();
+  const graphId = graphSate.id;
   const graphList = selectGraphList();
 
   const [showAlert, setShowAlert] = useState(false);
@@ -63,6 +67,20 @@ export default function App(): JSX.Element {
           links: JSON.parse(graph.graph).links,
         })
       );
+    });
+  };
+
+  const onTitleUpdate = (graphId: string, newTitle: string) => {
+    if (graphId == null) {
+      const error = new Error("graphId is null");
+      Sentry.captureException(error);
+      throw error;
+    }
+
+    graphSate.name = newTitle;
+
+    astraiosClient.saveOrUpdate(graphSate).then((response) => {
+      dispatch(updateSingleItem({ id: graphId, name: graphSate.name }));
     });
   };
 
@@ -105,7 +123,7 @@ export default function App(): JSX.Element {
         </StyledUserIcon>
         {graphId && (
           <StyledGraphTitle>
-            <GraphTitle />
+            <GraphTitle graphId={graphId} onChange={onTitleUpdate} />
           </StyledGraphTitle>
         )}
       </StyledAppHeader>

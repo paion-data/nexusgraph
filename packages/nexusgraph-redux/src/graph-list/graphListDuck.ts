@@ -5,6 +5,7 @@ import { GlobalState } from "../globalState";
 export const GRAPH_LIST_STATE = "graphList";
 const UPDATE_GRAPH_LIST = GRAPH_LIST_STATE + "/UPDATE_GRAPH_LIST";
 const APPEND_GRAPH_LIST = GRAPH_LIST_STATE + "/APPEND_GRAPH_LIST";
+const UPDATE_SINGLE_ITEM = GRAPH_LIST_STATE + "/UPDATE_SINGLE_ITEM";
 
 export interface GraphMetaData {
   id: string;
@@ -36,6 +37,14 @@ export default function graphListReducer(state = initialState, action: GraphList
       return action.payload;
     case APPEND_GRAPH_LIST:
       return [...state, ...action.payload];
+    case UPDATE_SINGLE_ITEM:
+      state.forEach((item) => {
+        if (item.id == action.payload[0].id) {
+          item.name = action.payload[0].name;
+        }
+      });
+
+      return state;
     default:
       return state;
   }
@@ -47,4 +56,8 @@ export function updateGraphList(graphListState: GraphMetaData[]) {
 
 export function appendToGraphList(metadata: GraphMetaData) {
   return { type: APPEND_GRAPH_LIST, payload: [metadata] };
+}
+
+export function updateSingleItem(metadata: GraphMetaData) {
+  return { type: UPDATE_SINGLE_ITEM, payload: [metadata] };
 }
