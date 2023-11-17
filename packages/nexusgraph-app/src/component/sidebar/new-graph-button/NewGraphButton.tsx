@@ -38,7 +38,7 @@ export default function NewGraphButton(): JSX.Element {
 
   return (
     <>
-      <StyledGraphListItem id="newGraphButton" onClick={() => setShowMethodsSelectionModal(true)}>
+      <StyledGraphListItem id="newGraphButton" onClick={() => setShowMethodsSelectionModal(true)} displayedItem={false}>
         <PlusIcon />
       </StyledGraphListItem>
 
