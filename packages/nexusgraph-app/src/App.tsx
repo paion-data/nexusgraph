@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { GraphBrowser } from "../../nexusgraph-graph";
 import {
@@ -43,10 +43,10 @@ export default function App(): JSX.Element {
   const dispatch = useDispatch();
   const userId = selectOAuth().userInfo.sub;
   const accessToken = selectOAuth().accessToken;
-  
+
   const astraiosClient = new AstraiosClient(userId, accessToken);
 
-  const graphSate = selectGraphData()
+  const graphSate = selectGraphData();
   const graphId = graphSate.id;
   const graphList = selectGraphList();
 
@@ -72,17 +72,17 @@ export default function App(): JSX.Element {
 
   const onTitleUpdate = (graphId: string, newTitle: string) => {
     if (graphId == null) {
-      const error = new Error('graphId is null');
+      const error = new Error("graphId is null");
       Sentry.captureException(error);
       throw error;
     }
 
-    graphSate.name = newTitle
+    graphSate.name = newTitle;
 
-    astraiosClient.saveOrUpdate(graphSate).then(response => {
-      dispatch(updateSingleItem({id: graphId, name: graphSate.name}))
-    })
-  }
+    astraiosClient.saveOrUpdate(graphSate).then((response) => {
+      dispatch(updateSingleItem({ id: graphId, name: graphSate.name }));
+    });
+  };
 
   const deleteGraphById = (graphId: string) => {
     if (graphId == null) {

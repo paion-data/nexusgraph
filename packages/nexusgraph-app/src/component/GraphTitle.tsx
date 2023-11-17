@@ -4,8 +4,8 @@ import { selectGraphData } from "../../../nexusgraph-redux";
 import { StyledInput } from "./styled";
 
 interface GraphTitleProps {
-  graphId: string
-  onChange: (graphId: string, newTitle: string) => void
+  graphId: string;
+  onChange: (graphId: string, newTitle: string) => void;
 }
 
 export default function GraphTitle(props: GraphTitleProps): JSX.Element {
@@ -23,7 +23,7 @@ export default function GraphTitle(props: GraphTitleProps): JSX.Element {
       value={inputValue}
       onChange={(event) => {
         setInputValue(event.target.value);
-        props.onChange(props.graphId, event.target.value)
+        props.onChange(props.graphId, event.target.value);
       }}
     />
   );
