@@ -41,11 +41,11 @@ import {
  */
 export default function App(): JSX.Element {
   const dispatch = useDispatch();
+
   const userId = selectOAuth().userInfo.sub;
   const accessToken = selectOAuth().accessToken;
 
   const astraiosClient = new AstraiosClient(userId, accessToken);
-
   const graphSate = selectGraphData();
   const graphId = graphSate.id;
   const graphList = selectGraphList();

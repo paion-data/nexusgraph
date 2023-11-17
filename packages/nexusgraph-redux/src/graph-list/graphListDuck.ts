@@ -38,13 +38,9 @@ export default function graphListReducer(state = initialState, action: GraphList
     case APPEND_GRAPH_LIST:
       return [...state, ...action.payload];
     case UPDATE_SINGLE_ITEM:
-      state.forEach((item) => {
-        if (item.id == action.payload[0].id) {
-          item.name = action.payload[0].name;
-        }
+      return state.map((item) => {
+        return item.id == action.payload[0].id ? action.payload[0] : item;
       });
-
-      return state;
     default:
       return state;
   }
