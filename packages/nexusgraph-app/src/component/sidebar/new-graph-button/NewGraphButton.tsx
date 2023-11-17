@@ -1,10 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { PlusIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
+import { StyledGraphListItem } from "../styled";
 import { MethodModal } from "./MethodModal";
 import { Method } from "./methods";
 import { MethodsSelectionModal } from "./MethodsSelectionModal";
-import { StyledGraphListItem } from "../styled";
 
 /**
  * {@link NewGraphButton} controls 2 modals:
