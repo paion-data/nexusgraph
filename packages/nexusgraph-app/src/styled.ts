@@ -29,7 +29,7 @@ export const StyledGraphTitle = styled.div`
   flex-shrink: 1;
   order: 2;
   display: flex;
-  height: 5vh;
+  height: 6vh;
 
   padding-left: 45%;
   padding-right: 50%;
@@ -41,7 +41,7 @@ export const StyledBody = styled.div`
   display: flex;
   flex-direction: row;
   height: 96vh;
-  padding: 2vh 1.5vh 2vh 1.5vh;
+  padding: 4vh 1.5vh 2vh 1.5vh;
 `;
 
 export const StyledSidebar = styled.div`
