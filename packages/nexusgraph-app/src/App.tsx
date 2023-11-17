@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { GraphBrowser } from "../../nexusgraph-graph";
 import {
@@ -12,6 +12,7 @@ import {
   selectOAuth,
   updateGraphData,
   updateGraphList,
+  updateSingleItem,
 } from "../../nexusgraph-redux";
 import logo from "../public/logo.svg";
 import user from "../public/user.svg";
@@ -42,8 +43,11 @@ export default function App(): JSX.Element {
   const dispatch = useDispatch();
   const userId = selectOAuth().userInfo.sub;
   const accessToken = selectOAuth().accessToken;
+  
   const astraiosClient = new AstraiosClient(userId, accessToken);
-  const graphId = selectGraphData().id;
+
+  const graphSate = selectGraphData()
+  const graphId = graphSate.id;
   const graphList = selectGraphList();
 
   const [showAlert, setShowAlert] = useState(false);
@@ -66,12 +70,18 @@ export default function App(): JSX.Element {
     });
   };
 
-  const updateTitle = (graphId: string, newTitle: string) => {
-    const error = new Error('graphId is null');
-    Sentry.captureException(error);
-    throw error;
+  const onTitleUpdate = (graphId: string, newTitle: string) => {
+    if (graphId == null) {
+      const error = new Error('graphId is null');
+      Sentry.captureException(error);
+      throw error;
+    }
 
+    graphSate.name = newTitle
 
+    astraiosClient.saveOrUpdate(graphSate).then(response => {
+      dispatch(updateSingleItem({id: graphId, name: graphSate.name}))
+    })
   }
 
   const deleteGraphById = (graphId: string) => {
@@ -113,7 +123,7 @@ export default function App(): JSX.Element {
         </StyledUserIcon>
         {graphId && (
           <StyledGraphTitle>
-            <GraphTitle />
+            <GraphTitle graphId={graphId} onChange={onTitleUpdate} />
           </StyledGraphTitle>
         )}
       </StyledAppHeader>
