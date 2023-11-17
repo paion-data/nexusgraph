@@ -66,6 +66,14 @@ export default function App(): JSX.Element {
     });
   };
 
+  const updateTitle = (graphId: string, newTitle: string) => {
+    const error = new Error('graphId is null');
+    Sentry.captureException(error);
+    throw error;
+
+
+  }
+
   const deleteGraphById = (graphId: string) => {
     if (graphId == null) {
       const error = new Error("graphId is null");
