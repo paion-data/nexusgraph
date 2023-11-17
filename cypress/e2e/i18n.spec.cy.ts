@@ -10,7 +10,7 @@ describe("i18n", () => {
 
     cy.newGraph();
 
-    cy.get("input[id=titleInput]").should("have.value", "Unamed Graph");
+    cy.get("input[data-testid=graphTitle]").should("have.value", "Unamed Graph");
   });
 
   it.skip("The i18n translates the text to Chinese when the browser language is Chinese", () => {
@@ -19,6 +19,6 @@ describe("i18n", () => {
 
     cy.newGraph();
 
-    cy.get("input[id=titleInput]").should("have.value", "无标题笔记");
+    cy.get("input[data-testid=graphTitle]").should("have.value", "无标题笔记");
   });
 });
