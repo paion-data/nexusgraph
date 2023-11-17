@@ -38,17 +38,9 @@ export default function graphListReducer(state = initialState, action: GraphList
     case APPEND_GRAPH_LIST:
       return [...state, ...action.payload];
     case UPDATE_SINGLE_ITEM:
-      let newState: GraphMetaData[] = [];
-
-      state.forEach((item) => {
-        if (item.id == action.payload[0].id) {
-          newState = [...newState, ...[action.payload[0]]];
-        } else {
-          newState = [...newState, ...[item]];
-        }
+      return state.map((item) => {
+        return item.id == action.payload[0].id ? action.payload[0] : item;
       });
-
-      return newState;
     default:
       return state;
   }
