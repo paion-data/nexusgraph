@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import styled from "styled-components";
 
-export const StyledGraphListItem = styled.button`
+export const StyledGraphListItem = styled.button<{ displayedItem: boolean }>`
   position: relative;
   width: 40%;
   aspect-ratio: 1.618 / 1;
@@ -18,6 +18,8 @@ export const StyledGraphListItem = styled.button`
     stroke-width: 1px;
     stroke: #f9bfd5;
   }
+
+  ${(props) => props.displayedItem && "border-style: solid; border-width: 3px; border-color: rgba(245, 95, 145, 0.45);"}
 
   &:hover {
     border-style: solid;
