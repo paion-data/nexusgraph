@@ -1,5 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
-describe("Graph title dynamics", () => {
+describe("Graph title", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
   });
@@ -13,4 +13,8 @@ describe("Graph title dynamics", () => {
 
     cy.get('[data-testid="graphTitle"]').should("exist");
   });
+
+  it("When user update title, new title is reflected in both sidebar list as well as after being refreshed", () => {
+    
+  })
 });
