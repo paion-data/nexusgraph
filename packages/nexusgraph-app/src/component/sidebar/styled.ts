@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const StyledGraphListItem = styled.button<{ displayedItem: boolean }>`
   position: relative;
   width: 40%;
+  min-width: 90px;
   aspect-ratio: 1.618 / 1;
   border-radius: 1rem;
   border: none;

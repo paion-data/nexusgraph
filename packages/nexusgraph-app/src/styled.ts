@@ -48,6 +48,7 @@ export const StyledSidebar = styled.div`
   flex-shrink: 1;
   aspect-ratio: 1 / 1.618;
   height: 30vw;
+  min-width: 110px;
 
   margin-right: 0.75vw;
   border-radius: 1rem;

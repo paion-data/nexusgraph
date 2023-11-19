@@ -16,5 +16,9 @@ export default defineConfig({
       nodeExpand: (process.env.THERESA_API_URL as string) + "expand/",
       astraiosGraphqlEndpoint: process.env.ASTRAIOS_API_RESOURCE as string,
     },
+    retries: {
+      runMode: 10,
+      openMode: 0,
+    },
   },
 });

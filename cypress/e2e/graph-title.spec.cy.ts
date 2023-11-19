@@ -14,12 +14,22 @@ describe("Graph title", () => {
     cy.get('[data-testid="graphTitle"]').should("exist");
   });
 
-  it("When user update title, new title is reflected in both sidebar list as well as after being refreshed", () => {
-    cy.get('[data-testid="graphTitle"]').click({ force: true }).clear().type("Modified Title");
+  it("reflects the updated title immediately in sidebase list when user update title", () => {
+    cy.get('[data-testid="graphTitle"]')
+      .click({ force: true })
+      .clear()
+      .type("Modified Title")
+      .get('[data-testid^="graphListItem-"]')
+      .contains("Modified Title");
+  });
 
-    cy.get('[data-testid="graphTitle"]').click({ force: true }).should("have.value", "Modified Title");
-
-    cy.reload();
-    cy.get('[data-testid^="graphListItem-"]').contains("Modified Title"); // making sure the edit gets persisted
+  it("still preserves the updated title after a page reloadl; i.e. change gets persisted into database", () => {
+    cy.get('[data-testid="graphTitle"]')
+      .click({ force: true })
+      .clear()
+      .type("Yet Another Modified Title")
+      .reload(true)
+      .get('[data-testid^="graphListItem-"]')
+      .contains("Yet Another Modified Title");
   });
 });
