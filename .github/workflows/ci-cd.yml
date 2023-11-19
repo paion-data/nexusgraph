@@ -85,38 +85,6 @@ jobs:
           start-strategy: ${{ matrix.start_strategy }}
           spec-relative-path: ${{ matrix.test_spec }}
 
-  release:
-    name: Publish NPM Packages
-    if: github.ref == 'refs/heads/master'
-    needs: e2e-tests
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set node version to ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
-          registry-url: "https://registry.npmjs.org"
-      - name: Tag for release
-        run: |
-          git config --global user.name '$USER'
-          git config --global user.email '$EMAIL'
-          .github/tag-for-release.bash
-      - name: Set release version
-        run: |
-          VERSION=$(git describe)
-          npm version $VERSION
-      - name: Publish to NPM Packages
-        run: |
-          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-          npm publish --access public
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
   documentation-ci-cd:
     name: Test and Deploy Documentation to GitHub Pages
     needs: e2e-tests

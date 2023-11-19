@@ -5,7 +5,6 @@ Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 <img src="https://raw.githubusercontent.com/paion-data/nexusgraph/master/docs/static/img/logo.svg" width="200px" />
 </div>
 
-[![npm registry][npm registry]](https://www.npmjs.com/package/@paiondata/nexusgraph)
 [![License Badge][license badge]](https://www.apache.org/licenses/LICENSE-2.0)
 [![GitHub Workflow Status][release status]](https://github.com/paion-data/nexusgraph/actions/workflows/ci-cd.yml)
 ![GitHub last commit (master)](https://img.shields.io/github/last-commit/paion-data/nexusgraph/master?logo=github&style=for-the-badge)
@@ -83,6 +82,5 @@ The use and distribution terms for [nexusgraph][nexusgraph documentation] are co
 [nexusgraph documentation]: https://paion-data.github.io/nexusgraph/
 
 [node version badge]: https://img.shields.io/badge/Node.js-18-43853D?style=for-the-badge&logo=node.js&logoColor=white
-[npm registry]: https://img.shields.io/npm/v/@paiondata/nexusgraph?logo=npm&style=for-the-badge
 
 [release status]: https://img.shields.io/github/actions/workflow/status/paion-data/nexusgraph/ci-cd.yml?branch=master&logo=github&style=for-the-badge
