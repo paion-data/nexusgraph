@@ -58,9 +58,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node_version: [18]
-        start_strategy: ["yarn-start", "serve"]
         test_spec: ${{ fromJson(needs.list-e2e-specs.outputs.paths) }}
+        start_strategy: ["yarn-start", "serve"]
+        node_version: [18]
     steps:
       - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/jdk-setup@master
       - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/jersey-webservice-template/jpa-elide/install-data-models@master

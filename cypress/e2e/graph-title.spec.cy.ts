@@ -28,7 +28,7 @@ describe("Graph title", () => {
       .click({ force: true })
       .clear()
       .type("Yet Another Modified Title")
-      .reload()
+      .reload(true)
       .get('[data-testid^="graphListItem-"]')
       .contains("Yet Another Modified Title");
   });
