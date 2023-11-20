@@ -2244,6 +2244,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@paiondata/nexusgraph-astraios@workspace:packages/nexusgraph-astraios":
+  version: 0.0.0-use.local
+  resolution: "@paiondata/nexusgraph-astraios@workspace:packages/nexusgraph-astraios"
+  languageName: unknown
+  linkType: soft
+
 "@paiondata/nexusgraph-graph@workspace:packages/nexusgraph-graph":
   version: 0.0.0-use.local
   resolution: "@paiondata/nexusgraph-graph@workspace:packages/nexusgraph-graph"
@@ -2277,6 +2283,18 @@ __metadata:
 "@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp":
   version: 0.0.0-use.local
   resolution: "@paiondata/nexusgraph-nlp@workspace:packages/nexusgraph-nlp"
+  languageName: unknown
+  linkType: soft
+
+"@paiondata/nexusgraph-oauth@workspace:packages/nexusgraph-oauth":
+  version: 0.0.0-use.local
+  resolution: "@paiondata/nexusgraph-oauth@workspace:packages/nexusgraph-oauth"
+  languageName: unknown
+  linkType: soft
+
+"@paiondata/nexusgraph-redux@workspace:packages/nexusgraph-redux":
+  version: 0.0.0-use.local
+  resolution: "@paiondata/nexusgraph-redux@workspace:packages/nexusgraph-redux"
   languageName: unknown
   linkType: soft
 

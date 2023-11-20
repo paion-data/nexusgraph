@@ -2,11 +2,12 @@
   "name": "@paiondata/nexusgraph",
   "workspaces": [
     "./packages/nexusgraph-app",
-    "./packages/nexusgraph-editor",
+    "./packages/nexusgraph-astraios",
     "./packages/nexusgraph-graph",
+    "./packages/nexusgraph-i18n",
     "./packages/nexusgraph-nlp",
-    "./packages/nexusgraph-oauth2",
-    "./packages/nexusgraph-i18n"
+    "./packages/nexusgraph-oauth",
+    "./packages/nexusgraph-redux"
   ],
   "version": "0.1.0",
   "engines": {
