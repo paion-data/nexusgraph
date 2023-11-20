@@ -25,12 +25,6 @@ Nexus Graph 的[UI 界面][UI 主界面]由两部分组成：
 Nexus Graph 的设计遵循 [separation of concerns][separation of concerns] 原理 ；GraphBrowser 是唯一一个在其它 package
 中可引入的做图组件，意味着，[nexus-graph] package 中的所有组件和代码都不能被 package 以外的组件引用，除了 GraphBrowser
 
-#### VisualizationView
-
-**VisualizationView** 是 Nexus Graph 做图组件的数据逻辑层，其作用是从 Redux Store 获取知识图谱的原始数据
-（[Knowledge Graph Spec][Knowledge Graph Spec] 格式），转换成[做图组件的数据格式(`BasicNodesAndRels`)][Graph.tsx]，
-最后传入[做图逻辑层](#做图逻辑层)
-
 #### 做图逻辑层
 
 **Graph.tsx** 中包含了做图组件的整个实现逻辑。在这里我们通过 [D3][D3.js] 将数据可视化来实现做图，其封装在 **Visualization.ts** 类中。
@@ -88,8 +82,6 @@ Nexus Graph 的设计遵循 [separation of concerns][separation of concerns] 原
   更新的逻辑
 
 [UI 主界面]: https://github.com/paion-data/nexusgraph/blob/master/packages/nexusgraph-app/src/App.tsx
-
-[Graph.tsx]: https://github.com/paion-data/nexusgraph/blob/master/packages/nexusgraph-graph/src/Graph.tsx
 
 [nexus-graph]: https://github.com/paion-data/nexusgraph/tree/master/packages/nexusgraph-graph
 
