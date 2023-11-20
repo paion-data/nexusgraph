@@ -5,19 +5,27 @@ describe("'Integration'-style tests", () => {
   });
 
   it("deleting graph when there is only 1 graph", () => {
-    cy.newGraph();
-
-    cy.get('[data-testid="deleteButton"]').click({ force: true });
-    cy.get('[data-testid^="graphListItem-"]').should("not.exist");
-    cy.get("svg").find(`[aria-label^="graph-node"]`).should("not.exist");
+    cy
+      .newGraph()
+      .get('[data-testid="deleteButton"]')
+      .click({ force: true })
+      .get('[data-testid^="graphListItem-"]')
+      .should("not.exist")
+      .get("svg")
+      .find(`[aria-label^="graph-node"]`)
+      .should("not.exist");
   });
 
   it("deleting the last graph when there are multiple graphs", () => {
-    cy.newGraph();
-    cy.newGraph();
-
-    cy.get('[data-testid="deleteButton"]').click({ force: true });
-    cy.get('[data-testid^="graphListItem-"]').should("exist");
-    cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
+    cy
+      .newGraph()
+      .newGraph()
+      .get('[data-testid="deleteButton"]')
+      .click({ force: true })
+      .get('[data-testid^="graphListItem-"]')
+      .should("exist")
+      .get("svg")
+      .find(`[aria-label^="graph-node"]`)
+      .should("exist");
   });
 });
