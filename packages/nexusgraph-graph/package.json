@@ -31,7 +31,6 @@
     "d3-force": "^3.0.0",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
-    "neo4j-arc": "^0.0.27",
     "re-resizable": "^6.9.9",
     "semantic-ui-react": "^2.1.4"
   },
