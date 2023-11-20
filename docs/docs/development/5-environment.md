@@ -46,7 +46,7 @@ Install [Homebrew](http://brew.sh), and then run the following command to instal
 brew install gnupg
 ```
 
-### Node 16 & Yarn
+### Node 18 & Yarn
 
 Installing [node.js][node.js] and [Yarn][yarn install]:
 
@@ -107,6 +107,27 @@ You can refer to [Astraios Docs][Astraios Development] to learn how to run Webse
 ### Start NLP server
 
 We can refer to [Theresa Docs](https://github.com/paion-data/theresa) to learn how to run a NLP server for Nexus Graph
+
+### Load Neo4J Arc from Local
+
+Nexus Graph's graphing capabilities is externalized to Neo4J's. When we update the library and would like to see it's
+immediate effects, we could have nexusgraph manually depend on the local version:
+
+```bash
+git clone https://github.com/QubitPi/neo4j-browser.git
+cd neo4j-browser/src/neo4j-arc
+yarn && yarn build
+```
+
+In nexusgraph:
+
+```bash
+yarn add /abs/path/to/neo4j-browser/src/neo4j-arc/
+```
+
+```bash
+yarn && yarn start
+```
 
 Bootstrap
 ---------
