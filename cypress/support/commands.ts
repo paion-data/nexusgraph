@@ -19,17 +19,20 @@ Cypress.Commands.add("login", ({ userEmail, password }, isDryRun = true) => {
 Cypress.Commands.add("newGraph", () => {
   cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "single-rdf-tuple-from-theresa.json" });
 
-  cy.get("button[id='newGraphButton']").click({ force: true });
-
-  const NLPMethodButton = cy.get("[data-testid='newGraphMethodButton-NLP']");
-  NLPMethodButton.click();
-
-  cy.get("textarea", { timeout: 10000 }).click({ force: true }).type("我爱中国");
-  const createGraphButton = cy.get("[data-testid='newGraphButton-NLP']", { timeout: 10000 });
-  createGraphButton.click({ force: true });
-
-  cy.get('[data-testid^="graphListItem-"]').should("exist");
-  cy.get("svg").find(`[aria-label^="graph-node"]`).should("exist");
+  cy.get("button[id='newGraphButton']")
+    .click({ force: true })
+    .get("[data-testid='newGraphMethodButton-NLP']")
+    .click()
+    .get("textarea", { timeout: 10000 })
+    .click({ force: true })
+    .type("我爱中国")
+    .get("[data-testid='newGraphButton-NLP']", { timeout: 10000 })
+    .click({ force: true })
+    .get('[data-testid^="graphListItem-"]')
+    .should("exist")
+    .get("svg")
+    .find(`[aria-label^="graph-node"]`)
+    .should("exist");
 });
 
 Cypress.Commands.add("interceptAstraios", () => {
