@@ -5,8 +5,7 @@ describe("'Integration'-style tests", () => {
   });
 
   it("deleting graph when there is only 1 graph", () => {
-    cy
-      .newGraph()
+    cy.newGraph()
       .get('[data-testid="deleteButton"]')
       .click({ force: true })
       .get('[data-testid^="graphListItem-"]')
@@ -17,8 +16,7 @@ describe("'Integration'-style tests", () => {
   });
 
   it("deleting the last graph when there are multiple graphs", () => {
-    cy
-      .newGraph()
+    cy.newGraph()
       .newGraph()
       .get('[data-testid="deleteButton"]')
       .click({ force: true })
