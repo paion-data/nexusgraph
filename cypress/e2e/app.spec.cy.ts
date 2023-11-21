@@ -17,6 +17,7 @@ describe("'Integration'-style tests", () => {
 
   it("deleting the last graph when there are multiple graphs", () => {
     cy.newGraph()
+      .wait(5000)
       .newGraph()
       .get('[data-testid="deleteButton"]')
       .click({ force: true })
