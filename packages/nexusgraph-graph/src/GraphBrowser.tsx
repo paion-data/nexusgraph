@@ -98,6 +98,7 @@ export default function GraphBrowser(): JSX.Element {
       useGeneratedDefaultColors={false}
       initialZoomToFit={true}
       onGraphInteraction={onGraphInteraction}
+      showNodeInspectorPanel={false}
     />
   );
 }
