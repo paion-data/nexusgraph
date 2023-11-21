@@ -23,7 +23,7 @@ interface ProdAppProps {
 export default function ProdApp(props: ProdAppProps): JSX.Element {
   const dispatch = useDispatch();
 
-  const { signIn, isAuthenticated, isLoading, getAccessToken, fetchUserInfo } = useLogto();
+  const { signIn, isAuthenticated, isLoading, getAccessToken, fetchUserInfo, signOut } = useLogto();
 
   const prodOAuthState = {
     accessToken: "",
@@ -32,21 +32,25 @@ export default function ProdApp(props: ProdAppProps): JSX.Element {
 
   useEffect(() => {
     const astraiosAPI = process.env.ASTRAIOS_API_RESOURCE as string;
-    getAccessToken(astraiosAPI).then((token) => {
-      if (token) {
-        prodOAuthState["accessToken"] = token;
-        fetchUserInfo().then((userInfo) => {
-          if (userInfo) {
-            prodOAuthState["userInfo"]["sub"] = userInfo["sub"];
-            dispatch(updateOAuthState(prodOAuthState));
+    getAccessToken(astraiosAPI)
+      .then((token) => {
+        if (token) {
+          prodOAuthState["accessToken"] = token;
+          fetchUserInfo().then((userInfo) => {
+            if (userInfo) {
+              prodOAuthState["userInfo"]["sub"] = userInfo["sub"];
+              dispatch(updateOAuthState(prodOAuthState));
 
-            const userId = userInfo["sub"];
-            const accessToken = token;
-            props.initReduxStore(userId, new AstraiosClient(userId, accessToken), dispatch);
-          }
-        });
-      }
-    });
+              const userId = userInfo["sub"];
+              const accessToken = token;
+              props.initReduxStore(userId, new AstraiosClient(userId, accessToken), dispatch);
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        signOut(process.env.LOGTO_SIGN_OUT_REDIRECT_URL as string);
+      });
   }, [JSON.stringify(prodOAuthState)]);
 
   if (!isAuthenticated && !isLoading) {
