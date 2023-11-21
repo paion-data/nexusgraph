@@ -70,7 +70,7 @@ export const StyledDeleteButton = styled.button`
 `;
 
 export const StyledInput = styled.input`
-  font-size: 50px;
+  font-size: 3vw;
   font-weight: bold;
   color: #fff;
   background-color: transparent;
