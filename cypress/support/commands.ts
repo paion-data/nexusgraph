@@ -22,7 +22,7 @@ Cypress.Commands.add("newGraph", () => {
   cy.get("button[id='newGraphButton']")
     .click({ force: true })
     .get("[data-testid='newGraphMethodButton-NLP']")
-    .click()
+    .click({ force: true })
     .get("textarea", { timeout: 10000 })
     .click({ force: true })
     .type("我爱中国")
