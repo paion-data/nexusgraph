@@ -15,7 +15,7 @@ export const StyledAppHeader = styled.div`
   display: flex;
   flex-direction: row;
   height: 2vh;
-  padding: 1.5vh;
+  margin-top: 2vh;
 `;
 
 export const StyledUserIcon = styled.div`
@@ -23,6 +23,7 @@ export const StyledUserIcon = styled.div`
   order: 1;
   display: flex;
   height: 5vh;
+  margin-left: 2vh;
 `;
 
 export const StyledGraphTitle = styled.div`
@@ -41,7 +42,7 @@ export const StyledBody = styled.div`
   display: flex;
   flex-direction: row;
   height: 96vh;
-  padding: 4vh 1.5vh 2vh 1.5vh;
+  margin: 3vh 1.5vh 2vh 1.5vh;
 `;
 
 export const StyledSidebar = styled.div`
