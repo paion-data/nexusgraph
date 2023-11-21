@@ -28,7 +28,7 @@ Cypress.Commands.add("newGraph", () => {
     .type("我爱中国")
     .get("[data-testid='newGraphButton-NLP']", { timeout: 10000 })
     .click({ force: true })
-    .get('[data-testid^="graphListItem-"]')
+    .get('[data-testid^="graphListItem-"]', { timeout: 10000 })
     .should("exist")
     .get("svg")
     .find(`[aria-label^="graph-node"]`)
