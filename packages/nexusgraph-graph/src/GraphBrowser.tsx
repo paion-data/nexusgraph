@@ -48,11 +48,22 @@ export default function GraphBrowser(): JSX.Element {
         throw error;
       }
 
-      astraiosClient.saveOrUpdate(graphData).then((response) => {
-        graphData.id = response.data.data.graph.edges[0]["node"]["id"];
-        graphData.nodes = [...graphData.nodes, properties["newNode"] as Node];
-        dispatch(updateGraphData(graphData));
-      });
+      graphData.nodes = [
+        ...graphData.nodes,
+        ...[
+          {
+            id: Math.random().toString(36).slice(2),
+            fields: {
+              name: properties["name"],
+              description: properties["description"],
+              labels: properties["labels"],
+            },
+          } as Node,
+        ],
+      ];
+
+      dispatch(updateGraphData(graphData));
+      astraiosClient.saveOrUpdate(graphData);
     }
 
     if (event == REL_ON_CANVAS_CREATE) {
