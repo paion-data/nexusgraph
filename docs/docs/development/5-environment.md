@@ -119,7 +119,9 @@ cd neo4j-browser/src/neo4j-arc
 yarn && yarn build
 ```
 
-In nexusgraph:
+In nexusgraph, delete the `"neo4j-devtools-arc": "^x.y.z",` from `dependencies` section in
+[`packages/nexusgraph-graph/package.json`](https://github.com/paion-data/nexusgraph/blob/master/packages/nexusgraph-graph/package.json)
+and run
 
 ```bash
 yarn add /abs/path/to/neo4j-browser/src/neo4j-arc/
@@ -128,6 +130,12 @@ yarn add /abs/path/to/neo4j-browser/src/neo4j-arc/
 ```bash
 yarn && yarn start
 ```
+
+:::caution
+
+When we are done, do not forget to put `"neo4j-devtools-arc": "^x.y.z"` back into `package.json`
+
+:::
 
 Bootstrap
 ---------
