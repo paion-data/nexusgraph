@@ -2329,7 +2329,7 @@ __metadata:
     d3-force: ^3.0.0
     file-saver: ^2.0.5
     lodash: ^4.17.21
-    neo4j-devtools-arc: ^0.0.58
+    neo4j-devtools-arc: ^0.0.61
     neo4j-driver-core: 5.9.2
     re-resizable: ^6.9.9
     semantic-ui-react: ^2.1.4
@@ -9982,9 +9982,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"neo4j-devtools-arc@npm:^0.0.58":
-  version: 0.0.58
-  resolution: "neo4j-devtools-arc@npm:0.0.58"
+"neo4j-devtools-arc@npm:^0.0.61":
+  version: 0.0.61
+  resolution: "neo4j-devtools-arc@npm:0.0.61"
   dependencies:
     "@heroicons/react": ^2.0.16
     "@juggle/resize-observer": ^3.3.1
@@ -10022,7 +10022,7 @@ __metadata:
     neo4j-driver-core: 5.9.2
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 21df46a8abb0b6a0c541452b2532b48131e1ceea85817f9a2fb24a5bf459a53498446b36d0aa2858ca802d2222271a262a5d38a6f4536cde238b7dcd2967b03b
+  checksum: 6aee1a2b99e7192f287fcb57c620ffdcc400ce952f329f4c442a7c1b38621a311dfc0ffeb976ab2a4fb3750ba7bd8ab0fc0461e72f9239c4da2e8edb8689bff2
   languageName: node
   linkType: hard
 
