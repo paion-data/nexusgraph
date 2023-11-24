@@ -2,7 +2,6 @@
 import ReactDOM from "react-dom/client";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../nexusgraph-i18n";
 import AppInit, { setupSentry } from "./AppInit";
 import "./index.css";
 
