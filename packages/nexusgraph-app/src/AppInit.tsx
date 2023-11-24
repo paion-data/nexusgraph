@@ -1,10 +1,13 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
+import { I18nextProvider } from "react-i18next";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import OAuth2Provider from "../../nexusgraph-oauth/src/OAuth2Provider";
 import { ReduxStoreProvider, updateGraphData, updateGraphList } from "../../nexusgraph-redux";
 import DevApp from "./DevApp";
 import ProdApp from "./ProdApp";
+
+import i18n from "./i18n";
 
 /**
  * {@link AppInit} offers common init/config and differentiated context wrapper for {@link DevApp | dev} and
@@ -39,18 +42,22 @@ export default function AppInit(): JSX.Element {
 
   if (process.env.SKIP_SIGN_IN == "true") {
     return (
-      <ReduxStoreProvider>
-        <DevApp initReduxStore={initReduxStore} />
-      </ReduxStoreProvider>
+      <I18nextProvider i18n={i18n}>
+        <ReduxStoreProvider>
+          <DevApp initReduxStore={initReduxStore} />
+        </ReduxStoreProvider>
+      </I18nextProvider>
     );
   }
 
   return (
-    <ReduxStoreProvider>
-      <OAuth2Provider>
-        <ProdApp initReduxStore={initReduxStore} />
-      </OAuth2Provider>
-    </ReduxStoreProvider>
+    <I18nextProvider i18n={i18n}>
+      <ReduxStoreProvider>
+        <OAuth2Provider>
+          <ProdApp initReduxStore={initReduxStore} />
+        </OAuth2Provider>
+      </ReduxStoreProvider>
+    </I18nextProvider>
   );
 }
 
