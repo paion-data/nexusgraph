@@ -2,9 +2,9 @@
 import * as Sentry from "@sentry/react";
 import { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../../../../nexusgraph-astraios";
-import { t } from "../../../../../nexusgraph-i18n";
 import { NLPClient } from "../../../../../nexusgraph-nlp";
 import { appendToGraphList, INITIAL_GRAPH_NAME, selectOAuth, updateGraphData } from "../../../../../nexusgraph-redux";
 import { container, TYPES } from "../../../../inversify.config";
@@ -20,6 +20,7 @@ interface MethodsSelectionModalProps {
 
 export function MethodModal(props: MethodsSelectionModalProps): JSX.Element {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const [textInput, setTextInput] = useState<string>("");
   const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
@@ -76,7 +77,7 @@ export function MethodModal(props: MethodsSelectionModalProps): JSX.Element {
           </Form.Group>
 
           <Button data-testid="newGraphButton-NLP" variant="primary" disabled={buttonDisabled} onClick={onClick}>
-            {t("generateGraphFromText")}
+            {t("Generate Graph")}
           </Button>
         </Form>
       </Modal.Body>

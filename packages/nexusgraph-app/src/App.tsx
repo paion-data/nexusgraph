@@ -1,6 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { GraphBrowser } from "../../nexusgraph-graph";
@@ -17,7 +16,6 @@ import {
 import logo from "../public/logo.svg";
 import user from "../public/user.svg";
 import { DeleteButton } from "./component";
-import Alert from "./component/Alert";
 import GraphTitle from "./component/GraphTitle";
 import { SideBar } from "./component/sidebar";
 import {
@@ -49,8 +47,6 @@ export default function App(): JSX.Element {
   const graphSate = selectGraphData();
   const graphId = graphSate.id;
   const graphList = selectGraphList();
-
-  const [showAlert, setShowAlert] = useState(false);
 
   const setDisplayingGraphById = (graphId: string | undefined) => {
     if (graphId == null) {
@@ -133,7 +129,6 @@ export default function App(): JSX.Element {
           <SideBar onClick={setDisplayingGraphById} graphList={graphList} />
         </StyledSidebar>
         <StyledGraphBrowser id="graphBrowser">
-          <Alert showAlert={showAlert} setShowAlert={setShowAlert} />
           {graphId && <DeleteButton graphId={graphId} onClick={deleteGraphById} />}
           <GraphBrowser />
         </StyledGraphBrowser>

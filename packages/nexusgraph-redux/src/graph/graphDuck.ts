@@ -1,7 +1,7 @@
 // Copyright 2023 Paion Data. All rights reserved.
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { GlobalState, Link, Node } from "../..";
-import { t } from "../../../nexusgraph-i18n";
 
 export const INITIAL_GRAPH_NAME = "Unamed Graph";
 
@@ -38,7 +38,9 @@ function shouldDisplayInitialGraphName(name: string): boolean {
 }
 
 export function selectGraphData() {
-  const initialGraphName = t("initialGraphName");
+  const { t } = useTranslation();
+
+  const initialGraphName = t("Unamed Graph");
 
   return useSelector((state: GlobalState) => {
     if (shouldDisplayInitialGraphName(state.graphData.name)) {
