@@ -1,5 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
+import i18next from "i18next";
 import {
   BasicNode,
   BasicRelationship,
@@ -7,6 +8,7 @@ import {
   GraphVisualizer,
   NODE_ON_CANVAS_CREATE,
   REL_ON_CANVAS_CREATE,
+  resources,
 } from "neo4j-devtools-arc";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -80,6 +82,9 @@ export default function GraphBrowser(): JSX.Element {
       });
     }
   };
+
+  i18next.addResources("en", "translation", resources.en.translation);
+  i18next.addResources("zh", "translation", resources.zh.translation);
 
   return (
     <GraphVisualizer
