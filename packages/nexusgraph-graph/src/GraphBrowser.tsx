@@ -12,15 +12,18 @@ import {
 } from "neo4j-devtools-arc";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { ThemeProvider } from "styled-components";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { Link, Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
+import { theme } from "./themes";
 
 const ALL_REL_TYPE_SETS = "*";
 const DISPLAYED_FIELD = "type";
 const ALL_NODE_LABELS_SETS = "*";
 
 /**
- * {@link GraphBrowser} abstracts away the graphing capabilities of Nexus Graph.
+ * {@link GraphBrowser} abstracts away the graphing capabilities of Nexus Graph and is the "config" component on top of
+ * neo4j-arc graphing library.
  *
  * It is logically the same component as neo4j-browser's VisualizationView.tsx
  *
@@ -86,35 +89,39 @@ export default function GraphBrowser(): JSX.Element {
   i18next.addResources("en", "translation", resources.en.translation);
   i18next.addResources("zh", "translation", resources.zh.translation);
 
+  const themeData = theme;
+
   return (
-    <GraphVisualizer
-      maxNeighbours={100}
-      hasTruncatedFields={false}
-      // graphStyleData={undefined}
-      // updateStyle={undefined}
-      // getNeighbours={undefined}
-      nodes={transformBasicNodes(graphData.nodes)}
-      autocompleteRelationships={false}
-      relationships={transformBasicRelationships(graphData.links)}
-      isFullscreen={isFullscreen}
-      assignVisElement={(svgElement: any, graphElement: any) => {
-        setVisElement({ svgElement, graphElement, type: "graph" });
-        setHasVis(true);
-      }}
-      nodeLimitHit={false}
-      getAutoCompleteCallback={undefined}
-      // setGraph={undefined}
-      // setNodePropertiesExpandedByDefault={undefined}
-      // nodePropertiesExpandedByDefault={true}
-      wheelZoomRequiresModKey={!isFullscreen}
-      wheelZoomInfoMessageEnabled={false}
-      // disableWheelZoomInfoMessage={() => {}}
-      // DetailsPaneOverride={undefined}
-      // OverviewPaneOverride={undefined}
-      useGeneratedDefaultColors={false}
-      initialZoomToFit={true}
-      onGraphInteraction={onGraphInteraction}
-    />
+    <ThemeProvider theme={themeData}>
+      <GraphVisualizer
+        maxNeighbours={100}
+        hasTruncatedFields={false}
+        // graphStyleData={undefined}
+        // updateStyle={undefined}
+        // getNeighbours={undefined}
+        nodes={transformBasicNodes(graphData.nodes)}
+        autocompleteRelationships={false}
+        relationships={transformBasicRelationships(graphData.links)}
+        isFullscreen={isFullscreen}
+        assignVisElement={(svgElement: any, graphElement: any) => {
+          setVisElement({ svgElement, graphElement, type: "graph" });
+          setHasVis(true);
+        }}
+        nodeLimitHit={false}
+        getAutoCompleteCallback={undefined}
+        // setGraph={undefined}
+        // setNodePropertiesExpandedByDefault={undefined}
+        // nodePropertiesExpandedByDefault={true}
+        wheelZoomRequiresModKey={!isFullscreen}
+        wheelZoomInfoMessageEnabled={false}
+        // disableWheelZoomInfoMessage={() => {}}
+        // DetailsPaneOverride={undefined}
+        // OverviewPaneOverride={undefined}
+        useGeneratedDefaultColors={false}
+        initialZoomToFit={true}
+        onGraphInteraction={onGraphInteraction}
+      />
+    </ThemeProvider>
   );
 }
 
