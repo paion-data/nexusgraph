@@ -40,13 +40,3 @@ Cypress.Commands.add("interceptAstraios", () => {
     "astraiosGraphqlRequest"
   );
 });
-
-Cypress.Commands.add("setBrowserLanguage", (language, languages, acceptLanguages) => {
-  cy.visit("http://localhost:3000/", {
-    onBeforeLoad(win) {
-      Object.defineProperty(win.navigator, "language", { value: language });
-      Object.defineProperty(win.navigator, "languages", { value: languages });
-      Object.defineProperty(win.navigator, "accept_languages", { value: acceptLanguages });
-    },
-  });
-});
