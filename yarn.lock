@@ -2396,6 +2396,7 @@ __metadata:
     eslint-plugin-react: ^7.32.2
     html-webpack-plugin: ^5.5.0
     i18next: ^23.7.6
+    i18next-browser-languagedetector: ^7.2.0
     identity-obj-proxy: ^3.0.0
     inversify: ^6.0.1
     inversify-inject-decorators: ^3.1.0
@@ -7916,6 +7917,15 @@ __metadata:
   dependencies:
     ms: ^2.0.0
   checksum: 9c7a74a2827f9294c009266c82031030eae811ca87b0da3dceb8d6071b9bde22c9f3daef0469c3c533cc67a97d8a167cd9fc0389350e5f415f61a79b171ded16
+  languageName: node
+  linkType: hard
+
+"i18next-browser-languagedetector@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "i18next-browser-languagedetector@npm:7.2.0"
+  dependencies:
+    "@babel/runtime": ^7.23.2
+  checksum: 757845c7ae7dfc541f5150855c3a3e4f6d29bcee113796d44dc781594abc7f16f2750a2a70d786904c16d23ba952eba2741c0bcfeaa381016669522a6236998f
   languageName: node
   linkType: hard
 
