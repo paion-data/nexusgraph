@@ -48,7 +48,10 @@ export default function GraphBrowser(): JSX.Element {
   const onGraphInteraction: GraphInteractionCallBack = (event, properties) => {
     if (event == NODE_ON_CANVAS_CREATE) {
       if (properties == null) {
-        const error = new Error('A property map with "newNode" key is required');
+        const error = new Error(
+          "properties (NODE_ON_CANVAS_CREATE) is null. " +
+            "This might be graph modeling logic change is not updated in GraphInteractionCallBack"
+        );
         Sentry.captureException(error);
         throw error;
       }
@@ -73,16 +76,29 @@ export default function GraphBrowser(): JSX.Element {
 
     if (event == REL_ON_CANVAS_CREATE) {
       if (properties == null) {
-        const error = new Error('A property map with "newLink" key is required');
+        const error = new Error(
+          "properties (REL_ON_CANVAS_CREATE) is null. " +
+            "This might be graph modeling logic change is not updated in GraphInteractionCallBack"
+        );
         Sentry.captureException(error);
         throw error;
       }
 
-      astraiosClient.saveOrUpdate(graphData).then((response) => {
-        graphData.id = response.data.data.graph.edges[0]["node"]["id"];
-        graphData.links = [...graphData.links, properties["newLink"] as Link];
-        dispatch(updateGraphData(graphData));
-      });
+      graphData.links = [
+        ...graphData.links,
+        ...[
+          {
+            source: properties["sourceNodeId"],
+            target: properties["targetNodeId"],
+            fields: {
+              type: properties["type"],
+            },
+          } as Link,
+        ],
+      ];
+
+      dispatch(updateGraphData(graphData));
+      astraiosClient.saveOrUpdate(graphData);
     }
   };
 
