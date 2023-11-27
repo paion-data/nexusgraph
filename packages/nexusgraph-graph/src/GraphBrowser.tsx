@@ -49,7 +49,8 @@ export default function GraphBrowser(): JSX.Element {
     if (event == NODE_ON_CANVAS_CREATE) {
       if (properties == null) {
         const error = new Error(
-          "properties (NODE_ON_CANVAS_CREATE) is null. This might be graph modeling logic change is not updated in GraphInteractionCallBack"
+          "properties (NODE_ON_CANVAS_CREATE) is null. " +
+          "This might be graph modeling logic change is not updated in GraphInteractionCallBack"
         );
         Sentry.captureException(error);
         throw error;
@@ -76,7 +77,8 @@ export default function GraphBrowser(): JSX.Element {
     if (event == REL_ON_CANVAS_CREATE) {
       if (properties == null) {
         const error = new Error(
-          "properties (REL_ON_CANVAS_CREATE) is null. This might be graph modeling logic change is not updated in GraphInteractionCallBack"
+          "properties (REL_ON_CANVAS_CREATE) is null. " +
+          "This might be graph modeling logic change is not updated in GraphInteractionCallBack"
         );
         Sentry.captureException(error);
         throw error;
