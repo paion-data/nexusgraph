@@ -39,7 +39,6 @@ controllable.
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 
-
 Contributors <sup>[![Update Link Missing!](https://img.shields.io/badge/Click%20To%20Update-00AA00.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/paion-data/nexusgraph/actions/workflows/contributors.yml)</sup>
 ------------
 
