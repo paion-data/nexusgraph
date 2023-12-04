@@ -1,7 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { selectGraphData } from "../../../nexusgraph-redux";
 import { StyledInput } from "./styled";
+
+export const INITIAL_GRAPH_NAME = "Unamed Graph";
 
 interface GraphTitleProps {
   graphId: string;
@@ -9,12 +12,16 @@ interface GraphTitleProps {
 }
 
 export default function GraphTitle(props: GraphTitleProps): JSX.Element {
+  const { t } = useTranslation();
+
+  const initialGraphName = t("Unamed Graph");
+
   const graphData = selectGraphData();
 
-  const [inputValue, setInputValue] = useState(graphData.name);
+  const [inputValue, setInputValue] = useState(graphData.name ? graphData.name : initialGraphName);
 
   useEffect(() => {
-    setInputValue(graphData.name);
+    setInputValue(graphData.name ? graphData.name : initialGraphName);
   }, [graphData.id]);
 
   return (

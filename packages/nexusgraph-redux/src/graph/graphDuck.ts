@@ -1,29 +1,25 @@
 // Copyright 2023 Paion Data. All rights reserved.
-import { useTranslation } from "react-i18next";
+import { produce } from "immer";
 import { useSelector } from "react-redux";
 import { GlobalState, Link, Node } from "../..";
-
-export const INITIAL_GRAPH_NAME = "Unamed Graph";
 
 export const GRAPH_DATA = "graphData";
 const UPDATE_GRAPH_DATA = GRAPH_DATA + "/UPDATE_GRAPH_DATA";
 
 export interface GraphState {
   id?: string;
+  name?: string;
 
   nodes: Node[];
   links: Link[];
-
-  name: string;
 }
 
 export const initialState: GraphState = {
   id: undefined,
+  name: undefined,
 
   nodes: [],
   links: [],
-
-  name: INITIAL_GRAPH_NAME,
 };
 
 export type GraphName = Pick<GraphState, "id" | "name">;
@@ -33,20 +29,8 @@ interface GraphAction {
   payload: GraphState;
 }
 
-function shouldDisplayInitialGraphName(name: string): boolean {
-  return name == initialState.name;
-}
-
 export function selectGraphData() {
-  const { t } = useTranslation();
-
-  const initialGraphName = t("Unamed Graph");
-
   return useSelector((state: GlobalState) => {
-    if (shouldDisplayInitialGraphName(state.graphData.name)) {
-      state.graphData.name = initialGraphName;
-      return state.graphData;
-    }
     return state.graphData;
   });
 }
@@ -69,10 +53,12 @@ export function updateGraphData(graphState: GraphState) {
 export default function graphReducer(state = initialState, action: GraphAction): GraphState {
   switch (action.type) {
     case UPDATE_GRAPH_DATA:
-      return {
-        ...state,
-        ...action.payload,
-      };
+      return produce(state, (draft) => {
+        draft.id = action.payload.id;
+        draft.name = action.payload.name;
+        draft.nodes = action.payload.nodes;
+        draft.links = action.payload.links;
+      });
     default:
       return state;
   }

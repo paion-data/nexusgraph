@@ -1,9 +1,11 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
 import i18next from "i18next";
+import { produce } from "immer";
 import {
   BasicNode,
   BasicRelationship,
+  DETAILS_PANE_TITLE_UPDATE,
   GraphInteractionCallBack,
   GraphVisualizer,
   NODE_ON_CANVAS_CREATE,
@@ -14,7 +16,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import { AstraiosClient } from "../../nexusgraph-astraios";
-import { Link, Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
+import { GraphState, Link, Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
 import { theme } from "./themes";
 
 /**
@@ -46,7 +48,7 @@ export default function GraphBrowser(): JSX.Element {
       if (properties == null) {
         const error = new Error(
           "properties (NODE_ON_CANVAS_CREATE) is null. " +
-            "This might be graph modeling logic change is not updated in GraphInteractionCallBack"
+            "This might be graph modeling logic change in neo4j-devtools-arc is not updated in GraphInteractionCallBack"
         );
         Sentry.captureException(error);
         throw error;
@@ -74,7 +76,7 @@ export default function GraphBrowser(): JSX.Element {
       if (properties == null) {
         const error = new Error(
           "properties (REL_ON_CANVAS_CREATE) is null. " +
-            "This might be graph modeling logic change is not updated in GraphInteractionCallBack"
+            "This might be graph modeling logic change in neo4j-devtools-arc is not updated in GraphInteractionCallBack"
         );
         Sentry.captureException(error);
         throw error;
@@ -96,6 +98,46 @@ export default function GraphBrowser(): JSX.Element {
 
       dispatch(updateGraphData(graphData));
       astraiosClient.saveOrUpdate(graphData);
+    }
+
+    if (event == DETAILS_PANE_TITLE_UPDATE) {
+      if (properties == null) {
+        const error = new Error(
+          "properties (DETAILS_PANE_TITLE_UPDATE) is null. " +
+            "This might be graph modeling logic change in neo4j-devtools-arc is not updated in GraphInteractionCallBack"
+        );
+        Sentry.captureException(error);
+        throw error;
+      }
+
+      const isNode = properties["isNode"];
+      const nodeOrRelId = properties["nodeOrRelId"];
+      const titlePropertyKey = properties["titlePropertyKey"];
+      const newTitle = properties["newTitle"] as string;
+
+      let newGraphData: GraphState = { id: graphData.id, name: graphData.name, nodes: [], links: [] };
+
+      if (isNode) {
+        newGraphData = produce(graphData, (draft) => {
+          draft.nodes.forEach((node) => {
+            if (node.id == nodeOrRelId) {
+              node.fields[`${titlePropertyKey}`] = newTitle;
+            }
+          });
+        });
+      } else {
+        newGraphData = produce(graphData, (draft) => {
+          draft.links.forEach((link) => {
+            if (link.id == nodeOrRelId) {
+              link.fields[`${titlePropertyKey}`] = newTitle;
+              newGraphData.links.push(link);
+            }
+          });
+        });
+      }
+
+      dispatch(updateGraphData(newGraphData));
+      astraiosClient.saveOrUpdate(newGraphData);
     }
   };
 
