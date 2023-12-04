@@ -16,6 +16,7 @@ export const StyledAppHeader = styled.div`
   flex-direction: row;
   height: 2vh;
   margin-top: 2vh;
+  margin-bottom: 2vh;
 `;
 
 export const StyledUserIcon = styled.div`
@@ -34,7 +35,6 @@ export const StyledGraphTitle = styled.div`
 
   padding-left: 45%;
   padding-right: 50%;
-  padding-bottom: 1.5vh;
 `;
 
 export const StyledBody = styled.div`
