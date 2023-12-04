@@ -2,8 +2,19 @@ Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 ===========
 
 <div align="center">
+
 <img src="https://raw.githubusercontent.com/paion-data/nexusgraph/master/docs/static/img/logo.svg" width="200px" />
+
+Nexus Graph is a personal knowledge management tool for young ages.
+
 </div>
+
+The world is complex and fast-changing; we feel little control of it. We need a tool that helps us navigate through
+challenges, such as tackling hard problems, lie detection, and connecting effectively with others. Nexus Graph
+revolutionizing our daily "ritual" such as reading, analyzing, and knowledge exploration, to make our lives more
+controllable.
+
+---
 
 [![License Badge][license badge]](https://www.apache.org/licenses/LICENSE-2.0)
 [![GitHub Workflow Status][release status]](https://github.com/paion-data/nexusgraph/actions/workflows/ci-cd.yml)
@@ -27,10 +38,6 @@ Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
-
-> We've been intrigued by this question of whether we can evolve or develop an external brain, a brain that through
-> data, can give us seamless access and easy access to meta information or information that may exist somewhere that
-> may be relevant to help us make the right decision about anything.
 
 Contributors <sup>[![Update Link Missing!](https://img.shields.io/badge/Click%20To%20Update-00AA00.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/paion-data/nexusgraph/actions/workflows/contributors.yml)</sup>
 ------------
