@@ -1,7 +1,7 @@
 Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 ===========
 
-<img src="https://raw.githubusercontent.com/paion-data/nexusgraph/master/docs/static/img/logo.svg" height="280px" align="right"/>
+<img src="https://raw.githubusercontent.com/paion-data/nexusgraph/master/docs/static/img/logo.svg" height="300px" align="right"/>
 
 [![License Badge][license badge]](https://www.apache.org/licenses/LICENSE-2.0)
 [![GitHub Workflow Status][release status]](https://github.com/paion-data/nexusgraph/actions/workflows/ci-cd.yml)
