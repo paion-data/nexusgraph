@@ -17,10 +17,6 @@ import { AstraiosClient } from "../../nexusgraph-astraios";
 import { Link, Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
 import { theme } from "./themes";
 
-const ALL_REL_TYPE_SETS = "*";
-const DISPLAYED_FIELD = "type";
-const ALL_NODE_LABELS_SETS = "*";
-
 /**
  * {@link GraphBrowser} abstracts away the graphing capabilities of Nexus Graph and is the "config" component on top of
  * neo4j-arc graphing library.
@@ -88,6 +84,7 @@ export default function GraphBrowser(): JSX.Element {
         ...graphData.links,
         ...[
           {
+            id: properties["type"],
             source: properties["sourceNodeId"],
             target: properties["targetNodeId"],
             fields: {
@@ -115,9 +112,9 @@ export default function GraphBrowser(): JSX.Element {
         // graphStyleData={undefined}
         // updateStyle={undefined}
         // getNeighbours={undefined}
-        nodes={transformBasicNodes(graphData.nodes)}
+        nodes={mapToBasicNodes(graphData.nodes)}
         autocompleteRelationships={false}
-        relationships={transformBasicRelationships(graphData.links)}
+        relationships={mapToBasicRelationships(graphData.links)}
         isFullscreen={isFullscreen}
         assignVisElement={(svgElement: any, graphElement: any) => {
           setVisElement({ svgElement, graphElement, type: "graph" });
@@ -142,57 +139,51 @@ export default function GraphBrowser(): JSX.Element {
 }
 
 /**
- * Converts the obtained nodes type to Basic type
+ * Converts Redux-shaped graph nodes into format compatible with Neo4J graphing library.
  *
- * @param nodes A list of nodes in common format
+ * @param links  A list of nodes stored in Redux
  *
- * @returns BasicNode array
+ * @returns a new array of newly constructed objects
  */
-export const transformBasicNodes = (nodes: any[]): BasicNode[] => {
-  if (nodes.length > 0) {
-    nodes.forEach((node: any) => {
-      if (node["fields"]) {
-        const newNode = {
-          id: node["id"],
-          labels: [node["fields"]["type"] ? node["fields"]["type"] : ALL_NODE_LABELS_SETS],
-          properties: {
-            name: node["fields"]["name"] ? node["fields"]["name"] : node["id"],
-            url: node["fields"]["url"] ? node["fields"]["url"] : "null",
-          },
-          propertyTypes: { name: "string", url: "string" },
-        };
-        nodes.splice(nodes.indexOf(node), 1, newNode);
-      }
-    });
-  }
+export const mapToBasicNodes = (nodes: Node[]): BasicNode[] => {
+  return nodes.map((node) => {
+    const propertyTypes: Record<string, string> = {};
+    for (const propertyName of Object.keys(node.fields)) {
+      propertyTypes[propertyName] = "string";
+    }
 
-  return nodes;
+    return {
+      id: node["id"],
+      elementId: node["id"],
+      labels: ["*"],
+      properties: node.fields,
+      propertyTypes: propertyTypes,
+    } as BasicNode;
+  });
 };
 
 /**
- * Converts the obtained links type to Basic type
+ * Converts Redux-shaped graph links into format compatible with Neo4J graphing library.
  *
- * @param links A list of links in common format
+ * @param links  A list of links stored in Redux
  *
- * @returns BasicRelationship array
+ * @returns a new array of newly constructed objects
  */
-export const transformBasicRelationships = (links: any[]): BasicRelationship[] => {
-  if (links.length > 0) {
-    links.forEach((link: any) => {
-      if (link["fields"]) {
-        const newLink = {
-          id: link["fields"][DISPLAYED_FIELD]
-            ? link["fields"][DISPLAYED_FIELD]
-            : `${link["source"]}To${link["target"]} `,
-          startNodeId: link["source"],
-          endNodeId: link["target"],
-          type: link["fields"][DISPLAYED_FIELD] ? link["fields"][DISPLAYED_FIELD] : ALL_REL_TYPE_SETS,
-          properties: { name: link["fields"][DISPLAYED_FIELD] ? link["fields"][DISPLAYED_FIELD] : ALL_REL_TYPE_SETS },
-          propertyTypes: { name: "string" },
-        };
-        links.splice(links.indexOf(link), 1, newLink);
-      }
-    });
-  }
-  return links;
+export const mapToBasicRelationships = (links: Link[]): BasicRelationship[] => {
+  return links.map((link) => {
+    const propertyTypes: Record<string, string> = {};
+    for (const propertyName of Object.keys(link.fields)) {
+      propertyTypes[propertyName] = "string";
+    }
+
+    return {
+      id: link["id"],
+      elementId: link["id"],
+      startNodeId: link["source"],
+      endNodeId: link["target"],
+      type: link.fields["type"],
+      properties: link.fields,
+      propertyTypes: propertyTypes,
+    } as BasicRelationship;
+  });
 };
