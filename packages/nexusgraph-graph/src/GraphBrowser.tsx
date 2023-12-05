@@ -139,16 +139,16 @@ export default function GraphBrowser(): JSX.Element {
 }
 
 /**
- * Converts the obtained nodes type to Basic type
+ * Converts Redux-shaped graph nodes into format compatible with Neo4J graphing library.
  *
- * @param nodes A list of nodes in common format
+ * @param links  A list of nodes stored in Redux
  *
- * @returns BasicNode array
+ * @returns a new array of newly constructed objects
  */
 export const mapToBasicNodes = (nodes: Node[]): BasicNode[] => {
   return nodes.map((node) => {
     const propertyTypes: Record<string, string> = {};
-    for (let propertyName of Object.keys(node.fields)) {
+    for (const propertyName of Object.keys(node.fields)) {
       propertyTypes[propertyName] = "string";
     }
 
@@ -163,16 +163,16 @@ export const mapToBasicNodes = (nodes: Node[]): BasicNode[] => {
 };
 
 /**
- * Converts the obtained links type to Basic type
+ * Converts Redux-shaped graph links into format compatible with Neo4J graphing library.
  *
- * @param links A list of links in common format
+ * @param links  A list of links stored in Redux
  *
- * @returns BasicRelationship array
+ * @returns a new array of newly constructed objects
  */
 export const mapToBasicRelationships = (links: Link[]): BasicRelationship[] => {
   return links.map((link) => {
     const propertyTypes: Record<string, string> = {};
-    for (let propertyName of Object.keys(link.fields)) {
+    for (const propertyName of Object.keys(link.fields)) {
       propertyTypes[propertyName] = "string";
     }
 
