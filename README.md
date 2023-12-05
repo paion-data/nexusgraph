@@ -1,25 +1,19 @@
 Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 ===========
 
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/paion-data/nexusgraph/master/docs/static/img/logo.svg" width="200px" />
-
-Nexus Graph is a personal knowledge management tool for young ages.
-
-</div>
-
-The world is complex and fast-changing; we feel little control of it. We need a tool that helps us navigate through
-challenges, such as tackling hard problems, lie detection, and connecting effectively with others. Nexus Graph
-revolutionizing our daily "ritual" such as reading, analyzing, and knowledge exploration, to make our lives more
-controllable.
-
----
+<img src="https://raw.githubusercontent.com/paion-data/nexusgraph/master/docs/static/img/logo.svg" height="300px" align="right"/>
 
 [![License Badge][license badge]](https://www.apache.org/licenses/LICENSE-2.0)
 [![GitHub Workflow Status][release status]](https://github.com/paion-data/nexusgraph/actions/workflows/ci-cd.yml)
 ![GitHub last commit (master)](https://img.shields.io/github/last-commit/paion-data/nexusgraph/master?logo=github&style=for-the-badge)
 ![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=for-the-badge)
+
+_Nexus Graph is a personal knowledge management tool for young ages_.
+
+The world is complex and fast-changing; we feel little control of it. We need a tool that helps us navigate through
+challenges, such as tackling hard problems, lie detection, and connecting effectively with others. Nexus Graph
+revolutionizing our daily "ritual" such as reading, analyzing, and knowledge exploration, to make our lives more
+controllable.
 
 <a href="https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph">
     <img align="left" width="17%" alt="Quality gate" src="https://sonarcloud.io/api/project_badges/quality_gate?project=paion-data_nexusgraph">
@@ -39,8 +33,21 @@ controllable.
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
 
-Contributors <sup>[![Update Link Missing!](https://img.shields.io/badge/Click%20To%20Update-00AA00.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/paion-data/nexusgraph/actions/workflows/contributors.yml)</sup>
-------------
+Documentation
+-------------
+
+The documentation of this package is hosted at [GitHub Pages](https://paion-data.github.io/nexusgraph/)
+
+Contribute
+----------
+
+- clone the immer repo.
+- install the dependencies with `yarn`.
+- run `yarn start`.
+
+so that one can start coding straight away.
+
+### Contributors <sup>[![Update Link Missing!](https://img.shields.io/badge/Click%20To%20Update-00AA00.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/paion-data/nexusgraph/actions/workflows/contributors.yml)</sup>
 
 <!-- readme: collaborators,contributors,bots -start -->
 <table>
