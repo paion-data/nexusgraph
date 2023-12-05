@@ -1,7 +1,7 @@
-<img src="https://raw.githubusercontent.com/paion-data/nexusgraph/master/docs/static/img/logo.svg" height="300px" align="right"/>
-
 Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 ===========
+
+<img src="https://raw.githubusercontent.com/paion-data/nexusgraph/master/docs/static/img/logo.svg" height="300px" align="right"/>
 
 [![License Badge][license badge]](https://www.apache.org/licenses/LICENSE-2.0)
 [![GitHub Workflow Status][release status]](https://github.com/paion-data/nexusgraph/actions/workflows/ci-cd.yml)
@@ -43,7 +43,7 @@ Contribute
 
 - clone the immer repo.
 - install the dependencies with `yarn`.
-- run `yarn start``.
+- run `yarn start`.
 
 so that one can start coding straight away.
 
