@@ -14,14 +14,15 @@ export * from "./src/oAuth/oAuthDuck";
 export { default as ReduxStoreProvider } from "./src/ReduxStoreProvider";
 
 export interface Node {
-  fields: Record<string, string>;
   id: string;
+  fields: Record<string, string>;
 }
 
 export interface Link {
-  fields: Record<string, string>;
+  id: string;
   source: string;
   target: string;
+  fields: Record<string, string>;
 }
 
 export interface Graph {
