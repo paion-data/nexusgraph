@@ -16,7 +16,7 @@ import { AstraiosClient } from "../../nexusgraph-astraios";
 import { Link, Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
 import { mapToBasicNodes, mapToBasicRelationships } from "./mappers";
 import { theme } from "./themes";
-import { mutateLinkFieldById, mutateNodeFieldById } from "./utils";
+import { addLink, addNode, mutateLinkFieldById, mutateNodeFieldById } from "./utils";
 
 /**
  * {@link GraphBrowser} abstracts away the graphing capabilities of Nexus Graph and is the "config" component on top of
@@ -53,22 +53,17 @@ export default function GraphBrowser(): JSX.Element {
         throw error;
       }
 
-      graphData.nodes = [
-        ...graphData.nodes,
-        ...[
-          {
-            id: Math.random().toString(36).slice(2),
-            fields: {
-              name: properties["name"],
-              description: properties["description"],
-              labels: properties["labels"],
-            },
-          } as Node,
-        ],
-      ];
+      const newGraphState = addNode(graphData, {
+        id: Math.random().toString(36).slice(2),
+        fields: {
+          name: properties["name"],
+          description: properties["description"],
+          labels: properties["labels"],
+        },
+      } as Node);
 
-      dispatch(updateGraphData(graphData));
-      astraiosClient.saveOrUpdate(graphData);
+      dispatch(updateGraphData(newGraphState));
+      astraiosClient.saveOrUpdate(newGraphState);
     }
 
     if (event == REL_ON_CANVAS_CREATE) {
@@ -81,22 +76,17 @@ export default function GraphBrowser(): JSX.Element {
         throw error;
       }
 
-      graphData.links = [
-        ...graphData.links,
-        ...[
-          {
-            id: properties["type"],
-            source: properties["sourceNodeId"],
-            target: properties["targetNodeId"],
-            fields: {
-              type: properties["type"],
-            },
-          } as Link,
-        ],
-      ];
+      const newGraphState = addLink(graphData, {
+        id: properties["type"],
+        source: properties["sourceNodeId"],
+        target: properties["targetNodeId"],
+        fields: {
+          type: properties["type"],
+        },
+      } as Link);
 
-      dispatch(updateGraphData(graphData));
-      astraiosClient.saveOrUpdate(graphData);
+      dispatch(updateGraphData(newGraphState));
+      astraiosClient.saveOrUpdate(newGraphState);
     }
 
     if (event == DETAILS_PANE_TITLE_UPDATE) {

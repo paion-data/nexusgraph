@@ -44,6 +44,8 @@ const OLD_GRAPH_STATE = produce({} as GraphState, (draft) => {
 });
 
 describe("Graph interactions", () => {
+  test("adding a new node creates a deeply-new graph state object", () => {});
+
   test("mutating node field by ID generates a deeply-new graph state object", () => {
     expect(mutateNodeFieldById(OLD_GRAPH_STATE, "bar", "name", "Mike")).toStrictEqual({
       id: "graph1",

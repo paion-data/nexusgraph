@@ -1,7 +1,19 @@
 // Copyright 2023 Paion Data. All rights reserved.
 
 import { produce } from "immer";
-import { GraphState } from "../../nexusgraph-redux";
+import { GraphState, Link, Node } from "../../nexusgraph-redux";
+
+export const addNode = (oldGraphState: GraphState, node: Node): GraphState => {
+  return produce(oldGraphState, (draft) => {
+    draft.nodes.push(node);
+  });
+};
+
+export const addLink = (oldGraphState: GraphState, link: Link): GraphState => {
+  return produce(oldGraphState, (draft) => {
+    draft.links.push(link);
+  });
+};
 
 export const mutateNodeFieldById = (
   oldGraphState: GraphState,
