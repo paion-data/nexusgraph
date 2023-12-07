@@ -1,7 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
 import i18next from "i18next";
-import { produce } from "immer";
 import {
   DETAILS_PANE_TITLE_UPDATE,
   GraphInteractionCallBack,
@@ -14,9 +13,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import { AstraiosClient } from "../../nexusgraph-astraios";
-import { GraphState, Link, Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
+import { Link, Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
 import { mapToBasicNodes, mapToBasicRelationships } from "./mappers";
 import { theme } from "./themes";
+import { mutateLinkFieldById, mutateNodeFieldById } from "./utils";
 
 /**
  * {@link GraphBrowser} abstracts away the graphing capabilities of Nexus Graph and is the "config" component on top of
@@ -110,30 +110,13 @@ export default function GraphBrowser(): JSX.Element {
       }
 
       const isNode = properties["isNode"];
-      const nodeOrRelId = properties["nodeOrRelId"];
-      const titlePropertyKey = properties["titlePropertyKey"];
+      const nodeOrRelId = properties["nodeOrRelId"] as string;
+      const titlePropertyKey = properties["titlePropertyKey"] as string;
       const newTitle = properties["newTitle"] as string;
 
-      let newGraphData: GraphState = { id: graphData.id, name: graphData.name, nodes: [], links: [] };
-
-      if (isNode) {
-        newGraphData = produce(graphData, (draft) => {
-          draft.nodes.forEach((node) => {
-            if (node.id == nodeOrRelId) {
-              node.fields[`${titlePropertyKey}`] = newTitle;
-            }
-          });
-        });
-      } else {
-        newGraphData = produce(graphData, (draft) => {
-          draft.links.forEach((link) => {
-            if (link.id == nodeOrRelId) {
-              link.fields[`${titlePropertyKey}`] = newTitle;
-              newGraphData.links.push(link);
-            }
-          });
-        });
-      }
+      const newGraphData = isNode
+        ? mutateNodeFieldById(graphData, nodeOrRelId, titlePropertyKey, newTitle)
+        : mutateLinkFieldById(graphData, nodeOrRelId, titlePropertyKey, newTitle);
 
       dispatch(updateGraphData(newGraphData));
       astraiosClient.saveOrUpdate(newGraphData);
