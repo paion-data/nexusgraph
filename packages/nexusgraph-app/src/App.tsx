@@ -75,7 +75,7 @@ export default function App(): JSX.Element {
       throw error;
     }
 
-    let newGraphData: GraphState = produce(graphSate, (draft) => {
+    const newGraphData: GraphState = produce(graphSate, (draft) => {
       draft.name = newTitle;
     });
 
