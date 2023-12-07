@@ -336,7 +336,7 @@ the code will pass the automated checks online:
 Troubleshooting
 ---------------
 
-### React: Cannot assign to read only property 'xxx' of object '#<Object>'
+### React: Cannot assign to read only property `xxx` of object `#<Object>`
 
 This was caused by immer's `produce` function which builds read-only deep copy of object. In Nexus Graph, all redux
 states are make immutable using [immer], because, [by experience](https://github.com/paion-data/nexusgraph/pull/345),
