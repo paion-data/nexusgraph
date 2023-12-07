@@ -5,8 +5,11 @@ import {
   DETAILS_PANE_TITLE_UPDATE,
   GraphInteractionCallBack,
   GraphVisualizer,
+  NODE_LABEL_UPDATE,
   NODE_ON_CANVAS_CREATE,
+  PROP_UPDATE,
   REL_ON_CANVAS_CREATE,
+  REL_TYPE_UPDATE,
   resources,
 } from "neo4j-devtools-arc";
 import { useState } from "react";
@@ -66,6 +69,20 @@ export default function GraphBrowser(): JSX.Element {
       astraiosClient.saveOrUpdate(newGraphState);
     }
 
+    if (event == NODE_LABEL_UPDATE) {
+      if (properties == null) {
+        const error = new Error(
+          "properties (NODE_LABEL_UPDATE) is null. " +
+            "This might be graph modeling logic change in neo4j-devtools-arc is not updated in GraphInteractionCallBack"
+        );
+        Sentry.captureException(error);
+        throw error;
+      }
+
+      const nodeId = properties["nodeId"];
+      const newLabel = properties["newLabel"];
+    }
+
     if (event == REL_ON_CANVAS_CREATE) {
       if (properties == null) {
         const error = new Error(
@@ -87,6 +104,48 @@ export default function GraphBrowser(): JSX.Element {
 
       dispatch(updateGraphData(newGraphState));
       astraiosClient.saveOrUpdate(newGraphState);
+    }
+
+    if (event == REL_TYPE_UPDATE) {
+      if (properties == null) {
+        const error = new Error(
+          "properties (REL_TYPE_UPDATE) is null. " +
+            "This might be graph modeling logic change in neo4j-devtools-arc is not updated in GraphInteractionCallBack"
+        );
+        Sentry.captureException(error);
+        throw error;
+      }
+
+      const relId = properties["relId"] as string;
+      const newType = properties["newType"] as string;
+
+      const newGraphData = mutateLinkFieldById(graphData, relId, "type", newType);
+
+      dispatch(updateGraphData(newGraphData));
+      astraiosClient.saveOrUpdate(newGraphData);
+    }
+
+    if (event == PROP_UPDATE) {
+      if (properties == null) {
+        const error = new Error(
+          "properties (NODE_PROP_UPDATE) is null. " +
+            "This might be graph modeling logic change in neo4j-devtools-arc is not updated in GraphInteractionCallBack"
+        );
+        Sentry.captureException(error);
+        throw error;
+      }
+
+      const isNode = properties["isNode"];
+      const nodeOrRelId = properties["nodeOrRelId"] as string;
+      const propKey = properties["propKey"] as string;
+      const propVal = properties["propVal"] as string;
+
+      const newGraphData = isNode
+        ? mutateNodeFieldById(graphData, nodeOrRelId, propKey, propVal)
+        : mutateLinkFieldById(graphData, nodeOrRelId, propKey, propVal);
+
+      dispatch(updateGraphData(newGraphData));
+      astraiosClient.saveOrUpdate(newGraphData);
     }
 
     if (event == DETAILS_PANE_TITLE_UPDATE) {
