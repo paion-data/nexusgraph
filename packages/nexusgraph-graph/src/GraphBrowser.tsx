@@ -14,9 +14,9 @@ import { useDispatch } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { Link, Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
+import { addLink, addNode, mutateLinkFieldById, mutateNodeFieldById } from "./immutable";
 import { mapToBasicNodes, mapToBasicRelationships } from "./mappers";
 import { theme } from "./themes";
-import { addLink, addNode, mutateLinkFieldById, mutateNodeFieldById } from "./utils";
 
 /**
  * {@link GraphBrowser} abstracts away the graphing capabilities of Nexus Graph and is the "config" component on top of

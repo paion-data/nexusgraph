@@ -2,7 +2,7 @@
 
 import { produce } from "immer";
 import { GraphState } from "../../nexusgraph-redux";
-import { mutateLinkFieldById, mutateNodeFieldById } from "./utils";
+import { mutateLinkFieldById, mutateNodeFieldById } from "./immutable";
 
 const OLD_GRAPH_STATE = produce({} as GraphState, (draft) => {
   draft.id = "graph1";
