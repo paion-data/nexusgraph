@@ -2,8 +2,7 @@
 import * as Sentry from "@sentry/react";
 import i18next from "i18next";
 import {
-  BasicNode,
-  BasicRelationship,
+  DETAILS_PANE_TITLE_UPDATE,
   GraphInteractionCallBack,
   GraphVisualizer,
   NODE_ON_CANVAS_CREATE,
@@ -15,6 +14,8 @@ import { useDispatch } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { Link, Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
+import { addLink, addNode, mutateLinkFieldById, mutateNodeFieldById } from "./immutable";
+import { mapToBasicNodes, mapToBasicRelationships } from "./mappers";
 import { theme } from "./themes";
 
 /**
@@ -46,56 +47,69 @@ export default function GraphBrowser(): JSX.Element {
       if (properties == null) {
         const error = new Error(
           "properties (NODE_ON_CANVAS_CREATE) is null. " +
-            "This might be graph modeling logic change is not updated in GraphInteractionCallBack"
+            "This might be graph modeling logic change in neo4j-devtools-arc is not updated in GraphInteractionCallBack"
         );
         Sentry.captureException(error);
         throw error;
       }
 
-      graphData.nodes = [
-        ...graphData.nodes,
-        ...[
-          {
-            id: Math.random().toString(36).slice(2),
-            fields: {
-              name: properties["name"],
-              description: properties["description"],
-              labels: properties["labels"],
-            },
-          } as Node,
-        ],
-      ];
+      const newGraphState = addNode(graphData, {
+        id: Math.random().toString(36).slice(2),
+        fields: {
+          name: properties["name"],
+          description: properties["description"],
+          labels: properties["labels"],
+        },
+      } as Node);
 
-      dispatch(updateGraphData(graphData));
-      astraiosClient.saveOrUpdate(graphData);
+      dispatch(updateGraphData(newGraphState));
+      astraiosClient.saveOrUpdate(newGraphState);
     }
 
     if (event == REL_ON_CANVAS_CREATE) {
       if (properties == null) {
         const error = new Error(
           "properties (REL_ON_CANVAS_CREATE) is null. " +
-            "This might be graph modeling logic change is not updated in GraphInteractionCallBack"
+            "This might be graph modeling logic change in neo4j-devtools-arc is not updated in GraphInteractionCallBack"
         );
         Sentry.captureException(error);
         throw error;
       }
 
-      graphData.links = [
-        ...graphData.links,
-        ...[
-          {
-            id: properties["type"],
-            source: properties["sourceNodeId"],
-            target: properties["targetNodeId"],
-            fields: {
-              type: properties["type"],
-            },
-          } as Link,
-        ],
-      ];
+      const newGraphState = addLink(graphData, {
+        id: properties["type"],
+        source: properties["sourceNodeId"],
+        target: properties["targetNodeId"],
+        fields: {
+          type: properties["type"],
+        },
+      } as Link);
 
-      dispatch(updateGraphData(graphData));
-      astraiosClient.saveOrUpdate(graphData);
+      dispatch(updateGraphData(newGraphState));
+      astraiosClient.saveOrUpdate(newGraphState);
+    }
+
+    if (event == DETAILS_PANE_TITLE_UPDATE) {
+      if (properties == null) {
+        const error = new Error(
+          "properties (DETAILS_PANE_TITLE_UPDATE) is null. " +
+            "This might be graph modeling logic change in neo4j-devtools-arc is not updated in GraphInteractionCallBack"
+        );
+        Sentry.captureException(error);
+        throw error;
+      }
+
+      const isNode = properties["isNode"];
+      const nodeOrRelId = properties["nodeOrRelId"] as string;
+      const titlePropertyKey = properties["titlePropertyKey"] as string;
+      const newTitle = properties["newTitle"] as string;
+
+      const newGraphData = isNode
+        ? mutateNodeFieldById(graphData, nodeOrRelId, titlePropertyKey, newTitle)
+        : mutateLinkFieldById(graphData, nodeOrRelId, titlePropertyKey, newTitle);
+
+      dispatch(updateGraphData(newGraphData));
+      astraiosClient.saveOrUpdate(newGraphData);
     }
   };
 
@@ -137,53 +151,3 @@ export default function GraphBrowser(): JSX.Element {
     </ThemeProvider>
   );
 }
-
-/**
- * Converts Redux-shaped graph nodes into format compatible with Neo4J graphing library.
- *
- * @param links  A list of nodes stored in Redux
- *
- * @returns a new array of newly constructed objects
- */
-export const mapToBasicNodes = (nodes: Node[]): BasicNode[] => {
-  return nodes.map((node) => {
-    const propertyTypes: Record<string, string> = {};
-    for (const propertyName of Object.keys(node.fields)) {
-      propertyTypes[propertyName] = "string";
-    }
-
-    return {
-      id: node["id"],
-      elementId: node["id"],
-      labels: ["*"],
-      properties: node.fields,
-      propertyTypes: propertyTypes,
-    } as BasicNode;
-  });
-};
-
-/**
- * Converts Redux-shaped graph links into format compatible with Neo4J graphing library.
- *
- * @param links  A list of links stored in Redux
- *
- * @returns a new array of newly constructed objects
- */
-export const mapToBasicRelationships = (links: Link[]): BasicRelationship[] => {
-  return links.map((link) => {
-    const propertyTypes: Record<string, string> = {};
-    for (const propertyName of Object.keys(link.fields)) {
-      propertyTypes[propertyName] = "string";
-    }
-
-    return {
-      id: link["id"],
-      elementId: link["id"],
-      startNodeId: link["source"],
-      endNodeId: link["target"],
-      type: link.fields["type"],
-      properties: link.fields,
-      propertyTypes: propertyTypes,
-    } as BasicRelationship;
-  });
-};

@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../../../../nexusgraph-astraios";
 import { NLPClient } from "../../../../../nexusgraph-nlp";
-import { appendToGraphList, INITIAL_GRAPH_NAME, selectOAuth, updateGraphData } from "../../../../../nexusgraph-redux";
+import { appendToGraphList, selectOAuth, updateGraphData } from "../../../../../nexusgraph-redux";
 import { container, TYPES } from "../../../../inversify.config";
 import { Method } from "./methods";
 
@@ -43,7 +43,7 @@ export function MethodModal(props: MethodsSelectionModalProps): JSX.Element {
       }
 
       astraiosClient
-        .saveOrUpdate({ id: undefined, ...graph, name: INITIAL_GRAPH_NAME })
+        .saveOrUpdate({ ...graph })
         .then((response) => {
           const graphId = response.data.data.graph.edges[0]["node"]["id"];
           const graphName = response.data.data.graph.edges[0]["node"]["name"];

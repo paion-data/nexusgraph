@@ -31,7 +31,7 @@
     "d3-force": "^3.0.0",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
-    "neo4j-devtools-arc": "^0.0.72",
+    "neo4j-devtools-arc": "^0.0.74",
     "neo4j-driver-core": "5.9.2",
     "re-resizable": "^6.9.9",
     "semantic-ui-react": "^2.1.4"

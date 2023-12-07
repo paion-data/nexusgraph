@@ -1,10 +1,12 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
+import { produce } from "immer";
 import { useDispatch } from "react-redux";
 import { AstraiosClient } from "../../nexusgraph-astraios";
 import { GraphBrowser } from "../../nexusgraph-graph";
 import {
   GraphMetaData,
+  GraphState,
   initialState,
   selectGraphData,
   selectGraphList,
@@ -73,10 +75,12 @@ export default function App(): JSX.Element {
       throw error;
     }
 
-    graphSate.name = newTitle;
+    const newGraphData: GraphState = produce(graphSate, (draft) => {
+      draft.name = newTitle;
+    });
 
-    astraiosClient.saveOrUpdate(graphSate).then((response) => {
-      dispatch(updateSingleItem({ id: graphId, name: graphSate.name }));
+    astraiosClient.saveOrUpdate(newGraphData).then((response) => {
+      dispatch(updateSingleItem({ id: graphId, name: newTitle }));
     });
   };
 

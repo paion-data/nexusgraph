@@ -336,6 +336,14 @@ the code will pass the automated checks online:
 Troubleshooting
 ---------------
 
+### React: Cannot assign to read only property `xxx` of object `#<Object>`
+
+This was caused by immer's `produce` function which builds read-only deep copy of object. In Nexus Graph, all redux
+states are make immutable using [immer], because, [by experience](https://github.com/paion-data/nexusgraph/pull/345),
+immutable states prevents bugs. As a result, all in-memory state mutations should utilize our dedicated `immutable.ts`
+module. Failed to do that could result in the error above because that indictes one is directly mutating our immutable
+states
+
 ### Docusaurus Relative Linking is Treated False-Negative by CI Markdown Link check
 
 CI check for Markdown link (`markdown-link-check`) is turned on and it's not smart enough to detect relative linking by
@@ -374,6 +382,8 @@ doesn't know what type `node` is
 
 [GitHub - gpg signing erro]: https://github.com/keybase/keybase-issues/issues/2798#issue-205008630
 [GitHub - uploading GPG key]: https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account
+
+[immer]: https://immerjs.github.io/immer/
 
 [node.js]: https://nodejs.org/en
 
