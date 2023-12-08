@@ -35,6 +35,18 @@ Cypress.Commands.add("newGraph", () => {
     .should("exist");
 });
 
+Cypress.Commands.add("deleteAllGraphs", () => {
+  cy.get("body").then(($body) => {
+    const numGraphs = $body.find('[data-testid^="graphListItem-"]').length;
+
+    if (numGraphs > 0) {
+      for (let i = 0; i < numGraphs; i++) {
+        cy.get('[data-testid="deleteButton"]', { timeout: 2000 }).click({ force: true });
+      }
+    }
+  });
+});
+
 Cypress.Commands.add("interceptAstraios", () => {
   cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraios-graphql-response.json" }).as(
     "astraiosGraphqlRequest"
