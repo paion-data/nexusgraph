@@ -8,6 +8,10 @@ Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 ![GitHub last commit (master)](https://img.shields.io/github/last-commit/paion-data/nexusgraph/master?logo=github&style=for-the-badge)
 ![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=for-the-badge)
 
+> "Perhaps what chiefly distingwishes the good person is that they see the truth in each kind"
+>
+> Aristotle, _The Nicomachean Ethics_
+
 _Nexus Graph is a personal knowledge management tool for young ages_.
 
 The world is complex and fast-changing; we feel little control of it. We need a tool that helps us navigate through
