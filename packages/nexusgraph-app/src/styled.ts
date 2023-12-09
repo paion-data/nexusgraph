@@ -1,6 +1,8 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import styled from "styled-components";
 
+const LEFT_MARGIN_ALIGNMENT = "1.5vh";
+
 export const StyledApp = styled.div`
   position: relative;
   width: 100vw;
@@ -10,21 +12,41 @@ export const StyledApp = styled.div`
   flex-direction: column;
 `;
 
-export const StyledAppHeader = styled.div`
+export const StyledHeader = styled.div`
   order: 1;
   display: flex;
   flex-direction: row;
+
+  margin: 2vh ${LEFT_MARGIN_ALIGNMENT} 2vh 1.5vh;
+
   height: 2vh;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+`;
+
+export const StyledBody = styled.div`
+  order: 2;
+  display: flex;
+  flex-direction: row;
+
+  margin: 3vh ${LEFT_MARGIN_ALIGNMENT} 2vh 1.5vh;
+
+  height: 95vh;
+`;
+
+export const StyledFooter = styled.div`
+  order: 3;
+  display: flex;
+  flex-direction: row;
+  margin: 2vh ${LEFT_MARGIN_ALIGNMENT} 1.5vh 1.5vh;
+
+  height: 6vh;
 `;
 
 export const StyledUserIcon = styled.div`
   flex-shrink: 1;
   order: 1;
   display: flex;
+
   height: 5vh;
-  margin-left: 2vh;
 `;
 
 export const StyledGraphTitle = styled.div`
@@ -35,14 +57,6 @@ export const StyledGraphTitle = styled.div`
 
   padding-left: 45%;
   padding-right: 50%;
-`;
-
-export const StyledBody = styled.div`
-  order: 2;
-  display: flex;
-  flex-direction: row;
-  height: 96vh;
-  margin: 3vh 1.5vh 2vh 1.5vh;
 `;
 
 export const StyledSidebar = styled.div`
@@ -76,34 +90,25 @@ export const StyledGraphBrowser = styled.div`
   overflow: hidden;
 `;
 
-export const StyledFooter = styled.div`
-  order: 3;
-  display: flex;
-  flex-direction: row;
-  height: 2vh;
-  margin: 1.5vh;
-  align-items: center;
-  padding-left: 50%;
-  padding-right: 50%;
-  padding-bottom: 1.5vh;
-`;
-
-export const AppLogo = styled.div`
+export const StyledAppLogo = styled.div`
   flex-shrink: 1;
   order: 1;
   display: flex;
+
   height: 5vh;
 `;
 
-export const AppName = styled.div`
+export const StyledAppName = styled.div`
   flex-shrink: 1;
   order: 2;
   display: flex;
-  height: 5vh;
+
   padding-left: 1vh;
 
+  height: 5vh;
+
   white-space: pre;
-  font-size: 2.5vw;
+  font-size: 3vh;
   font-weight: bold;
   color: #fff;
   display: inline-flex;
