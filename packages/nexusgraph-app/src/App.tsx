@@ -21,14 +21,14 @@ import { DeleteButton } from "./component";
 import GraphTitle from "./component/GraphTitle";
 import { SideBar } from "./component/sidebar";
 import {
-  AppLogo,
-  AppName,
   StyledApp,
-  StyledAppHeader,
+  StyledAppLogo,
+  StyledAppName,
   StyledBody,
   StyledFooter,
   StyledGraphBrowser,
   StyledGraphTitle,
+  StyledHeader,
   StyledSidebar,
   StyledUserIcon,
 } from "./styled";
@@ -117,7 +117,7 @@ export default function App(): JSX.Element {
 
   return (
     <StyledApp>
-      <StyledAppHeader>
+      <StyledHeader>
         <StyledUserIcon>
           <img src={user} alt="User" />
         </StyledUserIcon>
@@ -126,7 +126,7 @@ export default function App(): JSX.Element {
             <GraphTitle graphId={graphId} onChange={onTitleUpdate} />
           </StyledGraphTitle>
         )}
-      </StyledAppHeader>
+      </StyledHeader>
 
       <StyledBody>
         <StyledSidebar>
@@ -139,10 +139,10 @@ export default function App(): JSX.Element {
       </StyledBody>
 
       <StyledFooter>
-        <AppLogo>
+        <StyledAppLogo>
           <img src={logo} alt="Logo" />
-        </AppLogo>
-        <AppName>Nexus Graph</AppName>
+        </StyledAppLogo>
+        <StyledAppName>Nexus Graph</StyledAppName>
       </StyledFooter>
     </StyledApp>
   );
