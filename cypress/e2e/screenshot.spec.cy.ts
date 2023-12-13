@@ -4,7 +4,7 @@ import "@argos-ci/cypress/support";
 
 describe("Argos tests", () => {
   it("screenshot homepage", async ({ page: any }) => {
-    cy.visit("https://localhost:3000");
+    cy.visit("http://localhost:3000/");
     cy.argosScreenshot("/");
   });
 });
