@@ -3,10 +3,13 @@
 import "@argos-ci/cypress/support";
 
 describe("Argos tests", () => {
+  const baseUrl = "http://localhost:3000";
   const pages = [{ name: "homepage", path: "/" }];
 
-  it("screenshot homepage", async () => {
-    cy.visit("http://localhost:3000/");
-    cy.argosScreenshot("homepage");
-  });
+  for (const { name, path } of pages) {
+    it(`Screenshots for ${name}`, () => {
+      cy.visit(`${baseUrl}${path}`);
+      cy.argosScreenshot(name);
+    });
+  }
 });
