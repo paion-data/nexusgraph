@@ -104,10 +104,6 @@ locally and copy the contents of the `.env.test` file to the `.env` file.
 
 You can refer to [Astraios Docs][Astraios Development] to learn how to run Webservice in Docker Compose
 
-### Start NLP server
-
-We can refer to [Theresa Docs](https://github.com/paion-data/theresa) to learn how to run a NLP server for Nexus Graph
-
 ### Load Neo4J Arc from Local
 
 Nexus Graph's graphing capabilities is externalized to Neo4J's. When we update the library and would like to see it's
