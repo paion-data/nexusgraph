@@ -84,6 +84,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           start-strategy: ${{ matrix.start_strategy }}
           spec-relative-path: ${{ matrix.test_spec }}
+      - run: npm exec -- argos upload --token ${{ secrets.ARGOS_TOKEN }} cypress/screenshots
 
   documentation-ci-cd:
     name: Test and Deploy Documentation to GitHub Pages

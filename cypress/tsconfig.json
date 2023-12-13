@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "target": "es6",
-    "types": ["cypress", "node"],
+    "types": ["cypress", "@argos-ci/cypress", "node"],
     "allowJs": true,
     "noEmit": true
   },
