@@ -120,6 +120,7 @@ jobs:
 
   lighthouse:
     if: github.ref != 'refs/heads/master'
+    needs: [yml-md-style, code-style]
     permissions:
       pull-requests: write
     runs-on: ubuntu-latest
