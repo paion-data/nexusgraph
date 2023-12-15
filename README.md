@@ -6,7 +6,6 @@ Nexus Graph <sup>![Node Version Badge is Missing][node version badge]</sup>
 [![License Badge][license badge]](https://www.apache.org/licenses/LICENSE-2.0)
 [![GitHub Workflow Status][release status]](https://github.com/paion-data/nexusgraph/actions/workflows/ci-cd.yml)
 ![GitHub last commit (master)](https://img.shields.io/github/last-commit/paion-data/nexusgraph/master?logo=github&style=for-the-badge)
-![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=for-the-badge)
 
 > "Perhaps what chiefly distingwishes the good person is that they see the truth in each kind"
 >
@@ -91,7 +90,7 @@ License
 -------
 
 The use and distribution terms for [nexusgraph][nexusgraph documentation] are covered by the
-[Apache License, Version 2.0][Apache License, Version 2.0].
+[Apache License, Version 2.0].
 
 [Apache License, Version 2.0]: http://www.apache.org/licenses/LICENSE-2.0.html
 
