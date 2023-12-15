@@ -1,11 +1,11 @@
 # Copyright 2023 Paion Data. All rights reserved.
 
 dist
-/build
+build
 .idea/
 .vscode/
+coverage
 .DS_Store
-/coverage
 node_modules
 
 .env
