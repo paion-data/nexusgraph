@@ -1,13 +1,13 @@
 /*
  * Copyright 2023 Paion Data. All rights reserved.
  */
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import Heading from "@theme/Heading";
+import clsx from "clsx";
+import styles from "./styles.module.css";
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  Svg: React.ComponentType<React.ComponentProps<"svg">>;
   description: JSX.Element;
 };
 
@@ -36,9 +36,9 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx("col col--4")}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
