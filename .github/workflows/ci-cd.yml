@@ -166,7 +166,7 @@ jobs:
 
   hashicorp:
     name: Publish AMI Image and Deploy It to EC2 through HashiCorp
-    if: github.ref == 'refs/heads/master'
+    # if: github.ref == 'refs/heads/master'
     needs: e2e-tests
     runs-on: ubuntu-latest
     steps:
@@ -191,7 +191,7 @@ jobs:
         run: echo '${{ secrets.AWS_WS_TFVARS }}' > ../hashicorp-aws/hashicorp/react/instances/aws-react.auto.tfvars
 
       - name: Load .env file
-        run: echo '${{ secrets.DOT_ENV_FILE }}' > nexusgraph/.env
+        run: echo '${{ secrets.DOT_ENV_FILE }}' > .env
       - name: Generate dist
         run: yarn && yarn build
       - name: Move dist file to a location for HashiCorp deployment to pickup
