@@ -35,7 +35,7 @@ export default function ProdApp(props: ProdAppProps): JSX.Element {
 
   useEffect(() => {
     const astraiosAPI = process.env.ASTRAIOS_API_RESOURCE as string;
-    getAccessToken(astraiosAPI).then((token: string) => {
+    getAccessToken(astraiosAPI).then((token: any) => {
       fetchUserInfo().then((userInfo: any) => {
         dispatch(
           updateOAuthState({
