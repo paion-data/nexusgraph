@@ -26,4 +26,7 @@ async function main() {
   app.generateJson(project, outputDir + "/documentation.json");
 }
 
-main().catch(console.error);
+main().catch((error) => {
+  console.log(error);
+  process.exit(1);
+});
