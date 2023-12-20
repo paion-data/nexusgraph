@@ -1,0 +1,5 @@
+{
+  "name": "@paiondata/nexusgraph-oas",
+  "version": "0.1.0",
+  "description": "OpenAPI Specification for nexusgraph's backend"
+}

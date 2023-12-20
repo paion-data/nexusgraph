@@ -3,6 +3,7 @@
   "workspaces": [
     "./packages/nexusgraph-app",
     "./packages/nexusgraph-astraios",
+    "./packages/nexusgraph-oas",
     "./packages/nexusgraph-graph",
     "./packages/nexusgraph-nlp",
     "./packages/nexusgraph-oauth",
