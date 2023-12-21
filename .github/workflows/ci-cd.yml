@@ -27,97 +27,6 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-  unit-tests:
-    name: Unit Tests
-    needs: [yml-md-style, code-style]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/ui-unit-test@master
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-  list-e2e-specs:
-    needs: unit-tests
-    runs-on: ubuntu-latest
-    outputs:
-      paths: ${{ steps.list-e2e-specs.outputs.paths }}
-    steps:
-      - name: List Files
-        id: list-e2e-specs
-        uses: mirko-felice/list-files-action@v3.0.5
-        with:
-          repo: ${{ github.repository }}
-          ref: ${{ github.ref }}
-          path: "cypress/e2e"
-          ext: ".ts"
-
-  e2e-tests:
-    name: E2E Tests
-    needs: list-e2e-specs
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        test_spec: ${{ fromJson(needs.list-e2e-specs.outputs.paths) }}
-        start_strategy: ["yarn-start", "serve"]
-        node_version: [18]
-    steps:
-      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/jdk-setup@master
-      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/jersey-webservice-template/jpa-elide/install-data-models@master
-        with:
-          model-package-jar-group-id: ${{ secrets.MODEL_PACKAGE_JAR_GROUP_ID }}
-          model-package-jar-artifact-id: ${{ secrets.MODEL_PACKAGE_JAR_ARTIFACT_ID }}
-          model-package-jar-version: ${{ secrets.MODEL_PACKAGE_JAR_VERSION }}
-          model-repo-org: ${{ secrets.MODEL_REPO_ORG }}
-          models-repo-name: ${{ secrets.MODEL_REPO_NAME }}
-          models-repo-token: ${{ secrets.ASTRAIOS_DATA_MODELS_REPO_TOKEN }}
-      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/jersey-webservice-template/jpa-elide/docker-compose@master
-        with:
-          webservice-repo-clone-url: https://github.com/paion-data/astraios.git
-          model-package: ${{ secrets.MODEL_PACKAGE_NAME }}
-      - name: Wait until astraios Docker Compose is up
-        uses: iFaxity/wait-on-action@v1
-        with:
-          resource: http://localhost:8080
-      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/cypress-e2e@master
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          start-strategy: ${{ matrix.start_strategy }}
-          spec-relative-path: ${{ matrix.test_spec }}
-      - run: npm exec -- argos upload --token ${{ secrets.ARGOS_TOKEN }} cypress/screenshots
-
-  documentation-ci-cd:
-    name: Test and Deploy Documentation to GitHub Pages
-    needs: e2e-tests
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: docs
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - name: Install nexusgraph dependencies so that TypeDoc process source files properly
-        run: cd ../ && yarn install
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
-      - name: Install doc dependencies
-        run: yarn install
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
-      - name: Build documentation
-        run: yarn build
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/master'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/build
-          enable_jekyll: false
-          user_name: ${{ env.USER }}
-          user_email: ${{ env.EMAIL }}
-
   lighthouse:
     if: github.ref != 'refs/heads/master'
     needs: [yml-md-style, code-style]
@@ -164,43 +73,90 @@ jobs:
           header: lighthouse
           message: ${{ steps.format_lighthouse_score.outputs.comment }}
 
-  hashicorp:
-    name: Publish AMI Image and Deploy It to EC2 through HashiCorp
-    if: github.ref == 'refs/heads/master'
-    needs: e2e-tests
+  unit-tests:
+    name: Unit Tests
+    needs: [yml-md-style, code-style]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set node version to ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
+      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/ui-unit-test@master
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Checkout HashiCorp deployment tool
-        run: git clone https://github.com/QubitPi/hashicorp-aws.git ../hashicorp-aws
-      - name: Load Packer variable file
-        run: echo '${{ secrets.AWS_WS_PKRVARS_HCL }}' > ../hashicorp-aws/hashicorp/react/images/aws-react.auto.pkrvars.hcl
-      - name: Load SSL certificates
-        run: |
-          echo '${{ secrets.SSL_CERTIFICATE }}' > ../hashicorp-aws/hashicorp/react/images/ssl.crt
-          echo '${{ secrets.SSL_CERTIFICATE_KEY }}' > ../hashicorp-aws/hashicorp/react/images/ssl.key
-      - name: Load Nginx config file (SSL)
-        run: echo '${{ secrets.NGINX_CONFIG_FILE }}' > ../hashicorp-aws/hashicorp/react/images/nginx.conf
 
-      - name: Load Terraform variable file
-        run: echo '${{ secrets.AWS_WS_TFVARS }}' > ../hashicorp-aws/hashicorp/react/instances/aws-react.auto.tfvars
-
-      - name: Load .env file
-        run: echo '${{ secrets.DOT_ENV_FILE }}' > .env
-      - name: Generate dist
-        run: yarn && yarn build
-      - name: Move dist file to a location for HashiCorp deployment to pickup
-        run: mv dist ../hashicorp-aws/hashicorp/react/images/dist
-
-      - name: QubitPi/hashicorp-aws
-        uses: QubitPi/hashicorp-aws@master
+  list-e2e-specs:
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    outputs:
+      paths: ${{ steps.list-e2e-specs.outputs.paths }}
+    steps:
+      - name: List Files
+        id: list-e2e-specs
+        uses: mirko-felice/list-files-action@v3.0.5
         with:
-          hashicorp-dir: ../hashicorp-aws/hashicorp/react
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          repo: ${{ github.repository }}
+          ref: ${{ github.ref }}
+          path: "cypress/e2e"
+          ext: ".ts"
+
+  e2e-tests:
+    name: E2E Tests
+    needs: list-e2e-specs
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        test_spec: ${{ fromJson(needs.list-e2e-specs.outputs.paths) }}
+        start_strategy: ["yarn-start", "serve"]
+        node_version: [18]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set node version to ${{ inputs.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node-version }}
+      - name: Install dependencies
+        run: yarn
+      - name: Load app environment variables
+        run: mv .env.test .env
+      - name: Start test backend
+        run: |
+          npm install -g json-graphql-server
+          yarn start:json-graphql-server &
+          yarn wait-on-json-graphql-server
+      - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/cypress-e2e@master
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          start-strategy: ${{ matrix.start_strategy }}
+          spec-relative-path: ${{ matrix.test_spec }}
+      - run: npm exec -- argos upload --token ${{ secrets.ARGOS_TOKEN }} cypress/screenshots
+
+  documentation-ci-cd:
+    name: Test and Deploy Documentation to GitHub Pages
+    needs: e2e-tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install nexusgraph dependencies so that TypeDoc process source files properly
+        run: cd ../ && yarn install
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+      - name: Install doc dependencies
+        run: yarn install
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+      - name: Build documentation
+        run: yarn build
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build
+          enable_jekyll: false
+          user_name: ${{ env.USER }}
+          user_email: ${{ env.EMAIL }}

@@ -2,7 +2,7 @@
   "name": "@paiondata/nexusgraph",
   "workspaces": [
     "./packages/nexusgraph-app",
-    "./packages/nexusgraph-astraios",
+    "./packages/nexusgraph-db",
     "./packages/nexusgraph-graph",
     "./packages/nexusgraph-nlp",
     "./packages/nexusgraph-oauth",
@@ -15,11 +15,12 @@
   "description": "Find solution via Knowledge Graph and Refine the solution with Data",
   "scripts": {
     "start": "node scripts/start.js",
+    "start:json-graphql-server": "json-graphql-server packages/nexusgraph-db/src/graph/json-graphql-server/db.js --p 5000",
     "build": "node scripts/build.js",
     "test": "jest",
-    "e2e": "cypress run --browser chrome",
-    "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
     "cypress:open": "cypress open",
+    "e2e": "cypress run --browser chrome",
+    "wait-on-json-graphql-server": "wait-on -c ./scripts/wait-on-config.js http-get://localhost:5000/",
     "wait-on-dev": "wait-on -c ./scripts/wait-on-config.js http-get://localhost:3000/",
     "wait-on-prod": "wait-on -c ./scripts/wait-on-config.js http-get://localhost:3000/"
   },

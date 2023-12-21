@@ -2373,9 +2373,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@paiondata/nexusgraph-astraios@workspace:packages/nexusgraph-astraios":
+"@paiondata/nexusgraph-db@workspace:packages/nexusgraph-db":
   version: 0.0.0-use.local
-  resolution: "@paiondata/nexusgraph-astraios@workspace:packages/nexusgraph-astraios"
+  resolution: "@paiondata/nexusgraph-db@workspace:packages/nexusgraph-db"
   languageName: unknown
   linkType: soft
 

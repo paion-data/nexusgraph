@@ -1,13 +1,12 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
 import { I18nextProvider } from "react-i18next";
-import { AstraiosClient } from "../../nexusgraph-astraios";
+import { GraphClient } from "../../nexusgraph-db";
 import OAuth2Provider from "../../nexusgraph-oauth/src/OAuth2Provider";
 import { ReduxStoreProvider, updateGraphData, updateGraphList } from "../../nexusgraph-redux";
 import DevApp from "./DevApp";
-import ProdApp from "./ProdApp";
-
 import i18n from "./i18n";
+import ProdApp from "./ProdApp";
 
 /**
  * {@link AppInit} offers common init/config and differentiated context wrapper for {@link DevApp | dev} and
@@ -16,27 +15,24 @@ import i18n from "./i18n";
  * It defines init execution logics but does execute it. Instead, {@link DevApp} or {@link ProdApp} executes them.
  */
 export default function AppInit(): JSX.Element {
-  const initReduxStore = (userId: string, astraiosClient: AstraiosClient, dispatch: any) => {
-    astraiosClient.getGraphListMetaDataByUserId(userId).then((response) => {
-      const graphList = response.data.data.graph["edges"].map((nodeJson: { [x: string]: { [x: string]: any } }) => ({
-        id: nodeJson["node"]["id"],
-        name: nodeJson["node"]["name"],
-      }));
-      dispatch(updateGraphList(graphList));
-
-      if (graphList.length > 0) {
-        astraiosClient.getGraphById(graphList[0].id).then((response) => {
-          const graph = response.data.data.graph.edges[0].node;
-          dispatch(
-            updateGraphData({
-              id: graph.id,
-              name: graph.name,
-              nodes: JSON.parse(graph.graph).nodes,
-              links: JSON.parse(graph.graph).links,
-            })
-          );
-        });
+  const initReduxStore = (userId: string, graphClient: GraphClient, dispatch: any) => {
+    graphClient.getGraphListMetaDataByUserId(userId).then((metaDataList) => {
+      if (metaDataList.length <= 0) {
+        return;
       }
+
+      dispatch(updateGraphList(metaDataList));
+
+      graphClient.getGraphById(metaDataList[0].id).then((graphState) => {
+        dispatch(
+          updateGraphData({
+            id: graphState.id,
+            name: graphState.name,
+            nodes: graphState.nodes,
+            links: graphState.links,
+          })
+        );
+      });
     });
   };
 

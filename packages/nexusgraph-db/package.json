@@ -1,0 +1,5 @@
+{
+  "name": "@paiondata/nexusgraph-db",
+  "version": "0.1.0",
+  "description": "nexusgraph's data storage client"
+}

@@ -1,13 +1,14 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
-import { AstraiosClient } from "../../../../../nexusgraph-astraios";
+import { GraphClient } from "../../../../../nexusgraph-db";
 import { NLPClient } from "../../../../../nexusgraph-nlp";
-import { appendToGraphList, selectOAuth, updateGraphData } from "../../../../../nexusgraph-redux";
+import { appendToGraphList, updateGraphData } from "../../../../../nexusgraph-redux";
 import { container, TYPES } from "../../../../inversify.config";
+import { GraphClientContext } from "../../../Contexts";
 import { Method } from "./methods";
 
 const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
@@ -21,13 +22,10 @@ interface MethodsSelectionModalProps {
 export function MethodModal(props: MethodsSelectionModalProps): JSX.Element {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const graphClient: GraphClient = useContext(GraphClientContext) as GraphClient;
 
   const [textInput, setTextInput] = useState<string>("");
   const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
-
-  const userId = selectOAuth().userInfo.sub;
-  const accessToken = selectOAuth().accessToken;
-  const astraiosClient = new AstraiosClient(userId, accessToken);
 
   const onHide = () => props.setShowModal(false);
   const onChange = (event: any) => setTextInput(event.target.value);
@@ -42,13 +40,17 @@ export function MethodModal(props: MethodsSelectionModalProps): JSX.Element {
         return;
       }
 
-      astraiosClient
-        .saveOrUpdate({ ...graph })
-        .then((response) => {
-          const graphId = response.data.data.graph.edges[0]["node"]["id"];
-          const graphName = response.data.data.graph.edges[0]["node"]["name"];
+      graphClient
+        .saveOrUpdate({
+          name: t("Untitle Graph"),
+          nodes: graph.nodes,
+          links: graph.links,
+        })
+        .then((graphState) => {
+          const graphId = graphState.id as string;
+          const graphName = graphState.name as string;
 
-          dispatch(updateGraphData({ id: graphId, ...graph, name: graphName }));
+          dispatch(updateGraphData(graphState));
           dispatch(appendToGraphList({ id: graphId, name: graphName }));
 
           props.setShowModal(false);

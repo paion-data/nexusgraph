@@ -12,11 +12,12 @@ import {
   REL_TYPE_UPDATE,
   resources,
 } from "neo4j-devtools-arc";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { ThemeProvider } from "styled-components";
-import { AstraiosClient } from "../../nexusgraph-astraios";
-import { Link, Node, selectGraphData, selectOAuth, updateGraphData } from "../../nexusgraph-redux";
+import { GraphClientContext } from "../../nexusgraph-app/src/Contexts";
+import { GraphClient } from "../../nexusgraph-db";
+import { Link, Node, selectGraphData, updateGraphData } from "../../nexusgraph-redux";
 import { addLink, addNode, mutateLinkFieldById, mutateNodeFieldById } from "./immutable";
 import { mapToBasicNodes, mapToBasicRelationships } from "./mappers";
 import { theme } from "./themes";
@@ -34,9 +35,7 @@ export default function GraphBrowser(): JSX.Element {
 
   const isFullscreen = true;
   const graphData = selectGraphData();
-  const userId = selectOAuth().userInfo.sub;
-  const accessToken = selectOAuth().accessToken;
-  const astraiosClient = new AstraiosClient(userId, accessToken);
+  const graphClient: GraphClient = useContext(GraphClientContext) as GraphClient;
 
   const [hasVis, setHasVis] = useState<boolean>(true);
   const [visElement, setVisElement] = useState<null | {
@@ -66,7 +65,7 @@ export default function GraphBrowser(): JSX.Element {
       } as Node);
 
       dispatch(updateGraphData(newGraphState));
-      astraiosClient.saveOrUpdate(newGraphState);
+      graphClient.saveOrUpdate(newGraphState);
     }
 
     if (event == NODE_LABEL_UPDATE) {
@@ -103,7 +102,7 @@ export default function GraphBrowser(): JSX.Element {
       } as Link);
 
       dispatch(updateGraphData(newGraphState));
-      astraiosClient.saveOrUpdate(newGraphState);
+      graphClient.saveOrUpdate(newGraphState);
     }
 
     if (event == REL_TYPE_UPDATE) {
@@ -122,7 +121,7 @@ export default function GraphBrowser(): JSX.Element {
       const newGraphData = mutateLinkFieldById(graphData, relId, "type", newType);
 
       dispatch(updateGraphData(newGraphData));
-      astraiosClient.saveOrUpdate(newGraphData);
+      graphClient.saveOrUpdate(newGraphData);
     }
 
     if (event == PROP_UPDATE) {
@@ -145,7 +144,7 @@ export default function GraphBrowser(): JSX.Element {
         : mutateLinkFieldById(graphData, nodeOrRelId, propKey, propVal);
 
       dispatch(updateGraphData(newGraphData));
-      astraiosClient.saveOrUpdate(newGraphData);
+      graphClient.saveOrUpdate(newGraphData);
     }
 
     if (event == DETAILS_PANE_TITLE_UPDATE) {
@@ -168,7 +167,7 @@ export default function GraphBrowser(): JSX.Element {
         : mutateLinkFieldById(graphData, nodeOrRelId, titlePropertyKey, newTitle);
 
       dispatch(updateGraphData(newGraphData));
-      astraiosClient.saveOrUpdate(newGraphData);
+      graphClient.saveOrUpdate(newGraphData);
     }
   };
 
