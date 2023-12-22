@@ -8,9 +8,8 @@ import { useDispatch } from "react-redux";
 import { AstraiosClient, GraphClient } from "../../nexusgraph-db";
 import { Callback } from "../../nexusgraph-oauth";
 import { updateOAuthState } from "../../nexusgraph-redux";
-import ProdAppContent from "./ProdAppContent";
-import { StyledSpinner } from "./styled";
 import App from "./App";
+import { StyledSpinner } from "./styled";
 
 interface ProdAppProps {
   initReduxStore: (userId: string, graphClient: GraphClient, dispatch: any) => void;
