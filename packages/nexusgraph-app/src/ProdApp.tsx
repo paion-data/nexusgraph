@@ -34,7 +34,6 @@ export default function ProdApp(props: ProdAppProps): JSX.Element {
 
   if (!isAuthenticated && !isLoading) {
     signIn(process.env.LOGTO_SIGN_IN_CALLBACK_URL as string);
-    return <StyledSpinner />;
   }
 
   useEffect(() => {
@@ -55,6 +54,10 @@ export default function ProdApp(props: ProdAppProps): JSX.Element {
       });
     });
   }, [isAuthenticated]);
+
+  if (!isAuthenticated) {
+    return <StyledSpinner />;
+  }
 
   return (
     <Router>
