@@ -8,7 +8,8 @@ import { useDispatch } from "react-redux";
 import { AstraiosClient, GraphClient } from "../../nexusgraph-db";
 import { Callback } from "../../nexusgraph-oauth";
 import { updateOAuthState } from "../../nexusgraph-redux";
-import ProdAppContent from "./ProdAppContent";
+import App from "./App";
+import { StyledSpinner } from "./styled";
 
 interface ProdAppProps {
   initReduxStore: (userId: string, graphClient: GraphClient, dispatch: any) => void;
@@ -53,10 +54,14 @@ export default function ProdApp(props: ProdAppProps): JSX.Element {
     });
   }, [isAuthenticated]);
 
+  if (!isAuthenticated) {
+    return <StyledSpinner />;
+  }
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ProdAppContent isAuthenticated={isAuthenticated} />} />
+        <Route path="/" element={<App />} />
         <Route path="/login" element={<Callback />} />
       </Routes>
     </Router>
