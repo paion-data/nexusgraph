@@ -15,7 +15,7 @@ Semantic layer: `GraphClient`.
 
 ```bash
 cd nexusgraph
-yarn start:json-graphql-server
+yarn start:json-graphql-server-dev
 ```
 
 The server will be running at `http://localhost:5000/`.

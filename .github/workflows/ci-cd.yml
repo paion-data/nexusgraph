@@ -115,13 +115,10 @@ jobs:
           node-version: ${{ inputs.node-version }}
       - name: Install dependencies
         run: yarn
-      - name: Load app environment variables
+      - name: Load test .env file
         run: mv .env.test .env
       - name: Start test backend
-        run: |
-          npm install -g json-graphql-server
-          yarn start:json-graphql-server &
-          yarn wait-on-json-graphql-server
+        run: yarn start:json-graphql-server-test &
       - uses: QubitPi/hashicorp-aws/auxiliary/github/actions/cypress-e2e@master
         with:
           node-version: ${{ env.NODE_VERSION }}

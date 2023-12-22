@@ -16,7 +16,6 @@ We recommend going through the general documentation before contributing a chang
 - [Development Philosophy](philosophy)
 - [Commit Messages](commit-messages)
 - [Code Review](code-review)
-- [Environment](environment)
 - [Documentation Guide](documentation-guide)
 
 <!-- markdown-link-check-enable -->
