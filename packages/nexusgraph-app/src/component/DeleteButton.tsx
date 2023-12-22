@@ -1,6 +1,5 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { TrashIcon } from "@heroicons/react/24/outline";
-import { AstraiosClient } from "../../../nexusgraph-astraios";
 import { StyledDeleteButton } from "./styled";
 
 interface DeleteButtonProps {
@@ -10,7 +9,7 @@ interface DeleteButtonProps {
 
 /**
  * {@link DeleteButton} is a self-managing component that is responsible for a delete button styling (excluding button
- * label) and delete logics, such as interacting with Redux and {@link AstraiosClient}.
+ * label) only.
  *
  * Thus {@link DeleteButton} should be logic-context agnostic and its
  * [single-responsibility](https://en.wikipedia.org/wiki/Single-responsibility_principle) should be **styling**

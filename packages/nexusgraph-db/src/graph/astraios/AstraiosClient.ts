@@ -1,19 +1,20 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import axios from "axios";
-import { GraphState } from "../../nexusgraph-redux";
+import { GraphMetaData, GraphState } from "../../../../nexusgraph-redux";
+import { GraphClient } from "../GraphClient";
 
 const ASTRAIOS_GRAPHQL_API_ENDPOINT = process.env.ASTRAIOS_API_RESOURCE as string;
 
-export class AstraiosClient {
+export class AstraiosClient implements GraphClient {
   private _userId;
   private _accessToken;
 
-  constructor(userId: string, accessToken: string) {
+  public constructor(userId: string, accessToken: string) {
     this._userId = userId;
     this._accessToken = accessToken;
   }
 
-  public saveOrUpdate(graph: GraphState): Promise<any> {
+  public saveOrUpdate(graph: GraphState): Promise<GraphState> {
     const graphJson = JSON.stringify({ nodes: graph.nodes, links: graph.links }).replace(/"/g, '\\"');
 
     return this.postAstraiosQuery(
@@ -38,7 +39,7 @@ export class AstraiosClient {
     );
   }
 
-  public getGraphById(graphId: string) {
+  public getGraphById(graphId: string): Promise<GraphState> {
     return this.postAstraiosQuery(
       `
       { 
@@ -56,7 +57,7 @@ export class AstraiosClient {
     );
   }
 
-  public deleteGraphById(graphId: string) {
+  public deleteGraphById(graphId: string): Promise<GraphState> {
     return this.postAstraiosQuery(
       `
       mutation {
@@ -73,7 +74,7 @@ export class AstraiosClient {
     );
   }
 
-  public getGraphListMetaDataByUserId(userId: string) {
+  public getGraphListMetaDataByUserId(userId: string): Promise<GraphMetaData[]> {
     return this.postAstraiosQuery(
       `
       query getGraphListMetaDataByUserId {

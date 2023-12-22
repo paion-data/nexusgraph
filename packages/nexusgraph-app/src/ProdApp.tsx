@@ -4,13 +4,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useLogto } from "@logto/react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { AstraiosClient } from "../../nexusgraph-astraios";
+
+import { AstraiosClient, GraphClient } from "../../nexusgraph-db";
 import { Callback } from "../../nexusgraph-oauth";
 import { updateOAuthState } from "../../nexusgraph-redux";
 import ProdAppContent from "./ProdAppContent";
 
 interface ProdAppProps {
-  initReduxStore: (userId: string, astraiosClient: AstraiosClient, dispatch: any) => void;
+  initReduxStore: (userId: string, graphClient: GraphClient, dispatch: any) => void;
 }
 
 /**
@@ -46,7 +47,8 @@ export default function ProdApp(props: ProdAppProps): JSX.Element {
 
         const userId = userInfo["sub"];
         const accessToken = token;
-        props.initReduxStore(userId, new AstraiosClient(userId, accessToken), dispatch);
+        const graphClient = new AstraiosClient(userId, accessToken);
+        props.initReduxStore(userId, graphClient, dispatch);
       });
     });
   }, [isAuthenticated]);

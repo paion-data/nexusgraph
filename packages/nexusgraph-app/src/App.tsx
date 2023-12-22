@@ -1,8 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import * as Sentry from "@sentry/react";
 import { produce } from "immer";
+import { useContext } from "react";
 import { useDispatch } from "react-redux";
-import { AstraiosClient } from "../../nexusgraph-astraios";
+import { GraphClient } from "../../nexusgraph-db";
 import { GraphBrowser } from "../../nexusgraph-graph";
 import {
   GraphMetaData,
@@ -10,7 +11,6 @@ import {
   initialState,
   selectGraphData,
   selectGraphList,
-  selectOAuth,
   updateGraphData,
   updateGraphList,
   updateSingleItem,
@@ -20,6 +20,7 @@ import user from "../public/user.svg";
 import { DeleteButton } from "./component";
 import GraphTitle from "./component/GraphTitle";
 import { SideBar } from "./component/sidebar";
+import { GraphClientContext } from "./Contexts";
 import {
   StyledApp,
   StyledAppLogo,
@@ -41,11 +42,8 @@ import {
  */
 export default function App(): JSX.Element {
   const dispatch = useDispatch();
+  const graphClient: GraphClient = useContext(GraphClientContext) as GraphClient;
 
-  const userId = selectOAuth().userInfo.sub;
-  const accessToken = selectOAuth().accessToken;
-
-  const astraiosClient = new AstraiosClient(userId, accessToken);
   const graphSate = selectGraphData();
   const graphId = graphSate.id;
   const graphList = selectGraphList();
@@ -55,14 +53,13 @@ export default function App(): JSX.Element {
       return;
     }
 
-    astraiosClient.getGraphById(graphId).then((response) => {
-      const graph = response.data.data.graph.edges[0].node;
+    graphClient.getGraphById(graphId).then((graph) => {
       dispatch(
         updateGraphData({
           id: graph.id,
           name: graph.name,
-          nodes: JSON.parse(graph.graph).nodes,
-          links: JSON.parse(graph.graph).links,
+          nodes: graph.nodes,
+          links: graph.links,
         })
       );
     });
@@ -79,7 +76,7 @@ export default function App(): JSX.Element {
       draft.name = newTitle;
     });
 
-    astraiosClient.saveOrUpdate(newGraphData).then((response) => {
+    graphClient.saveOrUpdate(newGraphData).then((response) => {
       dispatch(updateSingleItem({ id: graphId, name: newTitle }));
     });
   };
@@ -91,7 +88,7 @@ export default function App(): JSX.Element {
       throw error;
     }
 
-    astraiosClient.deleteGraphById(graphId).then((response) => {
+    graphClient.deleteGraphById(graphId).then((response) => {
       const nextDisplayedGraphId = getNextDisplayedGraphId(graphList, graphId);
 
       if (nextDisplayedGraphId == null) {
@@ -100,14 +97,13 @@ export default function App(): JSX.Element {
         return;
       }
 
-      astraiosClient.getGraphById(nextDisplayedGraphId).then((response) => {
-        const graph = response.data.data.graph.edges[0].node;
+      graphClient.getGraphById(nextDisplayedGraphId).then((graph) => {
         dispatch(
           updateGraphData({
             id: graph.id,
             name: graph.name,
-            nodes: JSON.parse(graph.graph).nodes,
-            links: JSON.parse(graph.graph).links,
+            nodes: graph.nodes,
+            links: graph.links,
           })
         );
         dispatch(updateGraphList(graphList.filter((metadata) => metadata.id != graphId)));

@@ -1,11 +1,12 @@
 // Copyright 2023 Paion Data. All rights reserved.
 import { useDispatch } from "react-redux";
-import { AstraiosClient } from "../../nexusgraph-astraios";
+import { GraphClient, JsonGraphQLServerClient } from "../../nexusgraph-db";
 import { updateOAuthState } from "../../nexusgraph-redux";
 import App from "./App";
+import { GraphClientContext } from "./Contexts";
 
 interface DevAppProps {
-  initReduxStore: (userId: string, astraiosClient: AstraiosClient, dispatch: any) => void;
+  initReduxStore: (userId: string, graphClient: GraphClient, dispatch: any) => void;
 }
 
 /**
@@ -19,7 +20,7 @@ export default function DevApp(props: DevAppProps): JSX.Element {
   const dispatch = useDispatch();
 
   const devToken = "devToken";
-  const devUserId = "devUserId";
+  const devUserId = process.env.DEV_USER_ID as string;
   const devUserInfo = { sub: devUserId };
 
   dispatch(
@@ -29,7 +30,12 @@ export default function DevApp(props: DevAppProps): JSX.Element {
     })
   );
 
-  props.initReduxStore(devUserId, new AstraiosClient(devUserId, devToken), dispatch);
+  const graphClient = new JsonGraphQLServerClient(devUserId);
+  props.initReduxStore(devUserId, graphClient, dispatch);
 
-  return <App />;
+  return (
+    <GraphClientContext.Provider value={graphClient}>
+      <App />
+    </GraphClientContext.Provider>
+  );
 }
