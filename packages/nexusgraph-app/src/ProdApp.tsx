@@ -9,6 +9,8 @@ import { AstraiosClient, GraphClient } from "../../nexusgraph-db";
 import { Callback } from "../../nexusgraph-oauth";
 import { updateOAuthState } from "../../nexusgraph-redux";
 import ProdAppContent from "./ProdAppContent";
+import { StyledSpinner } from "./styled";
+import App from "./App";
 
 interface ProdAppProps {
   initReduxStore: (userId: string, graphClient: GraphClient, dispatch: any) => void;
@@ -32,6 +34,7 @@ export default function ProdApp(props: ProdAppProps): JSX.Element {
 
   if (!isAuthenticated && !isLoading) {
     signIn(process.env.LOGTO_SIGN_IN_CALLBACK_URL as string);
+    return <StyledSpinner />;
   }
 
   useEffect(() => {
@@ -56,7 +59,7 @@ export default function ProdApp(props: ProdAppProps): JSX.Element {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ProdAppContent isAuthenticated={isAuthenticated} />} />
+        <Route path="/" element={<App />} />
         <Route path="/login" element={<Callback />} />
       </Routes>
     </Router>
