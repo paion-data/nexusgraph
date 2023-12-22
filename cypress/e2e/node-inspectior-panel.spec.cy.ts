@@ -1,6 +1,10 @@
 // Copyright 2023 Paion Data. All rights reserved.
 describe("Node Inspector Panel rendering", () => {
-  beforeEach(function () {
+  before(() => {
+    cy.openApp();
+  });
+
+  beforeEach(() => {
     cy.visit("http://localhost:3000/");
     cy.deleteAllGraphs();
   });

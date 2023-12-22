@@ -64,9 +64,9 @@ npm install --global yarn
 - **LOGTO_SIGN_IN_CALLBACK_URL**
   - [重定向URL][重定向URL] 是一个OAuth 2.0的概念，这意味着该地址应该在身份验证后重定向到此次
   - **LOGTO_SIGN_IN_CALLBACK_URL** 身份验证后重定向的URL
-- **TEST_USER_NAME**
+- **TEST_USER_EMAIL**
   - [Username][Username] 用于使用用户名和密码登录。
-  - 在 Nexus Graph 中，**TEST_USER_NAME** 定义了一个专用于本地登录的用户名
+  - 在 Nexus Graph 中，**TEST_USER_EMAIL** 定义了一个专用于本地登录的用户名
 - **TEST_USER_PASSWORD**
   - Password 用于使用用户名和密码登录。
   - 在 Nexus Graph 中 **TEST_USER_PASSWORD** 定义了一个专用于本地登录的密码
@@ -84,7 +84,7 @@ THERESA_API_URL=http://localhost:5000/
 LOGTO_ENDPOINT_URL=https://u4v5ne.logto.app/
 LOGTO_SIGN_IN_CALLBACK_URL=http://localhost:8080/login
 LOGTO_APP_ID=ypon89z8rtrjdg5ta669l
-TEST_USER_NAME=test123
+TEST_USER_EMAIL=test123
 TEST_USER_PASSWORD=test123123
 ASTRAIOS_GRAPHQL_API_ENDPOINT=http://localhost:8080/v1/data/
 ASTRAIOS_JSON_API_ENDPOINT=http://localhost:8080/v1/data/

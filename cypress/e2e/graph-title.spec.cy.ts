@@ -1,5 +1,9 @@
 // Copyright 2023 Paion Data. All rights reserved.
 describe("Graph title", () => {
+  before(() => {
+    cy.openApp();
+  });
+
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
   });
