@@ -109,10 +109,10 @@ jobs:
         node_version: [18]
     steps:
       - uses: actions/checkout@v3
-      - name: Set node version to ${{ inputs.node-version }}
+      - name: Set node version to ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ inputs.node-version }}
+          node-version: ${{ env.NODE_VERSION }}
       - name: Install dependencies
         run: yarn
       - name: Load test .env file
