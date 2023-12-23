@@ -1,6 +1,6 @@
 // Copyright 2023 Paion Data. All rights reserved.
 const path = require("path");
-const dotenv = require("dotenv");
+const Dotenv = require('dotenv-webpack');
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -8,12 +8,6 @@ const imageInlineSizeLimit = parseInt(process.env.IMAGE_INLINE_SIZE_LIMIT || "10
 
 module.exports = function (webpackEnv) {
   const isProdEnvironment = webpackEnv === "production";
-
-  const env = dotenv.config().parsed;
-  const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`${next}`] = JSON.stringify(env[next]);
-    return prev;
-  }, {});
 
   return {
     entry: "./packages/nexusgraph-app/src/index.tsx",
@@ -64,7 +58,7 @@ module.exports = function (webpackEnv) {
       ],
     },
     plugins: [
-      new webpack.DefinePlugin({ "process.env": envKeys }),
+      new Dotenv(),
       new webpack.HotModuleReplacementPlugin(),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
