@@ -8,7 +8,8 @@ export default defineConfig({
   e2e: {
     supportFile: "cypress/support/commands.ts",
     env: {
-      userEmail: process.env.TEST_USER_NAME as string,
+      skipSignIn: process.env.SKIP_SIGN_IN as string,
+      userEmail: process.env.TEST_USER_EMAIL as string,
       password: process.env.TEST_USER_PASSWORD as string,
       logtoEndpointUrl: process.env.LOGTO_ENDPOINT_URL as string,
       nodeEnv: process.env.NODE_ENV as string,

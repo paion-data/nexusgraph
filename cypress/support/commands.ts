@@ -1,19 +1,30 @@
 // Copyright 2023 Paion Data. All rights reserved.
-Cypress.Commands.add("login", ({ userEmail, password }, isDryRun = true) => {
-  if (!isDryRun) {
-    cy.origin(
-      Cypress.env("logtoEndpointUrl").concat("/sign-in"),
-      { args: { userEmail, password } },
-      ({ userEmail, password }) => {
-        cy.visit("http://localhost:3000", { failOnStatusCode: false });
 
-        cy.get('input[name="identifier"]').type(userEmail);
-        cy.get('button[type="submit"]').click();
-        cy.get('input[name="password"]').type(password);
-        cy.get('button[type="submit"]').click();
-      }
-    );
+Cypress.Commands.add("openApp", () => {
+  if (Cypress.env("skipSignIn") == "true") {
+    cy.visit("http://localhost:3000/");
+  } else {
+    cy.login(Cypress.env("userEmail"), Cypress.env("password")).then(() => {
+      cy.request("http://localhost:3000/").then((resp) => {
+        expect(resp.status).to.eq(200);
+      });
+    });
   }
+});
+
+Cypress.Commands.add("login", (userEmail: string, password: string) => {
+  cy.origin(
+    Cypress.env("logtoEndpointUrl").concat("/sign-in"),
+    { args: { userEmail, password } },
+    ({ userEmail, password }) => {
+      cy.visit("http://localhost:3000", { failOnStatusCode: false });
+
+      cy.get('input[name="identifier"]').type(userEmail);
+      cy.get('button[type="submit"]').click();
+      cy.get('input[name="password"]').type(password);
+      cy.get('button[type="submit"]').click();
+    }
+  );
 });
 
 Cypress.Commands.add("newGraph", () => {

@@ -70,9 +70,9 @@ needs to be defined:
 - **LOGTO_SIGN_IN_CALLBACK_URL**
   - [Redirect URI][Redirect URI] is an OAuth 2.0 concept which implies the location should redirect after authentication
   - **LOGTO_SIGN_IN_CALLBACK_URL** is the redirect url after authentication
-- **TEST_USER_NAME**
-  - [Username][Username] is used for sign-in with username and password.
-  - In Nexus Graph the **TEST_USER_NAME** defines a user name dedicated to local login
+- **TEST_USER_EMAIL**
+  - [Email][Username] is used for sign-in with username and password.
+  - In Nexus Graph the **TEST_USER_EMAIL** defines a user name dedicated to local login
 - **TEST_USER_PASSWORD**
   - Password is used for sign-in with username and password.
   - In Nexus Graph the **TEST_USER_PASSWORD** defines a password dedicated to local login
@@ -91,7 +91,7 @@ THERESA_API_URL=http://localhost:5000/
 LOGTO_ENDPOINT_URL=https://u4v5ne.logto.app/
 LOGTO_SIGN_IN_CALLBACK_URL=http://localhost:8080/login
 LOGTO_APP_ID=ypon89z8rtrjdg5ta669l
-TEST_USER_NAME=test123
+TEST_USER_EMAIL=test123
 TEST_USER_PASSWORD=test123123
 ASTRAIOS_GRAPHQL_API_ENDPOINT=http://localhost:8080/v1/data/
 ASTRAIOS_JSON_API_ENDPOINT=http://localhost:8080/v1/data/
