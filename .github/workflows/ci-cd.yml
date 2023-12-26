@@ -82,6 +82,17 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+  json-scheam-test:
+    name: Check JSON schema syntax
+    needs: [yml-md-style, code-style]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: json-syntax-check
+        uses: limitusus/json-syntax-check@v2
+        with:
+          pattern: "packages/nexusgraph-db/graph.schema"
+
   list-e2e-specs:
     needs: unit-tests
     runs-on: ubuntu-latest
