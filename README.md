@@ -19,24 +19,6 @@ challenges, such as tackling hard problems, lie detection, and connecting effect
 revolutionizing our daily "ritual" such as reading, analyzing, and knowledge exploration, to make our lives more
 controllable.
 
-<a href="https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph">
-    <img align="left" width="17%" alt="Quality gate" src="https://sonarcloud.io/api/project_badges/quality_gate?project=paion-data_nexusgraph">
-</a>
-
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=bugs)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
-[![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/rz9r.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
-
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=coverage)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
-
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=paion-data_nexusgraph&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=paion-data_nexusgraph)
-
 Documentation
 -------------
 
