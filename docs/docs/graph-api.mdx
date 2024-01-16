@@ -323,13 +323,28 @@ The Graph API server should support the following Operations with specified Grap
 <Tabs>
   <TabItem value="graphql-query" label="GraphQL Query" default>
     ```graphql
-
+    mutation {
+      graph(op: DELETE, ids: ["5"]) {
+        edges {
+          node {
+            id
+            name
+          }
+        }
+      }
+    }
     ```
 
   </TabItem>
   <TabItem value="graphql-response" label="Response">
     ```json
-
+    {
+      "data": {
+        "graph": {
+          "edges": []
+        }
+      }
+    }
     ```
 
   </TabItem>
