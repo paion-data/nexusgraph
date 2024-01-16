@@ -58,12 +58,6 @@ Cypress.Commands.add("deleteAllGraphs", () => {
   });
 });
 
-Cypress.Commands.add("interceptAstraios", () => {
-  cy.intercept("POST", Cypress.env("astraiosGraphqlEndpoint"), { fixture: "astraios-graphql-response.json" }).as(
-    "astraiosGraphqlRequest"
-  );
-});
-
 Cypress.Commands.add("setBrowserLanguage", (language, languages, acceptLanguages) => {
   cy.visit("http://localhost:3000/", {
     onBeforeLoad(win) {
