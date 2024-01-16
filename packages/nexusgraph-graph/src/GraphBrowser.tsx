@@ -35,6 +35,7 @@ export default function GraphBrowser(): JSX.Element {
 
   const isFullscreen = true;
   const graphData = selectGraphData();
+
   const graphClient: GraphClient = useContext(GraphClientContext) as GraphClient;
 
   const [hasVis, setHasVis] = useState<boolean>(true);

@@ -4,7 +4,7 @@ title: Environment
 ---
 
 This guide steps you through configuring a local development environment for the Nexus Graph on macOS and Linux. If
-you're using another operating system (Plan 9, BeOS, Windows, …) the instructions are still roughly the same, but we
+you're using another operating system (Plan 9, BeOS, Windows, ...) the instructions are still roughly the same, but we
 don't maintain any official documentation for anything else for now.
 
 Read about known issues in [the troubleshooting section](#troubleshooting).
