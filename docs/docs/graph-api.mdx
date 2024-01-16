@@ -1,0 +1,377 @@
+---
+sidebar_position: 5
+title: Graph API
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Graph API
+=========
+
+Custome GraphClient
+-------------------
+
+Custom API Server
+-----------------
+
+The Graph API server should support the following Operations with specified GraphQL query and response scheama:
+
+### Saving or Updating
+
+#### Nodes
+
+<Tabs>
+  <TabItem value="graphql-query" label="GraphQL Query" default>
+    ```graphql
+    mutation {
+        node(
+          op:UPSERT
+          data:[
+            {fields: "{\"name\": \"My Node\"}", noteId:"1"},
+            {fields: "{\"name\": \"My Node 2\"}", noteId:"2"}
+          ]) {
+            edges {
+                node {
+                    id
+                }
+            }
+        }
+    }
+    ```
+  </TabItem>
+  <TabItem value="graphql-response" label="Response">
+    ```json
+    {
+      "data": {
+        "node": {
+          "edges": [
+            {
+              "node": {
+                "id": "15"
+              }
+            },
+            {
+              "node": {
+                "id": "16"
+              }
+            }
+          ]
+        }
+      }
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+#### Links
+
+<Tabs>
+  <TabItem value="graphql-query" label="GraphQL Query" default>
+    ```graphql
+    mutation {
+        link(
+            op:UPSERT
+            data: [     
+              {
+                sourceNode:{id:15},
+                targetNode:{id:16},
+                fields: "{\"type\": \"points to\"}"
+              },
+              {
+                sourceNode:{id:13},
+                targetNode:{id:14},
+                fields: "{\"type\": \"points to\"}"
+              }
+            ]
+        ) {
+            edges {
+                node {
+                    id
+                }
+            }
+        }
+    }
+    ```
+  </TabItem>
+  <TabItem value="graphql-response" label="Response">
+    ```json
+    {
+      "data": {
+        "link": {
+          "edges": [
+            {
+              "node": {
+                "id": "4"
+              }
+            },
+            {
+              "node": {
+                "id": "5"
+              }
+            }
+          ]
+        }
+      }
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+#### Graph
+
+<Tabs>
+  <TabItem value="graphql-query" label="GraphQL Query" default>
+    ```graphql
+    mutation {
+        graph(
+            op: UPSERT
+            data:{
+                userId: "10000",
+                name: "My Graph",
+                nodes: [{id:13},{id:14},{id:15},{id:16}],
+                links: [{id:4},{id:5}]
+            }
+        ) {
+          edges {
+            node {
+                id
+                userId
+                name
+                nodes {
+                    edges {
+                        node {
+                            ...nodeAttributes
+                        }
+                    }
+                }
+                links {
+                    edges {
+                        node {
+                            id
+                            sourceNode {
+                                edges {
+                                    node {
+                                        ...nodeAttributes
+                                    }
+                                }
+                            }
+                            targetNode {
+                                edges {
+                                    node {
+                                        ...nodeAttributes
+                                    }
+                                }
+                            }
+                            fields
+                        }
+                    }
+                }
+                dateCreated
+                dateUpdated
+            }
+          }
+        }
+    }
+
+    fragment nodeAttributes on Node {
+      id
+      noteId
+      fields
+    }
+    ```
+
+  </TabItem>
+  <TabItem value="graphql-response" label="Response">
+    The response format is the same as that of [Getting Graph By ID](#getting-graph-by-id)
+  </TabItem>
+</Tabs>
+
+### Getting Graph By ID
+
+<Tabs>
+  <TabItem value="graphql-query" label="GraphQL Query" default>
+    ```graphql
+    {
+        graph(ids: ["5"]) {
+            edges {
+                node {
+                    id
+                    userId
+                    name
+                    nodes {
+                        edges {
+                            node {
+                                ...nodeAttributes
+                            }
+                        }
+                    }
+                    links {
+                        edges {
+                            node {
+                                id
+                                sourceNode {
+                                    edges {
+                                        node {
+                                            ...nodeAttributes
+                                        }
+                                    }
+                                }
+                                targetNode {
+                                    edges {
+                                        node {
+                                            ...nodeAttributes
+                                        }
+                                    }
+                                }
+                                fields
+                            }
+                        }
+                    }
+                    dateCreated
+                    dateUpdated
+                }
+            }
+        }
+    }
+
+    fragment nodeAttributes on Node {
+        id
+        noteId
+        fields
+    }
+    ```
+
+  </TabItem>
+  <TabItem value="graphql-response" label="Response">
+    ```json
+    {
+      "data": {
+        "graph": {
+          "edges": [
+            {
+              "node": {
+                "id": "5",
+                "userId": "10000",
+                "name": "My Graph",
+                "nodes": {
+                  "edges": [
+                    {
+                      "node": {
+                        "id": "11",
+                        "noteId": "1",
+                        "fields": "{\"name\": \"My Node\"}"
+                      }
+                    },
+                    {
+                      "node": {
+                        "id": "12",
+                        "noteId": "1",
+                        "fields": "{\"name\": \"My Node\"}"
+                      }
+                    }
+                  ]
+                },
+                "links": {
+                  "edges": [
+                    {
+                      "node": {
+                        "id": "3",
+                        "sourceNode": {
+                          "edges": [
+                            {
+                              "node": {
+                                "id": "11",
+                                "noteId": "1",
+                                "fields": "{\"name\": \"My Node\"}"
+                              }
+                            }
+                          ]
+                        },
+                        "targetNode": {
+                          "edges": [
+                            {
+                              "node": {
+                                "id": "12",
+                                "noteId": "1",
+                                "fields": "{\"name\": \"My Node\"}"
+                              }
+                            }
+                          ]
+                        },
+                        "fields": "{\"type\": \"points to\"}"
+                      }
+                    }
+                  ]
+                },
+                "dateCreated": 1705382225651,
+                "dateUpdated": 1705382225651
+              }
+            }
+          ]
+        }
+      }
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+### Deleting Graph By ID
+
+#### Nodes
+
+<Tabs>
+  <TabItem value="graphql-query" label="GraphQL Query" default>
+    ```graphql
+
+    ```
+
+  </TabItem>
+  <TabItem value="graphql-response" label="Response">
+    ```json
+
+    ```
+
+  </TabItem>
+</Tabs>
+
+### Getting Graph Metadata list by User ID
+
+<Tabs>
+  <TabItem value="graphql-query" label="GraphQL Query" default>
+    ```graphql
+    {
+      graph {
+          edges {
+              node {
+                id
+                name
+                dateCreated
+                dateUpdated
+              }
+          }
+      }
+    }
+    ```
+  </TabItem>
+  <TabItem value="graphql-response" label="Response">
+    ```json
+    {
+      "data": {
+        "graph": {
+          "edges": [
+            {
+              "node": {
+                "id": "1",
+                "name": "My Graph",
+                "dateCreated": 1705372839620,
+                "dateUpdated": 1705372839620
+              }
+            }
+          ]
+        }
+      }
+    }
+    ```
+  </TabItem>
+</Tabs>

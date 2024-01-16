@@ -1,4 +1,5 @@
 *.md
+*.mdx
 build
 coverage
 node_modules
