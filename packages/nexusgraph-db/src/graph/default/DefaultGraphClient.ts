@@ -3,7 +3,7 @@ import axios from "axios";
 import { GraphMetaData, GraphState, Link, Node } from "../../../../nexusgraph-redux";
 import { GraphClient } from "../GraphClient";
 
-const ASTRAIOS_GRAPHQL_API_ENDPOINT = process.env.ASTRAIOS_API_RESOURCE as string;
+const GRAPH_API_ENDPOINT = process.env.GRAPH_API_RESOURCE as string;
 
 const RESPONSE_FRAGMENT = `
   fragment nodeAttributes on Node {
@@ -54,7 +54,7 @@ const RESPONSE_SCHEMA = `
   }
 `;
 
-export class AstraiosClient implements GraphClient {
+export class DefaultGraphClient implements GraphClient {
   private _userId;
   private _accessToken;
 
@@ -74,7 +74,7 @@ export class AstraiosClient implements GraphClient {
   }
 
   public getGraphById(graphId: string): Promise<GraphState> {
-    return this.postAstraiosQuery(
+    return this.postGraphQuery(
       `
       {
         graph(ids:["${graphId}"]) {
@@ -90,7 +90,7 @@ export class AstraiosClient implements GraphClient {
   }
 
   public deleteGraphById(graphId: string): Promise<GraphState> {
-    return this.postAstraiosQuery(
+    return this.postGraphQuery(
       `
       mutation {
         graph(op:DELETE, ids: ["${graphId}"]) {
@@ -107,7 +107,7 @@ export class AstraiosClient implements GraphClient {
   }
 
   public getGraphListMetaDataByUserId(userId: string): Promise<GraphMetaData[]> {
-    return this.postAstraiosQuery(
+    return this.postGraphQuery(
       `
       query getGraphListMetaDataByUserId {
         graph(filter:"userId==${userId}") {
@@ -131,8 +131,8 @@ export class AstraiosClient implements GraphClient {
     });
   }
 
-  private postAstraiosQuery(query: string): Promise<any> {
-    return axios.post(ASTRAIOS_GRAPHQL_API_ENDPOINT, { query: query }, this.getHeaders()).then((response) => {
+  private postGraphQuery(query: string): Promise<any> {
+    return axios.post(GRAPH_API_ENDPOINT, { query: query }, this.getHeaders()).then((response) => {
       return response;
     });
   }
@@ -149,7 +149,7 @@ export class AstraiosClient implements GraphClient {
 
   private saveOrUpdateNodes(nodes: Node[]): Promise<Map<string, string>> {
     const idMap: Map<string, string> = new Map();
-    return this.postAstraiosQuery(
+    return this.postGraphQuery(
       `
       mutation {
           node(op:UPSERT data:${nodes}) {
@@ -185,7 +185,7 @@ export class AstraiosClient implements GraphClient {
     });
 
     const idMap: Map<string, string> = new Map();
-    return this.postAstraiosQuery(
+    return this.postGraphQuery(
       `
       mutation {
         link(
@@ -226,7 +226,7 @@ export class AstraiosClient implements GraphClient {
       };
     });
 
-    return this.postAstraiosQuery(
+    return this.postGraphQuery(
       `
       mutation {
         graph(

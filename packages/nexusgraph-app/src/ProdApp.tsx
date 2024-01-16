@@ -5,7 +5,7 @@ import { useLogto } from "@logto/react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { AstraiosClient, GraphClient } from "../../nexusgraph-db";
+import { DefaultGraphClient, GraphClient } from "../../nexusgraph-db";
 import { Callback } from "../../nexusgraph-oauth";
 import { updateOAuthState } from "../../nexusgraph-redux";
 import App from "./App";
@@ -36,8 +36,8 @@ export default function ProdApp(props: ProdAppProps): JSX.Element {
   }
 
   useEffect(() => {
-    const astraiosAPI = process.env.ASTRAIOS_API_RESOURCE as string;
-    getAccessToken(astraiosAPI).then((token: any) => {
+    const graphApiResource = process.env.GRAPH_API_RESOURCE as string;
+    getAccessToken(graphApiResource).then((token: any) => {
       fetchUserInfo().then((userInfo: any) => {
         dispatch(
           updateOAuthState({
@@ -48,7 +48,7 @@ export default function ProdApp(props: ProdAppProps): JSX.Element {
 
         const userId = userInfo["sub"];
         const accessToken = token;
-        const graphClient = new AstraiosClient(userId, accessToken);
+        const graphClient = new DefaultGraphClient(userId, accessToken);
         props.initReduxStore(userId, graphClient, dispatch);
       });
     });

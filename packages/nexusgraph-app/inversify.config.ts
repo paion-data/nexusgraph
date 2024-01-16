@@ -7,7 +7,7 @@ import { NLPClient, TheresaClient } from "../nexusgraph-nlp";
  * Define the types identifier to get dependency
  */
 const TYPES = {
-  AstraiosClient: Symbol("AstraiosClient"),
+  DefaultGraphClient: Symbol("DefaultGraphClient"),
   accessToken: Symbol("accessToken"),
   userId: Symbol("userId"),
 
