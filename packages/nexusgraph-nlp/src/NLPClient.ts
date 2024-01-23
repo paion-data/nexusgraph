@@ -6,7 +6,6 @@ import { Graph } from "../../nexusgraph-redux";
 const ENTITY_EXTRACTION_PATH_PARAM = "entityExtraction";
 
 export class NLPClient {
-
   /**
    * Given an arbitrary text, this method asynchronously performs entity extration on them and converts the extracted
    * entities to the format of {@link Graph}.
