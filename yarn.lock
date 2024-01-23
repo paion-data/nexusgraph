@@ -2458,8 +2458,6 @@ __metadata:
     i18next-browser-languagedetector: ^7.2.0
     identity-obj-proxy: ^3.0.0
     immer: ^10.0.3
-    inversify: ^6.0.1
-    inversify-inject-decorators: ^3.1.0
     jest: ^27.4.3
     json-graphql-server: ^2.3.2
     lodash-es: ^4.17.21
@@ -2474,7 +2472,6 @@ __metadata:
     react-spring: ^9.7.3
     react-test-renderer: ^18.2.0
     redux: ^3.7.2
-    reflect-metadata: ^0.1.13
     style-loader: ^3.3.1
     styled-components: ^5.3.9
     svg-url-loader: ^8.0.0
@@ -8861,20 +8858,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"inversify-inject-decorators@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "inversify-inject-decorators@npm:3.1.0"
-  checksum: 61fd6948c0914ec1c6f10a87903c949d3987903fdb2d23952a1257223f192d0386862974568044dd73d2fcf4f0f37d59eb4dc83124b1d143ed4852266e1585b6
-  languageName: node
-  linkType: hard
-
-"inversify@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "inversify@npm:6.0.1"
-  checksum: b6c9b56ef7817a71534b06101c2b0a0130b67c47a769f58794d9c0643591a83ac02be30a48c00cb729c0c83ece96dde369c419d48c32d0201c6cc7407629fbc5
-  languageName: node
-  linkType: hard
-
 "ip@npm:^2.0.0":
   version: 2.0.0
   resolution: "ip@npm:2.0.0"
@@ -12278,13 +12261,6 @@ __metadata:
     loose-envify: ^1.1.0
     symbol-observable: ^1.0.3
   checksum: c349b77e68d009bc530d3cb6252a6a3e43e20a6e52f9483a048b24cd2f266d9bfa6f0bbd4769d40fe36795e2f7a7a884c3ddc92c13e82efd3328890f94821091
-  languageName: node
-  linkType: hard
-
-"reflect-metadata@npm:^0.1.13":
-  version: 0.1.13
-  resolution: "reflect-metadata@npm:0.1.13"
-  checksum: 798d379a7b6f6455501145419505c97dd11cbc23857a386add2b9ef15963ccf15a48d9d15507afe01d4cd74116df8a213247200bac00320bd7c11ddeaa5e8fb4
   languageName: node
   linkType: hard
 

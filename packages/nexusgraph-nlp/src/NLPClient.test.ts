@@ -2,9 +2,8 @@
 import axios from "axios";
 
 import { NLPClient } from "./NLPClient";
-import { TheresaClient } from "./TheresaClient";
 
-const theresaClient: NLPClient = new TheresaClient();
+const nlpClient: NLPClient = new NLPClient();
 
 jest.mock("axios");
 
@@ -43,7 +42,7 @@ describe("NLP delegates processing to remote WS", () => {
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    theresaClient["fetchRemote"]("China").then((nlpState: any) => {
+    nlpClient["fetchRemote"]("China").then((nlpState: any) => {
       expect(nlpState).toEqual(nlpData);
 
       expect(axios.create).toHaveBeenCalled();

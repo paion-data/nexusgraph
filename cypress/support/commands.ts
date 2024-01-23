@@ -28,7 +28,7 @@ Cypress.Commands.add("login", (userEmail: string, password: string) => {
 });
 
 Cypress.Commands.add("newGraph", () => {
-  cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "single-rdf-tuple-from-theresa.json" });
+  cy.intercept("POST", Cypress.env("entityExtractionServer"), { fixture: "single-rdf-tuple-from-analysis.json" });
 
   cy.get("button[id='newGraphButton']")
     .click({ force: true })

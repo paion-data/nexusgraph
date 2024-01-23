@@ -7,11 +7,10 @@ import { useDispatch } from "react-redux";
 import { GraphClient } from "../../../../../nexusgraph-db";
 import { NLPClient } from "../../../../../nexusgraph-nlp";
 import { appendToGraphList, updateGraphData } from "../../../../../nexusgraph-redux";
-import { container, TYPES } from "../../../../inversify.config";
 import { GraphClientContext } from "../../../Contexts";
 import { Method } from "./methods";
 
-const nlpClient: NLPClient = container.get<NLPClient>(TYPES.NLPClient);
+const nlpClient: NLPClient = new NLPClient();
 
 interface MethodsSelectionModalProps {
   showModal: boolean;

@@ -59,7 +59,7 @@ npm install --global yarn
 Create a [`.env` file][`.env` file] which contains all runtime variables Nexus Graph needs. The following variables
 needs to be defined:
 
-- **THERESA_API_URL** The URL of [Theresa API](https://theresa-api.com) instance, Used turning Natural Language Texts
+- **ANALYZE_API_RESOURCE** The URL of [NLP API](https://theresa-api.com) instance, Used turning Natural Language Texts
   into Knowledge Graphs
 - **LOGTO_ENDPOINT_URL**
   - [Logto](https://docs.logto.io/) offers a comprehensive identity solution covering both the front and backend,
@@ -87,7 +87,7 @@ needs to be defined:
 An example `.env` file is provided in [`.env.test` file][`.env.test` file]
 
 ```bash
-THERESA_API_URL=http://localhost:5000/
+ANALYZE_API_RESOURCE=http://localhost:5000/
 LOGTO_ENDPOINT_URL=https://u4v5ne.logto.app/
 LOGTO_SIGN_IN_CALLBACK_URL=http://localhost:8080/login
 LOGTO_APP_ID=ypon89z8rtrjdg5ta669l
