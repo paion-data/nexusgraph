@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QubitPi/nexusgraph.git"
+    "url": "git+https://github.com/paion-data/nexusgraph.git"
   },
   "author": "Jiaqi Liu",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/QubitPi/nexusgraph/issues"
+    "url": "https://github.com/paion-data/nexusgraph/issues"
   },
-  "homepage": "https://github.com/QubitPi/nexusgraph#readme",
+  "homepage": "https://github.com/paion-data/nexusgraph#readme",
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
     "@sentry/react": "^8.51.0",

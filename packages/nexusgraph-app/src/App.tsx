@@ -59,7 +59,7 @@ function App() {
   const [inputValue, setInputValue] = useState("");
 
   const onClick = async () => {
-    await fetch("https://qubitpi-lamassu.hf.space/gradio_api/call/predict", {
+    await fetch("https://paion-data-lamassu.hf.space/gradio_api/call/predict", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +70,7 @@ function App() {
       .then((data) => {
         const eventId = data.event_id;
 
-        fetch("https://qubitpi-lamassu.hf.space/gradio_api/call/predict/" + eventId)
+        fetch("https://paion-data-lamassu.hf.space/gradio_api/call/predict/" + eventId)
           .then((response) => response.text())
           .then((text) => {
             const stupidGradioResponse = text.split("\n")[1];
@@ -95,7 +95,7 @@ function App() {
       <div className="wrapper">
         <div className="header">
           <div className="logo">
-            <img src={logo} alt="QubitPi Logo" />
+            <img src={logo} alt="Paion Data Logo" />
           </div>
           <ul>
             <a href="#newgraph" className="button">

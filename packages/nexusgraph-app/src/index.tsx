@@ -1,5 +1,5 @@
 /**
- * Copyright 2025 Jiaqi Liu. All rights reserved.
+ * Copyright 2025 Paion Data. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,10 @@ import { store } from "nexusgraph-redux";
 
 if (process.env.NODE_ENV === "production") {
   Sentry.init({
-    dsn: "https://431084c0bdf0ec7a71a0283db266469a@o4505480921022464.ingest.us.sentry.io/4508709263572992",
+    dsn: "https://6a5170fb206620d95af3c392c1c5acd8@o4505480921022464.ingest.us.sentry.io/4508709796839424",
     integrations: [Sentry.browserTracingIntegration(), Sentry.replayIntegration()],
     tracesSampleRate: 1.0,
-    tracePropagationTargets: ["localhost", /^https:\/\/nexusgraph\.qubitpi\.org/],
+    tracePropagationTargets: ["localhost", /^https:\/\/nexusgraph\.com/],
     replaysSessionSampleRate: 0.1,
     replaysOnErrorSampleRate: 1.0,
   });
