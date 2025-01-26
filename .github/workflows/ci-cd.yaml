@@ -1,0 +1,239 @@
+# Copyright 2025 Jiaqi Liu. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+name: CI/CD
+
+"on":
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  USER: QubitPi
+  EMAIL: jack20220723@gmail.com
+  NODE_VERSION: 18
+
+jobs:
+  cancel-previous:
+    name: Cancel Previous Runs In Order to Allocate Action Resources Immediately for Current Run
+    if: github.ref != 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel previous
+        uses: styfle/cancel-workflow-action@0.10.1
+        with:
+          access_token: ${{ github.token }}
+
+  yaml-lint:
+    name: YAML Style Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actionshub/yamllint@main
+
+  markdown-lint:
+    name: Markdown Style Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actionshub/markdownlint@main
+
+  linkChecker:
+    name: Link Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v1.9.0
+        with:
+          fail: true
+
+  code-style:
+    name: Code Style Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set node version to ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Code style check
+        run: yarn prettier --ignore-path .gitignore . --check
+      - name: ESLint
+        run: yarn eslint .
+
+  lighthouse:
+    if: github.ref != 'refs/heads/master'
+    needs: [yaml-lint, markdown-lint, linkChecker, code-style]
+    permissions:
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: cp .env.test .env && yarn
+
+      - name: Audit URLs using Lighthouse
+        id: lighthouse_audit
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            http://localhost:3000
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          budgetPath: ./.github/lighthouse/lighthouse-budget.json
+          configPath: ./.github/lighthouse/lighthouserc.json
+
+      - name: Format lighthouse score
+        id: format_lighthouse_score
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea #  7.0.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const results = ${{ steps.lighthouse_audit.outputs.manifest }}
+            const links = ${{ steps.lighthouse_audit.outputs.links }}
+            const createLighthouseReport = (await import(`${process.env.GITHUB_WORKSPACE}/.github/lighthouse/formatLighthouseReport.js`)).default;
+            const comment = createLighthouseReport({ results, links });
+            core.setOutput("comment", comment);
+
+      - name: Add Lighthouse stats as comment
+        id: comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd #  2.8.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.pull_request.number }}
+          header: lighthouse
+          message: ${{ steps.format_lighthouse_score.outputs.comment }}
+
+  unit-tests:
+    name: Unit Tests
+    needs: [yaml-lint, markdown-lint, linkChecker, code-style]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set node version to ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Run unit tests
+        run: yarn test
+
+  list-e2e-specs:
+    needs: unit-tests
+    name: Enumerate E2E tests and prepare to run them in parallel
+    runs-on: ubuntu-latest
+    outputs:
+      paths: ${{ steps.list-e2e-specs.outputs.paths }}
+    steps:
+      - name: List Files
+        id: list-e2e-specs
+        uses: mirko-felice/list-files-action@v3.0.5
+        with:
+          repo: ${{ github.repository }}
+          ref: ${{ github.ref }}
+          path: "cypress/e2e"
+          ext: ".ts"
+
+  e2e-tests:
+    name: E2E Tests
+    needs: list-e2e-specs
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        test_spec: ${{ fromJson(needs.list-e2e-specs.outputs.paths) }}
+        mode: ["dev", "prod"]
+        node_version: [18]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set node version to ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: npm install -g yarn@1.22.19 && yarn
+      - name: Load test .env file
+        run: mv .env.test .env
+      - name: Start app in ${{ matrix.mode }} mode
+        run: |
+          npm install -g wait-on
+
+          if [[ ${{ matrix.mode }} == 'dev' ]]; then
+              yarn start &
+          else
+              yarn build
+              npm install -g serve
+              serve -s dist -l 3000 &
+          fi
+      - name: Wait until app is up and running
+        run: wait-on http://127.0.0.1:3000
+      - name: Run E2E tests
+        run: yarn e2e --spec "${{ matrix.test_spec }}"
+        env:
+          ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
+      - id: extract-spec-filename
+        if: failure()
+        run: |
+          id=$(echo "${{ matrix.test_spec }}" | sed s:/:_:g)
+          echo "::set-output name=id::$id"
+      - name: Upload test videos and screenshots on test failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.mode }}-${{steps.extract-spec-filename.outputs.id}}-${{ env.NODE_VERSION }}
+          path: |
+            ./cypress/videos
+            ./cypress/screenshots
+
+  documentation-ci-cd:
+    name: Test and Deploy Documentation to GitHub Pages
+    needs: e2e-tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install nexusgraph dependencies so that TypeDoc process source files properly
+        run: cd ../ && yarn install
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+      - name: Install doc dependencies
+        run: yarn install
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+      - name: Build documentation
+        run: yarn build
+      - name: Load CNAME
+        run: echo fastui.qubitpi.org > build/CNAME
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build
+          enable_jekyll: false
+          user_name: ${{ env.USER }}
+          user_email: ${{ env.EMAIL }}

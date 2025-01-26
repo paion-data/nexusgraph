@@ -1,0 +1,13 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom",
+  "setupFilesAfterEnv": ["<rootDir>/scripts/jest/setupTests.ts"],
+  "transform": {
+    "^.+\\.[t|j]sx?$": "babel-jest",
+    "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+    "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+  },
+  "moduleNameMapper": {
+    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+  }
+}

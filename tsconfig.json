@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+
+    "strict": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["packages", "custom.d.ts"]
+}
