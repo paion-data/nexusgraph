@@ -1,8 +1,8 @@
 {
-  "name": "fast-ui",
+  "name": "nexusgraph",
   "workspaces": [
-    "./packages/fast-ui-app",
-    "./packages/fast-ui-redux"
+    "./packages/nexusgraph-app",
+    "./packages/nexusgraph-redux"
   ],
   "version": "0.1.0",
   "engines": {
@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QubitPi/fast-ui.git"
+    "url": "git+https://github.com/QubitPi/nexusgraph.git"
   },
   "author": "Jiaqi Liu",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/QubitPi/fast-ui/issues"
+    "url": "https://github.com/QubitPi/nexusgraph/issues"
   },
-  "homepage": "https://github.com/QubitPi/fast-ui#readme",
+  "homepage": "https://github.com/QubitPi/nexusgraph#readme",
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
     "@sentry/react": "^8.51.0",

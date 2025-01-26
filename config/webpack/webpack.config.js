@@ -24,7 +24,7 @@ module.exports = function (webpackEnv) {
   const isProdEnvironment = webpackEnv === "production";
 
   return {
-    entry: "./packages/fast-ui-app/src/index.tsx",
+    entry: "./packages/nexusgraph-app/src/index.tsx",
     mode: isProdEnvironment ? "production" : "development",
     devtool: "source-map",
     output: {
@@ -71,7 +71,7 @@ module.exports = function (webpackEnv) {
           {},
           {
             inject: true,
-            template: "./packages/fast-ui-app/public/index.html",
+            template: "./packages/nexusgraph-app/public/index.html",
           },
           isProdEnvironment
             ? {
@@ -94,7 +94,7 @@ module.exports = function (webpackEnv) {
       sentryWebpackPlugin({
         authToken: process.env.SENTRY_AUTH_TOKEN,
         org: "paion-data",
-        project: "qubitpi-fast-ui",
+        project: "qubitpi-nexusgraph",
       }),
     ],
     resolve: {

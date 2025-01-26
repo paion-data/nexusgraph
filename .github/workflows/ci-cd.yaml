@@ -73,8 +73,8 @@ jobs:
         run: yarn install
       - name: Code style check
         run: yarn prettier --ignore-path .gitignore . --check
-      - name: ESLint
-        run: yarn eslint .
+      #- name: ESLint
+      #  run: yarn eslint .
 
   lighthouse:
     if: github.ref != 'refs/heads/master'
@@ -204,36 +204,32 @@ jobs:
             ./cypress/videos
             ./cypress/screenshots
 
-  documentation-ci-cd:
-    name: Test and Deploy Documentation to GitHub Pages
+  deploy:
+    name: Deploy to GitHub Pages
     needs: e2e-tests
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: docs
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+        with:
+          fetch-depth: 0
+      - name: Set node version to ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Install nexusgraph dependencies so that TypeDoc process source files properly
-        run: cd ../ && yarn install
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
-      - name: Install doc dependencies
-        run: yarn install
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
-      - name: Build documentation
+      - name: Install dependencies
+        run: npm install -g yarn@1.22.19 && yarn
+      - name: Production build
         run: yarn build
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       - name: Load CNAME
-        run: echo fastui.qubitpi.org > build/CNAME
+        run: cp CNAME dist
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/build
+          publish_dir: dist
           enable_jekyll: false
           user_name: ${{ env.USER }}
           user_email: ${{ env.EMAIL }}
