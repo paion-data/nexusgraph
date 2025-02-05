@@ -23,7 +23,7 @@ name: CI/CD
 env:
   USER: QubitPi
   EMAIL: jack20220723@gmail.com
-  NODE_VERSION: 18
+  NODE_VERSION: 22
 
 jobs:
   cancel-previous:
@@ -92,7 +92,7 @@ jobs:
 
       - name: Audit URLs using Lighthouse
         id: lighthouse_audit
-        uses: treosh/lighthouse-ci-action@v10
+        uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
             http://localhost:3000

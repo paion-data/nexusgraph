@@ -6,7 +6,7 @@
   ],
   "version": "0.1.0",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.0.0"
   },
   "description": "React Template with common pre-defined components, such Redux and CI/CD",
   "packageManager": "yarn@4.0.2",
@@ -33,8 +33,8 @@
     "@reduxjs/toolkit": "^2.5.0",
     "@sentry/react": "^8.51.0",
     "@sentry/webpack-plugin": "^3.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-redux": "^9.2.0"
   },
   "devDependencies": {
